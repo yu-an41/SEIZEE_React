@@ -1,0 +1,11 @@
+:root {
+    --main-yellow: #FAD249;
+    --main-blue: #2B325C;
+    --main-text: #5E5E5E;
+    --text-shadow: #E4E4E4;
+}
+body {
+    min-width: 390px;
+    /* max-width: 1920px; */
+    width: 100%;
+}
