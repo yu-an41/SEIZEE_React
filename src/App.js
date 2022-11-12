@@ -1,4 +1,3 @@
-// test
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Menu from './components/Menu'
 import MyContextProviders from './contexts/MyContextProviders'
