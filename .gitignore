@@ -35,3 +35,4 @@ yarn.lock
 package-lock.json
 
 public/images/*
+public/05-member

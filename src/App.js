@@ -11,12 +11,12 @@ function App() {
       <BrowserRouter>
         <MyContextProviders>
           <Routes>
-            {/* <Route path="/login" element={<SignUp />} /> */}
-            <div className="container">
+            <Route path="/login" element={<SignUp />} />
+            {/* <div className="container">
               <div className="row top-section">
                 <Route path="/login" element={<SignUp />} />
               </div>
-            </div>
+            </div> */}
           </Routes>
         </MyContextProviders>
       </BrowserRouter>
