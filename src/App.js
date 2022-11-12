@@ -3,6 +3,7 @@ import Menu from './components/Menu'
 import MyContextProviders from './contexts/MyContextProviders'
 import './styles/global.css'
 import HeadWave from './components/HeadWave'
+import SignUp from './05-member/SignUp'
 
 function App() {
   return (
@@ -10,8 +11,11 @@ function App() {
       <BrowserRouter>
         <MyContextProviders>
           <Routes>
+            {/* <Route path="/login" element={<SignUp />} /> */}
             <div className="container">
-              <div className="row top-section"></div>
+              <div className="row top-section">
+                <Route path="/login" element={<SignUp />} />
+              </div>
             </div>
           </Routes>
         </MyContextProviders>

@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+$s-bgcYellow: url(./img/bgc_yellow.jpg);
+$s-bgcBlue: url(./img/bgc_blue.jpg);
+$s-bgc: #fff;
+$s-font: #5e5e5e;
+$s-font-main: #2b325c;
+$s-main-y: #fad249;
+$s-main-b: #113f75;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+.s-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: $s-bgcYellow center center no-repeat;
+  background-size: cover;
+
+  .container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin: 20px;
+    /* background: #ff0; */
+
+    /* border: 1px solid orange; */
+
+    .blueBg {
+      position: absolute;
+      top: 40px;
+      width: 100%;
+      height: 420px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 5px 45px rgba(0, 0, 0, 0.15);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* border: 1px solid red; */
+
+      .box {
+        position: relative;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        /* border: 1px solid red; */
+
+        h3 {
+          color: $s-font;
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+
+        button {
+          cursor: pointer;
+          padding: 10px 20px;
+          background: $s-bgc;
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+          color: $s-font;
+          font-size: 16px;
+          font-weight: 600;
+          border: none;
+          border-radius: 8px;
+        }
+      }
+    }
+
+    .formBx {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: $s-bgc;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+      transition: 0.5s ease-in-out;
+
+      overflow: hidden;
+      /* border: 1px solid green; */
+
+      .form {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        padding: 50px;
+        transition: 0.5s;
+        /* border: 1px solid red; */
+
+        form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          h2 {
+            font-size: 30px;
+            color: $s-font-main;
+            margin-bottom: 10px;
+            /* padding: 10px; */
+          }
+
+          h3 {
+            font-size: 16px;
+            color: $s-font;
+            margin-bottom: 20px;
+            font-weight: 500;
+            /* padding: 10px; */
+          }
+
+          input {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            outline: none;
+            font-size: 16px;
+            border: 1px solid #333;
+          }
+
+          input[type="submit"] {
+            /* border: none; */
+            /* color: #fff; */
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 8px;
+          }
+
+          .signinSubmit {
+            background: $s-main-y;
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+            border: none;
+            color: $s-bgc;
+          }
+
+          .forgot {
+            color: $s-font;
+            margin-bottom: 20px;
+          }
+
+          p {
+            color: $s-font;
+          }
+
+          .gmailBtn {
+            font-weight: 600;
+            width: 100%;
+            height: 46px;
+            cursor: pointer;
+            /* border: 1px solid #333; */
+            box-shadow: 0px 5px 5px rgba(206, 71, 67, 0.25);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+
+            position: relative;
+
+            .gmail {
+              background: $s-bgc;
+              color: #333;
+              width: 42px;
+              height: 38px;
+              position: absolute;
+              left: 10px;
+              top: 2px;
+              z-index: 20;
+
+              // border: 1px solid blue;
+            }
+
+            .googleSubmit {
+              border: none;
+              width: calc(100% - 42px);
+              background: $s-bgc;
+              color: #333;
+              position: absolute;
+              top: 0;
+              right: 0;
+              /* border: 1px solid green; */
+            }
+          }
+        }
+      }
+
+      /* 點signin 字體就留在原地不動 */
+      .signinForm {
+        transition-delay: 0.25s;
+      }
+
+      /* 離開signup 字體留在外面 然後overflow hidden隱藏 */
+      .signupForm {
+        left: 100%;
+        transition-delay: 0s;
+
+        input[type="submit"] {
+          background: $s-main-b;
+          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+          border: none;
+          color: $s-bgc;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .container {
+      max-width: 400px;
+      height: 650px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .blueBg {
+        top: 0;
+        height: 100%;
+
+        .box {
+          position: absolute;
+          width: 100%;
+          height: 150px;
+          bottom: 0;
+        }
+
+        .box.signin {
+          top: 0;
+        }
+      }
+
+      .formBx {
+        width: 100%;
+        height: 500px;
+        top: 0;
+        box-shadow: none;
+      }
+
+      .formBx.active {
+        left: 0;
+        top: 150px;
+      }
+    }
+  }
+}
+
+.s-body.active {
+  background: $s-bgcBlue center center no-repeat;
+  background-size: cover;
+
+  .formBx.active {
+    left: 50%;
+
+    /* 離開signin 字體留在外面 然後overflow hidden隱藏 */
+    .signinForm {
+      left: -100%;
+      transition-delay: 0s;
+    }
+
+    /* 點signup 字體就留在原地不動 */
+    .signupForm {
+      left: 0;
+      transition-delay: 0.25s;
+
+      input[type="submit"] {
+        background: $s-main-b;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+        border: none;
+        color: $s-bgc;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .formBx.active {
+      left: 0;
+      top: 150px;
+    }
+  }
+}
