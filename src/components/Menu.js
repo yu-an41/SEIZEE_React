@@ -1,5 +1,6 @@
 import React from 'react'
-import './Menu.css'
+// import './../styles/global.scss'
+import './../styles/Menu.scss'
 
 function Menu() {
   return (
@@ -7,7 +8,7 @@ function Menu() {
       <div className="btn-border">
         <h2>MENU</h2>
         <div className="menu-icon">
-          <i class="fa-solid fa-bars"></i>
+          <i className="fa-solid fa-bars"></i>
         </div>
       </div>
     </>
