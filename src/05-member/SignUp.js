@@ -1,9 +1,10 @@
 import './style/SignUp.scss'
+import { Link } from 'react-router-dom'
 
 function SignUp() {
   return (
     <>
-      <div className="s-body">
+      <div className="s-body-signup">
         <div className="container">
           <div className="blueBg">
             <div className="box signin">
@@ -22,9 +23,9 @@ function SignUp() {
                 <h3>我們很高興又見到您了!</h3>
                 <input type="text" placeholder="電子郵件*" />
                 <input type="password" placeholder="密碼*" />
-                <a href="/#" className="forgot">
+                <Link className="forgot" to="/forgot-pass">
                   忘記您的密碼?
-                </a>
+                </Link>
                 <input type="submit" value="登入" className="signinSubmit" />
                 <div className="gmailBtn">
                   <img className="gmail" src="/05-member/mail.png" alt="" />
