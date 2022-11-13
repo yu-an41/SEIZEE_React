@@ -7,11 +7,11 @@ function Index() {
     <>
       <div className="y-index-container">
         <section className="y-section-nav">
-          nav
           <YellowWave />
         </section>
         <section className="y-section-carousel">carousel</section>
-        <section className="y-section-nav">nav</section>
+        <section className="y-section-search">search</section>
+        <section className="y-section-merch">merch</section>
       </div>
     </>
   )
