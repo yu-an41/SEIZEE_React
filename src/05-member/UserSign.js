@@ -1,76 +1,76 @@
-import "./style/SignUp.scss";
-import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
-import axios from "axios";
-import { LOGIN, REGISTER, CHECK_USER } from "../my-config";
+import './style/SignUp.scss'
+import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import axios from 'axios'
+import { LOGIN, REGISTER, CHECK_USER } from '../my-config'
 import {
   checkEmpty,
   checkAccount,
   checkPassword,
   check2Password,
-} from "./UserSign_valid";
+} from './UserSign_valid'
 
 function UserSign() {
-  const [signInIndex, setSignInIndex] = useState(0);
-  const navigate = useNavigate();
+  const [signInIndex, setSignInIndex] = useState(0)
+  const navigate = useNavigate()
   // FD = Form Data
   const [signInFD, setSignInFD] = useState({
-    mblEmail: "",
-    mblPass: "",
-  });
+    mblEmail: '',
+    mblPass: '',
+  })
   const [signUpFD, setSignUpFD] = useState({
-    mbrEmail: "",
-    mbrName: "",
-    mbrPass: "",
-    mbrPassConfirm: "",
-  });
+    mbrEmail: '',
+    mbrName: '',
+    mbrPass: '',
+    mbrPassConfirm: '',
+  })
   // 註冊errorMg
-  const [errorMgE, setErrorMgE] = useState("");
-  const [errorMgN, setErrorMgN] = useState("");
-  const [errorMgP1, setErrorMgP1] = useState("");
-  const [errorMgP2, setErrorMgP2] = useState("");
+  const [errorMgE, setErrorMgE] = useState('')
+  const [errorMgN, setErrorMgN] = useState('')
+  const [errorMgP1, setErrorMgP1] = useState('')
+  const [errorMgP2, setErrorMgP2] = useState('')
 
   // ====================================
   // 註冊登入畫面切換
   function sign() {
     if (signInIndex === 1) {
-      setSignInIndex(0);
+      setSignInIndex(0)
     } else {
-      setSignInIndex(1);
+      setSignInIndex(1)
     }
   }
 
   // ====================================
   // 登入
   const signInHandler = (e) => {
-    const id = e.currentTarget.id;
-    const val = e.currentTarget.value;
-    console.log({ id, val });
+    const id = e.currentTarget.id
+    const val = e.currentTarget.value
+    console.log({ id, val })
 
-    setSignInFD({ ...signInFD, [id]: val });
-  };
+    setSignInFD({ ...signInFD, [id]: val })
+  }
 
   const signInSubmit = async (e) => {
-    e.preventDefault();
-    const { data } = await axios.post(LOGIN, signInFD);
-    console.log(data);
+    e.preventDefault()
+    const { data } = await axios.post(LOGIN, signInFD)
+    console.log(data)
     if (data.success) {
-      alert("登入成功");
-      navigate("/");
+      alert('登入成功')
+      navigate('/')
     } else {
-      alert("登入失敗");
+      alert('登入失敗')
     }
-  };
+  }
 
   // ====================================
   // 註冊
   const signUpHandler = (e) => {
-    const id = e.currentTarget.id;
-    const val = e.currentTarget.value;
+    const id = e.currentTarget.id
+    const val = e.currentTarget.value
     // console.log({ id, val });
 
-    setSignUpFD({ ...signUpFD, [id]: val });
-  };
+    setSignUpFD({ ...signUpFD, [id]: val })
+  }
 
   // console.log(signUpFD);
   // console.log(signUpFD.mbrEmail);
@@ -79,97 +79,97 @@ function UserSign() {
   // =================
   // 驗證信箱
   const checkEmail = async (e) => {
-    const val = e.currentTarget.value;
+    const val = e.currentTarget.value
     // const checkError = checkAccount(val);
     // console.log(checkError)
 
     if (checkEmpty(val)) {
-      const checkError = checkAccount(val);
+      const checkError = checkAccount(val)
       // errorMgE = checkError;
       // console.log(checkError)
 
-      if (checkError === "") {
-        const { data } = await axios.post(CHECK_USER, signUpFD);
+      if (checkError === '') {
+        const { data } = await axios.post(CHECK_USER, signUpFD)
         if (data.success) {
-          setErrorMgE("");
-          return true;
+          setErrorMgE('')
+          return true
         } else {
-          setErrorMgE("密碼重複");
-          return false;
+          setErrorMgE('密碼重複')
+          return false
         }
       } else {
-        setErrorMgE(checkError);
-        return false;
+        setErrorMgE(checkError)
+        return false
       }
     } else {
-      setErrorMgE("請輸入註冊信箱");
-      return false;
+      setErrorMgE('請輸入註冊信箱')
+      return false
     }
-  };
+  }
   // 驗證姓名
   const checkName = (e) => {
-    const val = e.currentTarget.value;
+    const val = e.currentTarget.value
 
     if (checkEmpty(val)) {
-      setErrorMgN("");
-      return true;
+      setErrorMgN('')
+      return true
     } else {
-      setErrorMgN("請輸入使用者名稱");
-      return false;
+      setErrorMgN('請輸入使用者名稱')
+      return false
     }
-  };
+  }
   // 驗證密碼
   const checkPass1 = (e) => {
-    const val = e.currentTarget.value;
-    const checkError = checkPassword(val);
-    if (checkError === "") {
-      setErrorMgP1("");
-      return true;
+    const val = e.currentTarget.value
+    const checkError = checkPassword(val)
+    if (checkError === '') {
+      setErrorMgP1('')
+      return true
     } else {
-      setErrorMgP1(checkError);
-      return false;
+      setErrorMgP1(checkError)
+      return false
     }
-  };
+  }
   // 驗證密碼確認
   const checkPass2 = (e) => {
-    const valP1 = signUpFD.mbrPass;
-    const valP2 = e.currentTarget.value;
+    const valP1 = signUpFD.mbrPass
+    const valP2 = e.currentTarget.value
     // console.log(signUpFD.mbrPass);
-    const checkError = check2Password(valP1, valP2);
+    const checkError = check2Password(valP1, valP2)
 
     if (checkEmpty(valP2)) {
-      if (checkError === "") {
-        setErrorMgP2("");
-        return true;
+      if (checkError === '') {
+        setErrorMgP2('')
+        return true
       } else {
-        setErrorMgP2(checkError);
-        return false;
+        setErrorMgP2(checkError)
+        return false
       }
     } else {
-      setErrorMgP2("密碼不能為空白");
-      return false;
+      setErrorMgP2('密碼不能為空白')
+      return false
     }
-  };
+  }
 
   // =================
   // 驗證無誤 送出
   const signUpSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const answerEmail = await { checkEmail };
-    const answerName = { checkName };
-    const answerPass1 = { checkPass1 };
-    const answerPass2 = { checkPass2 };
-    console.log(answerEmail);
+    const answerEmail = await { checkEmail }
+    const answerName = { checkName }
+    const answerPass1 = { checkPass1 }
+    const answerPass2 = { checkPass2 }
+    console.log(answerEmail)
 
     if (answerEmail && answerName && answerPass1 && answerPass2) {
-      const { data } = await axios.post(REGISTER, signUpFD);
+      const { data } = await axios.post(REGISTER, signUpFD)
       // console.log(data);
       if (data.success) {
-        alert("註冊成功");
-        navigate("/");
+        alert('註冊成功')
+        navigate('/')
       } else {
-        alert("註冊失敗");
+        alert('註冊失敗')
       }
     }
 
@@ -188,12 +188,12 @@ function UserSign() {
     //   alert("帳號重複");
     //   return;
     // }
-  };
+  }
 
   return (
     <>
       <div
-        className={signInIndex === 1 ? "s-body-signup" : "s-body-signup active"}
+        className={signInIndex === 1 ? 's-body-signup' : 's-body-signup active'}
       >
         <div className="container">
           <div className="blueBg">
@@ -210,13 +210,13 @@ function UserSign() {
               </button>
             </div>
           </div>
-          <div className={signInIndex === 1 ? "formBx" : "formBx active"}>
+          <div className={signInIndex === 1 ? 'formBx' : 'formBx active'}>
             <div className="form signinForm">
               <form action="" onSubmit={signInSubmit}>
                 <h2>歡迎回來</h2>
                 <h3>我們很高興又見到您了!</h3>
                 <label>
-                  電子郵件<span style={{ color: "red" }}> *</span>
+                  電子郵件<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
                   type="text"
@@ -226,11 +226,11 @@ function UserSign() {
                 />
                 <div
                   className="errorMg"
-                  style={{ color: "red" }}
+                  style={{ color: 'red' }}
                   id="mblEmail_error"
                 ></div>
                 <label>
-                  密碼<span style={{ color: "red" }}> *</span>
+                  密碼<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
                   type="password"
@@ -240,7 +240,7 @@ function UserSign() {
                 />
                 <div
                   className="errorMg"
-                  style={{ color: "red" }}
+                  style={{ color: 'red' }}
                   id="mblPass_error"
                 ></div>
                 <Link className="forgot" to="/forgot-pass">
@@ -261,7 +261,7 @@ function UserSign() {
               <form action="" onSubmit={signUpSubmit}>
                 <h2>建立新帳號</h2>
                 <label>
-                  電子郵件<span style={{ color: "red" }}> *</span>
+                  電子郵件<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
                   type="text"
@@ -272,13 +272,13 @@ function UserSign() {
                 />
                 <div
                   className="errorMg"
-                  style={{ color: "red" }}
+                  style={{ color: 'red' }}
                   id="mbrEmail_error"
                 >
                   {errorMgE}
                 </div>
                 <label>
-                  使用者名稱<span style={{ color: "red" }}> *</span>
+                  使用者名稱<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
                   type="text"
@@ -289,13 +289,13 @@ function UserSign() {
                 />
                 <div
                   className="errorMg"
-                  style={{ color: "red" }}
+                  style={{ color: 'red' }}
                   id="mbrName_error"
                 >
                   {errorMgN}
                 </div>
                 <label>
-                  密碼<span style={{ color: "red" }}> *</span>
+                  密碼<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
                   type="text"
@@ -306,13 +306,13 @@ function UserSign() {
                 />
                 <div
                   className="errorMg"
-                  style={{ color: "red" }}
+                  style={{ color: 'red' }}
                   id="mbrPass1_error"
                 >
                   {errorMgP1}
                 </div>
                 <label>
-                  確認密碼<span style={{ color: "red" }}> *</span>
+                  確認密碼<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
                   type="text"
@@ -323,7 +323,7 @@ function UserSign() {
                 />
                 <div
                   className="errorMg"
-                  style={{ color: "red" }}
+                  style={{ color: 'red' }}
                   id="mbrPass2_error"
                 >
                   {errorMgP2}
@@ -339,7 +339,7 @@ function UserSign() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default UserSign;
+export default UserSign

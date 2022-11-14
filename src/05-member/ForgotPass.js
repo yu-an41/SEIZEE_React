@@ -1,64 +1,69 @@
-import "./style/ForgotPass.scss";
-import { checkEmpty, checkAccount } from "./UserSign_valid";
-import { LOGIN, REGISTER, CHECK_USER } from "../my-config";
-import React, { useState } from "react";
+import './style/ForgotPass.scss'
+import { FORGOT_PASS } from '../my-config'
+import React, { useState } from 'react'
+import axios from 'axios'
 
 function ForgotPass() {
-  const [signUpFD, setSignUpFD] = useState({
-    mbfEmail: "",
-  });
+  const [forgotFD, setForgotFD] = useState({
+    mbfEmail: '',
+  })
+  const [errorMgF, setErrorMgF] = useState('')
 
   // 輸入信箱 到後端確認是否有信箱的存在 而後發送token
   const forgotHandler = (e) => {
-    const id = e.currentTarget.id;
-    const val = e.currentTarget.value;
+    const id = e.currentTarget.id
+    const val = e.currentTarget.value
     // console.log({ id, val });
 
-    setSignUpFD({ ...signUpFD, [id]: val });
-  };
+    setForgotFD({ ...forgotFD, [id]: val })
+  }
 
-  
-  // const response = await axios.post(CHECK_USER, signUpFD);
-  // // console.log(response.data.success);
-  // if (response.data.success) {
-  //   const { data } = await axios.post(REGISTER, signUpFD);
-  //   console.log(data);
-  //   if (data.success) {
-  //     alert("註冊成功");
-  //     navigate("/");
-  //   } else {
-  //     alert("註冊失敗");
-  //   }
-  // } else {
-  //   alert("帳號重複");
-  //   return;
-  // }
+  const checkForgotEmail = async (e) => {
+    const { data } = await axios.post(FORGOT_PASS, forgotFD)
+    console.log(data)
+    if (data.success) {
+      setErrorMgF('')
+      return true
+    } else {
+      setErrorMgF('查無此帳號')
+      return false
+    }
+  }
+
+  function forgotSubmit() {
+    if (checkForgotEmail) {
+      alert('修改密碼信件已發送')
+    } else {
+      alert('請確認電子郵件是否正確')
+    }
+  }
 
   return (
     <>
       <div className="s-body-forgotpass">
         <div className="container">
           <div className="forgotBx">
-            <form action="">
+            <form action="" onSubmit={forgotSubmit}>
               <h2>忘記密碼?</h2>
               <h3>
                 請在下面輸入您的電子郵件地址，我們將重設密碼的連結寄給您。
               </h3>
               <label>
-                電子郵件<span style={{ color: "red" }}> *</span>
+                電子郵件<span style={{ color: 'red' }}> *</span>
               </label>
               <input
                 type="text"
                 placeholder="請輸入電子郵件"
                 id="mbfEmail"
                 onChange={forgotHandler}
+                onBlur={checkForgotEmail}
               />
               <div
                 className="errorMg"
-                style={{ color: "red" }}
+                style={{ color: 'red' }}
                 id="mblEmail_error"
               >
-                ddd
+                {errorMgF}
               </div>
               <input
                 type="submit"
@@ -70,7 +75,7 @@ function ForgotPass() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default ForgotPass;
+export default ForgotPass

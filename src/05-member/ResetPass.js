@@ -1,63 +1,63 @@
-import "./style/ResetPass.scss";
-import { checkEmpty, checkPassword, check2Password } from "./UserSign_valid";
-import React, { useState } from "react";
+import './style/ResetPass.scss'
+import { checkEmpty, checkPassword, check2Password } from './UserSign_valid'
+import React, { useState } from 'react'
 
 function ResetPass() {
-  const [errorResetMgP1, setErrorResetMgP1] = useState("");
-  const [errorResetMgP2, setErrorResetMgP2] = useState("");
+  const [errorResetMgP1, setErrorResetMgP1] = useState('')
+  const [errorResetMgP2, setErrorResetMgP2] = useState('')
   const [resetFD, setResetFD] = useState({
-    mbResetPass: "",
-    mbResetPassConfirm: "",
-  });
+    mbResetPass: '',
+    mbResetPassConfirm: '',
+  })
 
   const resetHandler = (e) => {
-    const id = e.currentTarget.id;
-    const val = e.currentTarget.value;
+    const id = e.currentTarget.id
+    const val = e.currentTarget.value
     // console.log({ id, val });
 
-    setResetFD({ ...resetFD, [id]: val });
-  };
+    setResetFD({ ...resetFD, [id]: val })
+  }
 
   // console.log(resetFD);
   // console.log(resetFD.mbResetPass);
 
   // 驗證密碼
   const checkResetPass1 = (e) => {
-    const val = e.currentTarget.value;
-    const checkError = checkPassword(val);
-    if (checkError === "") {
-      setErrorResetMgP1("");
-      return true;
+    const val = e.currentTarget.value
+    const checkError = checkPassword(val)
+    if (checkError === '') {
+      setErrorResetMgP1('')
+      return true
     } else {
-      setErrorResetMgP1(checkError);
-      return false;
+      setErrorResetMgP1(checkError)
+      return false
     }
-  };
+  }
   // 驗證密碼確認
   const checkResetPass2 = (e) => {
-    const valResetP1 = resetFD.mbResetPass;
-    const valResetP2 = e.currentTarget.value;
+    const valResetP1 = resetFD.mbResetPass
+    const valResetP2 = e.currentTarget.value
     // console.log(signUpFD.mbrPass);
-    const checkError = check2Password(valResetP1, valResetP2);
+    const checkError = check2Password(valResetP1, valResetP2)
     if (checkEmpty(valResetP2)) {
-      if (checkError === "") {
-        setErrorResetMgP2("");
-        return true;
+      if (checkError === '') {
+        setErrorResetMgP2('')
+        return true
       } else {
-        setErrorResetMgP2(checkError);
-        return false;
+        setErrorResetMgP2(checkError)
+        return false
       }
     } else {
-      setErrorResetMgP2("密碼不能為空白");
-      return false;
+      setErrorResetMgP2('密碼不能為空白')
+      return false
     }
-  };
+  }
 
   function resetSubmit() {
     if (checkResetPass2) {
-      alert("密碼修改成功");
+      alert('密碼修改成功')
     } else {
-      alert("密碼修改失敗");
+      alert('密碼修改失敗')
     }
   }
 
@@ -69,7 +69,7 @@ function ResetPass() {
             <form action="" onSubmit={resetSubmit}>
               <h2>重新輸入密碼</h2>
               <label>
-                密碼<span style={{ color: "red" }}> *</span>
+                密碼<span style={{ color: 'red' }}> *</span>
               </label>
               <input
                 type="text"
@@ -80,13 +80,13 @@ function ResetPass() {
               />
               <div
                 className="errorMg"
-                style={{ color: "red" }}
+                style={{ color: 'red' }}
                 id="mblEmail_error"
               >
                 {errorResetMgP1}
               </div>
               <label>
-                確認密碼<span style={{ color: "red" }}> *</span>
+                確認密碼<span style={{ color: 'red' }}> *</span>
               </label>
               <input
                 type="text"
@@ -97,7 +97,7 @@ function ResetPass() {
               />
               <div
                 className="errorMg"
-                style={{ color: "red" }}
+                style={{ color: 'red' }}
                 id="mblEmail_error"
               >
                 {errorResetMgP2}
@@ -108,7 +108,7 @@ function ResetPass() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default ResetPass;
+export default ResetPass
