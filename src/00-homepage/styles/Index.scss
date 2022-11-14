@@ -6,12 +6,60 @@ $main-text: #5E5E5E;
 $text-shadow: #E4E4E4;
 $min-width: 390px;
 $wave-height: 40px;
+$section-padding: 60px;
+
+*{
+    box-sizing: border-box;
+}
 
 .y-index-container {
     min-width: $min-width;
 }
+
+.y-section {
+    border: 1px solid black;
+}
 .y-section-nav {
-    position: relative;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    padding: $section-padding;
+    background: {
+    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .y-logo-wrap {
+        width: 250px;
+        height: 70px;
+        background: {
+            color: $main-text;
+        }
+    }
+
+    .y-nav-right {
+        display: flex;
+        width: 300px;
+        justify-content: space-between;
+        background-color: #5E5E5E;
+        .y-icon-round {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 3px solid $main-blue;
+            background: {
+                color: white;
+            }
+
+            .y-cart-icon {
+                margin-right: 20px;
+            }
+        }
+    }
+    
+
 }
 
 
