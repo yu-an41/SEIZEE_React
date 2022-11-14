@@ -15,14 +15,14 @@ function UserSign() {
   const navigate = useNavigate();
   // FD = Form Data
   const [signInFD, setSignInFD] = useState({
-    mbEmail: "",
-    mbPass: "",
+    mblEmail: "",
+    mblPass: "",
   });
   const [signUpFD, setSignUpFD] = useState({
-    mbEmail: "",
-    mbName: "",
-    mbPass: "",
-    mbPassConfirm: "",
+    mbrEmail: "",
+    mbrName: "",
+    mbrPass: "",
+    mbrPassConfirm: "",
   });
   // 註冊errorMg
   const [errorMgE, setErrorMgE] = useState("");
@@ -114,7 +114,7 @@ function UserSign() {
       setErrorMgN("");
       return true;
     } else {
-      setErrorMgN("請輸入姓名");
+      setErrorMgN("請輸入使用者名稱");
       return false;
     }
   };
@@ -136,11 +136,17 @@ function UserSign() {
     const valP2 = e.currentTarget.value;
     // console.log(signUpFD.mbrPass);
     const checkError = check2Password(valP1, valP2);
-    if (checkError === "") {
-      setErrorMgP2("");
-      return true;
+
+    if (checkEmpty(valP2)) {
+      if (checkError === "") {
+        setErrorMgP2("");
+        return true;
+      } else {
+        setErrorMgP2(checkError);
+        return false;
+      }
     } else {
-      setErrorMgP2(checkError);
+      setErrorMgP2("密碼不能為空白");
       return false;
     }
   };
