@@ -1,89 +1,193 @@
-import './style/SignUp.scss'
-import { Link, useNavigate } from 'react-router-dom'
-import React, { useState } from 'react'
-import axios from 'axios'
-import { LOGIN, REGISTER, CHECK_USER } from '../my-config'
+import "./style/SignUp.scss";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import axios from "axios";
+import { LOGIN, REGISTER, CHECK_USER } from "../my-config";
+import {
+  checkEmpty,
+  checkAccount,
+  checkPassword,
+  check2Password,
+} from "./UserSign_valid";
 
 function UserSign() {
-  const [signInIndex, setSignInIndex] = useState(1)
-  const navigate = useNavigate()
+  const [signInIndex, setSignInIndex] = useState(0);
+  const navigate = useNavigate();
   // FD = Form Data
   const [signInFD, setSignInFD] = useState({
-    mbEmail: '',
-    mbPass: '',
-  })
+    mbEmail: "",
+    mbPass: "",
+  });
   const [signUpFD, setSignUpFD] = useState({
-    mbEmail: '',
-    mbName: '',
-    mbPass: '',
-    mbPassConfirm: '',
-  })
+    mbEmail: "",
+    mbName: "",
+    mbPass: "",
+    mbPassConfirm: "",
+  });
+  // 註冊errorMg
+  const [errorMgE, setErrorMgE] = useState("");
+  const [errorMgN, setErrorMgN] = useState("");
+  const [errorMgP1, setErrorMgP1] = useState("");
+  const [errorMgP2, setErrorMgP2] = useState("");
 
   // ====================================
   // 註冊登入畫面切換
   function sign() {
     if (signInIndex === 1) {
-      setSignInIndex(0)
+      setSignInIndex(0);
     } else {
-      setSignInIndex(1)
+      setSignInIndex(1);
     }
   }
 
   // ====================================
   // 登入
   const signInHandler = (e) => {
-    const id = e.currentTarget.id
-    const val = e.currentTarget.value
-    console.log({ id, val })
+    const id = e.currentTarget.id;
+    const val = e.currentTarget.value;
+    console.log({ id, val });
 
-    setSignInFD({ ...signInFD, [id]: val })
-  }
+    setSignInFD({ ...signInFD, [id]: val });
+  };
 
   const signInSubmit = async (e) => {
-    e.preventDefault()
-    const { data } = await axios.post(LOGIN, signInFD)
-    console.log(data)
+    e.preventDefault();
+    const { data } = await axios.post(LOGIN, signInFD);
+    console.log(data);
     if (data.success) {
-      alert('登入成功')
-      navigate('/')
+      alert("登入成功");
+      navigate("/");
     } else {
-      alert('登入失敗')
+      alert("登入失敗");
     }
-  }
+  };
 
   // ====================================
   // 註冊
   const signUpHandler = (e) => {
-    const id = e.currentTarget.id
-    const val = e.currentTarget.value
-    console.log({ id, val })
+    const id = e.currentTarget.id;
+    const val = e.currentTarget.value;
+    // console.log({ id, val });
 
-    setSignUpFD({ ...signUpFD, [id]: val })
-  }
+    setSignUpFD({ ...signUpFD, [id]: val });
+  };
 
-  const signUpSubmit = async (e) => {
-    e.preventDefault()
-    const response = await axios.post(CHECK_USER, signUpFD)
-    console.log(response.data.success)
-    if (response.data.success) {
-      const { data } = await axios.post(REGISTER, signUpFD)
-      console.log(data)
-      if (data.success) {
-        alert('註冊成功')
-        navigate('/')
+  // console.log(signUpFD);
+  // console.log(signUpFD.mbrEmail);
+  // console.log(signUpFD.mbrPass);
+
+  // =================
+  // 驗證信箱
+  const checkEmail = async (e) => {
+    const val = e.currentTarget.value;
+    // const checkError = checkAccount(val);
+    // console.log(checkError)
+
+    if (checkEmpty(val)) {
+      const checkError = checkAccount(val);
+      // errorMgE = checkError;
+      // console.log(checkError)
+
+      if (checkError === "") {
+        const { data } = await axios.post(CHECK_USER, signUpFD);
+        if (data.success) {
+          setErrorMgE("");
+          return true;
+        } else {
+          setErrorMgE("密碼重複");
+          return false;
+        }
       } else {
-        alert('註冊失敗')
+        setErrorMgE(checkError);
+        return false;
       }
     } else {
-      alert('帳號重複')
-      return
+      setErrorMgE("請輸入註冊信箱");
+      return false;
     }
-  }
+  };
+  // 驗證姓名
+  const checkName = (e) => {
+    const val = e.currentTarget.value;
+
+    if (checkEmpty(val)) {
+      setErrorMgN("");
+      return true;
+    } else {
+      setErrorMgN("請輸入姓名");
+      return false;
+    }
+  };
+  // 驗證密碼
+  const checkPass1 = (e) => {
+    const val = e.currentTarget.value;
+    const checkError = checkPassword(val);
+    if (checkError === "") {
+      setErrorMgP1("");
+      return true;
+    } else {
+      setErrorMgP1(checkError);
+      return false;
+    }
+  };
+  // 驗證密碼確認
+  const checkPass2 = (e) => {
+    const valP1 = signUpFD.mbrPass;
+    const valP2 = e.currentTarget.value;
+    // console.log(signUpFD.mbrPass);
+    const checkError = check2Password(valP1, valP2);
+    if (checkError === "") {
+      setErrorMgP2("");
+      return true;
+    } else {
+      setErrorMgP2(checkError);
+      return false;
+    }
+  };
+
+  // =================
+  // 驗證無誤 送出
+  const signUpSubmit = async (e) => {
+    e.preventDefault();
+
+    const answerEmail = await { checkEmail };
+    const answerName = { checkName };
+    const answerPass1 = { checkPass1 };
+    const answerPass2 = { checkPass2 };
+    console.log(answerEmail);
+
+    if (answerEmail && answerName && answerPass1 && answerPass2) {
+      const { data } = await axios.post(REGISTER, signUpFD);
+      // console.log(data);
+      if (data.success) {
+        alert("註冊成功");
+        navigate("/");
+      } else {
+        alert("註冊失敗");
+      }
+    }
+
+    // const response = await axios.post(CHECK_USER, signUpFD);
+    // // console.log(response.data.success);
+    // if (response.data.success) {
+    //   const { data } = await axios.post(REGISTER, signUpFD);
+    //   console.log(data);
+    //   if (data.success) {
+    //     alert("註冊成功");
+    //     navigate("/");
+    //   } else {
+    //     alert("註冊失敗");
+    //   }
+    // } else {
+    //   alert("帳號重複");
+    //   return;
+    // }
+  };
 
   return (
     <>
       <div
-        className={signInIndex === 1 ? 's-body-signup' : 's-body-signup active'}
+        className={signInIndex === 1 ? "s-body-signup" : "s-body-signup active"}
       >
         <div className="container">
           <div className="blueBg">
@@ -100,7 +204,7 @@ function UserSign() {
               </button>
             </div>
           </div>
-          <div className={signInIndex === 1 ? 'formBx' : 'formBx active'}>
+          <div className={signInIndex === 1 ? "formBx" : "formBx active"}>
             <div className="form signinForm">
               <form action="" onSubmit={signInSubmit}>
                 <h2>歡迎回來</h2>
@@ -108,15 +212,25 @@ function UserSign() {
                 <input
                   type="text"
                   placeholder="電子郵件*"
-                  id="mbEmail"
+                  id="mblEmail"
                   onChange={signInHandler}
                 />
+                <div
+                  className="errorMg"
+                  style={{ color: "red" }}
+                  id="mblEmail_error"
+                ></div>
                 <input
                   type="password"
                   placeholder="密碼*"
-                  id="mbPass"
+                  id="mblPass"
                   onChange={signInHandler}
                 />
+                <div
+                  className="errorMg"
+                  style={{ color: "red" }}
+                  id="mblPass_error"
+                ></div>
                 <Link className="forgot" to="/forgot-pass">
                   忘記您的密碼?
                 </Link>
@@ -137,27 +251,59 @@ function UserSign() {
                 <input
                   type="text"
                   placeholder="電子郵件*"
-                  id="mbEmail"
+                  id="mbrEmail"
                   onChange={signUpHandler}
+                  onBlur={checkEmail}
                 />
+                <div
+                  className="errorMg"
+                  style={{ color: "red" }}
+                  id="mbrEmail_error"
+                >
+                  {errorMgE}
+                </div>
                 <input
                   type="text"
                   placeholder="使用者名稱*"
-                  id="mbName"
+                  id="mbrName"
                   onChange={signUpHandler}
+                  onBlur={checkName}
                 />
+                <div
+                  className="errorMg"
+                  style={{ color: "red" }}
+                  id="mbrName_error"
+                >
+                  {errorMgN}
+                </div>
                 <input
-                  type="password"
+                  type="text"
                   placeholder="密碼*"
-                  id="mbPass"
+                  id="mbrPass"
                   onChange={signUpHandler}
+                  onBlur={checkPass1}
                 />
+                <div
+                  className="errorMg"
+                  style={{ color: "red" }}
+                  id="mbrPass1_error"
+                >
+                  {errorMgP1}
+                </div>
                 <input
-                  type="password"
+                  type="text"
                   placeholder="確認密碼*"
-                  id="mbPassConfirm"
+                  id="mbrPassConfirm"
                   onChange={signUpHandler}
+                  onBlur={checkPass2}
                 />
+                <div
+                  className="errorMg"
+                  style={{ color: "red" }}
+                  id="mbrPass2_error"
+                >
+                  {errorMgP2}
+                </div>
                 <input type="submit" value="註冊" />
                 <p>
                   註冊即代表同意惜食的<a href="/#">服務條款</a>及
@@ -169,7 +315,7 @@ function UserSign() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default UserSign
+export default UserSign;
