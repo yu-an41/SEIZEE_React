@@ -1,4 +1,4 @@
-import './style/ForgotPass.scss'
+import "./style/ForgotPass.scss";
 
 function ForgotPass() {
   return (
@@ -11,14 +11,28 @@ function ForgotPass() {
               <h3>
                 請在下面輸入您的電子郵件地址，我們將重設密碼的連結寄給您。
               </h3>
-              <input type="text" placeholder="電子郵件*" />
-              <input type="submit" value="發送重送連結" className="forgotSubmit" />
+              <label>
+                電子郵件<span style={{ color: "red" }}> *</span>
+              </label>
+              <input type="text" placeholder="請輸入電子郵件" />
+              <div
+                className="errorMg"
+                style={{ color: "red" }}
+                id="mblEmail_error"
+              >
+                ddd
+              </div>
+              <input
+                type="submit"
+                value="發送重送連結"
+                className="forgotSubmit"
+              />
             </form>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default ForgotPass
+export default ForgotPass;

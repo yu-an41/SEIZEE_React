@@ -1,4 +1,4 @@
-import './style/ResetPass.scss'
+import "./style/ResetPass.scss";
 
 function ResetPass() {
   return (
@@ -8,15 +8,38 @@ function ResetPass() {
           <div className="resetBx">
             <form action="">
               <h2>重新輸入密碼</h2>
-              <input type="text" placeholder="密碼*" />
-              <input type="password" placeholder="二次確認密碼*" />
+              <label>
+                密碼<span style={{ color: "red" }}> *</span>
+              </label>
+              <input
+                type="text"
+                placeholder="請設定8位英數混合密碼(英文大小寫)"
+              />
+              <div
+                className="errorMg"
+                style={{ color: "red" }}
+                id="mblEmail_error"
+              >
+                ddd
+              </div>
+              <label>
+                確認密碼<span style={{ color: "red" }}> *</span>
+              </label>
+              <input type="password" placeholder="請再輸入一次密碼" />
+              <div
+                className="errorMg"
+                style={{ color: "red" }}
+                id="mblEmail_error"
+              >
+                ddd
+              </div>
               <input type="submit" value="確認" className="resetSubmit" />
             </form>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default ResetPass
+export default ResetPass;

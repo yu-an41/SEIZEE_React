@@ -209,9 +209,12 @@ function UserSign() {
               <form action="" onSubmit={signInSubmit}>
                 <h2>歡迎回來</h2>
                 <h3>我們很高興又見到您了!</h3>
+                <label>
+                  電子郵件<span style={{ color: "red" }}> *</span>
+                </label>
                 <input
                   type="text"
-                  placeholder="電子郵件*"
+                  placeholder="請輸入電子郵件"
                   id="mblEmail"
                   onChange={signInHandler}
                 />
@@ -220,9 +223,12 @@ function UserSign() {
                   style={{ color: "red" }}
                   id="mblEmail_error"
                 ></div>
+                <label>
+                  密碼<span style={{ color: "red" }}> *</span>
+                </label>
                 <input
                   type="password"
-                  placeholder="密碼*"
+                  placeholder="請輸入密碼"
                   id="mblPass"
                   onChange={signInHandler}
                 />
@@ -248,9 +254,12 @@ function UserSign() {
             <div className="form signupForm">
               <form action="" onSubmit={signUpSubmit}>
                 <h2>建立新帳號</h2>
+                <label>
+                  電子郵件<span style={{ color: "red" }}> *</span>
+                </label>
                 <input
                   type="text"
-                  placeholder="電子郵件*"
+                  placeholder="請輸入電子郵件"
                   id="mbrEmail"
                   onChange={signUpHandler}
                   onBlur={checkEmail}
@@ -262,9 +271,12 @@ function UserSign() {
                 >
                   {errorMgE}
                 </div>
+                <label>
+                  使用者名稱<span style={{ color: "red" }}> *</span>
+                </label>
                 <input
                   type="text"
-                  placeholder="使用者名稱*"
+                  placeholder="請輸入使用者名稱"
                   id="mbrName"
                   onChange={signUpHandler}
                   onBlur={checkName}
@@ -276,9 +288,12 @@ function UserSign() {
                 >
                   {errorMgN}
                 </div>
+                <label>
+                  密碼<span style={{ color: "red" }}> *</span>
+                </label>
                 <input
                   type="text"
-                  placeholder="密碼*"
+                  placeholder="請設定8位英數混合密碼(英文大小寫)"
                   id="mbrPass"
                   onChange={signUpHandler}
                   onBlur={checkPass1}
@@ -290,9 +305,12 @@ function UserSign() {
                 >
                   {errorMgP1}
                 </div>
+                <label>
+                  確認密碼<span style={{ color: "red" }}> *</span>
+                </label>
                 <input
                   type="text"
-                  placeholder="確認密碼*"
+                  placeholder="請再輸入一次密碼"
                   id="mbrPassConfirm"
                   onChange={signUpHandler}
                   onBlur={checkPass2}

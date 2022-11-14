@@ -25,7 +25,7 @@ $s-main-b: #113f75;
   .container {
     position: relative;
     width: 800px;
-    height: 550px;
+    height: 600px;
     margin: 20px;
     /* background: #ff0; */
 
@@ -33,7 +33,7 @@ $s-main-b: #113f75;
 
     .blueBg {
       position: absolute;
-      top: 65px;
+      top: 90px;
       width: 100%;
       height: 420px;
       background: rgba(255, 255, 255, 0.9);
@@ -161,13 +161,20 @@ $s-main-b: #113f75;
 
           .errorMg {
             // border: 1px solid green;
-            font-size: 15px;
+            font-size: 14px;
             margin-bottom: 15px;
             display: flex;
             flex-direction: row;
             justify-content: left;
             width: 100%;
             height: 15px;
+          }
+
+          label {
+            font-size: 15px;
+            width: 100%;
+            margin-bottom: 5px;
+            font-weight: 600;
           }
 
           .gmailBtn {
@@ -237,7 +244,7 @@ $s-main-b: #113f75;
   @media (max-width: 991px) {
     .container {
       max-width: 400px;
-      height: 650px;
+      height: 750px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -260,7 +267,7 @@ $s-main-b: #113f75;
 
       .formBx {
         width: 100%;
-        height: 500px;
+        height: 600px;
         top: 0;
         box-shadow: none;
       }
