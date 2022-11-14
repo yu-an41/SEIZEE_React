@@ -8,7 +8,7 @@ import HomePage from './00-homepage/HomePage'
 import UserSign from './05-member/UserSign'
 import ResetPass from './05-member/ResetPass'
 import ForgotPass from './05-member/ForgotPass'
-// test
+// test2
 
 function App() {
   return (
