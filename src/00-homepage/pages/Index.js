@@ -2,23 +2,30 @@ import React from 'react'
 import './../styles/Index.scss'
 import Menu from '../../components/Menu'
 import YellowWave from '../components/YellowWave'
+import LogoBluePink from './../../logo-and-fonts/LOGO-blue-pink.svg'
 
 function Index() {
   return (
     <>
       <div className="y-index-container">
-        <section className="y-section y-section-nav">
-          <div className="y-logo-wrap">SEIZEE</div>
-          <div className="y-nav-right">
-            <div className="y-icon-round y-cart-icon"></div>
-            <div className="y-icon-round y-member-icon"></div>
-            <div className="y-menu">MENU</div>
+        <div className="y-index-top">
+          <section className="y-section y-section-nav">
+            <div className="y-logo-wrap">
+              <div className="y-svg-wrap">
+                <img src={LogoBluePink} alt="SEIZEE_logo" />
+              </div>
+            </div>
+            <div className="y-nav-right">
+              <div className="y-icon-round y-cart-icon"></div>
+              <div className="y-icon-round y-member-icon"></div>
+              <Menu />
+            </div>
+          </section>
+          <section className="y-section y-section-carousel">carousel</section>
+          <div className="y-wave-wrap">
+            <YellowWave />
           </div>
-        </section>
-        <section className="y-section y-section-carousel">
-          carousel
-          <YellowWave />
-        </section>
+        </div>
         <section className="y-section y-section-search">search</section>
         <section className="y-section y-section-merch">merch</section>
         <section className="y-section y-section-about">about</section>

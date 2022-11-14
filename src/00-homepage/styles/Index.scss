@@ -1,12 +1,15 @@
-// @import './../../styles/global.css';
-
+$outline: 1px solid #ccc;
 $main-yellow: #FAD249;
 $main-blue: #2B325C;
 $main-text: #5E5E5E;
-$text-shadow: #E4E4E4;
+
+$font-family: Arial, Helvetica, sans-serif;
+
+$text-shadow: #E4E4E4 2px 2px;
+$btn-shadow: 6px 6px $main-blue;
+
 $min-width: 390px;
-$wave-height: 40px;
-$section-padding: 60px;
+$section-padding: 40px;
 
 *{
     box-sizing: border-box;
@@ -16,15 +19,23 @@ $section-padding: 60px;
     min-width: $min-width;
 }
 
+.y-index-top {
+    width: 100%;
+    // height: 500px;
+    background-color: #ccc;
+}
+
 .y-section {
     border: 1px solid black;
-}
-.y-section-nav {
-    position: absolute;
-    top: 0;
     width: 100%;
+}
+
+.y-section-nav {
+    position: fixed;
+    top: 0;
     height: 120px;
-    padding: $section-padding;
+    padding: 0 $section-padding;
+    overflow: hidden;
     background: {
     }
     display: flex;
@@ -32,18 +43,21 @@ $section-padding: 60px;
     align-items: center;
 
     .y-logo-wrap {
+        outline: $outline;
         width: 250px;
-        height: 70px;
+        height: 60px;
         background: {
-            color: $main-text;
+            // color: $main-text;
         }
     }
 
     .y-nav-right {
+        outline: $outline;
         display: flex;
         width: 300px;
         justify-content: space-between;
-        background-color: #5E5E5E;
+        align-items: center;
+        // background-color: #5E5E5E;
         .y-icon-round {
             width: 55px;
             height: 55px;
@@ -62,5 +76,11 @@ $section-padding: 60px;
 
 }
 
+.y-section-carousel {
+    height: 300px;
+    margin-top: 120px;
+    background-color: #5E5E5E;
+    // offset-position: 30px 0;
+}
 
 
