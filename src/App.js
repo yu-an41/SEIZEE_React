@@ -5,13 +5,11 @@ import Menu from './components/Menu'
 function App() {
   return (
     <>
-      <div>
-        <div className="body-container">
-          <section className="section-nav">nav</section>
-          <section className="section-carousel">carousel</section>
-          <section className="section-nav">nav</section>
-        </div>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Menu />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
