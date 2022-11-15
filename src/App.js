@@ -1,9 +1,10 @@
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import './styles/global.scss'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import MyContextProviders from './contexts/MyContextProviders'
 import Menu from './components/Menu'
-import MyContextProviders from './contexts/MyContextProviders';
-import './styles/global.css'
 import HeadWave from './components/HeadWave'
 import ShopList from './03-shop/03-shop-list';
+import ShopMap from './03-shop/03-shop-map'
 
 function App() {
   return (
@@ -11,13 +12,9 @@ function App() {
     <BrowserRouter>
       {/* <MyContextProviders> */}
         {/* <Routes>
-        </Routes> */}
-        <div className="container">
-            <div className="row top-section">
-            <Menu/>
-            <ShopList/>
-            </div>
-        </div>
+          </Routes> */}
+          {/* <ShopList/> */}
+          <ShopMap/>
         {/* </MyContextProviders> */}
       </BrowserRouter>
     </>
