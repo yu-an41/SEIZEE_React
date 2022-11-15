@@ -1,43 +1,51 @@
 $main-yellow: #FAD249;
 $main-blue: #2B325C;
 $main-text: #5E5E5E;
-$text-shadow: #E4E4E4;
+$text-shadow: #E4E4E4 2px 2px;
+$btn-shadow: 6px 6px $main-blue;
 $min-width: 390px;
+$font-family: Arial, Helvetica, sans-serif;
 
 * {
-    margin: 0;
     box-sizing: border-box;
 }
 
-.btn-border {
-    padding: 15px;
+.y-btn-border {
+    // background-color: white;
     width: 150px;
-    border: $main-blue 3px solid;
-    border-radius: 10px;
-    box-shadow: 6px 6px $main-blue;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 30px;
-    right: 30px;
+    .y-menu-border {
+        padding: 15px;
+        border: $main-blue 3px solid;
+        border-radius: 10px;
+        box-shadow: $btn-shadow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // position: absolute;
+        // top: 30px;
+        // right: 30px;
+        
+        .y-h2 {
+            color: $main-blue;
+            font: {
+                size: 24px;
+                weight: bold;
+                family: $font-family;
+            }
+            letter-spacing: 2px;
+            margin-right: 10px;
+            text-shadow: $text-shadow;
+        }
+        .y-menu-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
+            .fa-bars {
+                color: $main-yellow;
+                font-size: 24px;
+            }
+        }
+    }
 }
 
-h2 {
-    margin: 0;
-    font-size: 24px;
-    letter-spacing: 2px;
-    margin-right: 10px;
-    text-shadow: $text-shadow 2px 2px ;
-}
-.menu-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.fa-bars {
-    color: $main-yellow;
-    font-size: 24px;
-}
