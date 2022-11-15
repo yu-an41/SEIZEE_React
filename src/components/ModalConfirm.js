@@ -1,7 +1,7 @@
 import './Modal.scss'
 import React from 'react'
 
-function Modal() {
+function ModalConfirm() {
   return (
     <>
       <div className="s_modal_body" id="myModal">
@@ -34,4 +34,4 @@ function Modal() {
   )
 }
 
-export default Modal
+export default ModalConfirm

@@ -32,7 +32,7 @@ function UserSign() {
 
   // ====================================
   // 註冊登入畫面切換
-  function sign() {
+  function signToggle() {
     if (signInIndex === 1) {
       setSignInIndex(0)
     } else {
@@ -184,13 +184,13 @@ function UserSign() {
           <div className="blueBg">
             <div className="box signin">
               <h3>已經有一個帳號?</h3>
-              <button className="signinBtn" onClick={sign}>
+              <button className="signinBtn" onClick={signToggle}>
                 登入
               </button>
             </div>
             <div className="box signup">
               <h3>需要一個帳號嗎?</h3>
-              <button className="signupBtn" onClick={sign}>
+              <button className="signupBtn" onClick={signToggle}>
                 註冊
               </button>
             </div>
@@ -284,7 +284,7 @@ function UserSign() {
                 </label>
                 <input
                   type="text"
-                  placeholder="請設定8位英數混合密碼(英文大小寫)"
+                  placeholder="請設定8位英(大小寫)數混合密碼"
                   id="mbrPass"
                   onChange={signUpHandler}
                   onBlur={checkPass1}
