@@ -41,6 +41,18 @@ function Menu() {
               <div className="y-social-media-wrap">
                 <img src={Apple} alt="apple" />
               </div>
+              <div className="y-social-media-wrap">
+                <img src={Apple} alt="apple" />
+              </div>
+              <div className="y-social-media-wrap">
+                <img src={Apple} alt="apple" />
+              </div>
+              <div className="y-social-media-wrap">
+                <img src={Apple} alt="apple" />
+              </div>
+              <div className="y-social-media-wrap">
+                <img src={Apple} alt="apple" />
+              </div>
             </div>
           </div>
         </div>
