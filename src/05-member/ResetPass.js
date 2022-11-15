@@ -1,6 +1,9 @@
 import './style/ResetPass.scss'
 import { checkEmpty, checkPassword, check2Password } from './UserSign_valid'
 import React, { useState } from 'react'
+import { UPDATE_PASS } from '../my-config'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 function ResetPass() {
   const [errorResetMgP1, setErrorResetMgP1] = useState('')
@@ -9,6 +12,7 @@ function ResetPass() {
     mbResetPass: '',
     mbResetPassConfirm: '',
   })
+  const navigate = useNavigate()
 
   const resetHandler = (e) => {
     const id = e.currentTarget.id
@@ -53,9 +57,18 @@ function ResetPass() {
     }
   }
 
-  function resetSubmit() {
-    if (checkResetPass2) {
+  async function resetSubmit(e) {
+    e.preventDefault()
+
+    if (!errorResetMgP1 && !errorResetMgP2) {
+      const { data } = await axios.put(UPDATE_PASS, resetFD)
       alert('密碼修改成功')
+      navigate('/')
+      // console.log(data)
+      // if (data.success) {
+      //   alert('密碼修改成功')
+      //   navigate('/')
+      // }
     } else {
       alert('密碼修改失敗')
     }

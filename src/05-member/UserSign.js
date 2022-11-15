@@ -94,7 +94,7 @@ function UserSign() {
           setErrorMgE('')
           return true
         } else {
-          setErrorMgE('密碼重複')
+          setErrorMgE('帳號重複')
           return false
         }
       } else {
@@ -112,10 +112,10 @@ function UserSign() {
 
     if (checkEmpty(val)) {
       setErrorMgN('')
-      return true
+      // return true
     } else {
       setErrorMgN('請輸入使用者名稱')
-      return false
+      // return false
     }
   }
   // 驗證密碼
@@ -156,38 +156,23 @@ function UserSign() {
   const signUpSubmit = async (e) => {
     e.preventDefault()
 
-    const answerEmail = await { checkEmail }
-    const answerName = { checkName }
-    const answerPass1 = { checkPass1 }
-    const answerPass2 = { checkPass2 }
-    console.log(answerEmail)
-
-    if (answerEmail && answerName && answerPass1 && answerPass2) {
+    if (!errorMgE && !errorMgN && !errorMgP1 && !errorMgP2) {
       const { data } = await axios.post(REGISTER, signUpFD)
       // console.log(data);
+      console.log(errorMgE)
+      console.log(!errorMgE)
       if (data.success) {
         alert('註冊成功')
         navigate('/')
       } else {
         alert('註冊失敗')
       }
+    } else {
+      alert('請填寫完整')
     }
 
     // const response = await axios.post(CHECK_USER, signUpFD);
     // // console.log(response.data.success);
-    // if (response.data.success) {
-    //   const { data } = await axios.post(REGISTER, signUpFD);
-    //   console.log(data);
-    //   if (data.success) {
-    //     alert("註冊成功");
-    //     navigate("/");
-    //   } else {
-    //     alert("註冊失敗");
-    //   }
-    // } else {
-    //   alert("帳號重複");
-    //   return;
-    // }
   }
 
   return (

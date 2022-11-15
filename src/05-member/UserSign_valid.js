@@ -22,18 +22,15 @@ export const checkWhitespace = (whiteAccount) => {
 // 驗證帳號規格 valid._test2.html
 
 export const checkAccount = (inpAccount) => {
-  let isValid = true
   if (
     inpAccount.search(
       /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/
-    ) != -1
+    ) !== -1
   ) {
     return ''
   } else {
     return '帳號規格不正確'
   }
-
-  return isValid
 }
 // reference: https://blog.xuite.net/david670919/twblog/h.j44bocmmaeu1#
 

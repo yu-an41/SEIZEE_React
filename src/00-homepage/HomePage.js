@@ -1,9 +1,11 @@
 import Runman from '../components/Runman'
+import Modal from '../components/Modal'
 
 function HomePage() {
   return (
     <>
-      <Runman />
+      {/* <Runman /> */}
+      <Modal />
     </>
   )
 }
