@@ -1,22 +1,17 @@
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import './styles/global.scss'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import MyContextProviders from './contexts/MyContextProviders'
 import Menu from './components/Menu'
-import MyContextProviders from './contexts/MyContextProviders';
-import './styles/global.css'
-import HeadWave from './components/HeadWave'
-
 function App() {
   return (
     <>
-    <BrowserRouter>
-      <MyContextProviders>
-        <Routes>
-          <div className="container">
-            <div className="row top-section">
-            </div>
-          </div>
-          </Routes>
-        </MyContextProviders>
-      </BrowserRouter>
+      <div>
+        <div className="body-container">
+          <section className="section-nav">nav</section>
+          <section className="section-carousel">carousel</section>
+          <section className="section-nav">nav</section>
+        </div>
+      </div>
     </>
   )
 }

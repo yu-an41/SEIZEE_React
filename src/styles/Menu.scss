@@ -1,3 +1,9 @@
+$main-yellow: #FAD249;
+$main-blue: #2B325C;
+$main-text: #5E5E5E;
+$text-shadow: #E4E4E4;
+$min-width: 390px;
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -6,9 +12,9 @@
 .btn-border {
     padding: 15px;
     width: 150px;
-    border: var(--main-blue) 3px solid;
+    border: $main-blue 3px solid;
     border-radius: 10px;
-    box-shadow: 6px 6px var(--main-blue);
+    box-shadow: 6px 6px $main-blue;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -24,7 +30,7 @@ h2 {
     font-size: 24px;
     letter-spacing: 2px;
     margin-right: 10px;
-    text-shadow: var(--text-shadow) 2px 2px ;
+    text-shadow: $text-shadow 2px 2px ;
 }
 .menu-icon {
     display: flex;
@@ -32,6 +38,6 @@ h2 {
     align-items: center;
 }
 .fa-bars {
-    color: var(--main-yellow);
+    color: $main-yellow;
     font-size: 24px;
 }
