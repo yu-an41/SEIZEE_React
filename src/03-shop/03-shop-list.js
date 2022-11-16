@@ -1,7 +1,7 @@
-import './03-shop-list.scss'
-import ShopCard from './03-shop-card'
-import ShopMcard from './03-shop-m-card'
-import ShopMap from './03-shop-map'
+import './styles/03-shop-list.scss'
+import ShopCard from './components/03-shop-card'
+import ShopMcard from './components/03-shop-m-card'
+import ShopMap from './components/03-shop-map'
 
 function ShopList() {
     return (

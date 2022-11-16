@@ -1,7 +1,9 @@
 import { MapContainer, TileLayer, useMap, Marker,Popup } from 'react-leaflet'
-import './../../node_modules/leaflet/dist/leaflet.css';
+// import './../../node_modules/leaflet/dist/leaflet.css';
+import './../../../node_modules/leaflet/dist/leaflet.css';
 import 'leaflet/dist/leaflet';
-import icon from './../../node_modules/leaflet/dist/images/marker-icon.png';
+// import icon from './../../node_modules/leaflet/dist/images/marker-icon.png';
+import icon from './../../../node_modules/leaflet/dist/images/marker-icon.png';
 import L from 'leaflet';
 
 
