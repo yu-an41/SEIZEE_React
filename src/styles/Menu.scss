@@ -31,6 +31,12 @@ p, a {
     font-family:Arial, Helvetica, sans-serif;
     line-height: 1.4rem;
 }
+@media (min-width: 391px) {
+    p, a {
+        font-size: 22px;
+        line-height: 1.5rem;
+    }
+}
 
 li {
     list-style: none;
@@ -92,6 +98,7 @@ input {
 }
 
 .y-btn-wrap-closed {  
+    min-width: 390px;
     .y-menu-border {
         width: 36px;
         display: flex;
@@ -135,7 +142,7 @@ input {
 }
 
 .y-btn-wrap-opened {
-    // height: $min-height;
+    min-width: 390px;
 
     .y-menu-border {
         width: 100%;
@@ -264,12 +271,12 @@ input {
             }
 
             .y-menu-bottom {
-                
-    
+                padding: 0 10%;
                 .y-menu-search {
                     height: 55px;
                     min-width: 300px;
                     max-width: 520px;
+                    margin-bottom: 60px;
     
                     .y-search-border {
                         height: 100%;
@@ -304,12 +311,12 @@ input {
                 }
                 
                 .y-social-media {
-                    width: 100%;
-                    padding: 0 40px;
+                    padding: 0 80px;
                     padding-bottom: 30px;
                     border-bottom: 2px dashed $main-blue;
                     display: flex;
                     justify-content: space-between;
+
                     .y-social-media-wrap{
                         width: 28px;
                         aspect-ratio: 1/1;
