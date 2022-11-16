@@ -1,8 +1,8 @@
 import './style/ForgotPass.scss'
-import { FORGOT_PASS } from '../my-config'
+import { FORGOT_PASS } from '../../my-config'
 import React, { useState } from 'react'
 import axios from 'axios'
-import { checkEmpty } from './UserSign_valid'
+import { checkEmpty } from '../UserSign_valid'
 import ReactDOM from 'react-dom'
 import Modal from 'react-modal'
 

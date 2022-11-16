@@ -8,6 +8,7 @@ import HomePage from './00-homepage/HomePage'
 import UserSign from './05-member/UserSign'
 import ResetPass from './05-member/ResetPass'
 import ForgotPass from './05-member/ForgotPass'
+import UserProfile from './05-member/UserProfile'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/login" element={<UserSign />} />
             <Route path="/forgot-pass" element={<ForgotPass />} />
             <Route path="/reset-pass" element={<ResetPass />} />
+            <Route path="/profile" element={<UserProfile />} />
             {/* <div className="container">
               <div className="row top-section">
                 <Route path="/login" element={<SignUp />} />
