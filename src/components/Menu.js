@@ -29,31 +29,100 @@ function Menu() {
               <i class="fa-sharp fa-solid fa-xmark"></i>
             </div>
           </div>
-
           <div className="y-menu-bottom">
-            <div className="y-menu-search"></div>
-            <div className="y-menu-content"></div>
-            <div className="y-menu-links">
-              <p>關於我們</p>
-              <p>聯絡我們</p>
-            </div>
-            <div className="y-social-media">
-              <div className="y-social-media-wrap">
-                <img src={Apple} alt="apple" />
+            <div className="y-menu-search">
+              <div className="y-search-border">
+                <input type="text" />
               </div>
-              <div className="y-social-media-wrap">
-                <img src={Apple} alt="apple" />
-              </div>
-              <div className="y-social-media-wrap">
-                <img src={Apple} alt="apple" />
-              </div>
-              <div className="y-social-media-wrap">
-                <img src={Apple} alt="apple" />
-              </div>
-              <div className="y-social-media-wrap">
-                <img src={Apple} alt="apple" />
+              <div className="y-search-icon">
+                <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
               </div>
             </div>
+            <div className="y-menu-content">
+              <ul className="y-page-title">
+                <li>
+                  <a href="/#" alt="merch_link">
+                    商品快搜
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="merch_link">
+                    商品快搜
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="merch_link">
+                    商品快搜
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="merch_link">
+                    商品快搜
+                  </a>
+                </li>
+              </ul>
+              <ul className="y-page-links">
+                <li>
+                  <a href="/#" alt="event_link">
+                    #踢球球活動
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    #踢球球活動
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    #踢球球活動
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    #踢球球活動
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <ul className="y-menu-links">
+              <li>
+                <a href="/#" alt="about">
+                  關於我們
+                </a>
+              </li>
+              <li>
+                <a href="/#" alt="about">
+                  關於我們
+                </a>
+              </li>
+            </ul>
+            <ul className="y-social-media">
+              <li className="y-social-media-wrap">
+                <a href="/#" alt="social_media">
+                  <img src={Apple} alt="apple" />
+                </a>
+              </li>
+              <li className="y-social-media-wrap">
+                <a href="/#" alt="social_media">
+                  <img src={Apple} alt="apple" />
+                </a>
+              </li>
+              <li className="y-social-media-wrap">
+                <a href="/#" alt="social_media">
+                  <img src={Apple} alt="apple" />
+                </a>
+              </li>
+              <li className="y-social-media-wrap">
+                <a href="/#" alt="social_media">
+                  <img src={Apple} alt="apple" />
+                </a>
+              </li>
+              <li className="y-social-media-wrap">
+                <a href="/#" alt="social_media">
+                  <img src={Apple} alt="apple" />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
