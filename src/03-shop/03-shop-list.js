@@ -128,8 +128,8 @@ function ShopList() {
                     </div>
                   </div>
                 </div>
-                {/* <ShopCard/> */}
-                <ShopMap/>
+                <ShopCard/>
+                {/* <ShopMap/> */}
                 {/* <ShopMcard/> */}
             </div>
           </div>
