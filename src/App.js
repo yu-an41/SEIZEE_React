@@ -13,8 +13,8 @@ function App() {
       {/* <MyContextProviders> */}
         {/* <Routes>
           </Routes> */}
-          {/* <ShopList/> */}
-          <ShopMap/>
+          <ShopList/>
+          {/* <ShopMap/> */}
         {/* </MyContextProviders> */}
       </BrowserRouter>
     </>

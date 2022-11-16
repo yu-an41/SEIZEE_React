@@ -1,4 +1,7 @@
 import './03-shop-list.scss'
+import ShopCard from './03-shop-card'
+import ShopMcard from './03-shop-m-card'
+import ShopMap from './03-shop-map'
 
 function ShopList() {
     return (
@@ -16,10 +19,16 @@ function ShopList() {
                     <p>店鋪搜尋</p>
                   </div>
                 </div>
+                
                 <div className="r-place-wrap">
-                  <div className="r-place-title">
-                    <span>Place</span>
-                    <p>地區搜尋</p>
+                  <div className="r-place-article">
+                    <div className="r-shop-icon-p">
+                      <img src='/03-shop-img/mappin_01.png' alt="" />
+                    </div>
+                    <div className="r-place-title">
+                      <span>Place</span>
+                      <p>地區搜尋</p>
+                    </div>
                   </div>
                   <div className="r-place-select">
                     <div>
@@ -40,86 +49,43 @@ function ShopList() {
                   </div>
                 </div>
                 <div className="r-cate-wrap">
-                  <div className="r-cate-title">
+                <div className="r-cate-article">
+                    <div className="r-shop-icon-c">
+                      <img src='/03-shop-img/food_hamburger_01.png' alt="" />
+                    </div>
+                    <div className="r-cate-title">
                     <span>Category</span>
                     <p>種類搜尋</p>
                   </div>
-                  <div className="r-cate-check">
-                    <div className="r-check-left">
-                      <label className="r-check-wrap" htmlFor="cate1">
-                        <input type="checkbox" id="cate1"/>
-                        <span>中式<div className="r-check-icon">
-                          <img src='/03-shop-img/food_rice_02.png' alt="" />
-                        </div></span>
-                      </label>
-                      <label className="r-check-wrap" htmlFor="cate2">
-                        <input type="checkbox" id="cate2"/>
-                        <span>美式<div className="r-check-icon">
-                          <img src='/03-shop-img/food_hamburger_01.png' alt="" />
-                        </div></span>
-                        
-                      </label>
-                      <label className="r-check-wrap" htmlFor="cate3">
-                        <input type="checkbox" id="cate3"/>
-                        <span>日式<div className="r-check-icon">
-                          <img src='/03-shop-img/food_osushi_03.png' alt="" />
-                        </div></span>
-                        
-                      </label>
-                      <label className="r-check-wrap" htmlFor="cate4">
-                        <input type="checkbox" id="cate4"/>
-                        <span>泰式<div className="r-check-icon">
-                          <img src='/03-shop-img/food_ramen_01.png' alt="" />
-                        </div></span>
-                        
-                      </label>
-                      <label className="r-check-wrap" htmlFor="cate5">
-                        <input type="checkbox" id="cate5"/>
-                        <span>義式<div className="r-check-icon">
-                          <img src='/03-shop-img/food_spaghetti_01.png' alt="" />
-                        </div></span>
-                        
-                      </label>
-                    </div>
-                    <div className="r-check-right" htmlFor="cate6">
-                      <label className="r-check-wrap">
-                        <input type="checkbox" id="cate6"/>
-                        <span>麵包 <div className="r-check-icon">
-                          <img src='/03-shop-img/food_croissant_01.png' alt="" />
-                        </div></span>
-                       
-                      </label>
-                      <label className="r-check-wrap" htmlFor="cate7">
-                        <input type="checkbox" id="cate7"/>
-                        <span>冰品<div className="r-check-icon">
-                          <img src='/03-shop-img/food_shaved_ice_01.png' alt="" />
-                        </div></span>
-                        
-                      </label>
-                      <label className="r-check-wrap" htmlFor="cate8">
-                        <input type="checkbox" id="cate8"/>
-                        <span>飲料<div className="r-check-icon">
-                          <img src='/03-shop-img/food_cola_s_01.png' alt="" />
-                        </div></span>
-                        
-                      </label>
-                      <label className="r-check-wrap"  htmlFor="cate9">
-                        <input type="checkbox" id="cate9"/>
-                        <span>早餐<div className="r-check-icon">
-                          <img src='/03-shop-img/food_plain_bread_01.png' alt="" />
-                        </div></span>
-                        
-                      </label>
-                      <label className="r-check-wrap" htmlFor="cate10">
-                        <input type="checkbox" id="cate10"/>
-                        <span>甜點<div className="r-check-icon">
-                          <img src='/03-shop-img/food_cake_01.png' alt="" />
-                        </div></span>
-                        
-                      </label>
-                    </div>
                   </div>
-                  <div className="r-btn-wrap">
+                  <div className="r-cate-select">
+                    <select name="" id="">
+                        <option value="">請選擇</option>
+                        <option value="">中式</option>
+                        <option value="">美式</option>
+                        <option value="">日式</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="r-filter-wrap">
+                <div className="r-filter-article">
+                    <div className="r-shop-icon-f">
+                      <img src='/03-shop-img/food_donuts_01.png' alt="" />
+                    </div>
+                    <div className="r-filter-title">
+                    <span>Filter</span>
+                    <p>進階搜尋</p>
+                  </div>
+                  </div>
+                  <div className="r-filter-select">
+                    <select name="" id="">
+                        <option value="">請選擇</option>
+                        <option value="">營業中</option>
+                        <option value="">全部店家</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="r-btn-wrap">
                       <div className="r-search-btn">
                         <button><i className="fa-solid fa-caret-right"></i><span>搜尋GO</span></button>
                       </div>
@@ -129,7 +95,6 @@ function ShopList() {
                         <button> <i className="fa-solid fa-caret-right"></i><span>清除Reset</span></button>
                       </div>
                   </div>
-                </div>
               </div>
             </div>
             <div className="r-wave"></div>
@@ -146,189 +111,26 @@ function ShopList() {
                     </div>
                     </div>
                   </div>
-                  <div className="r-banner-select-wrap">
-                    <div className="r-banner-select">
-                        <select name="" id="">
-                          <option value="">全部店鋪</option>
-                          <option value="">營業中</option>
-                        </select>
-                        <select name="" id="">
-                          <option value="">依列表檢視</option>
-                          <option value="">依地圖檢視</option>
-                        </select>
-                    </div>
-                  </div>
-                </div>
-                <div className="r-card-wrap">
-                  <div className="r-col">
-                    <div className="r-card-container">
-                        <div className="r-card-img-wrap">
-                          <img src='/03-shop-img/01cover.jpg' alt=""/>
-                        </div>
-                      <div className="r-card-body">
-                        <h2>惜食店鋪SEIZEE</h2>
-                        <div className="r-card-week-btn">
-                          <small>一</small>
-                          <small>二</small>
-                          <small>三</small>
-                          <small>四</small>
-                          <small>五</small>
-                          <small>六</small>
-                          <small>日</small>
-                        </div>
-                        <p>02-12345678</p>
-                        <p>營業時間:<span>9:00-21:00</span></p>
-                        <p>台北市大安區復興南路</p>
-                        
-                        <div className="r-card-button">
-                          <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                            <span>去逛逛</span>
-                          </a>
-                        </div>
+                  <div className="r-banner-button-wrap">
+                    <div class="r-banner-button">
+                      <div className="r-btn-list-map">
+                      <a href="/#">
+                      <i className="fa-solid fa-caret-right"></i>
+                      <span>依列表檢視</span>
+                      </a>
                       </div>
-                    </div>
-                  </div>
-                  <div className="r-col">
-                    <div className="r-card-container">
-                        <div className="r-card-img-wrap">
-                          <img src='/03-shop-img/01cover.jpg' alt=""/>
-                        </div>
-                      <div className="r-card-body">
-                        <h2>惜食店鋪SEIZEE</h2>
-                        <div className="r-card-week-btn">
-                          <small>一</small>
-                          <small>二</small>
-                          <small>三</small>
-                          <small>四</small>
-                          <small>五</small>
-                          <small>六</small>
-                          <small>日</small>
-                        </div>
-                        <p>02-12345678</p>
-                        <p>營業時間:<span>9:00-21:00</span></p>
-                        <p>台北市大安區復興南路一段390號哈哈哈哈哈哈哈</p>
-                        
-                        <div className="r-card-button">
-                          <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                            <span>去逛逛</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="r-col">
-                    <div className="r-card-container">
-                        <div className="r-card-img-wrap">
-                          <img src='/03-shop-img/01cover.jpg' alt=""/>
-                        </div>
-                      <div className="r-card-body">
-                        <h2>惜食店鋪SEIZEE</h2>
-                        <div className="r-card-week-btn">
-                          <small>一</small>
-                          <small>二</small>
-                          <small>三</small>
-                          <small>四</small>
-                          <small>五</small>
-                          <small>六</small>
-                          <small>日</small>
-                        </div>
-                        <p>02-12345678</p>
-                        <p>營業時間:<span>9:00-21:00</span></p>
-                        <p>台北市大安區復興南路一段390號</p>
-                        
-                        <div className="r-card-button">
-                          <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                            <span>去逛逛</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="r-col">
-                    <div className="r-card-container">
-                        <div className="r-card-img-wrap">
-                          <img src='/03-shop-img/01cover.jpg' alt=""/>
-                        </div>
-                      <div className="r-card-body">
-                        <h2>惜食店鋪SEIZEE</h2>
-                        <div className="r-card-week-btn">
-                          <small>一</small>
-                          <small>二</small>
-                          <small>三</small>
-                          <small>四</small>
-                          <small>五</small>
-                          <small>六</small>
-                          <small>日</small>
-                        </div>
-                        <p>02-12345678</p>
-                        <p>營業時間:<span>9:00-21:00</span></p>
-                        <p>台北市大安區復興南路一段390拉拉拉拉拉拉拉阿拉ㄌ</p>
-                        
-                        <div className="r-card-button">
-                          <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                            <span>去逛逛</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="r-col">
-                    <div className="r-card-container">
-                        <div className="r-card-img-wrap">
-                          <img src='/03-shop-img/01cover.jpg' alt=""/>
-                        </div>
-                      <div className="r-card-body">
-                        <h2>惜食店鋪SEIZEE</h2>
-                        <div className="r-card-week-btn">
-                          <small>一</small>
-                          <small>二</small>
-                          <small>三</small>
-                          <small>四</small>
-                          <small>五</small>
-                          <small>六</small>
-                          <small>日</small>
-                        </div>
-                        <p>02-12345678</p>
-                        <p>營業時間:<span>9:00-21:00</span></p>
-                        <p>台北市大安區復</p>
-                        
-                        <div className="r-card-button">
-                          <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                            <span>去逛逛</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="r-col">
-                    <div className="r-card-container">
-                        <div className="r-card-img-wrap">
-                          <img src='/03-shop-img/01cover.jpg' alt=""/>
-                        </div>
-                      <div className="r-card-body">
-                        <h2>惜食店鋪SEIZEE</h2>
-                        <div className="r-card-week-btn">
-                          <small>一</small>
-                          <small>二</small>
-                          <small>三</small>
-                          <small>四</small>
-                          <small>五</small>
-                          <small>六</small>
-                          <small>日</small>
-                        </div>
-                        <p>02-12345678</p>
-                        <p>營業時間:<span>9:00-21:00</span></p>
-                        <p>台北市大安區復興南路一段390號</p>
-                        
-                        <div className="r-card-button">
-                          <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                            <span>去逛逛</span>
-                          </a>
-                        </div>
+                      <div className="r-btn-list-map">
+                      <a href="/#">
+                      <i className="fa-solid fa-caret-right"></i>
+                      <span>依地圖檢視</span>
+                      </a>
                       </div>
                     </div>
                   </div>
                 </div>
+                {/* <ShopCard/> */}
+                <ShopMap/>
+                {/* <ShopMcard/> */}
             </div>
           </div>
         </div>
