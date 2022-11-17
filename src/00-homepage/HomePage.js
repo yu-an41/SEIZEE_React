@@ -6,8 +6,8 @@ function HomePage() {
   return (
     <>
       {/* <Runman /> */}
-      <ModalConfirm />
-      {/* <ModalNotification /> */}
+      {/* <ModalConfirm /> */}
+      <ModalNotification />
     </>
   )
 }
