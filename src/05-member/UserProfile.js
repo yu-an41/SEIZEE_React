@@ -74,10 +74,15 @@ function UserProfile() {
             </div>
             <hr />
             <div className="remove-account">
-              <h3>移除帳號</h3>
-              <button type="button" className="removeBtn">
-                刪除帳號
-              </button>
+              <div className="remove-section">
+                <h3>移除帳號</h3>
+                <button type="button" className="removeBtn">
+                  刪除帳號
+                </button>
+              </div>
+              <div className='decorate-store'>
+                <img src="/05-member/store_only.png" alt="" />
+              </div>
             </div>
           </div>
           <div className="container-base-right"></div>
