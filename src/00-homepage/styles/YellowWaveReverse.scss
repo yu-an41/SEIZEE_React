@@ -5,27 +5,27 @@ $text-shadow: #E4E4E4;
 $min-width: 390px;
 $wave-height: 40px;
 
-.y-wave-section {
+.y-wave-reverse-wrap {
     // position: relative;
     width: 100%;
     height: 60px;
     // background-color: transparent; 
     overflow: hidden;
-    .y-wave-base {
+    .y-wave-reverse-base {
         width: 100%;
         height: $wave-height;
         background-color: $main-yellow;
     }
-    .y-wave-wrap {
+    .y-wave-reverse-wrap {
         // position: absolute;
-        top: $wave-height;
+        // top: $wave-height;
         width: 100%;
         height: 60px;
         background: {
-            image: url(./../images/wave-1920px.png);
+            image: url(./../images/wave-1920px-reverse.png);
             // repeat: no-repeat;
             position: 50% 0;
-            size: 1920px 100px;
+            size: 1920px 60px;
         }
         animation: animate 3.5s linear infinite;
         z-index: 100;
