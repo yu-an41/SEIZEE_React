@@ -80,12 +80,14 @@ $border-radius-button: 8px;
             
             .y-cart-icon {
                 margin-right: 20px;
-            img {
-                width: 100%;
-                object-fit: cover;
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
             }
         }
     }
+}
 
 @media (min-width:391px) {
     .y-section-nav {

@@ -26,17 +26,21 @@ function App() {
     <BrowserRouter>
       <MyContextProviders>
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/cart" element={<CartList />} />
+          {/* <Route path="/" element={<Homepage />} />
+          <Route path="/cart" element={<CartList />} /> */}
 
           {/* 02-forum */}
-          <Route path="/forum" element={<ForumHome />} />
-          <Route path="/forum/cook" element={<PostCook />} />
+          {/* <Route path="/forum" element={<ForumHome />} />
+          <Route path="/forum/cook" element={<PostCook />} /> */}
+
+          {/* 03-shop */}
+          {/* <Route path="/shop" element={<ShopList />} /> */}
+          {/* <Route path="/shop" element={<ShopHome />} /> */}
 
           {/* 05-member */}
-          <Route path="/login" element={<SignUp />} />
-          <Route path="/forgot-pass" element={<ForgotPass />} />
-          <Route path="/reset-pass" element={<ResetPass />} />
+          {/* <Route path="/login" element={<SignUp />} /> */}
+          {/* <Route path="/forgot-pass" element={<ForgotPass />} />
+          <Route path="/reset-pass" element={<ResetPass />} /> */}
           {/* <div className="container">
               <div className="row top-section">
                 <Route path="/login" element={<SignUp />} />
