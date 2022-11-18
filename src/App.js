@@ -8,6 +8,10 @@ import Menu from './components/Menu'
 // 00-cart
 import CartList from './01-cart/pages/CartList'
 
+// 02-forum
+import PostCook from './02-forum/pages/Post_cook'
+import ForumHome from './02-forum/pages/ForumHome'
+
 // 03-shop
 import ShopList from './03-shop/03-shop-list'
 import ShopHome from './03-shop/03-shop-home'
@@ -24,6 +28,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/cart" element={<CartList />} />
+
+          {/* 02-forum */}
+          <Route path="/forum" element={<ForumHome />} />
+          <Route path="/forum/cook" element={<PostCook />} />
 
           {/* 05-member */}
           <Route path="/login" element={<SignUp />} />
