@@ -1,3 +1,4 @@
+
 import React from 'react'
 import './YellowWave2.scss'
 import RecommendCard from './RecommendCard'
