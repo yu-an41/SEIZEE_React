@@ -14,7 +14,6 @@ function App() {
           </Routes> */}
           {/* <ShopList/> */}
           <ShopHome/>
-          {/* <ShopMap/> */}
         {/* </MyContextProviders> */}
       </BrowserRouter>
     </>
