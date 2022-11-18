@@ -35,3 +35,5 @@ yarn.lock
 package-lock.json
 
 public/images/*
+
+src/02-forum/p-imgs
