@@ -2,10 +2,13 @@ import './styles/global.scss'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import MyContextProviders from './contexts/MyContextProviders'
-import Homepage from './00-homepage/pages/Homepage'
 import Menu from './components/Menu'
+import HeadWave from './components/HeadWave'
 
-// 00-cart
+// 00-homepage
+import Homepage from './00-homepage/pages/Homepage'
+
+// 01-cart
 import CartList from './01-cart/pages/CartList'
 
 // 02-forum
@@ -22,13 +25,19 @@ import ResetPass from './05-member/ResetPass'
 import ForgotPass from './05-member/ForgotPass'
 import UserProfile from './05-member/UserProfile'
 
+// 06-event
+import Top from './06-event/pages/06-event-01-top'
+
 function App() {
   return (
     <BrowserRouter>
       <MyContextProviders>
         <Routes>
-          {/* <Route path="/" element={<Homepage />} />
-          <Route path="/cart" element={<CartList />} /> */}
+          {/* 00-homepage */}
+          {/* <Route path="/" element={<Homepage />} /> */}
+
+          {/* 01-cart */}
+          {/* <Route path="/cart" element={<CartList />} /> */}
 
           {/* 02-forum */}
           {/* <Route path="/forum" element={<ForumHome />} />
@@ -43,10 +52,16 @@ function App() {
           <Route path="/forgot-pass" element={<ForgotPass />} />
           <Route path="/reset-pass" element={<ResetPass />} />
           <Route path="/profile" element={<UserProfile />} /> */}
+
+          {/* 06-event */}
+          {/* <div className="container"> */}
+          {/* <div className="row top-section">
+            </div>
+          </div> */}
+          {/* <Top/> */}
         </Routes>
       </MyContextProviders>
     </BrowserRouter>
   )
 }
-
 export default App
