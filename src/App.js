@@ -58,7 +58,7 @@ function App() {
           {/* <div className="row top-section">
             </div>
           </div> */}
-          {/* <Top/> */}
+          {/* <Route path="/event" element={<Top />}/> */}
         </Routes>
       </MyContextProviders>
     </BrowserRouter>
