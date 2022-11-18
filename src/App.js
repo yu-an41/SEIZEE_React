@@ -38,14 +38,9 @@ function App() {
           {/* <Route path="/shop" element={<ShopHome />} /> */}
 
           {/* 05-member */}
-          {/* <Route path="/login" element={<SignUp />} /> */}
+          <Route path="/login" element={<SignUp />} />
           {/* <Route path="/forgot-pass" element={<ForgotPass />} />
           <Route path="/reset-pass" element={<ResetPass />} /> */}
-          {/* <div className="container">
-              <div className="row top-section">
-                <Route path="/login" element={<SignUp />} />
-              </div>
-            </div> */}
         </Routes>
       </MyContextProviders>
     </BrowserRouter>
