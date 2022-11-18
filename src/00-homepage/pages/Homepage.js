@@ -3,6 +3,8 @@ import './../styles/Homepage.scss'
 import Menu from '../../components/Menu'
 import YellowWave from '../components/YellowWave'
 import LogoBluePink from './../../logo-and-fonts/LOGO-blue-pink.svg'
+import CartIcon from './../../dotown/cart.png'
+import MemberIcon from './../../dotown/toast.png'
 
 function Homepage() {
   return (
@@ -16,8 +18,12 @@ function Homepage() {
               </div>
             </div>
             <div className="y-nav-right">
-              <div className="y-icon-round y-cart-icon"></div>
-              <div className="y-icon-round y-member-icon"></div>
+              <div className="y-icon-round y-cart-icon">
+                <img src={CartIcon} alt="cart icon" />
+              </div>
+              <div className="y-icon-round y-member-icon">
+                <img src={MemberIcon} alt="cart icon" />
+              </div>
               <Menu />
             </div>
           </section>
