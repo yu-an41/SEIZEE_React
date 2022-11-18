@@ -1,9 +1,9 @@
 import './styles/global.scss'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
 import MyContextProviders from './contexts/MyContextProviders'
+
+// components
 import Menu from './components/Menu'
-import HeadWave from './components/HeadWave'
 
 // 00-homepage
 import Homepage from './00-homepage/pages/Homepage'
@@ -26,7 +26,7 @@ import ForgotPass from './05-member/ForgotPass'
 import UserProfile from './05-member/UserProfile'
 
 // 06-event
-import Top from './06-event/pages/06-event-01-top'
+// import Top from './06-event/pages/06-event-01-top'
 
 function App() {
   return (
