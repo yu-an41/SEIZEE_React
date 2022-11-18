@@ -1,5 +1,3 @@
-export default function MyContextProviders() {
-    return <>
-
-    </>
+export default function MyContextProviders({ children }) {
+  return <>{children}</>
 }

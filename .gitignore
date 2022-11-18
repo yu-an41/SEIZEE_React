@@ -35,5 +35,5 @@ yarn.lock
 package-lock.json
 
 public/images/*
-
 public/03-shop-img
+public/05-member/*
