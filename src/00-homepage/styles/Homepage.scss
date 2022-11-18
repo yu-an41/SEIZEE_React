@@ -1,0 +1,140 @@
+$main-yellow: #FAD249;
+$main-blue: #2B325C;
+$main-text: #5E5E5E;
+
+$border-lg: $main-blue 3px solid;
+$border-sm: $main-blue 2px solid;
+
+$text-shadow: #E4E4E4 2px 2px;
+$btn-shadow-lg: 6px 6px $main-blue;
+$btn-shadow-sm: 2px 2px $main-blue;
+$light-box-shadow: rgba(53, 53, 53, 0.75);
+
+$min-width: 390px;
+$min-height: 400px;
+$wave-height: 40px;
+
+$font-family: Arial, Helvetica, sans-serif;
+
+$border-radius-card: 10px;
+$border-radius-button: 8px;
+
+*{
+    box-sizing: border-box;
+}
+
+.y-index-container {
+    width: 100%;
+    min-width: $min-width;
+    background-color: #fff;
+}
+
+.y-index-top {
+    width: 100%;
+    // height: 500px;
+    background-color:
+    $main-yellow;
+}
+
+.y-section {
+    // border: 1px solid black;
+    width: 100%;
+}
+
+.y-section-nav {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    height: 50px;
+    padding: 0 20px;
+    // overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .y-logo-wrap {
+        width: 110px;
+        // height: 30px;
+        background: {
+            // color: $main-text;
+        }
+    }
+
+    .y-nav-right {
+        display: flex;
+        // width: 100px;
+        // max-width: 200px;
+        justify-content: flex-start;
+        align-items: center;
+
+        .y-icon-round {
+            width: 30px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            overflow: hidden;
+            border: $border-sm;
+            margin-right: 6px;
+            background: {
+                color: white;
+            }
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    
+}
+
+@media (min-width:391px) {
+    .y-section-nav {
+        height: 90px;
+        padding: 0 40px;
+    
+        .y-logo-wrap {
+            width: 250px;
+            height: 60px;
+            background: {
+                // color: $main-text;
+            }
+        }
+    
+        .y-nav-right {
+            width: 300px;
+            .y-icon-round {
+                width: 55px;
+                border: $border-lg;
+                margin-right: 12px;
+                background: {
+                }
+    
+                .y-cart-icon {
+                    margin-right: 20px;
+                }
+            }
+        }
+        
+    
+    }
+}
+
+.y-section-news {
+    overflow: hidden;
+    height: 20px;
+    margin-top: 120px;
+    background-color: #FBFBF2;
+    p {
+        text-decoration: none;
+    }
+}
+.y-section-carousel {
+    height: 300px;
+    background-color: $main-yellow;
+    // offset-position: 30px 0;
+}
+
+.y-section-merch {
+    height: 500px;
+    background-color: $main-yellow;
+}
