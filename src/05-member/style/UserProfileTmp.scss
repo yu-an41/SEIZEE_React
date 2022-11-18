@@ -1,0 +1,211 @@
+$s-footer-height: 120px;
+$s-padding-top: 100px;
+
+.s-body-profile {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  overflow-x: hidden;
+  // background-color: red;
+
+  .container {
+    height: calc(100vh - $s-footer-height);
+    display: flex;
+    position: relative;
+
+    // border: 1px solid red;
+
+    .navigation {
+      // position: fixed;
+      width: 650px;
+      height: 100%;
+      background: #fad249;
+      transition: 0.5s;
+      overflow: hidden;
+      padding-top: $s-padding-top;
+
+      // border: 1px solid red;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        li {
+          width: 228px;
+          list-style: none;
+
+          // border: 1px solid black;
+
+          h4 {
+            margin: 10px 0;
+          }
+
+          a {
+            display: block;
+            width: 100%;
+            display: flex;
+            text-decoration: none;
+            color: #534e48;
+
+            .icon {
+              display: block;
+              min-width: 50px;
+              height: 60px;
+              line-height: 60px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              // border: 1px solid green;
+
+              img {
+                // width: px;
+                width: 60%;
+                height: 60%;
+                object-fit: cover;
+
+                // border: 1px solid red;
+              }
+            }
+
+            .title {
+              display: block;
+              padding: 0 10px;
+              height: 60px;
+              line-height: 60px;
+              text-align: start;
+              white-space: nowrap;
+              font-size: 20px;
+              font-weight: 900;
+
+              // border: 1px solid blue;
+            }
+          }
+
+          a:hover {
+            background: #fff6e2;
+            // border-radius: 8px;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 991px) {
+      .navigation {
+        position: fixed;
+        width: 60px;
+        height: 100%;
+        background: #fad249;
+        // transition: 0.5s;
+        overflow: hidden;
+        z-index: 2;
+
+        // border: 1px solid red;
+
+        ul {
+          width: 100%;
+          list-style: none;
+
+          li {
+            transform: translateX(172px);
+            // width: 100%;
+            // width: 45%;
+
+            // border: 1px solid red;
+
+            h4 {
+              // margin: 10px 0;
+              display: none;
+            }
+          }
+        }
+      }
+
+      .navigation.active {
+        left: 0px;
+        width: 100%;
+
+        li {
+          transform: translateX(2px);
+          // width: 100%;
+          // width: 45%;
+
+          // border: 1px solid red;
+
+          h4 {
+            // margin: 10px 0;
+            display: block;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 991px) {
+      .toggle {
+        position: absolute;
+        bottom: 0;
+        // top: 0;
+        width: 60px;
+        height: 60px;
+        background: #330748;
+        cursor: pointer;
+        transform: scale(0.5);
+        transition: 0.5s;
+        z-index: 3;
+      }
+
+      .toggle:before {
+        content: '\f054';
+        font-family: 'FontAwesome';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        line-height: 60px;
+        text-align: center;
+        font-size: 24px;
+        color: #fff;
+      }
+
+      .toggle.active {
+        background: #fff6e2;
+        transform: scale(1);
+        transition: 0.5s;
+      }
+
+      .toggle.active:before {
+        content: '\f00d';
+        font-family: 'FontAwesome';
+        color: #330748;
+      }
+    }
+
+    .main-content {
+      width: 800px;
+      height: 100%;
+      padding-top: $s-padding-top;
+      position: absolute;
+      left: 750px;
+
+      border: 1px solid red;
+      // background-color: red;
+    }
+
+    @media (max-width: 991px) {
+      .main-content {
+        transform: translateX(-690px);
+        width: 100%;
+      }
+    }
+  }
+
+  .footer {
+    height: $s-footer-height;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    background-color: #2b325c;
+
+    z-index: 4;
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import './style/YellowWave.scss'
+import '.././style/YellowWave.scss'
 
 function YellowWave() {
   return (
