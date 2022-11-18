@@ -17,12 +17,14 @@ import ShopList from './03-shop/03-shop-list'
 import ShopHome from './03-shop/03-shop-home'
 
 // 05-member
-import SignUp from './05-member/SignUp'
+import UserSign from './05-member/UserSign'
 import ResetPass from './05-member/ResetPass'
 import ForgotPass from './05-member/ForgotPass'
+import UserProfile from './05-member/UserProfile'
 
 function App() {
   return (
+<<<<<<< HEAD
     <BrowserRouter>
       <MyContextProviders>
         <Routes>
@@ -44,6 +46,28 @@ function App() {
         </Routes>
       </MyContextProviders>
     </BrowserRouter>
+=======
+    <>
+      <BrowserRouter>
+        <MyContextProviders>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+
+            {/* 05-member */}
+            <Route path="/login" element={<UserSign />} />
+            <Route path="/forgot-pass" element={<ForgotPass />} />
+            <Route path="/reset-pass" element={<ResetPass />} />
+            <Route path="/profile" element={<UserProfile />} />
+            {/* <div className="container">
+              <div className="row top-section">
+                <Route path="/login" element={<SignUp />} />
+              </div>
+            </div> */}
+          </Routes>
+        </MyContextProviders>
+      </BrowserRouter>
+    </>
+>>>>>>> origin/sharon
   )
 }
 

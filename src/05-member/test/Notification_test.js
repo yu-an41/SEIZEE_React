@@ -1,8 +1,21 @@
 import './style/ForgotPass.scss'
-import { FORGOT_PASS } from '../my-config'
+import { FORGOT_PASS } from '../../my-config'
 import React, { useState } from 'react'
 import axios from 'axios'
-import { checkEmpty } from './UserSign_valid'
+import { checkEmpty } from '../UserSign_valid'
+import ReactDOM from 'react-dom'
+import Modal from 'react-modal'
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+}
 
 function ForgotPass() {
   const [forgotFD, setForgotFD] = useState({
@@ -41,11 +54,30 @@ function ForgotPass() {
   function forgotSubmit(e) {
     e.preventDefault()
 
-    if (!errorMgF) {
+    const answerEmail = { checkForgotEmail }
+
+    if (answerEmail) {
       alert('修改密碼信件已發送')
     } else {
       alert('請確認電子郵件是否正確')
     }
+  }
+
+  // notification
+  let subtitle
+  const [modalIsOpen, setIsOpen] = useState(false)
+
+  function openModal() {
+    setIsOpen(true)
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00'
+  }
+
+  function closeModal() {
+    setIsOpen(false)
   }
 
   return (
@@ -83,6 +115,28 @@ function ForgotPass() {
             </form>
           </div>
         </div>
+      </div>
+
+      <div>
+        <button onClick={openModal}>Open Modal</button>
+        <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+          <button onClick={closeModal}>close</button>
+          <div>I am a modal</div>
+          <form>
+            <input />
+            <button>tab navigation</button>
+            <button>stays</button>
+            <button>inside</button>
+            <button>the modal</button>
+          </form>
+        </Modal>
       </div>
     </>
   )
