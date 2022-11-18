@@ -9,7 +9,6 @@ import UserSign from './05-member/UserSign'
 import ResetPass from './05-member/ResetPass'
 import ForgotPass from './05-member/ForgotPass'
 import UserProfile from './05-member/profile-pages/UserProfile'
-import MemberInfo from './05-member/profile-pages/MemberInfo'
 import UpdateInfo from './05-member/profile-pages/UpdateInfo'
 import Likes from './05-member/profile-pages/Likes'
 import Activities from './05-member/profile-pages/Activities'
@@ -31,7 +30,6 @@ function App() {
             {/* member-profile */}
             <Route path="/profile">
               <Route path="" element={<UserProfile />} />
-              <Route path="member-info" element={<MemberInfo />} />
               <Route path="update-info" element={<UpdateInfo />} />
               <Route path="likes" element={<Likes />} />
               <Route path="activities" element={<Activities />} />

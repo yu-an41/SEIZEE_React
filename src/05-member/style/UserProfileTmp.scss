@@ -181,20 +181,23 @@ $s-padding-top: 100px;
     }
 
     .main-content {
-      width: 800px;
+      margin-left: 25px;
+      margin-right: 470px;
+      width: 40%;
       height: 100%;
       padding-top: $s-padding-top;
       position: absolute;
       left: 750px;
 
-      border: 1px solid red;
+      // border: 1px solid red;
       // background-color: red;
     }
 
     @media (max-width: 991px) {
       .main-content {
         transform: translateX(-690px);
-        width: 100%;
+        margin-left: 10px;
+        width: 80%;
       }
     }
   }

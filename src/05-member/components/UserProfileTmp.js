@@ -35,19 +35,19 @@ function UserProfileTmp() {
             <h4 className="title">平台相關查詢</h4>
           </li>
           <li>
-            <Link className="item" to="/profile/likes">
-              <span className="icon">
-                <img src="/05-member/thumbs_up.png" alt="" />
-              </span>
-              <span className="title">收藏</span>
-            </Link>
-          </li>
-          <li>
             <Link className="item" to="/profile/orders">
               <span className="icon">
                 <img src="/05-member/wallet.png" alt="" />
               </span>
               <span className="title">訂單查詢</span>
+            </Link>
+          </li>
+          <li>
+            <Link className="item" to="/profile/likes">
+              <span className="icon">
+                <img src="/05-member/thumbs_up.png" alt="" />
+              </span>
+              <span className="title">我的收藏</span>
             </Link>
           </li>
           <li>
