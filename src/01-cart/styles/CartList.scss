@@ -2,12 +2,18 @@ $main-yellow: #FAD249;
 $main-blue: #2B325C;
 $main-text: #5E5E5E;
 
+$border-lg: $main-blue 3px solid;
+$border-sm: $main-blue 2px solid;
+
 $text-shadow: #E4E4E4 2px 2px;
-$btn-shadow: 6px 6px $main-blue;
+$btn-shadow-lg: 6px 6px $main-blue;
+$btn-shadow-sm: 2px 2px $main-blue;
 $light-box-shadow: rgba(53, 53, 53, 0.75);
 
 $min-width: 390px;
+$min-height: 400px;
 $wave-height: 40px;
+$progress-width: 33%;
 
 $font-family: Arial, Helvetica, sans-serif;
 
@@ -16,5 +22,249 @@ $border-radius-button: 8px;
 
 *{
     box-sizing: border-box;
+}
+
+.y-CartList-container {
+    background-color: #ccc;
+    position: relative;
+    .y-Cart-nav {
+        width: 100%;
+        background-color: #fff;
+        // position: fixed;
+
+        .y-Cart-wave-base {
+            width: 100%;
+            height: 4px;
+            background-color: $main-yellow;
+        }
+    }
+
+    .y-Cart-top {
+        width: 100%;
+        margin: 0 auto;
+        // padding: 0 20px;
+
+        .y-Cart-page {
+            width: 100%;
+            // max-width: 300px;
+            padding: 0 30px;
+            display: none;
+
+            .y-Cart-icon {
+                width: 30px;
+                margin-right: 10px;
+                img {
+                    width: 100%;
+                }
+            }
+            .y-Cart-name {
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+
+        .y-Cart-status {
+            width: 100%;
+            padding: 0 20px;
+            background-color: #fff;
+            .y-progress-wrap{
+                width: 100%;
+                padding: 10px 12px 6px;
+                // overflow: hidden;
+                position: relative;
+
+                .y-progress-border {
+                    width: 100%;
+                    height: 24px;
+                    padding: 3px;
+                    margin-bottom: 4px;
+                    border: $border-sm;
+                    border-radius: $border-radius-button;
+                    background-color: #fff;
+                    display: flex;
+
+                    .y-progress-bar {
+                        width: $progress-width;
+                        height: 100%;
+                        background-color: $main-blue;
+                    }
+
+                    .y-progress-bar-empty {
+                        width: calc(100% - $progress-width);
+                        height: 100%;
+                        // background-color: #ccc;
+                    }
+
+                }
+                
+                .y-progress-name {
+                    width: 73%;
+                    margin-left: auto;
+                    display: flex;
+                    justify-content: space-between;
+
+                    p {
+                        font-size: 12px;
+                        // font-weight: bold;
+                    }
+                }
+
+                .y-progress-icon {
+                    position: absolute;
+                    top: -5px;
+                    left: 35%;
+                    width: 32px;
+                    aspect-ratio: 1/1;
+                    transform: scaleX(-1) translateX(50%);
+
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+
+        .y-Cart-main {
+
+            .y-Cart-shop{
+
+            }
+
+            .y-Cart-details {
+
+            }
+
+            .y-Cart-rec {
+
+            }
+
+        }
+    }
+
+    .y-Cart-bottom{
+
+        // position: fixed;
+        // bottom: 0;
+        width: 100%;
+
+        .y-Cart-rec{
+
+        }
+
+        .y-Cart-news {
+
+        }
+
+        .y-cart-footer {
+            
+            height: 60px;
+        }
+    }
+}
+@media (min-width:391px) {
+    .y-CartList-container {
+        position: relative;
+        .y-Cart-nav {
+            width: 100%;
+            // padding-top: 45px;
     
+            .y-Cart-wave-base {
+                width: 100%;
+                height: 45px;
+                background-color: $main-yellow;
+            }
+        }
+    
+        .y-Cart-top {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            // justify-content: center;
+            align-items: center;
+
+            .y-Cart-page {
+                width: 100%;
+                max-width: 260px;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+    
+                .y-Cart-icon {
+                    width: 48px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .y-Cart-name {
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+            }
+    
+            .y-Cart-status {
+                .y-progress-wrap{
+                    width: 100%;
+                    .y-progress-border {
+                        .y-progress-bar {
+    
+                        }
+                        
+                        .y-progress-bar-empty {
+
+                        }
+                    }
+
+                    .y-progress-name {
+
+                        p{
+                            font-size: 18px;
+                        }
+                    }
+
+                    .y-progress-icon{
+                        img {
+
+                        }
+                    }
+                }
+            }
+    
+            .y-Cart-main {
+    
+                .y-Cart-shop{
+    
+                }
+    
+                .y-Cart-details {
+    
+                }
+    
+                .y-Cart-rec {
+    
+                }
+    
+            }
+        }
+    
+        .y-Cart-bottom{
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+    
+            .y-Cart-rec{
+    
+            }
+    
+            .y-Cart-news {
+    
+            }
+    
+            .y-cart-footer {
+                
+                height: 60px;
+            }
+        }
+    }
 }
