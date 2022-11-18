@@ -24,7 +24,6 @@ $border-radius-button: 8px;
 }
 
 .y-index-container {
-    width: 100%;
     min-width: $min-width;
     background-color: #fff;
 }
@@ -61,6 +60,7 @@ $border-radius-button: 8px;
     }
 
     .y-nav-right {
+
         display: flex;
         // width: 100px;
         // max-width: 200px;
@@ -77,15 +77,15 @@ $border-radius-button: 8px;
             background: {
                 color: white;
             }
-
+            
+            .y-cart-icon {
+                margin-right: 20px;
             img {
                 width: 100%;
                 object-fit: cover;
             }
         }
     }
-    
-}
 
 @media (min-width:391px) {
     .y-section-nav {
@@ -124,6 +124,7 @@ $border-radius-button: 8px;
     height: 20px;
     margin-top: 120px;
     background-color: #FBFBF2;
+
     p {
         text-decoration: none;
     }
