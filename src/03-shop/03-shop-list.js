@@ -135,9 +135,9 @@ function ShopList() {
                 </div>
               </div>
             </div>
-            {/* <ShopCard/> */}
-            <ShopMap />
-            <ShopMcard />
+            <ShopCard />
+            {/* <ShopMap />
+            <ShopMcard /> */}
           </div>
         </div>
       </div>
