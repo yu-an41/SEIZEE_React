@@ -1,0 +1,197 @@
+main {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    letter-spacing: 2px
+}
+
+$main-blue: #2B325C;
+$main-yellow: #FAD249;
+$main-text: #5E5E5E;
+$secondary-blue: #113F75;
+$secondary-yellow: #FEF3DA;
+$green: #53B2A8;
+$red: #ED4743;
+$text-shadow: #E4E4E4;
+$base-line-eight: 10px;
+$main-border: 3px solid #113F75;
+$main-border-radius: 8px;
+
+@function line($count:1) {
+    @return $base-line-eight * $count;
+}
+%h1 {
+    font-size: 48px;
+}
+%h2 {
+    font-size: 36px;
+}
+%h3 {
+    font-size: 20px;
+    color: #2B325C;
+    font-weight: 500;
+}
+%h4 {
+    font-size: 18px;
+}
+%p{
+    font-size: 16px;
+}
+%a-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.a-productDetailWrapper {
+    @extend %a-flex;
+    background-color: #fff;
+    .a-detailWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .a-shopNameWrapper {
+        @extend %a-flex;
+    }
+    .a-shopNameWrapper img {
+        width: 40px;
+    }
+    .a-shopNameWrapper h3 {
+        @extend %h3;
+    }
+    .a-productName {
+        @extend %a-flex;
+        // color: $main-blue;
+    }
+    .a-productName h3{
+        @extend %h3;
+    }
+    .a-productName img {
+        width: 35px;
+    }
+    .a-informationWrapper {
+        display: flex;
+        align-items: center
+    }
+    .a-productCategory {
+        @extend %a-flex;
+        color: $main-blue;
+        background-color: $secondary-yellow;
+        width: 115px;
+        border-radius: $main-border-radius;
+        padding: 3px;
+        margin: 5px;   
+        font-weight:400;
+    }
+    .a-productCategory img {
+        width: 30px;
+        padding-right: 3px;
+    }
+    .a-shopDeadline {
+        @extend %a-flex;
+        color: $main-blue;
+        background-color: $secondary-yellow;
+        width: 160px;
+        height: 40px;
+        margin: 10px 0;
+        border-radius: $main-border-radius;
+        font-weight: 400;
+    }
+    .a-shopDeadline img {
+        width: 30px;
+        padding-right: 3px;
+    }
+    .a-productCollection {
+        @extend %a-flex;
+        color: $main-blue;
+        background-color: $secondary-yellow;
+        width: 160px;
+        height: 40px;
+        border-radius: $main-border-radius;
+    }
+    .a-productCollection img {
+        width: 30px;
+        padding-right: 5px;
+    }
+    .a-productDescription {
+        width: 600px;
+    }
+    .a-productDescription p {
+        color: $main-text;
+    }
+    .a-priceContent {
+        @extend %a-flex;
+        flex-direction: column;
+        background-color: $secondary-yellow;
+        width: 390px;
+        border-radius: $main-border-radius;
+        padding: 30px 0 10px 0;
+    .a-priceWrapper {
+        display: flex;
+        justify-content:space-around;
+        text-align: center;
+        padding:0 0 8px 0;
+    }
+    .a-productPrice {
+        @extend %a-flex;
+        color: #5E5E5E;
+        line-height: line(2);
+        padding-right: 12px;
+        text-decoration:line-through;
+    }
+    .a-productDiscount {
+        @extend %a-flex;
+        color: $secondary-blue;
+        line-height: line(2);
+        font-weight: 500;
+    }
+    .a-productDiscount img {
+        width: 35px;
+    }
+    .a-productQuantity {
+        @extend %a-flex;
+    }
+    .a-qty {
+        border: $main-border;
+        color: $secondary-blue;
+        border-radius: $main-border-radius;
+        padding: 3px 10px;
+        margin: 0 10px;
+        background-color: #fff;
+    }
+    .a-quantity {
+        @extend %a-flex;
+    }
+    .a-quantity p {
+        padding-right: 10px; 
+        margin-top: 10px;
+    }
+    .a-quantityButton {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 180px;
+        height: 30px;
+        margin-top: 10px;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+    .a-addButton {
+        width: 180px;
+        text-align: center;
+        @extend %a-flex;
+        background-color: $main-yellow;
+        color: $main-blue;
+        border: $main-border;
+        border-radius: $main-border-radius;
+        padding: 3px 20px;
+        margin: 25px 0 35px 0;
+        font-weight: 500;
+    }
+    .a-addButton img {
+        width: 35px;
+    }
+}
+}
