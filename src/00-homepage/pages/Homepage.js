@@ -3,6 +3,8 @@ import './../styles/Homepage.scss'
 import Menu from '../../components/Menu'
 import YellowWave from '../components/YellowWave'
 import LogoBluePink from './../../logo-and-fonts/LOGO-blue-pink.svg'
+
+// 03-shop
 import CartIcon from './../../dotown/cart.png'
 import MemberIcon from './../../dotown/toast.png'
 
