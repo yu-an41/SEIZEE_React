@@ -26,7 +26,7 @@ import ForgotPass from './05-member/ForgotPass'
 import UserProfile from './05-member/UserProfile'
 
 // 06-event
-import Top from './06-event/pages/06-event-01-top'
+// import Top from './06-event/pages/06-event-01-top'
 
 function App() {
   return (
@@ -34,10 +34,10 @@ function App() {
       <MyContextProviders>
         <Routes>
           {/* 00-homepage */}
-          {/* <Route path="/" element={<Homepage />} /> */}
+          <Route path="/" element={<Homepage />} />
 
           {/* 01-cart */}
-          {/* <Route path="/cart" element={<CartList />} /> */}
+          <Route path="/cart" element={<CartList />} />
 
           {/* 02-forum */}
           {/* <Route path="/forum" element={<ForumHome />} />
