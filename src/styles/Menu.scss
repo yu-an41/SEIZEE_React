@@ -42,11 +42,6 @@ li {
     list-style: none;
 }
 
-input {
-    border: none;
-    border-radius: $border-radius-card;
-}
-
 .y-menu-border {
     height: 36px;
     padding: 8px;
@@ -74,6 +69,9 @@ input {
             }
         }
     }
+    .y-menu-top:hover {
+        cursor: pointer;
+    }
     
 }
 
@@ -93,6 +91,9 @@ input {
                         // font-size: 24px;
                     }
                 }
+            }
+
+            .y-menu-top:hover {
             }
         }
 }
@@ -198,6 +199,19 @@ input {
                     border: $border-sm;
                     border-radius: $border-radius-button;
                     box-shadow: $btn-shadow-sm;
+                    display: flex;
+                    align-items: center;
+                    padding-left: 10px;
+
+                    input {
+                        width: 100%;
+                        border: none;
+                        border-radius: $border-radius-card;
+                        outline: none;
+                        background: none;
+                        font-size: 16px;
+                        // text-align: center;
+                    }
                 }
                 .y-search-icon {
                     color: $main-text;
@@ -295,6 +309,9 @@ input {
                         border: $border-lg;
                         border-radius: $border-radius-card;
                         box-shadow: $btn-shadow-lg;
+
+                        input {
+                        }
                     }
                     .y-search-icon {
                         font-size: 28px;

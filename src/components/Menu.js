@@ -5,16 +5,22 @@ import CloseSvg from './../logo-and-fonts/CLOSE.svg'
 import Apple from './../dotown/apple.png'
 function Menu() {
   const [menuClick, setMenuClick] = useState(true)
+  const [searchText, setSearchText] = useState('')
 
   const menuHandler = () => {
     setMenuClick(!menuClick)
     // console.log('menu clicked')
   }
 
+  const searchHandler = (e) => {
+    setSearchText(e.currentTarget.value)
+    console.log(e.target.value)
+  }
+
   return menuClick ? (
-    <div div className="y-btn-wrap-closed">
-      <div className="y-menu-border" onClick={menuHandler}>
-        <div className="y-menu-top">
+    <div className="y-btn-wrap-closed">
+      <div className="y-menu-border">
+        <div className="y-menu-top" onClick={menuHandler}>
           <h2 className="y-h2-wrap">
             <img src={MenuSvg} alt="MENU" />
           </h2>
@@ -25,23 +31,30 @@ function Menu() {
       </div>
     </div>
   ) : (
-    <div div className="y-btn-wrap-opened">
-      <div className="y-menu-border" onClick={menuHandler}>
-        <div className="y-menu-top">
+    <div className="y-btn-wrap-opened">
+      <div className="y-menu-border">
+        <div className="y-menu-top" onClick={menuHandler}>
           <h2 className="y-h2-wrap">
             <img src={CloseSvg} alt="CLOSE" />
           </h2>
           <div className="y-menu-icon">
-            <i class="fa-sharp fa-solid fa-xmark"></i>
+            <i className="fa-sharp fa-solid fa-xmark"></i>
           </div>
         </div>
         <div className="y-menu-bottom">
           <div className="y-menu-search">
             <div className="y-search-border">
-              <input type="text" />
+              <input
+                type="text"
+                value={searchText}
+                onChange={(e) => {
+                  searchHandler(e)
+                }}
+                placeholder="請輸入店家/活動/文章關鍵字"
+              />
             </div>
             <div className="y-search-icon">
-              <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+              <i className="fa-sharp fa-solid fa-magnifying-glass"></i>
             </div>
           </div>
           <div className="y-menu-content">
