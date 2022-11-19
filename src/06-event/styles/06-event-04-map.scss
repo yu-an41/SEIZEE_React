@@ -19,10 +19,12 @@ $colorBlack: #000000;
   top: $top;
   left: $left;
 }
+
 @mixin size($width, $height) {
   width: $width;
   height: $height;
 }
+
 // ----------------!!start!!------------------
 * {
   box-sizing: border-box;
@@ -31,15 +33,18 @@ $colorBlack: #000000;
   list-style-type: none;
   text-decoration: none;
 }
+
 html {
   // filter: invert(1);
 
   //change 1rem into 10px
   font-size: 62.5%;
 }
+
 body {
   background-color: $colorWhite;
 }
+
 .j-sides {
   display: flex;
   flex-direction: row;
@@ -116,7 +121,8 @@ body {
     }
   }
 }
-.j-event-middle-schedule {
+
+.j-event-middle-map {
   // outline: 1px black solid;
   @include position(47%, 49%);
   @include size(1100px, 900px);
@@ -144,1350 +150,372 @@ body {
     }
   }
 
-  .j-event-schedule {
-    background-color: $colorWhite;
-    margin-top: 30px;
+  .j-map-wrap {
+    @include size(1100px, 750px);
+    margin-top: 25px;
+    overflow: hidden;
 
-    .j-big-lego {
-      @include size(100%, 1500px);
-      display: grid;
-      background-color: $colorList;
-      grid-template-columns: 20px 1fr 1fr 1fr 1fr 1fr 20px;
-      grid-template-rows: 30px 110px 30px 5px 1fr 5px 1fr 5px 1fr 5px 1fr 5px 1fr 5px 1fr 5px 1fr 5px 1fr 5px 20px;
-      row-gap: 0;
-      column-gap: 10px;
-      grid-template-areas:
-        '. . . . . . .'
-        '. stageA stageB stageC stageD stageE .'
-        '. . . . . . .'
-        'dash1 dash1 dash1 dash1 dash1 dash1 dash1'
-        '. cookA . tedA . showA .'
-        'dash2 dash2 dash2 dash2 dash2 dash2 dash2'
-        '. . musicA . cyberA . .'
-        'dash3 dash3 dash3 dash3 dash3 dash3 dash3'
-        '. cookB . tedB . showB .'
-        'dash4 dash4 dash4 dash4 dash4 dash4 dash4'
-        '. . musicB . cyberB . .'
-        'dash5 dash5 dash5 dash5 dash5 dash5 dash5'
-        '. cookC . tedC . showC .'
-        'dash6 dash6 dash6 dash6 dash6 dash6 dash6'
-        '. . musicC . cyberC . .'
-        'dash7 dash7 dash7 dash7 dash7 dash7 dash7'
-        '. cookD . tedD . showD .'
-        'dash8 dash8 dash8 dash8 dash8 dash8 dash8'
-        '. . musicD . cyberD . .'
-        'dash9 dash9 dash9 dash9 dash9 dash9 dash9'
-        '. . . . . . .';
+    .j-map-background {
+      position: relative;
+      background: url('../img/map.png') no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      background-position: center center;
 
-      .j-stages-card-1 {
-        grid-area: stageA;
-        background-color: $colorLightBlue;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      .j-cloudA {
+        z-index: 2;
+        position: absolute;
+        @include position(7%, 24.5%);
+        animation: cloudA 40s linear;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-fill-mode: both;
+        animation-play-state: running;
+      }
 
-        .j-stage-deco {
-          height: 88%;
-          width: 90%;
-          padding: 8px;
-          background-color: $colorLightBlue;
-          border: 2px solid $colorWhite;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
+      .j-cloudB {
+        z-index: 1;
+        position: absolute;
+        @include position(9%, 35%);
+        animation: cloudB 90s linear;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-fill-mode: both;
+        animation-play-state: running;
+      }
 
-          .j-star-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-          }
+      .j-cloudC {
+        z-index: 3;
+        position: absolute;
+        @include position(3%, 15%);
+        animation: cloudC 60s linear;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-fill-mode: both;
+        animation-play-state: running;
+      }
 
-          .j-stage-name {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 4rem;
-            font-weight: 700;
-            color: $colorWhite;
-            line-height: 1;
-          }
+      .j-cloudD {
+        z-index: 4;
+        position: absolute;
+        @include position(8%, 6%);
+        animation: cloudD 38s linear;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-fill-mode: both;
+        animation-play-state: running;
+      }
 
-          .j-star-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-          }
+      @keyframes cloudA {
+        0% {
+          transform: translate(-800px, 7%);
+        }
+
+        100% {
+          transform: translate(1000px, 7%);
         }
       }
-      .j-stages-card-2 {
-        grid-area: stageB;
-        background-color: $colorOrange;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-        .j-stage-deco {
-          height: 88%;
-          width: 90%;
-          padding: 8px;
-          background-color: $colorOrange;
-          border: 2px solid $colorWhite;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
+      @keyframes cloudB {
+        0% {
+          transform: translate(-1100px, 9%);
+        }
 
-          .j-star-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-          }
-
-          .j-stage-name {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 4rem;
-            font-weight: 700;
-            color: $colorWhite;
-            line-height: 1;
-          }
-
-          .j-star-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-          }
+        100% {
+          transform: translate(1100px, 9%);
         }
       }
-      .j-stages-card-3 {
-        grid-area: stageC;
-        background-color: $colorGreen;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-        .j-stage-deco {
-          height: 88%;
-          width: 90%;
-          padding: 8px;
-          background-color: $colorGreen;
-          border: 2px solid $colorWhite;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
+      @keyframes cloudC {
+        0% {
+          transform: translate(-600px, 3%);
+        }
 
-          .j-star-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-          }
-
-          .j-stage-name {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 4rem;
-            font-weight: 700;
-            color: $colorWhite;
-            line-height: 1;
-          }
-
-          .j-star-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-          }
+        100% {
+          transform: translate(1200px, 3%);
         }
       }
-      .j-stages-card-4 {
-        grid-area: stageD;
-        background-color: $colorPurple;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-        .j-stage-deco {
-          height: 88%;
-          width: 90%;
-          padding: 8px;
-          background-color: $colorPurple;
-          border: 2px solid $colorWhite;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
+      @keyframes cloudD {
+        0% {
+          transform: translate(-300px, 6%);
+        }
 
-          .j-star-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-          }
-
-          .j-stage-name {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 4rem;
-            font-weight: 700;
-            color: $colorWhite;
-            line-height: 1;
-          }
-
-          .j-star-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-          }
+        100% {
+          transform: translate(1400px, 6%);
         }
       }
-      .j-stages-card-5 {
-        grid-area: stageE;
-        background-color: $colorPink;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-        .j-stage-deco {
-          height: 88%;
-          width: 90%;
-          padding: 8px;
+      .j-show-pink-wrap {
+        @include size(300px, 68px);
+        @include position(19.7%, 9.3%);
+
+        // border: solid black 1px;
+        .j-show-pink {
+          z-index: 5;
+          position: absolute;
+          @include size(135px, 68px);
+          border-radius: 5px;
           background-color: $colorPink;
-          border: 2px solid $colorWhite;
+          @include position(-1%, 0.5%);
+          border: solid black 1px;
+          transition: 0.5s;
           display: flex;
-          flex-direction: row;
-          justify-content: space-between;
+          justify-items: left;
+          align-items: center;
+          direction: rtl;
+          position: relative;
+          float: right;
 
-          .j-star-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-          }
-
-          .j-stage-name {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 4rem;
+          div {
+            padding-right: 12px;
             font-weight: 700;
-            color: $colorWhite;
-            line-height: 1;
+            font-size: 2.5rem;
+            // transform: scaleX(1);
+            transition: width 0.5s ease-in-out;
+            transition: 0.5s;
+            opacity: 0;
+            transform: 1s;
+            margin: 0 0 0 auto;
           }
 
-          .j-star-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+          img {
+            width: 100px;
+            transition: 0.5s;
+            transform: translateX(50px);
+            opacity: 0;
+            position: absolute;
+            left: -100px;
+            margin-bottom: 40px;
+          }
+
+          &:hover {
+            width: 250px;
+
+            div {
+              opacity: 1;
+            }
+
+            img {
+              transform: translateX(0);
+              margin-left: 20px;
+              margin-bottom: 40px;
+              opacity: 1;
+              position: absolute;
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .j-ted-blue-wrap {
+      @include size(112px, 127px);
+      @include position(20.7%, 42.5%);
+      transition: 0.5s;
+      // border: solid black 1px;
+
+      .j-ted-blue {
+        position: absolute;
+        @include size(105px, 127px);
+        border-radius: 5px;
+        background-color: $colorLightBlue;
+        @include position(0, 0);
+        border: solid black 1px;
+        transition: width 0.5s ease-in-out;
+        transition: height 0.5s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          margin-right: 60px;
+          width: 80px;
+          position: absolute;
+          top: -80px;
+          opacity: 0;
+          transition: 0.5s;
+        }
+
+        div {
+          font-size: 2.5rem;
+          font-weight: 700;
+          opacity: 0;
+          transition: 0.5s;
+          transform: translateX(-100px);
+        }
+
+        &:hover {
+          width: 150px;
+          height: 60px;
+
+          img {
+            opacity: 1;
+          }
+
+          div {
+            opacity: 1;
+            transform: translateX(0);
           }
         }
       }
 
-      .j-list-dash-1 {
-        grid-area: dash1;
-        background-color: $colorLine;
+      &:hover {
+        margin-top: 70px;
       }
+    }
 
-      .j-list-dash-2 {
-        grid-area: dash2;
-        background-color: $colorLine;
-      }
+    .j-cook-green-wrap {
+      .j-cook-green {
+        position: absolute;
+        @include size(69px, 69px);
+        border-radius: 5px;
+        background-color: $colorGreen;
+        @include position(30.4%, 66.9%);
+        border: solid black 1px;
+        transition: width 0.5s ease-in-out;
 
-      .j-list-dash-3 {
-        grid-area: dash3;
-        background-color: $colorLine;
-      }
+        img {
+          width: 80px;
+          position: absolute;
+          top: -68px;
+          left: 10px;
+          opacity: 0;
+          transition: 0.6s;
+          transform: translateY(60px);
+        }
 
-      .j-list-dash-4 {
-        grid-area: dash4;
-        background-color: $colorLine;
-      }
+        div {
+          width: 200px;
+          font-size: 2.5rem;
+          font-weight: 700;
+          text-align: center;
+          position: absolute;
+          top: 16px;
+          left: -20px;
+          opacity: 0;
+          transform: translateX(-150px);
+          transition: 0.7s;
+        }
 
-      .j-list-dash-5 {
-        grid-area: dash5;
-        background-color: $colorLine;
-      }
+        &:hover {
+          width: 150px;
 
-      .j-list-dash-6 {
-        grid-area: dash6;
-        background-color: $colorLine;
-      }
-
-      .j-list-dash-7 {
-        grid-area: dash7;
-        background-color: $colorLine;
-      }
-
-      .j-list-dash-8 {
-        grid-area: dash8;
-        background-color: $colorLine;
-      }
-
-      .j-list-dash-9 {
-        grid-area: dash9;
-        background-color: $colorLine;
-      }
-
-      .j-cookA {
-        grid-area: cookA;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorLightBlue;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              background-color: $colorLightBlue;
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              background-color: $colorLightBlue;
-              width: 30px;
-            }
+          img {
+            opacity: 1;
+            transform: translateY(0);
           }
 
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: $colorBlack;
+          div {
+            opacity: 1;
+            transform: translateX(-5px);
+          }
+        }
+      }
+    }
+
+    .j-music-orange-wrap {
+      @include size(190px, 175px);
+      @include position(59.6%, 41.8%);
+      // outline: solid teal 2px;
+      transition: 0.8s;
+
+      .j-music-orange {
+        position: absolute;
+        @include size(190px, 175px);
+        border-radius: 5px;
+        background-color: $colorOrange;
+        @include position(0, 0);
+        border: solid black 1px;
+        transition: height 0.6s ease-in-out;
+
+        img {
+          position: absolute;
+          top: -130px;
+          left: 25px;
+          width: 140px;
+          transform: translateY(100px);
+          transition: 1s;
+          opacity: 0;
+        }
+
+        div {
+          font-size: 3rem;
+          font-weight: 700;
+          opacity: 0;
+          position: absolute;
+          top: 23px;
+          left: 35px;
+        }
+
+        &:hover {
+          height: 90px;
+
+          img {
+            transform: translateY(0);
+            opacity: 1;
           }
 
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorLightBlue;
-            font-size: 1.4rem;
+          div {
+            opacity: 1;
           }
         }
       }
 
-      .j-cookB {
-        grid-area: cookB;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
+      &:hover {
+        transform: translateY(45%);
+      }
+    }
 
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
+    .j-cyber-purple-wrap {
+      @include size(190px, 67px);
+      @include position(57.8%, 75.75%);
+      // border: solid black 1px;
 
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorLightBlue;
-            display: flex;
-            justify-content: space-between;
+      .j-cyber-purple {
+        @include size(91px, 67px);
+        border-radius: 5px;
+        background-color: $colorPurple;
+        margin-left: 60%;
+        border: solid black 1px;
+        transition: width 0.5s ease-in-out;
+        float: right;
 
-            .j-schedule-card-time {
-              background-color: $colorLightBlue;
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
+        img {
+          width: 100px;
+          position: absolute;
+          top: -75%;
+          right: -23%;
+          opacity: 0;
+          transition: 0.7s;
+          transform: scale(0.1);
+        }
 
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              background-color: $colorLightBlue;
-              width: 30px;
-            }
+        div {
+          font-size: 2.5rem;
+          font-weight: 700;
+          position: absolute;
+          top: 21%;
+          left: 13%;
+          transform: translateX(100px);
+          transition: 0.8s;
+          opacity: 0;
+        }
+
+        &:hover {
+          width: 190px;
+
+          img {
+            opacity: 1;
+            transform: scale(1);
           }
 
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: $colorBlack;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorLightBlue;
-            font-size: 1.4rem;
+          div {
+            opacity: 1;
+            transform: translateX(0);
           }
         }
-      }
-      .j-cookC {
-        grid-area: cookC;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorLightBlue;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              background-color: $colorLightBlue;
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              background-color: $colorLightBlue;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: $colorBlack;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorLightBlue;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-cookD {
-        grid-area: cookD;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorLightBlue;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              background-color: $colorLightBlue;
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              background-color: $colorLightBlue;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: $colorBlack;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorLightBlue;
-            font-size: 1.4rem;
-          }
-        }
-      }
-
-      .j-musicA {
-        grid-area: musicA;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorOrange;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              background-color: $colorOrange;
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              background-color: $colorOrange;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorOrange;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-musicB {
-        grid-area: musicB;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorOrange;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              background-color: $colorOrange;
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              background-color: $colorOrange;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorOrange;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-musicC {
-        grid-area: musicC;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorOrange;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              background-color: $colorOrange;
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              background-color: $colorOrange;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorOrange;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-musicD {
-        grid-area: musicD;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorOrange;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              background-color: $colorOrange;
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              background-color: $colorOrange;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorOrange;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-tedA {
-        grid-area: tedA;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorGreen;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorGreen;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-tedB {
-        grid-area: tedB;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorGreen;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorGreen;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-tedC {
-        grid-area: tedC;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorGreen;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorGreen;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-tedD {
-        grid-area: tedD;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorGreen;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorGreen;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-cyberA {
-        grid-area: cyberA;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorPurple;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorPurple;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-cyberB {
-        grid-area: cyberB;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorPurple;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorPurple;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-cyberC {
-        grid-area: cyberC;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorPurple;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorPurple;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-cyberD {
-        grid-area: cyberD;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorPurple;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorPurple;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-showA {
-        grid-area: showA;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorPink;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorPink;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-showB {
-        grid-area: showB;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorPink;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorPink;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-showC {
-        grid-area: showC;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorPink;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorPink;
-            font-size: 1.4rem;
-          }
-        }
-      }
-      .j-showD {
-        grid-area: showD;
-        background-color: $colorWhite;
-        border-radius: 8px;
-        overflow: hidden;
-
-        .j-schedule-card {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: $colorWhite;
-
-          .j-schedule-card-head {
-            color: $colorWhite;
-            background-color: $colorPink;
-            display: flex;
-            justify-content: space-between;
-
-            .j-schedule-card-time {
-              font-size: 1.3rem;
-              padding: 5px;
-              padding-left: 10px;
-              font-size: 1.4rem;
-            }
-
-            .j-schedule-card-heart {
-              display: flex;
-              align-items: center;
-              width: 30px;
-            }
-          }
-
-          .j-schedule-card-name {
-            font-weight: 400;
-            font-size: 2.2rem;
-            text-align: center;
-            background-color: $colorWhite;
-            color: black;
-          }
-
-          .j-schedule-card-hashtag {
-            color: $colorWhite;
-            text-align: right;
-            padding: 5px;
-            padding-right: 10px;
-            background-color: $colorPink;
-            font-size: 1.4rem;
-          }
-        }
-      }
-
-      .card-text {
-        grid-area: text;
-        border-radius: 15px;
-        padding: 10px 25px;
-        font-size: 1.8rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-height: 3rem;
-        background-color: $colorMiddleGrey;
-        color: $colorWhite;
-      }
-
-      .card-sold {
-        grid-area: sold;
-        border-radius: 15px;
-        padding: 13px;
-        font-size: 4rem;
-        font-weight: 900;
-        text-align: center;
-        color: $colorMiddleGrey;
-      }
-
-      div {
-        background-color: $colorLightGrey;
       }
     }
   }

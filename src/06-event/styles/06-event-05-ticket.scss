@@ -1,0 +1,190 @@
+$colorBlue: #113f75;
+$colorYellow: #fad249;
+$colorOrange: #eb8e4c;
+$colorWhite: #ffffff;
+$colorLightGrey: #eeeeee;
+$colorDarkGrey: #4b646a;
+$colorMiddleGrey: #747474;
+$colorBrown: #986868;
+$colorList: #fdfcee;
+$colorLightBlue: #91d3f5;
+$colorGreen: #21a07d;
+$colorPurple: #9786df;
+$colorPink: #efc2d9;
+$colorLine: #cecece;
+$colorBlack: #000000;
+
+@mixin position($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// ----------------!!start!!------------------
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+html {
+  // filter: invert(1);
+
+  //change 1rem into 10px
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $colorWhite;
+}
+
+.j-sides {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .j-left {
+    @include size(250px, 100vh);
+    background-color: $colorYellow;
+    ul {
+      @include size(100%, 100%);
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      li {
+        div {
+          width: 240px;
+          font-size: 2.3rem;
+          color: $colorWhite;
+          position: relative;
+          text-align: center;
+
+          &:hover {
+            color: $colorBlue;
+            &::after {
+              content: '';
+              background-image: url(../svg/tada.svg);
+              position: absolute;
+              background-repeat: no-repeat;
+              top: -16px;
+              left: 12px;
+              width: 250px;
+              height: 100px;
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .j-right {
+    @include size(300px, 100vh);
+    background-color: $colorYellow;
+    ul {
+      @include size(100%, 100%);
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      li {
+        .j-right-banner {
+          @include size(240px, 70px);
+          font-size: 3.5rem;
+          font-weight: 900;
+          background-color: $colorWhite;
+          color: $colorBrown;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 0;
+          margin-top: 30px;
+        }
+        div {
+          @include size(240px, 4px);
+          background-color: $colorWhite;
+          border-radius: 4px;
+          margin-bottom: 100px;
+        }
+      }
+    }
+  }
+}
+.j-event-middle-ticket {
+    // outline: 1px black solid;
+    @include position(47%, 49%);
+    @include size(1100px, 900px);
+    transform: translate(-50%, -50%);
+
+    .j-cate-banner {
+        @include size(100%, 170px);
+        background-color: $colorLightGrey;
+        padding: 15px 20px;
+
+        .j-cate-banner-deco {
+            @include size(100%, 100%);
+            border: solid 4px #ffffff;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 50px;
+
+            div {
+                font-size: 7rem;
+                font-weight: 900;
+                color: $colorDarkGrey;
+                letter-spacing: 0.8rem;
+            }
+        }
+    }
+
+    .j-bang-hide {
+        // outline: black solid 1px;
+        height: 83%;
+        margin-top: 3%;
+        margin-left: 4%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // overflow: hidden;
+        transform: scale(0.3);
+        transition: 1s;
+
+        .j-bang {
+            transform: scale(0.35);
+            margin-left: -5%;
+            margin-top: -5%;
+        }
+
+        .j-ticket {
+            position: absolute;
+            transform: scale(0.3) rotate(0);
+            transition: .8s;
+            transform-origin: center center;
+        }
+
+        &:hover {
+            transform: scale(1);
+
+            .j-bang {
+                transform: scale(0.35);
+            }
+
+            .j-ticket {
+                transform: scale(0.3) rotate(720deg);
+            }
+        }
+
+    }
+}
