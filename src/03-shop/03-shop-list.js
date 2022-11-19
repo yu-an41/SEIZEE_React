@@ -119,7 +119,7 @@ function ShopList() {
                 </div>
               </div>
               <div className="r-banner-button-wrap">
-                <div class="r-banner-button">
+                <div className="r-banner-button">
                   <div className="r-btn-list-map">
                     <a href="/#">
                       <i className="fa-solid fa-caret-right"></i>

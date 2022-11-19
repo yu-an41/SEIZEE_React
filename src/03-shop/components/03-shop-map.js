@@ -20,7 +20,6 @@ function ShopMap() {
 
   return (
     <>
-      {/* <div style={{paddingTop:"60px"}}> */}
       <MapContainer
         center={position}
         zoom={18}
@@ -37,7 +36,6 @@ function ShopMap() {
           </Popup>
         </Marker>
       </MapContainer>
-      {/* </div> */}
     </>
   )
 }

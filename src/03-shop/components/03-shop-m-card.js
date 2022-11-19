@@ -4,7 +4,7 @@ function ShopMcard() {
       <div className="r-m-card-wrap">
         <div className="r-m-col">
           <div className="r-m-card-container">
-            <div class="r-m-card-img">
+            <div className="r-m-card-img">
               <div className="r-m-card-img-wrap">
                 <img src="/03-shop-img/01cover.jpg" alt="" />
               </div>
@@ -38,7 +38,7 @@ function ShopMcard() {
         </div>
         <div className="r-m-col">
           <div className="r-m-card-container">
-            <div class="r-m-card-img">
+            <div className="r-m-card-img">
               <div className="r-m-card-img-wrap">
                 <img src="/03-shop-img/01cover.jpg" alt="" />
               </div>
@@ -72,7 +72,7 @@ function ShopMcard() {
         </div>
         <div className="r-m-col">
           <div className="r-m-card-container">
-            <div class="r-m-card-img">
+            <div className="r-m-card-img">
               <div className="r-m-card-img-wrap">
                 <img src="/03-shop-img/01cover.jpg" alt="" />
               </div>
@@ -106,7 +106,7 @@ function ShopMcard() {
         </div>
         <div className="r-m-col">
           <div className="r-m-card-container">
-            <div class="r-m-card-img">
+            <div className="r-m-card-img">
               <div className="r-m-card-img-wrap">
                 <img src="/03-shop-img/01cover.jpg" alt="" />
               </div>

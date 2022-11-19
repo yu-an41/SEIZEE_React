@@ -9,15 +9,13 @@ function ShopHome() {
         <YellowWave />
         <div className="r-shop-home-main">
           <div className="r-shop-home-main-inner">
-            <div class="r-shop-home-main-text">
+            <div className="r-shop-home-main-text">
               <p>Creating a better future through food.</p>
-              <span>An idea, a way of living, a way of eating.</span>
+              <span>開啟屬於你的惜食地圖</span>
               <div className="r-shop-home-main-btn">
-                {/* <i className="fa-solid fa-caret-right"></i>
-                          <span>探索更多美味</span> */}
                 <input placeholder="請輸入地址" />
                 <a href="/#">
-                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <i className="fa-solid fa-magnifying-glass"></i>
                 </a>
               </div>
             </div>
@@ -28,6 +26,9 @@ function ShopHome() {
       <div className="r-shop-home-carousel">
         <div className="r-wave-section">
           <div className="r-wave-wrap"></div>
+        </div>
+        <div className="r-shop-home-carousel-title">
+          <p>A idea, a way of living, a way of eating.</p>
         </div>
         <div className="r-shop-home-carousel-check">
           <label className="r-check-wrap" htmlFor="cate1">
@@ -78,7 +79,7 @@ function ShopHome() {
           <label className="r-check-wrap">
             <input type="checkbox" id="cate6" />
             <span>
-              麵包{' '}
+              麵包
               <div className="r-check-icon">
                 <img src="/03-shop-img/food_croissant_01.png" alt="" />
               </div>
@@ -122,9 +123,51 @@ function ShopHome() {
           </label>
         </div>
         <div className="r-shop-slider">
-          <div className="r-shop-slider-train1">
+          <div className="r-shop-home-slider-inner1">
+            <span>熱門店鋪</span>
+          </div>
+          <div className="r-shop-slider-traintop">
             <div className="r-shop-slider-img-wrap">
               <img src="/03-shop-img/01cover.jpg" alt="" />
+              <div className="r-shop-slider-content">
+                <p>惜時店家shapu</p>
+                <span>02-12345678</span>
+              </div>
+            </div>
+            <div className="r-shop-slider-img-wrap">
+              <img src="/03-shop-img/01cover.jpg" alt="" />
+              <div className="r-shop-slider-content">
+                <p>惜時店家shapu</p>
+                <span>02-12345678</span>
+              </div>
+            </div>
+            <div className="r-shop-slider-img-wrap">
+              <img src="/03-shop-img/01cover.jpg" alt="" />
+              <div className="r-shop-slider-content">
+                <p>惜時店家shapu</p>
+                <span>02-12345678</span>
+              </div>
+            </div>
+            <div className="r-shop-slider-img-wrap">
+              <img src="/03-shop-img/01cover.jpg" alt="" />
+              <div className="r-shop-slider-content">
+                <p>惜時店家shapu</p>
+                <span>02-12345678</span>
+              </div>
+            </div>
+            <div className="r-shop-slider-img-wrap">
+              <img src="/03-shop-img/01cover.jpg" alt="" />
+              <div className="r-shop-slider-content">
+                <p>惜時店家shapu</p>
+                <span>02-12345678</span>
+              </div>
+            </div>
+            <div className="r-shop-slider-img-wrap">
+              <img src="/03-shop-img/01cover.jpg" alt="" />
+              <div className="r-shop-slider-content">
+                <p>惜時店家shapu</p>
+                <span>02-12345678</span>
+              </div>
             </div>
           </div>
         </div>
