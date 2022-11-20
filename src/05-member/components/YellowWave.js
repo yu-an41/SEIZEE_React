@@ -3,8 +3,8 @@ import '.././style/YellowWave.scss'
 
 function YellowWave() {
   return (
-    <div className="yh-wave-section">
-      <div className="y-wave-wrap"></div>
+    <div className="s-wave-section">
+      <div className="s-wave-wrap"></div>
     </div>
   )
 }

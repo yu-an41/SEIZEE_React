@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
-import '.././style/Likes.scss'
+import '.././style/profile-pages/Likes.scss'
 
 function Likes() {
   return (

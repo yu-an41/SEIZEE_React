@@ -116,6 +116,8 @@
           display: flex;
           justify-content: flex-end;
 
+          // border: 1px solid yellow;
+          
           .s-up-actionBtn {
             border: none;
             outline: none;
@@ -123,12 +125,15 @@
             height: 42px;
             width: 196px;
             font-size: 20px;
-            font-weight: 500;
             background: #2b325c;
             color: #fff;
             font-weight: 900;
+            text-decoration: none;
             text-align: center;
             cursor: pointer;
+            padding-top: 7px;
+
+            // border: 1px solid red;
           }
         }
       }
@@ -154,11 +159,39 @@
     height: 42px;
     width: 196px;
     font-size: 20px;
-    font-weight: 500;
     background: #dd5555;
     color: #fff;
     font-weight: 900;
     text-align: center;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 991px) {
+  .s-up {
+    overflow: scroll;
+    height: 900px;
+
+    .s-up-card {
+      height: 600px;
+
+      .s-up-imgBx {
+        width: 110px;
+        height: 110px;
+      }
+
+      .s-up-content {
+        .s-up-details {
+          .s-up-data {
+            display: flex;
+            flex-direction: column;
+
+            .s-up-items {
+              padding: 10px 0;
+            }
+          }
+        }
+      }
+    }
   }
 }

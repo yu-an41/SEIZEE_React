@@ -143,8 +143,8 @@ $s-padding-top: 100px;
 
     @media (max-width: 991px) {
       .toggle {
-        position: absolute;
-        bottom: 0;
+        position: fixed;
+        bottom: $s-footer-height;
         // top: 0;
         width: 60px;
         height: 60px;

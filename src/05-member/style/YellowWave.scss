@@ -5,19 +5,14 @@ $text-shadow: #e4e4e4;
 $min-width: 390px;
 $wave-height: 40px;
 
-.yh-wave-section {
+.s-wave-section {
   //position: relative;
   width: 20%;
   height: calc(100vh - 120px);
   // background-color: transparent;
   overflow: hidden;
 
-  .y-wave-base {
-    width: 100%;
-    height: $wave-height;
-    background-color: $main-yellow;
-  }
-  .y-wave-wrap {
+  .s-wave-wrap {
     // position: absolute;
     // top: $wave-height;
     width: 20%;

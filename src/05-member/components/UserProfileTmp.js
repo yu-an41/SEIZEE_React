@@ -4,7 +4,7 @@ import '.././style/UserProfileTmp.scss'
 import YellowWave from './YellowWave'
 
 function UserProfileTmp() {
-  const [profileRWDIndex, setProfileRWDIndex] = useState(0)
+  const [profileRWDIndex, setProfileRWDIndex] = useState(1)
 
   function profileRWDToggle() {
     if (profileRWDIndex === 1) {

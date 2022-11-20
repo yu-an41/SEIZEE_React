@@ -31,9 +31,9 @@ function App() {
             <Route path="/profile">
               <Route path="" element={<UserProfile />} />
               <Route path="update-info" element={<UpdateInfo />} />
+              <Route path="orders" element={<Orders />} />
               <Route path="likes" element={<Likes />} />
               <Route path="activities" element={<Activities />} />
-              <Route path="orders" element={<Orders />} />
             </Route>
           </Routes>
         </MyContextProviders>
