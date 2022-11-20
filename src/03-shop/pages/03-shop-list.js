@@ -1,9 +1,36 @@
-import './styles/03-shop-list.scss'
-import ShopCard from './components/03-shop-card'
-import ShopMcard from './components/03-shop-m-card'
-import ShopMap from './components/03-shop-map'
+import '../styles/03-shop-list.scss'
+import ShopCard from '../components/03-shop-card'
+import ShopMcard from '../components/03-shop-m-card'
+import ShopMap from '../components/03-shop-map'
+import { useState, useEffect, useCallback } from 'react'
+import axios from 'axios'
 
 function ShopList() {
+  // 記錄原始資料用
+  const [shops, setShops] = useState([])
+  // 錯誤訊息用
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const getAllshops = async () => {
+    try {
+      const response = await axios.get('http://localhost:3002/api/shop')
+      console.log(response.data.shop_rows)
+      const shopData = response.data.shop_rows
+      //設定到state裡
+      setShops(shopData)
+    } catch (e) {
+      // 錯誤處理
+      console.error(e.message)
+      setErrorMessage(e.message)
+    }
+  }
+
+  // didMount時載入資料
+  useEffect(() => {
+    getAllshops()
+  }, [])
+
+  // console.log(shops);
   return (
     <>
       <div className="r-container">
@@ -23,7 +50,7 @@ function ShopList() {
               <div className="r-place-wrap">
                 <div className="r-place-article">
                   <div className="r-shop-icon-p">
-                    <img src="/03-shop-img/mappin_01.png" alt="" />
+                    <img src="/03-shop-img/other_mappin_01.png" alt="" />
                   </div>
                   <div className="r-place-title">
                     <span>Place</span>
@@ -70,7 +97,10 @@ function ShopList() {
               <div className="r-filter-wrap">
                 <div className="r-filter-article">
                   <div className="r-shop-icon-f">
-                    <img src="/03-shop-img/food_donuts_01.png" alt="" />
+                    <img
+                      src="/03-shop-img/other_magnifyingglass_01.png"
+                      alt=""
+                    />
                   </div>
                   <div className="r-filter-title">
                     <span>Filter</span>
@@ -135,9 +165,9 @@ function ShopList() {
                 </div>
               </div>
             </div>
-            <ShopCard />
-            {/* <ShopMap />
-            <ShopMcard /> */}
+            {/* <ShopCard shops={shops} /> */}
+            <ShopMap />
+            <ShopMcard shops={shops}/>
           </div>
         </div>
       </div>

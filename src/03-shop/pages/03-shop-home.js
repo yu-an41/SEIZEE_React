@@ -1,8 +1,36 @@
-import './styles/03-shop-home.scss'
-import './../00-homepage/styles/YellowWave.scss'
-import YellowWave from '../00-homepage/components/YellowWave'
+import '../styles/03-shop-home.scss'
+import '../../00-homepage/styles/YellowWave.scss'
+import YellowWave from '../../00-homepage/components/YellowWave'
+import ShopHcard from '../components/03-shop-h-card'
+import { useState, useEffect, useCallback } from 'react'
+import axios from 'axios'
 
 function ShopHome() {
+  // 記錄原始資料用
+  const [shops, setShops] = useState([])
+  // 錯誤訊息用
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const getShops = async () => {
+    try {
+      const response = await axios.get('http://localhost:3002/api/seizee')
+      console.log(response.data.shop_c_rows)
+      const shopData = response.data.shop_c_rows
+      //設定到state裡
+      setShops(shopData)
+    } catch (e) {
+      // 錯誤處理
+      console.error(e.message)
+      setErrorMessage(e.message)
+    }
+  }
+
+  // didMount時載入資料
+  useEffect(() => {
+    getShops()
+  }, [])
+
+  // console.log(shops);
   return (
     <>
       <div className="r-shop-home-container">
@@ -124,51 +152,10 @@ function ShopHome() {
         </div>
         <div className="r-shop-slider">
           <div className="r-shop-home-slider-inner1">
-            <span>熱門店鋪</span>
+            <span>店鋪 Shop</span>
           </div>
           <div className="r-shop-slider-traintop">
-            <div className="r-shop-slider-img-wrap">
-              <img src="/03-shop-img/01cover.jpg" alt="" />
-              <div className="r-shop-slider-content">
-                <p>惜時店家shapu</p>
-                <span>02-12345678</span>
-              </div>
-            </div>
-            <div className="r-shop-slider-img-wrap">
-              <img src="/03-shop-img/01cover.jpg" alt="" />
-              <div className="r-shop-slider-content">
-                <p>惜時店家shapu</p>
-                <span>02-12345678</span>
-              </div>
-            </div>
-            <div className="r-shop-slider-img-wrap">
-              <img src="/03-shop-img/01cover.jpg" alt="" />
-              <div className="r-shop-slider-content">
-                <p>惜時店家shapu</p>
-                <span>02-12345678</span>
-              </div>
-            </div>
-            <div className="r-shop-slider-img-wrap">
-              <img src="/03-shop-img/01cover.jpg" alt="" />
-              <div className="r-shop-slider-content">
-                <p>惜時店家shapu</p>
-                <span>02-12345678</span>
-              </div>
-            </div>
-            <div className="r-shop-slider-img-wrap">
-              <img src="/03-shop-img/01cover.jpg" alt="" />
-              <div className="r-shop-slider-content">
-                <p>惜時店家shapu</p>
-                <span>02-12345678</span>
-              </div>
-            </div>
-            <div className="r-shop-slider-img-wrap">
-              <img src="/03-shop-img/01cover.jpg" alt="" />
-              <div className="r-shop-slider-content">
-                <p>惜時店家shapu</p>
-                <span>02-12345678</span>
-              </div>
-            </div>
+            <ShopHcard shops={shops} />
           </div>
         </div>
       </div>
