@@ -87,6 +87,28 @@ $border-radius-button: 8px;
                         width: $progress-width;
                         height: 100%;
                         background-color: $main-blue;
+                        // background: linear-gradient(135deg, #fff 50%, $main-blue 50%);
+                        // position: relative;
+                    }
+
+                    .y-progress-bar::after {
+                        // content:'';
+                        // position: absolute;
+                        // top: 0;
+                        // left: 0;
+                        // right: 0;
+                        // bottom: 0;
+                        // background: linear-gradient(135deg, $main-blue, 50%, transparent 50%);
+                    }
+
+                    .y-progress-bar, .y-progress-bar::after {
+                        // background-size: 300%;
+                        // background-position: 100%;
+                        // transition: 1s;
+                    }
+
+                    .y-progress-bar:hover, .y-progress-bar:hover::after {
+                        // background-position: 0;
                     }
 
                     .y-progress-bar-empty {
@@ -187,7 +209,8 @@ $border-radius-button: 8px;
                 width: 100%;
                 max-width: 260px;
                 padding: 0 20px;
-                display: flex;
+                display: none;
+                // display: flex;
                 justify-content: space-between;
                 align-items: center;
     
@@ -206,24 +229,44 @@ $border-radius-button: 8px;
             .y-Cart-status {
                 .y-progress-wrap{
                     width: 100%;
+                    max-width: 800px;
+                    margin: 0 auto;
+                    padding-top: 20px;
                     .y-progress-border {
+                        height: 32px;
+                        padding: 5px;
+                        margin-bottom: 10px;
                         .y-progress-bar {
     
                         }
                         
+                        .y-progress-bar::after {
+                        
+                        }
+
+                        .y-progress-bar, .y-progress-bar::after {
+
+                        }
+
+                        .y-progress-bar:hover, .y-progress-bar:hover::after {
+
+                        }
+
                         .y-progress-bar-empty {
 
                         }
                     }
 
                     .y-progress-name {
-
+                        
                         p{
                             font-size: 18px;
                         }
                     }
 
                     .y-progress-icon{
+                        width: 40px;
+                        top: 5px;
                         img {
 
                         }
