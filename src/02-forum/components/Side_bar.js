@@ -52,7 +52,7 @@ function side_bar() {
             </div>
             <p>我的發文</p>
           </div>
-          <div className="p-buttonWrap">
+          <div className="p-buttonWrap p-btnBook">
             <div className="p-imgWrap">
               <img className="p-book" src={book} alt="" />
             </div>

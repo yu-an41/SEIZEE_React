@@ -30,10 +30,12 @@ $main-text:#5C5C5C;
             width: 80%;
             height: 80%;
         }
+  
           
     img{
         width: 60%;
         height: 60%;
+
         
     }
     p{
@@ -41,6 +43,9 @@ $main-text:#5C5C5C;
         margin: 10px 0 0 0;
     }
     }
+    .p-btnBook{
+        display: none;
+         }
 
 }
 }

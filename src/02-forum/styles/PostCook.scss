@@ -1,3 +1,7 @@
+$main-yellow:#FAD249;
+$main-blue:#113F75;
+$main-text:#5C5C5C;
+$p-size:16px;
 *{
     box-sizing: border-box;
     margin: 0;
@@ -35,12 +39,24 @@
 
   }
   }  
-  .p-RecommendationWrap{
-    width: 100%;
+  .p-recomAdWrit{
+    width: 300px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     left: 22%;
     margin-top: 180px;
+    .p-RecommendationWrap{
     
   }
+    .p-writWrap{
+      position: fixed;
+      top: 65%;
+      
+    }
+    
+  }
+  
 }
 
