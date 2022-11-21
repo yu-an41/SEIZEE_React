@@ -25,7 +25,6 @@ $border-radius-button: 8px;
 }
 
 .y-CartList-container {
-    background-color: #ccc;
     position: relative;
     .y-Cart-nav {
         width: 100%;
@@ -65,8 +64,11 @@ $border-radius-button: 8px;
 
         .y-Cart-status {
             width: 100%;
-            padding: 0 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 30px;
             background-color: #fff;
+
             .y-progress-wrap{
                 width: 100%;
                 padding: 10px 12px 6px;
@@ -147,20 +149,103 @@ $border-radius-button: 8px;
             }
         }
 
-        .y-Cart-main {
+    }
 
-            .y-Cart-shop{
+    .y-Cart-middle {
+        padding: 20px 30px;
+        background-color: #ccc;
 
+        li {
+            list-style: none;
+            font-size: 14px;
+            color: $main-text;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+        }
+        
+        .y-Cart-shop {
+            width: 100%;
+            padding: 10px;
+
+            .y-Cart-shop-border {
+                border: $border-sm;
+                border-radius: $border-radius-button;
+                overflow: hidden;
+
+                .y-Cart-shop-cover{
+                    width: 100%;
+                    height: 200px;
+                    // padding: 10px;
+                    background-color: #fff;
+                    overflow: hidden;
+                    border-bottom: $border-sm;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: 50% 50%;
+                        
+                    }
+                }
+
+                .y-Cart-shop-info {
+                    background-color: #fff;
+                    border-bottom: $border-sm;
+                    padding: 15px 20px;
+                    // position: relative;
+
+                    .y-Cart-shop-top {
+                        
+                        .y-Cart-shop-name {
+                            // font-size: 18px;
+                            color: $main-blue;
+                            font-weight: bold;
+                            margin-bottom: 16px;
+                        }
+
+                        .y-Cart-shop-status {
+
+                        }
+                    }
+                    
+                    .y-Cart-shop-bottom {
+                        
+                        
+                        .y-Cart-shop-tel {
+
+                        }
+                        .y-Cart-shop-address {
+    
+                        }
+                        .y-Cart-shop-time {
+    
+                        }
+
+                    }
+                    
+                }
+
+                .y-Cart-shop-pickup {
+                    background-color: #fff;
+                    // border-bottom: $border-sm;
+                    padding: 15px 20px;
+                    position: relative;
+                    overflow: hidden;
+
+                    .y-Cart-pickup-title {
+                        // font-size: 18px;
+                        color: $main-blue;
+                        font-weight: bold;
+                        margin-bottom: 16px;
+
+                    }
+
+                    .y-Cart-pickup-time {
+
+                    }
+                }
             }
-
-            .y-Cart-details {
-
-            }
-
-            .y-Cart-rec {
-
-            }
-
+            
         }
     }
 
@@ -209,8 +294,8 @@ $border-radius-button: 8px;
                 width: 100%;
                 max-width: 260px;
                 padding: 0 20px;
-                display: none;
-                // display: flex;
+                // display: none;
+                display: flex;
                 justify-content: space-between;
                 align-items: center;
     
@@ -227,11 +312,14 @@ $border-radius-button: 8px;
             }
     
             .y-Cart-status {
+                width: 100%;
+
                 .y-progress-wrap{
                     width: 100%;
-                    max-width: 800px;
-                    margin: 0 auto;
+                    max-width: 1000px;
+                    // margin: 0 auto;
                     padding-top: 20px;
+
                     .y-progress-border {
                         height: 32px;
                         padding: 5px;
@@ -273,24 +361,111 @@ $border-radius-button: 8px;
                     }
                 }
             }
-    
-            .y-Cart-main {
-    
-                .y-Cart-shop{
-    
-                }
-    
-                .y-Cart-details {
-    
-                }
-    
-                .y-Cart-rec {
-    
-                }
-    
-            }
+
         }
+        
+        .y-Cart-middle {
+            // max-width: 300px;
+            // margin-left: auto;
+            background-color: #fdefc2;
+            li {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .y-Cart-shop {
+                width: 100%;
+                max-width: 1320px;
+                margin: 0 auto;
+                padding: 40px;
     
+                .y-Cart-shop-border {
+                    border: $border-lg;
+                    border-radius: $border-radius-card;
+                    display: flex;
+                    .y-Cart-shop-cover{
+                        width: 34%;
+                        height: 200px;
+                        // padding: 10px;
+                        border-bottom: none;
+                        border-right: $border-lg;
+                        img {
+                            object-position: 50% 50%;
+                            
+                        }
+                    }
+    
+                    .y-Cart-shop-info {
+                        width: 33%;
+                        border-bottom: none;
+                        border-right: $border-lg;
+                        padding: 15px 20px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        .y-Cart-shop-name {
+                            font-size: 24px;
+                            // margin-bottom: 36px;
+                                                                        }
+
+                    .y-Cart-shop-top {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        .y-Cart-shop-name {
+                            line-height: 40px;
+                            color: $main-blue;
+                            font-weight: bold;
+                            margin-bottom: 16px;
+                        }
+
+                        .y-Cart-shop-status {
+
+                        }
+                    }
+                                            
+                        .y-Cart-shop-bottom {
+                            
+
+                            .y-Cart-shop-tel {
+    
+                            }
+                            .y-Cart-shop-address {
+        
+                            }
+                            .y-Cart-shop-time {
+        
+                            }
+    
+                        }
+                        
+                    }
+    
+                    .y-Cart-shop-pickup {
+                        width: 33%;
+                        background-color: #fff;
+                        padding: 15px 20px;
+                        position: relative;
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+    
+                        .y-Cart-pickup-title {
+                            font-size: 24px;
+                            line-height: 40px;
+                            margin-bottom: 16px;
+    
+                        }
+    
+                        .y-Cart-pickup-time {
+    
+                        }
+                    }
+                }
+        }
+        
         .y-Cart-bottom{
             position: fixed;
             bottom: 0;
@@ -310,4 +485,5 @@ $border-radius-button: 8px;
             }
         }
     }
+}
 }

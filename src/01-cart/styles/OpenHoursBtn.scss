@@ -1,0 +1,41 @@
+$main-yellow: #FAD249;
+$main-blue: #2B325C;
+$main-text: #5E5E5E;
+
+$btn-red: #ED4743;
+$btn-green: #CCDE73;
+$btn-pink: #FF9696;
+
+$border-lg: $main-blue 3px solid;
+$border-sm: $main-blue 2px solid;
+
+$text-shadow: #E4E4E4 2px 2px;
+$btn-shadow-lg: 6px 6px $main-blue;
+$btn-shadow-sm: 2px 2px $main-blue;
+$light-box-shadow: rgba(53, 53, 53, 0.75);
+
+$min-width: 390px;
+$min-height: 400px;
+$wave-height: 40px;
+$progress-width: 33%;
+
+$font-family: Arial, Helvetica, sans-serif;
+
+$border-radius-card: 10px;
+$border-radius-button: 8px;
+
+* {
+    box-sizing: border-box;
+}
+.y-store-status-border {
+    border-radius: $border-radius-card;
+    border: $border-lg;
+    background-color: $btn-red;
+    padding: 5px 35px;
+
+    .y-store-status {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
