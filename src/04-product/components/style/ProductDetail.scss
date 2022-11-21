@@ -180,15 +180,15 @@ $main-border-radius: 8px;
         background-color: #fff;
     }
     .a-addButton {
-        width: 180px;
+        width: 200px;
         text-align: center;
         @extend %a-flex;
         background-color: $main-yellow;
         color: $main-blue;
         border: $main-border;
         border-radius: $main-border-radius;
-        padding: 3px 20px;
-        margin: 25px 0 35px 0;
+        padding: 5px 20px;
+        margin: 15px 0 40px 0;
         font-weight: 500;
     }
     .a-addButton img {

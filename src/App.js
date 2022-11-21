@@ -6,34 +6,38 @@ import Menu from './components/Menu'
 import HeadWave from './components/HeadWave'
 
 // 00-homepage
-import Homepage from './00-homepage/pages/Homepage'
+// import Homepage from './00-homepage/pages/Homepage'
 
-// 01-cart
-import CartList from './01-cart/pages/CartList'
+// // 01-cart
+// import CartList from './01-cart/pages/CartList'
 
-// 02-forum
-import PostCook from './02-forum/pages/Post_cook'
-import ForumHome from './02-forum/pages/ForumHome'
+// // 02-forum
+// import PostCook from './02-forum/pages/Post_cook'
+// import ForumHome from './02-forum/pages/ForumHome'
 
-// 03-shop
-import ShopList from './03-shop/03-shop-list'
-import ShopHome from './03-shop/03-shop-home'
+// // 03-shop
+// import ShopList from './03-shop/03-shop-list'
+// import ShopHome from './03-shop/03-shop-home'
+
+// 04-product
+import ProductList from './04-product/ProductList'
+import ProductDetail from './04-product/ProductDetail'
 
 // 05-member
-import UserSign from './05-member/UserSign'
-import ResetPass from './05-member/ResetPass'
-import ForgotPass from './05-member/ForgotPass'
-import UserProfile from './05-member/UserProfile'
+// import UserSign from './05-member/UserSign'
+// import ResetPass from './05-member/ResetPass'
+// import ForgotPass from './05-member/ForgotPass'
+// import UserProfile from './05-member/UserProfile'
 
-// 06-event
-import Top from './06-event/pages/06-event-01-top'
+// // 06-event
+// import Top from './06-event/pages/06-event-01-top'
 
 function App() {
   return (
     <BrowserRouter>
       <MyContextProviders>
         <Routes>
-          {/* 00-homepage */}
+          00-homepage
           {/* <Route path="/" element={<Homepage />} /> */}
 
           {/* 01-cart */}
@@ -46,6 +50,10 @@ function App() {
           {/* 03-shop */}
           {/* <Route path="/shop" element={<ShopList />} /> */}
           {/* <Route path="/shop" element={<ShopHome />} /> */}
+
+          {/* 04-product  */}
+          <Route path="/product" element={<ProductList />} />
+          <Route path="/product" element={<ProductDetail />} />
 
           {/* 05-member */}
           {/* <Route path="/login" element={<UserSign />} />

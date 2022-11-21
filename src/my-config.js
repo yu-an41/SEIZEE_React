@@ -1,5 +1,8 @@
 export const MY_HOST = 'http://localhost:3004'
 
+// 04-product
+export const PRODUCT = `{MY_HOST}/product`
+
 // 05-member
 export const REGISTER = `${MY_HOST}/user/register`
 export const CHECK_USER = `${MY_HOST}/user/checkUser`

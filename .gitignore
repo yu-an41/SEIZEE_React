@@ -36,6 +36,7 @@ package-lock.json
 
 public/images/*
 public/03-shop-img
+public/04-product/*
 public/05-member/*
 
 src/02-forum/p-imgs

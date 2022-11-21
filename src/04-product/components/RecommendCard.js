@@ -1,8 +1,21 @@
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import './style/RecommendCard.scss'
 
-import React from 'react'
-import './RecommendCard.scss'
+function RecommendCard(picture_url) {
+  const [recommend, setRecommend] = useState([])
 
-function RecommendCard() {
+  async function getRecommend() {
+    const response = await axios.get(
+      'http://localhost:3002/product?shop_list_sid=3'
+    )
+    console.log(response)
+    setRecommend(response.data)
+  }
+  useEffect(() => {
+    getRecommend()
+  }, [])
+
   return (
     <>
       <div className="a-productRecommend">
@@ -11,10 +24,10 @@ function RecommendCard() {
           <h3>惜食商品推薦</h3>
         </div>
         <div className="a-recommendWrapper">
-          <img src="img/10012.jpg" alt="" />
-          <img src="img/10009.jpg" alt="" />
-          <img src="img/10010.jpg" alt="" />
-          <img src="img/10011.jpg" alt="" />
+          <img src={`img/${picture_url}`} alt="" />
+          <img src={`img/${picture_url}`} alt="" />
+          <img src={`img/${picture_url}`} alt="" />
+          <img src={`img/${picture_url}`} alt="" />
         </div>
       </div>
     </>
