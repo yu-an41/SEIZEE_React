@@ -46,12 +46,12 @@ body {
   justify-content: space-between;
 }
 .j-event-middle-events {
-  outline: 1px black solid;
+//   outline: 1px black solid;
   @include position(47%, 49%);
   @include size(1100px, 900px);
   transform: translate(-50%, -50%);
   @media (max-width: 390px) {
-    outline: 1px black solid;
+    // outline: 1px black solid;
     @include position(55%, 51%);
     @include size(360px, 844px);
     transform: translate(-50%, -50%);
@@ -153,10 +153,10 @@ body {
       transform: scale(0.8);
       @include position(16%, -2%);
       @media (max-width: 390px) {
-        transform: scale(0.5);
+        transform: scale(0.4);
         @include position(24%, -40%);
         &:hover {
-          transform: scale(0.5);
+          transform: scale(0.4);
           @include position(24%, -40%);
           transform: translateY(-20px);
         }
