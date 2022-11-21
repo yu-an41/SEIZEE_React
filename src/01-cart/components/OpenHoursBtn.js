@@ -9,18 +9,16 @@ function OpenHoursBtn() {
     setOpenHours('休息中')
   }
   return (
-    <>
-      <div className="y-store-status-border">
-        <p
-          className="y-store-status"
-          onClick={(e) => {
-            OpenHoursHandler(e)
-          }}
-        >
-          {OpenHours}
-        </p>
-      </div>
-    </>
+    <div className="y-store-status-border">
+      <p
+        className="y-store-status"
+        onClick={(e) => {
+          OpenHoursHandler(e)
+        }}
+      >
+        {OpenHours}
+      </p>
+    </div>
   )
 }
 

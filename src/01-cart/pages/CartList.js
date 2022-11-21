@@ -6,6 +6,7 @@ import './../styles/CartList.scss'
 import NavBar from '../../00-homepage/components/NavBar'
 import OpenHoursBtn from '../components/OpenHoursBtn'
 import PickupHoursBtn from '../components/PickupHoursBtn'
+import EmptyCartBtn from '../components/EmptyCartBtn'
 
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
@@ -90,7 +91,12 @@ function CartList() {
           </div>
           <div className="y-Cart-details">
             details
-            <div className="y-Cart-tab">明細一覽</div>
+            <div className="y-Cart-tab">
+              明細一覽
+              <div className="y-empty-cart-wrap">
+                <EmptyCartBtn />
+              </div>
+            </div>
           </div>
           <div className="y-Cart-rec">rec</div>
         </div>
