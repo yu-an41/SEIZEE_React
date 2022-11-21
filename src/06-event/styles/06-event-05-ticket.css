@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.j-sides {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.j-event-middle-ticket {
+  position: absolute;
+  top: 47%;
+  left: 49%;
+  width: 1100px;
+  height: 900px;
+  transform: translate(-50%, -50%);
+}
+.j-event-middle-ticket .j-cate-banner {
+  width: 100%;
+  height: 170px;
+  background-color: #eeeeee;
+  padding: 15px 20px;
+}
+.j-event-middle-ticket .j-cate-banner .j-cate-banner-deco {
+  width: 100%;
+  height: 100%;
+  border: solid 4px #ffffff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 50px;
+}
+.j-event-middle-ticket .j-cate-banner .j-cate-banner-deco div {
+  font-size: 7rem;
+  font-weight: 900;
+  color: #4b646a;
+  letter-spacing: 0.8rem;
+}
+.j-event-middle-ticket .j-bang-hide {
+  height: 83%;
+  margin-top: 3%;
+  margin-left: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.3);
+  transition: 1s;
+}
+.j-event-middle-ticket .j-bang-hide .j-bang {
+  transform: scale(0.35);
+  margin-left: -5%;
+  margin-top: -5%;
+}
+.j-event-middle-ticket .j-bang-hide .j-ticket {
+  position: absolute;
+  transform: scale(0.3) rotate(0);
+  transition: 0.8s;
+  transform-origin: center center;
+}
+.j-event-middle-ticket .j-bang-hide:hover {
+  transform: scale(1);
+}
+.j-event-middle-ticket .j-bang-hide:hover .j-bang {
+  transform: scale(0.35);
+}
+.j-event-middle-ticket .j-bang-hide:hover .j-ticket {
+  transform: scale(0.3) rotate(720deg);
+}/*# sourceMappingURL=06-event-05-ticket.css.map */
