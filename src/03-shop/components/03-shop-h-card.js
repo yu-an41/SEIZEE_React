@@ -15,7 +15,6 @@ function ShopHcard({ shops }) {
             />
             <div className="r-shop-slider-content">
               <p>{v.shop_name}</p>
-              <span>{v.shop_phone}</span>
             </div>
           </div>
         )

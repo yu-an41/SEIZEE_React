@@ -1,6 +1,7 @@
+import log from 'eslint-plugin-react/lib/util/log'
 import { imgUrl, imgServerUrl } from '../shop-config'
 
-function ShopMcard({ shops }) {
+function ShopMcard({ shops, shopCate }) {
   console.log(shops)
   return (
     <>
@@ -17,6 +18,7 @@ function ShopMcard({ shops }) {
                     />
                   </div>
                   <p>營業中</p>
+                  <span>{v.shop_cate}</span>
                 </div>
                 <div className="r-m-card-body">
                   <h2>{v.shop_name}</h2>

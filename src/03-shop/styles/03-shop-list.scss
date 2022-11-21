@@ -453,6 +453,13 @@ $card-btn:#28ADA5;
                                     color: #fff;
                                     background-color: #000;
                                     line-height: 20px;
+                                    margin-bottom: 5px;
+                                }
+                                span{
+                                    font-size: 16px;
+                                    letter-spacing: .2rem;
+                                    color: $main-text;
+                                    line-height: 20px;
                                 }
                             }
                             
@@ -580,6 +587,9 @@ $card-btn:#28ADA5;
                                 text-shadow: none;
                             }
                             p{
+                                color: #fff;
+                            }
+                            span{
                                 color: #fff;
                             }
                         }

@@ -47,6 +47,10 @@ function App() {
           <Route path="/shop" element={<ShopList />} />
           {/* <Route path="/shop" element={<ShopHome />} /> */}
 
+          {/* 0a-product */}
+          {/* <Route path="/product" element={} /> */}
+          {/* <Route path="/product" element={} /> */}
+
           {/* 05-member */}
           {/* <Route path="/login" element={<UserSign />} />
           <Route path="/forgot-pass" element={<ForgotPass />} />

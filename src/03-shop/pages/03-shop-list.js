@@ -8,16 +8,35 @@ import axios from 'axios'
 function ShopList() {
   // 記錄原始資料用
   const [shops, setShops] = useState([])
+  const [citys, setCitys] = useState([])
+  const [areas, setAreas] = useState([])
+  const [cates, setCates] = useState([])
+  const [selectedCity, setSelectedCity] = useState(0)
+  const [selectedArea, setSelectedArea] = useState(0)
+
   // 錯誤訊息用
   const [errorMessage, setErrorMessage] = useState('')
 
   const getAllshops = async () => {
     try {
       const response = await axios.get('http://localhost:3002/api/shop')
-      console.log(response.data.shop_rows)
+      // console.log(response.data.shop_rows)
       const shopData = response.data.shop_rows
-      //設定到state裡
-      setShops(shopData)
+      return shopData
+    } catch (e) {
+      // 錯誤處理
+      console.error(e.message)
+      setErrorMessage(e.message)
+    }
+  }
+  const getCity = async () => {
+    try {
+      const response = await axios.get(
+        'http://localhost:3002/api/shop/shop_city'
+      )
+      // console.log(response.data.city_rows)
+      const cityData = response.data.city_rows
+      return cityData
     } catch (e) {
       // 錯誤處理
       console.error(e.message)
@@ -25,12 +44,68 @@ function ShopList() {
     }
   }
 
+  const getArea = async () => {
+    try {
+      const response = await axios.get(
+        'http://localhost:3002/api/shop/shop_area'
+      )
+      // console.log(response.data.area_rows)
+      const areaData = response.data.area_rows
+      return areaData
+    } catch (e) {
+      // 錯誤處理
+      console.error(e.message)
+      setErrorMessage(e.message)
+    }
+  }
+  const getCate = async () => {
+    try {
+      const response = await axios.get(
+        'http://localhost:3002/api/shop/shop_cate'
+      )
+      // console.log(response.data.cate_rows)
+      const cateData = response.data.cate_rows
+      return cateData
+    } catch (e) {
+      // 錯誤處理
+      console.error(e.message)
+      setErrorMessage(e.message)
+    }
+  }
+
+  const whenCityChanged = function (e) {
+    const selectedCitySid = +e.currentTarget.value
+    setSelectedCity(selectedCitySid)
+    const selectedAreaSid = areas.find(
+      (a) => a.shop_city_sid === selectedCitySid
+    ).sid
+
+    setSelectedArea(selectedAreaSid)
+  }
+
   // didMount時載入資料
   useEffect(() => {
-    getAllshops()
+    ;(async () => {
+      const shopData = await getAllshops()
+      const cityData = await getCity()
+      const areaData = await getArea()
+      const cateData = await getCate()
+
+      setShops(shopData)
+      setCitys(cityData)
+      setAreas(areaData)
+      setCates(cateData)
+
+      const selectedCitySid = cityData[1].sid
+      const selectedAreaSid = areaData.find(
+        (a) => a.shop_city_sid === selectedCitySid
+      ).sid
+      console.log({ selectedCitySid, selectedAreaSid })
+      setSelectedCity(selectedCitySid)
+      setSelectedArea(selectedAreaSid)
+    })()
   }, [])
 
-  // console.log(shops);
   return (
     <>
       <div className="r-container">
@@ -59,18 +134,39 @@ function ShopList() {
                 </div>
                 <div className="r-place-select">
                   <div>
-                    <select name="" id="">
-                      <option value="">請選擇</option>
-                      <option value="">1</option>
-                      <option value="">2</option>
-                      <option value="">2</option>
-                      <option value="">2</option>
-                      <option value="">2</option>
+                    <select
+                      name="r-selCity"
+                      id="r-selCity"
+                      onChange={whenCityChanged}
+                      value={selectedCity}
+                    >
+                      {/* <option value="">請選擇</option> */}
+                      {citys.map((v, i) => {
+                        return (
+                          <option value={v.sid} key={v.sid}>
+                            {v.shop_city}
+                          </option>
+                        )
+                      })}
                     </select>
                   </div>
                   <div>
-                    <select name="" id="">
-                      <option value="">請選擇</option>
+                    <select
+                      name="r-selArea"
+                      id="r-selArea"
+                      onChange={(e) => setSelectedArea(+e.currentTarget.value)}
+                      value={selectedArea}
+                    >
+                      {/* <option value="">請選擇</option> */}
+                      {areas
+                        .filter((a) => a.shop_city_sid === selectedCity)
+                        .map((v) => {
+                          return (
+                            <option value={v.sid} key={v.sid}>
+                              {v.shop_area}
+                            </option>
+                          )
+                        })}
                     </select>
                   </div>
                 </div>
@@ -86,11 +182,15 @@ function ShopList() {
                   </div>
                 </div>
                 <div className="r-cate-select">
-                  <select name="" id="">
+                  <select name="r-selCate" id="r-selCate">
                     <option value="">請選擇</option>
-                    <option value="">中式</option>
-                    <option value="">美式</option>
-                    <option value="">日式</option>
+                    {cates.map((v, i) => {
+                      return (
+                        <option value={v.product_categories} key={v.sid}>
+                          {v.product_categories}
+                        </option>
+                      )
+                    })}
                   </select>
                 </div>
               </div>
@@ -110,8 +210,8 @@ function ShopList() {
                 <div className="r-filter-select">
                   <select name="" id="">
                     <option value="">請選擇</option>
-                    <option value="">營業中</option>
-                    <option value="">全部店家</option>
+                    <option value="營業中">營業中</option>
+                    <option value="全部店家">全部店家</option>
                   </select>
                 </div>
               </div>
@@ -165,9 +265,9 @@ function ShopList() {
                 </div>
               </div>
             </div>
-            {/* <ShopCard shops={shops} /> */}
-            <ShopMap />
-            <ShopMcard shops={shops}/>
+            <ShopCard shops={shops} />
+            {/* <ShopMap /> */}
+            {/* <ShopMcard shops={shops} /> */}
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { imgUrl, imgServerUrl } from '../shop-config'
 
 function ShopCard({ shops }) {
-  console.log(shops)
+  // console.log(shops)
   return (
     <>
       <div className="r-card-wrap">
@@ -41,6 +41,7 @@ function ShopCard({ shops }) {
                       日
                     </small>
                   </div>
+                  <p>{v.shop_cate}</p>
                   <p>{v.shop_phone}</p>
                   <p>
                     營業時間:

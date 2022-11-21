@@ -198,12 +198,13 @@ $title-text:rgb(190, 174, 146);
           bottom: -150px;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          // justify-content: flex-start;
           align-items: center;
           z-index: 10;
           backdrop-filter: blur(15px);
           box-shadow: 0 -10px 10px rgba(0,0,0,0.1);
           border: 1px solid rgba(255,255,255,0.2);
+          padding-top: 30px;
           transition: .5s;
           p {
             font-size: 30px;
@@ -218,7 +219,7 @@ $title-text:rgb(190, 174, 146);
       }
       .r-shop-slider-img-wrap:hover{
         .r-shop-slider-content{
-          bottom: 0;
+          bottom: -40px;
         }
       }
     }
