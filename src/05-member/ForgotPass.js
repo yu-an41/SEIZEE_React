@@ -58,7 +58,7 @@ function ForgotPass() {
               <h3>
                 請在下面輸入您的電子郵件地址，我們將重設密碼的連結寄給您。
               </h3>
-              <label>
+              <label for='mbfEmail'>
                 電子郵件<span style={{ color: 'red' }}> *</span>
               </label>
               <input

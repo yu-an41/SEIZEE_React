@@ -81,7 +81,7 @@ function ResetPass() {
           <div className="resetBx">
             <form action="" onSubmit={resetSubmit}>
               <h2>重新輸入密碼</h2>
-              <label>
+              <label for="mbResetPass">
                 密碼<span style={{ color: 'red' }}> *</span>
               </label>
               <input
@@ -98,7 +98,7 @@ function ResetPass() {
               >
                 {errorResetMgP1}
               </div>
-              <label>
+              <label for="mbResetPassConfirm">
                 確認密碼<span style={{ color: 'red' }}> *</span>
               </label>
               <input

@@ -200,7 +200,7 @@ function UserSign() {
               <form action="" onSubmit={signInSubmit}>
                 <h2>歡迎回來</h2>
                 <h3>我們很高興又見到您了!</h3>
-                <label>
+                <label for="mblEmail">
                   電子郵件<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
@@ -214,7 +214,7 @@ function UserSign() {
                   style={{ color: 'red' }}
                   id="mblEmail_error"
                 ></div>
-                <label>
+                <label for="mblPass">
                   密碼<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
@@ -245,7 +245,7 @@ function UserSign() {
             <div className="form signupForm">
               <form action="" onSubmit={signUpSubmit}>
                 <h2>建立新帳號</h2>
-                <label>
+                <label for="mbrEmail">
                   電子郵件<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
@@ -262,7 +262,7 @@ function UserSign() {
                 >
                   {errorMgE}
                 </div>
-                <label>
+                <label for="mbrName">
                   使用者名稱<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
@@ -279,7 +279,7 @@ function UserSign() {
                 >
                   {errorMgN}
                 </div>
-                <label>
+                <label for="mbrPass">
                   密碼<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
@@ -296,7 +296,7 @@ function UserSign() {
                 >
                   {errorMgP1}
                 </div>
-                <label>
+                <label for="mbrPassConfirm">
                   確認密碼<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input

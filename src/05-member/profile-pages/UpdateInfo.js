@@ -2,8 +2,8 @@ import '.././style/profile-pages/UpdateInfo.scss'
 
 import React, { useEffect, useRef, useState } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
-import { DistrictData } from '../data/address'
-import { map, find, propEq, forEach, isNil } from 'ramda'
+import { DistrictData } from '../data/DistrictData'
+import { map, find, propEq, forEach, isNil, update } from 'ramda'
 import Select from 'react-select'
 import axios from 'axios'
 import { UPDATE_PASS } from '../../my-config'
@@ -58,14 +58,10 @@ function UpdateInfo(props) {
   const [district, setDistrict] = useState(props?.district)
   // 被選縣市
   const [city, setCity] = useState(queryByDistrict(district)?.city)
+
+  console.log(city)
   // 被選縣市的相依區域
   const [districts, setDistricts] = useState(null)
-  // city 改變對應動作
-  useEffect(() => {
-    if (!isNil(city)) setDistricts(districtOpts(city))
-  }, [city])
-
-  console.log(district)
 
   // -----檔案上傳-----
   // 選擇的檔案
@@ -82,20 +78,38 @@ function UpdateInfo(props) {
   // -----更新會員資料-----
   // 更新會員資料
   const [updateFD, setUpdateFD] = useState({
-    mbrEmail: '',
-    mbrName: '',
-    mbrPass: '',
-    mbrPassConfirm: '',
+    mbuPhoto: '',
+    // mbuBoy: false,
+    // mbuGirl: false,
+    mbuGender: '',
+    mbuAddressCity: '',
+    mbuAddressArea: '',
+    mbuAddressDetail: '',
+    mbuPhone: '',
+    mbuSid: '',
   })
+
   // =================================================
 
   // -----讀取地址-----
+  // city 改變對應動作
+  useEffect(() => {
+    if (!isNil(city)) setDistricts(districtOpts(city))
+  }, [city])
+
+  console.log(district)
   // city change 事件處理
   const handleCityChange = (e) => {
     setDistrict('')
     setCity(e.value)
 
     console.log(e.value)
+
+    const id = e.currentTarget.id
+    const val = e.currentTarget.value
+    console.log({ id, val })
+
+    setUpdateFD({ ...updateFD, [id]: val })
   }
 
   // -----檔案上傳-----
@@ -133,13 +147,49 @@ function UpdateInfo(props) {
       setSelectedFile(null)
       setImgServerUrl('')
     }
+
+    const id = e.currentTarget.id
+    const val = e.currentTarget.value
+    console.log({ id, val })
+
+    setUpdateFD({ ...updateFD, [id]: val })
   }
 
   // ====================================
   // 註冊
+  const updateHandler = (e) => {
+    const id = e.currentTarget.id
+    const val = e.currentTarget.value
+    console.log({ id, val })
+
+    setUpdateFD({ ...updateFD, [id]: val })
+  }
+
+  const radioGenderHandler = (e) => {
+    const id = e.currentTarget.id
+
+    if (id === 'mbuBoy') {
+      setUpdateFD({ ...updateFD, mbuGender: '男' })
+    } else {
+      setUpdateFD({ ...updateFD, mbuGender: '女' })
+    }
+
+    // if (id === 'mbuBoy') {
+    //   setUpdateFD({ ...updateFD, mbuBoy: true, mbuGirl: false })
+    // } else {
+    //   setUpdateFD({ ...updateFD, mbuBoy: false, mbuGirl: true })
+    // }
+  }
+
   const updateSubmit = async (e) => {
     e.preventDefault()
     const { data } = await axios.post(UPDATE_PASS, updateFD)
+
+    if (data.success) {
+      alert('更新成功')
+    } else {
+      alert('更新失敗')
+    }
   }
 
   return (
@@ -151,6 +201,7 @@ function UpdateInfo(props) {
             <div className="s-ui">
               <h2 className="s-ui-title">資料修改</h2>
               <form className="s-ui-card" action="" onSubmit={updateSubmit}>
+                <input type="hidden" name="mbuSid" />
                 <div className="s-ui-imgBx">
                   <img
                     className="s-ui-img"
@@ -164,6 +215,7 @@ function UpdateInfo(props) {
                     style={{ display: 'none' }}
                     ref={hiddenFileInput}
                     onChange={handleChange}
+                    id="mbuPhoto"
                   />
                 </div>
                 <div className="s-ui-details">
@@ -186,6 +238,8 @@ function UpdateInfo(props) {
                       value="男"
                       id="mbuBoy"
                       className="s-ui-radio2"
+                      checked={updateFD.mbuBoy}
+                      onChange={radioGenderHandler}
                     />
                     <span className="s-ui-man">男</span>
                     <br />
@@ -195,6 +249,8 @@ function UpdateInfo(props) {
                       value="女"
                       id="mbuGirl"
                       className="s-ui-radio2"
+                      checked={updateFD.mbuGirl}
+                      onChange={radioGenderHandler}
                     />
                     <span className="s-ui-man">女</span>
                   </div>
@@ -203,7 +259,7 @@ function UpdateInfo(props) {
                   <div className="s-ui-selectAddress">
                     <Select
                       value={city ? selectedCity(city) : ''}
-                      id="selectCity"
+                      id="mbuAddressCity"
                       className="s-ui-address"
                       name={props?.cityName}
                       options={cities()}
@@ -211,12 +267,9 @@ function UpdateInfo(props) {
                       onChange={handleCityChange}
                       placeholder="選擇城市"
                     />
-                    {/* <option value="" className="s-ui-addressDetail">
-                        請選擇城市
-                      </option> */}
                     <Select
                       value={district ? selectedDistrict(district) : ''}
-                      id="selectArea"
+                      id="mbuAddressArea"
                       className="s-ui-address"
                       name={props?.districtName}
                       // value={selectedDistrict(district)}
@@ -224,20 +277,21 @@ function UpdateInfo(props) {
                       placeholder="選擇區域"
                       onChange={(e) => setDistrict(e.value)}
                     />
-                    {/* <option value="" className="s-ui-addressDetail">
-                      請選擇地區
-                    </option> */}
                   </div>
                   <input
                     className="s-ui-input"
                     type="text"
+                    id="mbuAddressDetail"
                     placeholder="請輸入地址"
+                    onChange={updateHandler}
                   />
                   <label className="s-ui-label">聯絡電話</label>
                   <input
                     className="s-ui-input"
                     type="text"
+                    id="mbuPhone"
                     placeholder="請輸入連絡電話"
+                    onChange={updateHandler}
                   />
                 </div>
                 <div className="s-ui-actionBtns">
@@ -257,6 +311,8 @@ function UpdateInfo(props) {
   )
 }
 
-// reference: https://medium.com/web-dev-survey-from-kyoto/how-to-customize-the-file-upload-button-in-react-b3866a5973d8
+// reference:
+// 1. https://medium.com/web-dev-survey-from-kyoto/how-to-customize-the-file-upload-button-in-react-b3866a5973d8
+// 2. https://chenhanting.medium.com/react-rails-%E5%8F%B0%E7%81%A3%E5%8D%80%E7%B8%A3%E5%B8%82-%E5%8D%80%E5%9F%9F%E7%9A%84%E4%B8%8B%E6%8B%89%E9%81%B8%E5%96%AE-ffe75285a443
 
 export default UpdateInfo
