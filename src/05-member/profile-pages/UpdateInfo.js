@@ -6,7 +6,7 @@ import { DistrictData } from '../data/DistrictData'
 import { map, find, propEq, forEach, isNil, update } from 'ramda'
 import Select from 'react-select'
 import axios from 'axios'
-import { UPDATE_PASS } from '../../my-config'
+import { PROFILE } from '../../my-config'
 
 // selectedCity
 const selectedCity = (cityName) => ({ value: cityName, label: cityName })
@@ -105,11 +105,16 @@ function UpdateInfo(props) {
 
     console.log(e.value)
 
-    const id = e.currentTarget.id
-    const val = e.currentTarget.value
-    console.log({ id, val })
+    // console.log({ id, val })
+    console.log(e.currentTarget) //undefined
+    console.log(e)
+    // const id = e.currentTarget.id
+    const val = e.value
+    // console.log({ id, val })
+    // console.log(e.currentTarget)
+    // console.log(e)
 
-    setUpdateFD({ ...updateFD, [id]: val })
+    setUpdateFD({ ...updateFD, mbuAddressCity: val })
   }
 
   // -----檔案上傳-----
@@ -183,7 +188,7 @@ function UpdateInfo(props) {
 
   const updateSubmit = async (e) => {
     e.preventDefault()
-    const { data } = await axios.post(UPDATE_PASS, updateFD)
+    const { data } = await axios.put(PROFILE, updateFD)
 
     if (data.success) {
       alert('更新成功')
@@ -258,7 +263,11 @@ function UpdateInfo(props) {
                   <label className="s-ui-label">預設地址</label>
                   <div className="s-ui-selectAddress">
                     <Select
-                      value={city ? selectedCity(city) : ''}
+                      value={
+                        updateFD.mbuAddressCity
+                          ? selectedCity(updateFD.mbuAddressCity)
+                          : ''
+                      }
                       id="mbuAddressCity"
                       className="s-ui-address"
                       name={props?.cityName}
@@ -268,14 +277,20 @@ function UpdateInfo(props) {
                       placeholder="選擇城市"
                     />
                     <Select
-                      value={district ? selectedDistrict(district) : ''}
+                      value={
+                        updateFD.mbuAddressArea
+                          ? selectedDistrict(updateFD.mbuAddressArea)
+                          : ''
+                      }
                       id="mbuAddressArea"
                       className="s-ui-address"
                       name={props?.districtName}
                       // value={selectedDistrict(district)}
                       options={districts}
                       placeholder="選擇區域"
-                      onChange={(e) => setDistrict(e.value)}
+                      onChange={(e) => {
+                        setUpdateFD({ ...updateFD, mbuAddressArea: e.value })
+                      }}
                     />
                   </div>
                   <input
