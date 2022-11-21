@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+.p-PostWrap{
+   display: flex;
+   width: 100%;
+   position:relative;
+   .p-sideBarWrap{
+     position:fixed;
+   }
+   .p-containerWrap{
+    max-width: 1040px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+    position: relative;
+    left: 15%;
+    .p-CardWrap{
+    width: 100%;
+    display: flex;
+    margin-top:50px ;
+    justify-content: space-between;
+    .p-CardPost {
+        margin: 0 40px 0 0; 
+    .p-Card{
+    margin-top: 25px;
+    }
+  
+    }
+    .p-CardPostR{
+        margin-right:0; 
+    }
+
+  }
+  }  
+  .p-RecommendationWrap{
+    width: 100%;
+    position: relative;
+    left: 22%;
+    margin-top: 180px;
+    
+  }
+}
+
