@@ -9,6 +9,7 @@ import Schedule from './06-event/pages/06-event-03-schedule'
 import Map from './06-event/pages/06-event-04-map'
 import Ticket from './06-event/pages/06-event-05-ticket'
 
+
 function App() {
   return (
     <>
@@ -22,10 +23,10 @@ function App() {
         {/* </Routes> */}
         {/* </MyContextProviders> */}
         {/* <Top/> */}
-        {/* <Events/> */}
+        <Events/>
         {/* <Schedule /> */}
         {/* <Map /> */}
-        <Ticket />
+        {/* <Ticket /> */}
         
 
       </BrowserRouter>

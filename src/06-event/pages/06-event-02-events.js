@@ -1,8 +1,7 @@
 import '../styles/06-event-02-events.scss'
 
-import jLogo from '../svg/LOGO.svg'
-import jWorm from '../svg/worm.svg'
-import jMenu from '../svg/menu.svg'
+import Left from '../components/06-event-comp-left'
+import Right from '../components/06-event-comp-right'
 
 import jblueM from '../svg/blueMountain.svg'
 import jriceM from '../svg/riceMountain.svg'
@@ -15,68 +14,8 @@ function Events() {
   return (
     <>
       <div class="j-sides">
-        <div class="j-left">
-          <ul>
-            <li>
-              <img src={jLogo} alt="" />
-            </li>
-            <li>
-              <img src={jWorm} alt="" />
-            </li>
-            <li>
-              <div>所有活動</div>
-            </li>
-            <li>
-              <img src={jWorm} alt="" />
-            </li>
-            <li>
-              <div>時間表</div>
-            </li>
-            <li>
-              <img src={jWorm} alt="" />
-            </li>
-            <li>
-              <div>地圖</div>
-            </li>
-            <li>
-              <img src={jWorm} alt="" />
-            </li>
-            <li>
-              <div>我的票卷</div>
-            </li>
-            <li>
-              <img src={jWorm} alt="" />
-            </li>
-          </ul>
-        </div>
-        <div class="j-right">
-          <ul>
-            <li>
-              <img src={jMenu} alt="" />
-            </li>
-            <li>
-              <div class="j-right-banner">我的時間表</div>
-            </li>
-            <li>
-              <div></div>
-            </li>
-            <li>
-              <div></div>
-            </li>
-            <li>
-              <div></div>
-            </li>
-            <li>
-              <div></div>
-            </li>
-            <li>
-              <div></div>
-            </li>
-            <li>
-              <div></div>
-            </li>
-          </ul>
-        </div>
+        <Left />
+        <Right />
       </div>
       <div class="j-event-middle-events">
         <div class="j-cate-banner">
@@ -87,19 +26,19 @@ function Events() {
 
         <ul class="j-cate-group">
           <li>
-            <a href="#">劇場</a>
+            <a href="/#">劇場</a>
           </li>
           <li>
-            <a href="#">音樂</a>
+            <a href="/#">音樂</a>
           </li>
           <li>
-            <a href="#">VR體驗</a>
+            <a href="/#">VR體驗</a>
           </li>
           <li>
-            <a href="#">工作坊</a>
+            <a href="/#">工作坊</a>
           </li>
           <li>
-            <a href="#">講座</a>
+            <a href="/#">講座</a>
           </li>
         </ul>
 

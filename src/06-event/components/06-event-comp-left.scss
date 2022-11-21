@@ -1,0 +1,123 @@
+$colorBlue: #113f75;
+$colorYellow: #fad249;
+$colorOrange: #eb8e4c;
+$colorWhite: #ffffff;
+$colorLightGrey: #eeeeee;
+$colorDarkGrey: #4b646a;
+$colorMiddleGrey: #747474;
+$colorBrown: #986868;
+$colorList: #fdfcee;
+$colorLightBlue: #91d3f5;
+$colorGreen: #21a07d;
+$colorPurple: #9786df;
+$colorPink: #efc2d9;
+$colorLine: #cecece;
+$colorBlack: #000000;
+
+@mixin position($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// ----------------!!start!!------------------
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+html {
+  // filter: invert(1);
+
+  //change 1rem into 10px
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $colorWhite;
+}
+.j-left {
+  @include size(250px, 100vh);
+  background-color: $colorYellow;
+  ul {
+    @include size(100%, 100%);
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    li {
+      div {
+        width: 240px;
+        font-size: 2.3rem;
+        color: $colorWhite;
+        position: relative;
+        text-align: center;
+
+        &:hover {
+          color: $colorBlue;
+          &::after {
+            content: '';
+            background-image: url(../svg/tada.svg);
+            position: absolute;
+            background-repeat: no-repeat;
+            top: -16px;
+            left: 12px;
+            width: 250px;
+            height: 100px;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width:390px) {
+  .j-left {
+    @include size(250px, 100vh);
+    background-color: $colorYellow;
+    ul {
+      @include size(100%, 100%);
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      flex-direction: row !important;
+      justify-content: space-evenly;
+      align-items: center;
+      li {
+        div {
+          width: 240px;
+          font-size: 2.3rem;
+          color: $colorWhite;
+          position: relative;
+          text-align: center;
+  
+          &:hover {
+            color: $colorBlue;
+            &::after {
+              content: '';
+              background-image: url(../svg/tada.svg);
+              position: absolute;
+              background-repeat: no-repeat;
+              top: -16px;
+              left: 12px;
+              width: 250px;
+              height: 100px;
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
