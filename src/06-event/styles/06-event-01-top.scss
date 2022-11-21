@@ -40,24 +40,112 @@ html {
 }
 
 body {
+<<<<<<< HEAD
   background-color: $colorWhite;
 }
 .j-buleBack {
   @include size(100vw, 100vh);
   background-color: $colorBlue;
+=======
+    background-color: $colorBlue;
+>>>>>>> d4bf3ac978280075df3c3de5811d4709a09a4681
 }
 .j-sides {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+<<<<<<< HEAD
   @media (max-width: 390px) {
     display: none !important;
   }
+=======
+
+  .j-left {
+    @include size(250px, 100vh);
+    background-color: $colorYellow;
+
+    ul {
+      @include size(100%, 100%);
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+
+      li {
+        div {
+          width: 240px;
+          font-size: 2.3rem;
+          color: $colorWhite;
+          position: relative;
+          text-align: center;
+
+          &:hover {
+            color: $colorBlue;
+
+            &::after {
+              content: "";
+              background-image: url(../svg/tada.svg);
+              position: absolute;
+              background-repeat: no-repeat;
+              top: -16px;
+              left: 12px;
+              width: 250px;
+              height: 100px;
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .j-right {
+    @include size(300px, 100vh);
+    background-color: $colorYellow;
+
+    ul {
+        @include size(100%, 100%);
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+
+        li {
+            #right-banner {
+                @include size(240px, 70px);
+                font-size: 3.5rem;
+                font-weight: 900;
+                background-color: $colorWhite;
+                color: $colorBrown;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 0;
+                margin-top: 30px;
+
+            }
+
+            div {
+                @include size(240px, 4px);
+                background-color: $colorWhite;
+                border-radius: 4px;
+                margin-bottom: 100px;
+            }
+
+        }
+    }
+}
+>>>>>>> d4bf3ac978280075df3c3de5811d4709a09a4681
 }
 .j-middle-group-top {
   @include position(53%, 53%);
   @include size(800px, 500px);
   transform: translate(-50%, -50%);
+<<<<<<< HEAD
   @media (max-width: 390px) {
     @include position(45%, 48%);
     @include size(270px, 250px);
@@ -193,5 +281,50 @@ body {
         width: 25%;
       }
     }
+=======
+  .j-carrot{
+    z-index: 99;
+    @include position(-3%, 73%);
+    @include size(280px, 280px);
+    // outline: white 1px solid;
+    img{
+        width: 40%;
+    }
+  }
+  .j-circle {
+    @include position(-4%, -10%);
+    @include size(280px, 280px);
+    background-color: $colorOrange;
+    border-radius: 140px;
+  }
+  .j-tilt-circle {
+    @include position(25%, 56%);
+    @include size(120px, 120px);
+    background-color: $colorOrange;
+    border-radius: 60px;
+    transform: skewX(-65deg);
+  }
+  .j-rectangle {
+    @include position(60%, 26%);
+    @include size(500px, 60px);
+    background-color: $colorOrange;
+  }
+  .j-front-word-1 {
+    @include position(7%, 0%);
+    font-size: 13rem;
+    font-weight: 900;
+    color: $colorWhite;
+    letter-spacing: 1rem;
+    text-indent: 1rem;
+  }
+  .j-front-word-2 {
+    @include position(48%, 35%);
+    font-size: 7rem;
+    font-weight: 900;
+    color: $colorWhite;
+    letter-spacing: 0.5rem;
+    text-indent: 0.5rem;
+    transform: rotate(-4deg);
+>>>>>>> d4bf3ac978280075df3c3de5811d4709a09a4681
   }
 }
