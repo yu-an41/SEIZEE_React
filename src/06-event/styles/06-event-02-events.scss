@@ -44,6 +44,9 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @media (max-width: 390px){
+    
+  }
 }
 .j-event-middle-events {
   //   outline: 1px black solid;
@@ -157,7 +160,7 @@ body {
       @include position(16%, -2%);
       @media (max-width: 390px) {
         transform: scale(0.4);
-        @include position(27%, -40%);
+        @include position(30%, -40%);
         // &:hover {
         //   transform: scale(0.4);
         //   @include position(24%, -40%);
@@ -169,7 +172,7 @@ body {
         transform: translateY(-16%);
         @media (max-width: 390px) {
           transform: scale(0.4);
-          @include position(27%, -40%);
+          @include position(30%, -40%);
           transform: translateY(-10px);
         }
       }
@@ -180,14 +183,14 @@ body {
       @include position(16%, 20%);
       @media (max-width: 390px) {
         transform: scale(0.4);
-        @include position(27%, -19%);
+        @include position(30%, -19%);
       }
       &:hover {
         transform: scale(1);
         transform: translateY(-16%);
         @media (max-width: 390px) {
           transform: scale(0.4);
-          @include position(27%, -19%);
+          @include position(30%, -19%);
         }
       }
     }
@@ -198,14 +201,14 @@ body {
       @include position(16%, 43%);
       @media (max-width: 390px) {
         transform: scale(0.4);
-        @include position(27%, 4%);
+        @include position(30%, 4%);
       }
       &:hover {
         transform: scale(1);
         transform: translateY(-16%);
         @media (max-width: 390px) {
           transform: scale(0.4);
-          @include position(27%, 4%);
+          @include position(30%, 4%);
         }
       }
     }
@@ -215,7 +218,7 @@ body {
       @include position(16%, 65%);
       @media (max-width: 390px) {
         transform: scale(0.4);
-        @include position(27%, 27%);
+        @include position(30%, 27%);
       }
       &:hover {
         transform: scale(1);
@@ -236,7 +239,6 @@ body {
       padding: 15px 15px;
     }
     .j-lego {
-      @include size(100%, 700px);
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 95px 1fr 80px;
@@ -247,6 +249,7 @@ body {
         'image image text'
         'image image sold';
       @media (max-width: 390px) {
+        @include size(100%, 700px);
         @include size(100%, 500px);
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;

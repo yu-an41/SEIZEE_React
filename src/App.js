@@ -7,28 +7,28 @@ import Menu from './components/Menu'
 // 00-homepage
 import Homepage from './00-homepage/pages/Homepage'
 
-// 01-cart
-import CartList from './01-cart/pages/CartList'
+// // 01-cart
+// import CartList from './01-cart/pages/CartList'
 
-// 02-forum
-import PostCook from './02-forum/pages/Post_cook'
-import ForumHome from './02-forum/pages/ForumHome'
+// // 02-forum
+// import PostCook from './02-forum/pages/Post_cook'
+// import ForumHome from './02-forum/pages/ForumHome'
 
-// 03-shop
-import ShopList from './03-shop/03-shop-list'
-import ShopHome from './03-shop/03-shop-home'
+// // 03-shop
+// import ShopList from './03-shop/03-shop-list'
+// import ShopHome from './03-shop/03-shop-home'
 
-// 05-member
-import UserSign from './05-member/UserSign'
-import ResetPass from './05-member/ResetPass'
-import ForgotPass from './05-member/ForgotPass'
-import UserProfile from './05-member/UserProfile'
+// // 05-member
+// import UserSign from './05-member/UserSign'
+// import ResetPass from './05-member/ResetPass'
+// import ForgotPass from './05-member/ForgotPass'
+// import UserProfile from './05-member/UserProfile'
 
 // 06-event
 // import Top from './06-event/pages/06-event-01-top'
 import HeadWave from './components/HeadWave'
-import Top from './06-event/pages/06-event-01-top'
 
+import Top from './06-event/pages/06-event-01-top'
 import Events from './06-event/pages/06-event-02-events'
 import Schedule from './06-event/pages/06-event-03-schedule'
 import Map from './06-event/pages/06-event-04-map'
@@ -61,14 +61,13 @@ function App() {
           <Route path="/profile" element={<UserProfile />} /> */}
 
             {/* 06-event */}
-            {/* <div className="container"> */}
-            {/* <div className="row top-section">
-            </div>
-          </div> */}
+            <Route path="/top" element={<Top />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/map" element={<Map />} />
+            <Route path="/ticket" element={<Ticket />} />
           </Routes>
         </MyContextProviders>
-
-        <Top />
       </BrowserRouter>
     </>
   )
