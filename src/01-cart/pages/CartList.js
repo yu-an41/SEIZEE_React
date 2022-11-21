@@ -5,6 +5,7 @@ import './../styles/CartList.scss'
 // components
 import NavBar from '../../00-homepage/components/NavBar'
 import OpenHoursBtn from '../components/OpenHoursBtn'
+import PickupHoursBtn from '../components/PickupHoursBtn'
 
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
@@ -69,10 +70,21 @@ function CartList() {
                 </ul>
               </div>
               <div className="y-Cart-shop-pickup">
-                <p className="y-Cart-pickup-title">取餐資訊</p>
-                <li className="y-Cart-pickup-time">取餐時間： 11:00-20:30</li>
-                <li></li>
-                <li></li>
+                <div className="y-Cart-pickup-top">
+                  <p className="y-Cart-pickup-title">取餐資訊</p>
+                  <div className="y-Cart-pickup-status">
+                    <PickupHoursBtn />
+                  </div>
+                </div>
+                <ul className="y-Cart-pickup-bottom">
+                  <li className="y-Cart-pickup-time">取餐時間： 11:00-20:30</li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <div className="y-Cart-pickup-border">
+                  <div className="y-Cart-pickup-icon"></div>
+                  <div className="y-Cart-pickup-info"></div>
+                </div>
               </div>
             </div>
           </div>
