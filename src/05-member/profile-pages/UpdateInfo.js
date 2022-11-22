@@ -3,7 +3,7 @@ import '.././style/profile-pages/UpdateInfo.scss'
 import React, { useEffect, useRef, useState } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
 import { DistrictData } from '../data/DistrictData'
-import { map, find, propEq, forEach, isNil, update } from 'ramda'
+import { map, find, propEq, forEach, isNil } from 'ramda'
 import Select from 'react-select'
 import axios from 'axios'
 import { PROFILE } from '../../my-config'
@@ -175,7 +175,7 @@ function UpdateInfo(props) {
 
   async function getList() {
     const response = await axios.get(`${PROFILE}${sid}`)
-    setListData(response.data)
+    // setListData(response.data)
     console.log(response.data.row)
     console.log(response)
 

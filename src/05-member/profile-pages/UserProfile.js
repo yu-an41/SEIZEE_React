@@ -1,9 +1,55 @@
 import '.././style/profile-pages/UserProfile.scss'
 import { Link } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
+import { useParams, useLocation } from 'react-router-dom'
+import axios from 'axios'
+import { PROFILE } from '../../my-config'
+import dayjs from 'dayjs'
 
 function UserProfile() {
+  // -----取得sid-----
+  const { sid } = useParams()
+
+  // -----會員資料-----
+  // 會員資料
+  const [listFD, setListFD] = useState({
+    mbpPhoto: '',
+    mbpName: '',
+    mbpEmail: '',
+    mbpGender: '',
+    mbpAddressCity: '',
+    mbpAddressArea: '',
+    mbpAddressDetail: '',
+    mbpPhone: '',
+  })
+
+  // 讀取資料
+  const location = useLocation()
+
+  async function getList() {
+    const response = await axios.get(`${PROFILE}${sid}`)
+    // setListData(response.data)
+    console.log(response.data.row)
+    // console.log(response)
+
+    setListFD({
+      ...listFD,
+      mbpPhoto: response.data.row.mb_photo,
+      mbpName: response.data.row.mb_name,
+      mbpEmail: response.data.row.mb_email,
+      mbpPhone: response.data.row.mb_phone,
+      mbpDate: response.data.row.mb_created_at,
+    })
+  }
+
+  useEffect(() => {
+    // console.log(2);
+    getList()
+  }, [location])
+
+  const day = dayjs(listFD.mbpDate)
+
   return (
     <>
       <div className="s-body-profile">
@@ -17,24 +63,34 @@ function UserProfile() {
                   <img className="s-up-img" src="/05-member/ghost.png" alt="" />
                 </div>
                 <div className="s-up-content">
-                  <h2 className="s-up-username">Alina Smith</h2>
+                  <h2 className="s-up-username" id="mbpName">
+                    {listFD.mbpName}
+                  </h2>
                   <div className="s-up-details">
                     <div className="s-up-data">
                       <div className="s-up-items">
                         <h3 className="s-up-question">使用者名稱</h3>
-                        <span className="s-up-answer">Sharon Yu</span>
+                        <span className="s-up-answer" id="mbpName">
+                          {listFD.mbpName}
+                        </span>
                       </div>
                       <div className="s-up-items">
                         <h3 className="s-up-question">電子郵件</h3>
-                        <span className="s-up-answer">yu5286pp@gmail.com</span>
+                        <span className="s-up-answer" id="mbpEmail">
+                          {listFD.mbpEmail}
+                        </span>
                       </div>
                       <div className="s-up-items">
                         <h3 className="s-up-question">電話號碼</h3>
-                        <span className="s-up-answer">0917761328</span>
+                        <span className="s-up-answer" id="mbpPhone">
+                          {listFD.mbpPhone}
+                        </span>
                       </div>
                       <div className="s-up-items">
                         <h3 className="s-up-question">成為SEIZEE會員時間</h3>
-                        <span className="s-up-answer">2022/10/30</span>
+                        <span className="s-up-answer" id="mbpDate">
+                          {day.isValid() && day.format('YYYY-MM-DD')}
+                        </span>
                       </div>
                     </div>
                     <div className="s-up-actionBtns">
