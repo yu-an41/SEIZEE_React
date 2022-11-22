@@ -63,8 +63,7 @@ function UpdateInfo(props) {
   const [district, setDistrict] = useState(props?.district)
   // 被選縣市
   const [city, setCity] = useState(queryByDistrict(district)?.city)
-
-  console.log(city)
+  // console.log(city)
   // 被選縣市的相依區域
   const [districts, setDistricts] = useState(null)
 
@@ -192,6 +191,9 @@ function UpdateInfo(props) {
       mbuPhone: response.data.row.mb_phone,
       // mbuSid: response.data.row.mb_sid,
     })
+
+    // document.getElementById('mbuAddressDetail').value = updateFD.mbuAddressDetail
+    // document.getElementById('mbuPhone').value = updateFD.mbuPhone
   }
 
   // console.log(updateFD)
@@ -213,6 +215,9 @@ function UpdateInfo(props) {
     console.log({ id, val })
 
     setUpdateFD({ ...updateFD, [id]: val })
+
+    // document.getElementById('mbuAddressDetail').value =
+    //   updateFD.mbuAddressDetail
   }
 
   const radioGenderHandler = (e) => {
@@ -246,6 +251,21 @@ function UpdateInfo(props) {
     }
   }
 
+  // const updateSubmit = async (e) => {
+  //   e.preventDefault()
+  //   const fd = new FormData()
+  //   fd.append('mb_photo', selectedFile)
+
+  //   axios({
+  //     method: 'put',
+  //     url: `${PROFILE}${sid}`,
+  //     data: fd,
+  //     headers: { 'Content-Type': 'multipart/form-data' },
+  //   })
+  //     .then((r) => r.json())
+  //     .then((obj) => console.log(obj))
+  // }
+
   return (
     <>
       <div className="s-body-profile">
@@ -275,7 +295,7 @@ function UpdateInfo(props) {
                 <div className="s-ui-details">
                   <div className="s-ui-block1">
                     <div className="s-ui-block2">
-                      <label className="s-ui-question">姓名: </label>
+                      <label className="s-ui-question">使用者名稱: </label>
                       <div className="s-ui-answer" id="mbuName">
                         {updateFD.mbuName}
                       </div>
@@ -355,7 +375,7 @@ function UpdateInfo(props) {
                     id="mbuAddressDetail"
                     placeholder="請輸入地址"
                     onChange={updateHandler}
-                    value={updateFD.mbuAddressDetail}
+                    // value={updateFD.mbuAddressDetail}
                   />
                   <label className="s-ui-label">聯絡電話</label>
                   <input
@@ -364,7 +384,7 @@ function UpdateInfo(props) {
                     id="mbuPhone"
                     placeholder="請輸入連絡電話"
                     onChange={updateHandler}
-                    value={updateFD.mbuPhone}
+                    // value={updateFD.mbuPhone}
                   />
                 </div>
                 <div className="s-ui-actionBtns">
