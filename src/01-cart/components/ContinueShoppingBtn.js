@@ -6,9 +6,9 @@ function ContinueShoppingBtn() {
   }
 
   return (
-    <div className="y-remove-item-border">
-      <p className="y-remove-item" onClick={ContinueShopping}>
-        清空購物車
+    <div className="y-continue-shopping-border">
+      <p className="y-continue-shopping" onClick={ContinueShopping}>
+        繼續逛逛
       </p>
     </div>
   )

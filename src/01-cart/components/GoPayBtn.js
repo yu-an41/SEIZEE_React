@@ -8,7 +8,7 @@ function GoPayBtn() {
   return (
     <div className="y-go-pay-border">
       <p className="y-go-pay" onClick={GoPay}>
-        清空購物車
+        前往結賬
       </p>
     </div>
   )

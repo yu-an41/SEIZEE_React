@@ -33,12 +33,13 @@ $border-radius-button: 8px;
 .y-continue-shopping-border {
     border-radius: $border-radius-button;
     border: $border-white-sm;
-    background-color: $btn-pink;
+    background-color: $btn-green;
     padding: 2px 20px;
     display: none;
+    width: 200px;
     
     .y-continue-shopping {
-        color: #fff;
+        color: $main-text;
         font-size: 14px;
         font-weight: bold;
         letter-spacing: 2px;

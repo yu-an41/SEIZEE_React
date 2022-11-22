@@ -33,12 +33,13 @@ $border-radius-button: 8px;
 .y-go-pay-border {
     border-radius: $border-radius-button;
     border: $border-white-sm;
-    background-color: $btn-pink;
+    background-color: $main-yellow;
     padding: 2px 20px;
     display: none;
+    width: 200px;
     
     .y-go-pay {
-        color: #fff;
+        color: $main-text;
         font-size: 14px;
         font-weight: bold;
         letter-spacing: 2px;

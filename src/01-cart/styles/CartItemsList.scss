@@ -1,5 +1,5 @@
 $main-yellow: #FAD249;
-$main-blue: #2B325C;
+$main-blue: #113F75;
 $main-text: #5E5E5E;
 
 $btn-red: #ED4743;
@@ -95,12 +95,13 @@ $border-radius-button: 8px;
 
             select {
                 background-color: $main-yellow;
-                color: white;
+                color: $main-blue;
                 width: 100px;
                 padding: 8px 16px;
                 padding-right: 36px;
                 position: relative;
                 border: $border-white-lg;
+                // box-shadow: $btn-shadow-lg;
                 border-radius: $border-radius-button;
                 appearance:none;
                 -moz-appearance:none;

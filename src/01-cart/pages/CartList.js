@@ -10,6 +10,8 @@ import EmptyCartBtn from '../components/EmptyCartBtn'
 import CartItemsList from '../components/CartItemsList'
 import ContinueShoppingBtn from '../components/ContinueShoppingBtn'
 import GoPayBtn from '../components/GoPayBtn'
+import RecMerch from '../components/RecMerch'
+import Footer from './../../components/Footer'
 
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
@@ -99,7 +101,7 @@ function CartList() {
               </div>
             </div>
           </div>
-          <div className="y-Cart-details">
+          <div className="y-Cart-details y-Cart-sections">
             <div className="y-empty-cart-wrap">
               <EmptyCartBtn />
             </div>
@@ -147,14 +149,39 @@ function CartList() {
               </div>
             </div>
           </div>
-          <div className="y-Cart-rec">rec</div>
+          <div className="y-Cart-rec  y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
+            <div className="y-Cart-rec-top">
+              <p className="y-Cart-rec-header">
+                以下是來自「好ㄘ早午餐」的更多寶物，錯過會很可惜的...
+              </p>
+            </div>
+            <div className="y-Cart-rec-bottom">
+              <div className="y-Cart-rec-row">
+                <div className="y-Cart-rec-wrap">
+                  <RecMerch />
+                </div>
+                <div className="y-Cart-rec-wrap">
+                  <RecMerch />
+                </div>
+                <div className="y-Cart-rec-wrap">
+                  <RecMerch />
+                </div>
+                <div className="y-Cart-rec-wrap">
+                  <RecMerch />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="y-Cart-bottom">
           bottom
           {/* <YellowWaveReverse /> */}
           <div className="y-Cart-rec">rec</div>
           <div className="y-Cart-news">news</div>
-          <div className="y-cart-footer"></div>
+          <div className="y-cart-footer">
+            <Footer />
+          </div>
         </div>
       </div>
     </>
