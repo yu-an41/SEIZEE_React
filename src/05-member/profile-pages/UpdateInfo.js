@@ -7,7 +7,7 @@ import { map, find, propEq, forEach, isNil, update } from 'ramda'
 import Select from 'react-select'
 import axios from 'axios'
 import { PROFILE } from '../../my-config'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 
 // selectedCity
 const selectedCity = (cityName) => ({ value: cityName, label: cityName })
@@ -170,6 +170,19 @@ function UpdateInfo(props) {
 
   // ====================================
   // 讀取資料
+  const location = useLocation()
+
+  async function getList() {
+    const response = await axios.get(`${PROFILE}${sid}`)
+    setListData(response.data)
+
+    console.log(listData)
+  }
+
+  useEffect(() => {
+    // console.log(2);
+    getList()
+  }, [location])
 
   // ====================================
   // 更新資料
