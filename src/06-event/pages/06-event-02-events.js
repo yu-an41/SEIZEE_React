@@ -1,7 +1,5 @@
 import '../styles/06-event-02-events.scss'
-
-import Left from '../components/06-event-comp-left'
-import Right from '../components/06-event-comp-right'
+import React, { useState } from 'react'
 
 import jblueM from '../svg/blueMountain.svg'
 import jriceM from '../svg/riceMountain.svg'
@@ -10,13 +8,40 @@ import jorangeM from '../svg/orangeMountain.svg'
 
 import jcardImage from '../img/dontTouch-02.jpeg'
 
+const jObjArray = [
+  {
+    id: 1,
+    title: 'title test 1',
+    text: 'text test 1',
+    img: 'img test 1',
+    sale: 'sale test 1',
+  },
+  {
+    id: 2,
+    title: 'title test 2',
+    text: 'text test 2',
+    img: 'img test 2',
+    sale: 'sale test 2',
+  },
+  {
+    id: 3,
+    title: 'title test 3',
+    text: 'text test 3',
+    img: 'img test 3',
+    sale: 'sale test 3',
+  },
+  {
+    id: 4,
+    title: 'title test 4',
+    text: 'text test 4',
+    img: 'img test 4',
+    sale: 'sale test 4',
+  },
+]
+
 function Events() {
   return (
     <>
-      <div class="j-sides">
-        <Left />
-        <Right />
-      </div>
       <div class="j-event-middle-events">
         <div class="j-cate-banner">
           <div class="j-cate-banner-deco">
@@ -26,19 +51,19 @@ function Events() {
 
         <ul class="j-cate-group">
           <li>
-            <a href="/#">劇場</a>
+            <div>劇場</div>
           </li>
           <li>
-            <a href="/#">音樂</a>
+            <div>音樂</div>
           </li>
           <li>
-            <a href="/#">VR體驗</a>
+            <div>VR體驗</div>
           </li>
           <li>
-            <a href="/#">工作坊</a>
+            <div>工作坊</div>
           </li>
           <li>
-            <a href="/#">講座</a>
+            <div>講座</div>
           </li>
         </ul>
 

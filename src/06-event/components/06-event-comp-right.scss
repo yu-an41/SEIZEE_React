@@ -23,7 +23,9 @@ $colorLine: #cecece;
   height: $height;
 }
 .j-right-wrap {
-  width: 50%;
+  position: fixed;
+  right: 0;
+  width: 43%;
   display: flex;
   .j-Rwave {
     margin-right: -2px;

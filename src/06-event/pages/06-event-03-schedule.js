@@ -1,18 +1,11 @@
 import '../styles/06-event-03-schedule.scss'
 
-import Left from '../components/06-event-comp-left'
-import Right from '../components/06-event-comp-right'
-
 import jStar from '../svg/star.svg'
 import jHeart from '../svg/heart-none.svg'
 
 function Schedule() {
   return (
     <>
-      <div class="j-sides">
-        <Left />
-        <Right />
-      </div>
       <div class="j-event-middle-schedule">
         <div class="j-cate-banner">
           <div class="j-cate-banner-deco">

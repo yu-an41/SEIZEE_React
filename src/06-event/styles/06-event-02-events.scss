@@ -49,6 +49,7 @@ body {
   }
 }
 .j-event-middle-events {
+  z-index: 100;
   //   outline: 1px black solid;
   @include position(47%, 49%);
   @include size(1100px, 900px);
@@ -100,7 +101,7 @@ body {
     }
     li {
       position: relative;
-      a {
+      div {
         // outline: 3px solid $colorDarkGrey;
         display: block;
         cursor: pointer;

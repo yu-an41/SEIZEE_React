@@ -1,18 +1,11 @@
 import '../styles/06-event-05-ticket.scss'
 
-import Left from '../components/06-event-comp-left'
-import Right from '../components/06-event-comp-right'
-
 import jBang from '../img/bang.png'
 import jTicket from '../img/ticket.png'
 
 function Ticket() {
   return (
     <>
-      <div class="j-sides">
-        <Left />
-        <Right />
-      </div>
       <div class="j-event-middle-ticket">
         <div class="j-cate-banner">
           <div class="j-cate-banner-deco">

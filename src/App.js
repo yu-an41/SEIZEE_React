@@ -33,6 +33,7 @@ import Events from './06-event/pages/06-event-02-events'
 import Schedule from './06-event/pages/06-event-03-schedule'
 import Map from './06-event/pages/06-event-04-map'
 import Ticket from './06-event/pages/06-event-05-ticket'
+import Eventrender from './06-event/pages/06-event-00-Render'
 
 function App() {
   return (
@@ -61,11 +62,12 @@ function App() {
           <Route path="/profile" element={<UserProfile />} /> */}
 
             {/* 06-event */}
-            <Route path="/top" element={<Top />} />
+            {/* <Route path="/top" element={<Top />} />
             <Route path="/events" element={<Events />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/map" element={<Map />} />
-            <Route path="/ticket" element={<Ticket />} />
+            <Route path="/ticket" element={<Ticket />} /> */}
+            <Route path="/Eventrender" element={<Eventrender />} />
           </Routes>
         </MyContextProviders>
       </BrowserRouter>

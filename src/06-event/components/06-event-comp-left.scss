@@ -44,6 +44,7 @@ body {
   background-color: $colorWhite;
 }
 .j-left-wrap {
+  position: fixed;
   width: 70%;
   display: flex;
   .j-left {
@@ -72,7 +73,7 @@ body {
               background-image: url(../svg/tada.svg);
               position: absolute;
               background-repeat: no-repeat;
-              top: -16px;
+              top: -28px;
               left: 12px;
               width: 250px;
               height: 100px;
@@ -86,7 +87,7 @@ body {
   .j-wave {
     margin-left: -2px;
     width: 50%;
-    @media (max-width: 390px){
+    @media (max-width: 390px) {
       transform: rotate(90%);
     }
   }

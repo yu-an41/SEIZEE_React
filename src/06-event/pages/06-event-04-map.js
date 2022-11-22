@@ -1,8 +1,5 @@
 import '../styles/06-event-04-map.scss'
 
-import Left from '../components/06-event-comp-left'
-import Right from '../components/06-event-comp-right'
-
 import jCloud1 from '../svg/cloud1.svg'
 import jCloud2 from '../svg/cloud2.svg'
 import jCloud3 from '../svg/cloud3.svg'
@@ -14,13 +11,9 @@ import jJuice from '../img/juice.png'
 import jStage from '../img/stage.png'
 import jCyber from '../img/augmented-reality.png'
 
-function Map() {
+function Maps() {
   return (
     <>
-      <div class="j-sides">
-        <Left />
-        <Right />
-      </div>
       <div class="j-event-middle-map">
         <div class="j-cate-banner">
           <div class="j-cate-banner-deco">
@@ -78,4 +71,4 @@ function Map() {
   )
 }
 
-export default Map
+export default Maps

@@ -4,7 +4,7 @@ import jLogo from '../svg/LOGO.svg'
 import jWorm from '../svg/worm.svg'
 import YellowWave from './YellowWave'
 
-function Left() {
+function Left({ setNowPage }) {
   return (
     <>
       <div className="j-left-wrap">
@@ -16,26 +16,46 @@ function Left() {
             <li>
               <img src={jWorm} alt="" />
             </li>
-            <li>
-              <div>所有活動</div>
+            <li
+              onClick={(e) => {
+                e.preventDefault()
+                setNowPage(1)
+              }}
+            >
+              <div href="/events">所有活動</div>
             </li>
             <li>
               <img src={jWorm} alt="" />
             </li>
-            <li>
-              <div>時間表</div>
+            <li
+              onClick={(e) => {
+                e.preventDefault()
+                setNowPage(2)
+              }}
+            >
+              <div href="/schedule">時間表</div>
             </li>
             <li>
               <img src={jWorm} alt="" />
             </li>
-            <li>
-              <div>地圖</div>
+            <li
+              onClick={(e) => {
+                e.preventDefault()
+                setNowPage(3)
+              }}
+            >
+              <div href="/map">場域地圖</div>
             </li>
             <li>
               <img src={jWorm} alt="" />
             </li>
-            <li>
-              <div>我的票卷</div>
+            <li
+              onClick={(e) => {
+                e.preventDefault()
+                setNowPage(4)
+              }}
+            >
+              <div href="/ticket">我的票卷</div>
             </li>
             <li>
               <img src={jWorm} alt="" />

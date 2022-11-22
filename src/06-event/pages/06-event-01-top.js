@@ -1,8 +1,5 @@
 import '../styles/06-event-01-top.scss'
 
-import Left from '../components/06-event-comp-left'
-import Right from '../components/06-event-comp-right'
-
 import carrot from '../svg/carrot.svg'
 import tCircle from '../svg/tiltCircle.svg'
 import jSeizee from '../svg/SEIZEE.svg'
@@ -38,10 +35,6 @@ function Top() {
           <div class="j-star3">
             <img src={jOGstar} alt="" />
           </div>
-        </div>
-        <div class="j-sides">
-          <Left />
-          <Right />
         </div>
       </div>
     </>
