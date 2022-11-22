@@ -11,7 +11,7 @@ function RecMerch() {
         <img src={RecMerchPic} />
       </div>
       <div className="y-rec-merch-info">
-        <p className="y-rec-merch-name">料多到爆炸無敵好吃潛艇堡</p>
+        <p className="y-rec-merch-name">料多到爆炸好吃潛艇堡</p>
         <div className="y-rec-merch-bottom">
           <p className="y-rec-merch-price">$105</p>
           <p className="y-rec-merch-sale">$59</p>

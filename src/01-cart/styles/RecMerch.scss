@@ -32,12 +32,13 @@ $border-radius-button: 8px;
 
 .y-rec-merch-border {
     border: $border-lg;
+    max-width: 295px;
 
     .y-rec-merch-pic { 
         border-bottom:  $border-lg;
         width: 100%;
         aspect-ratio: 1/1;
-        
+        background-color: #ccc;
         img {
             width: 100%;
 
@@ -46,16 +47,18 @@ $border-radius-button: 8px;
 
     .y-rec-merch-info {
         width: 100%;
-        padding: 30px 24px;
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: space-between;
+        padding: 24px 20px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
         .y-rec-merch-name {
             font-size: 24px;
             letter-spacing: 2px;
             font-weight: bold;
             margin-bottom: 24px;
+            flex-grow: 1;
         }
     
         .y-rec-merch-bottom {
@@ -67,11 +70,12 @@ $border-radius-button: 8px;
 
             .y-rec-merch-price {
                 text-decoration: line-through;
+                font-size: 20px;
             }
     
             .y-rec-merch-sale {
                 font-weight: bold;
-                font-size: 24px;
+                font-size: 22px;
                 color: $btn-red;
             }
     
@@ -80,11 +84,11 @@ $border-radius-button: 8px;
                 select {
                     background-color: $main-yellow;
                     color: $main-blue;
-                    width: 80px;
+                    width: 75px;
                     padding: 8px 16px;
-                    padding-right: 8px;
+                    // padding-right: 8px;
                     position: relative;
-                    border: $border-white-lg;
+                    border: $border-lg;
                     // box-shadow: $btn-shadow-lg;
                     border-radius: $border-radius-button;
                     appearance:none;
@@ -112,7 +116,7 @@ $border-radius-button: 8px;
                 height: 40px;
                 background-color: $main-yellow;
                 border-radius: $border-radius-button;
-                border: $border-white-lg;
+                border: $border-lg;
 
                 img {
                     width: 100%;
