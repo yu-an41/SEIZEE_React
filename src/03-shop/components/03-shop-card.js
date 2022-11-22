@@ -1,58 +1,63 @@
+import { useEffect } from 'react'
 import { imgUrl, imgServerUrl } from '../shop-config'
 
-function ShopCard({ shops }) {
-  // console.log(shops)
+function ShopCard({ filterShop }) {
+  // console.log(filterShop)
   return (
     <>
       <div className="r-card-wrap">
-        {shops.map((v, i) => {
+        {filterShop.map((v, i) => {
           return (
-            <div className="r-col" key={v.sid}>
+            <div className="r-col" key={v[0].sid}>
               <div className="r-card-container">
                 <div className="r-card-img-wrap">
                   <span>營業中</span>
                   <img
-                    src={`${imgServerUrl}/images/03-shop/${v.shop_cover}`}
+                    src={`${imgServerUrl}/images/03-shop/${v[0].shop_cover}`}
                     alt=""
                   />
                 </div>
                 <div className="r-card-body">
-                  <h2>{v.shop_name}</h2>
+                  <h2>{v[0].shop_name}</h2>
+                  <div className="r-card-body-cates">
+                    {v[1].map((v, i) => {
+                      return <span key={i}>{v}</span>
+                    })}
+                  </div>
                   <div className="r-card-week-btn">
-                    <small style={v.shop_mon ? {} : { background: '#ccc' }}>
+                    <small style={v[0].shop_mon ? {} : { background: '#ccc' }}>
                       一
                     </small>
-                    <small style={v.shop_tue ? {} : { background: '#ccc' }}>
+                    <small style={v[0].shop_tue ? {} : { background: '#ccc' }}>
                       二
                     </small>
-                    <small style={v.shop_wed ? {} : { background: '#ccc' }}>
+                    <small style={v[0].shop_wed ? {} : { background: '#ccc' }}>
                       三
                     </small>
-                    <small style={v.shop_thu ? {} : { background: '#ccc' }}>
+                    <small style={v[0].shop_thu ? {} : { background: '#ccc' }}>
                       四
                     </small>
-                    <small style={v.shop_fri ? {} : { background: '#ccc' }}>
+                    <small style={v[0].shop_fri ? {} : { background: '#ccc' }}>
                       五
                     </small>
-                    <small style={v.shop_sat ? {} : { background: '#ccc' }}>
+                    <small style={v[0].shop_sat ? {} : { background: '#ccc' }}>
                       六
                     </small>
-                    <small style={v.shop_sun ? {} : { background: '#ccc' }}>
+                    <small style={v[0].shop_sun ? {} : { background: '#ccc' }}>
                       日
                     </small>
                   </div>
-                  <p>{v.shop_cate}</p>
-                  <p>{v.shop_phone}</p>
+                  <p>{v[0].shop_phone}</p>
                   <p>
                     營業時間:
                     <span>
-                      {v.shop_opentime}-{v.shop_closetime}
+                      {v[0].shop_opentime}-{v[0].shop_closetime}
                     </span>
                   </p>
                   <p>
-                    {v.shop_city}
-                    {v.shop_area}
-                    {v.shop_address_detail}
+                    {v[0].shop_city}
+                    {v[0].shop_area}
+                    {v[0].shop_address_detail}
                   </p>
 
                   <div className="r-card-button">
