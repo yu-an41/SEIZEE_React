@@ -75,6 +75,7 @@ $border-radius-button: 8px;
             padding: 0 30px;
             background-color: #fff;
             position: fixed;
+
             .y-progress-wrap{
                 width: 100%;
                 padding: 10px 12px 6px;
@@ -128,8 +129,8 @@ $border-radius-button: 8px;
                 }
                 
                 .y-progress-name {
-                    width: 73%;
-                    margin-left: auto;
+                    width: 100%;
+                    // margin-left: auto;
                     display: flex;
                     justify-content: space-between;
 
@@ -142,7 +143,7 @@ $border-radius-button: 8px;
                 .y-progress-icon {
                     position: absolute;
                     top: -1px;
-                    left: 35%;
+                    left: calc($progress-width + 2px);
                     width: 32px;
                     aspect-ratio: 1/1;
                     transform: scaleX(-1) translateX(50%);
@@ -160,7 +161,8 @@ $border-radius-button: 8px;
     .y-Cart-middle {
         padding: 0 30px;
         padding-top: 75px;
-        background-color: #ddd;
+        // background-color: #ddd; 
+        background-color: #fdefc2;
 
         li {
             list-style: none;
@@ -175,25 +177,18 @@ $border-radius-button: 8px;
             padding: 10px;
 
             .y-Cart-shop-border {
-                // border: $border-sm;
-                // border-radius: $border-radius-button;
                 overflow: hidden;
 
                 .y-Cart-shop-cover{
                     width: 100%;
                     height: 180px;
-                    // padding: 10px;
-                    background-color: #fff;
-                    overflow: hidden;
-                    // border-bottom: $border-sm;
                     display: none;
                     
                     img {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
-                        object-position: 50% 50%;
-                        
+                        // object-position: 50% 50%;
                     }
                 }
 
@@ -238,23 +233,20 @@ $border-radius-button: 8px;
 
                 .y-Cart-shop-pickup {
                     background-color: #fff;
-                    // border-bottom: $border-sm;
                     padding: 25px 20px;
                     // border-radius: $border-radius-button;
-
+                    position: relative;
                     .y-Cart-pickup-top {
+                        width: 100%;
                         display: flex;
                         justify-content: space-between;
-                        align-items: center;
-                        
+                        padding-bottom: 40px;
                         .y-Cart-pickup-title {
                             // font-size: 18px;
                             color: $main-blue;
                             margin-bottom: 16px;
-                            p {
-                                font-weight: bold;
-                                line-height: 30px;
-                            }
+                            font-weight: bold;
+                            line-height: 30px;
                             
                         }
 
@@ -270,13 +262,38 @@ $border-radius-button: 8px;
                     }
 
                     .y-Cart-pickup-border {
-                        background-color: #91D3F5;
-                        .y-Cart-pickup-icon {
+                            width: 128px;
+                            height: 80px;
+                            // aspect-ratio: 1/1;
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                            // z-index: 5;
+                            background-color: #91D3F5;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            border: $border-sm;
 
+                        .y-Cart-pickup-icon {
+                            width: 30px;
+
+                            img {
+                                width: 100%;
+                                object-fit: cover;
+                            }
                         }
 
                         .y-Cart-pickup-info {
+                            .y-Cart-pickup-info-sm {
+                                font-weight: bold;
+                                font-size: 14px;
+                            }
 
+                            .y-Cart-pickup-info-lg {
+                                display: none;
+                            }
                         }
                     }
                 }
@@ -284,7 +301,58 @@ $border-radius-button: 8px;
             
         }
 
+        .y-Cart-details {
 
+            .y-empty-cart-wrap {
+
+            }
+            
+            .y-Cart-tab {
+
+            }
+
+            .y-Cart-details-tab {
+
+            }
+
+            .y-Cart-details-top {
+
+                .y-Cart-details-header {
+
+                }
+
+                .y-Cart-details-name {
+
+                }
+
+                .y-Cart-details-price {
+
+                }
+
+                .y-Cart-details-quantity {
+
+                }
+
+                .y-Cart-details-unit {
+
+                }
+
+                .y-Cart-details-actions {
+
+                }
+            }
+
+            .y-Cart-details-area {
+                
+                .y-Cart-details-row {
+                        
+                }
+            }
+        }
+
+        .y-Cart-rec {
+
+        }
     }
 
     .y-Cart-bottom{
@@ -311,57 +379,52 @@ $border-radius-button: 8px;
     .y-CartList-container {
         position: relative;
         .y-Cart-nav {
-            width: 100%;
-            // padding-top: 45px;
     
             .y-Cart-wave-base {
-                width: 100%;
                 height: 45px;
-                background-color: $main-yellow;
+                
             }
         }
     
         .y-Cart-top {
-            width: 100%;
-            margin: 0 auto;
+            max-width: 1320px;
+            padding-top: 105px;
             display: flex;
-            // justify-content: center;
-            align-items: center;
+            justify-content: space-between;
 
             .y-Cart-page {
                 width: 100%;
-                max-width: 260px;
-                padding: 0 20px;
-                // display: none;
+                max-width: 320px;
+                padding: 0 40px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
     
                 .y-Cart-icon {
+                    // display: none;
                     width: 48px;
                     img {
                         width: 100%;
                     }
                 }
                 .y-Cart-name {
-                    font-size: 24px;
-                    font-weight: bold;
+                    font-size: 30px;
                 }
             }
     
             .y-Cart-status {
-                width: 100%;
+                position: static;
+                max-width: 1200px;
 
                 .y-progress-wrap{
-                    width: 100%;
-                    max-width: 1000px;
-                    // margin: 0 auto;
-                    padding-top: 20px;
+                    padding: 20px 0;
+
 
                     .y-progress-border {
                         height: 32px;
                         padding: 5px;
                         margin-bottom: 10px;
+
                         .y-progress-bar {
     
                         }
@@ -384,15 +447,18 @@ $border-radius-button: 8px;
                     }
 
                     .y-progress-name {
-                        
+                        width: 100%;
+                        padding: 0 10px;
                         p{
                             font-size: 18px;
+                            font-weight: bold;
                         }
                     }
 
                     .y-progress-icon{
                         width: 40px;
                         top: 5px;
+                        left: calc($progress-width + 5px);
                         img {
 
                         }
@@ -403,9 +469,8 @@ $border-radius-button: 8px;
         }
         
         .y-Cart-middle {
-            // max-width: 300px;
-            // margin-left: auto;
             background-color: #fdefc2;
+
             li {
                 font-size: 18px;
                 margin-bottom: 10px;
@@ -414,30 +479,34 @@ $border-radius-button: 8px;
             .y-Cart-shop {
                 width: 100%;
                 max-width: 1320px;
-                margin: 0 auto;
+                margin: 0 auto 40px;
                 padding: 40px;
     
                 .y-Cart-shop-border {
                     border: $border-lg;
                     border-radius: $border-radius-card;
                     display: flex;
+
                     .y-Cart-shop-cover{
-                        width: 34%;
-                        height: 200px;
-                        // padding: 10px;
-                        border-bottom: none;
+                        width: 32%;
+                        object-fit: cover;
+                        // object-position: 0% 0%;
+                        min-height: 240px;
                         border-right: $border-lg;
+                        overflow: hidden;
+                        display: block;
+
                         img {
-                            object-position: 50% 50%;
                             
                         }
                     }
     
                     .y-Cart-shop-info {
-                        width: 33%;
+                        width: 34%;
                         border-bottom: none;
                         border-right: $border-lg;
-                        padding: 15px 20px;
+                        padding: 25px 30px;
+                        margin-bottom: 0;
                         flex-direction: column;
 
                         .y-Cart-shop-name {
@@ -446,14 +515,11 @@ $border-radius-button: 8px;
                                                                         }
 
                     .y-Cart-shop-top {
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
+                        
                         .y-Cart-shop-name {
+                            font-size: 28px;
                             line-height: 40px;
-                            color: $main-blue;
-                            font-weight: bold;
-                            margin-bottom: 16px;
+                            margin-bottom: 32px;
                         }
 
                         .y-Cart-shop-status {
@@ -479,9 +545,8 @@ $border-radius-button: 8px;
                     }
     
                     .y-Cart-shop-pickup {
-                        width: 33%;
-                        background-color: #fff;
-                        padding: 15px 20px;
+                        width: 34%;
+                        padding: 25px 30px;
                         position: relative;
                         overflow: hidden;
                         display: flex;
@@ -489,21 +554,18 @@ $border-radius-button: 8px;
                         justify-content: space-between;
     
                         .y-Cart-pickup-top {
-                            width: 100%;
 
                             .y-Cart-pickup-title {
-                                font-size: 24px;
+                                font-size: 28px;
                                 line-height: 40px;
-                                margin-bottom: 16px;
-                                p {
-                                    
-                                }
+                                margin-bottom: 32px;
         
                             }
+                            .y-Cart-pickup-status {
+
+                            }
                         }
-                        
-                        .y-Cart-pickup-time {
-                            
+
                         .y-Cart-pickup-top {
 
                             .y-Cart-pickup-title {
@@ -521,18 +583,118 @@ $border-radius-button: 8px;
                         }
     
                         .y-Cart-pickup-border {
+                            width: 100%;
+                            right: 0;
+                            bottom: 0;
+                            padding: 15px 0;
+                            flex-direction: row;
+                            border: none;
+                            border-top: $border-lg;
                             .y-Cart-pickup-icon {
-    
+                                width: 30px;
+                                margin-right: 16px;
+
+                                img {
+                                    
+                                }
                             }
-    
+
                             .y-Cart-pickup-info {
-                                
+                                .y-Cart-pickup-info-sm {
+                                    display: none;
+                                }
+    
+                                .y-Cart-pickup-info-lg {
+                                    display: block;
+                                    font-weight: bold;
+                                }
                             }
                         }
-                    }
+                        
                     }
                 }
-        }
+            }
+
+            .y-Cart-details {
+                width: 100%;
+                max-width: 1320px;
+                margin: 0 auto;
+                position: relative;
+
+                .y-empty-cart-wrap {
+                    position: absolute;
+                    top: 0;
+                    right: 10px;
+                }
+                
+                .y-Cart-tab {
+                    max-width: 190px;
+                    padding: 12px 40px;
+                    border: $border-lg;
+                    border-bottom: none;
+                    border-radius: 8px 8px 0 0;
+                    background-color: #fff;
+                    text-align: center;
+                    color: $main-blue;
+                    font-weight: bold;
+                    letter-spacing: 2px;
+                }
+    
+                .y-Cart-details-tab {
+    
+                }
+    
+                .y-Cart-details-top {
+                    display: flex;
+                    width: 100%;
+
+                    .y-Cart-details-header {
+                        background-color: $main-blue;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 20px;
+                        letter-spacing: 2px;
+                        text-align: center;
+                        padding: 12px 0;
+                        margin-bottom: 20px;
+
+                    }
+    
+                    .y-Cart-details-name {
+                        width: calc(40% - 3px);
+                        border-right: 3px solid #fff;
+                    }
+    
+                    .y-Cart-details-price {
+                        width: calc(13% - 3px);
+                        border-right: 3px solid #fff;
+                    }
+    
+                    .y-Cart-details-quantity {
+                        width: calc(13% - 3px);
+                        border-right: 3px solid #fff;
+                    }
+    
+                    .y-Cart-details-unit {
+                        width: calc(13% - 3px);
+                        border-right: 3px solid #fff;                    }
+    
+                    .y-Cart-details-actions {
+                        width: 21%;
+                    }
+                }
+    
+                .y-Cart-details-area {
+                    
+                    .y-Cart-details-row {
+
+                    }
+                }
+            }
+    
+            .y-Cart-rec {
+    
+            }
         
         .y-Cart-bottom{
             position: fixed;

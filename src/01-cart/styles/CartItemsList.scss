@@ -1,0 +1,214 @@
+$main-yellow: #FAD249;
+$main-blue: #2B325C;
+$main-text: #5E5E5E;
+
+$btn-red: #ED4743;
+$btn-green: #CCDE73;
+$btn-pink: #FF9696;
+
+$border-lg: $main-blue 3px solid;
+$border-sm: $main-blue 2px solid;
+
+$text-shadow: #E4E4E4 2px 2px;
+$btn-shadow-lg: 6px 6px $main-blue;
+$btn-shadow-sm: 2px 2px $main-blue;
+$light-box-shadow: rgba(53, 53, 53, 0.75);
+
+$min-width: 390px;
+$min-height: 400px;
+$wave-height: 40px;
+$progress-width: 33%;
+
+$font-family: Arial, Helvetica, sans-serif;
+
+$border-radius-card: 10px;
+$border-radius-button: 8px;
+
+*{
+    box-sizing: border-box;
+}
+
+.y-Cart-items {
+
+    .y-Cart-items-top {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        .y-Cart-items-info {
+            width: 40%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            padding: 20px 40px;
+
+            .y-Cart-items-info-left {
+                position: relative;
+
+                .y-Cart-items-sale {
+                    background-color: $btn-red;
+                    color: #fff;
+                    position: absolute;
+                    padding: 8px 12px;
+                    letter-spacing: 2px;
+
+                
+                }
+    
+                .y-Cart-items-info-pic {
+                    width: 180px;
+                    height: 180px;
+                    overflow: hidden;
+                    background-color: #ddd;
+
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+                
+            }
+    
+            .y-Cart-items-info-name {
+                font-weight: bold;
+                font-size: 24px;
+            }
+        }
+    
+        .y-Cart-items-price {
+            width: 13%;
+
+            p {
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+    
+        .y-Cart-items-quantity {
+            width: 13%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            select {
+    
+                option {
+    
+                }
+            }
+        }
+    
+        .y-Cart-items-unit {
+                width: 13%;
+
+            p {
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+    
+        .y-Cart-items-actions {
+            width: 21%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            // justify-content: space-between;
+            align-items: center;
+            
+            .y-Cart-WishListBtn-wrap {
+    
+            }
+    
+            .y-Cart-RemoveItemBtn-wrap {
+    
+            }
+        }
+    
+    }
+    
+    .y-Cart-YellowLineWave-wrap {
+        margin-top: 15px;
+        overflow: hidden;
+    
+        img {
+    
+        }
+    }
+}
+
+@media (min-width: 391px) {
+    .y-Cart-items {
+
+        .y-Cart-items-top {
+            
+            .y-Cart-items-info {
+                width: 40%;
+        
+                .y-Cart-items-info-left {
+    
+                    .y-Cart-items-sale {
+        
+                    
+                    }
+        
+                    .y-Cart-items-info-pic {
+    
+                        img {
+        
+                        }
+                    }
+                    
+                }
+        
+                .y-Cart-items-info-name {
+        
+                }
+            }
+        
+            .y-Cart-items-price {
+        
+                p {
+        
+                }
+            }
+        
+            .y-Cart-items-quantity {
+                
+                select {
+        
+                    option {
+        
+                    }
+                }
+            }
+        
+            .y-Cart-items-unit {
+        
+                p {
+        
+                }
+            }
+        
+            .y-Cart-items-actions {
+        
+                .y-Cart-WishListBtn-wrap {
+        
+                }
+        
+                .y-Cart-RemoveItemBtn-wrap {
+        
+                }
+            }
+        
+        }
+        
+        .y-Cart-YellowLineWave-wrap {
+            overflow: hidden;
+        
+            img {
+        
+            }
+        }
+    }
+}

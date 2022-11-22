@@ -7,6 +7,7 @@ import NavBar from '../../00-homepage/components/NavBar'
 import OpenHoursBtn from '../components/OpenHoursBtn'
 import PickupHoursBtn from '../components/PickupHoursBtn'
 import EmptyCartBtn from '../components/EmptyCartBtn'
+import CartItemsList from '../components/CartItemsList'
 
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
@@ -14,6 +15,7 @@ import YellowWaveReverse from '../../00-homepage/components/YellowWaveReverse'
 import YellowLineWave from './../images/line-wave.svg'
 import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
+import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
 
 function CartList() {
@@ -42,9 +44,10 @@ function CartList() {
                 <div className="y-progress-bar-empty"></div>
               </div>
               <div className="y-progress-name">
+                <p>加入商品</p>
                 <p>訂購明細</p>
-                <p>訂購資訊</p>
-                <p>付款完成</p>
+                <p>資訊確認</p>
+                <p>完成訂購</p>
               </div>
             </div>
           </div>
@@ -83,18 +86,50 @@ function CartList() {
                   <li></li>
                 </ul>
                 <div className="y-Cart-pickup-border">
-                  <div className="y-Cart-pickup-icon"></div>
-                  <div className="y-Cart-pickup-info"></div>
+                  <div className="y-Cart-pickup-icon">
+                    <img src={PickupIcon} alt="hambuger icon" />
+                  </div>
+                  <div className="y-Cart-pickup-info">
+                    <p className="y-Cart-pickup-info-lg">點我看詳細取餐說明</p>
+                    <p className="y-Cart-pickup-info-sm">取餐說明</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="y-Cart-details">
             details
-            <div className="y-Cart-tab">
-              明細一覽
-              <div className="y-empty-cart-wrap">
-                <EmptyCartBtn />
+            <div className="y-empty-cart-wrap">
+              <EmptyCartBtn />
+            </div>
+            <p className="y-Cart-tab y-Cart-details-tab">明細一覽</p>
+            <div className="y-Cart-details-top">
+              <p className="y-Cart-details-name y-Cart-details-header">
+                商品名稱
+              </p>
+              <p className="y-Cart-details-price y-Cart-details-header">
+                優惠價
+              </p>
+              <p className="y-Cart-details-quantity y-Cart-details-header">
+                數量
+              </p>
+              <p className="y-Cart-details-unit y-Cart-details-header">小計</p>
+              <p className="y-Cart-details-actions y-Cart-details-header">
+                更多動作
+              </p>
+            </div>
+            <div className="y-Cart-details-area">
+              <div className="y-Cart-details-row">
+                <CartItemsList />
+              </div>
+              <div className="y-Cart-details-row">
+                <CartItemsList />
+              </div>
+              <div className="y-Cart-details-row">
+                <CartItemsList />
+              </div>
+              <div className="y-Cart-details-row">
+                <CartItemsList />
               </div>
             </div>
           </div>
