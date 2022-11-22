@@ -87,6 +87,8 @@ function UpdateInfo(props) {
   // 更新會員資料
   const [updateFD, setUpdateFD] = useState({
     mbuPhoto: '',
+    mbuName: '',
+    mbuEmail: '',
     // mbuBoy: false,
     // mbuGirl: false,
     mbuGender: '',
@@ -94,7 +96,7 @@ function UpdateInfo(props) {
     mbuAddressArea: '',
     mbuAddressDetail: '',
     mbuPhone: '',
-    mbuSid: '',
+    // mbuSid: '',
   })
 
   // =================================================
@@ -175,14 +177,33 @@ function UpdateInfo(props) {
   async function getList() {
     const response = await axios.get(`${PROFILE}${sid}`)
     setListData(response.data)
+    console.log(response.data.row)
+    console.log(response)
 
-    console.log(listData)
+    setUpdateFD({
+      ...updateFD,
+      mbuPhoto: response.data.row.mb_photo,
+      mbuName: response.data.row.mb_name,
+      mbuEmail: response.data.row.mb_email,
+      mbuGender: response.data.row.mb_gender,
+      mbuAddressCity: response.data.row.mb_address_city,
+      mbuAddressArea: response.data.row.mb_address_area,
+      mbuAddressDetail: response.data.row.mb_address_detail,
+      mbuPhone: response.data.row.mb_phone,
+      // mbuSid: response.data.row.mb_sid,
+    })
   }
+
+  // console.log(updateFD)
+  // console.log(updateFD.mbuAddressDetail)
 
   useEffect(() => {
     // console.log(2);
     getList()
   }, [location])
+
+  // console.log(listData)
+  console.log(listData.row)
 
   // ====================================
   // 更新資料
@@ -196,6 +217,7 @@ function UpdateInfo(props) {
 
   const radioGenderHandler = (e) => {
     const id = e.currentTarget.id
+    console.log(id)
 
     if (id === 'mbuBoy') {
       setUpdateFD({ ...updateFD, mbuGender: '男' })
@@ -233,7 +255,7 @@ function UpdateInfo(props) {
             <div className="s-ui">
               <h2 className="s-ui-title">資料修改</h2>
               <form className="s-ui-card" action="" onSubmit={updateSubmit}>
-                <input type="hidden" name="mbuSid" />
+                {/* <input type="hidden" name="mbuSid" /> */}
                 <div className="s-ui-imgBx">
                   <img
                     className="s-ui-img"
@@ -254,11 +276,15 @@ function UpdateInfo(props) {
                   <div className="s-ui-block1">
                     <div className="s-ui-block2">
                       <label className="s-ui-question">姓名: </label>
-                      <div className="s-ui-answer">Sharon Yu</div>
+                      <div className="s-ui-answer" id="mbuName">
+                        {updateFD.mbuName}
+                      </div>
                     </div>
                     <div className="s-ui-block2">
                       <label className="s-ui-question">電子郵件: </label>
-                      <div className="s-ui-answer">yu5286pp@gmail.com</div>
+                      <div className="s-ui-answer" id="mbuEmail">
+                        {updateFD.mbuEmail}
+                      </div>
                     </div>
                   </div>
 
@@ -270,8 +296,9 @@ function UpdateInfo(props) {
                       value="男"
                       id="mbuBoy"
                       className="s-ui-radio2"
-                      checked={updateFD.mbuBoy}
+                      // checked={updateFD.mbuBoy}
                       onChange={radioGenderHandler}
+                      checked={updateFD.mbuGender === '男'}
                     />
                     <span className="s-ui-man">男</span>
                     <br />
@@ -281,8 +308,9 @@ function UpdateInfo(props) {
                       value="女"
                       id="mbuGirl"
                       className="s-ui-radio2"
-                      checked={updateFD.mbuGirl}
+                      // checked={updateFD.mbuGirl}
                       onChange={radioGenderHandler}
+                      checked={updateFD.mbuGender === '女'}
                     />
                     <span className="s-ui-man">女</span>
                   </div>
@@ -309,6 +337,7 @@ function UpdateInfo(props) {
                           ? selectedDistrict(updateFD.mbuAddressArea)
                           : ''
                       }
+                      // updateFD.mbuAddressArea ? selectedDistrict(updateFD.mbuAddressArea): ''
                       id="mbuAddressArea"
                       className="s-ui-address"
                       name={props?.districtName}
@@ -326,6 +355,7 @@ function UpdateInfo(props) {
                     id="mbuAddressDetail"
                     placeholder="請輸入地址"
                     onChange={updateHandler}
+                    value={updateFD.mbuAddressDetail}
                   />
                   <label className="s-ui-label">聯絡電話</label>
                   <input
@@ -334,6 +364,7 @@ function UpdateInfo(props) {
                     id="mbuPhone"
                     placeholder="請輸入連絡電話"
                     onChange={updateHandler}
+                    value={updateFD.mbuPhone}
                   />
                 </div>
                 <div className="s-ui-actionBtns">
