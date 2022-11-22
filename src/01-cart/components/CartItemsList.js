@@ -4,6 +4,9 @@ import './../styles/CartItemsList.scss'
 import CartMerchPic from './../../dotown/strawberry.png'
 import YellowLineWave from './../images/line-wave.svg'
 
+import WishListBtn from './WishListBtn'
+import RemoveItemBtn from './RemoveItemBtn'
+
 function CartItemsList() {
   return (
     <div className="y-Cart-items">
@@ -33,8 +36,12 @@ function CartItemsList() {
           <p>$236</p>
         </div>
         <div className="y-Cart-items-actions">
-          <div className="y-Cart-WishListBtn-wrap">加到下次再買</div>
-          <div className="y-Cart-RemoveItemBtn-wrap">移除商品</div>
+          <div className="y-Cart-WishListBtn-wrap">
+            <WishListBtn />
+          </div>
+          <div className="y-Cart-RemoveItemBtn-wrap">
+            <RemoveItemBtn />
+          </div>
         </div>
       </div>
       <div className="y-Cart-YellowLineWave-wrap">

@@ -8,6 +8,8 @@ import OpenHoursBtn from '../components/OpenHoursBtn'
 import PickupHoursBtn from '../components/PickupHoursBtn'
 import EmptyCartBtn from '../components/EmptyCartBtn'
 import CartItemsList from '../components/CartItemsList'
+import ContinueShoppingBtn from '../components/ContinueShoppingBtn'
+import GoPayBtn from '../components/GoPayBtn'
 
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
@@ -136,8 +138,12 @@ function CartList() {
                 共 1 項商品，數量 1 個，總金額NT$ 537 元
               </p>
               <div className="y-Cart-details-btns">
-                <div className="y-continue-shopping-wrap"></div>
-                <div className="y-cart-pay-wrap"></div>
+                <div className="y-continue-shopping-wrap">
+                  <ContinueShoppingBtn />
+                </div>
+                <div className="y-cart-pay-wrap">
+                  <GoPayBtn />
+                </div>
               </div>
             </div>
           </div>
