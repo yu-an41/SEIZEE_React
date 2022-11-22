@@ -98,7 +98,6 @@ function CartList() {
             </div>
           </div>
           <div className="y-Cart-details">
-            details
             <div className="y-empty-cart-wrap">
               <EmptyCartBtn />
             </div>
@@ -130,6 +129,15 @@ function CartList() {
               </div>
               <div className="y-Cart-details-row">
                 <CartItemsList />
+              </div>
+            </div>
+            <div className="y-Cart-details-bottom">
+              <p className="y-Cart-details-total">
+                共 1 項商品，數量 1 個，總金額NT$ 537 元
+              </p>
+              <div className="y-Cart-details-btns">
+                <div className="y-continue-shopping-wrap"></div>
+                <div className="y-cart-pay-wrap"></div>
               </div>
             </div>
           </div>

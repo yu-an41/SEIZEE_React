@@ -8,6 +8,8 @@ $btn-pink: #FF9696;
 
 $border-lg: $main-blue 3px solid;
 $border-sm: $main-blue 2px solid;
+$border-white-lg: #fff 3px solid;
+$border-white-sm: #fff 2px solid;
 
 $text-shadow: #E4E4E4 2px 2px;
 $btn-shadow-lg: 6px 6px $main-blue;
@@ -92,9 +94,30 @@ $border-radius-button: 8px;
             align-items: center;
 
             select {
-    
+                background-color: $main-yellow;
+                color: white;
+                width: 100px;
+                padding: 8px 16px;
+                padding-right: 36px;
+                position: relative;
+                border: $border-white-lg;
+                border-radius: $border-radius-button;
+                appearance:none;
+                -moz-appearance:none;
+                -webkit-appearance:none;
+                background: {
+                    image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient($main-yellow, $main-yellow);
+                    image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E"), -webkit-linear-gradient($main-yellow, $main-yellow);
+                    image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E"), -moz-linear-gradient($main-yellow, $main-yellow);
+                    position: right 12px top 50%, 0 0;
+                    size: contain, cover;
+                    repeat: no-repeat, repeat;
+
+                }
+                
                 option {
-    
+                    appearance: none;
+                    // font-weight: bold;
                 }
             }
         }
@@ -176,7 +199,10 @@ $border-radius-button: 8px;
             .y-Cart-items-quantity {
                 
                 select {
-        
+                    
+                    background: {
+                        
+                    }
                     option {
         
                     }
