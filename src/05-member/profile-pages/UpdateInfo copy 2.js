@@ -7,7 +7,6 @@ import { map, find, propEq, forEach, isNil, update } from 'ramda'
 import Select from 'react-select'
 import axios from 'axios'
 import { PROFILE } from '../../my-config'
-import { useParams, Link } from 'react-router-dom'
 
 // selectedCity
 const selectedCity = (cityName) => ({ value: cityName, label: cityName })
@@ -54,10 +53,6 @@ const queryProcess = (type, params) => {
 }
 
 function UpdateInfo(props) {
-  // -----取得sid-----
-  const { sid } = useParams()
-  // console.log(sid)
-
   // -----讀取地址-----
   // 被選區域
   const [district, setDistrict] = useState(props?.district)
@@ -79,9 +74,6 @@ function UpdateInfo(props) {
   const [imgServerUrl, setImgServerUrl] = useState('')
   // Trigger the clicking of the input element
   const hiddenFileInput = useRef(null)
-
-  // -----讀取會員資料-----
-  const [listData, setListData] = useState({ row: [] })
 
   // -----更新會員資料-----
   // 更新會員資料
@@ -169,10 +161,7 @@ function UpdateInfo(props) {
   }
 
   // ====================================
-  // 讀取資料
-
-  // ====================================
-  // 更新資料
+  // 註冊
   const updateHandler = (e) => {
     const id = e.currentTarget.id
     const val = e.currentTarget.value
@@ -199,10 +188,7 @@ function UpdateInfo(props) {
 
   const updateSubmit = async (e) => {
     e.preventDefault()
-    const { data } = await axios.put(`${PROFILE}${sid}`, updateFD)
-
-    // wrong: `PROFILE${sid}` => PROFILE3
-    // or can use: PROFILE + "3"
+    const { data } = await axios.put(PROFILE, updateFD)
 
     if (data.success) {
       alert('更新成功')
