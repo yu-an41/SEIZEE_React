@@ -33,7 +33,7 @@ p, a {
 
 @media (min-width: 391px) {
     p, a {
-        font-size: 22px;
+        font-size: 24px;
         line-height: 1.5rem;
     }
 }
@@ -55,7 +55,7 @@ li {
         width: 100%;
         max-width: 1320px;
         margin-bottom: 15px;
-        padding: 20px 1%;
+        padding: 20px 10px;
         border-bottom: 2px dashed #fff;
         display: flex;
         flex-direction: column;
@@ -63,7 +63,7 @@ li {
 
         .y-footer-logo {
             width: 110px;
-            margin: 0 auto 20px;
+            margin: 0 auto 40px;
 
             img {
                 width: 100%;
@@ -75,6 +75,14 @@ li {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            padding: 0 20%;
+            margin-bottom: 20px;
+
+            li {
+                letter-spacing: 5px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
         
         }
 
@@ -82,6 +90,30 @@ li {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            padding: 0 20%;
+            margin-bottom: 20px;
+
+            li {
+                letter-spacing: 5px;
+                font-weight: bold;
+                
+            }
+        }
+
+        .y-footer-media {
+            display: flex;
+            width: 100%;
+            li {
+                width: 20%;
+                padding: 12px;
+
+                a {
+                    img {
+                        width: 100%;
+
+                    }
+                }
+            }
         }
     }
 
@@ -97,8 +129,6 @@ li {
 
 @media (min-width: 391px) {
     .y-footer-bg {
-        background-color: $main-blue;
-        // height: 40px;
         padding: 30px 300px;
     
         p, a {
@@ -109,13 +139,14 @@ li {
             width: 100%;
             max-width: 1320px;
             margin-bottom: 20px;
-            padding: 20px;
-            border-bottom: 2px solid #fff;
+            padding: 40px 20px;
+            border-bottom: 3px solid #fff;
             display: flex;
             justify-content: space-between;
+            align-items: center;
     
             .y-footer-logo {
-                width: 180px;
+                width: 250px;
     
                 img {
                     width: 100%;
@@ -124,23 +155,50 @@ li {
             }
     
             .y-footer-title {
-    
-            
+                li {
+                    width: 50%;
+                    margin-bottom: 40px;
+                    text-align: center;
+                }
             }
     
             .y-footer-links {
-                
+                width: 100%;
+                justify-content: space-between;
+                // flex-direction: column;
+                margin-bottom: 100px;
+
+                li {
+                    font-size: 36px;
+                    margin-bottom: 40px;
+                }
+            }
+
+            .y-footer-media {
+                width: 100%;
+                padding: 0 200px;
+                justify-content: space-between;
+                li {
+                    width: 130px;
+                    a {
+                        img {
+                            
+                        }
+                    }
+                }
             }
         }
     
         .y-footer-rights {
             width: 100%;
-            padding-right: 30px;
+            padding-right: 20px;
             display: flex;
             justify-content: flex-end;
             p {
                 font-size: 18px;
             }
         }
+
+        
     }
 }

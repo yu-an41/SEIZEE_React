@@ -5,7 +5,11 @@ import './../styles/Footer.scss'
 // img srcs
 import Apple from './../dotown/apple.png'
 import LogoWhite from './../logo-and-fonts/LOGO-white.svg'
-
+import FacebookIcon from './../lifelabel/emoji_sns_facebook.png'
+import InstagramIcon from './../lifelabel/emoji_sns_instagram.png'
+import PinterestIcon from './../lifelabel/emoji_sns_pinterest.png'
+import TwitterIcon from './../lifelabel/emoji_sns_twitter.png'
+import YoutubeIcon from './../lifelabel/emoji_sns_youtube.png'
 
 function Footer() {
   return (
@@ -39,29 +43,41 @@ function Footer() {
           </ul>
           <ul className="y-footer-links">
             <li>
-              <a href="/#" alt="event_link">
-                #踢球球活動
+              <a href="/#" alt="About us">
+                關於我們
               </a>
             </li>
             <li>
-              <a href="/#" alt="event_link">
-                #踢球球活動
-              </a>
-            </li>
-            <li>
-              <a href="/#" alt="event_link">
-                #踢球球活動
-              </a>
-            </li>
-            <li>
-              <a href="/#" alt="event_link">
-                #踢球球活動
+              <a href="/#" alt="About us">
+                關於我們
               </a>
             </li>
           </ul>
-          <ul className='y-Footer-media'>
+          <ul className="y-footer-media">
             <li>
-              <img /> 
+              <a href="/#">
+                <img src={InstagramIcon} alt="Instagram" />
+              </a>
+            </li>
+            <li>
+              <a href="/#">
+                <img src={FacebookIcon} alt="facebook" />
+              </a>
+            </li>
+            <li>
+              <a href="/#">
+                <img src={PinterestIcon} alt="Pinterest" />
+              </a>
+            </li>
+            <li>
+              <a href="/#">
+                <img src={TwitterIcon} alt="Twitter" />
+              </a>
+            </li>
+            <li>
+              <a href="/#">
+                <img src={YoutubeIcon} alt="FaceYoutubebook" />
+              </a>
             </li>
           </ul>
         </div>

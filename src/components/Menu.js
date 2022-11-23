@@ -1,8 +1,16 @@
 import { useState } from 'react'
 import './../styles/Menu.scss'
+
+//img srcs
 import MenuSvg from './../logo-and-fonts/MENU.svg'
 import CloseSvg from './../logo-and-fonts/CLOSE.svg'
 import Apple from './../dotown/apple.png'
+import FacebookIcon from './../lifelabel/emoji_sns_facebook.png'
+import InstagramIcon from './../lifelabel/emoji_sns_instagram.png'
+import PinterestIcon from './../lifelabel/emoji_sns_pinterest.png'
+import TwitterIcon from './../lifelabel/emoji_sns_twitter.png'
+import YoutubeIcon from './../lifelabel/emoji_sns_youtube.png'
+
 function Menu() {
   const [menuClick, setMenuClick] = useState(true)
   const [searchText, setSearchText] = useState('')
@@ -116,29 +124,29 @@ function Menu() {
             </li>
           </ul>
           <ul className="y-social-media">
-            <li className="y-social-media-wrap">
-              <a href="/#" alt="social_media">
-                <img src={Apple} alt="apple" />
+            <li>
+              <a href="/#">
+                <img src={InstagramIcon} alt="Instagram" />
               </a>
             </li>
-            <li className="y-social-media-wrap">
-              <a href="/#" alt="social_media">
-                <img src={Apple} alt="apple" />
+            <li>
+              <a href="/#">
+                <img src={FacebookIcon} alt="facebook" />
               </a>
             </li>
-            <li className="y-social-media-wrap">
-              <a href="/#" alt="social_media">
-                <img src={Apple} alt="apple" />
+            <li>
+              <a href="/#">
+                <img src={PinterestIcon} alt="Pinterest" />
               </a>
             </li>
-            <li className="y-social-media-wrap">
-              <a href="/#" alt="social_media">
-                <img src={Apple} alt="apple" />
+            <li>
+              <a href="/#">
+                <img src={TwitterIcon} alt="Twitter" />
               </a>
             </li>
-            <li className="y-social-media-wrap">
-              <a href="/#" alt="social_media">
-                <img src={Apple} alt="apple" />
+            <li>
+              <a href="/#">
+                <img src={YoutubeIcon} alt="FaceYoutubebook" />
               </a>
             </li>
           </ul>
