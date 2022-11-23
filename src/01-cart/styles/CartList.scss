@@ -74,6 +74,7 @@ $border-radius-button: 8px;
             padding: 0 30px;
             background-color: #fff;
             position: fixed;
+            z-index: 999;
 
             .y-progress-wrap{
                 width: 100%;
@@ -235,6 +236,8 @@ $border-radius-button: 8px;
                     padding: 25px 20px;
                     // border-radius: $border-radius-button;
                     position: relative;
+                    margin-bottom: 15px;
+                    
                     .y-Cart-pickup-top {
                         width: 100%;
                         display: flex;
