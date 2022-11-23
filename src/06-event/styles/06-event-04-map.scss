@@ -123,6 +123,7 @@ body {
 }
 
 .j-event-middle-map {
+  z-index: 99;
   // outline: 1px black solid;
   @include position(47%, 49%);
   @include size(1100px, 900px);

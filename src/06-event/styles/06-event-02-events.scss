@@ -44,8 +44,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  @media (max-width: 390px){
-    
+  @media (max-width: 390px) {
   }
 }
 .j-event-middle-events {
@@ -152,8 +151,8 @@ body {
     position: relative;
     z-index: -1;
     overflow: hidden;
-    @media (max-width: 390px){
-        margin-top: 15px;
+    @media (max-width: 390px) {
+      margin-top: 15px;
     }
     .j-blue-mountain {
       transition: 0.5s;
@@ -264,12 +263,14 @@ body {
           '. sold sold';
       }
       .j-card-name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         grid-area: name;
         border-radius: 15px;
         padding: 18px;
         font-size: 4.5rem;
         font-weight: 900;
-        text-align: center;
         color: $colorMiddleGrey;
         @media (max-width: 390px) {
           border-radius: 5px;

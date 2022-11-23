@@ -28,11 +28,11 @@ import Homepage from './00-homepage/pages/Homepage'
 // import Top from './06-event/pages/06-event-01-top'
 import HeadWave from './components/HeadWave'
 
-import Top from './06-event/pages/06-event-01-top'
-import Events from './06-event/pages/06-event-02-events'
-import Schedule from './06-event/pages/06-event-03-schedule'
-import Map from './06-event/pages/06-event-04-map'
-import Ticket from './06-event/pages/06-event-05-ticket'
+// import Top from './06-event/pages/06-event-01-top'
+// import Events from './06-event/pages/06-event-02-events'
+// import Schedule from './06-event/pages/06-event-03-schedule'
+// import Map from './06-event/pages/06-event-04-map'
+// import Ticket from './06-event/pages/06-event-05-ticket'
 import Eventrender from './06-event/pages/06-event-00-Render'
 
 function App() {

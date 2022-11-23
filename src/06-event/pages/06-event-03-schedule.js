@@ -134,7 +134,7 @@ function Schedule() {
                   </div>
                   <div class="j-schedule-card-name">
                     全食物利用 <br />
-                    -水果酵釀-
+                    -花酵釀-
                   </div>
                   <div class="j-schedule-card-hashtag">#穢土轉生#工作坊</div>
                 </div>
@@ -249,7 +249,7 @@ function Schedule() {
                       <img src={jHeart} alt="" />
                     </span>
                   </div>
-                  <div class="j-schedule-card-name">Taste Me</div>
+                  <div class="j-schedule-card-name">Tasteme</div>
                   <span class="j-schedule-card-hashtag">#泰迪托克#講座</span>
                 </div>
               </div>
@@ -326,7 +326,7 @@ function Schedule() {
                     <br />
                     醜食的一生
                   </div>
-                  <span class="j-schedule-card-hashtag">#合法幻舞#VR體驗</span>
+                  <span class="j-schedule-card-hashtag">#看的場所#劇場</span>
                 </div>
               </div>
               <div class="j-showB">
@@ -342,7 +342,7 @@ function Schedule() {
                     <br />
                     現代社會
                   </div>
-                  <span class="j-schedule-card-hashtag">#合法幻舞#VR體驗</span>
+                  <span class="j-schedule-card-hashtag">#看的場所#劇場</span>
                 </div>
               </div>
               <div class="j-showC">
@@ -354,7 +354,7 @@ function Schedule() {
                     </span>
                   </div>
                   <div class="j-schedule-card-name">醜蔬果特派週報</div>
-                  <span class="j-schedule-card-hashtag">#合法幻舞#VR體驗</span>
+                  <span class="j-schedule-card-hashtag">#看的場所#劇場</span>
                 </div>
               </div>
               <div class="j-showD">
@@ -366,7 +366,7 @@ function Schedule() {
                     </span>
                   </div>
                   <div class="j-schedule-card-name">高年級惜食生</div>
-                  <span class="j-schedule-card-hashtag">#合法幻舞#VR體驗</span>
+                  <span class="j-schedule-card-hashtag">#看的場所#劇場</span>
                 </div>
               </div>
             </div>
