@@ -74,15 +74,13 @@ function UpdateInfo(props) {
   const [isFilePicked, setIsFilePicked] = useState(false)
   // 預覽圖片
   const [preview, setPreview] = useState('')
-  // server上的圖片網址
-  const [imgServerUrl, setImgServerUrl] = useState('')
   // Trigger the clicking of the input element
   const hiddenFileInput = useRef(null)
 
   // -----更新會員資料-----
   // 更新會員資料
   const [updateFD, setUpdateFD] = useState({
-    mbuPhoto: '',
+    mbuPhoto: 'default.png',
     mbuName: '',
     mbuEmail: '',
     mbuGender: '',
@@ -150,11 +148,9 @@ function UpdateInfo(props) {
     if (fileUploaded) {
       setIsFilePicked(true)
       setSelectedFile(fileUploaded)
-      setImgServerUrl('')
     } else {
       setIsFilePicked(false)
       setSelectedFile(null)
-      setImgServerUrl('')
     }
 
     const id = e.currentTarget.id
@@ -186,7 +182,11 @@ function UpdateInfo(props) {
       mbuPhone: response.data.row.mb_phone,
       // mbuSid: response.data.row.mb_sid,
     })
-
+    if (
+      !isNil(response.data.row.mb_address_city) &&
+      response.data.row.mb_address_city !== ''
+    )
+      setDistricts(districtOpts(response.data.row.mb_address_city))
     // setSelectedFile({...selectedFile, updateFD.mbuPhoto})
   }
 
@@ -257,24 +257,17 @@ function UpdateInfo(props) {
     console.log(selectedFile)
     console.log(fd)
 
-    axios({
+    const { data } = await axios({
       method: 'put',
       url: `${PROFILE}${sid}`,
       data: fd,
       headers: { 'Content-Type': 'multipart/form-data' },
     })
-      // .then((r) => r.json())
-      // .then((obj) => console.log(obj))
 
-      .then((response) => response.json())
-      .then((result) => {
-        console.log('Success:', result)
-      })
-      .catch((error) => {
-        console.error('Error:', error)
-      })
+    if (data.success) {
+      alert('更新成功')
+    }
   }
-
   return (
     <>
       <div className="s-body-profile">
@@ -393,7 +386,11 @@ function UpdateInfo(props) {
                     id="mbuAddressDetail"
                     placeholder="請輸入地址"
                     onChange={updateHandler}
-                    defaultValue={updateFD.mbuAddressDetail}
+                    value={
+                      updateFD.mbuAddressDetail === null
+                        ? ''
+                        : updateFD.mbuAddressDetail
+                    }
                   />
                   <label className="s-ui-label">聯絡電話</label>
                   <input
@@ -402,7 +399,7 @@ function UpdateInfo(props) {
                     id="mbuPhone"
                     placeholder="請輸入連絡電話"
                     onChange={updateHandler}
-                    defaultValue={updateFD.mbuPhone}
+                    value={updateFD.mbuPhone === null ? '' : updateFD.mbuPhone}
                   />
                 </div>
                 <div className="s-ui-actionBtns">

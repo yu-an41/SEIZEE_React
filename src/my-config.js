@@ -1,6 +1,6 @@
 // export const MY_HOST = 'http://localhost:3004'
 export const appConfig = {
-  debug: false,
+  debug: true,
   devUrl: 'http://localhost:3000',
   devServerUrl: 'http://localhost:3004',
   prodUrl: 'https://www.seizee.com',
@@ -21,3 +21,5 @@ export const imgUrl = appConfig.debug ? appConfig.devUrl : appConfig.prodUrl
 export const imgServerUrl = appConfig.debug
   ? appConfig.devServerUrl
   : appConfig.prodUrl
+
+// console.log('aaaa:', imgServerUrl)
