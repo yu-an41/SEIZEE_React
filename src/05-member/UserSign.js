@@ -8,10 +8,10 @@ import {
   checkAccount,
   checkPassword,
   check2Password,
-} from './UserSign_valid'
+} from './data/UserSign_valid'
 
 function UserSign() {
-  const [signInIndex, setSignInIndex] = useState(0)
+  const [signInIndex, setSignInIndex] = useState(1)
   const navigate = useNavigate()
   // FD = Form Data
   const [signInFD, setSignInFD] = useState({
@@ -180,27 +180,35 @@ function UserSign() {
       <div
         className={signInIndex === 1 ? 's-body-signup' : 's-body-signup active'}
       >
-        <div className="container">
-          <div className="blueBg">
-            <div className="box signin">
-              <h3>已經有一個帳號?</h3>
-              <button className="signinBtn" onClick={signToggle}>
+        <div className="s-login-container">
+          <div className="s-login-blueBg">
+            <div className="s-login-box s-login-signin">
+              <h3 className="s-login-h3">已經有一個帳號?</h3>
+              <button className="s-login-signinBtn" onClick={signToggle}>
                 登入
               </button>
             </div>
-            <div className="box signup">
-              <h3>需要一個帳號嗎?</h3>
-              <button className="signupBtn" onClick={signToggle}>
+            <div className="s-login-box">
+              <h3 className="s-login-h3">需要一個帳號嗎?</h3>
+              <button className="s-login-signinBtn" onClick={signToggle}>
                 註冊
               </button>
             </div>
           </div>
-          <div className={signInIndex === 1 ? 'formBx' : 'formBx active'}>
-            <div className="form signinForm">
-              <form action="" onSubmit={signInSubmit}>
-                <h2>歡迎回來</h2>
-                <h3>我們很高興又見到您了!</h3>
-                <label for="mblEmail">
+          <div
+            className={
+              signInIndex === 1 ? 's-login-formBx' : 's-login-formBx active'
+            }
+          >
+            <div className="s-login-form s-login-signinForm">
+              <form
+                className="s-login-formDetails"
+                action=""
+                onSubmit={signInSubmit}
+              >
+                <h2 className="s-login-h2">歡迎回來</h2>
+                <h3 className="s-login-h3">我們很高興又見到您了!</h3>
+                <label className="s-login-label" htmlFor="mblEmail">
                   電子郵件<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
@@ -208,13 +216,14 @@ function UserSign() {
                   placeholder="請輸入電子郵件"
                   id="mblEmail"
                   onChange={signInHandler}
+                  className="s-login-input"
                 />
                 <div
-                  className="errorMg"
+                  className="s-login-errorMg"
                   style={{ color: 'red' }}
                   id="mblEmail_error"
                 ></div>
-                <label for="mblPass">
+                <label htmlFor="mblPass" className="s-login-label">
                   密碼<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
@@ -222,30 +231,43 @@ function UserSign() {
                   placeholder="請輸入密碼"
                   id="mblPass"
                   onChange={signInHandler}
+                  className="s-login-input"
                 />
                 <div
-                  className="errorMg"
+                  className="s-login-errorMg"
                   style={{ color: 'red' }}
                   id="mblPass_error"
                 ></div>
-                <Link className="forgot" to="/forgot-pass">
+                <Link className="s-login-forgot" to="/forgot-pass">
                   忘記您的密碼?
                 </Link>
-                <input type="submit" value="登入" className="signinSubmit" />
-                <div className="gmailBtn">
-                  <img className="gmail" src="/05-member/mail.png" alt="" />
+                <input
+                  type="submit"
+                  value="登入"
+                  className="s-login-input s-login-submit s-signinSubmit"
+                />
+                <div className="s-login-gmailBtn">
+                  <img
+                    className="s-login-gmail"
+                    src="/05-member/mail.png"
+                    alt=""
+                  />
                   <input
                     type="submit"
                     value="以Google帳號登入"
-                    className="googleSubmit"
+                    className="s-login-input s-login-submit s-login-googleSubmit"
                   />
                 </div>
               </form>
             </div>
-            <div className="form signupForm">
-              <form action="" onSubmit={signUpSubmit}>
-                <h2>建立新帳號</h2>
-                <label for="mbrEmail">
+            <div className="s-login-form s-login-signupForm">
+              <form
+                action=""
+                className="s-login-formDetails"
+                onSubmit={signUpSubmit}
+              >
+                <h2 className="s-login-h2">建立新帳號</h2>
+                <label htmlFor="mbrEmail" className="s-login-label">
                   電子郵件<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
@@ -254,15 +276,16 @@ function UserSign() {
                   id="mbrEmail"
                   onChange={signUpHandler}
                   onBlur={checkEmail}
+                  className="s-login-input"
                 />
                 <div
-                  className="errorMg"
+                  className="s-login-errorMg"
                   style={{ color: 'red' }}
                   id="mbrEmail_error"
                 >
                   {errorMgE}
                 </div>
-                <label for="mbrName">
+                <label htmlFor="mbrName" className="s-login-label">
                   使用者名稱<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
@@ -271,15 +294,16 @@ function UserSign() {
                   id="mbrName"
                   onChange={signUpHandler}
                   onBlur={checkName}
+                  className="s-login-input"
                 />
                 <div
-                  className="errorMg"
+                  className="s-login-errorMg"
                   style={{ color: 'red' }}
                   id="mbrName_error"
                 >
                   {errorMgN}
                 </div>
-                <label for="mbrPass">
+                <label htmlFor="mbrPass" className="s-login-label">
                   密碼<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
@@ -288,15 +312,16 @@ function UserSign() {
                   id="mbrPass"
                   onChange={signUpHandler}
                   onBlur={checkPass1}
+                  className="s-login-input"
                 />
                 <div
-                  className="errorMg"
+                  className="s-login-errorMg"
                   style={{ color: 'red' }}
                   id="mbrPass1_error"
                 >
                   {errorMgP1}
                 </div>
-                <label for="mbrPassConfirm">
+                <label htmlFor="mbrPassConfirm" className="s-login-label">
                   確認密碼<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
@@ -305,16 +330,21 @@ function UserSign() {
                   id="mbrPassConfirm"
                   onChange={signUpHandler}
                   onBlur={checkPass2}
+                  className="s-login-input"
                 />
                 <div
-                  className="errorMg"
+                  className="s-login-errorMg"
                   style={{ color: 'red' }}
                   id="mbrPass2_error"
                 >
                   {errorMgP2}
                 </div>
-                <input type="submit" value="註冊" />
-                <p>
+                <input
+                  className="s-login-input s-login-submit"
+                  type="submit"
+                  value="註冊"
+                />
+                <p className="s-login-p">
                   註冊即代表同意惜食的<a href="/#">服務條款</a>及
                   <a href="/#">隱私權政策</a>
                 </p>

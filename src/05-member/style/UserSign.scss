@@ -22,7 +22,7 @@ $s-main-b: #113f75;
   background: $s-bgcYellow center center no-repeat;
   background-size: cover;
 
-  .container {
+  .s-login-container {
     position: relative;
     width: 800px;
     height: 600px;
@@ -31,7 +31,7 @@ $s-main-b: #113f75;
 
     /* border: 1px solid orange; */
 
-    .blueBg {
+    .s-login-blueBg {
       position: absolute;
       top: 90px;
       width: 100%;
@@ -44,7 +44,7 @@ $s-main-b: #113f75;
       align-items: center;
       /* border: 1px solid red; */
 
-      .box {
+      .s-login-box {
         position: relative;
         width: 50%;
         height: 100%;
@@ -55,14 +55,14 @@ $s-main-b: #113f75;
 
         /* border: 1px solid red; */
 
-        h3 {
+        .s-login-h3 {
           color: $s-font;
           font-size: 20px;
           font-weight: 600;
           margin-bottom: 10px;
         }
 
-        button {
+        .s-login-signinBtn {
           cursor: pointer;
           padding: 10px 20px;
           background: $s-bgc;
@@ -76,7 +76,7 @@ $s-main-b: #113f75;
       }
     }
 
-    .formBx {
+    .s-login-formBx {
       position: absolute;
       top: 0;
       left: 0;
@@ -93,7 +93,7 @@ $s-main-b: #113f75;
       overflow: hidden;
       /* border: 1px solid green; */
 
-      .form {
+      .s-login-form {
         position: absolute;
         left: 0;
         width: 100%;
@@ -101,7 +101,7 @@ $s-main-b: #113f75;
         transition: 0.5s;
         /* border: 1px solid red; */
 
-        form {
+        .s-login-formDetails {
           width: 100%;
           display: flex;
           flex-direction: column;
@@ -109,14 +109,14 @@ $s-main-b: #113f75;
           align-items: center;
           // border: 1px solid orange;
 
-          h2 {
+          .s-login-h2 {
             font-size: 30px;
             color: $s-font-main;
             margin-bottom: 10px;
             /* padding: 10px; */
           }
 
-          h3 {
+          .s-login-h3 {
             font-size: 16px;
             color: $s-font;
             margin-bottom: 20px;
@@ -124,7 +124,7 @@ $s-main-b: #113f75;
             /* padding: 10px; */
           }
 
-          input {
+          .s-login-input {
             width: 100%;
             // margin-bottom: 20px;
             padding: 10px;
@@ -133,7 +133,7 @@ $s-main-b: #113f75;
             border: 1px solid #333;
           }
 
-          input[type='submit'] {
+          .s-login-submit {
             /* border: none; */
             /* color: #fff; */
             font-weight: 600p;
@@ -142,7 +142,7 @@ $s-main-b: #113f75;
             border-radius: 8px;
           }
 
-          .signinSubmit {
+          .s-signinSubmit {
             background: $s-main-y;
             box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
             border: none;
@@ -150,16 +150,16 @@ $s-main-b: #113f75;
             margin-bottom: 15px;
           }
 
-          .forgot {
+          .s-login-forgot {
             color: $s-font;
             margin-bottom: 20px;
           }
 
-          p {
+          .s-login-p {
             color: $s-font;
           }
 
-          .errorMg {
+          .s-login-errorMg {
             // border: 1px solid green;
             font-size: 14px;
             margin-bottom: 15px;
@@ -170,14 +170,14 @@ $s-main-b: #113f75;
             height: 15px;
           }
 
-          label {
+          .s-login-label {
             font-size: 15px;
             width: 100%;
             margin-bottom: 5px;
             font-weight: 600;
           }
 
-          .gmailBtn {
+          .s-login-gmailBtn {
             font-weight: 600;
             width: 100%;
             height: 46px;
@@ -191,7 +191,7 @@ $s-main-b: #113f75;
 
             position: relative;
 
-            .gmail {
+            .s-login-gmail {
               background: $s-bgc;
               color: #333;
               width: 42px;
@@ -204,7 +204,7 @@ $s-main-b: #113f75;
               // border: 1px solid blue;
             }
 
-            .googleSubmit {
+            .s-login-googleSubmit {
               border: none;
               width: calc(100% - 42px);
               background: $s-bgc;
@@ -219,18 +219,18 @@ $s-main-b: #113f75;
       }
 
       /* 點signin 字體就留在原地不動 */
-      .signinForm {
+      .s-login-signinForm {
         transition-delay: 0.25s;
       }
 
       /* 離開signup 字體留在外面 然後overflow hidden隱藏 */
-      .signupForm {
+      .s-login-signupForm {
         left: 100%;
         transition-delay: 0s;
         // border: 1px solid pink;
         // position: relative;
 
-        input[type='submit'] {
+        .s-login-submit {
           background: $s-main-b;
           box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
           border: none;
@@ -242,37 +242,37 @@ $s-main-b: #113f75;
   }
 
   @media (max-width: 991px) {
-    .container {
+    .s-login-container {
       max-width: 400px;
       height: 750px;
       display: flex;
       justify-content: center;
       align-items: center;
 
-      .blueBg {
+      .s-login-blueBg {
         top: 0;
         height: 100%;
 
-        .box {
+        .s-login-box {
           position: absolute;
           width: 100%;
           height: 150px;
           bottom: 0;
         }
 
-        .box.signin {
+        .s-login-box.s-login-signin {
           top: 0;
         }
       }
 
-      .formBx {
+      .s-login-formBx {
         width: 100%;
         height: 600px;
         top: 0;
         box-shadow: none;
       }
 
-      .formBx.active {
+      .s-login-formBx.active {
         left: 0;
         top: 150px;
       }
@@ -284,21 +284,21 @@ $s-main-b: #113f75;
   background: $s-bgcBlue center center no-repeat;
   background-size: cover;
 
-  .formBx.active {
+  .s-login-formBx.active {
     left: 50%;
 
     /* 離開signin 字體留在外面 然後overflow hidden隱藏 */
-    .signinForm {
+    .s-login-signinForm {
       left: -100%;
       transition-delay: 0s;
     }
 
     /* 點signup 字體就留在原地不動 */
-    .signupForm {
+    .s-login-signupForm {
       left: 0;
       transition-delay: 0.25s;
 
-      input[type='submit'] {
+      .s-login-submit {
         background: $s-main-b;
         box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
         border: none;
@@ -309,7 +309,7 @@ $s-main-b: #113f75;
   }
 
   @media (max-width: 991px) {
-    .formBx.active {
+    .s-login-formBx.active {
       left: 0;
       top: 150px;
     }

@@ -1,5 +1,9 @@
 import './style/ResetPass.scss'
-import { checkEmpty, checkPassword, check2Password } from './UserSign_valid'
+import {
+  checkEmpty,
+  checkPassword,
+  check2Password,
+} from './data/UserSign_valid'
 import React, { useState } from 'react'
 import { UPDATE_PASS } from '../my-config'
 import axios from 'axios'

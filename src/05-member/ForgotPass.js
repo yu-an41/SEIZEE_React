@@ -2,7 +2,7 @@ import './style/ForgotPass.scss'
 import { FORGOT_PASS } from '../my-config'
 import React, { useState } from 'react'
 import axios from 'axios'
-import { checkEmpty } from './UserSign_valid'
+import { checkEmpty } from './data/UserSign_valid'
 
 function ForgotPass() {
   const [forgotFD, setForgotFD] = useState({
@@ -58,7 +58,7 @@ function ForgotPass() {
               <h3>
                 請在下面輸入您的電子郵件地址，我們將重設密碼的連結寄給您。
               </h3>
-              <label for='mbfEmail'>
+              <label for="mbfEmail">
                 電子郵件<span style={{ color: 'red' }}> *</span>
               </label>
               <input
