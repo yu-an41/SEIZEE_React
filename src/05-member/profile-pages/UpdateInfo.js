@@ -6,7 +6,7 @@ import { DistrictData } from '../data/DistrictData'
 import { map, find, propEq, forEach, isNil } from 'ramda'
 import Select from 'react-select'
 import axios from 'axios'
-import { PROFILE } from '../../my-config'
+import { PROFILE, imgUrl, imgServerUrl } from '../../my-config'
 import { useParams, useLocation } from 'react-router-dom'
 
 // selectedCity
@@ -79,9 +79,6 @@ function UpdateInfo(props) {
   // Trigger the clicking of the input element
   const hiddenFileInput = useRef(null)
 
-  // -----讀取會員資料-----
-  const [listData, setListData] = useState({ row: [] })
-
   // -----更新會員資料-----
   // 更新會員資料
   const [updateFD, setUpdateFD] = useState({
@@ -104,7 +101,7 @@ function UpdateInfo(props) {
     if (!isNil(city)) setDistricts(districtOpts(city))
   }, [city])
 
-  console.log(district)
+  // console.log(district)
   // city change 事件處理
   const handleCityChange = (e) => {
     setDistrict('')
@@ -189,6 +186,8 @@ function UpdateInfo(props) {
       mbuPhone: response.data.row.mb_phone,
       // mbuSid: response.data.row.mb_sid,
     })
+
+    // setSelectedFile({...selectedFile, updateFD.mbuPhoto})
   }
 
   // console.log(updateFD)
@@ -200,7 +199,7 @@ function UpdateInfo(props) {
   }, [location])
 
   // console.log(listData)
-  console.log(listData.row)
+  // console.log(listData.row)
 
   // ====================================
   // 更新資料
@@ -257,7 +256,6 @@ function UpdateInfo(props) {
     fd.append('mb_phone', updateFD.mbuPhone)
     console.log(selectedFile)
     console.log(fd)
-    // setUpdateFD({ ...updateFD, mbuPhoto: selectedFile })
 
     axios({
       method: 'put',
@@ -295,7 +293,11 @@ function UpdateInfo(props) {
                 <div className="s-ui-imgBx">
                   <img
                     className="s-ui-img"
-                    src={selectedFile ? preview : '/05-member/ghost.png'}
+                    src={
+                      selectedFile
+                        ? preview
+                        : `${imgServerUrl}/uploads/05-member/${updateFD.mbuPhoto}`
+                    }
                     alt=""
                     onClick={handleClick}
                   />
