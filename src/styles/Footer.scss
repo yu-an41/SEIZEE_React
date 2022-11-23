@@ -45,7 +45,7 @@ li {
 .y-footer-bg {
     background-color: $main-blue;
     // height: 40px;
-    padding: 30px 300px;
+    padding: 30px;
 
     p, a {
         color: #fff;
@@ -54,14 +54,16 @@ li {
     .y-footer-body {
         width: 100%;
         max-width: 1320px;
-        margin-bottom: 20px;
-        padding: 20px;
-        border-bottom: 2px solid #fff;
+        margin-bottom: 15px;
+        padding: 20px 1%;
+        border-bottom: 2px dashed #fff;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
 
         .y-footer-logo {
-            width: 180px;
+            width: 110px;
+            margin: 0 auto 20px;
 
             img {
                 width: 100%;
@@ -70,22 +72,75 @@ li {
         }
 
         .y-footer-title {
-
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
         
         }
 
         .y-footer-links {
-            
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
     }
 
     .y-footer-rights {
         width: 100%;
-        padding-right: 30px;
-        display: flex;
-        justify-content: flex-end;
+        text-align: center;
+
         p {
-            font-size: 18px;
+            font-size: 12px;
+        }
+    }
+}
+
+@media (min-width: 391px) {
+    .y-footer-bg {
+        background-color: $main-blue;
+        // height: 40px;
+        padding: 30px 300px;
+    
+        p, a {
+            color: #fff;
+        }
+    
+        .y-footer-body {
+            width: 100%;
+            max-width: 1320px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-bottom: 2px solid #fff;
+            display: flex;
+            justify-content: space-between;
+    
+            .y-footer-logo {
+                width: 180px;
+    
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+    
+            .y-footer-title {
+    
+            
+            }
+    
+            .y-footer-links {
+                
+            }
+        }
+    
+        .y-footer-rights {
+            width: 100%;
+            padding-right: 30px;
+            display: flex;
+            justify-content: flex-end;
+            p {
+                font-size: 18px;
+            }
         }
     }
 }

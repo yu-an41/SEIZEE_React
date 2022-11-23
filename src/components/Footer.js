@@ -6,6 +6,7 @@ import './../styles/Footer.scss'
 import Apple from './../dotown/apple.png'
 import LogoWhite from './../logo-and-fonts/LOGO-white.svg'
 
+
 function Footer() {
   return (
     <>
@@ -56,6 +57,11 @@ function Footer() {
               <a href="/#" alt="event_link">
                 #踢球球活動
               </a>
+            </li>
+          </ul>
+          <ul className='y-Footer-media'>
+            <li>
+              <img /> 
             </li>
           </ul>
         </div>
