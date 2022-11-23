@@ -19,7 +19,7 @@ function RecommendCard(picture_url) {
   return (
     <>
       <div className="a-productRecommend">
-        <div class="a-recommendText">
+        <div className="a-recommendText">
           <img src="svg/nut.svg" alt="" />
           <h3>惜食商品推薦</h3>
         </div>

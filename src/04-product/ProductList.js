@@ -18,7 +18,7 @@ function ProductList() {
         'http://localhost:3002/product?shop_list_sid=3'
       )
       console.log(response)
-      const Pdata = response.data.rows
+      const Pdata = response.data
       setAllProduct(Pdata)}
     catch(e) {
       console.error(e.message)
@@ -28,7 +28,6 @@ function ProductList() {
   useEffect(() => {
     getProductCard()
   }, [])
-  console.log(allProduct)
 
     return (
 

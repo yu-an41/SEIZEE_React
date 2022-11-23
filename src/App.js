@@ -52,8 +52,8 @@ function App() {
           {/* <Route path="/shop" element={<ShopHome />} /> */}
 
           {/* 04-product  */}
-          <Route path="/product" element={<ProductList />} />
-          <Route path="/product" element={<ProductDetail />} />
+          <Route path="/productList" element={<ProductList />} />
+          <Route path="/productDetail" element={<ProductDetail />} />
 
           {/* 05-member */}
           {/* <Route path="/login" element={<UserSign />} />
