@@ -23,8 +23,68 @@ function ShopList() {
     try {
       const response = await axios.get('http://localhost:3002/api/shop')
       // console.log(response.data)
-      const shopData = response.data
-      return shopData
+      let shopData = response.data
+
+      const theHour = new Date().getHours()
+      const theDay = new Date().getDay()
+      const shopDay = [
+        'shop_sun',
+        'shop_mon',
+        'shop_tue',
+        'shop_wed',
+        'shop_thu',
+        'shop_fri',
+        'shop_sat',
+      ]
+      // const openShop = shopData.filter(
+      //   (v, i) =>
+      //     v.rows.shop_opentime.substring(0, 2) <= theHour &&
+      //     v.rows.shop_closetime.substring(0, 2) >= theHour
+      // )
+      // // console.log(openShop)
+      // const opened = openShop.map((v, i) => {
+      //   const a = { ...v.rows, open: true }
+      //   return { ...v, rows: a }
+      // })
+      // console.log(opened)
+      // const closedShop = shopData.filter(
+      //   (v, i) =>
+      //     v.rows.shop_opentime.substring(0, 2) > theHour ||
+      //     v.rows.shop_closetime.substring(0, 2) < theHour
+      // )
+      // const closed = closedShop.map((v, i) => {
+      //   const a = { ...v.rows, open: false }
+      //   return { ...v, rows: a }
+      // })
+      // console.log(closed)
+      // const newShop = [{ ...closed }, { ...opened }]
+      // console.log(newShop)
+      // console.log(closedShop)
+      // const testShop = [{ ...openShop }, { ...closedShop }]
+      // // console.log(testShop)
+      // const newShop = { ...testShop }
+      // const a = { ...newShop[0], rows: { ...newShop[0].rows, open: true } }
+
+      const newShop = shopData.map((item, i) => {
+        // console.log(item)
+        if (item.rows[shopDay[theDay]]) {
+          if (
+            item.rows.shop_opentime.substring(0, 2) <= theHour &&
+            item.rows.shop_closetime.substring(0, 2) >= theHour
+          ) {
+            const a = { ...item.rows, open: 1 }
+            return { ...item, rows: a }
+          } else {
+            const b = { ...item.rows, open: 0 }
+            return { ...item, rows: b }
+          }
+        } else {
+          const c = { ...item.rows, open: 0 }
+          return { ...item, rows: c }
+        }
+      })
+      // console.log(newShop)
+      return newShop
     } catch (e) {
       // 錯誤處理
       console.error(e.message)
@@ -32,6 +92,7 @@ function ShopList() {
     }
   }
   const goFilter = function () {
+    // console.log(shops)
     let newData = shops
       .map((v, i) => {
         const c = [...[v.cates]]
@@ -40,11 +101,20 @@ function ShopList() {
         // return v.cates
       })
       .filter((v, i) => {
-        return (
-          v[0].shop_address_city_sid === selectedCity &&
-          v[0].shop_address_area_sid === selectedArea &&
-          v[1][0].includes(selectedCate)
-        )
+        if (selectedOpen) {
+          return (
+            v[0].shop_address_city_sid === selectedCity &&
+            v[0].shop_address_area_sid === selectedArea &&
+            v[1][0].includes(selectedCate) &&
+            v[0].open === 1
+          )
+        } else {
+          return (
+            v[0].shop_address_city_sid === selectedCity &&
+            v[0].shop_address_area_sid === selectedArea &&
+            v[1][0].includes(selectedCate)
+          )
+        }
       })
 
     // console.log(newData)
@@ -54,8 +124,8 @@ function ShopList() {
 
   useEffect(() => {
     ;(async () => {
-      const shopData = await getAllshops()
-      setShops(shopData)
+      const newShop = await getAllshops()
+      setShops(newShop)
     })()
   }, [])
 
@@ -77,6 +147,7 @@ function ShopList() {
             <div className="r-btn-wrap">
               <div className="r-search-btn">
                 <button onClick={goFilter}>
+                  {/* <button> */}
                   <i className="fa-solid fa-caret-right"></i>
                   <span>搜尋GO</span>
                 </button>

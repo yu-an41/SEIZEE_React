@@ -11,7 +11,9 @@ function ShopCard({ filterShop }) {
             <div className="r-col" key={v[0].sid}>
               <div className="r-card-container">
                 <div className="r-card-img-wrap">
-                  <span>營業中</span>
+                  <span style={v[0].open ? {} : { background: '#ccc' }}>
+                    營業中
+                  </span>
                   <img
                     src={`${imgServerUrl}/images/03-shop/${v[0].shop_cover}`}
                     alt=""

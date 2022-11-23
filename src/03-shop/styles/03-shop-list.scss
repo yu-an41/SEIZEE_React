@@ -628,7 +628,7 @@ $card-btn: #80b938;
                 font-size: 20px;
                 width: 10%;
                 color: #fff;
-                background-color: #000;
+                background-color: rgb(255, 0, 0);
                 text-align: center;
                 writing-mode: vertical-lr;
                 letter-spacing: 0.8rem;
@@ -758,6 +758,9 @@ $card-btn: #80b938;
               text-shadow: none;
             }
             p {
+              color: #fff;
+            }
+            span {
               color: #fff;
             }
           }
