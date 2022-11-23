@@ -69,7 +69,7 @@ $border-radius-button: 8px;
 
         .y-Cart-status {
             width: 100%;
-            max-width: 800px;
+            // max-width: 300px;
             margin: 0 auto;
             padding: 0 30px;
             background-color: #fff;
@@ -160,8 +160,8 @@ $border-radius-button: 8px;
     .y-Cart-middle {
         padding: 0 30px;
         padding-top: 75px;
-        // background-color: #ddd; 
-        background-color: #fdefc2;
+        background-color: #ECECEC; 
+        // background-color: #fdefc2;
 
         li {
             list-style: none;
@@ -301,17 +301,17 @@ $border-radius-button: 8px;
         }
 
         .y-Cart-sections {
-
+            width: 100%;
         }
 
         .y-Cart-details {
 
             .y-empty-cart-wrap {
-
+                display: none;
             }
             
             .y-Cart-tab {
-
+                display: none;
             }
 
             .y-Cart-details-tab {
@@ -319,7 +319,7 @@ $border-radius-button: 8px;
             }
 
             .y-Cart-details-top {
-
+                display: none;
                 .y-Cart-details-header {
 
                 }
@@ -515,6 +515,8 @@ $border-radius-button: 8px;
             background-color: #fdefc2;
             // background-color: #ddd;
             padding-top: 215px;
+            padding-bottom: 40px;
+
             li {
                 font-size: 18px;
                 margin-bottom: 10px;
@@ -660,7 +662,6 @@ $border-radius-button: 8px;
             }
 
             .y-Cart-sections {
-                width: 100%;
                 max-width: 1320px;
                 margin: 0 auto 40px;
             }
@@ -670,12 +671,14 @@ $border-radius-button: 8px;
                 margin-bottom: 80px;
 
                 .y-empty-cart-wrap {
+                    display: block;
                     position: absolute;
                     top: 0;
                     right: 10px;
                 }
                 
                 .y-Cart-tab {
+                    display: block;
                     max-width: 190px;
                     padding: 12px 40px;
                     border: $border-lg;
@@ -789,7 +792,7 @@ $border-radius-button: 8px;
 
                 .y-Cart-rec-top {
                     width: 100%;
-                    margin-bottom: 20px;
+                    margin-bottom: 30px;
                     
                     .y-Cart-rec-header {
                         background-color: $main-blue;
@@ -804,12 +807,15 @@ $border-radius-button: 8px;
                 }
 
                 .y-Cart-rec-bottom {
+                    width: 100%;
 
                     .y-Cart-rec-row {
-                        display: flex;
                         width: 100%;
+                        display: flex;
+                        justify-content: space-between;
                         .y-Cart-rec-wrap {
                             width: 25%;
+                            padding: 10px 15px;
                         }
                     }
                 }

@@ -175,8 +175,7 @@ function CartList() {
           </div>
         </div>
         <div className="y-Cart-bottom">
-          bottom
-          {/* <YellowWaveReverse /> */}
+          <YellowWaveReverse />
           <div className="y-Cart-rec">rec</div>
           <div className="y-Cart-news">news</div>
           <div className="y-cart-footer">

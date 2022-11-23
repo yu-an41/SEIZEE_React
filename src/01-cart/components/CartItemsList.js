@@ -2,7 +2,8 @@ import React from 'react'
 import './../styles/CartItemsList.scss'
 
 import CartMerchPic from './../../dotown/strawberry.png'
-import YellowLineWave from './../images/line-wave.svg'
+// import YellowLineWave from './../images/line-wave.svg'
+import WhiteLineWave from './../images/white-line-wave.svg'
 
 import WishListBtn from './WishListBtn'
 import RemoveItemBtn from './RemoveItemBtn'
@@ -25,7 +26,7 @@ function CartItemsList() {
         </div>
         <div className="y-Cart-items-quantity">
           <select>
-            <option value={1} selected>
+            <option value={1} defaultValue='true'>
               1
             </option>
             <option value={2}>2</option>
@@ -45,7 +46,7 @@ function CartItemsList() {
         </div>
       </div>
       <div className="y-Cart-YellowLineWave-wrap">
-        <img src={YellowLineWave} alt="yellow line wave divider" />
+        <img src={WhiteLineWave} alt="yellow line wave divider" />
       </div>
     </div>
   )
