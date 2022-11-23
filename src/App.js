@@ -1,9 +1,9 @@
 import './styles/global.scss'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
 import MyContextProviders from './contexts/MyContextProviders'
+
+// components
 import Menu from './components/Menu'
-// import HeadWave from './components/HeadWave'
 
 // 00-homepage
 import Homepage from './00-homepage/pages/Homepage'
