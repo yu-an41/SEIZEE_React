@@ -88,8 +88,6 @@ function UpdateInfo(props) {
     mbuPhoto: '',
     mbuName: '',
     mbuEmail: '',
-    // mbuBoy: false,
-    // mbuGirl: false,
     mbuGender: '',
     mbuAddressCity: '',
     mbuAddressArea: '',
@@ -191,9 +189,6 @@ function UpdateInfo(props) {
       mbuPhone: response.data.row.mb_phone,
       // mbuSid: response.data.row.mb_sid,
     })
-
-    // document.getElementById('mbuAddressDetail').value = updateFD.mbuAddressDetail
-    // document.getElementById('mbuPhone').value = updateFD.mbuPhone
   }
 
   // console.log(updateFD)
@@ -237,34 +232,50 @@ function UpdateInfo(props) {
     // }
   }
 
-  const updateSubmit = async (e) => {
-    e.preventDefault()
-    const { data } = await axios.put(`${PROFILE}${sid}`, updateFD)
-
-    // wrong: `PROFILE${sid}` => PROFILE3
-    // or can use: PROFILE + "3"
-
-    if (data.success) {
-      alert('更新成功')
-    } else {
-      alert('更新失敗')
-    }
-  }
-
   // const updateSubmit = async (e) => {
   //   e.preventDefault()
-  //   const fd = new FormData()
-  //   fd.append('mb_photo', selectedFile)
+  //   const { data } = await axios.put(`${PROFILE}${sid}`, updateFD)
 
-  //   axios({
-  //     method: 'put',
-  //     url: `${PROFILE}${sid}`,
-  //     data: fd,
-  //     headers: { 'Content-Type': 'multipart/form-data' },
-  //   })
-  //     .then((r) => r.json())
-  //     .then((obj) => console.log(obj))
+  //   // wrong: `PROFILE${sid}` => PROFILE3
+  //   // or can use: PROFILE + "3"
+
+  //   if (data.success) {
+  //     alert('更新成功')
+  //   } else {
+  //     alert('更新失敗')
+  //   }
   // }
+
+  const updateSubmit = async (e) => {
+    e.preventDefault()
+    const fd = new FormData()
+    fd.append('mb_photo', selectedFile)
+    fd.append('mb_gender', updateFD.mbuGender)
+    fd.append('mb_address_city', updateFD.mbuAddressCity)
+    fd.append('mb_address_area', updateFD.mbuAddressArea)
+    fd.append('mb_address_detail', updateFD.mbuAddressDetail)
+    fd.append('mb_phone', updateFD.mbuPhone)
+    console.log(selectedFile)
+    console.log(fd)
+    // setUpdateFD({ ...updateFD, mbuPhoto: selectedFile })
+
+    axios({
+      method: 'put',
+      url: `${PROFILE}${sid}`,
+      data: fd,
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
+      // .then((r) => r.json())
+      // .then((obj) => console.log(obj))
+
+      .then((response) => response.json())
+      .then((result) => {
+        console.log('Success:', result)
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
+  }
 
   return (
     <>
@@ -274,7 +285,12 @@ function UpdateInfo(props) {
           <div className="main-content">
             <div className="s-ui">
               <h2 className="s-ui-title">資料修改</h2>
-              <form className="s-ui-card" action="" onSubmit={updateSubmit}>
+              <form
+                className="s-ui-card"
+                action=""
+                name="updateInfo"
+                onSubmit={updateSubmit}
+              >
                 {/* <input type="hidden" name="mbuSid" /> */}
                 <div className="s-ui-imgBx">
                   <img
@@ -375,7 +391,7 @@ function UpdateInfo(props) {
                     id="mbuAddressDetail"
                     placeholder="請輸入地址"
                     onChange={updateHandler}
-                    // value={updateFD.mbuAddressDetail}
+                    defaultValue={updateFD.mbuAddressDetail}
                   />
                   <label className="s-ui-label">聯絡電話</label>
                   <input
@@ -384,7 +400,7 @@ function UpdateInfo(props) {
                     id="mbuPhone"
                     placeholder="請輸入連絡電話"
                     onChange={updateHandler}
-                    // value={updateFD.mbuPhone}
+                    defaultValue={updateFD.mbuPhone}
                   />
                 </div>
                 <div className="s-ui-actionBtns">
