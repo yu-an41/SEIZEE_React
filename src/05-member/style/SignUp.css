@@ -1,0 +1,264 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+.s-body-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(../../../public/05-member/bgc_yellow.jpg) center center no-repeat;
+  background-size: cover;
+}
+.s-body-signup .container {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  margin: 20px;
+  /* background: #ff0; */
+  /* border: 1px solid orange; */
+}
+.s-body-signup .container .blueBg {
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  height: 420px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+.s-body-signup .container .blueBg .box {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
+}
+.s-body-signup .container .blueBg .box h3 {
+  color: #5e5e5e;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.s-body-signup .container .blueBg .box button {
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #fff;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+  color: #5e5e5e;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+}
+.s-body-signup .container .formBx {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+  transition: 0.5s ease-in-out;
+  overflow: hidden;
+  /* border: 1px solid green; */
+  /* 點signin 字體就留在原地不動 */
+  /* 離開signup 字體留在外面 然後overflow hidden隱藏 */
+}
+.s-body-signup .container .formBx .form {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 50px;
+  transition: 0.5s;
+  /* border: 1px solid red; */
+}
+.s-body-signup .container .formBx .form form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.s-body-signup .container .formBx .form form h2 {
+  font-size: 30px;
+  color: #2b325c;
+  margin-bottom: 10px;
+  /* padding: 10px; */
+}
+.s-body-signup .container .formBx .form form h3 {
+  font-size: 16px;
+  color: #5e5e5e;
+  margin-bottom: 20px;
+  font-weight: 500;
+  /* padding: 10px; */
+}
+.s-body-signup .container .formBx .form form input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  font-size: 16px;
+  border: 1px solid #333;
+}
+.s-body-signup .container .formBx .form form input[type=submit] {
+  /* border: none; */
+  /* color: #fff; */
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.s-body-signup .container .formBx .form form .signinSubmit {
+  background: #fad249;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  border: none;
+  color: #fff;
+  margin-bottom: 15px;
+}
+.s-body-signup .container .formBx .form form .forgot {
+  color: #5e5e5e;
+  margin-bottom: 20px;
+}
+.s-body-signup .container .formBx .form form p {
+  color: #5e5e5e;
+}
+.s-body-signup .container .formBx .form form .errorMg {
+  font-size: 14px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100%;
+  height: 15px;
+}
+.s-body-signup .container .formBx .form form label {
+  font-size: 15px;
+  width: 100%;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.s-body-signup .container .formBx .form form .gmailBtn {
+  font-weight: 600;
+  width: 100%;
+  height: 46px;
+  cursor: pointer;
+  /* border: 1px solid #333; */
+  box-shadow: 0px 5px 5px rgba(206, 71, 67, 0.25);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  position: relative;
+}
+.s-body-signup .container .formBx .form form .gmailBtn .gmail {
+  background: #fff;
+  color: #333;
+  width: 42px;
+  height: 38px;
+  position: absolute;
+  left: 10px;
+  top: 2px;
+  z-index: 20;
+}
+.s-body-signup .container .formBx .form form .gmailBtn .googleSubmit {
+  border: none;
+  width: calc(100% - 42px);
+  background: #fff;
+  color: #333;
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* border: 1px solid green; */
+}
+.s-body-signup .container .formBx .signinForm {
+  transition-delay: 0.25s;
+}
+.s-body-signup .container .formBx .signupForm {
+  left: 100%;
+  transition-delay: 0s;
+}
+.s-body-signup .container .formBx .signupForm input[type=submit] {
+  background: #113f75;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  border: none;
+  color: #fff;
+  margin-bottom: 15px;
+}
+@media (max-width: 991px) {
+  .s-body-signup .container {
+    max-width: 400px;
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .s-body-signup .container .blueBg {
+    top: 0;
+    height: 100%;
+  }
+  .s-body-signup .container .blueBg .box {
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    bottom: 0;
+  }
+  .s-body-signup .container .blueBg .box.signin {
+    top: 0;
+  }
+  .s-body-signup .container .formBx {
+    width: 100%;
+    height: 600px;
+    top: 0;
+    box-shadow: none;
+  }
+  .s-body-signup .container .formBx.active {
+    left: 0;
+    top: 150px;
+  }
+}
+
+.s-body-signup.active {
+  background: url(../../../public/05-member/bgc_blue.jpg) center center no-repeat;
+  background-size: cover;
+}
+.s-body-signup.active .formBx.active {
+  left: 50%;
+  /* 離開signin 字體留在外面 然後overflow hidden隱藏 */
+  /* 點signup 字體就留在原地不動 */
+}
+.s-body-signup.active .formBx.active .signinForm {
+  left: -100%;
+  transition-delay: 0s;
+}
+.s-body-signup.active .formBx.active .signupForm {
+  left: 0;
+  transition-delay: 0.25s;
+}
+.s-body-signup.active .formBx.active .signupForm input[type=submit] {
+  background: #113f75;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  border: none;
+  color: #fff;
+  margin-bottom: 15px;
+}
+@media (max-width: 991px) {
+  .s-body-signup.active .formBx.active {
+    left: 0;
+    top: 150px;
+  }
+}/*# sourceMappingURL=SignUp.css.map */

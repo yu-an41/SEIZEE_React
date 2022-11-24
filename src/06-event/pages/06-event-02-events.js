@@ -10,6 +10,8 @@ import jorangeM from '../svg/orangeMountain.svg'
 function Events() {
   const [click, setClick] = useState(1)
   const [state, setState] = useState('workshop')
+  const [jcactive, setJcactive] = useState(1)
+  const [jmactive, setJmactive] = useState(1)
   const [eventData, setEventData] = useState([
     {
       sid: '',
@@ -51,7 +53,9 @@ function Events() {
             <div
               onClick={() => {
                 setState('workshop')
+                setJcactive(1)
               }}
+              className={jcactive === 1 ? 'cactive' : ''}
             >
               工作坊
             </div>
@@ -60,7 +64,9 @@ function Events() {
             <div
               onClick={() => {
                 setState('music')
+                setJcactive(2)
               }}
+              className={jcactive === 2 ? 'cactive' : ''}
             >
               音樂
             </div>
@@ -69,7 +75,9 @@ function Events() {
             <div
               onClick={() => {
                 setState('seminar')
+                setJcactive(3)
               }}
+              className={jcactive === 3 ? 'cactive' : ''}
             >
               講座
             </div>
@@ -78,7 +86,9 @@ function Events() {
             <div
               onClick={() => {
                 setState('vr')
+                setJcactive(4)
               }}
+              className={jcactive === 4 ? 'cactive' : ''}
             >
               VR體驗
             </div>
@@ -87,7 +97,9 @@ function Events() {
             <div
               onClick={() => {
                 setState('theater')
+                setJcactive(5)
               }}
+              className={jcactive === 5 ? 'cactive' : ''}
             >
               劇場
             </div>
@@ -95,17 +107,45 @@ function Events() {
         </ul>
 
         <div class="j-mountains">
-          <div class="j-blue-mountain">
-            <img src={jblueM} alt="" onClick={() => setClick(1)} />
+          <div class={`j-blue-mountain ${jmactive === 1 ? 'mactive' : ''}`}>
+            <img
+              src={jblueM}
+              alt=""
+              onClick={() => {
+                setClick(1)
+                setJmactive(1)
+              }}
+            />
           </div>
-          <div class="j-rice-mountain">
-            <img src={jriceM} alt="" onClick={() => setClick(2)} />
+          <div class={`j-rice-mountain ${jmactive === 2 ? 'mactive' : ''}`}>
+            <img
+              src={jriceM}
+              alt=""
+              onClick={() => {
+                setClick(2)
+                setJmactive(2)
+              }}
+            />
           </div>
-          <div class="j-green-mountain">
-            <img src={jgreenM} alt="" onClick={() => setClick(3)} />
+          <div class={`j-green-mountain ${jmactive === 3 ? 'mactive' : ''}`}>
+            <img
+              src={jgreenM}
+              alt=""
+              onClick={() => {
+                setClick(3)
+                setJmactive(3)
+              }}
+            />
           </div>
-          <div class="j-orange-mountain">
-            <img src={jorangeM} alt="" onClick={() => setClick(4)} />
+          <div class={`j-orange-mountain ${jmactive === 4 ? 'mactive' : ''}`}>
+            <img
+              src={jorangeM}
+              alt=""
+              onClick={() => {
+                setClick(4)
+                setJmactive(4)
+              }}
+            />
           </div>
         </div>
         <div>
@@ -114,7 +154,7 @@ function Events() {
               return e.sid === click
             })
             .map((e, i) => {
-              const { name, content, styles, img } = e
+              const { name, content, styles, img, sid, maximum } = e
               console.log(styles)
               return (
                 <div
@@ -128,7 +168,7 @@ function Events() {
                       <img src={`/06-event-img/${img}`} alt="" />
                     </div>
                     <div class="j-card-text">{content}</div>
-                    <div class="j-card-sold">即將完售</div>
+                    <div class="j-card-sold">{maximum}</div>
                   </span>
                 </div>
               )

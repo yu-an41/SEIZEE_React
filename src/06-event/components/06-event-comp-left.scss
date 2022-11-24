@@ -66,24 +66,26 @@ body {
           position: relative;
           text-align: center;
 
-          &:hover {
-            color: $colorBlue;
-            &::after {
-              content: '';
-              background-image: url(../svg/tada.svg);
-              position: absolute;
-              background-repeat: no-repeat;
-              top: -28px;
-              left: 12px;
-              width: 250px;
-              height: 100px;
-              padding: 0;
-            }
+          
+        }
+        div.active {
+          color: $colorBlue !important;
+          &::after {
+            content: '';
+            background-image: url(../svg/tada.svg);
+            position: absolute;
+            background-repeat: no-repeat;
+            top: -28px;
+            left: 12px;
+            width: 250px;
+            height: 100px;
+            padding: 0;
           }
         }
       }
     }
   }
+  
   .j-wave {
     margin-left: -2px;
     width: 50%;
@@ -92,3 +94,4 @@ body {
     }
   }
 }
+

@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+}
+
+.p-recomWrap .p-recomTitle {
+  display: flex;
+}
+.p-recomWrap .p-recomTitle .p-likeWrap {
+  margin-right: 10px;
+  width: 40px;
+}
+.p-recomWrap .p-recomTitle .p-likeWrap img {
+  width: 100%;
+}
+.p-recomWrap .p-recomTitle h5 {
+  color: #FAD249;
+  font-size: 24px;
+}
+.p-recomWrap .p-recomContent {
+  display: flex;
+  align-items: center;
+}
+.p-recomWrap .p-recomContent h5 {
+  color: #FAD249;
+  font-size: 24px;
+  margin-right: 20px;
+}
+.p-recomWrap .p-recomContent .p-recomText h3 {
+  color: #113F75;
+  font-size: 20px;
+  margin: 0;
+}
+.p-recomWrap .p-recomContent .p-recomText .p-recomMember {
+  color: #5C5C5C;
+  display: flex;
+  margin-top: 5px;
+}
+.p-recomWrap .p-recomContent .p-recomText .p-recomMember p {
+  font-size: 10px;
+  margin: 0;
+}
+.p-recomWrap .p-recomContent .p-recomText .p-recomMember .p-memberName {
+  margin-right: 50px;
+}/*# sourceMappingURL=Recommendation.css.map */
