@@ -51,14 +51,14 @@ function ForgotPass() {
   return (
     <>
       <div className="s-body-forgotpass">
-        <div className="container">
-          <div className="forgotBx">
-            <form action="" onSubmit={forgotSubmit}>
-              <h2>忘記密碼?</h2>
-              <h3>
+        <div className="s-fp-container">
+          <div className="s-fp-forgotBx">
+            <form action="" onSubmit={forgotSubmit} className="s-fp-form">
+              <h2 className="s-fp-h2">忘記密碼?</h2>
+              <h3 className="s-fp-h3">
                 請在下面輸入您的電子郵件地址，我們將重設密碼的連結寄給您。
               </h3>
-              <label for="mbfEmail">
+              <label htmlFor="mbfEmail">
                 電子郵件<span style={{ color: 'red' }}> *</span>
               </label>
               <input
@@ -67,6 +67,7 @@ function ForgotPass() {
                 id="mbfEmail"
                 onChange={forgotHandler}
                 onBlur={checkForgotEmail}
+                className="s-fp-input"
               />
               <div
                 className="errorMg"

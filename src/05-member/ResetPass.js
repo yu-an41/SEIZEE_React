@@ -81,11 +81,11 @@ function ResetPass() {
   return (
     <>
       <div className="s-body-resetpass">
-        <div className="container">
-          <div className="resetBx">
-            <form action="" onSubmit={resetSubmit}>
-              <h2>重新輸入密碼</h2>
-              <label for="mbResetPass">
+        <div className="s-rp-container">
+          <div className="s-rp-resetBx">
+            <form action="" onSubmit={resetSubmit} className="s-rp-form">
+              <h2 className="s-rp-h2">重新輸入密碼</h2>
+              <label htmlFor="mbResetPass" className="s-rp-label">
                 密碼<span style={{ color: 'red' }}> *</span>
               </label>
               <input
@@ -94,15 +94,16 @@ function ResetPass() {
                 id="mbResetPass"
                 onChange={resetHandler}
                 onBlur={checkResetPass1}
+                className="s-rp-input"
               />
               <div
-                className="errorMg"
+                className="s-rp-errorMg"
                 style={{ color: 'red' }}
                 id="mblEmail_error"
               >
                 {errorResetMgP1}
               </div>
-              <label for="mbResetPassConfirm">
+              <label htmlFor="mbResetPassConfirm" className="s-rp-label">
                 確認密碼<span style={{ color: 'red' }}> *</span>
               </label>
               <input
@@ -111,15 +112,20 @@ function ResetPass() {
                 id="mbResetPassConfirm"
                 onChange={resetHandler}
                 onBlur={checkResetPass2}
+                className="s-rp-input"
               />
               <div
-                className="errorMg"
+                className="s-rp-errorMg"
                 style={{ color: 'red' }}
                 id="mblEmail_error"
               >
                 {errorResetMgP2}
               </div>
-              <input type="submit" value="確認" className="resetSubmit" />
+              <input
+                type="submit"
+                value="確認"
+                className="s-rp-input s-rp-resetSubmit"
+              />
             </form>
           </div>
         </div>

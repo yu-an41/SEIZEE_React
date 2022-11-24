@@ -1,6 +1,6 @@
 import './style/UserSign.scss'
 import { Link, useNavigate } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import axios from 'axios'
 import { LOGIN, REGISTER, CHECK_USER } from '../my-config'
 import {
@@ -9,10 +9,13 @@ import {
   checkPassword,
   check2Password,
 } from './data/UserSign_valid'
+import AuthContext from '../contexts/AuthContext'
 
 function UserSign() {
-  const [signInIndex, setSignInIndex] = useState(1)
+  const { setMyAuth } = useContext(AuthContext)
   const navigate = useNavigate()
+
+  const [signInIndex, setSignInIndex] = useState(1)
   // FD = Form Data
   const [signInFD, setSignInFD] = useState({
     mblEmail: '',
@@ -58,13 +61,19 @@ function UserSign() {
   const signInSubmit = async (e) => {
     e.preventDefault()
     const { data } = await axios.post(LOGIN, signInFD)
-    console.log(data)
+
     if (data.success) {
       alert('登入成功')
+      localStorage.setItem('auth', JSON.stringify(data.auth))
+      setMyAuth({ ...data.auth, authorised: true })
       navigate('/')
     } else {
+      localStorage.removeItem('auth')
       alert('登入失敗')
     }
+
+    console.log(setMyAuth)
+    console.log(data)
   }
 
   // ====================================

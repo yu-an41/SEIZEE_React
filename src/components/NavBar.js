@@ -12,7 +12,7 @@ import MemberIcon from './../logo-and-fonts/default.png'
 function NavBar() {
   const { myAuth } = useContext(AuthContext)
   console.log('photo:', myAuth.mb_photo)
-  console.log('myAuth:', myAuth)
+  console.log('myAuthNav:', myAuth)
 
   return (
     <div className="y-section-nav">
@@ -25,10 +25,10 @@ function NavBar() {
         <div className="y-icon-round y-cart-icon">
           <img src={CartIcon} alt="cart icon" />
         </div>
-        {myAuth.authorsied ? (
+        {myAuth.authorised ? (
           <div className="y-icon-round y-member-icon">
             <img
-              src={`${imgServerUrl}/uploads/05-member/${myAuth.photo}`}
+              src={`${imgServerUrl}/uploads/05-member/${myAuth.mb_photo}`}
               alt="member icon"
             />
           </div>

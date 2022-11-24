@@ -17,6 +17,8 @@ export const AuthContextProvider = function ({ children }) {
 
   let initAuth = { ...unAuth }
 
+  console.log('unAuth:', unAuth)
+
   // 取得目前狀態
   const str = localStorage.getItem('auth')
   if (str) {
@@ -25,7 +27,11 @@ export const AuthContextProvider = function ({ children }) {
       initAuth = { ...localAuth, authorised: true }
     }
   }
+  console.log('str', str)
+
   const [myAuth, setMyAuth] = useState(initAuth)
+
+  console.log('myAuth', myAuth)
 
   // 2. 登入: 成功, 失敗
 

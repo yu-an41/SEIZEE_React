@@ -169,6 +169,7 @@ function UpdateInfo(props) {
     // setListData(response.data)
     console.log(response.data.row)
     console.log(response)
+    console.log('mbuPhoto', response.data.row.mb_photo)
 
     setUpdateFD({
       ...updateFD,
@@ -182,6 +183,7 @@ function UpdateInfo(props) {
       mbuPhone: response.data.row.mb_phone,
       // mbuSid: response.data.row.mb_sid,
     })
+
     if (
       !isNil(response.data.row.mb_address_city) &&
       response.data.row.mb_address_city !== ''
