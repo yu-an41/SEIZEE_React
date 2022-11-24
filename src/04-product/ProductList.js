@@ -15,7 +15,7 @@ function ProductList() {
   async function getProductCard() {
     try { 
       const response = await axios.get(
-        'http://localhost:3002/product?shop_list_sid=3'
+        'http://localhost:3002/product?shop_list_sid=2'
       )
       console.log(response)
       const Pdata = response.data

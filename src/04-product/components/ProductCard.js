@@ -23,7 +23,11 @@ function ProductCard({ allProduct }) {
                 </div>
                 <div className="a-productDiscount">
                   <img src="./04-product/svg/like.svg" alt="" />
-                  <p>$特價{product.sale_price}元</p>
+                  <p>$特價
+                      {Math.round(
+                        (product.unit_price * product.sale_price) / 10
+                      )}
+                      元</p>
                 </div>
               </div>
               <div className="a-productQuantity">
