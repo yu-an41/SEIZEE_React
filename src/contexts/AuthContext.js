@@ -9,9 +9,9 @@ export const AuthContextProvider = function ({ children }) {
   const navigate = useNavigate()
   const unAuth = {
     authorised: false, // 有沒有登入
-    sid: 0,
-    account: '',
-    photo: '',
+    mb_sid: 0,
+    mb_account: '',
+    mb_photo: '',
     token: '',
   }
 
@@ -25,10 +25,9 @@ export const AuthContextProvider = function ({ children }) {
       initAuth = { ...localAuth, authorised: true }
     }
   }
-
   const [myAuth, setMyAuth] = useState(initAuth)
 
-  // 登入: 成功, 失敗
+  // 2. 登入: 成功, 失敗
 
   // 登出
   const logout = () => {
@@ -36,8 +35,10 @@ export const AuthContextProvider = function ({ children }) {
     setMyAuth(unAuth)
     navigate('/login')
   }
+
   return (
     <AuthContext.Provider value={{ myAuth, setMyAuth, logout }}>
+      {/* ex { myAuth, setMyAuth } 這裡傳出去 然後navbar接收 */}
       {children}
     </AuthContext.Provider>
   )

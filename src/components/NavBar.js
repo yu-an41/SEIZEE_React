@@ -3,6 +3,7 @@ import './../styles/NavBar.scss'
 import Menu from './../components/Menu'
 import { Link, useLocation } from 'react-router-dom'
 import AuthContext from '../contexts/AuthContext'
+import { PROFILE, imgUrl, imgServerUrl } from '../my-config'
 
 import LogoBluePink from './../logo-and-fonts/LOGO-blue-pink.svg'
 import CartIcon from './../dotown/cart.png'
@@ -10,6 +11,8 @@ import MemberIcon from './../logo-and-fonts/default.png'
 
 function NavBar() {
   const { myAuth } = useContext(AuthContext)
+  console.log('photo:', myAuth.mb_photo)
+  console.log('myAuth:', myAuth)
 
   return (
     <div className="y-section-nav">
@@ -24,7 +27,10 @@ function NavBar() {
         </div>
         {myAuth.authorsied ? (
           <div className="y-icon-round y-member-icon">
-            <img src={MemberIcon} alt="member icon" />
+            <img
+              src={`${imgServerUrl}/uploads/05-member/${myAuth.photo}`}
+              alt="member icon"
+            />
           </div>
         ) : (
           <Link className="y-icon-round y-member-icon" to={'/login'}>
