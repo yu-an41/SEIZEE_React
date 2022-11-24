@@ -1,4 +1,11 @@
 import React from 'react'
+// scss
+import './../styles/CartList.scss'
+
+// components
+import NavBar from '../../00-homepage/components/NavBar'
+
+//img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
 import YellowLineWave from './../images/line-wave.svg'
 
@@ -6,7 +13,10 @@ function CartList() {
   return (
     <>
       <div className="y-CartList-container">
-        <div className="y-Cart-nav">nav</div>
+        <div className="y-Cart-nav">
+          <YellowWave />
+          <NavBar />
+        </div>
         <div className="y-Cart-top">
           <div className="y-Cart-page">page</div>
           <div className="y-Cart-status">status</div>
@@ -22,7 +32,8 @@ function CartList() {
         <div className="y-Cart-bottom">
           bottom
           <div className="y-Cart-rec">rec</div>
-          <div className="y-Cart-rec">rec</div>
+          <div className="y-Cart-news">news</div>
+          <div className="y-cart-footer">footer</div>
         </div>
       </div>
     </>

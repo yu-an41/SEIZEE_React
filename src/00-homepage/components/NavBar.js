@@ -1,23 +1,29 @@
 import React from 'react'
-import LogoBluePink from './../../logo-and-fonts/LOGO-blue-pink.svg'
+import './../styles/NavBar.scss'
 import Menu from './../../components/Menu'
+
+import LogoBluePink from './../../logo-and-fonts/LOGO-blue-pink.svg'
+import CartIcon from './../../dotown/cart.png'
+import MemberIcon from './../../dotown/donut.png'
 
 function NavBar() {
   return (
-    <>
-      <section className="y-section y-section-nav">
-        <div className="y-logo-wrap">
-          <div className="y-svg-wrap">
-            <img src={LogoBluePink} alt="SEIZEE_logo" />
-          </div>
+    <div className="y-section-nav">
+      <div className="y-logo-wrap">
+        <div className="y-svg-wrap">
+          <img src={LogoBluePink} alt="SEIZEE_logo" />
         </div>
-        <div className="y-nav-right">
-          <div className="y-icon-round y-cart-icon"></div>
-          <div className="y-icon-round y-member-icon"></div>
-          <Menu />
+      </div>
+      <div className="y-nav-right">
+        <div className="y-icon-round y-cart-icon">
+          <img src={CartIcon} alt="cart icon" />
         </div>
-      </section>
-    </>
+        <div className="y-icon-round y-member-icon">
+          <img src={MemberIcon} alt="cart icon" />
+        </div>
+        <Menu />
+      </div>
+    </div>
   )
 }
 
