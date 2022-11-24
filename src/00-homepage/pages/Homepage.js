@@ -7,6 +7,7 @@ import './../styles/Homepage.scss'
 import NavBar from '../components/NavBar'
 import Footer from '../../components/Footer'
 import NewsCrawl from '../components/NewsCrawl'
+import TopCarousel from '../components/TopCarousel'
 
 //img srcs
 import YellowWave from '../components/YellowWave'
@@ -26,7 +27,9 @@ function Homepage() {
           </section>
           <section className="y-section y-section-carousel">
             carousel
-            <div className="y-carousel-wrap">carousel-wrap</div>
+            <div className="y-carousel-wrap">
+              <TopCarousel />
+            </div>
           </section>
           <div className="y-wave-wrap">
             <YellowWave />
