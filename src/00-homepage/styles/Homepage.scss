@@ -2,6 +2,8 @@ $main-yellow: #FAD249;
 $main-blue: #2B325C;
 $main-text: #5E5E5E;
 
+$bgc-yellow: #FBFBF2;
+
 $border-lg: $main-blue 3px solid;
 $border-sm: $main-blue 2px solid;
 
@@ -26,108 +28,111 @@ $border-radius-button: 8px;
 .y-index-container {
     min-width: $min-width;
     background-color: #fff;
-}
 
-.y-index-top {
-    width: 100%;
-    // height: 500px;
-    background-color:
-    $main-yellow;
-}
-
-.y-section {
-    // border: 1px solid black;
-    width: 100%;
-}
-
-.y-section-news {
-    // overflow: hidden;
-    height: 30px;
-    // margin-top: 50px;
-    background-color: #FBFBF2;
-
-    .y-news-list-wrap {
-        height: 100%;
-        display: flex;
-        border-top: $border-sm;
-        border-bottom: $border-sm;
-
-        .y-new-icon-wrap {
-            height: 100%;
-            aspect-ratio: 1/1;
-
-            img {
-                height: 100%;
-                object-fit: contain;
-            }
-        }
-
-        .y-news-category {
-            p {
-                
-            }
-        }
-
-        .y-news-content {
-            a {
-                // text-decoration: none;
-                font-size: 14px;
-                color: $main-text;
-            }
-
-        }
+    .y-section {
+        // border: 1px solid black;
+        width: 100%;
     }
-    
+
+    .y-index-top {
+        width: 100%;
+        // height: 500px;
+        background-color:
+        $main-yellow;
+
+        
+        .y-section-nav-bg {
+            width: 100%;
+        }
+
+        .y-section-news {
+            width: 100%;
+            // padding-top: 90px;
+            background-color: $main-yellow;
+            
+            .y-section-news-first {
+                overflow: hidden;
+                width: 100%;
+                .y-news-crawl-wrap {
+                
+                }
+                
+        }
+            
+            
+        }
+
+        
+
+        .y-section-carousel {
+            background-color: $main-yellow;
+            // offset-position: 30px 0;
+        }
+
+        .y-wave-wrap {
+            
+        }
+
+    }
+
 }
+
+
+
+
+
 
 @media (min-width: 391px) {
-    .y-section-news {
-        height: 45px;
-        margin-top: 90px;
-    
-        .y-news-list-wrap {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            border-top: $border-sm;
-            border-bottom: $border-sm;
-    
-            .y-new-icon-wrap {
-                width: 32px;
-                height: 32px;
-                border: $border-sm;
-                border-radius: 50%;
-                padding: 2px;
+    .y-index-container {
 
-                img {
-                    width: 100%;
-                    object-fit: cover;
-                    object-position: 50% 50%;
-                }
-            }
-            .y-news-category {
-                p {
-                    font-size: 20px;
-                    letter-spacing: 2px;
-                    font-weight: bold;
-                }
-            }
-            .y-news-content {
-                a {
-                    font-size: 20px;
-                    letter-spacing: 2px;
-                    font-weight: bold;
-                }
-    
-            }
+        .y-section {
+            // border: 1px solid black;
+            width: 100%;
         }
+
+        .y-index-top {
+
+
+        }
+
+        
+        .y-section-nav-bg {
+            // height: 40px;
+            background-color: $main-yellow;
+        }
+
+        .y-section-news {
+            padding-top: 90px;
+            display: flex;
+        
+            .y-section-news-first {
+                position: relative;
+                width: 100%;
+                height: 30px;
+                overflow: hidden;
+                background-color: $bgc-yellow;
+
+                .y-news-crawl-wrap {
+                    
+                }
+
+            }
+            
+        }
+    
+
+        .y-section-carousel {
+            
+        }
+
+        .y-wave-wrap {
+
+        }
+        
     }
+
 }
-.y-section-carousel {
-    height: 300px;
-    background-color: $main-yellow;
-    // offset-position: 30px 0;
-}
+
 
 .y-section-merch {
     height: 500px;

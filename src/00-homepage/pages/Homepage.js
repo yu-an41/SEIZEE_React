@@ -6,34 +6,24 @@ import './../styles/Homepage.scss'
 // components
 import NavBar from '../components/NavBar'
 import Footer from '../../components/Footer'
+import NewsCrawl from '../components/NewsCrawl'
 
 //img srcs
 import YellowWave from '../components/YellowWave'
-import NewsCrawlIcon from './../../dotown/pudding.png'
 
 function Homepage() {
   return (
     <>
       <div className="y-index-container">
         <div className="y-index-top">
-          <section className="y-section">
+          <section className="y-section y-section-nav-bg">
             <NavBar />
           </section>
-          <ul className="y-section y-section-news y-section-news-first">
-            <li className="y-news-list-wrap">
-              <div className="y-new-icon-wrap">
-                <img src={NewsCrawlIcon} alt="icon for news crawl" />
-              </div>
-              <div className="y-news-category">
-                <p>「戰士版」</p>
-              </div>
-              <div className="y-news-content">
-                <a href="/#" alt="news">
-                  simply dummy text of the printing and typesetting industry.
-                </a>
-              </div>
-            </li>
-          </ul>
+          <section className="y-section y-section-news">
+            <div className="y-section-news-first">
+              <NewsCrawl />
+            </div>
+          </section>
           <section className="y-section y-section-carousel">
             carousel
             <div className="y-carousel-wrap">carousel-wrap</div>
