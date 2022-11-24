@@ -6,7 +6,6 @@ main {
     list-style: none;
     letter-spacing: 2px
 }
-
 $main-blue: #2B325C;
 $main-yellow: #FAD249;
 $main-text: #5E5E5E;
@@ -48,7 +47,6 @@ $main-border-radius: 8px;
 .a-productCardList {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
     background: $main-yellow;
     padding-top: line(3);
 }

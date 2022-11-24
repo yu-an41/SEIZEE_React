@@ -47,9 +47,7 @@ $main-border-radius: 8px;
 .a-produtCardWrapper {
     width: 30%;
     display: flex;
-    // flex-direction: column;
     flex-wrap: wrap;
-    // justify-content: center;
     .a-productCardContent {
         background-color: $secondary-yellow;
         width: 100%;
@@ -88,7 +86,7 @@ $main-border-radius: 8px;
     }
     .a-discountIconWrapper p {
         font-size: 23px;
-        color: #ccc;
+        color: #fff;
         position: absolute;
         top:35%;
         left:20%;
