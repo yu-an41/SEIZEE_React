@@ -5,7 +5,7 @@ import ShopMap from '../components/03-shop-map'
 import ShopSideBar from '../components/03-shop-side-bar'
 import ShopBanner from '../components/03-shop-banner'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 function ShopList() {
@@ -18,12 +18,13 @@ function ShopList() {
   const [selectedCate, setSelectedCate] = useState('')
   const [selectedOpen, setSelectedOpen] = useState(0)
   const [filterShop, setFilterShop] = useState([])
+  const [startShop, setStartShop] = useState(1)
 
   const getAllshops = async () => {
     try {
       const response = await axios.get('http://localhost:3002/api/shop')
       // console.log(response.data)
-      let shopData = response.data
+      const shopData = response.data
 
       const theHour = new Date().getHours()
       const theDay = new Date().getDay()
@@ -36,41 +37,13 @@ function ShopList() {
         'shop_fri',
         'shop_sat',
       ]
-      // const openShop = shopData.filter(
-      //   (v, i) =>
-      //     v.rows.shop_opentime.substring(0, 2) <= theHour &&
-      //     v.rows.shop_closetime.substring(0, 2) >= theHour
-      // )
-      // // console.log(openShop)
-      // const opened = openShop.map((v, i) => {
-      //   const a = { ...v.rows, open: true }
-      //   return { ...v, rows: a }
-      // })
-      // console.log(opened)
-      // const closedShop = shopData.filter(
-      //   (v, i) =>
-      //     v.rows.shop_opentime.substring(0, 2) > theHour ||
-      //     v.rows.shop_closetime.substring(0, 2) < theHour
-      // )
-      // const closed = closedShop.map((v, i) => {
-      //   const a = { ...v.rows, open: false }
-      //   return { ...v, rows: a }
-      // })
-      // console.log(closed)
-      // const newShop = [{ ...closed }, { ...opened }]
-      // console.log(newShop)
-      // console.log(closedShop)
-      // const testShop = [{ ...openShop }, { ...closedShop }]
-      // // console.log(testShop)
-      // const newShop = { ...testShop }
-      // const a = { ...newShop[0], rows: { ...newShop[0].rows, open: true } }
 
       const newShop = shopData.map((item, i) => {
         // console.log(item)
         if (item.rows[shopDay[theDay]]) {
           if (
             item.rows.shop_opentime.substring(0, 2) <= theHour &&
-            item.rows.shop_closetime.substring(0, 2) >= theHour
+            item.rows.shop_closetime.substring(0, 2) > theHour
           ) {
             const a = { ...item.rows, open: 1 }
             return { ...item, rows: a }
@@ -91,9 +64,10 @@ function ShopList() {
       // setErrorMessage(e.message)
     }
   }
+
   const goFilter = function () {
     // console.log(shops)
-    let newData = shops
+    const newData = shops
       .map((v, i) => {
         const c = [...[v.cates]]
         const dataRows = [...[v.rows], c]
@@ -119,6 +93,7 @@ function ShopList() {
 
     // console.log(newData)
     setFilterShop(newData)
+    setStartShop(0)
   }
   // console.log(filterShop)
 
@@ -147,17 +122,8 @@ function ShopList() {
             <div className="r-btn-wrap">
               <div className="r-search-btn">
                 <button onClick={goFilter}>
-                  {/* <button> */}
                   <i className="fa-solid fa-caret-right"></i>
                   <span>搜尋GO</span>
-                </button>
-              </div>
-            </div>
-            <div className="r-btn-wrap">
-              <div className="r-search-btn">
-                <button>
-                  <i className="fa-solid fa-caret-right"></i>
-                  <span>清除Reset</span>
                 </button>
               </div>
             </div>
@@ -166,7 +132,11 @@ function ShopList() {
           <div className="r-wave"></div>
           <div className="r-shop-list">
             <ShopBanner />
-            <ShopCard filterShop={filterShop} />
+            <ShopCard
+              filterShop={filterShop}
+              shops={shops}
+              startShop={startShop}
+            />
             {/* <ShopMap /> */}
             {/* <ShopMcard shops={shops} /> */}
           </div>

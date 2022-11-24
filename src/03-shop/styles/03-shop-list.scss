@@ -24,7 +24,7 @@ $card-btn: #80b938;
       padding-top: 80px;
 
       .r-search-wrap {
-        padding: 50px 30px 60px 60px;
+        padding: 50px 30px 30px 60px;
 
         .r-search-article {
           display: flex;
@@ -215,13 +215,14 @@ $card-btn: #80b938;
       }
       .r-btn-wrap {
         .r-search-btn {
+          display: block;
           display: flex;
           justify-content: center;
           align-items: center;
-          padding-bottom: 20px;
+          padding: 0 30px 20px 60px;
           button {
             position: relative;
-            width: 200px;
+            width: 250px;
             height: 50px;
             background: $main-orange;
             display: flex;
