@@ -19,6 +19,7 @@ function ShopList() {
   const [selectedOpen, setSelectedOpen] = useState(0)
   const [filterShop, setFilterShop] = useState([])
   const [startShop, setStartShop] = useState(1)
+  const [toggleStatus, setToggleStatus] = useState(1)
 
   const getAllshops = async () => {
     try {
@@ -103,7 +104,7 @@ function ShopList() {
       setShops(newShop)
     })()
   }, [])
-
+  // console.log('list')
   return (
     <>
       <div className="r-container">
@@ -131,14 +132,18 @@ function ShopList() {
 
           <div className="r-wave"></div>
           <div className="r-shop-list">
-            <ShopBanner />
-            <ShopCard
-              filterShop={filterShop}
-              shops={shops}
-              startShop={startShop}
+            <ShopBanner
+              setToggleStatus={setToggleStatus}
+              toggleStatus={toggleStatus}
             />
-            {/* <ShopMap /> */}
-            {/* <ShopMcard shops={shops} /> */}
+            {toggleStatus ? (
+              <ShopCard filterShop={filterShop} startShop={startShop} />
+            ) : (
+              <>
+                <ShopMap />
+                <ShopMcard filterShop={filterShop} startShop={startShop} />
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { imgUrl, imgServerUrl } from '../shop-config'
 import axios from 'axios'
 
 function ShopCard({ filterShop, startShop }) {
-  // console.log(shops)
+
   const [demoShop, setDemoShop] = useState([])
 
   const getDemoShop = async () => {
@@ -44,7 +44,7 @@ function ShopCard({ filterShop, startShop }) {
           return { ...item, rows: c }
         }
       })
-      console.log(newDemoData)
+      // console.log(newDemoData)
       return newDemoData
     } catch (e) {
       // 錯誤處理
@@ -62,7 +62,7 @@ function ShopCard({ filterShop, startShop }) {
   // console.log(demoShop)
   // console.log(filterShop )
   // console.log(!!filterShop )
-
+  // console.log('card')
   return (
     <>
       {startShop ? (
