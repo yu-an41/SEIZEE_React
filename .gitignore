@@ -38,5 +38,5 @@ public/images/*
 public/05-member
 .vscode
 
-src/dotown
-src/logo-and-fonts
+# src/dotown
+# src/logo-and-fonts
