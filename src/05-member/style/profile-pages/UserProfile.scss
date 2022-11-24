@@ -131,7 +131,7 @@
             text-decoration: none;
             text-align: center;
             cursor: pointer;
-            padding-top: 7px;
+            padding-top: 10px;
 
             // border: 1px solid red;
           }
@@ -141,7 +141,7 @@
   }
 
   .s-up-line {
-    margin-top: 30px;
+    margin-top: 25px;
     border-top: 2px solid #534e4814;
     width: 100%;
   }
@@ -149,7 +149,7 @@
   .s-up-deleteTitle {
     font-size: 24px;
     font-weight: 700;
-    margin: 25px 0;
+    margin: 15px 0;
   }
 
   .s-up-deleteAccount {
@@ -170,7 +170,7 @@
 @media (max-width: 991px) {
   .s-up {
     overflow: scroll;
-    height: 900px;
+    height: 100%;
 
     .s-up-card {
       height: 600px;
