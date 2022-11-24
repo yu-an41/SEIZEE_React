@@ -38,5 +38,6 @@ public/images/*
 public/05-member
 .vscode
 
-# src/dotown
+# src/dotown/*
 # src/logo-and-fonts
+# src/lifelabel
