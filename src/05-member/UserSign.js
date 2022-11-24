@@ -211,7 +211,7 @@ function UserSign() {
                 action=""
                 onSubmit={signInSubmit}
               >
-                <h2 className="s-login-h2">歡迎回來</h2>
+                <div className="s-login-h2">歡迎回來</div>
                 <h3 className="s-login-main-h3">我們很高興又見到您了!</h3>
                 <label className="s-login-label" htmlFor="mblEmail">
                   電子郵件<span style={{ color: 'red' }}> *</span>

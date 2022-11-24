@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Menu from './components/Menu'
 import MyContextProviders from './contexts/MyContextProviders'
-import './styles/global.css'
+import './styles/global.scss'
 import HeadWave from './components/HeadWave'
 import HomePage from './00-homepage/HomePage'
 // 05-member
