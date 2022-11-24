@@ -72,10 +72,11 @@ $border-radius-button: 8px;
             }
         }
 
-        .y-wave-wrap {
-            
-        }
 
+    }
+
+    .y-wave-wrap {
+            
     }
 
 }
@@ -134,10 +135,62 @@ $border-radius-button: 8px;
             }
         }
 
-        .y-wave-wrap {
+        .y-section-forum {
 
+            .y-section-forum-title {
+                margin-bottom: 40px;
+
+                p {
+                    font-size: 36px;
+                    font-weight: bold;
+                    letter-spacing: 4px;
+                    color: $main-text;
+                    text-align: center;
+                }
+            }
+
+            .y-section-forum-wrap {
+                outline: 1px solid #333;
+                max-width: 1320px;
+                margin: 0 auto;
+                padding: 20px;
+                display: flex;
+                justify-content: space-between;
+                .y-forum-cate {
+                    width: 33%;
+                    padding: 15px ;
+                    .y-forum-card-wrap {
+
+                    }
+                }
+
+                .y-forum-recipe-wrap {
+
+                    .y-recipe-card-wrap {
+
+                    }
+                }
+
+                .y-forum-exchange-wrap {
+                    
+                    .y-exchange-card-wrap {
+
+                    }
+                }
+
+                .y-forum-shop-wrap {
+                    
+                    .y-shop-card-wrap {
+
+                    } 
+                }
+            }
         }
         
+    }
+
+    .y-wave-wrap {
+
     }
 
 }
