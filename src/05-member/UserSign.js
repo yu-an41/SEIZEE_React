@@ -19,10 +19,15 @@ function UserSign() {
     mblPass: '',
   })
   const [signUpFD, setSignUpFD] = useState({
-    mbrEmail: '',
-    mbrName: '',
+    mbuName: '',
+    mbuEmail: '',
     mbrPass: '',
     mbrPassConfirm: '',
+    mbuGender: '',
+    mbuAddressCity: '',
+    mbuAddressArea: '',
+    mbuAddressDetail: '',
+    mbuPhone: '',
   })
   // 註冊errorMg
   const [errorMgE, setErrorMgE] = useState('')
