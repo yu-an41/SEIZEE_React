@@ -12,18 +12,18 @@ import Homepage from './00-homepage/pages/Homepage'
 import CartList from './01-cart/pages/CartList'
 
 // 02-forum
-import PostCook from './02-forum/pages/Post_cook'
-import ForumHome from './02-forum/pages/ForumHome'
+// import PostCook from './02-forum/pages/Post_cook'
+// import ForumHome from './02-forum/pages/ForumHome'
 
 // 03-shop
-import ShopList from './03-shop/03-shop-list'
-import ShopHome from './03-shop/03-shop-home'
+// import ShopList from './03-shop/03-shop-list'
+// import ShopHome from './03-shop/03-shop-home'
 
 // 05-member
 import UserSign from './05-member/UserSign'
 import ResetPass from './05-member/ResetPass'
 import ForgotPass from './05-member/ForgotPass'
-import UserProfile from './05-member/UserProfile'
+// import UserProfile from './05-member/UserProfile'
 
 // 06-event
 // import Top from './06-event/pages/06-event-01-top'

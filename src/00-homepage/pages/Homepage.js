@@ -5,6 +5,7 @@ import './../styles/Homepage.scss'
 
 // components
 import NavBar from '../components/NavBar'
+import Footer from '../../components/Footer'
 
 //img srcs
 import YellowWave from '../components/YellowWave'
@@ -42,7 +43,9 @@ function Homepage() {
         <section className="y-section y-section-event">event</section>
         <section className="y-section y-section-forum">forum</section>
         <section className="y-section y-section-dotown">dotown</section>
-        <section className="y-section y-section-footer">footer</section>
+        <section className="y-section y-section-footer">
+          <Footer />
+        </section>
       </div>
     </>
   )

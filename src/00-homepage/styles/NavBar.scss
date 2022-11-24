@@ -38,12 +38,9 @@ $border-radius-button: 8px;
             // color: $main-text;
         }
     }
-
+    
     .y-nav-right {
-
         display: flex;
-        // width: 100px;
-        // max-width: 200px;
         justify-content: flex-start;
         align-items: center;
 
@@ -54,17 +51,17 @@ $border-radius-button: 8px;
             overflow: hidden;
             border: $border-sm;
             margin-right: 6px;
-            background: {
-                color: white;
+            background-color: #fff;
+
+            img {
+                width: 100%;
+                object-fit: cover;
             }
             
-            .y-cart-icon {
-                margin-right: 20px;
-                img {
-                    width: 100%;
-                    object-fit: cover;
-                }
-            }
+        }
+
+        .y-cart-icon {
+            margin-right: 8px;
         }
     }
 }
@@ -88,12 +85,15 @@ $border-radius-button: 8px;
                 width: 55px;
                 border: $border-lg;
                 margin-right: 12px;
-                background: {
+                
+                img {
+
                 }
-    
-                .y-cart-icon {
-                    margin-right: 20px;
-                }
+                
+            }
+
+            .y-cart-icon {
+                margin-right: 20px;
             }
         }
         
