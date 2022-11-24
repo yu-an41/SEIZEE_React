@@ -23,6 +23,7 @@ import HeadWave from './components/HeadWave'
 import ProductList from './04-product/ProductList'
 import ProductDetail from './04-product/ProductDetail'
 
+
 // 05-member
 // import UserSign from './05-member/UserSign'
 // import ResetPass from './05-member/ResetPass'
@@ -39,7 +40,8 @@ function App() {
         <Routes>
           00-homepage
           {/* <Route path="/" element={<Homepage />} /> */}
-
+          {/* <Route path="/" element={<Homepage />} /> */}
+          
           {/* 01-cart */}
           {/* <Route path="/cart" element={<CartList />} /> */}
 
@@ -52,8 +54,8 @@ function App() {
           {/* <Route path="/shop" element={<ShopHome />} /> */}
 
           {/* 04-product  */}
-          <Route path="/productList" element={<ProductList />} />
-          <Route path="/productDetail" element={<ProductDetail />} />
+          <Route path="/productList/:shop_list_sid" element={<ProductList />} />
+          <Route path="/product/:sid" element={<ProductDetail />} />
 
           {/* 05-member */}
           {/* <Route path="/login" element={<UserSign />} />

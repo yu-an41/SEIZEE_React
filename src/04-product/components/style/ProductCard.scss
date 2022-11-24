@@ -6,7 +6,6 @@ main {
     list-style: none;
     letter-spacing: 2px
 }
-
 $main-blue: #2B325C;
 $main-yellow: #FAD249;
 $main-text: #5E5E5E;
@@ -18,7 +17,6 @@ $text-shadow: #E4E4E4;
 $base-line-eight: 10px;
 $main-border: 3px solid #113F75;
 $main-border-radius: 8px;
-
 @function line($count:1) {
     @return $base-line-eight * $count;
 }
@@ -58,7 +56,7 @@ $main-border-radius: 8px;
         @extend %a-flex;
         flex-direction: column;
         border: $main-border;
-        
+        position: relative;
     .a-productImgWrapper{
         width: 100%;
         overflow: hidden;
@@ -73,10 +71,29 @@ $main-border-radius: 8px;
     }
     .a-productCardTitle {
         @extend %a-flex;
+        @extend %h3;
     }
-    // .a-productCardTitle h3 {
-    //     @extend %h3;
-    // }
+    .a-discountIconWrapper {
+        position: absolute;
+        top: 30%;
+        left: 80%;
+    }
+    .a-iconWrapper {
+        width: 100px;
+    }
+    .a-discountIconWrapper img {
+        width: 100%;
+        object-fit: cover;
+        
+    }
+    .a-discountIconWrapper p {
+        font-size: 23px;
+        color: #ccc;
+        position: absolute;
+        top:35%;
+        left:20%;
+        z-index: 1;
+    }
     .a-productCardTitle img {
         width: 30px;
         padding-left: 3px;
@@ -116,7 +133,6 @@ $main-border-radius: 8px;
         font-weight: 400;
         border-radius: $main-border-radius; 
     }
-    
     .a-quantity2 {
         padding: 3px 10px;
         margin: 0px 6px;
