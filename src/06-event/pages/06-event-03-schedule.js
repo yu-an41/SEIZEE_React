@@ -2,6 +2,7 @@ import '../styles/06-event-03-schedule.scss'
 
 import jStar from '../svg/star.svg'
 import jHeart from '../svg/heart-none.svg'
+import Eventcard from '../components/06-event-comp-box'
 
 function Schedule() {
   return (
@@ -110,7 +111,15 @@ function Schedule() {
               <div class="j-list-dash-8"></div>
               <div class="j-list-dash-9"></div>
               <div class="j-cookA">
-                <div class="j-schedule-card">
+                <Eventcard
+                  data={{
+                    time: '12:00-13:00',
+                    txt1: '全食物利用',
+                    txt2: '-水果酵釀-',
+                    tags: '#穢土轉生#工作坊',
+                  }}
+                />
+                {/* <div class="j-schedule-card">
                   <div class="j-schedule-card-head">
                     <div class="j-schedule-card-time">12:00-13:00</div>
                     <div class="j-schedule-card-heart">
@@ -122,7 +131,7 @@ function Schedule() {
                     -水果酵釀-
                   </div>
                   <div class="j-schedule-card-hashtag">#穢土轉生#工作坊</div>
-                </div>
+                </div> */}
               </div>
               <div class="j-cookB">
                 <div class="j-schedule-card">
