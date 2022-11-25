@@ -16,8 +16,8 @@ import CartList from './01-cart/pages/CartList'
 // import ForumHome from './02-forum/pages/ForumHome'
 
 // 03-shop
-// import ShopList from './03-shop/03-shop-list'
-// import ShopHome from './03-shop/03-shop-home'
+import ShopList from './03-shop/03-shop-list'
+import ShopHome from './03-shop/03-shop-home'
 
 // 05-member
 import UserSign from './05-member/UserSign'
@@ -44,7 +44,7 @@ function App() {
           <Route path="/forum/cook" element={<PostCook />} /> */}
 
           {/* 03-shop */}
-          {/* <Route path="/shop" element={<ShopList />} /> */}
+          <Route path="/shop" element={<ShopList />} />
           {/* <Route path="/shop" element={<ShopHome />} /> */}
 
           {/* 05-member */}

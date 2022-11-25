@@ -2,6 +2,8 @@ $main-yellow: #FAD249;
 $main-blue: #2B325C;
 $main-text: #5E5E5E;
 
+$bgc-yellow: #FBFBF2;
+
 $border-lg: $main-blue 3px solid;
 $border-sm: $main-blue 2px solid;
 
@@ -26,51 +28,173 @@ $border-radius-button: 8px;
 .y-index-container {
     min-width: $min-width;
     background-color: #fff;
-}
 
-.y-index-top {
-    width: 100%;
-    // height: 500px;
-    background-color:
-    $main-yellow;
-}
-
-.y-section {
-    // border: 1px solid black;
-    width: 100%;
-}
-
-.y-section-news {
-    overflow: hidden;
-    height: 20px;
-    margin-top: 50px;
-    background-color: #FBFBF2;
-    border-top: 1px solid $main-text;
-    border-bottom: 1px solid $main-text;
-
-    p {
-        text-decoration: none;
-        font-size: 14px;
+    .y-section {
+        // border: 1px solid black;
+        width: 100%;
     }
-    
+
+    .y-index-top {
+        width: 100%;
+        // height: 500px;
+        background-color:
+        $main-yellow;
+
+        
+        .y-section-nav-bg {
+            width: 100%;
+        }
+
+        .y-section-news {
+            width: 100%;
+            // padding-top: 90px;
+            background-color: $main-yellow;
+            
+            .y-section-news-first {
+                overflow: hidden;
+                width: 100%;
+                .y-news-crawl-wrap {
+                
+                }
+                
+        }
+            
+            
+        }
+
+        
+
+        .y-section-carousel {
+            background-color: $main-yellow;
+
+            .y-carousel-wrap {
+
+            }
+        }
+
+
+    }
+
+    .y-wave-wrap {
+            
+    }
+
 }
+
+
+
+
+
 
 @media (min-width: 391px) {
-    .y-section-news {
-        height: 18px;
-        margin-top: 90px;
-    
-        p {
-            font-size: 16px;
-            vertical-align: middle;
+    .y-index-container {
+
+        .y-section {
+            // border: 1px solid black;
+            width: 100%;
         }
+
+        .y-index-top {
+
+
+        }
+
+        
+        .y-section-nav-bg {
+            // height: 40px;
+            background-color: $main-yellow;
+        }
+
+        .y-section-news {
+            padding-top: 90px;
+            display: flex;
+            margin-bottom: 20px;
+        
+            .y-section-news-first {
+                position: relative;
+                width: 100%;
+                height: 30px;
+                overflow: hidden;
+                background-color: $bgc-yellow;
+
+                .y-news-crawl-wrap {
+                    
+                }
+
+            }
+            
+        }
+    
+
+        .y-section-carousel {
+            
+            .y-carousel-wrap {
+                margin: 0 auto;
+                max-width: 1040px;
+                border: $border-lg;
+            }
+        }
+
+        .y-section-forum {
+
+            .y-section-forum-title {
+                margin-bottom: 40px;
+
+                p {
+                    font-size: 36px;
+                    font-weight: bold;
+                    letter-spacing: 4px;
+                    color: $main-text;
+                    text-align: center;
+                }
+            }
+
+            .y-section-forum-wrap {
+                outline: 1px solid #333;
+                max-width: 1320px;
+                margin: 0 auto;
+                padding: 20px;
+                display: flex;
+                justify-content: space-between;
+                .y-forum-cate {
+                    width: 33%;
+                    padding: 15px ;
+                    .y-forum-card-wrap {
+
+                    }
+                }
+
+                .y-forum-recipe-wrap {
+
+                    .y-recipe-card-wrap {
+
+                    }
+                }
+
+                .y-forum-exchange-wrap {
+                    
+                    .y-exchange-card-wrap {
+
+                    }
+                }
+
+                .y-forum-shop-wrap {
+                    
+                    .y-shop-card-wrap {
+
+                    } 
+                }
+            }
+        }
+        
     }
+
+    .y-wave-wrap {
+
+    }
+
 }
-.y-section-carousel {
-    height: 300px;
-    background-color: $main-yellow;
-    // offset-position: 30px 0;
-}
+
 
 .y-section-merch {
     height: 500px;

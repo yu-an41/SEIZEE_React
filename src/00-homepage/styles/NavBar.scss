@@ -37,6 +37,14 @@ $border-radius-button: 8px;
         background: {
             // color: $main-text;
         }
+
+        .y-svg-wrap {
+            a {
+                img {
+
+                }
+            }
+        }
     }
     
     .y-nav-right {
@@ -62,6 +70,13 @@ $border-radius-button: 8px;
 
         .y-cart-icon {
             margin-right: 8px;
+
+            a {
+
+                img {
+                    
+                }
+            }
         }
     }
 }
@@ -76,6 +91,14 @@ $border-radius-button: 8px;
             height: 60px;
             background: {
                 // color: $main-text;
+            }
+
+            .y-svg-wrap {
+                a {
+                    img {
+                        
+                    }
+                }
             }
         }
     
@@ -94,6 +117,13 @@ $border-radius-button: 8px;
 
             .y-cart-icon {
                 margin-right: 20px;
+
+                a {
+
+                    img {
+
+                    }
+                }
             }
         }
         
