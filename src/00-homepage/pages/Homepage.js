@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar'
 import Footer from '../../components/Footer'
 import NewsCrawl from '../components/NewsCrawl'
 import TopCarousel from '../components/TopCarousel'
-import ForumPost from '../components/ForumPost'
+import RecipeCardRow from '../components/RecipeCardRow'
 
 //img srcs
 import YellowWave from '../components/YellowWave'
@@ -49,20 +49,14 @@ function Homepage() {
             <p>最新論壇消息</p>
           </div>
           <div className="y-section-forum-wrap">
-            <div className="y-forum-cate y-forum-recipe-wrap">
-              <div className="y-forum-card-wrap y-recipe-card-wrap">
-                <ForumPost />
-              </div>
+            <div className="y-forum-row-wrap y-recipe-row-wrap">
+              <RecipeCardRow />
             </div>
-            <div className="y-forum-cate y-forum-exchange-wrap">
-              <div className="y-forum-card-wrap y-exchange-card-wrap">
-                <ForumPost />
-              </div>
+            <div className="y-forum-row-wrap y-exchange-row-wrap">
+              <RecipeCardRow />
             </div>
-            <div className="y-forum-cate y-forum-shop-wrap">
-              <div className="y-forum-card-wrap y-recipe-card-wrap">
-                <ForumPost />
-              </div>
+            <div className="y-forum-row-wrap y-shop-row-wrap">
+              <RecipeCardRow />
             </div>
           </div>
         </section>

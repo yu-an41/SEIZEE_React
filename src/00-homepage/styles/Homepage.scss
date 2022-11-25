@@ -156,33 +156,26 @@ $border-radius-button: 8px;
                 padding: 20px;
                 display: flex;
                 justify-content: space-between;
-                .y-forum-cate {
-                    width: 33%;
+                .y-forum-row-wrap {
+                    width: 100%;
                     padding: 15px ;
+                    outline: 1px solid red;
                     .y-forum-card-wrap {
 
                     }
                 }
 
-                .y-forum-recipe-wrap {
+                .y-recipe-row-wrap {
 
-                    .y-recipe-card-wrap {
 
-                    }
                 }
 
-                .y-forum-exchange-wrap {
+                .y-exchange-row-wrap {
                     
-                    .y-exchange-card-wrap {
-
-                    }
                 }
 
-                .y-forum-shop-wrap {
+                .y-shop-row-wrap {
                     
-                    .y-shop-card-wrap {
-
-                    } 
                 }
             }
         }
