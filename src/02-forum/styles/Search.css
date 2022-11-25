@@ -1,0 +1,14 @@
+.p-searchBar {
+  width: 1040px;
+  border: 3px solid #113F75;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.p-searchBar .p-search-imgWrap {
+  width: 50px;
+  background-color: #FAD249;
+  padding: 10px;
+}
+.p-searchBar .p-search-imgWrap img {
+  width: 100%;
+}/*# sourceMappingURL=Search.css.map */

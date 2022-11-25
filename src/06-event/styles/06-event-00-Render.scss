@@ -1,0 +1,9 @@
+.j-sides {
+  height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media (max-width: 390px){
+      
+    }
+  }

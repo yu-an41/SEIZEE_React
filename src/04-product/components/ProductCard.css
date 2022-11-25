@@ -1,0 +1,99 @@
+main {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  letter-spacing: 2px;
+}
+
+.a-produtCardWrapper .a-addButton, .a-produtCardWrapper .a-productQuantity, .a-produtCardWrapper .a-productDiscount, .a-produtCardWrapper .a-productPrice, .a-produtCardWrapper .a-productCardTitle, .a-produtCardWrapper .a-productCardContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.a-produtCardWrapper {
+  width: 30%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.a-produtCardWrapper .a-productCardContent {
+  background-color: #FEF3DA;
+  width: 100%;
+  flex-direction: column;
+  border: 3px solid #113F75;
+}
+.a-produtCardWrapper .a-productCardContent .a-productImgWrapper {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+.a-produtCardWrapper .a-productCardContent .a-productImgWrapper img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+  padding: 0;
+}
+.a-produtCardWrapper .a-productCardTitle img {
+  width: 30px;
+  padding-left: 3px;
+}
+.a-produtCardWrapper .a-priceWrapper {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding: 0 0 8px 0;
+}
+.a-produtCardWrapper .a-productPrice {
+  color: #5E5E5E;
+  line-height: 20px;
+  padding-right: 12px;
+  text-decoration: line-through;
+}
+.a-produtCardWrapper .a-productDiscount {
+  color: #113F75;
+  line-height: 20px;
+  font-weight: 500;
+}
+.a-produtCardWrapper .a-productDiscount img {
+  width: 32px;
+}
+.a-produtCardWrapper .a-productQuantity {
+  color: #5E5E5E;
+}
+.a-produtCardWrapper .a-quantity {
+  padding: 3px 8px;
+  margin: 0px 20px 0 5px;
+  background-color: #fff;
+  border: 3px solid #113F75;
+  color: #113F75;
+  font-weight: 400;
+  border-radius: 8px;
+}
+.a-produtCardWrapper .a-quantity2 {
+  padding: 3px 10px;
+  margin: 0px 6px;
+  background-color: #fff;
+  border: 3px solid #113F75;
+  color: #113F75;
+  border-radius: 8px;
+}
+.a-produtCardWrapper .a-productQuantity2 img {
+  margin-left: 6px;
+}
+.a-produtCardWrapper .a-addButton {
+  width: 180px;
+  text-align: center;
+  background-color: #FAD249;
+  color: #2B325C;
+  border: 3px solid #113F75;
+  border-radius: 8px;
+  padding: 3px 20px;
+  margin: 15px 0 40px 0;
+  font-weight: 500;
+}
+.a-produtCardWrapper .a-addButton img {
+  width: 35px;
+}/*# sourceMappingURL=ProductCard.css.map */

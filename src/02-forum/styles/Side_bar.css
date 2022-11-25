@@ -1,0 +1,37 @@
+.p-side-bar {
+  display: flex;
+  height: 100vh;
+}
+.p-side-bar .p-side-bar-button {
+  width: 120px;
+  height: 100vh;
+  background-color: #FAD249;
+  padding-top: 100px;
+}
+.p-side-bar .p-side-bar-button .p-buttonWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.p-side-bar .p-side-bar-button .p-buttonWrap .p-imgWrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 30%;
+  background-color: #FFE6B4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0 0 0;
+}
+.p-side-bar .p-side-bar-button .p-buttonWrap .p-official {
+  width: 80%;
+  height: 80%;
+}
+.p-side-bar .p-side-bar-button .p-buttonWrap img {
+  width: 60%;
+  height: 60%;
+}
+.p-side-bar .p-side-bar-button .p-buttonWrap p {
+  color: white;
+  margin: 10px 0 0 0;
+}/*# sourceMappingURL=Side_bar.css.map */

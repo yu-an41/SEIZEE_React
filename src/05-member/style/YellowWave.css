@@ -1,0 +1,38 @@
+.yh-wave-section {
+  width: 20%;
+  height: calc(100vh - 120px);
+  overflow: hidden;
+}
+.yh-wave-section .y-wave-base {
+  width: 100%;
+  height: 40px;
+  background-color: #fad249;
+}
+.yh-wave-section .y-wave-wrap {
+  width: 20%;
+  height: 100vh;
+  background-image: url(../../../public/05-member/wave-1920px.png);
+  background-position: 50% 0;
+  background-size: 100px 1920px;
+  -webkit-animation: animate 3.5s linear infinite;
+          animation: animate 3.5s linear infinite;
+  z-index: 100;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+@-webkit-keyframes animate {
+  0% {
+    background-position-y: 0px;
+  }
+  100% {
+    background-position-y: 1920px;
+  }
+}
+@keyframes animate {
+  0% {
+    background-position-y: 0px;
+  }
+  100% {
+    background-position-y: 1920px;
+  }
+}/*# sourceMappingURL=YellowWave.css.map */
