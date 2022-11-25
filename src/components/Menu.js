@@ -1,20 +1,34 @@
 import { useState } from 'react'
 import './../styles/Menu.scss'
+
+//img srcs
 import MenuSvg from './../logo-and-fonts/MENU.svg'
 import CloseSvg from './../logo-and-fonts/CLOSE.svg'
 import Apple from './../dotown/apple.png'
+import FacebookIcon from './../lifelabel/emoji_sns_facebook.png'
+import InstagramIcon from './../lifelabel/emoji_sns_instagram.png'
+import PinterestIcon from './../lifelabel/emoji_sns_pinterest.png'
+import TwitterIcon from './../lifelabel/emoji_sns_twitter.png'
+import YoutubeIcon from './../lifelabel/emoji_sns_youtube.png'
+
 function Menu() {
   const [menuClick, setMenuClick] = useState(true)
+  const [searchText, setSearchText] = useState('')
 
   const menuHandler = () => {
     setMenuClick(!menuClick)
     // console.log('menu clicked')
   }
 
+  const searchHandler = (e) => {
+    setSearchText(e.currentTarget.value)
+    console.log(e.target.value)
+  }
+
   return menuClick ? (
-    <div div className="y-btn-wrap-closed">
-      <div className="y-menu-border" onClick={menuHandler}>
-        <div className="y-menu-top">
+    <div className="y-btn-wrap-closed">
+      <div className="y-menu-border">
+        <div className="y-menu-top" onClick={menuHandler}>
           <h2 className="y-h2-wrap">
             <img src={MenuSvg} alt="MENU" />
           </h2>
@@ -25,23 +39,30 @@ function Menu() {
       </div>
     </div>
   ) : (
-    <div div className="y-btn-wrap-opened">
-      <div className="y-menu-border" onClick={menuHandler}>
-        <div className="y-menu-top">
+    <div className="y-btn-wrap-opened">
+      <div className="y-menu-border">
+        <div className="y-menu-top" onClick={menuHandler}>
           <h2 className="y-h2-wrap">
             <img src={CloseSvg} alt="CLOSE" />
           </h2>
           <div className="y-menu-icon">
-            <i class="fa-sharp fa-solid fa-xmark"></i>
+            <i className="fa-sharp fa-solid fa-xmark"></i>
           </div>
         </div>
         <div className="y-menu-bottom">
           <div className="y-menu-search">
             <div className="y-search-border">
-              <input type="text" />
+              <input
+                type="text"
+                value={searchText}
+                onChange={(e) => {
+                  searchHandler(e)
+                }}
+                placeholder="請輸入店家/活動/文章關鍵字"
+              />
             </div>
             <div className="y-search-icon">
-              <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+              <i className="fa-sharp fa-solid fa-magnifying-glass"></i>
             </div>
           </div>
           <div className="y-menu-content">
@@ -103,29 +124,29 @@ function Menu() {
             </li>
           </ul>
           <ul className="y-social-media">
-            <li className="y-social-media-wrap">
-              <a href="/#" alt="social_media">
-                <img src={Apple} alt="apple" />
+            <li>
+              <a href="/#">
+                <img src={InstagramIcon} alt="Instagram" />
               </a>
             </li>
-            <li className="y-social-media-wrap">
-              <a href="/#" alt="social_media">
-                <img src={Apple} alt="apple" />
+            <li>
+              <a href="/#">
+                <img src={FacebookIcon} alt="facebook" />
               </a>
             </li>
-            <li className="y-social-media-wrap">
-              <a href="/#" alt="social_media">
-                <img src={Apple} alt="apple" />
+            <li>
+              <a href="/#">
+                <img src={PinterestIcon} alt="Pinterest" />
               </a>
             </li>
-            <li className="y-social-media-wrap">
-              <a href="/#" alt="social_media">
-                <img src={Apple} alt="apple" />
+            <li>
+              <a href="/#">
+                <img src={TwitterIcon} alt="Twitter" />
               </a>
             </li>
-            <li className="y-social-media-wrap">
-              <a href="/#" alt="social_media">
-                <img src={Apple} alt="apple" />
+            <li>
+              <a href="/#">
+                <img src={YoutubeIcon} alt="FaceYoutubebook" />
               </a>
             </li>
           </ul>

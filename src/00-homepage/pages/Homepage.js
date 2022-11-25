@@ -1,33 +1,22 @@
 import React from 'react'
-import './../styles/Homepage.scss'
-import Menu from '../../components/Menu'
-import YellowWave from '../components/YellowWave'
-import LogoBluePink from './../../logo-and-fonts/LOGO-blue-pink.svg'
 
-// 03-shop
-import CartIcon from './../../dotown/cart.png'
-import MemberIcon from './../../dotown/toast.png'
+// scss
+import './../styles/Homepage.scss'
+
+// components
+import NavBar from '../components/NavBar'
+import Footer from '../../components/Footer'
+
+//img srcs
+import YellowWave from '../components/YellowWave'
 
 function Homepage() {
   return (
     <>
       <div className="y-index-container">
         <div className="y-index-top">
-          <section className="y-section y-section-nav">
-            <div className="y-logo-wrap">
-              <div className="y-svg-wrap">
-                <img src={LogoBluePink} alt="SEIZEE_logo" />
-              </div>
-            </div>
-            <div className="y-nav-right">
-              <div className="y-icon-round y-cart-icon">
-                <img src={CartIcon} alt="cart icon" />
-              </div>
-              <div className="y-icon-round y-member-icon">
-                <img src={MemberIcon} alt="cart icon" />
-              </div>
-              <Menu />
-            </div>
+          <section className="y-section">
+            <NavBar />
           </section>
           <section className="y-section y-section-news">
             <p>
@@ -54,7 +43,9 @@ function Homepage() {
         <section className="y-section y-section-event">event</section>
         <section className="y-section y-section-forum">forum</section>
         <section className="y-section y-section-dotown">dotown</section>
-        <section className="y-section y-section-footer">footer</section>
+        <section className="y-section y-section-footer">
+          <Footer />
+        </section>
       </div>
     </>
   )
