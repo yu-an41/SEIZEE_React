@@ -58,7 +58,9 @@ function side_bar() {
             </div>
           </div>
         </div>
-        <YellowWave />
+        <div className="p-YellowWaveWrap">
+          <YellowWave />
+        </div>
       </div>
     </>
   )
