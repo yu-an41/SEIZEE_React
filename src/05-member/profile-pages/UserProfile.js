@@ -1,6 +1,6 @@
 import '.././style/profile-pages/UserProfile.scss'
 import { Link } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
 import { useParams, useLocation } from 'react-router-dom'
 import axios from 'axios'
@@ -27,9 +27,18 @@ function UserProfile() {
 
   // 讀取資料
   const location = useLocation()
+  const { myAuth } = useContext(AuthContext)
+
+  // console.log(myAuth.token)
 
   async function getList() {
-    const response = await axios.get(`${PROFILE}${sid}`)
+    // if(!myAuth.authorised) {}
+
+    const response = await axios.get(`${PROFILE}${sid}`, {
+      headers: {
+        Authorization: 'Bearer ' + myAuth.token,
+      },
+    })
     // setListData(response.data)
     console.log(response.data.row)
     // console.log(response)
