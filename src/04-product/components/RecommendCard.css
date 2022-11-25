@@ -1,0 +1,51 @@
+main {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  letter-spacing: 2px;
+}
+
+.a-productRecommend h3 {
+  font-size: 20px;
+  color: #2B325C;
+  font-weight: 500;
+}
+
+.a-recommendWrapper, .a-productRecommend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.a-productRecommend {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FAD249;
+  height: 250px;
+  padding-bottom: 55px;
+}
+
+.a-productRecommend img {
+  width: 30px;
+}
+
+.a-recommendText {
+  display: flex;
+  padding: 0 10px;
+}
+
+.a-recommendWrapper {
+  flex-wrap: wrap;
+}
+
+.a-recommendWrapper img {
+  width: 140px;
+  height: 140px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 3px solid #113F75;
+  border-radius: 8px;
+  margin: 20px 15px;
+}/*# sourceMappingURL=RecommendCard.css.map */

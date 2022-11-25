@@ -1,0 +1,314 @@
+$s-bgcYellow: url(../../../public/05-member/bgc_yellow.jpg);
+$s-bgcBlue: url(../../../public/05-member/bgc_blue.jpg);
+$s-bgc: #fff;
+$s-font: #5e5e5e;
+$s-font-main: #2b325c;
+$s-main-y: #fad249;
+$s-main-b: #113f75;
+
+* {
+  box-sizing: border-box;
+}
+
+.s-body-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: $s-bgcYellow center center no-repeat;
+  background-size: cover;
+
+  .s-login-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 20px;
+    /* background: #ff0; */
+
+    /* border: 1px solid orange; */
+
+    .s-login-blueBg {
+      position: absolute;
+      top: 90px;
+      width: 100%;
+      height: 420px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 5px 45px rgba(0, 0, 0, 0.15);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* border: 1px solid red; */
+
+      .s-login-box {
+        position: relative;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        /* border: 1px solid red; */
+
+        .s-login-h3 {
+          color: $s-font;
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+
+        .s-login-signinBtn {
+          cursor: pointer;
+          padding: 10px 20px;
+          background: $s-bgc;
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+          color: $s-font;
+          font-size: 16px;
+          font-weight: 600;
+          border: none;
+          border-radius: 8px;
+        }
+      }
+    }
+
+    .s-login-formBx {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: $s-bgc;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+      transition: 0.5s ease-in-out;
+
+      overflow: hidden;
+      /* border: 1px solid green; */
+
+      .s-login-form {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        padding: 50px;
+        transition: 0.5s;
+        /* border: 1px solid red; */
+
+        .s-login-formDetails {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          // border: 1px solid orange;
+
+          .s-login-h2 {
+            font-size: 30px;
+            color: $s-font-main;
+            margin-bottom: 10px;
+            font-weight: 600;
+            /* padding: 10px; */
+          }
+
+          .s-login-main-h3 {
+            font-size: 16px;
+            color: $s-font;
+            margin-bottom: 20px;
+            font-weight: 500;
+            /* padding: 10px; */
+          }
+
+          .s-login-input {
+            width: 100%;
+            margin-bottom: 5px;
+            padding: 10px;
+            outline: none;
+            font-size: 16px;
+            border: 1px solid #333;
+          }
+
+          .s-login-submit {
+            /* border: none; */
+            /* color: #fff; */
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 8px;
+          }
+
+          .s-signinSubmit {
+            background: $s-main-y;
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+            border: none;
+            color: $s-bgc;
+            margin-bottom: 15px;
+          }
+
+          .s-login-forgot {
+            color: $s-font;
+            margin-bottom: 20px;
+          }
+
+          .s-login-p {
+            color: $s-font;
+          }
+
+          .s-login-errorMg {
+            // border: 1px solid green;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            width: 100%;
+            height: 15px;
+          }
+
+          .s-login-label {
+            font-size: 15px;
+            width: 100%;
+            margin-bottom: 5px;
+            font-weight: 600;
+          }
+
+          .s-login-gmailBtn {
+            font-weight: 600;
+            width: 100%;
+            height: 46px;
+            cursor: pointer;
+            /* border: 1px solid #333; */
+            box-shadow: 0px 5px 5px rgba(206, 71, 67, 0.25);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+
+            position: relative;
+
+            .s-login-gmail {
+              background: $s-bgc;
+              color: #333;
+              width: 42px;
+              height: 38px;
+              position: absolute;
+              left: 10px;
+              top: 2px;
+              z-index: 20;
+
+              // border: 1px solid blue;
+            }
+
+            .s-login-googleSubmit {
+              border: none;
+              width: calc(100% - 42px);
+              background: $s-bgc;
+              color: #333;
+              position: absolute;
+              top: 0;
+              right: 0;
+              /* border: 1px solid green; */
+            }
+          }
+        }
+      }
+
+      /* 點signin 字體就留在原地不動 */
+      .s-login-signinForm {
+        transition-delay: 0.25s;
+      }
+
+      /* 離開signup 字體留在外面 然後overflow hidden隱藏 */
+      .s-login-signupForm {
+        left: 100%;
+        transition-delay: 0s;
+        // border: 1px solid pink;
+        // position: relative;
+
+        .s-login-submit {
+          background: $s-main-b;
+          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+          border: none;
+          color: $s-bgc;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .s-login-container {
+      max-width: 400px;
+      height: 750px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .s-login-blueBg {
+        top: 0;
+        height: 100%;
+
+        .s-login-box {
+          position: absolute;
+          width: 100%;
+          height: 150px;
+          bottom: 0;
+        }
+
+        .s-login-box.s-login-signin {
+          top: 0;
+        }
+      }
+
+      .s-login-formBx {
+        width: 100%;
+        height: 600px;
+        top: 0;
+        box-shadow: none;
+      }
+
+      .s-login-formBx.s-move {
+        left: 0;
+        top: 150px;
+      }
+    }
+  }
+}
+
+.s-body-signup.s-move {
+  background: $s-bgcBlue center center no-repeat;
+  background-size: cover;
+
+  .s-login-formBx.s-move {
+    left: 50%;
+
+    /* 離開signin 字體留在外面 然後overflow hidden隱藏 */
+    .s-login-signinForm {
+      left: -100%;
+      transition-delay: 0s;
+    }
+
+    /* 點signup 字體就留在原地不動 */
+    .s-login-signupForm {
+      left: 0;
+      transition-delay: 0.25s;
+
+      .s-login-submit {
+        background: $s-main-b;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+        border: none;
+        color: $s-bgc;
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .s-login-formBx.s-move {
+      left: 0;
+      top: 150px;
+    }
+  }
+}

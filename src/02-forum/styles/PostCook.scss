@@ -1,3 +1,7 @@
+$main-yellow:#FAD249;
+$main-blue:#113F75;
+$main-text:#5C5C5C;
+$p-size:16px;
 *{
     box-sizing: border-box;
     margin: 0;
@@ -6,6 +10,7 @@
    display: flex;
    width: 100%;
    position:relative;
+   
    .p-sideBarWrap{
      position:fixed;
    }
@@ -13,34 +18,114 @@
     max-width: 1040px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     margin-top: 50px;
     position: relative;
     left: 15%;
+    .p-searchBarWrap{
+      width: 100%;
+    }
+    .p-tabCookWrap{
+      width: 100%;
+    }
     .p-CardWrap{
-    width: 100%;
-    display: flex;
-    margin-top:50px ;
-    justify-content: space-between;
-    .p-CardPost {
-        margin: 0 40px 0 0; 
-    .p-Card{
-    margin-top: 25px;
+      width: 100%;
+      margin-top:50px;
+      display: column;
+      columns: 3;
+      // /*欄數*/
+      // gap: 10px;
+      // /*每欄間隔*/
+      
     }
-  
-    }
-    .p-CardPostR{
-        margin-right:0; 
+    .p-CardWrap > *{
+      margin-bottom: 25px;
     }
 
   }
   }  
-  .p-RecommendationWrap{
-    width: 100%;
+  .p-recomAdWrit{
+    width: 300px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     left: 22%;
     margin-top: 180px;
+    .p-RecommendationWrap{
     
   }
+    .p-writWrap{
+      position: fixed;
+      top: 65%;
+      
+    }
+    
+  }
+  
+
+@media (max-width:391px) {
+  .p-PostWrap{
+    display: flex;
+    height: 100%;
+    position:relative;
+    .p-sideBarWrap{
+      width: 100%;
+      position:fixed;
+      bottom: 0;
+      z-index: 10;
+
+    }
+    .p-containerWrap{
+     max-width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction:row;
+     justify-content: center;
+     margin-top: 50px;
+     position: relative;
+     left: 0;
+     right: 0;
+
+     .p-CardWrap{
+       width: 100%;
+       margin-top:50px;
+       display: flex;
+       flex-direction: column;
+       flex-wrap: wrap;
+       align-items: center;
+       
+       
+     }
+     .p-CardWrap > *{
+      margin-bottom: 10px;
+     }
+ 
+   }
+   }  
+   .p-recomAdWrit{
+     width: 300px;
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     // left: 22%;
+     margin-top: 180px;
+     display: none;
+     .p-RecommendationWrap{
+      
+     
+   }
+     .p-writWrap{
+       position: fixed;
+       top: 65%;
+       left: 0;
+
+       
+     }
+     
+   }
+   
+ 
 }
 

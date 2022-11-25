@@ -2,7 +2,7 @@ import './style/ForgotPass.scss'
 import { FORGOT_PASS } from '../my-config'
 import React, { useState } from 'react'
 import axios from 'axios'
-import { checkEmpty } from './UserSign_valid'
+import { checkEmpty } from './data/UserSign_valid'
 
 function ForgotPass() {
   const [forgotFD, setForgotFD] = useState({
@@ -51,14 +51,14 @@ function ForgotPass() {
   return (
     <>
       <div className="s-body-forgotpass">
-        <div className="container">
-          <div className="forgotBx">
-            <form action="" onSubmit={forgotSubmit}>
-              <h2>忘記密碼?</h2>
-              <h3>
+        <div className="s-fp-container">
+          <div className="s-fp-forgotBx">
+            <form action="" onSubmit={forgotSubmit} className="s-fp-form">
+              <h2 className="s-fp-h2">忘記密碼?</h2>
+              <h3 className="s-fp-h3">
                 請在下面輸入您的電子郵件地址，我們將重設密碼的連結寄給您。
               </h3>
-              <label>
+              <label htmlFor="mbfEmail" className="s-fp-label">
                 電子郵件<span style={{ color: 'red' }}> *</span>
               </label>
               <input
@@ -67,9 +67,10 @@ function ForgotPass() {
                 id="mbfEmail"
                 onChange={forgotHandler}
                 onBlur={checkForgotEmail}
+                className="s-fp-input"
               />
               <div
-                className="errorMg"
+                className="s-fp-errorMg"
                 style={{ color: 'red' }}
                 id="mblEmail_error"
               >
@@ -78,7 +79,7 @@ function ForgotPass() {
               <input
                 type="submit"
                 value="發送重送連結"
-                className="forgotSubmit"
+                className="s-fp-input s-fp-forgotSubmit"
               />
             </form>
           </div>

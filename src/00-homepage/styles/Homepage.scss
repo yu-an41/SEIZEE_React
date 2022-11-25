@@ -2,6 +2,8 @@ $main-yellow: #FAD249;
 $main-blue: #2B325C;
 $main-text: #5E5E5E;
 
+$bgc-yellow: #FBFBF2;
+
 $border-lg: $main-blue 3px solid;
 $border-sm: $main-blue 2px solid;
 
@@ -26,116 +28,173 @@ $border-radius-button: 8px;
 .y-index-container {
     min-width: $min-width;
     background-color: #fff;
-}
 
-.y-index-top {
-    width: 100%;
-    // height: 500px;
-    background-color:
-    $main-yellow;
-}
-
-.y-section {
-    // border: 1px solid black;
-    width: 100%;
-}
-
-.y-section-nav {
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    height: 50px;
-    padding: 0 20px;
-    // overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .y-logo-wrap {
-        width: 110px;
-        // height: 30px;
-        background: {
-            // color: $main-text;
-        }
+    .y-section {
+        // border: 1px solid black;
+        width: 100%;
     }
 
-    .y-nav-right {
+    .y-index-top {
+        width: 100%;
+        // height: 500px;
+        background-color:
+        $main-yellow;
 
-        display: flex;
-        // width: 100px;
-        // max-width: 200px;
-        justify-content: flex-start;
-        align-items: center;
+        
+        .y-section-nav-bg {
+            width: 100%;
+        }
 
-        .y-icon-round {
-            width: 30px;
-            aspect-ratio: 1/1;
-            border-radius: 50%;
-            overflow: hidden;
-            border: $border-sm;
-            margin-right: 6px;
-            background: {
-                color: white;
+        .y-section-news {
+            width: 100%;
+            // padding-top: 90px;
+            background-color: $main-yellow;
+            
+            .y-section-news-first {
+                overflow: hidden;
+                width: 100%;
+                .y-news-crawl-wrap {
+                
+                }
+                
+        }
+            
+            
+        }
+
+        
+
+        .y-section-carousel {
+            background-color: $main-yellow;
+
+            .y-carousel-wrap {
+
+            }
+        }
+
+
+    }
+
+    .y-wave-wrap {
+            
+    }
+
+}
+
+
+
+
+
+
+@media (min-width: 391px) {
+    .y-index-container {
+
+        .y-section {
+            // border: 1px solid black;
+            width: 100%;
+        }
+
+        .y-index-top {
+
+
+        }
+
+        
+        .y-section-nav-bg {
+            // height: 40px;
+            background-color: $main-yellow;
+        }
+
+        .y-section-news {
+            padding-top: 90px;
+            display: flex;
+            margin-bottom: 20px;
+        
+            .y-section-news-first {
+                position: relative;
+                width: 100%;
+                height: 30px;
+                overflow: hidden;
+                background-color: $bgc-yellow;
+
+                .y-news-crawl-wrap {
+                    
+                }
+
             }
             
-            .y-cart-icon {
-                margin-right: 20px;
-                img {
-                    width: 100%;
-                    object-fit: cover;
-                }
-            }
         }
-    }
-}
+    
 
-@media (min-width:391px) {
-    .y-section-nav {
-        height: 90px;
-        padding: 0 40px;
-    
-        .y-logo-wrap {
-            width: 250px;
-            height: 60px;
-            background: {
-                // color: $main-text;
+        .y-section-carousel {
+            
+            .y-carousel-wrap {
+                margin: 0 auto;
+                max-width: 1040px;
+                border: $border-lg;
             }
         }
-    
-        .y-nav-right {
-            width: 300px;
-            .y-icon-round {
-                width: 55px;
-                border: $border-lg;
-                margin-right: 12px;
-                background: {
+
+        .y-section-forum {
+
+            .y-section-forum-title {
+                margin-bottom: 40px;
+
+                p {
+                    font-size: 36px;
+                    font-weight: bold;
+                    letter-spacing: 4px;
+                    color: $main-text;
+                    text-align: center;
                 }
-    
-                .y-cart-icon {
-                    margin-right: 20px;
+            }
+
+            .y-section-forum-wrap {
+                outline: 1px solid #333;
+                max-width: 1320px;
+                margin: 0 auto;
+                padding: 20px;
+                display: flex;
+                justify-content: space-between;
+                .y-forum-cate {
+                    width: 33%;
+                    padding: 15px ;
+                    .y-forum-card-wrap {
+
+                    }
+                }
+
+                .y-forum-recipe-wrap {
+
+                    .y-recipe-card-wrap {
+
+                    }
+                }
+
+                .y-forum-exchange-wrap {
+                    
+                    .y-exchange-card-wrap {
+
+                    }
+                }
+
+                .y-forum-shop-wrap {
+                    
+                    .y-shop-card-wrap {
+
+                    } 
                 }
             }
         }
         
-    
     }
+
+    .y-wave-wrap {
+
+    }
+
 }
 
-.y-section-news {
-    overflow: hidden;
-    height: 20px;
-    margin-top: 120px;
-    background-color: #FBFBF2;
-
-    p {
-        text-decoration: none;
-    }
-}
-.y-section-carousel {
-    height: 300px;
-    background-color: $main-yellow;
-    // offset-position: 30px 0;
-}
 
 .y-section-merch {
     height: 500px;

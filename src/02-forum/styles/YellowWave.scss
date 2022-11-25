@@ -7,7 +7,7 @@ $wave-height: 40px;
 
 .p-wave-section {
     //position: relative;
-    width: 20%;
+    width: 100%;
     height: 100vh;
     // background-color: transparent; 
     overflow: hidden;
@@ -15,12 +15,11 @@ $wave-height: 40px;
     .p-wave-wrap {
         // position: absolute;
         // top: $wave-height;
-        width: 60%;
+        width: 100%;
         height: 100vh;
         background: {
             image: url(./../p-imgs/wave-1920px.png);
             // repeat: no-repeat;
-            position: 46% 0;
             size: 100px 1920px;
         }
         animation: animate 3.5s linear infinite;

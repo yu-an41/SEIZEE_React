@@ -1,0 +1,102 @@
+$main-yellow: #FAD249;
+$main-blue: #2B325C;
+$main-text: #5E5E5E;
+
+$bgc-yellow: #FBFBF2;
+
+$border-lg: $main-blue 3px solid;
+$border-sm: $main-blue 2px solid;
+
+$text-shadow: #E4E4E4 2px 2px;
+$btn-shadow-lg: 6px 6px $main-blue;
+$btn-shadow-sm: 2px 2px $main-blue;
+$light-box-shadow: rgba(53, 53, 53, 0.75);
+
+$min-width: 390px;
+$min-height: 400px;
+$wave-height: 40px;
+
+$font-family: Arial, Helvetica, sans-serif;
+
+$border-radius-card: 10px;
+$border-radius-button: 8px;
+
+*{
+    box-sizing: border-box;
+}
+
+.y-top-carousel-container{
+    border: $border-sm;
+
+    .slick-prev,
+    .slick-next
+    {
+        // font-size: 0;
+        // line-height: 0;
+
+        // position: absolute;
+        // top: 50%;
+
+        // display: block;
+
+        // width: 20px;
+        // height: 20px;
+        // padding: 0;
+        // -webkit-transform: translate(0, -50%);
+        // -ms-transform: translate(0, -50%);
+        // transform: translate(0, -50%);
+
+        // cursor: pointer;
+
+        // color: transparent;
+        // border: none;
+        // outline: none;
+        // background: transparent;
+    }
+
+    .y-top-carousel-banner {
+
+        img {
+            width: 100%;
+            object-position: 50% 50%;
+        }
+    }
+}
+
+@media (min-width: 391px) {
+    .y-top-carousel-container {
+        border: $border-lg;
+
+        .slick-prev,
+        .slick-next
+        {
+            // font-size: 0;
+            // line-height: 0;
+
+            // position: absolute;
+            // top: 50%;
+
+            // display: block;
+
+            // width: 20px;
+            // height: 20px;
+            // padding: 0;
+            // -webkit-transform: translate(0, -50%);
+            // -ms-transform: translate(0, -50%);
+            // transform: translate(0, -50%);
+
+            // cursor: pointer;
+
+            // color: transparent;
+            // border: none;
+            // outline: none;
+            // background: transparent;
+        }
+        
+        .y-top-carousel-banner {
+            img {
+
+            }
+        }
+    }
+}
