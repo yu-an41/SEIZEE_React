@@ -1,4 +1,5 @@
-import './style/UserProfile.scss'
+import '.././style/UserProfile.scss'
+import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
 import YellowWave from './YellowWave'
 
@@ -26,50 +27,50 @@ function UserProfile() {
                 <h4 className="title">使用者設定</h4>
               </li>
               <li>
-                <a className="item" href="/#">
+                <Link className="item" to="/profile/member-info">
                   <span className="icon">
                     <img src="/05-member/green-book.png" alt="" />
                   </span>
                   <span className="title">我的帳號</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <h4 className="title">平台相關查詢</h4>
               </li>
               <li>
-                <a className="item" href="/#">
+                <Link className="item" to="/profile/likes">
                   <span className="icon">
                     <img src="/05-member/thumbs_up.png" alt="" />
                   </span>
                   <span className="title">收藏</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="item" href="/#">
+                <Link className="item" to="/profile/orders">
                   <span className="icon">
                     <img src="/05-member/wallet.png" alt="" />
                   </span>
                   <span className="title">訂單查詢</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="item" href="/#">
+                <Link className="item" to="/profile/activities">
                   <span className="icon">
                     <img src="/05-member/flag.png" alt="" />
                   </span>
                   <span className="title">活動查詢</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <h4 className="title">下次再見</h4>
               </li>
               <li>
-                <a className="item" href="/#">
+                <Link className="item" to="/#">
                   <span className="icon">
                     <img src="/05-member/key.png" alt="" />
                   </span>
                   <span className="title logout">登出</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -78,7 +79,9 @@ function UserProfile() {
             onClick={profileRWDToggle}
           ></div>
           <YellowWave />
-          <div className="main-content"></div>
+          <div className="main-content">
+            <div></div>
+          </div>
         </div>
         <div className="footer"></div>
       </div>

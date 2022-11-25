@@ -1,11 +1,11 @@
-import './styles/global.scss'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MyContextProviders from './contexts/MyContextProviders'
+
 // components
-import Menu from './components/Menu'
+// import Menu from './components/Menu'
 
 // 00-homepage
-import Homepage from './00-homepage/pages/Homepage'
+// import Homepage from './00-homepage/pages/Homepage'
 
 // // 01-cart
 // import CartList from './01-cart/pages/CartList'
@@ -22,25 +22,30 @@ import Homepage from './00-homepage/pages/Homepage'
 // import UserSign from './05-member/UserSign'
 // import ResetPass from './05-member/ResetPass'
 // import ForgotPass from './05-member/ForgotPass'
-// import UserProfile from './05-member/UserProfile'
+// import UserProfile from './05-member/profile-pages/UserProfile'
+// import UpdateInfo from './05-member/profile-pages/UpdateInfo'
+// import Likes from './05-member/profile-pages/Likes'
+// import Activities from './05-member/profile-pages/Activities'
+// import Orders from './05-member/profile-pages/Orders'
+
+// import { AuthContextProvider } from './contexts/AuthContext'
 
 // 06-event
-// import Top from './06-event/pages/06-event-01-top'
-import HeadWave from './components/HeadWave'
-
+// import HeadWave from './components/HeadWave'
+// import Eventrender from './06-event/pages/06-event-00-Render'
 // import Top from './06-event/pages/06-event-01-top'
 // import Events from './06-event/pages/06-event-02-events'
 // import Schedule from './06-event/pages/06-event-03-schedule'
 // import Map from './06-event/pages/06-event-04-map'
 // import Ticket from './06-event/pages/06-event-05-ticket'
-import Eventrender from './06-event/pages/06-event-00-Render'
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <MyContextProviders>
-          <Routes>
+      {/* <BrowserRouter> */}
+        {/* <MyContextProviders> */}
+          {/* <AuthContextProvider> */}
+          {/* <Routes> */}
             {/* 00-homepage */}
             {/* <Route path="/" element={<Homepage />} /> */}
 
@@ -56,10 +61,18 @@ function App() {
             {/* <Route path="/shop" element={<ShopHome />} /> */}
 
             {/* 05-member */}
-            {/* <Route path="/login" element={<UserSign />} />
-          <Route path="/forgot-pass" element={<ForgotPass />} />
-          <Route path="/reset-pass" element={<ResetPass />} />
-          <Route path="/profile" element={<UserProfile />} /> */}
+            {/* member-profile */}
+            {/* <Route path="/login" element={<UserSign />} /> */}
+            {/* <Route path="/forgot-pass" element={<ForgotPass />} /> */}
+            {/* <Route path="/reset-pass" element={<ResetPass />} /> */}
+            
+            {/* <Route path="/profile/">
+              <Route index path=":sid" element={<UserProfile />} />
+              <Route path="update-info/:sid" element={<UpdateInfo />} />
+              <Route path="orders" element={<Orders />} />
+              <Route path="likes" element={<Likes />} />
+              <Route path="activities" element={<Activities />} />
+            </Route> */}
 
             {/* 06-event */}
             {/* <Route path="/top" element={<Top />} />
@@ -68,9 +81,12 @@ function App() {
             <Route path="/map" element={<Map />} />
             <Route path="/ticket" element={<Ticket />} /> */}
             {/* <Route path="/Eventrender" element={<Eventrender />} /> */}
-          </Routes>
-        </MyContextProviders>
-      </BrowserRouter>
+
+            
+          {/* </Routes> */}
+          {/* </AuthContextProvider> */}
+        {/* </MyContextProviders> */}
+      {/* </BrowserRouter> */}
     </>
   )
 }

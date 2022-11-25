@@ -3,13 +3,6 @@ $s-bgcYellow: url(../../../public/05-member/bgc_yellow.jpg);
 $s-font-main: #2b325c;
 $s-main-b: #113f75;
 
-// * {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-//   font-family: 'Open Sans', sans-serif;
-// }
-
 .s-body-resetpass {
   display: flex;
   justify-content: center;
@@ -18,7 +11,7 @@ $s-main-b: #113f75;
   background: $s-bgcYellow center center no-repeat;
   background-size: cover;
 
-  .container {
+  .s-rp-container {
     position: relative;
     width: 400px;
     height: 400px;
@@ -27,7 +20,7 @@ $s-main-b: #113f75;
 
     /* border: 1px solid orange; */
 
-    .resetBx {
+    .s-rp-resetBx {
       position: absolute;
       top: 0;
       left: 0;
@@ -44,46 +37,42 @@ $s-main-b: #113f75;
 
       /* border: 1px solid green; */
 
-      form {
+      .s-rp-form {
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
 
-        h2 {
+        .s-rp-h2 {
           font-size: 30px;
           color: $s-font-main;
           margin-bottom: 20px;
+          font-weight: 600;
           /* padding: 10px; */
         }
 
-        input {
+        .s-rp-input {
           width: 100%;
-          // margin-bottom: 20px;
+          margin-bottom: 5px;
           padding: 10px;
           outline: none;
           font-size: 16px;
           border: 1px solid #333;
         }
 
-        input[type='submit'] {
-          /* border: none; */
-          /* color: #fff; */
+        .s-rp-resetSubmit {
+          background: $s-main-b;
+          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+          border: none;
+          color: #fff;
           font-weight: 600;
           width: 100%;
           cursor: pointer;
           border-radius: 8px;
         }
 
-        .resetSubmit {
-          background: $s-main-b;
-          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
-          border: none;
-          color: #fff;
-        }
-
-        .errorMg {
+        .s-rp-errorMg {
           // border: 1px solid green;
           font-size: 14px;
           margin-bottom: 15px;
@@ -94,7 +83,7 @@ $s-main-b: #113f75;
           height: 15px;
         }
 
-        label {
+        .s-rp-label {
           font-size: 15px;
           width: 100%;
           margin-bottom: 5px;
