@@ -45,7 +45,7 @@ $main-border-radius: 8px;
     align-items: center;
 }
 .a-productDetailWrapper {
-    @extend %a-flex;
+    display: flex;
     background-color: #fff;
     .a-detailWrapper {
         display: flex;
@@ -63,7 +63,6 @@ $main-border-radius: 8px;
     }
     .a-productName {
         @extend %a-flex;
-        // color: $main-blue;
     }
     .a-productName h3{
         @extend %h3;
