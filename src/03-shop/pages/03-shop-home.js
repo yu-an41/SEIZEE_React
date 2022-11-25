@@ -12,7 +12,7 @@ function ShopHome() {
   // 錯誤訊息用
   // const [errorMessage, setErrorMessage] = useState('')
   const [checkedState, setCheckedState] = useState(Array(10).fill(false))
-  const [filters, setFilters] = useState([])
+  const [cateFilters, setCateFilters] = useState([])
 
   const getShops = async () => {
     try {
@@ -34,25 +34,22 @@ function ShopHome() {
     )
     setCheckedState(updatedCheckedState)
 
-    // const totalFilter = updatedCheckedState.map((v, index) => {
-    //   const theData = []
-    //   const selCate = toppings[index].cate
-    //   if (v === true) {
-    //     if (!filters.includes('selCate')) {
-    //       theData = filters.push(selCate)
-    //       setFilters(theData)
-    //     }
-    //   } else {
-    //     theData = filters.filter((v, i) => {
-    //       return v !== selCate
-    //       setFilters(theData)
-    //     })
-    //   }
-    // })
-    console.log(filters)
-    // setFilters(totalFilter)
+    // cateFilters
+    let selectedFilters = updatedCheckedState.map((v, index) => {
+      if (v) {
+        return toppings[index].cate
+      } else {
+        return null
+      }
+    })
+    selectedFilters = selectedFilters.filter((v) => !!v)
+    console.log({ selectedFilters })
+    setCateFilters(selectedFilters)
   }
-  // console.log(filters)
+
+  // !! "aa"  true
+  // !! null  false
+
   // didMount時載入資料
   useEffect(() => {
     getShops()
