@@ -7,14 +7,22 @@ import MyContextProviders from './contexts/MyContextProviders'
 // 00-homepage
 // import Homepage from './00-homepage/pages/Homepage'
 
-// // 01-cart
+// 01-cart
 // import CartList from './01-cart/pages/CartList'
 
 // 02-forum
-// import PostCook from './02-forum/pages/Post_cook'
 // import ForumHome from './02-forum/pages/ForumHome'
+// import PostCook from './02-forum/pages/Post_cook'
+// import PostShare from './02-forum/pages/Post_share'
+// import PostStore from './02-forum/pages/Post_store'
+// import PostOfficial from './02-forum/pages/Post_official'
+// import InnerCook from './02-forum/pages/Inner_cook'
+// import InnerShare from './02-forum/pages/Inner_share'
+// import InnerStore from './02-forum/pages/Inner_store'
+// import InnerOfficial from './02-forum/pages/Inner_official'
+// import WriteForm from './02-forum/pages/WriteForm'
 
-// // 03-shop
+// 03-shop
 // import ShopList from './03-shop/03-shop-list'
 // import ShopHome from './03-shop/03-shop-home'
 
@@ -53,8 +61,18 @@ function App() {
       {/* <Route path="/cart" element={<CartList />} /> */}
 
       {/* 02-forum */}
-      {/* <Route path="/forum" element={<ForumHome />} />
-          <Route path="/forum/cook" element={<PostCook />} /> */}
+      {/* <Route path="/forum">
+        <Route path="/" element={<ForumHome />} />
+        <Route path="/cook" element={<PostCook />} />
+        <Route path="/share" element={<PostShare />} />
+        <Route path="/store" element={<PostStore />} />
+        <Route path="/official" element={<PostOfficial />} />
+        <Route path="/cook/inner/:sid" element={<InnerCook />} />
+        <Route path="/share/inner" element={<InnerShare />} />
+        <Route path="/store/inner" element={<InnerStore />} />
+        <Route path="/official/inner" element={<InnerOfficial />} />
+        <Route path="/writeForm" element={<WriteForm />} />
+      </Route> */}
 
       {/* 03-shop */}
       {/* <Route path="/shop" element={<ShopList />} /> */}

@@ -8,6 +8,19 @@ $main-text:#5C5C5C;
     border: 3px solid $main-blue;
     border-radius: 10px;
     overflow: hidden;
+    
+    form{
+    display: flex;
+    .p-inputText{
+        width: 100%;
+        border: none;
+        appearance:none;
+        -moz-appearance:none;
+        padding-left: 20px;
+    }
+    input:focus{
+        outline:none;
+        }
     .p-search-imgWrap{
         width: 50px;
         background-color: $main-yellow;
@@ -16,5 +29,16 @@ $main-text:#5C5C5C;
         img{
             width: 100%;
         }
+    } 
+    }
+    
+}
+@media (max-width:391px) {
+    .p-searchBar{
+        width: 320px;
+        border: 3px solid $main-blue;
+        border-radius: 10px;
+        overflow: hidden;
+        
     }
 }

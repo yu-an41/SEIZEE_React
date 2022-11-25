@@ -1,16 +1,45 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+
 import './../styles/PostCook.scss'
 
 import SideBar from '../components/Side_bar'
 import CardPost from '../components/Card_post'
 import SearchBar from '../components/Search_bar'
 import Recommendation from '../components/Recommendation'
-import { arraySchema } from 'eslint-plugin-jsx-a11y/lib/util/schemas'
+import WriteBtn from '../components/WriteBtn'
+import TabCook from '../components/TabCook'
 
 function PostCook() {
-  const arrayR = [1, 1, 1, 1, 1]
-  const arrayM = [1, 1, 1, 1, 1]
-  const arrayL = [1, 1, 1, 1, 1]
+  const [cookPostData, setCookPostData] = useState([
+    {
+      sid: 1,
+      member_sid: 1,
+      categories_sid: 4,
+      title: '',
+      img: '',
+
+      content: '',
+      serving: '',
+      times: '',
+      likes: 1,
+      creat_at: '2022-11-13T00:30:51.000Z',
+    },
+  ])
+  const getCookPostData = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3002/forum/post_cook`)
+
+      setCookPostData(res.data.cookPostRows)
+      console.log(res.data.cookPostRows)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+  useEffect(() => {
+    getCookPostData()
+  }, [])
+
   return (
     <>
       <div className="p-PostWrap">
@@ -18,39 +47,26 @@ function PostCook() {
           <SideBar />
         </div>
         <div className="p-containerWrap">
-          <SearchBar />
+          <div className="p-searchBarWrap">
+            <SearchBar />
+          </div>
+          <div className="p-tabCookWrap">
+            <TabCook />
+          </div>
           <div className="p-CardWrap">
-            <div className="p-CardPost p-CardPostL">
-              {arrayR.map((v, i) => {
-                return (
-                  <div key={i} className="p-Card">
-                    <CardPost />
-                  </div>
-                )
+            {cookPostData &&
+              cookPostData.map((v) => {
+                return <CardPost cookinner={v} key={v.sid} />
               })}
-            </div>
-            <div className="p-CardPost p-CardPostM">
-              {arrayL.map((v, i) => {
-                return (
-                  <div key={i} className="p-Card">
-                    <CardPost />
-                  </div>
-                )
-              })}
-            </div>
-            <div className="p-CardPost p-CardPostR">
-              {arrayR.map((v, i) => {
-                return (
-                  <div key={i} className="p-Card">
-                    <CardPost />
-                  </div>
-                )
-              })}
-            </div>
           </div>
         </div>
-        <div className="p-RecommendationWrap">
-          <Recommendation />
+        <div className="p-recomAdWrit">
+          <div className="p-RecommendationWrap">
+            <Recommendation />
+          </div>
+          <div className="p-writWrap">
+            <WriteBtn />
+          </div>
         </div>
       </div>
     </>
