@@ -43,30 +43,30 @@ function App() {
   return (
     <>
       {/* <BrowserRouter> */}
-        {/* <MyContextProviders> */}
-          {/* <AuthContextProvider> */}
-          {/* <Routes> */}
-            {/* 00-homepage */}
-            {/* <Route path="/" element={<Homepage />} /> */}
+      {/* <MyContextProviders> */}
+      {/* <AuthContextProvider> */}
+      {/* <Routes> */}
+      {/* 00-homepage */}
+      {/* <Route path="/" element={<Homepage />} /> */}
 
-            {/* 01-cart */}
-            {/* <Route path="/cart" element={<CartList />} /> */}
+      {/* 01-cart */}
+      {/* <Route path="/cart" element={<CartList />} /> */}
 
-            {/* 02-forum */}
-            {/* <Route path="/forum" element={<ForumHome />} />
+      {/* 02-forum */}
+      {/* <Route path="/forum" element={<ForumHome />} />
           <Route path="/forum/cook" element={<PostCook />} /> */}
 
-            {/* 03-shop */}
-            {/* <Route path="/shop" element={<ShopList />} /> */}
-            {/* <Route path="/shop" element={<ShopHome />} /> */}
+      {/* 03-shop */}
+      {/* <Route path="/shop" element={<ShopList />} /> */}
+      {/* <Route path="/shop" element={<ShopHome />} /> */}
 
-            {/* 05-member */}
-            {/* member-profile */}
-            {/* <Route path="/login" element={<UserSign />} /> */}
-            {/* <Route path="/forgot-pass" element={<ForgotPass />} /> */}
-            {/* <Route path="/reset-pass" element={<ResetPass />} /> */}
-            
-            {/* <Route path="/profile/">
+      {/* 05-member */}
+      {/* member-profile */}
+      {/* <Route path="/login" element={<UserSign />} /> */}
+      {/* <Route path="/forgot-pass" element={<ForgotPass />} /> */}
+      {/* <Route path="/reset-pass" element={<ResetPass />} /> */}
+
+      {/* <Route path="/profile/">
               <Route index path=":sid" element={<UserProfile />} />
               <Route path="update-info/:sid" element={<UpdateInfo />} />
               <Route path="orders" element={<Orders />} />
@@ -74,18 +74,17 @@ function App() {
               <Route path="activities" element={<Activities />} />
             </Route> */}
 
-            {/* 06-event */}
-            {/* <Route path="/top" element={<Top />} />
+      {/* 06-event */}
+      {/* <Route path="/top" element={<Top />} />
             <Route path="/events" element={<Events />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/map" element={<Map />} />
             <Route path="/ticket" element={<Ticket />} /> */}
-            {/* <Route path="/Eventrender" element={<Eventrender />} /> */}
+      {/* <Route path="/Eventrender" element={<Eventrender />} /> */}
 
-            
-          {/* </Routes> */}
-          {/* </AuthContextProvider> */}
-        {/* </MyContextProviders> */}
+      {/* </Routes> */}
+      {/* </AuthContextProvider> */}
+      {/* </MyContextProviders> */}
       {/* </BrowserRouter> */}
     </>
   )
