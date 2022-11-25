@@ -53,9 +53,9 @@ function UserProfile() {
   return (
     <>
       <div className="s-body-profile">
-        <div className="container">
+        <div className="s-container">
           <UserProfileTmp />
-          <div className="main-content">
+          <div className="s-main-content">
             <div className="s-up">
               <h2 className="s-up-title">我的帳號</h2>
               <div className="s-up-card">
@@ -110,7 +110,7 @@ function UserProfile() {
             </div>
           </div>
         </div>
-        <div className="footer"></div>
+        <div className="s-footer"></div>
       </div>
     </>
   )

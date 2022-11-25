@@ -58,7 +58,7 @@ function ForgotPass() {
               <h3 className="s-fp-h3">
                 請在下面輸入您的電子郵件地址，我們將重設密碼的連結寄給您。
               </h3>
-              <label htmlFor="mbfEmail">
+              <label htmlFor="mbfEmail" className="s-fp-label">
                 電子郵件<span style={{ color: 'red' }}> *</span>
               </label>
               <input
@@ -70,7 +70,7 @@ function ForgotPass() {
                 className="s-fp-input"
               />
               <div
-                className="errorMg"
+                className="s-fp-errorMg"
                 style={{ color: 'red' }}
                 id="mblEmail_error"
               >
@@ -79,7 +79,7 @@ function ForgotPass() {
               <input
                 type="submit"
                 value="發送重送連結"
-                className="forgotSubmit"
+                className="s-fp-input s-fp-forgotSubmit"
               />
             </form>
           </div>

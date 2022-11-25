@@ -117,7 +117,7 @@ $s-main-b: #113f75;
             font-size: 16px;
             color: $s-font;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-weight: 500;
             /* padding: 10px; */
           }
 
@@ -269,7 +269,7 @@ $s-main-b: #113f75;
         box-shadow: none;
       }
 
-      .s-login-formBx.active {
+      .s-login-formBx.s-move {
         left: 0;
         top: 150px;
       }
@@ -277,11 +277,11 @@ $s-main-b: #113f75;
   }
 }
 
-.s-body-signup.active {
+.s-body-signup.s-move {
   background: $s-bgcBlue center center no-repeat;
   background-size: cover;
 
-  .s-login-formBx.active {
+  .s-login-formBx.s-move {
     left: 50%;
 
     /* 離開signin 字體留在外面 然後overflow hidden隱藏 */
@@ -306,7 +306,7 @@ $s-main-b: #113f75;
   }
 
   @media (max-width: 991px) {
-    .s-login-formBx.active {
+    .s-login-formBx.s-move {
       left: 0;
       top: 150px;
     }

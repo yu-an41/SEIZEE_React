@@ -192,7 +192,7 @@ function UserSign() {
   return (
     <>
       <div
-        className={signInIndex === 1 ? 's-body-signup' : 's-body-signup active'}
+        className={signInIndex === 1 ? 's-body-signup' : 's-body-signup s-move'}
       >
         <div className="s-login-container">
           <div className="s-login-blueBg">
@@ -211,7 +211,7 @@ function UserSign() {
           </div>
           <div
             className={
-              signInIndex === 1 ? 's-login-formBx' : 's-login-formBx active'
+              signInIndex === 1 ? 's-login-formBx' : 's-login-formBx s-move'
             }
           >
             <div className="s-login-form s-login-signinForm">

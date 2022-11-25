@@ -6,13 +6,13 @@ function Likes() {
   return (
     <>
       <div className="s-body-profile">
-        <div className="container">
+        <div className="s-container">
           <UserProfileTmp />
-          <div className="main-content">
+          <div className="s-main-content">
             <div className="like">like success</div>
           </div>
         </div>
-        <div className="footer"></div>
+        <div className="s-footer"></div>
       </div>
     </>
   )

@@ -17,62 +17,76 @@ function UserProfileTmp() {
   return (
     <>
       <div
-        className={profileRWDIndex === 1 ? 'navigation' : 'navigation active'}
+        className={
+          profileRWDIndex === 1
+            ? 's-upt-navigation'
+            : 's-upt-navigation s-upt-active'
+        }
       >
-        <ul>
-          <li>
-            <h4 className="title">使用者設定</h4>
+        <ul className="s-upt-ul">
+          <li className="s-upt-li">
+            <h4 className="s-upt-h4">使用者設定</h4>
           </li>
-          <li>
-            <Link className="item" to="/profile">
-              <span className="icon">
-                <img src="/05-member/green-book.png" alt="" />
+          <li className="s-upt-li">
+            <Link className="s-upt-item" to="/profile">
+              <span className="s-upt-icon">
+                <img
+                  src="/05-member/green-book.png"
+                  alt=""
+                  className="s-upt-img"
+                />
               </span>
-              <span className="title">我的帳號</span>
+              <span className="s-upt-title">我的帳號</span>
             </Link>
           </li>
-          <li>
-            <h4 className="title">平台相關查詢</h4>
+          <li className="s-upt-li">
+            <h4 className="s-upt-h4">平台相關查詢</h4>
           </li>
-          <li>
-            <Link className="item" to="/profile/orders">
-              <span className="icon">
-                <img src="/05-member/wallet.png" alt="" />
+          <li className="s-upt-li">
+            <Link className="s-upt-item" to="/profile/orders">
+              <span className="s-upt-icon">
+                <img src="/05-member/wallet.png" alt="" className="s-upt-img" />
               </span>
-              <span className="title">訂單查詢</span>
+              <span className="s-upt-title">訂單查詢</span>
             </Link>
           </li>
-          <li>
-            <Link className="item" to="/profile/likes">
-              <span className="icon">
-                <img src="/05-member/thumbs_up.png" alt="" />
+          <li className="s-upt-li">
+            <Link className="s-upt-item" to="/profile/likes">
+              <span className="s-upt-icon">
+                <img
+                  src="/05-member/thumbs_up.png"
+                  alt=""
+                  className="s-upt-img"
+                />
               </span>
-              <span className="title">我的收藏</span>
+              <span className="s-upt-title">我的收藏</span>
             </Link>
           </li>
-          <li>
-            <Link className="item" to="/profile/activities">
-              <span className="icon">
-                <img src="/05-member/flag.png" alt="" />
+          <li className="s-upt-li">
+            <Link className="s-upt-item" to="/profile/activities">
+              <span className="s-upt-icon">
+                <img src="/05-member/flag.png" alt="" className="s-upt-img" />
               </span>
-              <span className="title">活動查詢</span>
+              <span className="s-upt-title">活動查詢</span>
             </Link>
           </li>
-          <li>
-            <h4 className="title">下次再見</h4>
+          <li className="s-upt-li">
+            <h4 className="s-upt-h4">下次再見</h4>
           </li>
-          <li>
-            <Link className="item" to="/#">
-              <span className="icon">
-                <img src="/05-member/key.png" alt="" />
+          <li className="s-upt-li">
+            <Link className="s-upt-item" to="/#">
+              <span className="s-upt-icon">
+                <img src="/05-member/key.png" alt="" className="s-upt-img" />
               </span>
-              <span className="title logout">登出</span>
+              <span className="s-upt-title logout">登出</span>
             </Link>
           </li>
         </ul>
       </div>
       <div
-        className={profileRWDIndex === 1 ? 'toggle' : 'toggle active'}
+        className={
+          profileRWDIndex === 1 ? 's-upt-toggle' : 's-upt-toggle s-upt-active'
+        }
         onClick={profileRWDToggle}
       ></div>
       <YellowWave />
