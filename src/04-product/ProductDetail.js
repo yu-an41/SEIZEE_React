@@ -15,10 +15,10 @@ function ProductDetail() {
   async function getDeatil() {
     try {
       const response = await axios.get(
-        `http://localhost:3002/product?sid=${sid}`
+        `http://localhost:3002/product/list?sid=${sid}`
       )
       console.log(response.data)
-      const Pdata = response.data
+      const Pdata = response.data.product_rows
       setDetail(Pdata)
     } catch (e) {
       console.error(e.message)
