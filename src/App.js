@@ -11,8 +11,16 @@ import MyContextProviders from './contexts/MyContextProviders'
 // import CartList from './01-cart/pages/CartList'
 
 // 02-forum
-// import PostCook from './02-forum/pages/Post_cook'
 // import ForumHome from './02-forum/pages/ForumHome'
+// import PostCook from './02-forum/pages/Post_cook'
+// import PostShare from './02-forum/pages/Post_share'
+// import PostStore from './02-forum/pages/Post_store'
+// import PostOfficial from './02-forum/pages/Post_official'
+// import InnerCook from './02-forum/pages/Inner_cook'
+// import InnerShare from './02-forum/pages/Inner_share'
+// import InnerStore from './02-forum/pages/Inner_store'
+// import InnerOfficial from './02-forum/pages/Inner_official'
+// import WriteForm from './02-forum/pages/WriteForm'
 
 // 03-shop
 // import ShopList from './03-shop/pages/03-shop-list'
