@@ -1,7 +1,7 @@
 import { imgUrl, imgServerUrl } from '../shop-config'
 
 function ShopHcard({ shops }) {
-  console.log(shops)
+  // console.log(shops)
   // const { shops } = props
   // console.log([shops][0])
   return (

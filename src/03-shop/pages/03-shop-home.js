@@ -4,27 +4,55 @@ import YellowWave from '../../00-homepage/components/YellowWave'
 import ShopHcard from '../components/03-shop-h-card'
 import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
+import { toppings } from './../toppings'
 
 function ShopHome() {
   // 記錄原始資料用
   const [shops, setShops] = useState([])
   // 錯誤訊息用
-  const [errorMessage, setErrorMessage] = useState('')
+  // const [errorMessage, setErrorMessage] = useState('')
+  const [checkedState, setCheckedState] = useState(Array(10).fill(false))
+  const [filters, setFilters] = useState([])
 
   const getShops = async () => {
     try {
       const response = await axios.get('http://localhost:3002/api/seizee')
-      console.log(response.data.shop_c_rows)
+      // console.log(response.data.shop_c_rows)
       const shopData = response.data.shop_c_rows
       //設定到state裡
       setShops(shopData)
     } catch (e) {
       // 錯誤處理
       console.error(e.message)
-      setErrorMessage(e.message)
+      // setErrorMessage(e.message)
     }
   }
 
+  const handleOnChange = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    )
+    setCheckedState(updatedCheckedState)
+
+    // const totalFilter = updatedCheckedState.map((v, index) => {
+    //   const theData = []
+    //   const selCate = toppings[index].cate
+    //   if (v === true) {
+    //     if (!filters.includes('selCate')) {
+    //       theData = filters.push(selCate)
+    //       setFilters(theData)
+    //     }
+    //   } else {
+    //     theData = filters.filter((v, i) => {
+    //       return v !== selCate
+    //       setFilters(theData)
+    //     })
+    //   }
+    // })
+    console.log(filters)
+    // setFilters(totalFilter)
+  }
+  // console.log(filters)
   // didMount時載入資料
   useEffect(() => {
     getShops()
@@ -56,19 +84,31 @@ function ShopHome() {
           <div className="r-wave-wrap"></div>
         </div>
         <div className="r-shop-home-carousel-title">
-          <p>A idea, a way of living, a way of eating.</p>
+          <p>An idea, a way of living, a way of eating.</p>
         </div>
         <div className="r-shop-home-carousel-check">
-          <label className="r-check-wrap" htmlFor="cate1">
-            <input type="checkbox" id="cate1" />
-            <span>
-              中式
-              <div className="r-check-icon">
-                <img src="/03-shop-img/food_rice_02.png" alt="" />
-              </div>
-            </span>
-          </label>
-          <label className="r-check-wrap" htmlFor="cate2">
+          {toppings.map(({ cate, imgurl }, index) => {
+            return (
+              <label className="r-check-wrap" htmlFor="cate1" key={index}>
+                <input
+                  type="checkbox"
+                  id={`cate-checkbox-${index}`}
+                  name={cate}
+                  value={cate}
+                  checked={checkedState[index]}
+                  onChange={() => handleOnChange(index)}
+                />
+                <span>
+                  {cate}
+                  <div className="r-check-icon">
+                    <img src={`/03-shop-img/${imgurl}`} alt="" />
+                  </div>
+                </span>
+              </label>
+            )
+          })}
+
+          {/* <label className="r-check-wrap" htmlFor="cate2">
             <input type="checkbox" id="cate2" />
             <span>
               美式
@@ -148,11 +188,11 @@ function ShopHome() {
                 <img src="/03-shop-img/food_cake_01.png" alt="" />
               </div>
             </span>
-          </label>
+          </label> */}
         </div>
         <div className="r-shop-slider">
           <div className="r-shop-home-slider-inner1">
-            <span>店鋪 Shop</span>
+            <span>推薦店鋪</span>
           </div>
           <div className="r-shop-slider-traintop">
             <ShopHcard shops={shops} />
