@@ -16,6 +16,7 @@ function Events() {
     {
       sid: '',
       name: '',
+      nick: '',
       cate: '',
       styles: '',
       img: '',
@@ -44,7 +45,14 @@ function Events() {
       <div class="j-event-middle-events">
         <div class="j-cate-banner">
           <div class="j-cate-banner-deco">
-            <div>看的場所</div>
+            {eventData
+              .filter((e) => {
+                return e.sid === click
+              })
+              .map((e, i) => {
+                const { nick } = e
+                return <div>{nick}</div>
+              })}
           </div>
         </div>
 
