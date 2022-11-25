@@ -14,14 +14,11 @@ import Likes from './05-member/profile-pages/Likes'
 import Activities from './05-member/profile-pages/Activities'
 import Orders from './05-member/profile-pages/Orders'
 
-import { AuthContextProvider } from './contexts/AuthContext'
-
 function App() {
   return (
     <>
       <BrowserRouter>
         <MyContextProviders>
-          {/* <AuthContextProvider> */}
           <Routes>
             <Route path="/" element={<HomePage />} />
 
@@ -39,7 +36,6 @@ function App() {
               <Route path="activities" element={<Activities />} />
             </Route>
           </Routes>
-          {/* </AuthContextProvider> */}
         </MyContextProviders>
       </BrowserRouter>
     </>

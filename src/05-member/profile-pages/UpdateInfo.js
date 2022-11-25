@@ -80,7 +80,7 @@ function UpdateInfo(props) {
   // -----更新會員資料-----
   // 更新會員資料
   const [updateFD, setUpdateFD] = useState({
-    mbuPhoto: 'default.png',
+    mbuPhoto: 'noname.png',
     mbuName: '',
     mbuEmail: '',
     mbuGender: '',

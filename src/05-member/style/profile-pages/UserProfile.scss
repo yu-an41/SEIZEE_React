@@ -5,7 +5,7 @@
   justify-content: flex-start;
   align-items: flex-start;
 
-  // border: 1px solid black;
+  border: 1px solid black;
 
   .s-up-title {
     font-size: 30px;
@@ -117,7 +117,7 @@
           justify-content: flex-end;
 
           // border: 1px solid yellow;
-          
+
           .s-up-actionBtn {
             border: none;
             outline: none;
@@ -149,7 +149,7 @@
   .s-up-deleteTitle {
     font-size: 24px;
     font-weight: 700;
-    margin: 15px 0;
+    margin: 30px 0 15px;
   }
 
   .s-up-deleteAccount {

@@ -6,6 +6,7 @@ import { useParams, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import { PROFILE } from '../../my-config'
 import dayjs from 'dayjs'
+import AuthContext from '../../contexts/AuthContext'
 
 function UserProfile() {
   // -----取得sid-----

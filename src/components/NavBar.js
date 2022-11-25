@@ -13,6 +13,7 @@ function NavBar() {
   const { myAuth } = useContext(AuthContext)
   console.log('photo:', myAuth.mb_photo)
   console.log('myAuthNav:', myAuth)
+  console.log('photo:', myAuth.mb_sid)
 
   return (
     <div className="y-section-nav">
@@ -26,12 +27,15 @@ function NavBar() {
           <img src={CartIcon} alt="cart icon" />
         </div>
         {myAuth.authorised ? (
-          <div className="y-icon-round y-member-icon">
+          <Link
+            className="y-icon-round y-member-icon"
+            to={`/profile/${myAuth.mb_sid}`}
+          >
             <img
               src={`${imgServerUrl}/uploads/05-member/${myAuth.mb_photo}`}
               alt="member icon"
             />
-          </div>
+          </Link>
         ) : (
           <Link className="y-icon-round y-member-icon" to={'/login'}>
             <img src={MemberIcon} alt="member icon" />
