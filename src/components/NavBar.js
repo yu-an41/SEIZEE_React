@@ -22,7 +22,10 @@ function NavBar() {
         <div className="y-icon-round y-cart-icon">
           <img src={CartIcon} alt="cart icon" />
         </div>
-        {myAuth.authorised ? (
+        <div className="y-icon-round y-member-icon">
+          <img src={MemberIcon} alt="cart icon" />
+        </div>
+        {/* {myAuth.authorised ? (
           <div className="y-icon-round y-member-icon">
             <img
               src={`${imgServerUrl}/uploads/05-member/${myAuth.mb_photo}`}
@@ -33,7 +36,7 @@ function NavBar() {
           <Link className="y-icon-round y-member-icon" to={'/login'}>
             <img src={MemberIcon} alt="member icon" />
           </Link>
-        )}
+        )} */}
         <Menu />
       </div>
     </div>

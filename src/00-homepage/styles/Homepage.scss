@@ -1,13 +1,13 @@
-$main-yellow: #FAD249;
-$main-blue: #2B325C;
-$main-text: #5E5E5E;
+$main-yellow: #fad249;
+$main-blue: #2b325c;
+$main-text: #5e5e5e;
 
-$bgc-yellow: #FBFBF2;
+$bgc-yellow: #fbfbf2;
 
 $border-lg: $main-blue 3px solid;
 $border-sm: $main-blue 2px solid;
 
-$text-shadow: #E4E4E4 2px 2px;
+$text-shadow: #e4e4e4 2px 2px;
 $btn-shadow-lg: 6px 6px $main-blue;
 $btn-shadow-sm: 2px 2px $main-blue;
 $light-box-shadow: rgba(53, 53, 53, 0.75);
@@ -21,175 +21,318 @@ $font-family: Arial, Helvetica, sans-serif;
 $border-radius-card: 10px;
 $border-radius-button: 8px;
 
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 .y-index-container {
     min-width: $min-width;
-    background-color: #fff;
+  background-color: #fff;
 
-    .y-section {
-        // border: 1px solid black;
+  .y-section {
+    // border: 1px solid black;
+    width: 100%;
+  }
+
+  .y-index-top {
+    width: 100%;
+    // height: 500px;
+    background-color: $main-yellow;
+  }
+
+  .y-section-nav-bg {
+    width: 100%;
+  }
+
+  .y-section-news {
+    width: 100%;
+    // padding-top: 90px;
+    background-color: $main-yellow;
+
+    .y-section-news-first {
+      overflow: hidden;
+      width: 100%;
+      .y-news-crawl-wrap {
+      }
+    }
+  }
+
+  .y-section-carousel {
+    background-color: $main-yellow;
+
+    .y-carousel-wrap {
+    }
+  }
+
+  .y-section-search {
+    .r-shop-home-container {
+      background: url(./../../../public/03-shop-img/food_cola_s_01.png) 280px
+          200px/10% no-repeat,
+        url(./../../../public/03-shop-img/food_ramen_01.png) 1700px 700px/8%
+          no-repeat,
+        url(./../../../public/03-shop-img/food_pizza_01.png) 750px 80px/15%
+          no-repeat,
+        url(./../../../public/03-shop-img/food_french_fries_01.png) 50px 550px/20%
+          no-repeat;
+
+      .r-shop-home-main {
+        display: flex;
+        .r-shop-home-main-inner {
+          display: flex;
+          align-items: center;
+          .r-shop-home-main-text {
+            width: 40%;
+            margin-left: auto;
+            p {
+              font-size: 48px;
+              font-weight: 700;
+              letter-spacing: 0.2rem;
+              line-height: 3.5rem;
+              padding-bottom: 20px;
+            }
+            span {
+              font-size: 24px;
+              font-weight: 700;
+              letter-spacing: 0.2rem;
+              color: $main-text;
+            }
+          }
+          .r-shop-home-main-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            border: 3px solid #000;
+            border-radius: 15px;
+            margin-top: 80px;
+            box-shadow: 10px 5px 0 #333;
+            input {
+              font-size: 20px;
+              border: none;
+              margin-right: 5px;
+            }
+            input:focus {
+              outline-style: none;
+            }
+            a {
+              text-decoration: none;
+              i {
+                font-size: 24px;
+                color: $main-blue;
+              }
+            }
+          }
+        }
+        .r-shop-home-main-visual {
+          width: 60%;
+          height: 80vh;
+          background: url('./../../../public/03-shop-img/potato.png') 0 0
+            no-repeat;
+          margin-top: 120px;
+        }
+      }
+    }
+  }
+
+  .y-section-forum {
+    .y-section-forum-title {
+      margin-bottom: 40px;
+
+      p {
+        font-size: 36px;
+        font-weight: bold;
+        letter-spacing: 4px;
+        color: $main-text;
+        text-align: center;
+      }
+    }
+
+    .y-section-forum-wrap {
+      outline: 1px solid #333;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      .y-forum-row-wrap {
         width: 100%;
+        padding: 15px;
+        outline: 1px solid red;
+        .y-forum-card-wrap {
+        }
+      }
+
+      .y-recipe-row-wrap {
+      }
+
+      .y-shop-row-wrap {
+      }
+
+      .y-official-row-wrap {
+      }
+    }
+  }
+
+  .y-wave-wrap {
+  }
+}
+
+@media (min-width: 391px) {
+  .y-index-container {
+    .y-section {
+      // border: 1px solid black;
+      width: 100%;
     }
 
     .y-index-top {
+    }
+
+    .y-section-nav-bg {
+      // height: 40px;
+      background-color: $main-yellow;
+    }
+
+    .y-section-news {
+      padding-top: 90px;
+      display: flex;
+      margin-bottom: 20px;
+
+      .y-section-news-first {
+        position: relative;
         width: 100%;
-        // height: 500px;
-        background-color:
-        $main-yellow;
+        height: 30px;
+        overflow: hidden;
+        background-color: $bgc-yellow;
 
-        
-        .y-section-nav-bg {
-            width: 100%;
+        .y-news-crawl-wrap {
         }
-
-        .y-section-news {
-            width: 100%;
-            // padding-top: 90px;
-            background-color: $main-yellow;
-            
-            .y-section-news-first {
-                overflow: hidden;
-                width: 100%;
-                .y-news-crawl-wrap {
-                
-                }
-                
-        }
-            
-            
-        }
-
-        
-
-        .y-section-carousel {
-            background-color: $main-yellow;
-
-            .y-carousel-wrap {
-
-            }
-        }
-
-
+      }
     }
 
-    .y-wave-wrap {
-            
+    .y-section-carousel {
+      .y-carousel-wrap {
+        margin: 0 auto;
+        max-width: 1040px;
+        border: $border-lg;
+      }
     }
 
-}
-
-
-
-
-
-
-@media (min-width: 391px) {
-    .y-index-container {
-
-        .y-section {
-            // border: 1px solid black;
-            width: 100%;
-        }
-
-        .y-index-top {
-
-
-        }
-
-        
-        .y-section-nav-bg {
-            // height: 40px;
-            background-color: $main-yellow;
-        }
-
-        .y-section-news {
-            padding-top: 90px;
-            display: flex;
-            margin-bottom: 20px;
-        
-            .y-section-news-first {
-                position: relative;
-                width: 100%;
-                height: 30px;
-                overflow: hidden;
-                background-color: $bgc-yellow;
-
-                .y-news-crawl-wrap {
-                    
-                }
-
-            }
-            
-        }
+    .y-section-search {
+        .r-shop-home-container {
+          background: url(./../../../public/03-shop-img/food_cola_s_01.png) 280px
+              200px/10% no-repeat,
+            url(./../../../public/03-shop-img/food_ramen_01.png) 1700px 700px/8%
+              no-repeat,
+            url(./../../../public/03-shop-img/food_pizza_01.png) 750px 80px/15%
+              no-repeat,
+            url(./../../../public/03-shop-img/food_french_fries_01.png) 50px 550px/20%
+              no-repeat;
     
-
-        .y-section-carousel {
-            
-            .y-carousel-wrap {
-                margin: 0 auto;
-                max-width: 1040px;
-                border: $border-lg;
+          .r-shop-home-main {
+            display: flex;
+            .r-shop-home-main-inner {
+              display: flex;
+              align-items: center;
+              .r-shop-home-main-text {
+                width: 40%;
+                margin-left: auto;
+                p {
+                  font-size: 48px;
+                  font-weight: 700;
+                  letter-spacing: 0.2rem;
+                  line-height: 3.5rem;
+                  padding-bottom: 20px;
+                }
+                span {
+                  font-size: 24px;
+                  font-weight: 700;
+                  letter-spacing: 0.2rem;
+                  color: $main-text;
+                }
+              }
+              .r-shop-home-main-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 60px;
+                border: 3px solid #000;
+                border-radius: 15px;
+                margin-top: 80px;
+                box-shadow: 10px 5px 0 #333;
+                input {
+                  font-size: 20px;
+                  border: none;
+                  margin-right: 5px;
+                }
+                input:focus {
+                  outline-style: none;
+                }
+                a {
+                  text-decoration: none;
+                  i {
+                    font-size: 24px;
+                    color: $main-blue;
+                  }
+                }
+              }
             }
+            .r-shop-home-main-visual {
+              width: 60%;
+              height: 80vh;
+              background: url('./../../../public/03-shop-img/potato.png') 0 0
+                no-repeat;
+              margin-top: 120px;
+            }
+          }
+        }
+    }
+
+    .y-section-forum {
+      .y-section-forum-title {
+        margin-bottom: 40px;
+
+        p {
+          font-size: 36px;
+          font-weight: bold;
+          letter-spacing: 4px;
+          color: $main-text;
+          text-align: center;
+        }
+      }
+
+      .y-section-forum-wrap {
+        outline: 1px solid #333;
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        .y-forum-row-wrap {
+          width: 100%;
+          padding: 15px;
+          outline: 1px solid red;
+          .y-forum-card-wrap {
+          }
         }
 
-        .y-section-forum {
+        .y-recipe-row-wrap {
+        }
 
-            .y-section-forum-title {
-                margin-bottom: 40px;
+        .y-shop-row-wrap {
+        }
 
-                p {
-                    font-size: 36px;
-                    font-weight: bold;
-                    letter-spacing: 4px;
-                    color: $main-text;
-                    text-align: center;
-                }
-            }
-
-            .y-section-forum-wrap {
-                outline: 1px solid #333;
-                max-width: 1320px;
-                margin: 0 auto;
-                padding: 20px;
-                display: flex;
-                justify-content: space-between;
-                .y-forum-row-wrap {
-                    width: 100%;
-                    padding: 15px ;
-                    outline: 1px solid red;
-                    .y-forum-card-wrap {
-
-                    }
-                }
-
-                .y-recipe-row-wrap {
-
-
-                }
-
-                .y-exchange-row-wrap {
-                    
-                }
-
-                .y-shop-row-wrap {
-                    
-                }
-            }
+        .y-official-row-wrap {
         }
         
+      }
     }
 
     .y-wave-wrap {
-
     }
-
+  }
 }
-
 
 .y-section-merch {
-    height: 500px;
-    background-color: $main-yellow;
+  height: 500px;
+  background-color: $main-yellow;
 }

@@ -60,17 +60,17 @@ function App() {
 
             {/* 02-forum */}
             {/* <Route path="/forum">
-            <Route path="/" element={<ForumHome />} />
-            <Route path="/cook" element={<PostCook />} />
-            <Route path="/share" element={<PostShare />} />
-            <Route path="/store" element={<PostStore />} />
-            <Route path="/official" element={<PostOfficial />} />
-            <Route path="/cook/inner/:sid" element={<InnerCook />} />
-            <Route path="/share/inner" element={<InnerShare />} />
-            <Route path="/store/inner" element={<InnerStore />} />
-            <Route path="/official/inner" element={<InnerOfficial />} />
-            <Route path="/writeForm" element={<WriteForm />} />
-          </Route> */}
+                <Route path="/" element={<ForumHome />} />
+                <Route path="/cook" element={<PostCook />} />
+                <Route path="/share" element={<PostShare />} />
+                <Route path="/store" element={<PostStore />} />
+                <Route path="/official" element={<PostOfficial />} />
+                <Route path="/cook/inner/:sid" element={<InnerCook />} />
+                <Route path="/share/inner" element={<InnerShare />} />
+                <Route path="/store/inner" element={<InnerStore />} />
+                <Route path="/official/inner" element={<InnerOfficial />} />
+                <Route path="/writeForm" element={<WriteForm />} />
+              </Route> */}
 
             {/* 03-shop */}
             {/* <Route path="/shop" element={<ShopList />} /> */}
