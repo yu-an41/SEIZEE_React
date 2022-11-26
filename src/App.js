@@ -29,8 +29,8 @@ function App() {
 
             {/* member-profile */}
             <Route path="/profile/">
-              <Route index path=":sid" element={<UserProfile />} />
-              <Route path="update-info/:sid" element={<UpdateInfo />} />
+              <Route index path="" element={<UserProfile />} />
+              <Route path="update-info" element={<UpdateInfo />} />
               <Route path="orders" element={<Orders />} />
               <Route path="likes" element={<Likes />} />
               <Route path="activities" element={<Activities />} />

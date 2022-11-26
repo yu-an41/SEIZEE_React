@@ -27,10 +27,7 @@ function NavBar() {
           <img src={CartIcon} alt="cart icon" />
         </div>
         {myAuth.authorised ? (
-          <Link
-            className="y-icon-round y-member-icon"
-            to={`/profile/${myAuth.mb_sid}`}
-          >
+          <Link className="y-icon-round y-member-icon" to={'/profile/'}>
             <img
               src={`${imgServerUrl}/uploads/05-member/${myAuth.mb_photo}`}
               alt="member icon"

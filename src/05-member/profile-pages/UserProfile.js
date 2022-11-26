@@ -4,7 +4,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
 import { useParams, useLocation } from 'react-router-dom'
 import axios from 'axios'
-import { PROFILE } from '../../my-config'
+import { PROFILE, imgServerUrl } from '../../my-config'
 import dayjs from 'dayjs'
 import AuthContext from '../../contexts/AuthContext'
 
@@ -34,7 +34,7 @@ function UserProfile() {
   async function getList() {
     // if(!myAuth.authorised) {}
 
-    const response = await axios.get(`${PROFILE}${sid}`, {
+    const response = await axios.get(PROFILE, {
       headers: {
         Authorization: 'Bearer ' + myAuth.token,
       },
@@ -70,7 +70,11 @@ function UserProfile() {
               <h2 className="s-up-title">我的帳號</h2>
               <div className="s-up-card">
                 <div className="s-up-imgBx">
-                  <img className="s-up-img" src="/05-member/ghost.png" alt="" />
+                  <img
+                    className="s-up-img"
+                    src={`${imgServerUrl}/uploads/05-member/${myAuth.mb_photo}`}
+                    alt=""
+                  />
                 </div>
                 <div className="s-up-content">
                   <h2 className="s-up-username" id="mbpName">

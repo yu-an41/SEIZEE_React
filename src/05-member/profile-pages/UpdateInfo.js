@@ -1,6 +1,6 @@
 import '.././style/profile-pages/UpdateInfo.scss'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useContext } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
 import { DistrictData } from '../data/DistrictData'
 import { map, find, propEq, forEach, isNil } from 'ramda'
@@ -8,6 +8,7 @@ import Select from 'react-select'
 import axios from 'axios'
 import { PROFILE, imgUrl, imgServerUrl } from '../../my-config'
 import { useParams, useLocation } from 'react-router-dom'
+import AuthContext from '../../contexts/AuthContext'
 
 // selectedCity
 const selectedCity = (cityName) => ({ value: cityName, label: cityName })
@@ -105,11 +106,11 @@ function UpdateInfo(props) {
     setDistrict('')
     setCity(e.value)
 
-    console.log(e.value)
+    // console.log(e.value)
 
     // console.log({ id, val })
-    console.log(e.currentTarget) //undefined
-    console.log(e)
+    // console.log(e.currentTarget) //undefined
+    // console.log(e)
     // const id = e.currentTarget.id
     const val = e.value
     // console.log({ id, val })
@@ -133,8 +134,8 @@ function UpdateInfo(props) {
     }
 
     const objectUrl = URL.createObjectURL(selectedFile)
-    console.log(objectUrl)
     setPreview(objectUrl)
+    // console.log(objectUrl)
 
     // 當元件unmounted時清除記憶體
     return () => URL.revokeObjectURL(objectUrl)
@@ -144,6 +145,7 @@ function UpdateInfo(props) {
   const handleChange = (e) => {
     const fileUploaded = e.target.files[0]
     // props.handleFile(fileUploaded)
+    console.log(fileUploaded)
 
     if (fileUploaded) {
       setIsFilePicked(true)
@@ -155,7 +157,7 @@ function UpdateInfo(props) {
 
     const id = e.currentTarget.id
     const val = e.currentTarget.value
-    console.log({ id, val })
+    // console.log({ id, val })
 
     setUpdateFD({ ...updateFD, [id]: val })
   }
@@ -163,13 +165,20 @@ function UpdateInfo(props) {
   // ====================================
   // 讀取資料
   const location = useLocation()
+  const { myAuth } = useContext(AuthContext)
+  // console.log(myAuth)
+  // console.log(myAuth.token)
 
   async function getList() {
-    const response = await axios.get(`${PROFILE}${sid}`)
+    const response = await axios.get(PROFILE, {
+      headers: {
+        Authorization: 'Bearer ' + myAuth.token,
+      },
+    })
     // setListData(response.data)
-    console.log(response.data.row)
-    console.log(response)
-    console.log('mbuPhoto', response.data.row.mb_photo)
+    // console.log(response.data.row)
+    // console.log(response)
+    // console.log('mbuPhoto', response.data.row.mb_photo)
 
     setUpdateFD({
       ...updateFD,
@@ -194,6 +203,8 @@ function UpdateInfo(props) {
 
   // console.log(updateFD)
   // console.log(updateFD.mbuAddressDetail)
+  // console.log(updateFD.mbuPhoto)
+  // console.log(selectedFile)
 
   useEffect(() => {
     // console.log(2);
@@ -250,20 +261,24 @@ function UpdateInfo(props) {
   const updateSubmit = async (e) => {
     e.preventDefault()
     const fd = new FormData()
+
     fd.append('mb_photo', selectedFile)
     fd.append('mb_gender', updateFD.mbuGender)
     fd.append('mb_address_city', updateFD.mbuAddressCity)
     fd.append('mb_address_area', updateFD.mbuAddressArea)
     fd.append('mb_address_detail', updateFD.mbuAddressDetail)
     fd.append('mb_phone', updateFD.mbuPhone)
-    console.log(selectedFile)
-    console.log(fd)
+    // console.log(selectedFile)
+    // console.log(fd)
 
     const { data } = await axios({
       method: 'put',
-      url: `${PROFILE}${sid}`,
+      url: PROFILE,
       data: fd,
-      headers: { 'Content-Type': 'multipart/form-data' },
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: 'Bearer ' + myAuth.token,
+      },
     })
 
     if (data.success) {
