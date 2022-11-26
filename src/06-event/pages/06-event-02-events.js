@@ -6,10 +6,27 @@ import jblueM from '../svg/blueMountain.svg'
 import jriceM from '../svg/riceMountain.svg'
 import jgreenM from '../svg/greenMountain.svg'
 import jorangeM from '../svg/orangeMountain.svg'
+import log from 'eslint-plugin-react/lib/util/log'
 
 function Events() {
-  const [click, setClick] = useState(1)
-  const [state, setState] = useState('workshop')
+  const [origins, setOrigins] = useState([{}])
+  // {
+  //   sid: 1,
+  //   name: '',
+  //   nick: '穢土轉生',
+  //   cate: 1,
+  //   style: 1,
+  //   img: 'event-001.jpeg',
+  //   time: '12:00-13:00',
+  //   content:
+  //     '陽光灑進和室窗邊，一罐罐五顏六色的玻璃瓶裡，裝著發酵中的水果酵釀，這裡是SEIZEE的全食物酵釀實驗場。「農友辛苦耕耘友善種植的水果，更要好好珍惜，果肉吃完了，果皮、種籽都能做成酵釀，果皮還能2次利用變蜜餞，一點都不浪費！」在SEIZEE眼裡每樣東西都是寶。',
+  //   maximum: 0,
+  //   registered: null,
+  //   styles: '#91D3F5',
+  // },
+
+  const [cate, setCate] = useState(1)
+  const [epage, setEpage] = useState(1)
   const [jcactive, setJcactive] = useState(1)
   const [jmactive, setJmactive] = useState(1)
   const [eventData, setEventData] = useState([
@@ -26,41 +43,51 @@ function Events() {
 
   const getEventData = async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:3002/event/event-test/${state}`
-      )
+      const res = await axios.get('http://localhost:3002/event/event-test')
 
-      setEventData(res.data.test_rows)
-      console.log(res.data.test_rows)
+      const origin_rows = res.data
+      console.log(origin_rows)
+      setOrigins(origin_rows)
+
+      // setEventData(new_row)
     } catch (error) {
       console.log(error.message)
     }
   }
+  const new_row = origins.filter((e) => {
+    return e.cate === cate
+    // setEventData(new_row)????????????????aaaaaa
+  })
+  console.log('category', new_row)
+  // setEventData(new_row)???????????????????bbbbbbbb
 
+  console.log('eventData:' + eventData)
   useEffect(() => {
     getEventData()
-  }, [state])
+  }, [])
   return (
     <>
-      <div class="j-event-middle-events">
-        <div class="j-cate-banner">
-          <div class="j-cate-banner-deco">
+      <div className="j-event-middle-events">
+        <div className="j-cate-banner">
+          <div className="j-cate-banner-deco">
             {eventData
-              .filter((e) => {
-                return e.sid === click
+              .filter((e, i) => {
+                console.log('page' + i)
+                return i === { epage }
               })
               .map((e, i) => {
                 const { nick } = e
+                console.log(e.nick)
                 return <div>{nick}</div>
               })}
           </div>
         </div>
 
-        <ul class="j-cate-group">
+        <ul className="j-cate-group">
           <li>
             <div
               onClick={() => {
-                setState('workshop')
+                setCate(1)
                 setJcactive(1)
               }}
               className={jcactive === 1 ? 'cactive' : ''}
@@ -71,7 +98,7 @@ function Events() {
           <li>
             <div
               onClick={() => {
-                setState('music')
+                setCate(2)
                 setJcactive(2)
               }}
               className={jcactive === 2 ? 'cactive' : ''}
@@ -82,7 +109,7 @@ function Events() {
           <li>
             <div
               onClick={() => {
-                setState('seminar')
+                setCate(3)
                 setJcactive(3)
               }}
               className={jcactive === 3 ? 'cactive' : ''}
@@ -93,7 +120,7 @@ function Events() {
           <li>
             <div
               onClick={() => {
-                setState('vr')
+                setCate(4)
                 setJcactive(4)
               }}
               className={jcactive === 4 ? 'cactive' : ''}
@@ -104,7 +131,7 @@ function Events() {
           <li>
             <div
               onClick={() => {
-                setState('theater')
+                setCate(5)
                 setJcactive(5)
               }}
               className={jcactive === 5 ? 'cactive' : ''}
@@ -114,69 +141,73 @@ function Events() {
           </li>
         </ul>
 
-        <div class="j-mountains">
-          <div class={`j-blue-mountain ${jmactive === 1 ? 'mactive' : ''}`}>
+        <div className="j-mountains">
+          <div className={`j-blue-mountain ${jmactive === 1 ? 'mactive' : ''}`}>
             <img
               src={jblueM}
               alt=""
               onClick={() => {
-                setClick(1)
+                setEpage(1)
                 setJmactive(1)
               }}
             />
           </div>
-          <div class={`j-rice-mountain ${jmactive === 2 ? 'mactive' : ''}`}>
+          <div className={`j-rice-mountain ${jmactive === 2 ? 'mactive' : ''}`}>
             <img
               src={jriceM}
               alt=""
               onClick={() => {
-                setClick(2)
+                setEpage(2)
                 setJmactive(2)
               }}
             />
           </div>
-          <div class={`j-green-mountain ${jmactive === 3 ? 'mactive' : ''}`}>
+          <div
+            className={`j-green-mountain ${jmactive === 3 ? 'mactive' : ''}`}
+          >
             <img
               src={jgreenM}
               alt=""
               onClick={() => {
-                setClick(3)
+                setEpage(3)
                 setJmactive(3)
               }}
             />
           </div>
-          <div class={`j-orange-mountain ${jmactive === 4 ? 'mactive' : ''}`}>
+          <div
+            className={`j-orange-mountain ${jmactive === 4 ? 'mactive' : ''}`}
+          >
             <img
               src={jorangeM}
               alt=""
               onClick={() => {
-                setClick(4)
+                setEpage(4)
                 setJmactive(4)
               }}
             />
           </div>
         </div>
         <div>
-          {eventData
+          {new_row
             .filter((e) => {
-              return e.sid === click
+              return e.sid === epage
             })
             .map((e, i) => {
               const { name, content, styles, img, sid, maximum } = e
               console.log(styles)
               return (
                 <div
-                  class="j-event-card"
+                  className="j-event-card"
                   style={{ background: `${styles}` }}
                   key={i}
                 >
-                  <span class="j-lego">
-                    <div class="j-card-name">{name}</div>
-                    <div class="j-card-image">
+                  <span className="j-lego">
+                    <div className="j-card-name">{name}</div>
+                    <div className="j-card-image">
                       <img src={`/06-event-img/${img}`} alt="" />
                     </div>
-                    <div class="j-card-text">{content}</div>
-                    <div class="j-card-sold">{maximum}</div>
+                    <div className="j-card-text">{content}</div>
+                    <div className="j-card-sold">{maximum}</div>
                   </span>
                 </div>
               )
