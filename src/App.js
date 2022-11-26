@@ -9,6 +9,7 @@ import Homepage from './00-homepage/pages/Homepage'
 
 // 01-cart
 import CartList from './01-cart/pages/CartList'
+import Events from './01-cart/pages/06-event-02-events'
 
 // 02-forum
 // import ForumHome from './02-forum/pages/ForumHome'
@@ -57,6 +58,7 @@ function App() {
 
             {/* 01-cart */}
             <Route path="/cart" element={<CartList />} />
+            <Route path="/cart/event" element={<Events />} />
 
             {/* 02-forum */}
             {/* <Route path="/forum">
