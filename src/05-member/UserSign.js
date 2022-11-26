@@ -74,6 +74,7 @@ function UserSign() {
 
     console.log(setMyAuth)
     console.log(data)
+    console.log(data.error)
   }
 
   // ====================================
