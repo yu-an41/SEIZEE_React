@@ -2,9 +2,9 @@ import React from 'react'
 import './../styles/NavBar.scss'
 import Menu from './../../components/Menu'
 
-import { Link, useLocation } from 'react-router-dom'
-import AuthContext from '../contexts/AuthContext'
-import { PROFILE, imgUrl, imgServerUrl } from '../my-config'
+// import { Link, useLocation } from 'react-router-dom'
+// import AuthContext from '../contexts/AuthContext'
+// import { PROFILE, imgUrl, imgServerUrl } from '../my-config'
 
 import LogoBluePink from './../../logo-and-fonts/LOGO-blue-pink.svg'
 import CartIcon from './../../dotown/cart.png'
