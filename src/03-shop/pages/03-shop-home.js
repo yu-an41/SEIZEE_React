@@ -18,7 +18,7 @@ function ShopHome() {
     try {
       const response = await axios.get('http://localhost:3002/api/seizee')
       // console.log(response.data.shop_c_rows)
-      const shopData = response.data.shop_c_rows
+      const shopData = response.data
       //設定到state裡
       setShops(shopData)
     } catch (e) {
@@ -43,12 +43,48 @@ function ShopHome() {
       }
     })
     selectedFilters = selectedFilters.filter((v) => !!v)
-    console.log({ selectedFilters })
+    // console.log({ selectedFilters })
     setCateFilters(selectedFilters)
   }
 
   // !! "aa"  true
   // !! null  false
+  console.log(cateFilters)
+
+  // const total = []
+  // shops.forEach((value) => {
+  //   for (let i of value.cates) {
+  //     for (let c of cateFilters) {
+  //       if (c === i) {
+  //         total.push(value)
+  //         break
+  //       }
+  //     }
+  //   }
+  // })
+  // const total = []
+  // for (let value of shops) {
+  //   label1: for (let i of value.cates) {
+  //     for (let c of cateFilters) {
+  //       if (c === i) {
+  //         total.push(value)
+  //         break label1
+  //       }
+  //     }
+  //   }
+  // }
+  const resultShop = []
+  for (let item of shops) {
+    label1: for (let i of item.cates) {
+      for (let c of cateFilters) {
+        if (c === i) {
+          resultShop.push(item)
+          break label1
+        }
+      }
+    }
+  }
+  console.log(resultShop)
 
   // didMount時載入資料
   useEffect(() => {
@@ -90,7 +126,7 @@ function ShopHome() {
                 <input
                   type="checkbox"
                   id={`cate-checkbox-${index}`}
-                  name={cate}
+                  name="cate"
                   value={cate}
                   checked={checkedState[index]}
                   onChange={() => handleOnChange(index)}
@@ -104,88 +140,6 @@ function ShopHome() {
               </label>
             )
           })}
-
-          {/* <label className="r-check-wrap" htmlFor="cate2">
-            <input type="checkbox" id="cate2" />
-            <span>
-              美式
-              <div className="r-check-icon">
-                <img src="/03-shop-img/food_hamburger_01.png" alt="" />
-              </div>
-            </span>
-          </label>
-          <label className="r-check-wrap" htmlFor="cate3">
-            <input type="checkbox" id="cate3" />
-            <span>
-              日式
-              <div className="r-check-icon">
-                <img src="/03-shop-img/food_osushi_03.png" alt="" />
-              </div>
-            </span>
-          </label>
-          <label className="r-check-wrap" htmlFor="cate4">
-            <input type="checkbox" id="cate4" />
-            <span>
-              泰式
-              <div className="r-check-icon">
-                <img src="/03-shop-img/food_ramen_01.png" alt="" />
-              </div>
-            </span>
-          </label>
-          <label className="r-check-wrap" htmlFor="cate5">
-            <input type="checkbox" id="cate5" />
-            <span>
-              義式
-              <div className="r-check-icon">
-                <img src="/03-shop-img/food_spaghetti_01.png" alt="" />
-              </div>
-            </span>
-          </label>
-          <label className="r-check-wrap">
-            <input type="checkbox" id="cate6" />
-            <span>
-              麵包
-              <div className="r-check-icon">
-                <img src="/03-shop-img/food_croissant_01.png" alt="" />
-              </div>
-            </span>
-          </label>
-          <label className="r-check-wrap" htmlFor="cate7">
-            <input type="checkbox" id="cate7" />
-            <span>
-              冰品
-              <div className="r-check-icon">
-                <img src="/03-shop-img/food_shaved_ice_01.png" alt="" />
-              </div>
-            </span>
-          </label>
-          <label className="r-check-wrap" htmlFor="cate8">
-            <input type="checkbox" id="cate8" />
-            <span>
-              飲料
-              <div className="r-check-icon">
-                <img src="/03-shop-img/food_cola_s_01.png" alt="" />
-              </div>
-            </span>
-          </label>
-          <label className="r-check-wrap" htmlFor="cate9">
-            <input type="checkbox" id="cate9" />
-            <span>
-              早餐
-              <div className="r-check-icon">
-                <img src="/03-shop-img/food_plain_bread_01.png" alt="" />
-              </div>
-            </span>
-          </label>
-          <label className="r-check-wrap" htmlFor="cate10">
-            <input type="checkbox" id="cate10" />
-            <span>
-              甜點
-              <div className="r-check-icon">
-                <img src="/03-shop-img/food_cake_01.png" alt="" />
-              </div>
-            </span>
-          </label> */}
         </div>
         <div className="r-shop-slider">
           <div className="r-shop-home-slider-inner1">

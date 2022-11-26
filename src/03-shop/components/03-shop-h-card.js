@@ -8,13 +8,13 @@ function ShopHcard({ shops }) {
     <>
       {shops.map((v, i) => {
         return (
-          <div className="r-shop-slider-img-wrap" key={v.sid}>
+          <div className="r-shop-slider-img-wrap" key={v.rows.sid}>
             <img
-              src={`${imgServerUrl}/images/03-shop/${v.shop_cover}`}
+              src={`${imgServerUrl}/images/03-shop/${v.rows.shop_cover}`}
               alt=""
             />
             <div className="r-shop-slider-content">
-              <p>{v.shop_name}</p>
+              <p>{v.rows.shop_name}</p>
             </div>
           </div>
         )
