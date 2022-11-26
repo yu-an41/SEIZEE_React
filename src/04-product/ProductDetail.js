@@ -3,7 +3,7 @@ import axios from 'axios'
 import './components/style/ProductDetail.scss'
 import RecommendCard from './components/RecommendCard'
 import YellowWave2 from './components/YellowWave2'
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import Carousel from './components/Carousel'
 
 function ProductDetail() {

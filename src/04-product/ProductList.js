@@ -1,20 +1,17 @@
 import { useState, useEffect } from "react";
+import { useParams, useLocation } from 'react-router-dom'
 import { PRODUCT } from "../my-config";
 import axios from "axios";
 import ProductCard from "./components/ProductCard";
 import HeadWave from "../components/HeadWave";
 import YellowWave2 from "./components/YellowWave2";
 import './components/style/ProductList.scss'
-import { useParams } from 'react-router-dom'
 
 function ProductList() {
   const [allProduct, setAllProduct] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
   const{shop_list_sid}=useParams()
   console.log(shop_list_sid);
-
-  // const location = useLocation()
-  // console.log(location)
 
   async function getProductCard() {
     try {
