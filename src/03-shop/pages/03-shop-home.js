@@ -11,8 +11,14 @@ function ShopHome() {
   const [shops, setShops] = useState([])
   // 錯誤訊息用
   // const [errorMessage, setErrorMessage] = useState('')
+  //紀錄checkbox是否被勾選true/false
   const [checkedState, setCheckedState] = useState(Array(10).fill(false))
+  //紀錄checkbox篩選條件
   const [cateFilters, setCateFilters] = useState([])
+  //紀錄符合checkbox篩選條件的所有店舖
+  const [selResultShop, setSelResultShop] = useState([])
+  //紀錄店鋪展示區的狀態 有勾選條件/原始全部顯示
+  const [statusShop, setstatusShop] = useState(1)
 
   const getShops = async () => {
     try {
@@ -45,12 +51,17 @@ function ShopHome() {
     selectedFilters = selectedFilters.filter((v) => !!v)
     // console.log({ selectedFilters })
     setCateFilters(selectedFilters)
+    if (selectedFilters.length !== 0) {
+      setstatusShop(0)
+    } else {
+      setstatusShop(1)
+    }
   }
 
   // !! "aa"  true
   // !! null  false
-  console.log(cateFilters)
-
+  // console.log(cateFilters)
+  //----------- 店鋪多重複選測試------------------------
   // const total = []
   // shops.forEach((value) => {
   //   for (let i of value.cates) {
@@ -73,24 +84,31 @@ function ShopHome() {
   //     }
   //   }
   // }
-  const resultShop = []
-  for (let item of shops) {
-    label1: for (let i of item.cates) {
-      for (let c of cateFilters) {
-        if (c === i) {
-          resultShop.push(item)
-          break label1
+  const goFilterShop = function () {
+    const resultShop = []
+    for (let item of shops) {
+      label1: for (let i of item.cates) {
+        for (let c of cateFilters) {
+          if (c === i) {
+            resultShop.push(item)
+            break label1
+          }
         }
       }
     }
+    // console.log(resultShop)
+    setSelResultShop(resultShop)
   }
-  console.log(resultShop)
 
   // didMount時載入資料
   useEffect(() => {
     getShops()
   }, [])
 
+  useEffect(() => {
+    goFilterShop()
+  }, [cateFilters])
+  // console.log(selResultShop)
   // console.log(shops);
   return (
     <>
@@ -117,7 +135,9 @@ function ShopHome() {
           <div className="r-wave-wrap"></div>
         </div>
         <div className="r-shop-home-carousel-title">
-          <p>An idea, a way of living, a way of eating.</p>
+          <p className="r-shop-home-carousel-p">
+            An idea, a way of living, a way of eating.
+          </p>
         </div>
         <div className="r-shop-home-carousel-check">
           {toppings.map(({ cate, imgurl }, index) => {
@@ -145,9 +165,11 @@ function ShopHome() {
           <div className="r-shop-home-slider-inner1">
             <span>推薦店鋪</span>
           </div>
-          <div className="r-shop-slider-traintop">
-            <ShopHcard shops={shops} />
-          </div>
+          <ShopHcard
+            shops={shops}
+            selResultShop={selResultShop}
+            statusShop={statusShop}
+          />
         </div>
       </div>
     </>
