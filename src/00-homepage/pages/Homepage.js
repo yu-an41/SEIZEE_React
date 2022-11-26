@@ -11,6 +11,7 @@ import NavBar from '../components/NavBar'
 import Footer from '../../components/Footer'
 import NewsCrawl from '../components/NewsCrawl'
 import TopCarousel from '../components/TopCarousel'
+import YellowWave from '../components/YellowWave'
 import ShopHcard from '../../03-shop/components/03-shop-h-card'
 import RecipeCardRow from '../components/RecipeCardRow'
 import ShopCardRow from '../components/ShopCardRow'
@@ -18,7 +19,9 @@ import OfficialCardRow from '../components/OfficialCardRow'
 import Runman from '../../components/Runman'
 
 //img srcs
-import YellowWave from '../components/YellowWave'
+import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
+import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
+import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
 
 function Homepage() {
   // 記錄原始資料用
@@ -63,7 +66,7 @@ function Homepage() {
     //     })
     //   }
     // })
-    console.log(filters)
+    // console.log(filters)
     // setFilters(totalFilter)
   }
   // console.log(filters)
@@ -77,6 +80,12 @@ function Homepage() {
   return (
     <>
       <div className="y-index-container">
+        <div
+          className="y-go-to-top"
+          onClick={() => {
+            console.log('go to top')
+          }}
+        ></div>
         <div className="y-index-top">
           <section className="y-section y-section-nav-bg">
             <NavBar />
@@ -239,8 +248,10 @@ function Homepage() {
         </div>
         <section className="y-section y-section-about">about</section>
         <section className="y-section y-section-event">event</section>
+        <div className="y-wave-wrap">
+          <YellowWave />
+        </div>
         <section className="y-section y-section-forum">
-          forum
           <div className="y-section-forum-title">
             <p>最新論壇消息</p>
           </div>
@@ -255,12 +266,22 @@ function Homepage() {
               <OfficialCardRow />
             </div>
           </div>
+          <div className="y-forum-more-wrap">
+            <div className="y-forum-more-btn">
+              <div className="y-forum-more-icon">
+                <img src={MoreBtnIcon} alt="load more posts" />
+              </div>
+              <p>更多好文</p>
+            </div>
+          </div>
         </section>
         <section className="y-section y-section-dotown">
           <Runman />
         </section>
         <section className="y-section y-section-news-bottom">
-          <div className="y-section-news-second">{/* <NewsCrawl /> */}</div>
+          <div className="y-section-news-second">
+            <NewsCrawl />
+          </div>
         </section>
         <section className="y-section y-section-footer">
           <Footer />

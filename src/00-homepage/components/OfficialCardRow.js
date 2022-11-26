@@ -4,6 +4,7 @@ import axios from 'axios'
 import './../styles/OfficialCardRow.scss'
 
 import OfficialPost from './OfficialPost'
+import OfficialHead from './../images/homepage-forum-share.svg'
 
 function OfficialCardRow() {
   const [officialCardData, setOfficialCardData] = useState([
@@ -32,10 +33,16 @@ function OfficialCardRow() {
   }, [])
 
   return (
-    <div className="y-forum-card-wrap y-recipe-card-wrap">
-      {officialCardData.map((v, i) => {
-        return <OfficialPost officialInfo={v} key={v.sid} />
-      })}
+    <div className="y-official-card-row">
+      <div className="y-forum-head y-official-head">
+        <img src={OfficialHead} alt="official posts" />
+        <p>SEIZEE好文</p>
+      </div>
+      <div className="y-forum-card-wrap y-official-card-wrap">
+        {officialCardData.map((v, i) => {
+          return <OfficialPost officialInfo={v} key={v.sid} />
+        })}
+      </div>
     </div>
   )
 }

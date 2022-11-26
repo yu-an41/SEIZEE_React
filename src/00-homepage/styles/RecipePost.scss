@@ -26,15 +26,16 @@ $border-radius-button: 8px;
 }
 
 .y-recipe-card-container {
-    border: $border-sm;
     padding: 20px;
+    border-radius: $border-radius-card;
+    margin-bottom: 30px;
     
     .y-recipe-top {
 
         .y-recipe-author {
 
             .y-recipe-author-name {
-
+                letter-spacing: 2px;
             }
             .y-recipe-author-account {
 
@@ -44,7 +45,7 @@ $border-radius-button: 8px;
         .y-recipe-title {
 
                 p {
-                    
+                    letter-spacing: 2px;
                 }
             }
         
@@ -62,6 +63,14 @@ $border-radius-button: 8px;
             width: 100%;
         }
     }
+}
+
+.y-recipe-card-container:nth-child(2n) {
+    background-color: $main-yellow;
+}
+
+.y-recipe-card-container:nth-child(2n+1) {
+    border: $border-sm;
 }
 
 @media (min-width: 391px) {
@@ -120,5 +129,11 @@ $border-radius-button: 8px;
                 
             }
         }
+    }
+
+    .y-recipe-card-container:nth-child(2n) {
+    }
+
+    .y-recipe-card-container:nth-child(2n+1) {
     }
 }

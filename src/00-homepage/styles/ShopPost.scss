@@ -26,8 +26,9 @@ $border-radius-button: 8px;
 }
 
 .y-shop-card-container {
-    border: $border-sm;
     padding: 20px;
+    border-radius: $border-radius-card;
+    margin-bottom: 30px;
     
     .y-shop-top {
 
@@ -44,7 +45,7 @@ $border-radius-button: 8px;
         .y-shop-title {
 
                 p {
-                    
+                    letter-spacing: 2px;
                 }
             }
         
@@ -62,6 +63,14 @@ $border-radius-button: 8px;
             width: 100%;
         }
     }
+}
+
+.y-shop-card-container:nth-child(2n) {
+    border: $border-sm;
+}
+
+.y-shop-card-container:nth-child(2n+1) {
+    background-color: $main-yellow;
 }
 
 @media (min-width: 391px) {
@@ -120,5 +129,10 @@ $border-radius-button: 8px;
                 
             }
         }
+    }
+    .y-shop-card-container:nth-child(2n) {
+    }
+
+    .y-shop-card-container:nth-child(2n+1) {
     }
 }

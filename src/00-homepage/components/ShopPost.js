@@ -3,8 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 import './../styles/ShopPost.scss'
-
-import ShopPic from './../../dotown/toast.png'
+// import ShopPic from './../../dotown/toast.png'
 
 function shopPost({ shopInfo }) {
   const { sid, member_sid, title, img, content, mb_name } = shopInfo
@@ -16,8 +15,8 @@ function shopPost({ shopInfo }) {
       >
         <div className="y-shop-top">
           <div className="y-shop-author">
-            <p className="y-shop-author-name">{shopInfo.mb_name}</p>
-            <p className="y-shop-author-account">{shopInfo.sid}</p>
+            <p className="y-shop-author-name">{mb_name}</p>
+            <p className="y-shop-author-account">{`@member_${sid}`}</p>
           </div>
           <div className="y-shop-title">
             <p>{title}</p>
@@ -27,7 +26,7 @@ function shopPost({ shopInfo }) {
           <p>{content}</p>
         </div>
         <div className="y-shop-pic">
-          <img src={ShopPic} alt="shop banner" />
+          <img src={img} alt="shop banner" />
         </div>
       </Link>
     </div>
