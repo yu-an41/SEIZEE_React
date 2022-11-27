@@ -22,7 +22,7 @@ function ShopHome() {
 
   const getShops = async () => {
     try {
-      const response = await axios.get('http://localhost:3002/api/seizee')
+      const response = await axios.get('http://localhost:3002/api/shop')
       // console.log(response.data.shop_c_rows)
       const shopData = response.data
       //設定到state裡

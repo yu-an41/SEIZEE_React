@@ -475,7 +475,11 @@ $card-btn: #80b938;
               }
               .r-m-card-body-cates{
                 p{
-                  padding-top: 8px;
+                  font-size: 16px;
+                  color: #000;
+                  line-height:2rem;
+                  letter-spacing: .2rem;
+                  background: $main-yellow;
                 }
               }
 
@@ -671,18 +675,29 @@ $card-btn: #80b938;
               justify-content: space-around;
 
               h2 {
-                font-size: 24px;
+                font-size: 26px;
                 font-weight: 700;
                 color: $main-title;
                 padding-bottom: 5px;
                 text-shadow: none;
                 letter-spacing: 0.2rem;
               }
-              p {
+              p{
                 font-size: 18px;
-                color: $main-text;
                 letter-spacing: 0.2rem;
+                line-height: 1rem;
               }
+              .r-card-body-cates{
+                margin-bottom: 5px;
+                span {
+                  font-size: 20px;
+                  color: #000;
+                  letter-spacing: 0.2rem;
+                  background: $main-yellow;
+                  
+                }
+              }
+              
               .r-card-week-btn {
                 padding-bottom: 10px;
 

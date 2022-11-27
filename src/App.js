@@ -23,8 +23,8 @@ import MyContextProviders from './contexts/MyContextProviders'
 // import WriteForm from './02-forum/pages/WriteForm'
 
 // 03-shop
-// import ShopList from './03-shop/pages/03-shop-list'
-import ShopHome from './03-shop/pages/03-shop-home'
+import ShopList from './03-shop/pages/03-shop-list'
+// import ShopHome from './03-shop/pages/03-shop-home'
 
 // 04-product
 // import ProductList from './04-product/ProductList'
@@ -72,8 +72,8 @@ function App() {
           </Route> */}
 
             {/* 03-shop */}
-            {/* <Route path="/shop" element={<ShopList />} /> */}
-            <Route path="/shop" element={<ShopHome />} />
+            <Route path="/shop" element={<ShopList />} />
+            {/* <Route path="/shop" element={<ShopHome />} /> */}
 
             {/* 04-product  */}
             {/* <Route path="/productList/:shop_list_sid" element={<ProductList />} /> */}

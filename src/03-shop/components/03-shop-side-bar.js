@@ -82,7 +82,7 @@ function ShopSideBar(props) {
       props.setSelectedCity(selectedCitySid)
       props.setSelectedArea(selectedAreaSid)
 
-      const selectedCateSid = cateData[0].product_categories
+      const selectedCateSid = cateData[0].category_name
       props.setSelectedCate(selectedCateSid)
     })()
   }, [])
@@ -168,8 +168,8 @@ function ShopSideBar(props) {
               {/* <option value="">請選擇</option> */}
               {cates.map((v) => {
                 return (
-                  <option value={v.product_categories} key={v.sid}>
-                    {v.product_categories}
+                  <option value={v.category_name} key={v.sid}>
+                    {v.category_name}
                   </option>
                 )
               })}

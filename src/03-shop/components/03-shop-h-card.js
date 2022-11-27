@@ -16,6 +16,11 @@ function ShopHcard({ shops, selResultShop, statusShop }) {
                 />
                 <div className="r-shop-slider-content">
                   <p>{v.rows.shop_name}</p>
+                  <div className="r-shop-slider-content-span">
+                    {v.cates.map((value, index) => {
+                      return <span key={index}>{value}/</span>
+                    })}
+                  </div>
                 </div>
               </div>
             )
@@ -32,6 +37,11 @@ function ShopHcard({ shops, selResultShop, statusShop }) {
                 />
                 <div className="r-shop-slider-content">
                   <p>{v.rows.shop_name}</p>
+                  <div className="r-shop-slider-content-span">
+                    {v.cates.map((value, index) => {
+                      return <span key={index}>{value}/</span>
+                    })}
+                  </div>
                 </div>
               </div>
             )
