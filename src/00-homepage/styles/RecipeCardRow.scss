@@ -52,6 +52,7 @@ $border-radius-button: 8px;
 
         img {
             width: 100%;
+            object-fit: cover;
             border: $border-lg;
             border-radius: $border-radius-card;
 
