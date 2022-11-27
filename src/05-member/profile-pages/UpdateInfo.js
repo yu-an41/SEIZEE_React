@@ -178,6 +178,7 @@ function UpdateInfo(props) {
       headers: {
         Authorization: 'Bearer ' + myAuth.token,
       },
+      // get axios寫法: get(backend link, headers)
     })
     // setListData(response.data)
     // console.log(response.data.row)
@@ -299,6 +300,7 @@ function UpdateInfo(props) {
             Authorization: 'Bearer ' + myAuth.token,
           },
         }
+        // post axios寫法: post(backend link, data (if not, use {}), headers)
       )
 
       console.log('dataAuth', dataAuth)
