@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import './style/AboutUs.scss'
+import './style/ProductVideo.scss'
 
 export default function AboutUs() {
   const videoEl = useRef(null)
@@ -18,14 +18,14 @@ export default function AboutUs() {
 
   return (
     <div className="a-video">
-      <div className="a-videoWrapper">
-        <h3 className="a-aboutUs">關於我們</h3>
+      <div className="a-productVideoWrapper">
+        {/* <h3 className="a-producVideo">小影片</h3> */}
         <video
           playsInline
           loop
           muted
           alt="All the devices"
-          src="/04-product/video/test.mp4"
+          src="/04-product/video/waku.mp4"
           type="video/mp4"
           ref={videoEl}
         />

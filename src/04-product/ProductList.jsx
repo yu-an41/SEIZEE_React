@@ -1,16 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams, useLocation } from 'react-router-dom'
 import { PRODUCT } from "../my-config";
 import axios from "axios";
-import ProductCard from "./components/ProductCard";
+import ProductCard from "./components/ProductCard.jsx";
 import HeadWave from "../components/HeadWave";
 import YellowWave2 from "./components/YellowWave2";
-import './components/style/ProductList.scss'
+import './components/style/ProductList.scss';
+import Select from "./components/Select"
+import ProductVideo from "./components/ProductVideo"
+
 
 function ProductList() {
   const [allProduct, setAllProduct] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
-  const{shop_list_sid}=useParams()
+  const {shop_list_sid} = useParams();
+  
   console.log(shop_list_sid);
 
   async function getProductCard() {
@@ -32,9 +36,13 @@ function ProductList() {
 
   return (
     <>
+      <ProductVideo />
       <YellowWave2 />
-      <div className="a-productCardList">
-        <ProductCard allProduct={allProduct} />
+      <div className="race-by">
+        <div className="a-productCardList">
+        {allProduct.map(product =>
+        <ProductCard key={product.sid} product={product} />)}
+        </div>
       </div>
     </>
   );
