@@ -72,7 +72,7 @@ function UserProfile() {
                 <div className="s-up-imgBx">
                   <img
                     className="s-up-img"
-                    src={`${imgServerUrl}/uploads/05-member/${myAuth.mb_photo}`}
+                    src={`${imgServerUrl}/uploads/05-member/${listFD.mbpPhoto}`}
                     alt=""
                   />
                 </div>

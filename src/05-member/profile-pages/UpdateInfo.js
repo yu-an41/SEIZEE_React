@@ -6,8 +6,8 @@ import { DistrictData } from '../data/DistrictData'
 import { map, find, propEq, forEach, isNil } from 'ramda'
 import Select from 'react-select'
 import axios from 'axios'
-import { PROFILE, imgUrl, imgServerUrl } from '../../my-config'
-import { useParams, useLocation } from 'react-router-dom'
+import { PROFILE, imgServerUrl, PROFILE_AUTH } from '../../my-config'
+import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import AuthContext from '../../contexts/AuthContext'
 
 // selectedCity
@@ -56,7 +56,7 @@ const queryProcess = (type, params) => {
 
 function UpdateInfo(props) {
   // -----取得sid-----
-  const { sid } = useParams()
+  // const { sid } = useParams()
   // console.log(sid)
 
   // -----讀取地址-----
@@ -92,6 +92,10 @@ function UpdateInfo(props) {
     // mbuSid: '',
   })
 
+  // -----更新會員Auth-----
+  const { setMyAuth } = useContext(AuthContext)
+
+  const navigate = useNavigate()
   // =================================================
 
   // -----讀取地址-----
@@ -281,8 +285,30 @@ function UpdateInfo(props) {
       },
     })
 
+    console.log('update info', data)
+    console.log('data success', data.success)
+    console.log('myAuth', myAuth)
+    console.log('myAuth.token', myAuth.token)
+
     if (data.success) {
-      alert('更新成功')
+      const { data: dataAuth } = await axios.post(
+        PROFILE_AUTH,
+        {},
+        {
+          headers: {
+            Authorization: 'Bearer ' + myAuth.token,
+          },
+        }
+      )
+
+      console.log('dataAuth', dataAuth)
+
+      if (dataAuth.success) {
+        localStorage.setItem('auth', JSON.stringify(dataAuth.auth))
+        setMyAuth({ ...dataAuth.auth, authorised: true })
+        alert('更新成功')
+        navigate('/profile/')
+      }
     }
   }
   return (

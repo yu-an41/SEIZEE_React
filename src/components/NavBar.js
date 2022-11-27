@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './../styles/NavBar.scss'
 import Menu from './../components/Menu'
 import { Link, useLocation } from 'react-router-dom'
@@ -14,6 +14,8 @@ function NavBar() {
   console.log('photo:', myAuth.mb_photo)
   console.log('myAuthNav:', myAuth)
   console.log('photo:', myAuth.mb_sid)
+
+  const [profileImg, setProfileImg] = useState('')
 
   return (
     <div className="y-section-nav">

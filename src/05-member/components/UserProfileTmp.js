@@ -20,9 +20,9 @@ function UserProfileTmp() {
   actives[seg1] = {
     backgroundColor: '#fff6e2',
   }
-  console.log('actives', actives)
-  console.log('actives[seg1]', actives[seg1])
-  console.log('actives.orders', actives.orders)
+  // console.log('actives', actives)
+  // console.log('actives[seg1]', actives[seg1])
+  // console.log('actives.orders', actives.orders)
 
   function profileRWDToggle() {
     if (profileRWDIndex === 1) {
