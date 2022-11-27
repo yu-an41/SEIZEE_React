@@ -44,6 +44,14 @@ $main-border-radius: 8px;
     justify-content: center;
     align-items: center;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+
 .a-productDetailWrapper {
     display: flex;
     background-color: #fff;
@@ -151,6 +159,31 @@ $main-border-radius: 8px;
     }
     .a-productQuantity {
         @extend %a-flex;
+        margin: 5px;
+    }
+    .a-productQuantity p {
+        @extend %p;
+        margin-right: 5px;
+    }
+    #minus {
+        border: none;
+        background: #fff;
+        color: $main-text;
+        height: 30px;
+        border-radius: 8px 0 0 8px;
+        font-size: 20px;
+    }
+    #plus {
+        border: none;
+        background: #fff;
+        color: $main-text;
+        height: 30px;
+        border-radius: 0 8px 8px 0;
+        font-size: 20px;
+    }
+    .a-productQuantity input {
+        border-radius: 0%;
+        height: 30px;
     }
     .a-qty {
         border: $main-border;
