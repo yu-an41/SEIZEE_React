@@ -1,4 +1,9 @@
 import React from 'react'
+import { useCart } from './../../contexts/useCart'
+import { Link } from 'react-router-dom'
+import LinkItems from '../components/LinkItems'
+import ListItemsWithHook from '../components/ListItemsWithHook'
+
 // scss
 import './../styles/CartList.scss'
 
@@ -22,7 +27,27 @@ import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
 
-function CartList() {
+// cart init
+// initialState = {
+//   items: [],
+//   isEmpty: true,
+//   totalItems: 0,
+//   cartTotal: 0,
+// }
+
+function CartList(props) {
+  const {
+    cart,
+    items,
+    addItem,
+    removeItem,
+    updateItem,
+    clearCart,
+    isInCart,
+    plusOne,
+    minusOne,
+  } = useCart()
+
   return (
     <>
       <div className="y-CartList-container">
