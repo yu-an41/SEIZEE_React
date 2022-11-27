@@ -3,12 +3,14 @@ import { CHECK_FORGOT_PASS, SEND_FORGOT_PASS } from '../my-config'
 import React, { useState } from 'react'
 import axios from 'axios'
 import { checkEmpty } from './data/UserSign_valid'
+import { useNavigate } from 'react-router-dom'
 
 function ForgotPass() {
   const [forgotFD, setForgotFD] = useState({
     mbfEmail: '',
   })
   const [errorMgF, setErrorMgF] = useState('')
+  const navigate = useNavigate()
 
   // 輸入信箱 到後端確認是否有信箱的存在 而後發送token
   const forgotHandler = (e) => {
@@ -45,6 +47,7 @@ function ForgotPass() {
 
       if (data.success) {
         alert('修改密碼信件已發送')
+        navigate('/')
       } else {
         alert('請確認電子郵件是否正確')
       }
