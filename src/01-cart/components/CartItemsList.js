@@ -26,7 +26,7 @@ function CartItemsList() {
         </div>
         <div className="y-Cart-items-quantity">
           <select>
-            <option value={1} defaultValue='true'>
+            <option value={1} defaultValue="true">
               1
             </option>
             <option value={2}>2</option>

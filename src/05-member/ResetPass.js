@@ -7,7 +7,7 @@ import {
 import React, { useState } from 'react'
 import { UPDATE_PASS } from '../my-config'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 function ResetPass() {
   const [errorResetMgP1, setErrorResetMgP1] = useState('')
@@ -17,6 +17,10 @@ function ResetPass() {
     mbResetPassConfirm: '',
   })
   const navigate = useNavigate()
+  const location = useLocation()
+  const usp = new URLSearchParams(location.search)
+  const usp_token = usp.get('token')
+  // console.log(usp_token)
 
   const resetHandler = (e) => {
     const id = e.currentTarget.id
@@ -50,31 +54,32 @@ function ResetPass() {
     if (checkEmpty(valResetP2)) {
       if (checkError === '') {
         setErrorResetMgP2('')
-        return true
       } else {
         setErrorResetMgP2(checkError)
-        return false
       }
     } else {
       setErrorResetMgP2('密碼不能為空白')
-      return false
     }
   }
 
   async function resetSubmit(e) {
     e.preventDefault()
 
+    // console.log(usp)
+
     if (!errorResetMgP1 && !errorResetMgP2) {
-      const { data } = await axios.put(UPDATE_PASS, resetFD)
-      alert('密碼修改成功')
-      navigate('/')
-      // console.log(data)
-      // if (data.success) {
-      //   alert('密碼修改成功')
-      //   navigate('/')
-      // }
-    } else {
-      alert('密碼修改失敗')
+      const { data } = await axios.put(UPDATE_PASS, resetFD, {
+        headers: {
+          Authorization: 'Bearer ' + usp_token,
+        },
+      })
+
+      if (data.success) {
+        alert('密碼修改成功')
+        navigate('/')
+      } else {
+        alert('密碼修改失敗')
+      }
     }
   }
 

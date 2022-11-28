@@ -74,6 +74,7 @@ function UserSign() {
 
     console.log(setMyAuth)
     console.log(data)
+    console.log(data.error)
   }
 
   // ====================================
@@ -106,18 +107,14 @@ function UserSign() {
         const { data } = await axios.post(CHECK_USER, signUpFD)
         if (data.success) {
           setErrorMgE('')
-          return true
         } else {
           setErrorMgE('帳號重複')
-          return false
         }
       } else {
         setErrorMgE(checkError)
-        return false
       }
     } else {
       setErrorMgE('請輸入註冊信箱')
-      return false
     }
   }
   // 驗證姓名
@@ -126,10 +123,8 @@ function UserSign() {
 
     if (checkEmpty(val)) {
       setErrorMgN('')
-      // return true
     } else {
       setErrorMgN('請輸入使用者名稱')
-      // return false
     }
   }
   // 驗證密碼
@@ -138,10 +133,8 @@ function UserSign() {
     const checkError = checkPassword(val)
     if (checkError === '') {
       setErrorMgP1('')
-      return true
     } else {
       setErrorMgP1(checkError)
-      return false
     }
   }
   // 驗證密碼確認
@@ -154,14 +147,11 @@ function UserSign() {
     if (checkEmpty(valP2)) {
       if (checkError === '') {
         setErrorMgP2('')
-        return true
       } else {
         setErrorMgP2(checkError)
-        return false
       }
     } else {
       setErrorMgP2('密碼不能為空白')
-      return false
     }
   }
 

@@ -4,7 +4,7 @@ import { imgUrl, imgServerUrl } from '../shop-config'
 import './../styles/03-shop-m-card.scss'
 
 function ShopMcard({ filterShop, startShop, demoShop, setFindPos }) {
-
+  // console.log(startShop)
   return (
     <>
       {startShop ? (
@@ -82,10 +82,19 @@ function ShopMcard({ filterShop, startShop, demoShop, setFindPos }) {
                     </p>
 
                     <div className="r-m-card-button">
-                      {/* <a href="/#">
+                      <a
+                        href="#/"
+                        onClick={() => {
+                          setFindPos({
+                            lat: +v.rows.shop_lat,
+                            lng: +v.rows.shop_lng,
+                            shop: v.rows.shop_name,
+                          })
+                        }}
+                      >
                         <i className="fa-solid fa-caret-right"></i>
                         <span>尋找</span>
-                      </a> */}
+                      </a>
                       <a href="/#">
                         <i className="fa-solid fa-caret-right"></i>
                         <span>去逛逛</span>
@@ -172,11 +181,20 @@ function ShopMcard({ filterShop, startShop, demoShop, setFindPos }) {
                     </p>
 
                     <div className="r-m-card-button">
-                      {/* <a href="/#">
+                      <a
+                        href="#/"
+                        onClick={() => {
+                          setFindPos({
+                            lat: +v[0].shop_lat,
+                            lng: +v[0].shop_lng,
+                            shop: v[0].shop_name,
+                          })
+                        }}
+                      >
                         <i className="fa-solid fa-caret-right"></i>
                         <span>尋找</span>
-                      </a> */}
-                      <a href="/#">
+                      </a>
+                      <a href="#/">
                         <i className="fa-solid fa-caret-right"></i>
                         <span>去逛逛</span>
                       </a>

@@ -1,11 +1,12 @@
 import '.././style/profile-pages/UserProfile.scss'
 import { Link } from 'react-router-dom'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
 import { useParams, useLocation } from 'react-router-dom'
 import axios from 'axios'
-import { PROFILE } from '../../my-config'
+import { PROFILE, imgServerUrl } from '../../my-config'
 import dayjs from 'dayjs'
+import AuthContext from '../../contexts/AuthContext'
 
 function UserProfile() {
   // -----取得sid-----
@@ -26,9 +27,18 @@ function UserProfile() {
 
   // 讀取資料
   const location = useLocation()
+  const { myAuth } = useContext(AuthContext)
+
+  // console.log(myAuth.token)
 
   async function getList() {
-    const response = await axios.get(`${PROFILE}${sid}`)
+    // if(!myAuth.authorised) {}
+
+    const response = await axios.get(PROFILE, {
+      headers: {
+        Authorization: 'Bearer ' + myAuth.token,
+      },
+    })
     // setListData(response.data)
     console.log(response.data.row)
     // console.log(response)
@@ -60,7 +70,11 @@ function UserProfile() {
               <h2 className="s-up-title">我的帳號</h2>
               <div className="s-up-card">
                 <div className="s-up-imgBx">
-                  <img className="s-up-img" src="/05-member/ghost.png" alt="" />
+                  <img
+                    className="s-up-img"
+                    src={`${imgServerUrl}/uploads/05-member/${listFD.mbpPhoto}`}
+                    alt=""
+                  />
                 </div>
                 <div className="s-up-content">
                   <h2 className="s-up-username" id="mbpName">

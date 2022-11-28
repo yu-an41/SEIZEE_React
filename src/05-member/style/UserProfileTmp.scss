@@ -182,6 +182,7 @@ $s-padding-top: 100px;
     }
 
     .s-main-content {
+      // overflow: scroll;
       margin-left: 25px;
       margin-right: 470px;
       width: 40%;
@@ -199,6 +200,7 @@ $s-padding-top: 100px;
         transform: translateX(-690px);
         margin-left: 10px;
         width: 80%;
+        height: 1110px;
       }
     }
   }

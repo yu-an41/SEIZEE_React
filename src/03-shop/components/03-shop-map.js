@@ -4,9 +4,10 @@ import './../../../node_modules/leaflet/dist/leaflet.css'
 import icon from './../../../node_modules/leaflet/dist/images/marker-icon.png'
 import L from 'leaflet'
 import { useState, useEffect } from 'react'
+import log from 'eslint-plugin-react/lib/util/log'
 
 function ShopMap({ findPos, demoShop, shops, startShop, filterShop }) {
-  // console.log(filterShop)
+  // console.log(findPos)
 
   const DefaultIcon = L.icon({
     iconUrl: '/03-shop-img/mappin_01.png',
@@ -26,12 +27,12 @@ function ShopMap({ findPos, demoShop, shops, startShop, filterShop }) {
   // }
   function ChangePos() {
     const map = useMap()
-    map.flyTo(findPos)
-    // return (
-    //   <Marker position={findPos} icon={DefaultIcon}>
-    //     <Popup>Go to Shop</Popup>
-    //   </Marker>
-    // )
+    map.flyTo(findPos, 18)
+    return (
+      <Marker position={findPos} icon={DefaultIcon}>
+        <Popup>{findPos.shop}</Popup>
+      </Marker>
+    )
   }
 
   return (
@@ -39,7 +40,7 @@ function ShopMap({ findPos, demoShop, shops, startShop, filterShop }) {
       <MapContainer
         center={[25.0440612, 121.5139518]}
         // whenCreated={(map) => this.setState({ map })}
-        zoom={16}
+        zoom={10}
         scrollWheelZoom={false}
         style={{ height: '500px', marginTop: '60px' }}
       >
@@ -47,8 +48,7 @@ function ShopMap({ findPos, demoShop, shops, startShop, filterShop }) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
-        {startShop
+        {/* {startShop
           ? demoShop.map((v, i) => (
               <Marker
                 position={[v.rows.shop_lat, v.rows.shop_lng]}
@@ -66,8 +66,16 @@ function ShopMap({ findPos, demoShop, shops, startShop, filterShop }) {
               >
                 <Popup>{v[0].shop_name}</Popup>
               </Marker>
-            ))}
-
+            ))} */}
+        {shops.map((v, i) => (
+          <Marker
+            position={[v.rows.shop_lat, v.rows.shop_lng]}
+            icon={DefaultIcon}
+            key={v.rows.sid}
+          >
+            <Popup>{v.rows.shop_name}</Popup>
+          </Marker>
+        ))}
         <ChangePos />
       </MapContainer>
     </>

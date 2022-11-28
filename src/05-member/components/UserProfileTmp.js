@@ -1,10 +1,28 @@
-import { Link } from 'react-router-dom'
-import React, { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
 import '.././style/UserProfileTmp.scss'
 import YellowWave from './YellowWave'
+import AuthContext from '../../contexts/AuthContext'
 
 function UserProfileTmp() {
+  const location = useLocation()
   const [profileRWDIndex, setProfileRWDIndex] = useState(1)
+  const { logout } = useContext(AuthContext)
+  let seg1 = location.pathname.split('/')[2]
+  // console.log('location path', location.pathname)
+  // console.log('seg1', '111' + seg1 + '222')
+
+  if (seg1 === '' || seg1 === undefined) {
+    seg1 = 'profile'
+  }
+
+  const actives = {}
+  actives[seg1] = {
+    backgroundColor: '#fff6e2',
+  }
+  // console.log('actives', actives)
+  // console.log('actives[seg1]', actives[seg1])
+  // console.log('actives.orders', actives.orders)
 
   function profileRWDToggle() {
     if (profileRWDIndex === 1) {
@@ -28,7 +46,7 @@ function UserProfileTmp() {
             <h4 className="s-upt-h4">使用者設定</h4>
           </li>
           <li className="s-upt-li">
-            <Link className="s-upt-item" to="/profile">
+            <Link className="s-upt-item" style={actives.profile} to="/profile">
               <span className="s-upt-icon">
                 <img
                   src="/05-member/green-book.png"
@@ -43,7 +61,11 @@ function UserProfileTmp() {
             <h4 className="s-upt-h4">平台相關查詢</h4>
           </li>
           <li className="s-upt-li">
-            <Link className="s-upt-item" to="/profile/orders">
+            <Link
+              className="s-upt-item"
+              style={actives.orders}
+              to="/profile/orders"
+            >
               <span className="s-upt-icon">
                 <img src="/05-member/wallet.png" alt="" className="s-upt-img" />
               </span>
@@ -51,7 +73,11 @@ function UserProfileTmp() {
             </Link>
           </li>
           <li className="s-upt-li">
-            <Link className="s-upt-item" to="/profile/likes">
+            <Link
+              className="s-upt-item"
+              style={actives.likes}
+              to="/profile/likes"
+            >
               <span className="s-upt-icon">
                 <img
                   src="/05-member/thumbs_up.png"
@@ -63,7 +89,11 @@ function UserProfileTmp() {
             </Link>
           </li>
           <li className="s-upt-li">
-            <Link className="s-upt-item" to="/profile/activities">
+            <Link
+              className="s-upt-item"
+              style={actives.activities}
+              to="/profile/activities"
+            >
               <span className="s-upt-icon">
                 <img src="/05-member/flag.png" alt="" className="s-upt-img" />
               </span>
@@ -74,7 +104,13 @@ function UserProfileTmp() {
             <h4 className="s-upt-h4">下次再見</h4>
           </li>
           <li className="s-upt-li">
-            <Link className="s-upt-item" to="/#">
+            <Link
+              className="s-upt-item"
+              onClick={(e) => {
+                e.preventDefault()
+                logout()
+              }}
+            >
               <span className="s-upt-icon">
                 <img src="/05-member/key.png" alt="" className="s-upt-img" />
               </span>

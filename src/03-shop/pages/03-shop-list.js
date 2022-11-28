@@ -4,7 +4,8 @@ import ShopMcard from '../components/03-shop-m-card'
 import ShopMap from '../components/03-shop-map'
 import ShopSideBar from '../components/03-shop-side-bar'
 import ShopBanner from '../components/03-shop-banner'
-
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -145,10 +146,10 @@ function ShopList() {
     // console.log(newData)
     setFilterShop(newData)
     setStartShop(0)
-    setFindPos({
-      lat: filterShop[0][0].shop_lat,
-      lng: filterShop[0][0].shop_lng,
-    })
+    // setFindPos({
+    //   lat: filterShop[0][0].shop_lat,
+    //   lng: filterShop[0][0].shop_lng,
+    // })
   }
   // console.log(filterShop)
 
@@ -168,6 +169,7 @@ function ShopList() {
     <>
       <div className="r-container">
         <div className="r-main-visual">
+          <NavBar />
           <div className="r-side-bar">
             <ShopSideBar
               selectedCity={selectedCity}
@@ -222,6 +224,7 @@ function ShopList() {
             )}
           </div>
         </div>
+        <Footer/>
       </div>
     </>
   )

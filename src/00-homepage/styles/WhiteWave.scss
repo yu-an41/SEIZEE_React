@@ -5,24 +5,24 @@ $text-shadow: #E4E4E4;
 $min-width: 390px;
 $wave-height: 40px;
 
-.y-wave-section2 {
+.y-wave-section-white {
     // position: relative;
     width: 100%;
-    height: 100px;
+    height: 60px;
     // background-color: transparent; 
     overflow: hidden;
-    .y-wave-base2 {
+    .y-wave-base-white {
         width: 100%;
-        height: 150px;
-        background-color: $main-yellow;
+        height: $wave-height;
+        background-color: white;
     }
-    .y-wave-wrap2 {
+    .y-wave-wrap-white {
         // position: absolute;
         top: $wave-height;
         width: 100%;
-        height: 120px;
+        height: 60px;
         background: {
-            // image: url(../../../../public/04-product/img/wave-1920.png);
+            image: url(./../images/Wave-1920px-white.png);
             // repeat: no-repeat;
             position: 50% 0;
             size: 1920px 100px;
@@ -33,7 +33,7 @@ $wave-height: 40px;
         
         @keyframes animate {
             0% {
-                background-position-x: 0px;
+                background-position-x: 0;
             }
 
             100% {
