@@ -1,5 +1,9 @@
-export default function MyContextProviders() {
-    return <>
+import { AuthContextProvider } from './AuthContext'
 
+export default function MyContextProviders({ children }) {
+  return (
+    <>
+      <AuthContextProvider>{children}</AuthContextProvider>
     </>
+  )
 }

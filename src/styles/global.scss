@@ -3,7 +3,8 @@ $main-blue: #2B325C;
 $main-text: #5E5E5E;
 
 $text-shadow: #E4E4E4 2px 2px;
-$btn-shadow: 6px 6px $main-blue;
+$btn-shadow-lg: 6px 6px $main-blue;
+$btn-shadow-sm: 2px 2px $main-blue;
 $light-box-shadow: rgba(53, 53, 53, 0.75);
 
 $min-width: 390px;
@@ -15,8 +16,8 @@ $border-radius-card: 10px;
 $border-radius-button: 8px;
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+  v2.0 | 20110126
+  License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
