@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useContext, useRef } from 'react'
 import axios from 'axios'
 import { toppings } from './../../03-shop/toppings'
+import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
 
 // scss
 import './../styles/Homepage.scss'
@@ -101,6 +102,9 @@ function Homepage() {
   // forum post's -----------------------------
   const [postNums, setPostNums] = useState(3)
   const [offPostNums, setOffPostNums] = useState(2)
+
+  // NavBar cart's
+
   return (
     <>
       <div className="y-index-container">
@@ -122,6 +126,15 @@ function Homepage() {
           <section className="y-section y-section-carousel">
             <div className="y-carousel-wrap">
               <TopCarousel />
+              <div className="y-carousel-block-yellow">
+                <p></p>
+              </div>
+              <div className="y-carousel-block-blue">
+                <div className="y-block-bg">
+                  {/* <p>剩食革命</p>
+                  <p>由我做起</p> */}
+                </div>
+              </div>
             </div>
           </section>
         </div>
