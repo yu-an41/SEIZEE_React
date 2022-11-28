@@ -242,7 +242,11 @@ function UserSign() {
                   style={{ color: 'red' }}
                   id="mblPass_error"
                 ></div>
-                <Link className="s-login-forgot" to="/forgot-pass">
+                <Link
+                  className="s-login-forgot"
+                  to="/forgot-pass"
+                  style={{ color: '#00435A', 'text-decoration': 'underline' }}
+                >
                   忘記您的密碼?
                 </Link>
                 <input
@@ -311,7 +315,7 @@ function UserSign() {
                   密碼<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   placeholder="請設定8位英(大小寫)數混合密碼"
                   id="mbrPass"
                   onChange={signUpHandler}
@@ -329,7 +333,7 @@ function UserSign() {
                   確認密碼<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   placeholder="請再輸入一次密碼"
                   id="mbrPassConfirm"
                   onChange={signUpHandler}
@@ -349,8 +353,20 @@ function UserSign() {
                   value="註冊"
                 />
                 <p className="s-login-p">
-                  註冊即代表同意惜食的<a href="/#">服務條款</a>及
-                  <a href="/#">隱私權政策</a>
+                  註冊即代表同意惜食的
+                  <a
+                    href="/#"
+                    style={{ color: '#00435A', 'text-decoration': 'underline' }}
+                  >
+                    服務條款
+                  </a>
+                  及
+                  <a
+                    href="/#"
+                    style={{ color: '#00435A', 'text-decoration': 'underline' }}
+                  >
+                    隱私權政策
+                  </a>
                 </p>
               </form>
             </div>
