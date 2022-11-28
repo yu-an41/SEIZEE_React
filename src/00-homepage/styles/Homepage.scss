@@ -360,6 +360,8 @@ $main-border-radius: 8px;
   }
 
   .y-section-about {
+    margin-top: 20px;
+
     .a-video {
       text-align: center;
     }
@@ -387,6 +389,12 @@ $main-border-radius: 8px;
   }
 
   .y-section-event {
+    background-color: $main-yellow;
+    padding-bottom: 20px;
+
+    .y-wave-wrap-white {
+      margin-bottom: 20px;
+    }
     @function line($count:1) {
       @return $base-line-eight * $count;
     }
@@ -566,8 +574,13 @@ $main-border-radius: 8px;
 
     .y-forum-more-wrap {
       width: 100%;
-
+      position: relative;
       .y-forum-more-btn {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 15px;
+        margin: 0;
         display: flex;
         align-items: center;
         background-color: $bgc-yellow;
@@ -906,6 +919,8 @@ $main-border-radius: 8px;
     }
     
     .y-section-about {
+      margin-top: 40px;
+
       .a-video {
         text-align: center;
       }
@@ -933,6 +948,12 @@ $main-border-radius: 8px;
     }
   
     .y-section-event {
+      .y-wave-wrap-white {
+        margin-bottom: 40px;
+
+      }
+      padding-bottom: 20px;
+
       @function line($count:1) {
         @return $base-line-eight * $count;
       }

@@ -14,6 +14,7 @@ import Footer from '../../components/Footer'
 import NewsCrawl from '../components/NewsCrawl'
 import TopCarousel from '../components/TopCarousel'
 import YellowWave from '../components/YellowWave'
+import WhiteWave from '../components/WhiteWave'
 import ShopHcard from '../../03-shop/components/03-shop-h-card'
 import RecipeCardRow from '../components/RecipeCardRow'
 import ShopCardRow from '../components/ShopCardRow'
@@ -279,6 +280,9 @@ function Homepage() {
           </div>
         </section>
         <section className="y-section y-section-event">
+          <div className="y-wave-wrap-white">
+            <WhiteWave />
+          </div>
           <div class="a-eventBanner">
             <div className="a-eventWrapper">
               <h3 className="a-newEvent">最新活動</h3>
@@ -333,10 +337,11 @@ function Homepage() {
             </div>
           </div>
         </section>
-        <div className="y-wave-wrap">
-          <YellowWave />
-        </div>
+
         <section className="y-section y-section-forum">
+          <div className="y-wave-wrap">
+            <YellowWave />
+          </div>
           <div className="y-section-forum-title">
             <p>最新論壇消息</p>
           </div>

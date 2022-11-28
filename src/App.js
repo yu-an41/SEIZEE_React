@@ -11,7 +11,7 @@ import Homepage from './00-homepage/pages/Homepage'
 
 // 01-cart
 import CartList from './01-cart/pages/CartList'
-import Events from './01-cart/pages/06-event-02-events'
+import CartInfo from './01-cart/pages/CartInfo'
 
 // Cart 要用的 ContextProvider
 import { CartProvider } from './contexts/useCart'
@@ -33,7 +33,7 @@ import { CartProvider } from './contexts/useCart'
 // import ShopHome from './03-shop/pages/03-shop-home'
 
 // 04-product
-// import ProductList from './04-product/ProductList'
+import ProductList from './04-product/ProductList'
 // import ProductDetail from './04-product/ProductDetail'
 
 // 05-member
@@ -56,18 +56,18 @@ function App() {
     <>
       <BrowserRouter>
         <CartProvider>
-          <MyContextProviders>
-            <ScrollToTop>
-              <Routes>
-                {/* 00-homepage */}
-                <Route path="/" element={<Homepage />} />
+          {/* <MyContextProviders> */}
+          <ScrollToTop>
+            <Routes>
+              {/* 00-homepage */}
+              <Route path="/" element={<Homepage />} />
 
-                {/* 01-cart */}
-                <Route path="/cart" element={<CartList />} />
-                {/* <Route path="/cart/event" element={<Events />} /> */}
+              {/* 01-cart */}
+              <Route path="/cart" element={<CartList />} />
+              <Route path="/cart/info" element={<CartInfo />} />
 
-                {/* 02-forum */}
-                {/* <Route path="/forum">
+              {/* 02-forum */}
+              {/* <Route path="/forum">
                 <Route path="/" element={<ForumHome />} />
                 <Route path="/cook" element={<PostCook />} />
                 <Route path="/share" element={<PostShare />} />
@@ -80,21 +80,24 @@ function App() {
                 <Route path="/writeForm" element={<WriteForm />} />
               </Route> */}
 
-                {/* 03-shop */}
-                {/* <Route path="/shop" element={<ShopList />} /> */}
-                {/* <Route path="/shop" element={<ShopHome />} /> */}
+              {/* 03-shop */}
+              {/* <Route path="/shop" element={<ShopList />} /> */}
+              {/* <Route path="/shop" element={<ShopHome />} /> */}
 
-                {/* 04-product  */}
-                {/* <Route path="/productList/:shop_list_sid" element={<ProductList />} /> */}
-                {/* <Route path="/product/:sid" element={<ProductDetail />} /> */}
+              {/* 04-product  */}
+              <Route
+                path="/productList/:shop_list_sid"
+                element={<ProductList />}
+              />
+              {/* <Route path="/product/:sid" element={<ProductDetail />} /> */}
 
-                {/* 05-member */}
-                {/* member-profile */}
-                {/* <Route path="/login" element={<UserSign />} /> */}
-                {/* <Route path="/forgot-pass" element={<ForgotPass />} /> */}
-                {/* <Route path="/reset-pass" element={<ResetPass />} /> */}
+              {/* 05-member */}
+              {/* member-profile */}
+              {/* <Route path="/login" element={<UserSign />} /> */}
+              {/* <Route path="/forgot-pass" element={<ForgotPass />} /> */}
+              {/* <Route path="/reset-pass" element={<ResetPass />} /> */}
 
-                {/* <Route path="/profile/">
+              {/* <Route path="/profile/">
             <Route index path=":sid" element={<UserProfile />} />
             <Route path="update-info/:sid" element={<UpdateInfo />} />
             <Route path="orders" element={<Orders />} />
@@ -102,16 +105,16 @@ function App() {
             <Route path="activities" element={<Activities />} />
       </Route> */}
 
-                {/* 06-event */}
-                {/* <Route path="/top" element={<Top />} />
+              {/* 06-event */}
+              {/* <Route path="/top" element={<Top />} />
               <Route path="/events" element={<Events />} />
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/map" element={<Map />} />
               <Route path="/ticket" element={<Ticket />} /> */}
-                {/* <Route path="/Eventrender" element={<Eventrender />} /> */}
-              </Routes>
-            </ScrollToTop>
-          </MyContextProviders>
+              {/* <Route path="/Eventrender" element={<Eventrender />} /> */}
+            </Routes>
+          </ScrollToTop>
+          {/* </MyContextProviders> */}
         </CartProvider>
       </BrowserRouter>
     </>
