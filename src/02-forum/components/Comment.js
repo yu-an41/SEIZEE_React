@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import dayjs from 'dayjs';
 
 import '../styles/Message.scss'
+
 
 import Member from './Member'
 function Comment({ commData }) {
