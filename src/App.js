@@ -37,14 +37,14 @@ import ProductList from './04-product/ProductList'
 // import ProductDetail from './04-product/ProductDetail'
 
 // 05-member
-// import UserSign from './05-member/UserSign'
-// import ResetPass from './05-member/ResetPass'
-// import ForgotPass from './05-member/ForgotPass'
-// import UserProfile from './05-member/profile-pages/UserProfile'
-// import UpdateInfo from './05-member/profile-pages/UpdateInfo'
-// import Likes from './05-member/profile-pages/Likes'
-// import Activities from './05-member/profile-pages/Activities'
-// import Orders from './05-member/profile-pages/Orders'
+import UserSign from './05-member/UserSign'
+import ResetPass from './05-member/ResetPass'
+import ForgotPass from './05-member/ForgotPass'
+import UserProfile from './05-member/profile-pages/UserProfile'
+import UpdateInfo from './05-member/profile-pages/UpdateInfo'
+import Likes from './05-member/profile-pages/Likes'
+import Activities from './05-member/profile-pages/Activities'
+import Orders from './05-member/profile-pages/Orders'
 
 // 06-event
 // import Top from './06-event/pages/06-event-01-top'

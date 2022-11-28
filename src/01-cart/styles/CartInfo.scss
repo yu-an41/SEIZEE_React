@@ -510,6 +510,20 @@ $border-radius-button: 8px;
 
             }
     
+            .y-Cart-sections {
+                .y-Cart-tab {
+                    max-width: 190px;
+                    padding: 12px 40px;
+                    border: $border-lg;
+                    border-bottom: none;
+                    border-radius: 8px 8px 0 0;
+                    background-color: #fff;
+                    text-align: center;
+                    color: $main-blue;
+                    font-weight: bold;
+                    letter-spacing: 2px;
+                }
+            }
             .y-Cart-rec {
                 .y-Cart-rec-tab {
                     max-width: 190px;
