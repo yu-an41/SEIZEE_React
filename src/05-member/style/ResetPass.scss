@@ -52,7 +52,59 @@ $s-main-b: #113f75;
           /* padding: 10px; */
         }
 
-        .s-rp-input {
+        .s-rp-label {
+          font-size: 15px;
+          width: 100%;
+          margin-bottom: 5px;
+          font-weight: 600;
+        }
+
+        .s-rp-input-eye {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          position: relative;
+
+          // border: 1px solid red;
+
+          .s-rp-input {
+            width: 100%;
+            margin-bottom: 5px;
+            padding: 10px;
+            outline: none;
+            font-size: 16px;
+            border: 1px solid #333;
+            height: 100%;
+            // margin-right: 10px;
+
+            // border: 1px solid green;
+          }
+
+          .s-rp-input::placeholder {
+            font-size: 15px;
+          }
+
+          .s-rp-eye {
+            font-size: 20px;
+            // margin-left: 10px;
+            color: #5c5c5c;
+            width: 40px;
+            text-align: center;
+            position: absolute;
+            right: 0;
+
+            // border: 1px solid green;
+          }
+
+          @media (max-width: 991px) {
+            .s-rp-input::placeholder {
+              font-size: 12px;
+            }
+          }
+        }
+
+        .s-rp-input-btn {
           width: 100%;
           margin-bottom: 5px;
           padding: 10px;
@@ -81,13 +133,6 @@ $s-main-b: #113f75;
           justify-content: left;
           width: 100%;
           height: 15px;
-        }
-
-        .s-rp-label {
-          font-size: 15px;
-          width: 100%;
-          margin-bottom: 5px;
-          font-weight: 600;
         }
       }
     }
