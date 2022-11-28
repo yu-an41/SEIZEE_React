@@ -19,72 +19,71 @@ export const CollectContextProvider = ({ children }) => {
   const [collectionNum, setCollectionNum] = useState([]);
 
   //localStorage得到member_sid
-  const member_sid = localStorage.getItem("auth")
-    ? JSON.parse(localStorage.getItem("auth")).member_sid
+  const m_sid = localStorage.getItem("auth")
+    ? JSON.parse(localStorage.getItem("auth")).m_sid
     : "尚未登入";
 
   //抓收藏清單
-  const getCollection = async () => {
-    if (member_sid === "尚未登入") {
+  const getCollectList = async () => {
+    if (m_sid === "尚未登入") {
       console.log("未登入！無法加入收藏");
       return;
     }
 
     const response = await axios.get(
-      `http://localhost:3002/product/collection?member_sid=${member_sid}`
+      `http://localhost:3002/product/collection?m_sid=${m_sid}`
     );
     //console.log(response)
     const collectData = response.data.collection_rows;
     const collect = collectData.map((collection, i) => {
       return {
         p_sid: collection.food_product_sid,
-        m_sid: collection.member_sid,
+        m_sid: collection.m_sid,
         collect: true,
       };
     });
+    setCollection(collect); //object
 
-    setCollection(collect);
-    console.log(collection);
-
-    //把商品sid從object撈出來
-    let collectNum = [];
-    for (let i = 0; i < collect.length; i++) {
-      collectNum.push(collect[i].p_sid);
-    }
-    setCollectionNum(collectNum);
-    // console.log(collectNum)
-  };
+     //把商品sid從object撈出來
+     let collectNum = [];
+     for (let i = 0; i < collect.length; i++) {
+       collectNum.push(collect[i].p_sid);
+     }
+     setCollectionNum(collectNum);
+     // console.log(collectNum)
+   };
 
   //加入收藏
   const addCollect = async (food_product_sid) => {
-    if (member_sid === "尚未登入") {
+    if (m_sid === "尚未登入") {
       console.log("未登入！無法加入收藏");
       return;
     }
 
     const response = await axios.get(
-      `http://localhost:3002/product/add?sid=${food_product_sid}&member_sid=${member_sid}`
+      `http://localhost:3002/product/add?sid=${food_product_sid}&m_sid=${m_sid}`
     );
 
   //建立新的收藏清單並更新狀態
     const newCollect = [
       ...collection,
-      { p_sid: food_product_sid, m_sid: member_sid, collect: true },
+      { p_sid: food_product_sid, m_sid: m_sid, collect: true },
     ];
     setCollectList(newCollect);
+    //更新收藏狀態
     setCollection(true);
   };
 
   //移除收藏
   const delCollect = async (food_product_sid, index) => {
-    if (member_sid === "尚未登入") {
+    if (m_sid === "尚未登入") {
       console.log("未登入！無法加入收藏");
       return;
     }
 
   //判斷收藏清單新增和移除
     const response = await axios.get(
-      `http://localhost:3002/product/delect?sid=${food_product_sid}&member_sid=${member_sid}`
+      `http://localhost:3002/product/delect?sid=${food_product_sid}&m_sid=${m_sid}`
     );
     const collect1 = collectList.slice(0, index);
     const collect2 = collectList.slice(index + 1);
@@ -109,8 +108,12 @@ export const CollectContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getCollection();
+    getCollectList();
   }, []);
+
+  useEffect(() => {
+    getCollectList();
+  }, [collection, collectionNum]);
 
   return (
     <CollectContext.Provider
