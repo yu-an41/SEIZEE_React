@@ -35,9 +35,15 @@ yarn.lock
 package-lock.json
 
 public/images/*
+public/00-homepage/*
 public/03-shop-img
+public/04-product/*
 public/05-member/*
 public/06-event-img/*
 
 src/02-forum/p-imgs
 src/06-event/img/*
+
+# src/dotown/*
+# src/logo-and-fonts
+# src/lifelabel
