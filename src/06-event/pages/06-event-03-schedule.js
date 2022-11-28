@@ -105,7 +105,7 @@ function Schedule() {
             </div>
             <div className="j-event-schedule-wrap">
               <div className="j-event-schedule-column-1">
-                <Eventcard
+              <Eventcard
                   data={{
                     time: '12:00-13:00',
                     txt1: '全食物利用',
