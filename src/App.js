@@ -40,8 +40,6 @@ import MyContextProviders from './contexts/MyContextProviders'
 // import Activities from './05-member/profile-pages/Activities'
 // import Orders from './05-member/profile-pages/Orders'
 
-// import { AuthContextProvider } from './contexts/AuthContext'
-
 // 06-event
 import Top from './06-event/pages/06-event-01-top'
 
@@ -80,18 +78,18 @@ function App() {
       {/* <Route path="/product/:sid" element={<ProductDetail />} /> */}
 
       {/* 05-member */}
-      {/* member-profile */}
-      {/* <Route path="/login" element={<UserSign />} /> */}
-      {/* <Route path="/forgot-pass" element={<ForgotPass />} /> */}
-      {/* <Route path="/reset-pass" element={<ResetPass />} /> */}
+      <Route path="/login" element={<UserSign />} />
+      <Route path="/forgot-pass" element={<ForgotPass />} />
+      <Route path="/reset-pass" element={<ResetPass />} />
 
-      {/* <Route path="/profile/">
-            <Route index path=":sid" element={<UserProfile />} />
-            <Route path="update-info/:sid" element={<UpdateInfo />} />
-            <Route path="orders" element={<Orders />} />
-            <Route path="likes" element={<Likes />} />
-            <Route path="activities" element={<Activities />} />
-      </Route> */}
+      {/* member-profile */}
+      <Route path="/profile/">
+        <Route index path="" element={<UserProfile />} />
+        <Route path="update-info" element={<UpdateInfo />} />
+        <Route path="orders" element={<Orders />} />
+        <Route path="likes" element={<Likes />} />
+        <Route path="activities" element={<Activities />} />
+      </Route>
 
       {/* 06-event */}
       {/* <Route path="/top" element={<Top />} />
