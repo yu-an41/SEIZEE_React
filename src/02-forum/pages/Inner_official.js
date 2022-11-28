@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 import '../styles/InnerOfficial.scss'
 
@@ -15,6 +17,7 @@ import Comment from '../components/Comment'
 import Recommendation from '../components/Recommendation'
 
 function InnerOfficial() {
+  const { sid } = useParams()
   return (
     <>
       <div className="innerOfficial">

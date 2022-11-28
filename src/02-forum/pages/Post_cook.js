@@ -9,6 +9,7 @@ import SearchBar from '../components/Search_bar'
 import Recommendation from '../components/Recommendation'
 import WriteBtn from '../components/WriteBtn'
 import TabCook from '../components/TabCook'
+import { Link } from 'react-router-dom'
 
 function PostCook() {
   const [cookPostData, setCookPostData] = useState([
@@ -18,12 +19,11 @@ function PostCook() {
       categories_sid: 4,
       title: '',
       img: '',
-
       content: '',
       serving: '',
       times: '',
       likes: 1,
-      creat_at: '2022-11-13T00:30:51.000Z',
+      creat_at: '',
     },
   ])
   const getCookPostData = async () => {
@@ -56,7 +56,11 @@ function PostCook() {
           <div className="p-CardWrap">
             {cookPostData &&
               cookPostData.map((v) => {
-                return <CardPost cookinner={v} key={v.sid} />
+                return (
+                  <>
+                    <CardPost postData={v} key={v.sid} />
+                  </>
+                )
               })}
           </div>
         </div>

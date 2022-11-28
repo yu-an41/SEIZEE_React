@@ -26,9 +26,12 @@ function App() {
           <Route path="/forum/store" element={<PostStore />} />
           <Route path="/forum/official" element={<PostOfficial />} />
           <Route path="/forum/cook/inner/:sid" element={<InnerCook />} />
-          <Route path="/forum/share/inner" element={<InnerShare />} />
-          <Route path="/forum/store/inner" element={<InnerStore />} />
-          <Route path="/forum/official/inner" element={<InnerOfficial />} />
+          <Route path="/forum/share/inner/:sid" element={<InnerShare />} />
+          <Route path="/forum/store/inner/:sid" element={<InnerStore />} />
+          <Route
+            path="/forum/official/inner/:sid"
+            element={<InnerOfficial />}
+          />
           <Route path="/forum/writeForm" element={<WriteForm />} />
         </Routes>
       </BrowserRouter>
