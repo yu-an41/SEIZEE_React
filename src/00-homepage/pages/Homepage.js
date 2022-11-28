@@ -9,7 +9,8 @@ import './../../03-shop/styles/03-shop-home.scss'
 // import './../styles/NewEvent.scss'
 
 // components
-import NavBar from '../components/NavBar'
+// import NavBar from '../components/NavBar'
+import NavBar from './../../components/NavBar'
 import Footer from '../../components/Footer'
 import NewsCrawl from '../components/NewsCrawl'
 import TopCarousel from '../components/TopCarousel'
