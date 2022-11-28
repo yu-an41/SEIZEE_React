@@ -279,7 +279,7 @@ function UserSign() {
                   <input
                     type="submit"
                     value="以Google帳號登入"
-                    className="s-login-input s-login-submit s-login-googleSubmit"
+                    className="s-login-input-general s-login-submit s-login-googleSubmit"
                   />
                 </div>
               </form>
