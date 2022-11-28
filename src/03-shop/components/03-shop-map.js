@@ -1,56 +1,45 @@
-import { MapContainer, TileLayer, useMap, Marker, Popup,Map } from 'react-leaflet'
+import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 import './../../../node_modules/leaflet/dist/leaflet.css'
-import 'leaflet/dist/leaflet'
+// import 'leaflet/dist/leaflet'
 import icon from './../../../node_modules/leaflet/dist/images/marker-icon.png'
 import L from 'leaflet'
 import { useState, useEffect } from 'react'
 
-function ShopMap({ filterShop, shops, demoShop, startShop }) {
+function ShopMap({ findPos, demoShop, shops, startShop, filterShop }) {
   // console.log(filterShop)
-  // console.log(demoShop)
-  // console.log(demoShop[0].rows.shop_lat, demoShop[0].rows.shop_lng)
-  // console.log(filterShop[0][0].shop_lat, filterShop[0][0].shop_lng)
-  
-  const [mapShop, setMapShop] = useState({
-    position: [25.0440612, 121.5139518],
-    map: null,
-  })
-
-  // const position = [25.09108, 121.5598]
 
   const DefaultIcon = L.icon({
-    iconUrl: icon,
-    iconSize: [52, 64],
+    iconUrl: '/03-shop-img/mappin_01.png',
+    iconSize: [60, 70],
     shadowUrl: null,
     shadowSize: null,
   })
-
   L.Marker.prototype.options.icon = DefaultIcon
-  // const map = useMap();
-  const changePos = function (pos) {
-    setMapShop({ position: pos })
-    const { map } = mapShop
-    if (map) map.flyTo(pos)
+
+  // function AAA() {
+  //   const map = useMap()
+  //   map.flyTo([122.3333, 26.3333])
+  //   return (
+  //     <Marker position={[122.2222, 25.2222]} icon={DefaultIcon} >
+  //       <Popup>is for popup with lat:and lon</Popup>
+  //     </Marker>)
+  // }
+  function ChangePos() {
+    const map = useMap()
+    map.flyTo(findPos)
+    // return (
+    //   <Marker position={findPos} icon={DefaultIcon}>
+    //     <Popup>Go to Shop</Popup>
+    //   </Marker>
+    // )
   }
 
-  useEffect(() => {
-    changePos(
-      startShop
-        ? (demoShop[0].rows.shop_lat, demoShop[0].rows.shop_lng)
-        : (filterShop[0][0].shop_lat, filterShop[0][0].shop_lng)
-    )
-  }, [])
   return (
     <>
       <MapContainer
-        // center={
-        //   startShop
-        //     ? [demoShop[0].rows.shop_lat, demoShop[0].rows.shop_lng]
-        //     : [filterShop[0][0].shop_lat, filterShop[0][0].shop_lng]
-        // }
-        center={mapShop.position}
-        whenCreated={(map) => this.setState({ map })}
-        zoom={15}
+        center={[25.0440612, 121.5139518]}
+        // whenCreated={(map) => this.setState({ map })}
+        zoom={16}
         scrollWheelZoom={false}
         style={{ height: '500px', marginTop: '60px' }}
       >
@@ -59,37 +48,27 @@ function ShopMap({ filterShop, shops, demoShop, startShop }) {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {startShop ? (
-          <>
-            {demoShop.map((v, i) => (
+        {startShop
+          ? demoShop.map((v, i) => (
               <Marker
                 position={[v.rows.shop_lat, v.rows.shop_lng]}
                 icon={DefaultIcon}
-                key={i}
+                key={v.rows.sid}
               >
-                <Popup>
-                  {i + 1} is for popup with lat: {v.rows.shop_lat} and lon{' '}
-                  {v.rows.shop_lng}
-                </Popup>
+                <Popup>{v.rows.shop_name}</Popup>
               </Marker>
-            ))}
-          </>
-        ) : (
-          <>
-            {filterShop.map((v, i) => (
+            ))
+          : filterShop.map((v, i) => (
               <Marker
                 position={[v[0].shop_lat, v[0].shop_lng]}
                 icon={DefaultIcon}
-                key={i}
+                key={v[0].sid}
               >
-                <Popup>
-                  {i + 1} is for popup with lat: {v[0].shop_lat} and lon{' '}
-                  {v[0].shop_lng}
-                </Popup>
+                <Popup>{v[0].shop_name}</Popup>
               </Marker>
             ))}
-          </>
-        )}
+
+        <ChangePos />
       </MapContainer>
     </>
   )

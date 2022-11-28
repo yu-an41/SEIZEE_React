@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
+import './../styles/03-shop-side-bar.scss'
 
 function ShopSideBar(props) {
   // 記錄原始資料用

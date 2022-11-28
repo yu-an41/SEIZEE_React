@@ -21,6 +21,10 @@ function ShopList() {
   const [filterShop, setFilterShop] = useState([])
   const [startShop, setStartShop] = useState(1)
   const [toggleStatus, setToggleStatus] = useState(1)
+  const [findPos, setFindPos] = useState({
+    lat: 25.0440612,
+    lng: 121.5139518,
+  })
 
   const getAllShops = async () => {
     try {
@@ -141,9 +145,16 @@ function ShopList() {
     // console.log(newData)
     setFilterShop(newData)
     setStartShop(0)
+    setFindPos({
+      lat: filterShop[0][0].shop_lat,
+      lng: filterShop[0][0].shop_lng,
+    })
   }
   // console.log(filterShop)
 
+  // function ChangePos() {
+  //   setFindPos({ lat: 25.043589, lng: 121.5607293 })
+  // }
   useEffect(() => {
     ;(async () => {
       const newShop = await getAllShops()
@@ -194,9 +205,10 @@ function ShopList() {
             ) : (
               <>
                 <ShopMap
-                  filterShop={filterShop}
-                  shops={shops}
                   demoShop={demoShop}
+                  findPos={findPos}
+                  shops={shops}
+                  filterShop={filterShop}
                   startShop={startShop}
                 />
                 <ShopMcard
@@ -204,6 +216,7 @@ function ShopList() {
                   startShop={startShop}
                   shops={shops}
                   demoShop={demoShop}
+                  setFindPos={setFindPos}
                 />
               </>
             )}
