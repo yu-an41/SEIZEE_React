@@ -16,6 +16,10 @@ function UserProfileTmp() {
     seg1 = 'profile'
   }
 
+  if (seg1 === 'update-info') {
+    seg1 = 'update_info'
+  }
+
   const actives = {}
   actives[seg1] = {
     backgroundColor: '#fff6e2',
@@ -46,7 +50,11 @@ function UserProfileTmp() {
             <h4 className="s-upt-h4">使用者設定</h4>
           </li>
           <li className="s-upt-li">
-            <Link className="s-upt-item" style={actives.profile} to="/profile">
+            <Link
+              className="s-upt-item"
+              style={actives.profile || actives.update_info}
+              to="/profile"
+            >
               <span className="s-upt-icon">
                 <img
                   src="/05-member/green-book.png"
