@@ -68,6 +68,9 @@ $border-radius-button: 8px;
     }
 }
 
+.y-news-crawl-container:hover {
+    animation-play-state: paused;
+}
 
 
 @media (min-width: 391px) {
@@ -99,13 +102,16 @@ $border-radius-button: 8px;
                     font-size: 16px;
                     letter-spacing: 2px;
                     font-weight: bold;
+                    color: $main-blue;
                 }
             }
             .y-news-content {
+
                 a {
                     font-size: 16px;
-                    letter-spacing: 2px;
+                    letter-spacing: 3px;
                     font-weight: bold;
+
                 }
     
             }
