@@ -8,10 +8,13 @@ import YellowWave2 from "./components/YellowWave2";
 import './components/style/ProductList.scss';
 import Select from "./components/Select"
 import ProductVideo from "./components/ProductVideo"
+// import ShopMcard from "../03-shop/components/03-shop-m-card"
+// import "../03-shop/styles/03-shop-list.scss"
 
 
 function ProductList() {
   const [allProduct, setAllProduct] = useState([]);
+  const [shopData, setShopData] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
   const {shop_list_sid} = useParams();
   
@@ -24,7 +27,10 @@ function ProductList() {
       );
       console.log('this is reponse:',response);
       const Pdata = response.data.product_rows;
+      const Sdata = response.data.shop;
       setAllProduct(Pdata);
+      setShopData(Sdata);
+      console.log(Sdata);
     } catch (e) {
       console.error('this is e-message:',e.message);
       setErrorMessage(e.message);
@@ -36,6 +42,7 @@ function ProductList() {
 
   return (
     <>
+      {/* <ShopMcard/> */}
       <ProductVideo />
       <YellowWave2 />
       <div className="race-by">

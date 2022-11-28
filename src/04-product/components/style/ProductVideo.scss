@@ -34,7 +34,8 @@ main {
       height: 400px;
       margin: auto;
       overflow: hidden;
-      border: 5px solid $main-yellow;
+      border: 6px solid $main-yellow;
+      // padding: 5px;
     }
     video {
       width: 100%;

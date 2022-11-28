@@ -1,11 +1,14 @@
-import React, { useState, useEffect, useRef} from "react";
+import React, { useState, useEffect, useRef, useContext} from "react";
 import { Link } from "react-router-dom";
-import Collection from "./Collection";
+import Collection from "./CollectContext";
 import "./style/ProductCard.scss";
 import Select from "./Select";
+import CollectContext from "./CollectContext";
 
 function ProductCard({ product }) {
+  const {collection, setCollection,collectionNum,addCollect}=useContext(CollectContext)
   const tempRef = useRef()
+  console.log(collection);
 
   const countOptions = new Array(product.inventory_qty).fill(0).map((_,i) => ({
     text:i+1,
@@ -31,7 +34,10 @@ function ProductCard({ product }) {
           <Link to={`/product/${product.sid}`}>
             <h3>{product.product_name}</h3>
           </Link>
-          <img src="/04-product/svg/collection.svg" alt="" />
+
+          {collectionNum.length>0 ? collectionNum.includes(product.sid) ? <img src="/04-product/svg/collection.svg" alt="" />:<img src="/04-product/svg/heart.svg" alt="" onClick={()=>addCollect(+product.sid)} /> :''
+            }
+          
         </div>
         <div className="a-priceWrapper">
           <div className="a-productPrice">
@@ -63,9 +69,9 @@ function ProductCard({ product }) {
           <p>加入購物車</p>
           <img src="/04-product/svg/cart.svg" alt="" />
         </div>
-        <button onClick={()=>{
+        {/* <button onClick={()=>{
         console.log(tempRef.current.value)
-      }}>get Value</button>
+      }}>get Value</button> */}
       </div>
     </div>
   );
