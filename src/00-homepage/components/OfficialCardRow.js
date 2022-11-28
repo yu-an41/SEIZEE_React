@@ -6,7 +6,7 @@ import './../styles/OfficialCardRow.scss'
 import OfficialPost from './OfficialPost'
 import OfficialHead from './../images/homepage-forum-share.svg'
 
-function OfficialCardRow() {
+function OfficialCardRow({ offPostNums }) {
   const [officialCardData, setOfficialCardData] = useState([
     {
       sid: 1,
@@ -32,6 +32,8 @@ function OfficialCardRow() {
     getOfficialCardRow()
   }, [])
 
+  const min = Math.min(offPostNums, officialCardData.length)
+
   return (
     <div className="y-official-card-row">
       <div className="y-forum-head y-official-head">
@@ -39,9 +41,12 @@ function OfficialCardRow() {
         <p>SEIZEE好文</p>
       </div>
       <div className="y-forum-card-wrap y-official-card-wrap">
-        {officialCardData.map((v, i) => {
-          return <OfficialPost officialInfo={v} key={v.sid} />
-        })}
+        {Array(min)
+          .fill(1)
+          .map((v, i) => {
+            const item = officialCardData[i]
+            return <OfficialPost officialInfo={item} key={item.sid} />
+          })}
       </div>
     </div>
   )

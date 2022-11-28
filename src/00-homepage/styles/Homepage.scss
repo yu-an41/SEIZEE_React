@@ -573,25 +573,25 @@ $main-border-radius: 8px;
     }
 
     .y-forum-more-wrap {
-      width: 100%;
-      position: relative;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 15px;
+      margin: 0;
+
       .y-forum-more-btn {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 15px;
-        margin: 0;
         display: flex;
         align-items: center;
-        background-color: $bgc-yellow;
+        background-color: $main-orange;
         border-radius: $border-radius-button;
         border: $border-lg;
         padding: 10px 15px;
         width: 180px;
 
         .y-forum-more-icon {
-            width: 26px;
-            height: 26px;
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
             
           img {
             width: 100%;
@@ -604,6 +604,7 @@ $main-border-radius: 8px;
           font-size: 28px;
           font-weight: bold;
           text-shadow: $text-shadow;
+          color: white;
         }
       }
     }

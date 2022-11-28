@@ -28,6 +28,7 @@ import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
 import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
 
 function Homepage() {
+  // mi_ee's --------------------------------------
   // 記錄原始資料用
   const [shops, setShops] = useState([])
   // 錯誤訊息用
@@ -49,6 +50,7 @@ function Homepage() {
     }
   }
 
+  // cart's ------------------------------------
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
@@ -79,6 +81,7 @@ function Homepage() {
     getShops()
   }, [])
 
+  // ariel's ---------------------------------
   // console.log(shops);
 
   const videoEl = useRef(null)
@@ -95,6 +98,9 @@ function Homepage() {
     attemptPlay()
   }, [])
 
+  // forum post's -----------------------------
+  const [postNums, setPostNums] = useState(3)
+  const [offPostNums, setOffPostNums] = useState(2)
   return (
     <>
       <div className="y-index-container">
@@ -348,17 +354,23 @@ function Homepage() {
           </div>
           <div className="y-section-forum-wrap">
             <div className="y-forum-row-wrap y-recipe-row-wrap">
-              <RecipeCardRow />
+              <RecipeCardRow postNums={postNums} />
             </div>
             <div className="y-forum-row-wrap y-shop-row-wrap">
-              <ShopCardRow />
+              <ShopCardRow postNums={postNums} />
             </div>
             <div className="y-forum-row-wrap y-official-row-wrap">
-              <OfficialCardRow />
+              <OfficialCardRow offPostNums={offPostNums} />
             </div>
           </div>
           <div className="y-forum-more-wrap">
-            <div className="y-forum-more-btn">
+            <div
+              className="y-forum-more-btn"
+              onClick={() => {
+                setPostNums(postNums + 2)
+                setOffPostNums(offPostNums + 2)
+              }}
+            >
               <div className="y-forum-more-icon">
                 <img src={MoreBtnIcon} alt="load more posts" />
               </div>
