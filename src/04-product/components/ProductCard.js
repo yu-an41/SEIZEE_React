@@ -1,12 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
-// import Collection from './Collection'
 import './style/ProductCard.scss'
+import CartInfoContext from './../../01-cart/contexts/CartInfoContext'
+import log from 'eslint-plugin-react/lib/util/log'
+import { logRoles } from '@testing-library/react'
 
 function ProductCard({ product }) {
   // console.log(product)
   // const [quantity, setQuantity] = useState([])
-
+  // 購物車項目
+  const {handleAddCart} = useContext(CartInfoContext)
+  const [productQty, setProductQty] = useState(1)
   const [productInfo, setProductInfo] = useState([
     {
       sid: 1,
@@ -17,13 +21,6 @@ function ProductCard({ product }) {
       inventory_qty: 5,
     },
   ])
-
-  const productQty = useRef()
-
-  const handleAddToCart = (e) => {
-    
-    // console.log(productQty.current.value)
-  }
 
   // console.log(allProduct)
   return (
@@ -60,7 +57,11 @@ function ProductCard({ product }) {
             <p>惜食剩餘數量</p>
             <p className="a-quantity">{product.inventory_qty}</p>
             <p>數量</p>
-            <select ref={productQty}>
+            <select
+              onChange={(e) => {
+                setProductQty(e.target.value)
+              }}
+            >
               {new Array(product.inventory_qty).fill(0).map((_, i) => (
                 <option key={i} value={i + 1}>
                   {i + 1}
@@ -74,9 +75,10 @@ function ProductCard({ product }) {
           </div>
           <div
             className="a-addButton"
-            onClick={(e) => {
-              handleAddToCart(e)
+            onClick={() => {
+              handleAddCart(productInfo, productQty)
               console.log(product.sid)
+              console.log(productInfo)
             }}
           >
             <p>加入購物車</p>
