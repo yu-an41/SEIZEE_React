@@ -10,6 +10,8 @@ $border-lg: $main-blue 3px solid;
 $border-sm: $main-blue 2px solid;
 $border-white-lg: #fff 3px solid;
 $border-white-sm: #fff 2px solid;
+$border-yellow-lg: $main-yellow 3px solid;
+$border-yellow-sm: $main-yellow 2px solid;
 
 
 $text-shadow: #E4E4E4 2px 2px;
@@ -32,8 +34,8 @@ $border-radius-button: 8px;
 }
 .y-remove-item-border {
     border-radius: $border-radius-button;
-    border: $border-white-sm;
-    background-color: $btn-pink;
+    border: none;
+    background-color: $btn-red;
     padding: 2px 20px;
     display: none;
 
@@ -49,7 +51,7 @@ $border-radius-button: 8px;
     }
     
     .y-remove-item {
-        color: #fff;
+        color: white;
         font-size: 14px;
         font-weight: bold;
         letter-spacing: 2px;
@@ -62,7 +64,7 @@ $border-radius-button: 8px;
         justify-content: center;
         align-items: center;
         border-radius: $border-radius-card;
-        border: $border-white-lg;
+        // border: $border-yellow-lg;
         padding: 8px 35px;
     
         .y-remove-item-icon {

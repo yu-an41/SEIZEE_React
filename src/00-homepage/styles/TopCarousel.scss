@@ -23,10 +23,13 @@ $border-radius-button: 8px;
 
 *{
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
 }
 
 .y-top-carousel-container{
-    border: $border-sm;
+    border: $border-lg;
 
     .slick-prev,
     .slick-next
@@ -55,17 +58,20 @@ $border-radius-button: 8px;
     }
 
     .y-top-carousel-banner {
-
+        font-size: 0;
         img {
             width: 100%;
-            object-position: 50% 50%;
+            object-fit: cover;
+            // object-position: 50% 50%;
         }
     }
 }
 
 @media (min-width: 391px) {
     .y-top-carousel-container {
-        border: $border-lg;
+        border: 5px solid $main-blue;
+        border-radius: $border-radius-card;
+        // overflow: hidden;
 
         .slick-prev,
         .slick-next

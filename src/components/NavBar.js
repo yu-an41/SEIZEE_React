@@ -29,6 +29,9 @@ function NavBar() {
         <div className="y-icon-round y-cart-icon">
           <img src={CartIcon} alt="cart icon" />
         </div>
+        <div className="y-icon-round y-member-icon">
+          <img src={MemberIcon} alt="cart icon" />
+        </div>
         {myAuth.authorised ? (
           <Link className="y-icon-round y-member-icon" to={'/profile/'}>
             <img

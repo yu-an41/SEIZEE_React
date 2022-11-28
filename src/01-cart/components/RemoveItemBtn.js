@@ -12,7 +12,7 @@ function RemoveItemBtn() {
         <img src={RemoveItemIcon} alt="remove item icon" />
       </div>
       <p className="y-remove-item" onClick={RemoveItem}>
-        清空購物車
+        移除此項餐點
       </p>
     </div>
   )
