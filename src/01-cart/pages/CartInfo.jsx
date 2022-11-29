@@ -1,5 +1,4 @@
 import { useContext, useState, useEffect } from 'react'
-import { useCart } from '../../contexts/useCart'
 import { Link } from 'react-router-dom'
 
 // scss
@@ -25,14 +24,6 @@ import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
-
-// cart init
-// initialState = {
-//   items: [],
-//   isEmpty: true,
-//   totalItems: 0,
-//   cartTotal: 0,
-// }
 
 function CartInfo(props) {
   return (
@@ -69,8 +60,19 @@ function CartInfo(props) {
           </div>
         </div>
         <div className="y-Cart-middle">
-          <div className="y-Cart-pickup-way y-Cart-sections">
-            <p className="y-Cart-tab y-Cart-details-tab">取餐方式</p>
+          <div className="y-Cart-pickup  y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-pickup-tab">取餐方式</p>
+            <div className="y-Cart-main y-Cart-pickup-main"></div>
+          </div>
+          <div className="y-Cart-rec  y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
+            <div className="y-Cart-rec-top"></div>
+            <div className="y-Cart-rec-bottom">
+              <div className="y-Cart-rec-row"></div>
+            </div>
+          </div>
+          <div className="y-Cart-details y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-details-tab">餐點明細</p>
             <div className="y-Cart-details-top">
               <p className="y-Cart-details-name y-Cart-details-header">
                 商品名稱
@@ -99,13 +101,6 @@ function CartInfo(props) {
                   <GoPayBtn />
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="y-Cart-rec  y-Cart-sections">
-            <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
-            <div className="y-Cart-rec-top"></div>
-            <div className="y-Cart-rec-bottom">
-              <div className="y-Cart-rec-row"></div>
             </div>
           </div>
         </div>

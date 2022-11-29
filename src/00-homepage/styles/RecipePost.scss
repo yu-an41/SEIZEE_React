@@ -31,8 +31,10 @@ $border-radius-button: 8px;
     margin-bottom: 30px;
     
     .y-recipe-top {
+        margin-bottom: 25px;
 
         .y-recipe-author {
+                margin-bottom: 8px;
 
             .y-recipe-author-name {
                 letter-spacing: 2px;
@@ -45,6 +47,7 @@ $border-radius-button: 8px;
         .y-recipe-title {
 
                 p {
+                    font-size: 18px;
                     letter-spacing: 2px;
                 }
             }
@@ -77,10 +80,10 @@ $border-radius-button: 8px;
     .y-recipe-card-container {
 
         .y-recipe-top {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             .y-recipe-author {
                 display: flex;
-                margin-bottom: 8px;
+                margin-bottom: 5px;
                 .y-recipe-author-name {
                     font-size: 16px;
                     letter-spacing: 2px;
@@ -94,7 +97,7 @@ $border-radius-button: 8px;
             .y-recipe-title {
 
                 p {
-                    font-size: 18px;
+                    font-size: 14px;
                     font-weight: bold;
                     color: $main-blue;
                 }
@@ -113,10 +116,11 @@ $border-radius-button: 8px;
                 letter-spacing: 5px;
                 line-height: 1.4;
                 font-size: 16px;
-
-                // overflow: hidden;
-                // text-overflow: ellipsis;
-                // white-space: nowrap;
+                text-align: justify;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
             }
         }
 

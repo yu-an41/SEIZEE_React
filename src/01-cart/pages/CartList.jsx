@@ -1,5 +1,4 @@
 import { useContext, useState, useEffect } from 'react'
-import { useCart } from './../../contexts/useCart'
 import { Link } from 'react-router-dom'
 
 // scss
@@ -15,7 +14,7 @@ import CartItemsList from '../components/CartItemsList'
 import ContinueShoppingBtn from '../components/ContinueShoppingBtn'
 import GoPayBtn from '../components/GoPayBtn'
 import RecMerch from '../components/RecMerch'
-import Footer from './../../components/Footer'
+import Footer from '../../components/Footer'
 
 // modal
 import ModalConfirm from '../../components/ModalConfirm'
