@@ -27,6 +27,8 @@ export const CartInfoContextProvider = function ({ children }) {
 
   // 加入購物車
   const handleAddCart = async (prodInfo, prodQty) => {
+    console.log(prodInfo)
+
     // 確認商品是否已在購物車中
     let index = cartItem.userCart.findIndex((e) => e.sid === prodInfo.sid)
 
@@ -39,10 +41,17 @@ export const CartInfoContextProvider = function ({ children }) {
           ...cartItem.userCart,
           {
             sid: prodInfo.sid,
+            price: prodInfo.price,
             name: prodInfo.name,
-            price: Math.round((prodInfo.unit_price * prodInfo.sale_price) / 10),
-            img: prodInfo.picture_url,
+            picture: prodInfo.picture,
             amount: prodQty,
+
+            // shop_sid: prodInfo.shop_list_sid,
+            // prod_sid: prodInfo.sid,
+            // name: prodInfo.name,
+            // price: Math.round((prodInfo.unit_price * prodInfo.sale_price) / 10),
+            // img: prodInfo.picture_url,
+            // amount: prodQty,
           },
         ],
         totalItem: cartItem.totalItem + 1,

@@ -13,7 +13,7 @@ function ModalNotification() {
                 登入
               </p>
               <div className="cross-btn">
-                <i class="fa-sharp fa-solid fa-xmark"></i>
+                <i className="fa-sharp fa-solid fa-xmark"></i>
               </div>
             </div>
             {/* <!-- Modal body --> */}
