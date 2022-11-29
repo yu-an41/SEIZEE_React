@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MyContextProviders from './contexts/MyContextProviders'
 import CollectContextProvider from './04-product/components/CollectContext'
+import CartInfoContext from './01-cart/contexts/CartInfoContext'
 
 // components
 // import Menu from './components/Menu'
@@ -58,6 +59,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        {/* <CartInfoContext> */}
         <MyContextProviders>
           {/* <CollectContextProvider> */}
           <Routes>
@@ -119,6 +121,7 @@ function App() {
           </Routes>
           {/* </CollectContextProvider> */}
         </MyContextProviders>
+        {/* </CartInfoContext> */}
       </BrowserRouter>
     </>
   )

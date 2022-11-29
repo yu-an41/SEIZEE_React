@@ -48,7 +48,7 @@ function Homepage() {
 
   // forum post's -----------------------------
   const [postNums, setPostNums] = useState(3)
-  const [offPostNums, setOffPostNums] = useState(2)
+  // const [offPostNums, setOffPostNums] = useState(2)
 
   // NavBar cart's ----------------------------
 
@@ -91,7 +91,7 @@ function Homepage() {
           <YellowWave />
         </div>
         <section className="y-section y-section-about">
-          <div className="a-video">
+          {/* <div className="a-video">
             <div className="a-videoWrapper">
               <h3 className="a-aboutUs">關於我們</h3>
               <video
@@ -104,13 +104,13 @@ function Homepage() {
                 ref={videoEl}
               />
             </div>
-          </div>
+          </div> */}
         </section>
+        <div className="y-wave-wrap-white">
+          <WhiteWave />
+        </div>
         <section className="y-section y-section-event">
-          <div className="y-wave-wrap-white">
-            <WhiteWave />
-          </div>
-          <div class="a-eventBanner">
+          {/* <div class="a-eventBanner">
             <div className="a-eventWrapper">
               <h3 className="a-newEvent">最新活動</h3>
               <div class="a-eventText">
@@ -162,7 +162,7 @@ function Homepage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </section>
         <div className="y-wave-wrap">
           <YellowWave />
@@ -179,7 +179,7 @@ function Homepage() {
               <ShopCardRow postNums={postNums} />
             </div>
             <div className="y-forum-row-wrap y-official-row-wrap">
-              <OfficialCardRow offPostNums={offPostNums} />
+              <OfficialCardRow postNums={postNums} />
             </div>
           </div>
           <div className="y-forum-more-wrap">
@@ -187,7 +187,7 @@ function Homepage() {
               className="y-forum-more-btn"
               onClick={() => {
                 setPostNums(postNums + 2)
-                setOffPostNums(offPostNums + 2)
+                // setOffPostNums(offPostNums + 2)
               }}
             >
               <div className="y-forum-more-icon">
