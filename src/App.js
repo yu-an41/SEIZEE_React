@@ -7,7 +7,7 @@ import MyContextProviders from './contexts/MyContextProviders'
 import ScrollToTop from './components/ScrollToTop'
 
 // 00-homepage
-import Homepage from './00-homepage/pages/Homepage'
+// import Homepage from './00-homepage/pages/Homepage'
 
 // 01-cart
 import CartList from './01-cart/pages/CartList'
@@ -29,12 +29,12 @@ import InnerOfficial from './02-forum/pages/Inner_official'
 import WriteForm from './02-forum/pages/WriteForm'
 
 // 03-shop
-// import ShopList from './03-shop/pages/03-shop-list'
+import ShopList from './03-shop/pages/03-shop-list'
 // import ShopHome from './03-shop/pages/03-shop-home'
 
 // 04-product
 import ProductList from './04-product/ProductList'
-// import ProductDetail from './04-product/ProductDetail'
+import ProductDetail from './04-product/ProductDetail'
 
 // 05-member
 import UserSign from './05-member/UserSign'
@@ -49,6 +49,7 @@ import Orders from './05-member/profile-pages/Orders'
 
 // 06-event
 // import Top from './06-event/pages/06-event-01-top'
+import Eventrender from './06-event/pages/06-event-00-Render'
 
 function App() {
   return (
@@ -59,7 +60,7 @@ function App() {
             <ScrollToTop>
               <Routes>
                 {/* 00-homepage */}
-                <Route path="/" element={<Homepage />} />
+                {/* <Route path="/" element={<Homepage />} /> */}
 
                 {/* 01-cart */}
                 <Route path="/cart" element={<CartList />} />
@@ -83,7 +84,7 @@ function App() {
                 </Route>
 
                 {/* 03-shop */}
-                {/* <Route path="/shop" element={<ShopList />} /> */}
+                <Route path="/shop" element={<ShopList />} />
                 {/* <Route path="/shop" element={<ShopHome />} /> */}
 
                 {/* 04-product  */}
@@ -113,7 +114,7 @@ function App() {
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/map" element={<Map />} />
               <Route path="/ticket" element={<Ticket />} /> */}
-                {/* <Route path="/Eventrender" element={<Eventrender />} /> */}
+                <Route path="/Eventrender" element={<Eventrender />} />
               </Routes>
             </ScrollToTop>
           </MyContextProviders>

@@ -1,3 +1,5 @@
+import './../styles/03-shop-banner.scss'
+
 function ShopBanner({ toggleStatus, setToggleStatus }) {
   function shopToggle() {
     if (toggleStatus === 1) {
