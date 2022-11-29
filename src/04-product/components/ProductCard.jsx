@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 import Collection from "./CollectContext";
 import "./style/ProductCard.scss";
 import Select from "./Select";
-import CollectContext from "./CollectContext";
+// import CollectContext from "./CollectContext";
 
 function ProductCard({ product }) {
-  const {
-    collection,
-    setCollection,
-    collectList,
-    setCollectList,
-    collectionNum,
-    setCollectionNum,
-    addCollect,
-    delCollect,
-    handleClick,
-  } = useContext(CollectContext);
+//   const {
+//     collection,
+//     setCollection,
+//     collectList,
+//     setCollectList,
+//     collectionNum,
+//     setCollectionNum,
+//     addCollect,
+//     delCollect,
+//     handleClick,
+//   } = useContext(CollectContext);
   const tempRef = useRef();
   // console.log(collection);
 // console.log(product.inventory_qty);
@@ -53,7 +53,7 @@ function ProductCard({ product }) {
             <h3>{product.product_name}</h3>
           </Link>
 
-          {collectionNum.length > 0 ? (
+          {/* {collectionNum.length > 0 ? (
             collectionNum.includes(product.sid) ? (
               <img src="/04-product/svg/collection.svg" alt="" />
             ) : (
@@ -78,7 +78,7 @@ function ProductCard({ product }) {
             )
           ) : (
             ""
-          )}
+          )} */}
         </div>
         <div className="a-priceWrapper">
           <div className="a-productPrice">

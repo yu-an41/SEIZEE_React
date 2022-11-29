@@ -12,7 +12,7 @@ import ProductVideo from "./components/ProductVideo"
 // import "../03-shop/styles/03-shop-list.scss"
 
 // 01-cart
-import CartInfoContext from '../01-cart/contexts/CartInfoContext'
+// import CartInfoContext from '../01-cart/contexts/CartInfoContext'
 
 function ProductList() {
   const [allProduct, setAllProduct] = useState([]);
@@ -23,8 +23,8 @@ function ProductList() {
   console.log(shop_list_sid);
 
   // 01-cart
-  const { cartItem, setCartItem } = useContext(CartInfoContext)
-  const [productDataFromCard, setProductDataFrpmCard] = useContext()
+  // const { cartItem, setCartItem } = useContext(CartInfoContext)
+  // const [productDataFromCard, setProductDataFrpmCard] = useContext()
 
   async function getProductCard() {
     try {
@@ -36,7 +36,7 @@ function ProductList() {
       const Sdata = response.data.shop;
       setAllProduct(Pdata);
       setShopData(Sdata);
-      console.log(Sdata);
+      // console.log(Sdata);
     } catch (e) {
       console.error('this is e-message:', e.message)
       setErrorMessage(e.message)

@@ -29,39 +29,9 @@ import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
 import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
 
 function Homepage() {
-  // 記錄原始資料用
-  const [shops, setShops] = useState([])
-  // 錯誤訊息用
-  // const [errorMessage, setErrorMessage] = useState('')
-  const [checkedState, setCheckedState] = useState(Array(10).fill(false))
-  const [filters, setFilters] = useState([])
-
-  const getShops = async () => {
-    try {
-      const response = await axios.get('http://localhost:3002/api/seizee')
-      // console.log(response.data.shop_c_rows)
-      const shopData = response.data.shop_c_rows
-      //設定到state裡
-      setShops(shopData)
-    } catch (e) {
-      // 錯誤處理
-      console.error(e.message)
-      // setErrorMessage(e.message)
-    }
-  }
+  // miee's ------------------------------------
 
   // cart's ------------------------------------
-  const handleOnChange = (position) => {
-    const updatedCheckedState = checkedState.map((item, index) =>
-      index === position ? !item : item
-    )
-    setCheckedState(updatedCheckedState)
-
-useEffect(() => {
-  goFilterShop()
-}, [cateFilters])
-// console.log(selResultShop)
-// console.log(shops);
 
   // ariel's ---------------------------------
   // console.log(shops);

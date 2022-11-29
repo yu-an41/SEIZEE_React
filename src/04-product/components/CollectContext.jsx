@@ -49,7 +49,7 @@ export const CollectContextProvider = ({ children }) => {
      for (let i = 0; i < collect.length; i++) {
        collectNum.push(collect[i].p_sid);
      }
-     console.log({collectNum});
+    //  console.log({collectNum});
      setCollectionNum(collectNum);
      // console.log(collectNum)
    };
@@ -66,11 +66,11 @@ export const CollectContextProvider = ({ children }) => {
     );
 
   //建立新的收藏清單並更新狀態
-    const newCollect = [
-      ...collection,
+    const newCollection = [
+      ...collectList,
       { p_sid: food_product_sid, m_sid: m_sid, collect: true },
     ];
-    setCollectList(newCollect);
+    setCollectList(newCollection);
     //更新收藏狀態
     setCollection(true);
   };
