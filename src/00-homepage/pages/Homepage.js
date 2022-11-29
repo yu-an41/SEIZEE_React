@@ -22,6 +22,7 @@ import RecipeCardRow from '../components/RecipeCardRow'
 import ShopCardRow from '../components/ShopCardRow'
 import OfficialCardRow from '../components/OfficialCardRow'
 import Runman from '../../components/Runman'
+import ShopHome from '../components/ShopHome'
 
 //img srcs
 import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
@@ -89,13 +90,14 @@ function Homepage() {
             </div>
           </section>
         </div>
-        <section className="y-section y-section-search">
-        </section>
-        <section className="y-section y-section-merch">
-        </section>
+        <section className="y-section y-section-search"></section>
+        <section className="y-section y-section-merch"></section>
         <div className="y-wave-wrap">
           <YellowWave />
         </div>
+        <section className="r-section r-section-shop">
+          <ShopHome />
+        </section>
         <section className="y-section y-section-about">
           <div className="a-video">
             <div className="a-videoWrapper">
@@ -113,9 +115,9 @@ function Homepage() {
           </div>
         </section>
         <section className="y-section y-section-event">
-          <div className="y-wave-wrap-white">
+          {/* <div className="y-wave-wrap-white">
             <WhiteWave />
-          </div>
+          </div> */}
           <div class="a-eventBanner">
             <div className="a-eventWrapper">
               <h3 className="a-newEvent">最新活動</h3>

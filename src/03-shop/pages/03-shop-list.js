@@ -29,7 +29,7 @@ function ShopList() {
 
   const getAllShops = async () => {
     try {
-      const response = await axios.get('http://localhost:3002/api/shop')
+      const response = await axios.get('http://localhost:3004/api/shop')
       // console.log(response.data)
       const shopData = response.data
 
@@ -74,7 +74,7 @@ function ShopList() {
   const getDemoShop = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:3002/api/shop/shop_demo'
+        'http://localhost:3004/api/shop/shop_demo'
       )
       // console.log(response.data)
       const demoData = response.data
@@ -224,7 +224,7 @@ function ShopList() {
             )}
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </>
   )

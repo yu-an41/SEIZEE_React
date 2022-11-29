@@ -6,13 +6,13 @@ $main-text: #5e5e5e;
 $title-text: rgb(190, 174, 146);
 
 .r-shop-home-container {
-  background: url(./../../../public/03-shop-img/food_cola_s_01.png) 280px 200px/10%
+  background: url(./../../../public/03-shop-img/food_cola_s_01.png) 330px 50px/8%
       no-repeat,
-    url(./../../../public/03-shop-img/food_ramen_01.png) 1700px 700px/8%
+    url(./../../../public/03-shop-img/food_ramen_01.png) 1550px 150px/8%
       no-repeat,
-    url(./../../../public/03-shop-img/food_pizza_01.png) 750px 80px/15%
+    url(./../../../public/03-shop-img/food_pizza_01.png) 800px 30px/7%
       no-repeat,
-    url(./../../../public/03-shop-img/food_french_fries_01.png) 50px 550px/20%
+    url(./../../../public/03-shop-img/food_french_fries_01.png) 150px 180px/7%
       no-repeat;
 
   .r-shop-home-main {
@@ -23,51 +23,26 @@ $title-text: rgb(190, 174, 146);
       .r-shop-home-main-text {
         width: 40%;
         margin-left: auto;
-        p {
+        .r-shop-home-main-text-p {
           font-size: 48px;
           font-weight: 700;
           letter-spacing: 0.2rem;
-          line-height: 3.5rem;
+          line-height: 6rem;
           padding-bottom: 20px;
         }
-        span {
+        .r-shop-home-main-text-span {
           font-size: 24px;
           font-weight: 700;
           letter-spacing: 0.2rem;
           color: $main-text;
         }
       }
-      .r-shop-home-main-btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 60px;
-        border: 3px solid #000;
-        border-radius: 15px;
-        margin-top: 80px;
-        box-shadow: 10px 5px 0 #333;
-        input {
-          font-size: 20px;
-          border: none;
-          margin-right: 5px;
-        }
-        input:focus {
-          outline-style: none;
-        }
-        a {
-          text-decoration: none;
-          i {
-            font-size: 24px;
-            color: $main-Blue;
-          }
-        }
-      }
     }
     .r-shop-home-main-visual {
       width: 60%;
-      height: 80vh;
-      background: url('./../../../public/03-shop-img/potato.png') 0 0 no-repeat;
-      margin-top: 120px;
+      height: 40vh;
+      background: url('./../../../public/03-shop-img/potato.png') 20% center/50% no-repeat;
+      margin-top: 50px;
     }
   }
 }
@@ -87,11 +62,11 @@ $title-text: rgb(190, 174, 146);
         position: 50% 0;
         size: 1920px 100px;
       }
-      animation: animate 3.5s linear infinite;
+      animation: r-shop-yellow-animate 10s linear infinite;
       z-index: 100;
       animation-delay: 0.3s;
 
-      @keyframes animate {
+      @keyframes r-shop-yellow-animate {
         0% {
           background-position-x: 0px;
         }
@@ -106,7 +81,7 @@ $title-text: rgb(190, 174, 146);
     padding: 60px 0 30px 0;
     background-color: $main-yellow;
     text-align: center;
-    .r-shop-home-carousel-p {
+    .r-shop-home-carousel-h2 {
       font-size: 60px;
       font-weight: 700;
       letter-spacing: 0.2rem;
@@ -134,14 +109,14 @@ $title-text: rgb(190, 174, 146);
     .r-check-wrap {
       cursor: pointer;
 
-      input {
+      .r-shop-home-input {
         display: none;
         background-color: transparent;
       }
-      input:checked + span {
+      .r-shop-home-input:checked + span {
         background-color: $cate-btn;
       }
-      span {
+      .r-shop-home-carousel-check-span {
         width: 150px;
         height: 50px;
         font-size: 18px;
@@ -168,7 +143,7 @@ $title-text: rgb(190, 174, 146);
     padding-bottom: 60px;
     background-color: $main-yellow;
     .r-shop-home-slider-inner1 {
-      span {
+      .r-shop-home-slider-inner1-span {
         font-size: 28px;
         font-weight: 700;
         background-color: $cate-btn;
@@ -212,23 +187,22 @@ $title-text: rgb(190, 174, 146);
           box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.2);
           // transition: 0.5s;
-          .r-shop-slider-content p {
+          .r-shop-slider-content-p {
             font-size: 30px;
             font-weight: 700;
             color: #fff;
             line-height: 4rem;
           }
-          .r-shop-slider-content-span{
+          .r-shop-slider-content-cate {
             // padding-top: 5px;
-            span {
+            .r-shop-slider-content-span {
               display: inline;
               font-size: 20px;
               font-weight: 700;
               color: $cate-btn;
-              letter-spacing: .5rem;
+              letter-spacing: 0.5rem;
             }
           }
-          
         }
       }
       // .r-shop-slider-img-wrap:hover {
