@@ -64,9 +64,9 @@ function ProductCard({ product }) {
               />
             )
           ) : (
-            "123"
+            ""
           )}
-          {collectionNum.length < 0 ? (
+          {/* {collectionNum.length < 0 ? (
             collectionNum.includes(product.sid) ? (
               <img src="/04-product/svg/heart.svg" alt="" />
             ) : (
@@ -78,7 +78,7 @@ function ProductCard({ product }) {
             )
           ) : (
             ""
-          )}
+          )} */}
         </div>
         <div className="a-priceWrapper">
           <div className="a-productPrice">

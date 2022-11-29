@@ -66,11 +66,11 @@ export const CollectContextProvider = ({ children }) => {
     );
 
   //建立新的收藏清單並更新狀態
-    const newCollect = [
-      ...collection,
+    const newcollection = [
+      ...collectList,
       { p_sid: food_product_sid, m_sid: m_sid, collect: true },
     ];
-    setCollectList(newCollect);
+    setCollectList(newcollection);
     //更新收藏狀態
     setCollection(true);
   };
