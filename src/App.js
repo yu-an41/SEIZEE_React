@@ -6,7 +6,7 @@ import CartInfoContext from './01-cart/contexts/CartInfoContext'
 // components
 // import Menu from './components/Menu'
 // 切換頁面捲動至最上方
-// import ScrollToTop from './components/ScrollToTop'
+// import ScrollTonpm sTop from './components/ScrollToTop'
 import ModalConfirm from './components/ModalConfirm'
 import ModalNotification from './components/ModalNotification'
 
@@ -34,7 +34,7 @@ import WriteForm from './02-forum/pages/WriteForm'
 
 // 03-shop
 import ShopList from './03-shop/pages/03-shop-list'
-import ShopHome from './03-shop/pages/03-shop-home'
+// import ShopHome from './03-shop/pages/03-shop-home'
 
 // 04-product
 import ProductList from './04-product/ProductList'
