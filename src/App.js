@@ -101,7 +101,7 @@ function App() {
                 <Route path="/reset-pass" element={<ResetPass />} />
 
                 {/* member-profile */}
-                <Route path="/login">
+                <Route path="/profile/">
                   <Route index path="" element={<UserProfile />} />
                   <Route path="update-info" element={<UpdateInfo />} />
                   <Route path="orders" element={<Orders />} />

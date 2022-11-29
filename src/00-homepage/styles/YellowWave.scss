@@ -27,11 +27,11 @@ $wave-height: 40px;
             position: 50% 0;
             size: 1920px 100px;
         }
-        animation: animate 15s linear infinite;
+        animation: y-animate-home-yellow 10s linear infinite;
         z-index: 100;
         animation-delay: 0.3s;
         
-        @keyframes animate {
+        @keyframes y-animate-home-yellow {
             0% {
                 background-position-x: 0;
             }
