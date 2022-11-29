@@ -1,0 +1,55 @@
+$main-yellow:#FAD249;
+$main-blue:#113F75;
+$main-text:#5C5C5C;
+$h5:24px;
+$h3:20px;
+$p-m:10px;
+
+*{
+    margin: 0;
+}
+.p-recomWrap{    
+    .p-recomTitle{
+        display: flex;
+        .p-likeWrap{
+            margin-right:10px;
+            width: 40px;
+            img{
+                width: 100%;
+            }
+        }
+        h5{
+            color: $main-yellow;
+            font-size: $h5;
+        }
+    }
+.p-recomContent{
+    display: flex;
+    align-items: center;
+    h5{
+        color:$main-yellow;
+        font-size: $h5;
+        margin-right: 20px;
+    }
+    .p-recomText{  
+             margin-top: 25px;
+        h3{
+            color: $main-blue;
+            font-size: $h3;
+            margin: 0;
+        }
+        .p-recomMember{
+            color: $main-text;
+            display: flex;
+            margin-top: 5px;
+            p{
+                font-size: $p-m;
+                margin: 0;     
+            }
+            .p-memberName{
+                margin-right: 50px;
+            }
+        }
+    }
+}
+}

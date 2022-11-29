@@ -1,0 +1,45 @@
+$main-yellow: #FAD249;
+$main-blue: #2B325C;
+$main-text: #5E5E5E;
+$text-shadow: #E4E4E4;
+$min-width: 390px;
+$wave-height: 40px;
+
+.y-wave-reverse-wrap {
+    // position: relative;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    background-color: $main-yellow;
+
+    .y-wave-reverse-base {
+        // width: 100%;
+        // height: $wave-height;
+        // background-color: $main-yellow;
+    }
+    .y-wave-reverse-wrap {
+        // position: absolute;
+        // top: $wave-height;
+        width: 100%;
+        height: 100%;
+        background: {
+            image: url(./../images/wave-1920px-reverse.png);
+            repeat: no-repeat;
+            position: 0 0;
+            size: 1920px 60px;
+        }
+        animation: animate 3.5s linear infinite;
+        z-index: 100;
+        animation-delay: 0.3s;
+        
+        @keyframes animate {
+            0% {
+                background-position-x: 0;
+            }
+
+            100% {
+                background-position-x: 1920px;
+            }
+        }
+    }
+}

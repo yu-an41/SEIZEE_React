@@ -1,0 +1,44 @@
+$main-yellow:#FAD249;
+$main-blue:#113F75;
+$main-text:#5C5C5C;
+
+
+.p-searchBar{
+    width: 1040px;
+    border: 3px solid $main-blue;
+    border-radius: 10px;
+    overflow: hidden;
+    
+    form{
+    display: flex;
+    .p-inputText{
+        width: 100%;
+        border: none;
+        appearance:none;
+        -moz-appearance:none;
+        padding-left: 20px;
+    }
+    input:focus{
+        outline:none;
+        }
+    .p-search-imgWrap{
+        width: 50px;
+        background-color: $main-yellow;
+        padding: 10px;
+    
+        img{
+            width: 100%;
+        }
+    } 
+    }
+    
+}
+@media (max-width:391px) {
+    .p-searchBar{
+        width: 320px;
+        border: 3px solid $main-blue;
+        border-radius: 10px;
+        overflow: hidden;
+        
+    }
+}

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import './../styles/NavBar.scss'
-import Menu from './../components/Menu'
+import Menu from './Menu'
+
 import { Link, useLocation } from 'react-router-dom'
 import AuthContext from '../contexts/AuthContext'
 import { PROFILE, imgUrl, imgServerUrl } from '../my-config'
@@ -11,9 +12,9 @@ import MemberIcon from './../logo-and-fonts/default.png'
 
 function NavBar() {
   const { myAuth } = useContext(AuthContext)
-  console.log('photo:', myAuth.mb_photo)
-  console.log('myAuthNav:', myAuth)
-  console.log('photo:', myAuth.mb_sid)
+  // console.log('photo:', myAuth.mb_photo)
+  // console.log('myAuthNav:', myAuth)
+  // console.log('photo:', myAuth.mb_sid)
 
   const [profileImg, setProfileImg] = useState('')
 
@@ -28,6 +29,9 @@ function NavBar() {
         <div className="y-icon-round y-cart-icon">
           <img src={CartIcon} alt="cart icon" />
         </div>
+        {/* <div className="y-icon-round y-member-icon">
+          <img src={MemberIcon} alt="member icon" />
+        </div> */}
         {myAuth.authorised ? (
           <Link className="y-icon-round y-member-icon" to={'/profile/'}>
             <img
