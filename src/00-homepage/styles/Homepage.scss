@@ -97,7 +97,7 @@ $main-border-radius: 8px;
 
   .y-section-news {
     width: 100%;
-    background-color: $main-yellow;
+    // background-color: $main-yellow;
     position: fixed;
     top: 50px;
 
@@ -685,9 +685,10 @@ $main-border-radius: 8px;
     .y-section-news {
       padding-top: 90px;
       display: flex;
-      margin-bottom: 20px;
-
+      // margin-bottom: 20px;
+      top: 0;
       .y-section-news-first {
+        display: block;
         position: relative;
         width: 100%;
         height: 30px;
