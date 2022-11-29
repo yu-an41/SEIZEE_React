@@ -135,7 +135,7 @@ $title-text: rgb(190, 174, 146);
       cursor: pointer;
 
       input {
-        // display: none;
+        display: none;
         background-color: transparent;
       }
       input:checked + span {
@@ -211,16 +211,15 @@ $title-text: rgb(190, 174, 146);
           backdrop-filter: blur(15px);
           box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.2);
-          // padding-top: 30px;
           // transition: 0.5s;
-          p {
+          .r-shop-slider-content p {
             font-size: 30px;
             font-weight: 700;
             color: #fff;
             line-height: 4rem;
           }
           .r-shop-slider-content-span{
-            padding-top: 5px;
+            // padding-top: 5px;
             span {
               display: inline;
               font-size: 20px;

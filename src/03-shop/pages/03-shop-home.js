@@ -142,7 +142,11 @@ function ShopHome() {
         <div className="r-shop-home-carousel-check">
           {toppings.map(({ cate, imgurl }, index) => {
             return (
-              <label className="r-check-wrap" htmlFor="cate1" key={index}>
+              <label
+                className="r-check-wrap"
+                htmlFor={`cate-checkbox-${index}`}
+                key={index}
+              >
                 <input
                   type="checkbox"
                   id={`cate-checkbox-${index}`}
