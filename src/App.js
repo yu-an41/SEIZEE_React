@@ -7,7 +7,7 @@ import MyContextProviders from './contexts/MyContextProviders'
 import ScrollToTop from './components/ScrollToTop'
 
 // 00-homepage
-// import Homepage from './00-homepage/pages/Homepage'
+import Homepage from './00-homepage/pages/Homepage'
 
 // 01-cart
 import CartList from './01-cart/pages/CartList'
@@ -57,10 +57,10 @@ function App() {
       <BrowserRouter>
         <CartProvider>
           <MyContextProviders>
-            <ScrollToTop>
+
               <Routes>
                 {/* 00-homepage */}
-                {/* <Route path="/" element={<Homepage />} /> */}
+                <Route path="/" element={<Homepage />} />
 
                 {/* 01-cart */}
                 <Route path="/cart" element={<CartList />} />
@@ -92,7 +92,7 @@ function App() {
                   path="/productList/:shop_list_sid"
                   element={<ProductList />}
                 />
-                {/* <Route path="/product/:sid" element={<ProductDetail />} /> */}
+                <Route path="/product/:sid" element={<ProductDetail />} />
 
                 {/* 05-member */}
                 <Route path="/login" element={<UserSign />} />
@@ -116,7 +116,6 @@ function App() {
               <Route path="/ticket" element={<Ticket />} /> */}
                 <Route path="/Eventrender" element={<Eventrender />} />
               </Routes>
-            </ScrollToTop>
           </MyContextProviders>
         </CartProvider>
       </BrowserRouter>
