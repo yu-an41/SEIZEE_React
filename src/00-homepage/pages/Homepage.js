@@ -3,8 +3,8 @@ import axios from 'axios'
 import { toppings } from './../../03-shop/toppings'
 
 // scss
-import './../styles/Homepage.scss'
-import './../../03-shop/styles/03-shop-home.scss'
+// import './../styles/Homepage.scss'
+// import './../../03-shop/styles/03-shop-home.scss'
 // import './../styles/AboutUs.scss'
 // import './../styles/NewEvent.scss'
 
@@ -23,9 +23,9 @@ import OfficialCardRow from '../components/OfficialCardRow'
 import Runman from '../../components/Runman'
 
 //img srcs
-import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
-import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
-import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
+// import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
+// import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
+// import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
 
 function Homepage() {
   // 記錄原始資料用
@@ -148,7 +148,7 @@ function Homepage() {
               <p>An idea, a way of living, a way of eating.</p>
             </div>
             <div className="r-shop-home-carousel-check">
-              {toppings.map(({ cate, imgurl }, index) => {
+              {/* {toppings.map(({ cate, imgurl }, index) => {
                 return (
                   <label className="r-check-wrap" htmlFor="cate1" key={index}>
                     <input
@@ -167,7 +167,7 @@ function Homepage() {
                     </span>
                   </label>
                 )
-              })}
+              })} */}
 
               {/* <label className="r-check-wrap" htmlFor="cate2">
             <input type="checkbox" id="cate2" />
@@ -256,7 +256,7 @@ function Homepage() {
                 <span>推薦店鋪</span>
               </div>
               <div className="r-shop-slider-traintop">
-                <ShopHcard shops={shops} />
+                {/* <ShopHcard shops={shops} /> */}
               </div>
             </div>
           </div>
@@ -360,7 +360,7 @@ function Homepage() {
           <div className="y-forum-more-wrap">
             <div className="y-forum-more-btn">
               <div className="y-forum-more-icon">
-                <img src={MoreBtnIcon} alt="load more posts" />
+                {/* <img src={MoreBtnIcon} alt="load more posts" /> */}
               </div>
               <p>更多好文</p>
             </div>

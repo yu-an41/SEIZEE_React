@@ -41,11 +41,11 @@ import UserSign from './05-member/UserSign'
 import ResetPass from './05-member/ResetPass'
 import ForgotPass from './05-member/ForgotPass'
 // 以下會撞波浪XDD
-// import UserProfile from './05-member/profile-pages/UserProfile'
-// import UpdateInfo from './05-member/profile-pages/UpdateInfo'
-// import Likes from './05-member/profile-pages/Likes'
-// import Activities from './05-member/profile-pages/Activities'
-// import Orders from './05-member/profile-pages/Orders'
+import UserProfile from './05-member/profile-pages/UserProfile'
+import UpdateInfo from './05-member/profile-pages/UpdateInfo'
+import Likes from './05-member/profile-pages/Likes'
+import Activities from './05-member/profile-pages/Activities'
+import Orders from './05-member/profile-pages/Orders'
 
 // 06-event
 // import Top from './06-event/pages/06-event-01-top'
@@ -62,7 +62,7 @@ function App() {
                 <Route path="/" element={<Homepage />} />
 
                 {/* 01-cart */}
-                {/* <Route path="/cart" element={<CartList />} /> */}
+                <Route path="/cart" element={<CartList />} />
                 {/* <Route path="/cart/info" element={<CartInfo />} /> */}
 
                 {/* 02-forum */}
@@ -91,18 +91,18 @@ function App() {
                 {/* <Route path="/product/:sid" element={<ProductDetail />} /> */}
 
                 {/* 05-member */}
-                {/* <Route path="/login" element={<UserSign />} />
+                <Route path="/login" element={<UserSign />} />
                 <Route path="/forgot-pass" element={<ForgotPass />} />
-                <Route path="/reset-pass" element={<ResetPass />} /> */}
+                <Route path="/reset-pass" element={<ResetPass />} />
 
                 {/* member-profile */}
-                {/* <Route path="/profile/">
+                <Route path="/profile/">
                 <Route index path="" element={<UserProfile />} />
                 <Route path="update-info" element={<UpdateInfo />} />
                 <Route path="orders" element={<Orders />} />
                 <Route path="likes" element={<Likes />} />
                 <Route path="activities" element={<Activities />} />
-              </Route> */}
+              </Route>
 
                 {/* 06-event */}
                 {/* <Route path="/top" element={<Top />} />

@@ -7,6 +7,7 @@ import axios from 'axios'
 import { PROFILE, imgServerUrl } from '../../my-config'
 import dayjs from 'dayjs'
 import AuthContext from '../../contexts/AuthContext'
+import Navbar from '../../components/NavBar'
 
 function UserProfile() {
   // -----取得sid-----
@@ -64,6 +65,7 @@ function UserProfile() {
     <>
       <div className="s-body-profile">
         <div className="s-container">
+          <Navbar />
           <UserProfileTmp />
           <div className="s-main-content">
             <div className="s-up">

@@ -258,11 +258,7 @@ function UserSign() {
                   style={{ color: 'red' }}
                   id="mblPass_error"
                 ></div>
-                <Link
-                  className="s-login-forgot"
-                  to="/forgot-pass"
-                  style={{ color: '#00435A', 'text-decoration': 'underline' }}
-                >
+                <Link className="s-login-forgot" to="/forgot-pass">
                   忘記您的密碼?
                 </Link>
                 <input
@@ -394,17 +390,11 @@ function UserSign() {
                 />
                 <p className="s-login-p">
                   註冊即代表同意惜食的
-                  <a
-                    href="/#"
-                    style={{ color: '#00435A', 'text-decoration': 'underline' }}
-                  >
+                  <a className="s-login-p-a" href="/#">
                     服務條款
                   </a>
                   及
-                  <a
-                    href="/#"
-                    style={{ color: '#00435A', 'text-decoration': 'underline' }}
-                  >
+                  <a href="/#" className="s-login-p-a">
                     隱私權政策
                   </a>
                 </p>

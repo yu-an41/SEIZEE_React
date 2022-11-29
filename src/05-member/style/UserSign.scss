@@ -151,7 +151,7 @@ $s-main-b: #113f75;
             }
 
             .s-login-eye {
-              font-size: 20px;
+              font-size: 15px;
               // margin-left: 10px;
               color: #5c5c5c;
               width: 40px;
@@ -191,11 +191,18 @@ $s-main-b: #113f75;
             color: $s-font;
             margin-bottom: 20px;
             font-size: 18px;
+            text-decoration: underline;
           }
 
           .s-login-p {
             color: $s-font;
             font-size: 18px;
+
+            .s-login-p-a {
+              text-decoration: underline;
+              font-size: 18px;
+              color: $s-font;
+            }
           }
 
           .s-login-errorMg {
