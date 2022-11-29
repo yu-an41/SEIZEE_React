@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './../styles/Side_bar.scss'
 import pixelHomeLine from './../p-imgs/pixel-home-line.svg'
@@ -10,8 +10,13 @@ import pixelBookLine from './../p-imgs/pixel-book-line.svg'
 import book from './../../dotown/book.png'
 
 import YellowWave from './YellowWave'
+import { Link } from 'react-router-dom'
 
-function side_bar() {
+function Side_bar() {
+  const [barToggleState, setBarToggleState] = useState(1)
+  const toggleBar = (index) => {
+    setBarToggleState(index)
+  }
   return (
     <>
       <div className="p-side-bar">
@@ -22,40 +27,63 @@ function side_bar() {
             </div>
             <p>首頁</p>
           </div>
-          <div className="p-buttonWrap">
-            <div className="p-imgWrap">
-              <img className="p-official" src={pixelOfficialLine} alt="" />
-            </div>
+
+          <div
+            className={
+              barToggleState === 2 ? 'p-buttonWrap p-activPage' : 'p-buttonWrap'
+            }
+          >
+            <Link to={`/forum/official`}>
+              <div className="p-imgWrap">
+                <img className="p-official" src={pixelOfficialLine} alt="" />
+              </div>
+            </Link>
             <p>SEIZEE版</p>
           </div>
+
           <div className="p-buttonWrap">
-            <div className="p-imgWrap">
-              <img className="p-store" src={pixelStorelLine} alt="" />
-            </div>
+            <Link to={`/forum/store`}>
+              <div className="p-imgWrap">
+                <img className="p-store" src={pixelStorelLine} alt="" />
+              </div>
+            </Link>
             <p>店家版</p>
           </div>
           <div className="p-buttonWrap">
-            <div className="p-imgWrap">
-              <img className="p-share" src={pixelSharelLine} alt="" />
-            </div>
+            <Link to={`/forum/share`}>
+              <div className="p-imgWrap">
+                <img className="p-share" src={pixelSharelLine} alt="" />
+              </div>
+            </Link>
             <p>戰士版</p>
           </div>
-          <div className="p-buttonWrap">
-            <div className="p-imgWrap">
-              <img className="p-cook" src={pixelCookLine} alt="" />
-            </div>
+          <div
+            className={
+              barToggleState === 5 ? 'p-buttonWrap p-activPage' : 'p-buttonWrap'
+            }
+            onClick={() => toggleBar(5)}
+          >
+            <Link to={`/forum/cook`}>
+              <div className="p-imgWrap">
+                <img className="p-cook" src={pixelCookLine} alt="" />
+              </div>
+            </Link>
             <p>剩食料理版</p>
           </div>
           <div className="p-buttonWrap">
-            <div className="p-imgWrap">
-              <img className="p-book" src={pixelBookLine} alt="" />
-            </div>
+            <Link to={`/forum/myPost`}>
+              <div className="p-imgWrap">
+                <img className="p-book" src={pixelBookLine} alt="" />
+              </div>
+            </Link>
             <p>我的發文</p>
           </div>
           <div className="p-buttonWrap p-btnBook">
-            <div className="p-imgWrap">
-              <img className="p-book" src={book} alt="" />
-            </div>
+            <Link to={`/forum/writeForm`}>
+              <div className="p-imgWrap">
+                <img className="p-book" src={book} alt="" />
+              </div>
+            </Link>
           </div>
         </div>
         <div className="p-YellowWaveWrap">
@@ -66,4 +94,4 @@ function side_bar() {
   )
 }
 
-export default side_bar
+export default Side_bar

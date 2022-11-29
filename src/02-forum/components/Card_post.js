@@ -8,13 +8,14 @@ import post from './../p-imgs/post.jpeg'
 import cake from './../../dotown/cake.png'
 import heartNormal from './../p-imgs/pixel-heartNormal.svg'
 
-function Card_post({ cookinner }) {
-  const { sid, img, title, content, creat_at } = cookinner
+function Card_post({ postData }) {
+  const { sid, img, title, content, creat_at } = postData
+
   return (
     <>
       <div className="p-card-p" key={sid}>
         <Link
-          to={`/forum/cook/inner/${cookinner.sid}`}
+          to={`/forum/cook/inner/${postData.sid}`}
           style={{ textDecoration: 'none' }}
         >
           <div className="p-img-wrap">
