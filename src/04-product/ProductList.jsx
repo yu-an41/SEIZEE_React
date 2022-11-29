@@ -8,17 +8,18 @@ import YellowWave2 from "./components/YellowWave2";
 import './components/style/ProductList.scss';
 import Select from "./components/Select"
 import ProductVideo from "./components/ProductVideo"
-// import ShopMcard from "../03-shop/components/03-shop-m-card"
-// import "../03-shop/styles/03-shop-list.scss"
 
+// // 01-cart
+// import CartInfoContext from '../01-cart/contexts/CartInfoContext'
+// // 01-cart
+// const { cartItem, setCartItem } = useContext(CartInfoContext)
+// const [productDataFromCard, setProductDataFrpmCard] = useContext()
 
 function ProductList() {
   const [allProduct, setAllProduct] = useState([]);
   const [shopData, setShopData] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
   const {shop_list_sid} = useParams();
-  
-  console.log(shop_list_sid);
 
   async function getProductCard() {
     try {
