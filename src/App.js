@@ -15,7 +15,7 @@ import Homepage from './00-homepage/pages/Homepage'
 // 01-cart
 import CartList from './01-cart/pages/CartList'
 import CartInfo from './01-cart/pages/CartInfo'
-import CartDone from './01-cart/pages/CartDone'
+// import CartDone from './01-cart/pages/CartDone'
 
 // Cart 要用的 ContextProvider
 
@@ -68,7 +68,7 @@ function App() {
             <Route path="/cart/">
               <Route index path="" element={<CartList />} />
               <Route path="info" element={<CartInfo />} />
-              <Route path="done" element={<CartDone />} />
+              {/* <Route path="done" element={<CartDone />} /> */}
             </Route>
             {/* 02-forum */}
             <Route path="/forum/">

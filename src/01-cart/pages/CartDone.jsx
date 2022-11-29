@@ -34,7 +34,7 @@ import ShopCover from './../images/01cover.jpg'
 //   cartTotal: 0,
 // }
 
-function CartDone(props) {
+function CartDone() {
   return (
     <>
       <div className="y-CartDone-container">
