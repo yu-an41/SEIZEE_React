@@ -1,14 +1,13 @@
 import { useContext, useState, useEffect } from 'react'
 import { useCart } from '../../contexts/useCart'
 import { Link } from 'react-router-dom'
-import LinkItems from '../components/LinkItems'
-import ListItemsWithHook from '../components/ListItemsWithHook'
 
 // scss
 import './../styles/CartInfo.scss'
 
 // components
-import NavBar from '../../00-homepage/components/NavBar'
+// import NavBar from '../../00-homepage/components/NavBar'
+import NavBar from './../../components/NavBar'
 import OpenHoursBtn from '../components/OpenHoursBtn'
 import PickupHoursBtn from '../components/PickupHoursBtn'
 import EmptyCartBtn from '../components/EmptyCartBtn'
@@ -36,26 +35,6 @@ import ShopCover from './../images/01cover.jpg'
 // }
 
 function CartInfo(props) {
-  const [quantity, setQuantity] = useState([])
-
-  // 商品金額小計
-  const [totalPrice, setTotalPrice] = useState([])
-
-  // 修改過數量的商品金額小計
-  const [newTotalPrice, setNewTotalPrice] = useState(0)
-
-  const {
-    cart,
-    items,
-    addItem,
-    removeItem,
-    updateItem,
-    clearCart,
-    isInCart,
-    plusOne,
-    minusOne,
-  } = useCart()
-
   return (
     <>
       <div className="y-CartList-container">

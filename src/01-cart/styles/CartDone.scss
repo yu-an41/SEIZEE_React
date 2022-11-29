@@ -13,7 +13,7 @@ $light-box-shadow: rgba(53, 53, 53, 0.75);
 $min-width: 390px;
 $min-height: 400px;
 $wave-height: 40px;
-$progress-width: 66%;
+$progress-width: 100%;
 
 $font-family: Arial, Helvetica, sans-serif;
 
@@ -24,7 +24,7 @@ $border-radius-button: 8px;
     box-sizing: border-box;
 }
 
-.y-CartList-container {
+.y-CartDone-container {
     position: relative;
     .y-Cart-nav {
         width: 100%;
@@ -289,7 +289,7 @@ $border-radius-button: 8px;
     }
 }
 @media (min-width:391px) {
-    .y-CartList-container {
+    .y-CartDone-container {
         .y-Cart-nav {
     
             .y-Cart-wave-base {
