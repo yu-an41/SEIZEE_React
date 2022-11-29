@@ -24,6 +24,16 @@ $border-radius-button: 8px;
     box-sizing: border-box;
 }
 
+.y-Cart-test-btn {
+    margin-top: 100px;
+    color:white;
+    font-size: 24px;
+    width: 180px;
+    height: 40px;
+    background-color: $main-blue;
+
+}
+
 .y-CartList-container {
     position: relative;
     .y-Cart-nav {

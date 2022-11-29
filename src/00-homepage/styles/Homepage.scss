@@ -65,6 +65,7 @@ $main-border-radius: 8px;
   position: relative;
 
   .y-go-to-top {
+    display: none;
     position: fixed;
     z-index: 300;
     right: 8%;
@@ -96,20 +97,22 @@ $main-border-radius: 8px;
 
   .y-section-news {
     width: 100%;
-    // padding-top: 90px;
     background-color: $main-yellow;
+    position: fixed;
+    top: 50px;
 
     .y-section-news-first {
+      display: none;
       overflow: hidden;
       width: 100%;
-      .y-news-crawl-wrap {
-      }
+      background-color: $bgc-yellow;
     }
   }
 
   .y-section-carousel {
     background-color: $main-yellow;
     padding: 30px;
+    padding-top: 70px;
 
     .y-carousel-wrap {
     
@@ -409,13 +412,14 @@ $main-border-radius: 8px;
 
   }
 
+  .y-wave-wrap-white {
+    margin-bottom: 20px;
+  }
+
   .y-section-event {
     background-color: $main-yellow;
     padding-bottom: 20px;
 
-    .y-wave-wrap-white {
-      margin-bottom: 20px;
-    }
     @function line($count:1) {
       @return $base-line-eight * $count;
     }
@@ -561,9 +565,9 @@ $main-border-radius: 8px;
       margin-bottom: 0px;
 
       p {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
-        letter-spacing: 3px;
+        letter-spacing: 2px;
         color: $main-text;
         text-align: center;
       }
@@ -571,14 +575,13 @@ $main-border-radius: 8px;
 
     .y-section-forum-wrap {
       width: 100%;
-      // max-width: 360px;
       margin: 0 auto;
       padding: 5px;
       display: flex;
       justify-content: space-between;
       .y-forum-row-wrap {
         width: 100%;
-        padding: 5px;
+        padding: 4px;
         .y-forum-card-wrap {
         }
       }
@@ -605,24 +608,25 @@ $main-border-radius: 8px;
         align-items: center;
         background-color: $main-orange;
         border-radius: $border-radius-button;
-        border: $border-lg;
+        border: $border-sm;
         padding: 4px 8px;
-        width: 10px;
+        width: 90px;
 
         .y-forum-more-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 4px;
+          width: 10px;
+          height: 10px;
+          margin-right: 2px;
             
           img {
             width: 100%;
             object-fit: cover;
-            vertical-align: middle;
+            vertical-align: top;
           }
         }
         
         p {
-          font-size: 14px;
+          font-size: 13px;
+          letter-spacing: 1px;
           font-weight: bold;
           text-shadow: $text-shadow;
           color: white;
@@ -634,15 +638,22 @@ $main-border-radius: 8px;
   .y-wave-wrap {
   }
   
+  .y-section-dotown {
+    display: none;
+  }
   .y-section-news-bottom {
     display: flex;
     .y-section-news-second {
       position: relative;
       width: 100%;
-      height: 24px;
+      height: 20px;
       overflow: hidden;
       background-color: $bgc-yellow;
     }
+  }
+
+  .y-section-footer {
+
   }
 }
 
@@ -975,11 +986,13 @@ $main-border-radius: 8px;
   
     }
   
-    .y-section-event {
-      .y-wave-wrap-white {
-        margin-bottom: 40px;
+    .y-wave-wrap-white {
+      margin-bottom: 40px;
 
-      }
+    }
+
+    .y-section-event {
+      
       padding-bottom: 20px;
 
       @function line($count:1) {
@@ -1132,7 +1145,6 @@ $main-border-radius: 8px;
       .y-section-forum-wrap {
         max-width: 1320px;
         padding: 20px;
-        display: flex;
         .y-forum-row-wrap {
           padding: 15px;
           // outline: 1px solid red;
@@ -1154,9 +1166,13 @@ $main-border-radius: 8px;
       .y-forum-more-wrap {
         .y-forum-more-btn {
           padding: 10px 15px;
+          border: $border-lg;
+          // padding: 4px 8px;
           width: 180px;
           .y-forum-more-icon {
-            
+            width: 24px;
+          height: 24px;
+          margin-right: 10px;
             img {
   
             }
@@ -1164,7 +1180,8 @@ $main-border-radius: 8px;
           
           
           p {
-            
+            font-size: 14px;
+            letter-spacing: 2px;
           }
         }
       }
@@ -1173,11 +1190,18 @@ $main-border-radius: 8px;
 
     .y-wave-wrap {
     }
+    .y-section-dotown {
+      display: block;
+    }
 
     .y-section-news-bottom {
       .y-section-news-second {
         height: 30px;
       }
+    }
+
+    .y-section-footer {
+
     }
   }
 }

@@ -1,5 +1,7 @@
 import { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import CartInfoContext from '../contexts/CartInfoContext'
+import products from './../data/products.json'
 
 // scss
 import './../styles/CartList.scss'
@@ -16,7 +18,7 @@ import GoPayBtn from '../components/GoPayBtn'
 import RecMerch from '../components/RecMerch'
 import Footer from '../../components/Footer'
 
-// modal
+// modal測試用
 import ModalConfirm from '../../components/ModalConfirm'
 import ModalNotification from '../../components/ModalNotification'
 
@@ -28,6 +30,7 @@ import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
+import log from 'eslint-plugin-react/lib/util/log'
 
 // cart init
 // initialState = {
@@ -38,10 +41,27 @@ import ShopCover from './../images/01cover.jpg'
 // }
 
 function CartList(props) {
+  // 加入購物車
+  const { handleAddCart } = useContext(CartInfoContext)
+
+  // 數量
+  const [prodQty, setProdQty] = useState(1)
+
+  // 取得商品資訊
+  const data = products[0]
+
   return (
     <>
-      <ModalConfirm />
-      {/* <ModalNotification /> */}
+      <div
+        className="y-Cart-test-btn"
+        onClick={() => {
+          setProdQty(3)
+          handleAddCart(data, prodQty)
+          console.log(data, prodQty)
+        }}
+      >
+        load prod data
+      </div>
       <div className="y-CartList-container">
         <div className="y-Cart-nav">
           <NavBar />
