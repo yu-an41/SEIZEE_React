@@ -7,7 +7,7 @@ export default CollectContext;
 
 export const CollectContextProvider = ({ children }) => {
   let initCollect = {
-    p_sis: 1,
+    p_sid: 1,
     m_sid: 0,
   };
 
@@ -31,9 +31,9 @@ export const CollectContextProvider = ({ children }) => {
     }
 
     const response = await axios.get(
-      `http://localhost:3002/product/collection?m_sid=${m_sid}`
+      `http://localhost:3002/product/collection?member_sid=${m_sid}`
     );
-    //console.log(response)
+    // console.log({response})
     const collectData = response.data.collection_rows;
     const collect = collectData.map((collection, i) => {
       return {
@@ -42,13 +42,14 @@ export const CollectContextProvider = ({ children }) => {
         collect: true,
       };
     });
-    setCollection(collect); //object
+    setCollectList(collect); //object
 
      //把商品sid從object撈出來
      let collectNum = [];
      for (let i = 0; i < collect.length; i++) {
        collectNum.push(collect[i].p_sid);
      }
+     console.log({collectNum});
      setCollectionNum(collectNum);
      // console.log(collectNum)
    };
@@ -61,7 +62,7 @@ export const CollectContextProvider = ({ children }) => {
     }
 
     const response = await axios.get(
-      `http://localhost:3002/product/add?sid=${food_product_sid}&m_sid=${m_sid}`
+      `http://localhost:3002/product/add?sid=${food_product_sid}&member_sid=${m_sid}`
     );
 
   //建立新的收藏清單並更新狀態
@@ -106,14 +107,19 @@ export const CollectContextProvider = ({ children }) => {
       setCollectionNum(newCollectNum);
     }
   };
+  
+  
+  // useEffect(() => {
+  //   let index = collectList.findIndex((c) => c.p_sid === sid);
+  //   setCollectionNum(index)
+  // }, [collection, collectionNum]);
 
+  useEffect(() => {
+    getCollectList();
+  }, [collection]);
   useEffect(() => {
     getCollectList();
   }, []);
-
-  useEffect(() => {
-    getCollectList();
-  }, [collection, collectionNum]);
 
   return (
     <CollectContext.Provider
