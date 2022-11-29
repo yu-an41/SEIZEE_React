@@ -1,34 +1,81 @@
+main {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  letter-spacing: 2px;
+}
+$main-blue: #2b325c;
+$main-yellow: #fad249;
+$main-text: #5e5e5e;
+$secondary-blue: #113f75;
+$secondary-yellow: #fef3da;
+$green: #53b2a8;
+$red: #ed4743;
+$text-shadow: #e4e4e4;
+$base-line-eight: 10px;
+$main-border: 3px solid #113f75;
+$main-border-radius: 8px;
+
+.a-caroudelWrapper {
+  display: flex;
+  justify-content: center;
+  div {
+    // width: 330px;
+    // height: 330px;
+
+    overflow: hidden;
+    margin: 10px;
+    img {
+      width: 330px;
+      height: 330px;
+      object-fit: cover;
+    }
+  }
+}
+.myselectedImage {
+  border: 8px solid $main-yellow;  object-fit: cover;
+  overflow: hidden;
+  padding: 10px;
+//   width: 320px;
+//   height: 320px;
+    img {
+        object-fit: cover;
+    }
+}
+
 // .bg-1 {
-//     background-image: url(../../../../public/04-product/img/10003.jpg);
+//     width: 330px;
+//     height: 330px;
+//     object-fit: cover;
+//     overflow: hidden;
+//     margin: 10px;
+// }
+// .bg-1 img {
+//     width: 100%;
+//     // background-image: url(../../../../public/04-product/img/10015.jpg)
 // }
 // .bg-2 {
-//     background-image: url(../../../../public/04-product/img/10005.jpg);
+//     width: 330px;
+//     height: 330px;
+//     object-fit: cover;
+//     overflow: hidden;
+//     margin: 10px;
+// }
+// .bg-2 img {
+//     width: 330px;
+//     height: 330px;
+//     // background-image: url(../../../../public/04-product/img/10015.jpg)
 // }
 // .bg-3 {
-//     background-image: url(../../../../public/04-product/img/10015.jpg);
+//     width: 330px;
+//     height: 330px;
+//     object-fit: cover;
+//     overflow: hidden;
+//     margin: 10px;
 // }
-
-.bg-1 {
-    width: 330px;
-    height: 330px;
-    object-fit: cover;
-}
-.bg-1 img {
-    width: 100%;
-} 
-.bg-2 {
-    width: 330px;
-    height: 330px;
-    object-fit: cover;
-}
-.bg-2 img {
-    width: 100%;
-} 
-.bg-3 {
-    width: 330px;
-    height: 330px;
-    object-fit: cover;
-}
-.bg-3 img {
-    width: 100%;
-} 
+// .bg-3 img {
+//     width: 100%;
+//     // background-image: url(../../../../public/04-product/img/10015.jpg)
+// }

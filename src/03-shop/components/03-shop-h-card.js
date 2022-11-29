@@ -2,10 +2,10 @@ import { imgUrl, imgServerUrl } from '../shop-config'
 
 function ShopHcard({ shops, selResultShop, statusShop }) {
   // console.log(selResultShop)
-  // console.log(shops)
+  console.log(statusShop)
   return (
     <>
-      {statusShop ? (
+      {/* {statusShop ? (
         <div className="r-shop-slider-traintop">
           {shops.map((v, i) => {
             return (
@@ -47,7 +47,7 @@ function ShopHcard({ shops, selResultShop, statusShop }) {
             )
           })}
         </div>
-      )}
+      )} */}
     </>
   )
 }

@@ -14,7 +14,7 @@ function Eventrender() {
   const NowComponents = components[nowPage - 1]
   return (
     <>
-      <div class="j-sides">
+      <div className="j-sides">
         <Left setNowPage={setNowPage} />
         <NowComponents />
         <Right />

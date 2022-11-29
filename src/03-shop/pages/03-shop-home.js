@@ -39,7 +39,7 @@ function ShopHome() {
       index === position ? !item : item
     )
     setCheckedState(updatedCheckedState)
-
+    console.log(statusShop)
     // cateFilters
     let selectedFilters = updatedCheckedState.map((v, index) => {
       if (v) {
@@ -110,6 +110,7 @@ function ShopHome() {
   }, [cateFilters])
   // console.log(selResultShop)
   // console.log(shops);
+  
   return (
     <>
       <div className="r-shop-home-container">

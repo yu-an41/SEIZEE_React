@@ -38,15 +38,13 @@ $main-border-radius: 8px;
 %p{
     font-size: 16px;
 }
-%a-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .a-productCardList {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
     background: $main-yellow;
     padding-top: line(3);
 }
