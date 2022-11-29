@@ -1,0 +1,15 @@
+.p-card-member{
+    display: flex;
+    .p-member-photo{
+        width: 25px;
+        height: 25px;
+        margin-right:8px;
+        img{
+            width: 100%;
+        }
+    }
+    p{
+        margin: 0;
+        font-size:8px;
+    }
+}

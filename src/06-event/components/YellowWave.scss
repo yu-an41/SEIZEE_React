@@ -11,6 +11,9 @@ $wave-height: 40px;
     height: 100vh;
     // background-color: transparent; 
     overflow: hidden;
+    @media (max-width: 390px){
+        
+    }
 
     .j-wave-wrap {
         // position: absolute;
@@ -26,6 +29,10 @@ $wave-height: 40px;
         animation: animate 3.5s linear infinite;
         z-index: 100;
         animation-delay: 0.3s;
+        @media (max-width: 390px){
+            width: 100vw;
+            height: 20%;
+        }
         
         @keyframes animate {
             0% {

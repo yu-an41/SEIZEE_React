@@ -1,0 +1,58 @@
+main {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  letter-spacing: 2px
+}
+$main-blue: #2B325C;
+$main-yellow: #FAD249;
+$main-text: #5E5E5E;
+$secondary-blue: #113F75;
+$secondary-yellow: #FEF3DA;
+$green: #53B2A8;
+$red: #ED4743;
+$text-shadow: #E4E4E4;
+$base-line-eight: 10px;
+$main-border: 3px solid #113F75;
+$main-border-radius: 8px;
+
+.a-customSelect {
+  position: relative;
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  margin: 0px 6px;
+  background-color: #fff;
+  border: $main-border;
+  color: $secondary-blue;
+  border-radius: $main-border-radius;
+  width: 45px;
+}
+
+.a-customSelect .a-curSelect {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  color: $secondary-blue;
+}
+
+.a-customSelect .options {
+  position: absolute;
+  top: 110%;
+  width: 100%;
+  list-style: none;
+}
+
+.a-customSelect .options li {
+  padding: 5px 15px;
+  border: 2px solid $secondary-blue;
+  background-color: #fff;
+  border-radius: 3px ;
+  text-align: center;
+  cursor: pointer;
+}

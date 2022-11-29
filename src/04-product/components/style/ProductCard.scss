@@ -45,9 +45,10 @@ $main-border-radius: 8px;
     }
 
 .a-produtCardWrapper {
-    width: 30%;
+    width: 25%;
     display: flex;
     flex-wrap: wrap;
+    margin: 10px 20px;
     .a-productCardContent {
         background-color: $secondary-yellow;
         width: 100%;
@@ -73,8 +74,8 @@ $main-border-radius: 8px;
     }
     .a-discountIconWrapper {
         position: absolute;
-        top: 30%;
-        left: 80%;
+        top: 40%;
+        right: -15%;
     }
     .a-iconWrapper {
         width: 100px;
@@ -89,7 +90,7 @@ $main-border-radius: 8px;
         color: #fff;
         position: absolute;
         top:35%;
-        left:20%;
+        left:30%;
         z-index: 1;
     }
     .a-productCardTitle img {

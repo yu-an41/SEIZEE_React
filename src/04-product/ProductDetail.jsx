@@ -1,42 +1,45 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import './components/style/ProductDetail.scss'
-import RecommendCard from './components/RecommendCard'
-import YellowWave2 from './components/YellowWave2'
-import { useParams } from 'react-router-dom'
-import Carousel from './components/Carousel'
+import { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import "./components/style/ProductDetail.scss";
+import RecommendCard from "./components/RecommendCard";
+import YellowWave2 from "./components/YellowWave2";
+import { useParams, useLocation } from "react-router-dom";
+import Carousel from "./components/Carousel";
+import CollectContext from "./components/CollectContext";
 
 function ProductDetail() {
-  const [detail, setDetail] = useState([])
-  const [errorMessage, setErrorMessage] = useState([])
-  const{sid}=useParams()
-  console.log(sid);
+  const { collection, setCollection } = useContext(CollectContext);
+  const [detail, setDetail] = useState([]);
+  const [errorMessage, setErrorMessage] = useState([]);
+  const { sid } = useParams();
+  console.log({ collection });
+
+  const [qty, setQty] = useState(1);
 
   async function getDeatil() {
     try {
       const response = await axios.get(
         `http://localhost:3002/product/list?sid=${sid}`
-      )
-      console.log(response.data)
-      const Pdata = response.data.product_rows
-      setDetail(Pdata)
+      );
+      console.log(response.data);
+      const Pdata = response.data.product_rows;
+      setDetail(Pdata);
     } catch (e) {
-      console.error(e.message)
-      setErrorMessage(e.message)
+      console.error(e.message);
+      setErrorMessage(e.message);
     }
   }
   useEffect(() => {
-    getDeatil()
-  }, [])
+    getDeatil();
+  }, []);
 
   return (
     <>
-    <Carousel/>
-    <div className="a-deatil">
-      <div className="a-productDetailWrapper">
+      {/* <Carousel/> */}
+      <div className="a-deatil">
         {detail.map((details, i) => {
           return (
-            <div key={details.sid}>
+            <div className="a-productDetailWrapper" key={details.sid}>
               <div className="a-detailWrapper">
                 <div className="a-shopNameWrapper">
                   <img src="/04-product/svg/map.svg" alt="" />
@@ -48,7 +51,10 @@ function ProductDetail() {
                 </div>
                 <div className="a-informationWrapper">
                   <div className="a-productCategory">
-                    <img src="/04-product/svg/drink.svg" alt="" />
+                    <img
+                      src={`/04-product/svg/${details.category_icon}`}
+                      alt=""
+                    />
                     <p>{details.category_name}</p>
                   </div>
                   <div className="a-shopDeadline">
@@ -70,7 +76,7 @@ function ProductDetail() {
                     <p>$原價{details.unit_price}元</p>
                   </div>
                   <div className="a-productDiscount">
-                    <img src="                                 /04-product/svg/like.svg" alt="" />
+                    <img src="/04-product/svg/like.svg" alt="" />
                     <p>
                       $特價
                       {Math.round(
@@ -84,27 +90,41 @@ function ProductDetail() {
                   <p>惜食剩餘數量</p>
                   <p className="a-qty">{details.inventory_qty}</p>
                 </div>
-                <div className="a-quantity">
+                <div class="a-productQuantity">
                   <p>數量</p>
-                  <div className="a-quantityButton">
-                    <p>-</p>
-                    <p>+</p>
-                  </div>
+                  <button id="minus">-</button>
+                  <input
+                    type="number"
+                    value={
+                      details.inventory_qty === 0 ? "" : details.inventory_qty
+                    }
+                    onChange={(q) => {
+                      //保持state資料類型一致是數字
+                      setQty(Number(q.target.value));
+                    }}
+                  />
+                  <button id="plus">+</button>
                 </div>
+                {/* <div className="a-quantity">
+                    <p>數量</p>
+                    <div className="a-quantityButton">
+                      <p>-</p>
+                      <p>+</p>
+                    </div>
+                  </div> */}
                 <div className="a-addButton">
                   <p>加入購物車</p>
                   <img src="/04-product/svg/cart.svg" alt="" />
                 </div>
               </div>
             </div>
-          )
+          );
         })}
       </div>
-    </div>
-    <YellowWave2 />
-    <RecommendCard/>
+      <YellowWave2 />
+      <RecommendCard />
     </>
-  )
+  );
 }
 
-export default ProductDetail
+export default ProductDetail;

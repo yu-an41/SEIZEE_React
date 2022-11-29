@@ -1,65 +1,10 @@
-// import log from 'eslint-plugin-react/lib/util/log'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { imgUrl, imgServerUrl } from '../shop-config'
+import './../styles/03-shop-m-card.scss'
 
-function ShopMcard({ filterShop, startShop }) {
-  const [demoShop, setDemoShop] = useState([])
-
-  const getDemoShop = async () => {
-    try {
-      const response = await axios.get(
-        'http://localhost:3002/api/shop/shop_demo'
-      )
-      // console.log(response.data)
-      const demoData = response.data
-
-      const theHour = new Date().getHours()
-      const theDay = new Date().getDay()
-      const shopDay = [
-        'shop_sun',
-        'shop_mon',
-        'shop_tue',
-        'shop_wed',
-        'shop_thu',
-        'shop_fri',
-        'shop_sat',
-      ]
-
-      const newDemoData = demoData.map((item, i) => {
-        // console.log(item)
-        if (item.rows[shopDay[theDay]]) {
-          if (
-            item.rows.shop_opentime.substring(0, 2) <= theHour &&
-            item.rows.shop_closetime.substring(0, 2) > theHour
-          ) {
-            const a = { ...item.rows, open: 1 }
-            return { ...item, rows: a }
-          } else {
-            const b = { ...item.rows, open: 0 }
-            return { ...item, rows: b }
-          }
-        } else {
-          const c = { ...item.rows, open: 0 }
-          return { ...item, rows: c }
-        }
-      })
-      // console.log(newDemoData)
-      return newDemoData
-    } catch (e) {
-      // 錯誤處理
-      console.error(e.message)
-      // setErrorMessage(e.message)
-    }
-  }
-
-  useEffect(() => {
-    ;(async () => {
-      const newDemoData = await getDemoShop()
-      setDemoShop(newDemoData)
-    })()
-  }, [])
-
+function ShopMcard({ filterShop, startShop, demoShop, setFindPos }) {
+  // console.log(startShop)
   return (
     <>
       {startShop ? (
@@ -137,6 +82,19 @@ function ShopMcard({ filterShop, startShop }) {
                     </p>
 
                     <div className="r-m-card-button">
+                      <a
+                        href="#/"
+                        onClick={() => {
+                          setFindPos({
+                            lat: +v.rows.shop_lat,
+                            lng: +v.rows.shop_lng,
+                            shop: v.rows.shop_name,
+                          })
+                        }}
+                      >
+                        <i className="fa-solid fa-caret-right"></i>
+                        <span>尋找</span>
+                      </a>
                       <a href="/#">
                         <i className="fa-solid fa-caret-right"></i>
                         <span>去逛逛</span>
@@ -223,7 +181,20 @@ function ShopMcard({ filterShop, startShop }) {
                     </p>
 
                     <div className="r-m-card-button">
-                      <a href="/#">
+                      <a
+                        href="#/"
+                        onClick={() => {
+                          setFindPos({
+                            lat: +v[0].shop_lat,
+                            lng: +v[0].shop_lng,
+                            shop: v[0].shop_name,
+                          })
+                        }}
+                      >
+                        <i className="fa-solid fa-caret-right"></i>
+                        <span>尋找</span>
+                      </a>
+                      <a href="#/">
                         <i className="fa-solid fa-caret-right"></i>
                         <span>去逛逛</span>
                       </a>
