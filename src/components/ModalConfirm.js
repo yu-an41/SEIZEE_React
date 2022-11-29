@@ -1,4 +1,4 @@
-import './ModalConfirm.scss'
+import './../styles/Modal.scss'
 import React from 'react'
 
 function ModalConfirm() {

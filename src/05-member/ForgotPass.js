@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { checkEmpty } from './data/UserSign_valid'
 import { useNavigate } from 'react-router-dom'
+import ModalConfirm from '../components/ModalConfirm'
+import ModalNotification from '../components/ModalNotification'
 
 function ForgotPass() {
   const [forgotFD, setForgotFD] = useState({
