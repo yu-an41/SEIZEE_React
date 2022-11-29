@@ -25,10 +25,10 @@ import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
 
-function CartInfo(props) {
+function CartInfo() {
   return (
     <>
-      <div className="y-CartList-container">
+      <div className="y-CartInfo-container">
         <div className="y-Cart-nav">
           <NavBar />
           <div className="y-Cart-wave-base"></div>
@@ -116,5 +116,4 @@ function CartInfo(props) {
     </>
   )
 }
-
 export default CartInfo
