@@ -1,10 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MyContextProviders from './contexts/MyContextProviders'
+import CollectContextProvider from './04-product/components/CollectContext'
 
 // components
 // import Menu from './components/Menu'
 // 切換頁面捲動至最上方
-import ScrollToTop from './components/ScrollToTop'
+// import ScrollToTop from './components/ScrollToTop'
+import ModalConfirm from './components/ModalConfirm'
+import ModalNotification from './components/ModalNotification'
 
 // 00-homepage
 import Homepage from './00-homepage/pages/Homepage'
@@ -14,7 +17,6 @@ import CartList from './01-cart/pages/CartList'
 import CartInfo from './01-cart/pages/CartInfo'
 
 // Cart 要用的 ContextProvider
-import { CartProvider } from './contexts/useCart'
 
 // 02-forum
 import ForumHome from './02-forum/pages/ForumHome'
@@ -55,9 +57,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <CartProvider>
           <MyContextProviders>
-
+          {/* <CollectContextProvider> */}
               <Routes>
                 {/* 00-homepage */}
                 <Route path="/" element={<Homepage />} />
@@ -100,7 +101,7 @@ function App() {
                 <Route path="/reset-pass" element={<ResetPass />} />
 
                 {/* member-profile */}
-                <Route path="/profile/">
+                <Route path="/login">
                   <Route index path="" element={<UserProfile />} />
                   <Route path="update-info" element={<UpdateInfo />} />
                   <Route path="orders" element={<Orders />} />
@@ -116,8 +117,8 @@ function App() {
               <Route path="/ticket" element={<Ticket />} /> */}
                 <Route path="/Eventrender" element={<Eventrender />} />
               </Routes>
+              {/* </CollectContextProvider> */}
           </MyContextProviders>
-        </CartProvider>
       </BrowserRouter>
     </>
   )

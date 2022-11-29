@@ -1,4 +1,4 @@
-import './Modal.scss'
+import './ModalNotification.scss'
 import React from 'react'
 
 function ModalNotification() {

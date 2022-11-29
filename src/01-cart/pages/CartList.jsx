@@ -1,8 +1,5 @@
 import { useContext, useState, useEffect } from 'react'
-import { useCart } from './../../contexts/useCart'
 import { Link } from 'react-router-dom'
-import LinkItems from '../components/LinkItems'
-import ListItemsWithHook from '../components/ListItemsWithHook'
 
 // scss
 import './../styles/CartList.scss'
@@ -16,7 +13,7 @@ import CartItemsList from '../components/CartItemsList'
 import ContinueShoppingBtn from '../components/ContinueShoppingBtn'
 import GoPayBtn from '../components/GoPayBtn'
 import RecMerch from '../components/RecMerch'
-import Footer from './../../components/Footer'
+import Footer from '../../components/Footer'
 
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
@@ -36,26 +33,6 @@ import ShopCover from './../images/01cover.jpg'
 // }
 
 function CartList(props) {
-  const [quantity, setQuantity] = useState([])
-
-  // 商品金額小計
-  const [totalPrice, setTotalPrice] = useState([])
-
-  // 修改過數量的商品金額小計
-  const [newTotalPrice, setNewTotalPrice] = useState(0)
-
-  const {
-    cart,
-    items,
-    addItem,
-    removeItem,
-    updateItem,
-    clearCart,
-    isInCart,
-    plusOne,
-    minusOne,
-  } = useCart()
-
   return (
     <>
       <div className="y-CartList-container">

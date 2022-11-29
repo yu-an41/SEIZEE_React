@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useContext, useRef } from 'react'
 import axios from 'axios'
 import { toppings } from './../../03-shop/toppings'
+import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
 
 // scss
 import './../styles/Homepage.scss'
@@ -28,103 +29,33 @@ import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
 import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
 
 function Homepage() {
-// 記錄原始資料用
-const [shops, setShops] = useState([])
-// 錯誤訊息用
-// const [errorMessage, setErrorMessage] = useState('')
-//紀錄checkbox是否被勾選true/false
-const [checkedState, setCheckedState] = useState(Array(10).fill(false))
-//紀錄checkbox篩選條件
-const [cateFilters, setCateFilters] = useState([])
-//紀錄符合checkbox篩選條件的所有店舖
-const [selResultShop, setSelResultShop] = useState([])
-//紀錄店鋪展示區的狀態 有勾選條件/原始全部顯示
-const [statusShop, setstatusShop] = useState(1)
+  // 記錄原始資料用
+  const [shops, setShops] = useState([])
+  // 錯誤訊息用
+  // const [errorMessage, setErrorMessage] = useState('')
+  const [checkedState, setCheckedState] = useState(Array(10).fill(false))
+  const [filters, setFilters] = useState([])
 
-const getShops = async () => {
-  try {
-    const response = await axios.get('http://localhost:3002/api/shop')
-    // console.log(response.data.shop_c_rows)
-    const shopData = response.data
-    //設定到state裡
-    setShops(shopData)
-  } catch (e) {
-    // 錯誤處理
-    console.error(e.message)
-    // setErrorMessage(e.message)
-  }
-}
-
-const handleOnChange = (position) => {
-  const updatedCheckedState = checkedState.map((item, index) =>
-    index === position ? !item : item
-  )
-  setCheckedState(updatedCheckedState)
-  console.log(statusShop)
-  // cateFilters
-  let selectedFilters = updatedCheckedState.map((v, index) => {
-    if (v) {
-      return toppings[index].cate
-    } else {
-      return null
-    }
-  })
-  selectedFilters = selectedFilters.filter((v) => !!v)
-  // console.log({ selectedFilters })
-  setCateFilters(selectedFilters)
-  if (selectedFilters.length !== 0) {
-    setstatusShop(0)
-  } else {
-    setstatusShop(1)
-  }
-}
-
-// !! "aa"  true
-// !! null  false
-// console.log(cateFilters)
-//----------- 店鋪多重複選測試------------------------
-// const total = []
-// shops.forEach((value) => {
-//   for (let i of value.cates) {
-//     for (let c of cateFilters) {
-//       if (c === i) {
-//         total.push(value)
-//         break
-//       }
-//     }
-//   }
-// })
-// const total = []
-// for (let value of shops) {
-//   label1: for (let i of value.cates) {
-//     for (let c of cateFilters) {
-//       if (c === i) {
-//         total.push(value)
-//         break label1
-//       }
-//     }
-//   }
-// }
-const goFilterShop = function () {
-  const resultShop = []
-  for (let item of shops) {
-    label1: for (let i of item.cates) {
-      for (let c of cateFilters) {
-        if (c === i) {
-          resultShop.push(item)
-          break label1
-        }
-      }
+  const getShops = async () => {
+    try {
+      const response = await axios.get('http://localhost:3002/api/seizee')
+      // console.log(response.data.shop_c_rows)
+      const shopData = response.data.shop_c_rows
+      //設定到state裡
+      setShops(shopData)
+    } catch (e) {
+      // 錯誤處理
+      console.error(e.message)
+      // setErrorMessage(e.message)
     }
   }
-  // console.log(resultShop)
-  setSelResultShop(resultShop)
-}
 
-// didMount時載入資料
-useEffect(() => {
-  getShops()
-}, [])
+  // cart's ------------------------------------
+  const handleOnChange = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    )
+    setCheckedState(updatedCheckedState)
 
 useEffect(() => {
   goFilterShop()
@@ -132,6 +63,8 @@ useEffect(() => {
 // console.log(selResultShop)
 // console.log(shops);
 
+  // ariel's ---------------------------------
+  // console.log(shops);
 
   const videoEl = useRef(null)
 
@@ -146,6 +79,12 @@ useEffect(() => {
   useEffect(() => {
     attemptPlay()
   }, [])
+
+  // forum post's -----------------------------
+  const [postNums, setPostNums] = useState(3)
+  const [offPostNums, setOffPostNums] = useState(2)
+
+  // NavBar cart's
 
   return (
     <>
@@ -168,6 +107,15 @@ useEffect(() => {
           <section className="y-section y-section-carousel">
             <div className="y-carousel-wrap">
               <TopCarousel />
+              <div className="y-carousel-block-yellow">
+                <p></p>
+              </div>
+              <div className="y-carousel-block-blue">
+                <div className="y-block-bg">
+                  {/* <p>剩食革命</p>
+                  <p>由我做起</p> */}
+                </div>
+              </div>
             </div>
           </section>
         </div>
@@ -262,17 +210,23 @@ useEffect(() => {
           </div>
           <div className="y-section-forum-wrap">
             <div className="y-forum-row-wrap y-recipe-row-wrap">
-              <RecipeCardRow />
+              <RecipeCardRow postNums={postNums} />
             </div>
             <div className="y-forum-row-wrap y-shop-row-wrap">
-              <ShopCardRow />
+              <ShopCardRow postNums={postNums} />
             </div>
             <div className="y-forum-row-wrap y-official-row-wrap">
-              <OfficialCardRow />
+              <OfficialCardRow offPostNums={offPostNums} />
             </div>
           </div>
           <div className="y-forum-more-wrap">
-            <div className="y-forum-more-btn">
+            <div
+              className="y-forum-more-btn"
+              onClick={() => {
+                setPostNums(postNums + 2)
+                setOffPostNums(offPostNums + 2)
+              }}
+            >
               <div className="y-forum-more-icon">
                 <img src={MoreBtnIcon} alt="load more posts" />
               </div>
