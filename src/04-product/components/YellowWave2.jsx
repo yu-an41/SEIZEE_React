@@ -1,6 +1,6 @@
 import React from 'react'
 import './style/YellowWave2.scss'
-import RecommendCard from './RecommendCard'
+import RecommendCard from './RecommendCard.jsx'
 
 function YellowWave2() {
   return (
