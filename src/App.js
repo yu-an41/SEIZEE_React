@@ -5,6 +5,8 @@ import MyContextProviders from './contexts/MyContextProviders'
 // import Menu from './components/Menu'
 // 切換頁面捲動至最上方
 // import ScrollToTop from './components/ScrollToTop'
+import ModalConfirm from './components/ModalConfirm'
+import ModalNotification from './components/ModalNotification'
 
 // 00-homepage
 import Homepage from './00-homepage/pages/Homepage'
@@ -28,8 +30,8 @@ import CartInfo from './01-cart/pages/CartInfo'
 // import WriteForm from './02-forum/pages/WriteForm'
 
 // 03-shop
-// import ShopList from './03-shop/pages/03-shop-list'
-// import ShopHome from './03-shop/pages/03-shop-home'
+import ShopList from './03-shop/pages/03-shop-list'
+import ShopHome from './03-shop/pages/03-shop-home'
 
 // 04-product
 import ProductList from './04-product/ProductList'
@@ -40,14 +42,14 @@ import UserSign from './05-member/UserSign'
 import ResetPass from './05-member/ResetPass'
 import ForgotPass from './05-member/ForgotPass'
 // 以下會撞波浪XDD
-// import UserProfile from './05-member/profile-pages/UserProfile'
-// import UpdateInfo from './05-member/profile-pages/UpdateInfo'
-// import Likes from './05-member/profile-pages/Likes'
-// import Activities from './05-member/profile-pages/Activities'
-// import Orders from './05-member/profile-pages/Orders'
+import UserProfile from './05-member/profile-pages/UserProfile'
+import UpdateInfo from './05-member/profile-pages/UpdateInfo'
+import Likes from './05-member/profile-pages/Likes'
+import Activities from './05-member/profile-pages/Activities'
+import Orders from './05-member/profile-pages/Orders'
 
 // 06-event
-// import Top from './06-event/pages/06-event-01-top'
+import Top from './06-event/pages/06-event-01-top'
 
 function App() {
   return (
@@ -55,6 +57,13 @@ function App() {
       <BrowserRouter>
         <MyContextProviders>
           <Routes>
+            {/* 0000-modal test */}
+            <Route path="/modal/confirm" element={ModalConfirm}></Route>
+            <Route
+              path="/modal/notification"
+              element={ModalNotification}
+            ></Route>
+
             {/* 00-homepage */}
             <Route path="/" element={<Homepage />} />
 
@@ -66,28 +75,28 @@ function App() {
 
             {/* 02-forum */}
             {/* <Route path="/forum">
-                <Route path="/" element={<ForumHome />} />
-                <Route path="/cook" element={<PostCook />} />
-                <Route path="/share" element={<PostShare />} />
-                <Route path="/store" element={<PostStore />} />
-                <Route path="/official" element={<PostOfficial />} />
-                <Route path="/cook/inner/:sid" element={<InnerCook />} />
-                <Route path="/share/inner" element={<InnerShare />} />
-                <Route path="/store/inner" element={<InnerStore />} />
-                <Route path="/official/inner" element={<InnerOfficial />} />
-                <Route path="/writeForm" element={<WriteForm />} />
-              </Route> */}
+              <Route path="/" element={<ForumHome />} />
+              <Route path="/cook" element={<PostCook />} />
+              <Route path="/share" element={<PostShare />} />
+              <Route path="/store" element={<PostStore />} />
+              <Route path="/official" element={<PostOfficial />} />
+              <Route path="/cook/inner/:sid" element={<InnerCook />} />
+              <Route path="/share/inner" element={<InnerShare />} />
+              <Route path="/store/inner" element={<InnerStore />} />
+              <Route path="/official/inner" element={<InnerOfficial />} />
+              <Route path="/writeForm" element={<WriteForm />} />
+            </Route> */}
 
             {/* 03-shop */}
-            {/* <Route path="/shop" element={<ShopList />} /> */}
-            {/* <Route path="/shop" element={<ShopHome />} /> */}
+            <Route path="/shop" element={<ShopList />} />
+            <Route path="/shop" element={<ShopHome />} />
 
             {/* 04-product  */}
             <Route
               path="/productList/:shop_list_sid"
               element={<ProductList />}
             />
-            {/* <Route path="/product/:sid" element={<ProductDetail />} /> */}
+            <Route path="/product/:sid" element={<ProductDetail />} />
 
             {/* 05-member */}
             <Route path="/login" element={<UserSign />} />
@@ -95,20 +104,20 @@ function App() {
             <Route path="/reset-pass" element={<ResetPass />} />
 
             {/* member-profile */}
-            {/* <Route path="/profile/">
-                <Route index path="" element={<UserProfile />} />
-                <Route path="update-info" element={<UpdateInfo />} />
-                <Route path="orders" element={<Orders />} />
-                <Route path="likes" element={<Likes />} />
-                <Route path="activities" element={<Activities />} />
-              </Route> */}
+            <Route path="/profile/">
+              <Route index path="" element={<UserProfile />} />
+              <Route path="update-info" element={<UpdateInfo />} />
+              <Route path="orders" element={<Orders />} />
+              <Route path="likes" element={<Likes />} />
+              <Route path="activities" element={<Activities />} />
+            </Route>
 
             {/* 06-event */}
-            {/* <Route path="/top" element={<Top />} />
+            <Route path="/top" element={<Top />} />
               <Route path="/events" element={<Events />} />
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/map" element={<Map />} />
-              <Route path="/ticket" element={<Ticket />} /> */}
+              <Route path="/ticket" element={<Ticket />} />
             {/* <Route path="/Eventrender" element={<Eventrender />} /> */}
           </Routes>
         </MyContextProviders>
