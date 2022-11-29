@@ -1,11 +1,11 @@
-import { imgUrl, imgServerUrl } from '../shop-config'
+import { imgUrl, imgServerUrl } from '../../03-shop/shop-config'
 
 function ShopHcard({ shops, selResultShop, statusShop }) {
   // console.log(selResultShop)
-  console.log(statusShop)
+  // console.log(statusShop)
   return (
     <>
-      {/* {statusShop ? (
+      {statusShop ? (
         <div className="r-shop-slider-traintop">
           {shops.map((v, i) => {
             return (
@@ -15,10 +15,17 @@ function ShopHcard({ shops, selResultShop, statusShop }) {
                   alt=""
                 />
                 <div className="r-shop-slider-content">
-                  <p>{v.rows.shop_name}</p>
-                  <div className="r-shop-slider-content-span">
+                  <p className="r-shop-slider-content-p">{v.rows.shop_name}</p>
+                  <div className="r-shop-slider-content-cate">
                     {v.cates.map((value, index) => {
-                      return <span key={index}>{value}/</span>
+                      return (
+                        <span
+                          key={index}
+                          className="r-shop-slider-content-span"
+                        >
+                          {value}/
+                        </span>
+                      )
                     })}
                   </div>
                 </div>
@@ -36,10 +43,17 @@ function ShopHcard({ shops, selResultShop, statusShop }) {
                   alt=""
                 />
                 <div className="r-shop-slider-content">
-                  <p>{v.rows.shop_name}</p>
-                  <div className="r-shop-slider-content-span">
+                  <p className="r-shop-slider-content-p">{v.rows.shop_name}</p>
+                  <div className="r-shop-slider-content-cate">
                     {v.cates.map((value, index) => {
-                      return <span key={index}>{value}/</span>
+                      return (
+                        <span
+                          key={index}
+                          className="r-shop-slider-content-span"
+                        >
+                          {value}/
+                        </span>
+                      )
                     })}
                   </div>
                 </div>
@@ -47,7 +61,7 @@ function ShopHcard({ shops, selResultShop, statusShop }) {
             )
           })}
         </div>
-      )} */}
+      )}
     </>
   )
 }

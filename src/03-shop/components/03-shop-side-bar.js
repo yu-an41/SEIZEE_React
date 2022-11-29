@@ -14,7 +14,7 @@ function ShopSideBar(props) {
   const getCity = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:3002/api/shop/shop_city'
+        'http://localhost:3004/api/shop/shop_city'
       )
       // console.log(response.data.city_rows)
       const cityData = response.data.city_rows
@@ -29,7 +29,7 @@ function ShopSideBar(props) {
   const getArea = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:3002/api/shop/shop_area'
+        'http://localhost:3004/api/shop/shop_area'
       )
       // console.log(response.data.area_rows)
       const areaData = response.data.area_rows
@@ -43,7 +43,7 @@ function ShopSideBar(props) {
   const getCate = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:3002/api/shop/shop_cate'
+        'http://localhost:3004/api/shop/shop_cate'
       )
       // console.log(response.data.cate_rows)
       const cateData = response.data.cate_rows
