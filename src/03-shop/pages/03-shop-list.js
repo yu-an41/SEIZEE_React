@@ -26,6 +26,7 @@ function ShopList() {
     lat: 25.0440612,
     lng: 121.5139518,
   })
+  const [isLoading, setIsLoading] = useState(false)
 
   const getAllShops = async () => {
     try {
@@ -146,6 +147,7 @@ function ShopList() {
     // console.log(newData)
     setFilterShop(newData)
     setStartShop(0)
+    setIsLoading(true)
     // setFindPos({
     //   lat: filterShop[0][0].shop_lat,
     //   lng: filterShop[0][0].shop_lng,
@@ -156,11 +158,22 @@ function ShopList() {
   // function ChangePos() {
   //   setFindPos({ lat: 25.043589, lng: 121.5607293 })
   // }
+  // 延後1.5秒才關掉指示器
+  useEffect(() => {
+    if (isLoading) {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 1500)
+    }
+  }, [isLoading])
+
   useEffect(() => {
     ;(async () => {
       const newShop = await getAllShops()
       const newDemoData = await getDemoShop()
       setShops(newShop)
+      // 先開啟載入指示器
+      setIsLoading(true)
       setDemoShop(newDemoData)
     })()
   }, [])
@@ -183,9 +196,9 @@ function ShopList() {
             />
             <div className="r-btn-wrap">
               <div className="r-search-btn">
-                <button onClick={goFilter}>
+                <button className="r-search-btn-button" onClick={goFilter}>
                   <i className="fa-solid fa-caret-right"></i>
-                  <span>搜尋GO</span>
+                  <span className="r-search-btn-button-span">搜尋GO</span>
                 </button>
               </div>
             </div>
@@ -203,6 +216,7 @@ function ShopList() {
                 startShop={startShop}
                 shops={shops}
                 demoShop={demoShop}
+                isLoading={isLoading}
               />
             ) : (
               <>
@@ -219,6 +233,7 @@ function ShopList() {
                   shops={shops}
                   demoShop={demoShop}
                   setFindPos={setFindPos}
+                  isLoading={isLoading}
                 />
               </>
             )}

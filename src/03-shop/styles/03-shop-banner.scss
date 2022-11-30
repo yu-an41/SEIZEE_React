@@ -28,12 +28,12 @@ $card-btn: #80b938;
         justify-content: center;
         text-align: center;
         letter-spacing: 0.2rem;
-        small {
+        .r-banner-inner-small {
           color: #fff;
           font-size: 24px;
           font-weight: 700;
         }
-        p {
+        .r-banner-inner-p {
           color: #fff;
           font-size: 36px;
           font-weight: 700;
@@ -63,13 +63,13 @@ $card-btn: #80b938;
           border: 3px solid #333;
           border-radius: 15px;
 
-          button {
+          .r-btn-list-button {
             border: none;
             color: $main-Blue;
             border-radius: 8px;
             background: #fff;
             padding: 10px;
-            span {
+            .r-btn-list-button-span {
               letter-spacing: 0.2rem;
               font-size: 18px;
               font-weight: 700;
@@ -92,13 +92,13 @@ $card-btn: #80b938;
           border-radius: 15px;
           // padding-right: 5px;
           margin-left: 10px;
-          button {
+          .r-btn-map-button {
             border: none;
             color: $main-Blue;
             border-radius: 8px;
             background: #fff;
             padding: 10px;
-            span {
+            .r-btn-map-button-span {
               letter-spacing: 0.2rem;
               font-size: 18px;
               font-weight: 700;

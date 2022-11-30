@@ -6,12 +6,12 @@ $text-shadow: #e4e4e4;
 $cate-btn: #fce38c;
 $main-orange: #ff8200;
 $card-btn: #80b938;
+// $isLoading: #ffeeb2;
 
 .r-card-wrap {
   padding-top: 60px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   .r-col {
     width: 33.333333%;
     padding: 20px;
@@ -33,7 +33,7 @@ $card-btn: #80b938;
           object-fit: cover;
           object-position: 0% 50%;
         }
-        span {
+        .r-card-img-wrap-span {
           font-size: 20px;
           width: 10%;
           color: #fff;
@@ -50,7 +50,7 @@ $card-btn: #80b938;
         flex-direction: column;
         justify-content: space-around;
 
-        h2 {
+        .r-card-body-h2 {
           font-size: 26px;
           font-weight: 700;
           color: $main-title;
@@ -58,14 +58,14 @@ $card-btn: #80b938;
           text-shadow: none;
           letter-spacing: 0.2rem;
         }
-        p {
+        .r-card-body-p {
           font-size: 18px;
           letter-spacing: 0.2rem;
           line-height: 2rem;
         }
         .r-card-body-cates {
           margin-bottom: 5px;
-          span {
+          .r-card-body-cates-span {
             font-size: 20px;
             color: #000;
             letter-spacing: 0.2rem;
@@ -76,7 +76,7 @@ $card-btn: #80b938;
         .r-card-week-btn {
           padding-bottom: 10px;
 
-          small {
+          .r-card-week-btn-small {
             font-size: 14px;
             padding: 3px;
             color: $main-text;
@@ -92,7 +92,7 @@ $card-btn: #80b938;
           justify-content: center;
           align-items: center;
           padding-top: 5px;
-          a {
+          .r-card-button-a {
             position: relative;
             width: 100%;
             height: 40px;
@@ -110,7 +110,7 @@ $card-btn: #80b938;
             border-radius: 8px;
             overflow: hidden;
 
-            span {
+            .r-card-button-span {
               font-size: 18px;
               display: inline-block;
               z-index: 2;
@@ -120,9 +120,9 @@ $card-btn: #80b938;
               font-size: 28px;
               display: inline-block;
               z-index: 2;
-              animation: animateBtn 1s linear infinite;
+              animation: r-animateBtn 1s linear infinite;
 
-              @keyframes animateBtn {
+              @keyframes r-animateBtn {
                 0% {
                   opacity: 0;
                 }
@@ -182,7 +182,7 @@ $card-btn: #80b938;
       span {
         color: #fff;
       }
-      i{
+      i {
         color: #fff;
       }
     }

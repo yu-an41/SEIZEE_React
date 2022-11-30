@@ -18,7 +18,85 @@ $card-btn: #80b938;
     display: flex;
     justify-content: space-between;
 
-
+    .r-btn-wrap {
+      .r-search-btn {
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 30px 20px 60px;
+        .r-search-btn-button {
+          position: relative;
+          width: 250px;
+          height: 50px;
+          background: $main-orange;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #333;
+          letter-spacing: 0.2rem;
+          font-weight: 700;
+          border: 3px solid #333;
+          border-radius: 8px;
+          overflow: hidden;
+          .r-search-btn-button-span {
+            font-size: 24px;
+            display: inline-block;
+            z-index: 2;
+            transition: 0.5s ease-in-out;
+          }
+          i {
+            font-size: 30px;
+            padding-right: 10px;
+            display: inline-block;
+            z-index: 2;
+            animation: animateB 1s linear infinite;
+  
+            @keyframes animateB {
+              0% {
+                opacity: 0;
+              }
+              25% {
+                opacity: 1;
+              }
+              50% {
+                opacity: 1;
+              }
+              75% {
+                opacity: 1;
+              }
+              100% {
+                opacity: 0;
+              }
+            }
+          }
+        }
+        button::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: $card-btn;
+          transform: scaleX(0);
+          transition: transform 0.5s ease-in-out;
+          transform-origin: right;
+        }
+        button:hover::before {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+        button:hover {
+          span {
+            color: #fff;
+          }
+          i {
+            color: #fff;
+          }
+        }
+      }
+    }
 
     .r-wave {
       width: 15%;
