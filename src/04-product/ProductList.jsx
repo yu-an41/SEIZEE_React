@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams, useLocation } from 'react-router-dom'
-import { PRODUCT } from "../my-config";
 import axios from "axios";
 import ProductCard from "./components/ProductCard.jsx";
+import HeadWave from "../components/HeadWave";
 import YellowWave2 from "./components/YellowWave2";
 import './components/style/ProductList.scss';
+import Select from "./components/Select"
 import ProductVideo from "./components/ProductVideo"
 
 // // 01-cart
@@ -29,7 +30,7 @@ function ProductList() {
       const Sdata = response.data.shop;
       setAllProduct(Pdata);
       setShopData(Sdata);
-      // console.log(Sdata);
+      console.log(Sdata);
     } catch (e) {
       console.error('this is e-message:',e.message);
       setErrorMessage(e.message);
@@ -38,6 +39,7 @@ function ProductList() {
   useEffect(() => {
     getProductCard();
   }, []);
+  
 
   return (
     <>

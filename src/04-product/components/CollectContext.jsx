@@ -31,7 +31,7 @@ export const CollectContextProvider = ({ children }) => {
     }
 
     const response = await axios.get(
-      `http://localhost:3002/product/collection?member_sid=${m_sid}`
+      `http://localhost:3004/product/collection?member_sid=${m_sid}`
     );
     // console.log({response})
     const collectData = response.data.collection_rows;
@@ -62,7 +62,7 @@ export const CollectContextProvider = ({ children }) => {
     }
 
     const response = await axios.get(
-      `http://localhost:3002/product/add?sid=${food_product_sid}&member_sid=${m_sid}`
+      `http://localhost:3004/product/add?sid=${food_product_sid}&member_sid=${m_sid}`
     );
 
   //建立新的收藏清單並更新狀態
@@ -84,7 +84,7 @@ export const CollectContextProvider = ({ children }) => {
     }
     console.log(food_product_sid)
     const response = await axios.get(
-      `http://localhost:3002/product/delete?sid=${food_product_sid}&member_sid=${m_sid}`
+      `http://localhost:3004/product/delete?sid=${food_product_sid}&member_sid=${m_sid}`
     );
     // const collect1 = collectList.slice(0, index);
     // const collect2 = collectList.slice(index + 1);

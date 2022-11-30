@@ -3,10 +3,9 @@ import { useParams, Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import "./style/RecommendCard.scss";
 
-function RecommendCard() {
+function RecommendCard({sid}) {
   const [recommend, setRecommend] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
-  const { sid } = useParams();
 
   async function getRecommend() {
     try {

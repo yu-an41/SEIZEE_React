@@ -9,7 +9,6 @@ function ProductComment({ setDoRender, doRender }) {
     food_product_sid: 0,
     comment: '',
   });
-  const { sid } = useParams();
 
   const addComment = async () => {
     const fd = new FormData();
@@ -19,6 +18,7 @@ function ProductComment({ setDoRender, doRender }) {
       "http://localhost:3004/product/comment",
       fd
     );
+
     console.log(Cdata);
     if (Cdata.success) {
       alert("留言成功");

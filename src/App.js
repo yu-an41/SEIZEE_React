@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MyContextProviders from './contexts/MyContextProviders'
-import CollectContextProvider from './04-product/components/CollectContext'
+import { CollectContextProvider } from './04-product/components/CollectContext'
 
 // components
 // import Menu from './components/Menu'
@@ -59,65 +59,65 @@ function App() {
     <>
       <BrowserRouter>
         <MyContextProviders>
-          {/* <CollectContextProvider> */}
-          <Routes>
-            {/* 00-homepage */}
-            <Route path="/" element={<Homepage />} />
+          <CollectContextProvider>
+            <Routes>
+              {/* 00-homepage */}
+              <Route path="/" element={<Homepage />} />
 
-            {/* 01-cart */}
-            <Route path="/cart/">
-              <Route index path="" element={<CartList />} />
-              <Route path="info" element={<CartInfo />} />
-              {/* <Route path="done" element={<CartDone />} /> */}
-            </Route>
-            {/* 02-forum */}
-            <Route path="/forum/">
-              <Route index path="" element={<ForumHome />} />
-              <Route path="cook" element={<PostCook />} />
-              <Route path="share" element={<PostShare />} />
-              <Route path="store" element={<PostStore />} />
-              <Route path="official" element={<PostOfficial />} />
-              <Route path="cook/inner/:sid" element={<InnerCook />} />
-              <Route path="share/inner/:sid" element={<InnerShare />} />
-              <Route path="store/inner/:sid" element={<InnerStore />} />
-              <Route path="official/inner/:sid" element={<InnerOfficial />} />
-              <Route path="writeForm" element={<WriteForm />} />
-            </Route>
+              {/* 01-cart */}
+              <Route path="/cart/">
+                <Route index path="" element={<CartList />} />
+                <Route path="info" element={<CartInfo />} />
+                {/* <Route path="done" element={<CartDone />} /> */}
+              </Route>
+              {/* 02-forum */}
+              <Route path="/forum/">
+                <Route index path="" element={<ForumHome />} />
+                <Route path="cook" element={<PostCook />} />
+                <Route path="share" element={<PostShare />} />
+                <Route path="store" element={<PostStore />} />
+                <Route path="official" element={<PostOfficial />} />
+                <Route path="cook/inner/:sid" element={<InnerCook />} />
+                <Route path="share/inner/:sid" element={<InnerShare />} />
+                <Route path="store/inner/:sid" element={<InnerStore />} />
+                <Route path="official/inner/:sid" element={<InnerOfficial />} />
+                <Route path="writeForm" element={<WriteForm />} />
+              </Route>
 
-            {/* 03-shop */}
-            <Route path="/shop" element={<ShopList />} />
-            {/* <Route path="/shop" element={<ShopHome />} /> */}
+              {/* 03-shop */}
+              <Route path="/shop" element={<ShopList />} />
+              {/* <Route path="/shop" element={<ShopHome />} /> */}
 
-            {/* 04-product  */}
-            <Route
-              path="/productList/:shop_list_sid"
-              element={<ProductList />}
-            />
-            <Route path="/product/:sid" element={<ProductDetail />} />
+              {/* 04-product  */}
+              <Route
+                path="/productList/:shop_list_sid"
+                element={<ProductList />}
+              />
+              <Route path="/product/:sid" element={<ProductDetail />} />
 
-            {/* 05-member */}
-            <Route path="/login" element={<UserSign />} />
-            <Route path="/forgot-pass" element={<ForgotPass />} />
-            <Route path="/reset-pass" element={<ResetPass />} />
+              {/* 05-member */}
+              <Route path="/login" element={<UserSign />} />
+              <Route path="/forgot-pass" element={<ForgotPass />} />
+              <Route path="/reset-pass" element={<ResetPass />} />
 
-            {/* member-profile */}
-            <Route path="/profile/">
-              <Route index path="" element={<UserProfile />} />
-              <Route path="update-info" element={<UpdateInfo />} />
-              <Route path="orders" element={<Orders />} />
-              <Route path="likes" element={<Likes />} />
-              <Route path="activities" element={<Activities />} />
-            </Route>
+              {/* member-profile */}
+              <Route path="/profile/">
+                <Route index path="" element={<UserProfile />} />
+                <Route path="update-info" element={<UpdateInfo />} />
+                <Route path="orders" element={<Orders />} />
+                <Route path="likes" element={<Likes />} />
+                <Route path="activities" element={<Activities />} />
+              </Route>
 
-            {/* 06-event */}
-            {/* <Route path="/top" element={<Top />} />
+              {/* 06-event */}
+              {/* <Route path="/top" element={<Top />} />
               <Route path="/events" element={<Events />} />
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/map" element={<Map />} />
               <Route path="/ticket" element={<Ticket />} /> */}
-            <Route path="/Eventrender" element={<Eventrender />} />
-          </Routes>
-          {/* </CollectContextProvider> */}
+              <Route path="/Eventrender" element={<Eventrender />} />
+            </Routes>
+          </CollectContextProvider>
         </MyContextProviders>
       </BrowserRouter>
     </>
