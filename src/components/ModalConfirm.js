@@ -1,7 +1,7 @@
-import './Modal.scss'
+import './../styles/Modal.scss'
 import React from 'react'
 
-function ModalConfirm() {
+function ModalConfirm({ props }) {
   return (
     <>
       <div className="s_modal_body" id="myModal">
@@ -9,10 +9,12 @@ function ModalConfirm() {
           <div className="modal-content">
             {/* Modal Header */}
             <div className="modal-header">
-              <h4 className="modal-title" id="modal_header">
+              <p className="modal-title" id="modal_header">
                 登入
-              </h4>
-              <p className="cross-btn">X</p>
+              </p>
+              <div className="cross-btn">
+                <i className="fa-sharp fa-solid fa-xmark"></i>
+              </div>
             </div>
             {/* <!-- Modal body --> */}
             <div className="modal-body" id="modal_body">

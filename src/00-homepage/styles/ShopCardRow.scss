@@ -1,0 +1,105 @@
+$main-yellow: #FAD249;
+$main-blue: #113f75;
+$main-text: #5E5E5E;
+
+$bgc-yellow: #FBFBF2;
+
+$border-lg: $main-blue 3px solid;
+$border-sm: $main-blue 2px solid;
+
+$text-shadow: #E4E4E4 2px 2px;
+$text-shadow-lg: 3px 3px 0 $main-blue;
+$btn-shadow-lg: 6px 6px $main-blue;
+$btn-shadow-sm: 2px 2px $main-blue;
+$light-box-shadow: rgba(53, 53, 53, 0.75);
+
+$min-width: 390px;
+$min-height: 400px;
+$wave-height: 40px;
+
+$font-family: Arial, Helvetica, sans-serif;
+
+$border-radius-card: 10px;
+$border-radius-button: 8px;
+
+*{
+    box-sizing: border-box;
+}
+
+.y-shop-card-row {
+    .y-forum-head {
+        width: 100%;
+        height: auto;
+        padding: 5px;
+        overflow: hidden;
+        margin-bottom: 0px;
+
+        p {
+            width: 65px;
+            position: absolute;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 1px $main-blue;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .y-shop-head {
+        position: relative;
+
+        img {
+            width: 100%;
+            border: $border-sm;
+            border-radius: $border-radius-button;
+        }
+
+        p {
+            
+
+        }
+    }
+    
+    .y-shop-card-wrap {
+        // border: 1px solid brown;
+        padding: 5px;
+    
+    }
+}
+
+
+@media (min-width: 391px) {
+    .y-shop-card-row {
+        .y-forum-head {
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+
+            p { 
+                width: 180px;
+                font-size: 32px;
+                text-shadow: 2px 2px 0 $main-blue;
+            }
+        }
+
+        .y-shop-head {
+            img {
+                border: $border-lg;
+                border-radius: $border-radius-card;
+            }
+    
+            p {
+    
+            }
+        }
+        
+        .y-recipe-card-wrap {
+            padding: 10px;
+        }
+    }
+}

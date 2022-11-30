@@ -16,7 +16,7 @@ function ProductComment({ setDoRender, doRender }) {
     fd.append("food_product_sid", comment.food_product_sid);
     fd.append("comment", comment.user_comment);
     const { Cdata } = await axios.post(
-      "http://localhost:3002/product/comment",
+      "http://localhost:3004/product/comment",
       fd
     );
     console.log(Cdata);

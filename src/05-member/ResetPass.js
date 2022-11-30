@@ -1,9 +1,13 @@
 import './style/ResetPass.scss'
-import { checkEmpty, checkPassword, check2Password } from './UserSign_valid'
+import {
+  checkEmpty,
+  checkPassword,
+  check2Password,
+} from './data/UserSign_valid'
 import React, { useState } from 'react'
 import { UPDATE_PASS } from '../my-config'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 function ResetPass() {
   const [errorResetMgP1, setErrorResetMgP1] = useState('')
@@ -13,6 +17,10 @@ function ResetPass() {
     mbResetPassConfirm: '',
   })
   const navigate = useNavigate()
+  const location = useLocation()
+  const usp = new URLSearchParams(location.search)
+  const usp_token = usp.get('token')
+  // console.log(usp_token)
 
   const resetHandler = (e) => {
     const id = e.currentTarget.id
@@ -46,42 +54,43 @@ function ResetPass() {
     if (checkEmpty(valResetP2)) {
       if (checkError === '') {
         setErrorResetMgP2('')
-        return true
       } else {
         setErrorResetMgP2(checkError)
-        return false
       }
     } else {
       setErrorResetMgP2('密碼不能為空白')
-      return false
     }
   }
 
   async function resetSubmit(e) {
     e.preventDefault()
 
+    // console.log(usp)
+
     if (!errorResetMgP1 && !errorResetMgP2) {
-      const { data } = await axios.put(UPDATE_PASS, resetFD)
-      alert('密碼修改成功')
-      navigate('/')
-      // console.log(data)
-      // if (data.success) {
-      //   alert('密碼修改成功')
-      //   navigate('/')
-      // }
-    } else {
-      alert('密碼修改失敗')
+      const { data } = await axios.put(UPDATE_PASS, resetFD, {
+        headers: {
+          Authorization: 'Bearer ' + usp_token,
+        },
+      })
+
+      if (data.success) {
+        alert('密碼修改成功')
+        navigate('/')
+      } else {
+        alert('密碼修改失敗')
+      }
     }
   }
 
   return (
     <>
       <div className="s-body-resetpass">
-        <div className="container">
-          <div className="resetBx">
-            <form action="" onSubmit={resetSubmit}>
-              <h2>重新輸入密碼</h2>
-              <label>
+        <div className="s-rp-container">
+          <div className="s-rp-resetBx">
+            <form action="" onSubmit={resetSubmit} className="s-rp-form">
+              <h2 className="s-rp-h2">重新輸入密碼</h2>
+              <label htmlFor="mbResetPass" className="s-rp-label">
                 密碼<span style={{ color: 'red' }}> *</span>
               </label>
               <input
@@ -90,15 +99,16 @@ function ResetPass() {
                 id="mbResetPass"
                 onChange={resetHandler}
                 onBlur={checkResetPass1}
+                className="s-rp-input"
               />
               <div
-                className="errorMg"
+                className="s-rp-errorMg"
                 style={{ color: 'red' }}
                 id="mblEmail_error"
               >
                 {errorResetMgP1}
               </div>
-              <label>
+              <label htmlFor="mbResetPassConfirm" className="s-rp-label">
                 確認密碼<span style={{ color: 'red' }}> *</span>
               </label>
               <input
@@ -107,15 +117,20 @@ function ResetPass() {
                 id="mbResetPassConfirm"
                 onChange={resetHandler}
                 onBlur={checkResetPass2}
+                className="s-rp-input"
               />
               <div
-                className="errorMg"
+                className="s-rp-errorMg"
                 style={{ color: 'red' }}
                 id="mblEmail_error"
               >
                 {errorResetMgP2}
               </div>
-              <input type="submit" value="確認" className="resetSubmit" />
+              <input
+                type="submit"
+                value="確認"
+                className="s-rp-input s-rp-resetSubmit"
+              />
             </form>
           </div>
         </div>

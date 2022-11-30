@@ -1,0 +1,323 @@
+$colorBlue: #113f75;
+$colorYellow: #fad249;
+$colorOrange: #eb8e4c;
+$colorWhite: #ffffff;
+$colorLightGrey: #eeeeee;
+$colorDarkGrey: #4b646a;
+$colorMiddleGrey: #747474;
+$colorBrown: #986868;
+$colorList: #fdfcee;
+$colorLightBlue: #91d3f5;
+$colorGreen: #21a07d;
+$colorPurple: #9786df;
+$colorPink: #efc2d9;
+$colorLine: #cecece;
+$colorBlack: #000000;
+
+@mixin position($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+// ----------------!!start!!------------------
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+html {
+  // filter: invert(1);
+
+  //change 1rem into 10px
+  font-size: 62.5%;
+}
+body {
+  background-color: $colorWhite;
+}
+.j-sides {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.j-event-middle-schedule {
+  // outline: 1px black solid;
+  @include position(47%, 49%);
+  @include size(1100px, 900px);
+  transform: translate(-50%, -50%);
+
+  .j-cate-banner {
+    @include size(100%, 170px);
+    background-color: $colorLightGrey;
+    padding: 15px 20px;
+
+    .j-cate-banner-deco {
+      @include size(100%, 100%);
+      border: solid 4px #ffffff;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 50px;
+
+      div {
+        font-size: 7rem;
+        font-weight: 900;
+        color: $colorDarkGrey;
+        letter-spacing: 0.8rem;
+      }
+    }
+  }
+
+  .j-event-schedule {
+    background-color: $colorWhite;
+    margin-top: 30px;
+    .j-event-schedule-title {
+      width: 100%;
+      height: 180px;
+      background-color: $colorDarkGrey;
+      display: flex;
+      .j-stages-card-1 {
+        width: 20%;
+        height: 80%;
+        background-color: $colorLightBlue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .j-stage-deco {
+          height: 88%;
+          width: 90%;
+          padding: 8px;
+          background-color: $colorLightBlue;
+          border: 2px solid $colorWhite;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .j-star-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          .j-stage-name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            font-weight: 700;
+            color: $colorWhite;
+            line-height: 1;
+          }
+
+          .j-star-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+        }
+      }
+      .j-stages-card-2 {
+        width: 20%;
+        height: 80%;
+        background-color: $colorOrange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .j-stage-deco {
+          height: 88%;
+          width: 90%;
+          padding: 8px;
+          background-color: $colorOrange;
+          border: 2px solid $colorWhite;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .j-star-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          .j-stage-name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            font-weight: 700;
+            color: $colorWhite;
+            line-height: 1;
+          }
+
+          .j-star-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+        }
+      }
+      .j-stages-card-3 {
+        width: 20%;
+        height: 80%;
+        background-color: $colorGreen;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .j-stage-deco {
+          height: 88%;
+          width: 90%;
+          padding: 8px;
+          background-color: $colorGreen;
+          border: 2px solid $colorWhite;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .j-star-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          .j-stage-name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            font-weight: 700;
+            color: $colorWhite;
+            line-height: 1;
+          }
+
+          .j-star-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+        }
+      }
+      .j-stages-card-4 {
+        width: 20%;
+        height: 80%;
+        background-color: $colorPurple;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .j-stage-deco {
+          height: 88%;
+          width: 90%;
+          padding: 8px;
+          background-color: $colorPurple;
+          border: 2px solid $colorWhite;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .j-star-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          .j-stage-name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            font-weight: 700;
+            color: $colorWhite;
+            line-height: 1;
+          }
+
+          .j-star-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+        }
+      }
+      .j-stages-card-5 {
+        width: 20%;
+        height: 80%;
+        background-color: $colorPink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .j-stage-deco {
+          height: 88%;
+          width: 90%;
+          padding: 8px;
+          background-color: $colorPink;
+          border: 2px solid $colorWhite;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .j-star-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          .j-stage-name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            font-weight: 700;
+            color: $colorWhite;
+            line-height: 1;
+          }
+
+          .j-star-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+        }
+      }
+    }
+    .j-event-schedule-wrap {
+      width: 100%;
+      height: 1500px;
+      background-color: $colorLightGrey;
+      display: flex;
+      flex-direction: row;
+      .j-event-schedule-column-1 {
+        width: 20%;
+        height: 1500px;
+        background-color: $colorGreen;
+      }
+      .j-event-schedule-column-2 {
+        width: 20%;
+        height: 1500px;
+        background-color: $colorPurple;
+      }
+      .j-event-schedule-column-3 {
+        width: 20%;
+        height: 1500px;
+        background-color: $colorLightBlue;
+      }
+      .j-event-schedule-column-4 {
+        width: 20%;
+        height: 1500px;
+        background-color: $colorMiddleGrey;
+      }
+      .j-event-schedule-column-5 {
+        width: 20%;
+        height: 1500px;
+        background-color: $colorOrange;
+      }
+    }
+  }
+}

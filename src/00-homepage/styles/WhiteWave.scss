@@ -1,0 +1,44 @@
+$main-yellow: #FAD249;
+$main-blue: #2B325C;
+$main-text: #5E5E5E;
+$text-shadow: #E4E4E4;
+$min-width: 390px;
+$wave-height: 40px;
+
+.y-wave-section-white {
+    // position: relative;
+    width: 100%;
+    height: 60px;
+    // background-color: transparent; 
+    overflow: hidden;
+    .y-wave-base-white {
+        width: 100%;
+        height: $wave-height;
+        background-color: white;
+    }
+    .y-wave-wrap-white {
+        // position: absolute;
+        top: $wave-height;
+        width: 100%;
+        height: 60px;
+        background: {
+            image: url(./../images/Wave-1920px-white.png);
+            // repeat: no-repeat;
+            position: 50% 0;
+            size: 1920px 100px;
+        }
+        animation: y-animate-home-white 3.5s linear infinite;
+        z-index: 100;
+        animation-delay: 0.3s;
+        
+        @keyframes y-animate-home-white {
+            0% {
+                background-position-x: 0;
+            }
+
+            100% {
+                background-position-x: 1920px;
+            }
+        }
+    }
+}

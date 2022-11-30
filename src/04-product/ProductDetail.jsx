@@ -22,10 +22,10 @@ function ProductDetail() {
   async function getDeatil() {
     try {
       const response = await axios.get(
-        `http://localhost:3002/product/list?sid=${sid}`
+        `http://localhost:3004/product/list?sid=${sid}`
       );
       const result = await axios.get(
-        `http://localhost:3002/product/collect?sid=${sid}`
+        `http://localhost:3004/product/collect?sid=${sid}`
       );
       console.log(result.data.rows);
       if (result.data.rows.length !== 0) {

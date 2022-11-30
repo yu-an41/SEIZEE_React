@@ -1,136 +1,212 @@
-function ShopMcard() {
-    return (
-      <>
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { imgUrl, imgServerUrl } from '../shop-config'
+import './../styles/03-shop-m-card.scss'
 
+function ShopMcard({ filterShop, startShop, demoShop, setFindPos }) {
+  // console.log(startShop)
+  return (
+    <>
+      {startShop ? (
         <div className="r-m-card-wrap">
-            <div className="r-m-col">
-            <div className="r-m-card-container">
-                <div class="r-m-card-img">
+          {demoShop.map((v, i) => {
+            return (
+              <div className="r-m-col" key={v.rows.sid}>
+                <div className="r-m-card-container">
+                  <div className="r-m-card-img">
                     <div className="r-m-card-img-wrap">
-                    <img src='/03-shop-img/01cover.jpg' alt=""/>
+                      <img
+                        src={`${imgServerUrl}/images/03-shop/${v.rows.shop_cover}`}
+                        alt=""
+                      />
                     </div>
-                    <p>營業中</p>
-                </div>
-                <div className="r-m-card-body">
-                <h2>惜食店鋪SEIZEE</h2>
-                <div className="r-m-card-week-btn">
-                    <small>一</small>
-                    <small>二</small>
-                    <small>三</small>
-                    <small>四</small>
-                    <small>五</small>
-                    <small>六</small>
-                    <small>日</small>
-                </div>
-                <p>02-12345678</p>
-                <p>營業時間:<span>9:00-21:00</span></p>
-                <p>台北市大安區復興南路一段390號</p>
-                
-                <div className="r-m-card-button">
-                    <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                    <span>去逛逛</span>
-                    </a>
-                </div>
-                </div>
-            </div>
-            </div>
-            <div className="r-m-col">
-            <div className="r-m-card-container">
-                <div class="r-m-card-img">
-                    <div className="r-m-card-img-wrap">
-                    <img src='/03-shop-img/01cover.jpg' alt=""/>
+                    <span style={v.rows.open ? {} : { background: '#ccc' }}>
+                      營業中
+                    </span>
+                    <div className="r-m-card-body-cates">
+                      {v.cates.map((v, i) => {
+                        return <p key={i}>{v}</p>
+                      })}
                     </div>
-                    <p>營業中</p>
-                </div>
-                <div className="r-m-card-body">
-                <h2>惜食店鋪SEIZEE</h2>
-                <div className="r-m-card-week-btn">
-                    <small>一</small>
-                    <small>二</small>
-                    <small>三</small>
-                    <small>四</small>
-                    <small>五</small>
-                    <small>六</small>
-                    <small>日</small>
-                </div>
-                <p>02-12345678</p>
-                <p>營業時間:<span>9:00-21:00</span></p>
-                <p>台北市大安區復興南路一段390號</p>
-                
-                <div className="r-m-card-button">
-                    <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                    <span>去逛逛</span>
-                    </a>
-                </div>
-                </div>
-            </div>
-            </div>
-            <div className="r-m-col">
-            <div className="r-m-card-container">
-                <div class="r-m-card-img">
-                    <div className="r-m-card-img-wrap">
-                    <img src='/03-shop-img/01cover.jpg' alt=""/>
+                  </div>
+                  <div className="r-m-card-body">
+                    <h2>{v.rows.shop_name}</h2>
+                    <div className="r-m-card-week-btn">
+                      <small
+                        style={v.rows.shop_mon ? {} : { background: '#ccc' }}
+                      >
+                        一
+                      </small>
+                      <small
+                        style={v.rows.shop_tue ? {} : { background: '#ccc' }}
+                      >
+                        二
+                      </small>
+                      <small
+                        style={v.rows.shop_wed ? {} : { background: '#ccc' }}
+                      >
+                        三
+                      </small>
+                      <small
+                        style={v.rows.shop_thu ? {} : { background: '#ccc' }}
+                      >
+                        四
+                      </small>
+                      <small
+                        style={v.rows.shop_fri ? {} : { background: '#ccc' }}
+                      >
+                        五
+                      </small>
+                      <small
+                        style={v.rows.shop_sat ? {} : { background: '#ccc' }}
+                      >
+                        六
+                      </small>
+                      <small
+                        style={v.rows.shop_sun ? {} : { background: '#ccc' }}
+                      >
+                        日
+                      </small>
                     </div>
-                    <p>營業中</p>
-                </div>
-                <div className="r-m-card-body">
-                <h2>惜食店鋪SEIZEE</h2>
-                <div className="r-m-card-week-btn">
-                    <small>一</small>
-                    <small>二</small>
-                    <small>三</small>
-                    <small>四</small>
-                    <small>五</small>
-                    <small>六</small>
-                    <small>日</small>
-                </div>
-                <p>02-12345678</p>
-                <p>營業時間:<span>9:00-21:00</span></p>
-                <p>台北市大安區復興南路一段390號</p>
-                
-                <div className="r-m-card-button">
-                    <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                    <span>去逛逛</span>
-                    </a>
-                </div>
-                </div>
-            </div>
-            </div>
-            <div className="r-m-col">
-            <div className="r-m-card-container">
-                <div class="r-m-card-img">
-                    <div className="r-m-card-img-wrap">
-                    <img src='/03-shop-img/01cover.jpg' alt=""/>
-                    </div>
-                    <p>營業中</p>
-                </div>
-                <div className="r-m-card-body">
-                <h2>惜食店鋪SEIZEE</h2>
-                <div className="r-m-card-week-btn">
-                    <small>一</small>
-                    <small>二</small>
-                    <small>三</small>
-                    <small>四</small>
-                    <small>五</small>
-                    <small>六</small>
-                    <small>日</small>
-                </div>
-                <p>02-12345678</p>
-                <p>營業時間:<span>9:00-21:00</span></p>
-                <p>台北市大安區復興南路一段390號</p>
-                
-                <div className="r-m-card-button">
-                    <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                    <span>去逛逛</span>
-                    </a>
-                </div>
-                </div>
-            </div>
-            </div>
+                    <p>{v.rows.shop_phone}</p>
+                    <p>
+                      營業時間:
+                      <span>
+                        {v.rows.shop_opentime}-{v.rows.shop_closetime}
+                      </span>
+                    </p>
+                    <p>
+                      {v.rows.shop_city}
+                      {v.rows.shop_area}
+                      {v.rows.shop_address_detail}
+                    </p>
 
+                    <div className="r-m-card-button">
+                      <a
+                        href="#/"
+                        onClick={() => {
+                          setFindPos({
+                            lat: +v.rows.shop_lat,
+                            lng: +v.rows.shop_lng,
+                            shop: v.rows.shop_name,
+                          })
+                        }}
+                      >
+                        <i className="fa-solid fa-caret-right"></i>
+                        <span>尋找</span>
+                      </a>
+                      <a href="/#">
+                        <i className="fa-solid fa-caret-right"></i>
+                        <span>去逛逛</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
+      ) : (
+        <div className="r-m-card-wrap">
+          {filterShop.map((v, i) => {
+            return (
+              <div className="r-m-col" key={v[0].sid}>
+                <div className="r-m-card-container">
+                  <div className="r-m-card-img">
+                    <div className="r-m-card-img-wrap">
+                      <img
+                        src={`${imgServerUrl}/images/03-shop/${v[0].shop_cover}`}
+                        alt=""
+                      />
+                    </div>
+                    <span style={v[0].open ? {} : { background: '#ccc' }}>
+                      營業中
+                    </span>
+                    <div className="r-m-card-body-cates">
+                      {v[1].map((v, i) => {
+                        return <p key={i}>{v}</p>
+                      })}
+                    </div>
+                  </div>
+                  <div className="r-m-card-body">
+                    <h2>{v[0].shop_name}</h2>
+                    <div className="r-m-card-week-btn">
+                      <small
+                        style={v[0].shop_mon ? {} : { background: '#ccc' }}
+                      >
+                        一
+                      </small>
+                      <small
+                        style={v[0].shop_tue ? {} : { background: '#ccc' }}
+                      >
+                        二
+                      </small>
+                      <small
+                        style={v[0].shop_wed ? {} : { background: '#ccc' }}
+                      >
+                        三
+                      </small>
+                      <small
+                        style={v[0].shop_thu ? {} : { background: '#ccc' }}
+                      >
+                        四
+                      </small>
+                      <small
+                        style={v[0].shop_fri ? {} : { background: '#ccc' }}
+                      >
+                        五
+                      </small>
+                      <small
+                        style={v[0].shop_sat ? {} : { background: '#ccc' }}
+                      >
+                        六
+                      </small>
+                      <small
+                        style={v[0].shop_sun ? {} : { background: '#ccc' }}
+                      >
+                        日
+                      </small>
+                    </div>
+                    <p>{v[0].shop_phone}</p>
+                    <p>
+                      營業時間:
+                      <span>
+                        {v[0].shop_opentime}-{v[0].shop_closetime}
+                      </span>
+                    </p>
+                    <p>
+                      {v[0].shop_city}
+                      {v[0].shop_area}
+                      {v[0].shop_address_detail}
+                    </p>
 
-      </>
-    )
-  }
+                    <div className="r-m-card-button">
+                      <a
+                        href="#/"
+                        onClick={() => {
+                          setFindPos({
+                            lat: +v[0].shop_lat,
+                            lng: +v[0].shop_lng,
+                            shop: v[0].shop_name,
+                          })
+                        }}
+                      >
+                        <i className="fa-solid fa-caret-right"></i>
+                        <span>尋找</span>
+                      </a>
+                      <a href="#/">
+                        <i className="fa-solid fa-caret-right"></i>
+                        <span>去逛逛</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      )}
+    </>
+  )
+}
 export default ShopMcard

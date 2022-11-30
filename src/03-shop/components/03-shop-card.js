@@ -1,182 +1,181 @@
+import { useEffect, useState } from 'react'
+import { imgUrl, imgServerUrl } from '../shop-config'
+import axios from 'axios'
+import './../styles/03-shop-card.scss'
 
-function ShopCard(){
-    return<>
-                <div className="r-card-wrap">
-                  <div className="r-col">
-                    <div className="r-card-container">
-                        <div className="r-card-img-wrap">
-                          <span>營業中</span>
-                          <img src='/03-shop-img/01cover.jpg' alt=""/>
-                        </div>
-                      <div className="r-card-body">
-                        <h2>惜食店鋪SEIZEE</h2>
-                        <div className="r-card-week-btn">
-                          <small>一</small>
-                          <small>二</small>
-                          <small>三</small>
-                          <small>四</small>
-                          <small>五</small>
-                          <small>六</small>
-                          <small>日</small>
-                        </div>
-                        <p>02-12345678</p>
-                        <p>營業時間:<span>9:00-21:00</span></p>
-                        <p>台北市大安區復興南路</p>
-                        
-                        <div className="r-card-button">
-                          <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                            <span>去逛逛</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+function ShopCard({ filterShop, startShop, demoShop }) {
+  return (
+    <>
+      {startShop ? (
+        <div className="r-card-wrap">
+          {demoShop.map((v, i) => {
+            return (
+              <div className="r-col" key={v.rows.sid}>
+                <div className="r-card-container">
+                  <div className="r-card-img-wrap">
+                    <span style={v.rows.open ? {} : { background: '#ccc' }}>
+                      營業中
+                    </span>
+                    <img
+                      src={`${imgServerUrl}/images/03-shop/${v.rows.shop_cover}`}
+                      alt=""
+                    />
                   </div>
-                  <div className="r-col">
-                    <div className="r-card-container">
-                        <div className="r-card-img-wrap">
-                          <span>營業中</span>
-                          <img src='/03-shop-img/01cover.jpg' alt=""/>
-                        </div>
-                      <div className="r-card-body">
-                        <h2>惜食店鋪SEIZEE</h2>
-                        <div className="r-card-week-btn">
-                          <small>一</small>
-                          <small>二</small>
-                          <small>三</small>
-                          <small>四</small>
-                          <small>五</small>
-                          <small>六</small>
-                          <small>日</small>
-                        </div>
-                        <p>02-12345678</p>
-                        <p>營業時間:<span>9:00-21:00</span></p>
-                        <p>台北市大安區復興南路</p>
-                        
-                        <div className="r-card-button">
-                          <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                            <span>去逛逛</span>
-                          </a>
-                        </div>
-                      </div>
+                  <div className="r-card-body">
+                    <h2>{v.rows.shop_name}</h2>
+                    <div className="r-card-body-cates">
+                      {v.cates.map((v, i) => {
+                        return <span key={i}>{v}/</span>
+                      })}
                     </div>
-                  </div>
-                  <div className="r-col">
-                    <div className="r-card-container">
-                        <div className="r-card-img-wrap">
-                          <span>營業中</span>
-                          <img src='/03-shop-img/01cover.jpg' alt=""/>
-                        </div>
-                      <div className="r-card-body">
-                        <h2>惜食店鋪SEIZEE</h2>
-                        <div className="r-card-week-btn">
-                          <small>一</small>
-                          <small>二</small>
-                          <small>三</small>
-                          <small>四</small>
-                          <small>五</small>
-                          <small>六</small>
-                          <small>日</small>
-                        </div>
-                        <p>02-12345678</p>
-                        <p>營業時間:<span>9:00-21:00</span></p>
-                        <p>台北市大安區復興南路</p>
-                        
-                        <div className="r-card-button">
-                          <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                            <span>去逛逛</span>
-                          </a>
-                        </div>
-                      </div>
+                    <div className="r-card-week-btn">
+                      <small
+                        style={v.rows.shop_mon ? {} : { background: '#ccc' }}
+                      >
+                        一
+                      </small>
+                      <small
+                        style={v.rows.shop_tue ? {} : { background: '#ccc' }}
+                      >
+                        二
+                      </small>
+                      <small
+                        style={v.rows.shop_wed ? {} : { background: '#ccc' }}
+                      >
+                        三
+                      </small>
+                      <small
+                        style={v.rows.shop_thu ? {} : { background: '#ccc' }}
+                      >
+                        四
+                      </small>
+                      <small
+                        style={v.rows.shop_fri ? {} : { background: '#ccc' }}
+                      >
+                        五
+                      </small>
+                      <small
+                        style={v.rows.shop_sat ? {} : { background: '#ccc' }}
+                      >
+                        六
+                      </small>
+                      <small
+                        style={v.rows.shop_sun ? {} : { background: '#ccc' }}
+                      >
+                        日
+                      </small>
                     </div>
-                  </div>
-                  <div className="r-col">
-                    <div className="r-card-container">
-                        <div className="r-card-img-wrap">
-                          <span>營業中</span>
-                          <img src='/03-shop-img/01cover.jpg' alt=""/>
-                        </div>
-                      <div className="r-card-body">
-                        <h2>惜食店鋪SEIZEE</h2>
-                        <div className="r-card-week-btn">
-                          <small>一</small>
-                          <small>二</small>
-                          <small>三</small>
-                          <small>四</small>
-                          <small>五</small>
-                          <small>六</small>
-                          <small>日</small>
-                        </div>
-                        <p>02-12345678</p>
-                        <p>營業時間:<span>9:00-21:00</span></p>
-                        <p>台北市大安區復興南路</p>
-                        
-                        <div className="r-card-button">
-                          <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                            <span>去逛逛</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="r-col">
-                    <div className="r-card-container">
-                        <div className="r-card-img-wrap">
-                          <span>營業中</span>
-                          <img src='/03-shop-img/01cover.jpg' alt=""/>
-                        </div>
-                      <div className="r-card-body">
-                        <h2>惜食店鋪SEIZEE</h2>
-                        <div className="r-card-week-btn">
-                          <small>一</small>
-                          <small>二</small>
-                          <small>三</small>
-                          <small>四</small>
-                          <small>五</small>
-                          <small>六</small>
-                          <small>日</small>
-                        </div>
-                        <p>02-12345678</p>
-                        <p>營業時間:<span>9:00-21:00</span></p>
-                        <p>台北市大安區復興南路</p>
-                        
-                        <div className="r-card-button">
-                          <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                            <span>去逛逛</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="r-col">
-                    <div className="r-card-container">
-                        <div className="r-card-img-wrap">
-                          <span>營業中</span>
-                          <img src='/03-shop-img/01cover.jpg' alt=""/>
-                        </div>
-                      <div className="r-card-body">
-                        <h2>惜食店鋪SEIZEE</h2>
-                        <div className="r-card-week-btn">
-                          <small>一</small>
-                          <small>二</small>
-                          <small>三</small>
-                          <small>四</small>
-                          <small>五</small>
-                          <small>六</small>
-                          <small>日</small>
-                        </div>
-                        <p>02-12345678</p>
-                        <p>營業時間:<span>9:00-21:00</span></p>
-                        <p>台北市大安區復興南路</p>
-                        
-                        <div className="r-card-button">
-                          <a href="/#"><i className="fa-solid fa-caret-right"></i>
-                            <span>去逛逛</span>
-                          </a>
-                        </div>
-                      </div>
+                    <p>{v.rows.shop_phone}</p>
+                    <p>
+                      營業時間:
+                      <span>
+                        {v.rows.shop_opentime}-{v.rows.shop_closetime}
+                      </span>
+                    </p>
+                    <p>
+                      {v.rows.shop_city}
+                      {v.rows.shop_area}
+                      {v.rows.shop_address_detail}
+                    </p>
+
+                    <div className="r-card-button">
+                      <a href="/#">
+                        <i className="fa-solid fa-caret-right"></i>
+                        <span>去逛逛</span>
+                      </a>
                     </div>
                   </div>
                 </div>
+              </div>
+            )
+          })}
+        </div>
+      ) : (
+        <div className="r-card-wrap">
+          {filterShop.map((v, i) => {
+            return (
+              <div className="r-col" key={v[0].sid}>
+                <div className="r-card-container">
+                  <div className="r-card-img-wrap">
+                    <span style={v[0].open ? {} : { background: '#ccc' }}>
+                      營業中
+                    </span>
+                    <img
+                      src={`${imgServerUrl}/images/03-shop/${v[0].shop_cover}`}
+                      alt=""
+                    />
+                  </div>
+                  <div className="r-card-body">
+                    <h2>{v[0].shop_name}</h2>
+                    <div className="r-card-body-cates">
+                      {v[1].map((v, i) => {
+                        return <span key={i}>{v}/</span>
+                      })}
+                    </div>
+                    <div className="r-card-week-btn">
+                      <small
+                        style={v[0].shop_mon ? {} : { background: '#ccc' }}
+                      >
+                        一
+                      </small>
+                      <small
+                        style={v[0].shop_tue ? {} : { background: '#ccc' }}
+                      >
+                        二
+                      </small>
+                      <small
+                        style={v[0].shop_wed ? {} : { background: '#ccc' }}
+                      >
+                        三
+                      </small>
+                      <small
+                        style={v[0].shop_thu ? {} : { background: '#ccc' }}
+                      >
+                        四
+                      </small>
+                      <small
+                        style={v[0].shop_fri ? {} : { background: '#ccc' }}
+                      >
+                        五
+                      </small>
+                      <small
+                        style={v[0].shop_sat ? {} : { background: '#ccc' }}
+                      >
+                        六
+                      </small>
+                      <small
+                        style={v[0].shop_sun ? {} : { background: '#ccc' }}
+                      >
+                        日
+                      </small>
+                    </div>
+                    <p>{v[0].shop_phone}</p>
+                    <p>
+                      營業時間:
+                      <span>
+                        {v[0].shop_opentime}-{v[0].shop_closetime}
+                      </span>
+                    </p>
+                    <p>
+                      {v[0].shop_city}
+                      {v[0].shop_area}
+                      {v[0].shop_address_detail}
+                    </p>
+
+                    <div className="r-card-button">
+                      <a href="/#">
+                        <i className="fa-solid fa-caret-right"></i>
+                        <span>去逛逛</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      )}
     </>
+  )
 }
 export default ShopCard

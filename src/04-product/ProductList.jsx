@@ -22,7 +22,7 @@ function ProductList() {
   async function getProductCard() {
     try {
       const response = await axios.get(
-        `http://localhost:3002/product/list?shop_list_sid=${shop_list_sid}`
+        `http://localhost:3004/product/list?shop_list_sid=${shop_list_sid}`
       );
       console.log('this is reponse:',response);
       const Pdata = response.data.product_rows;
