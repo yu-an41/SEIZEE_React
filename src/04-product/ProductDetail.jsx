@@ -14,21 +14,20 @@ import log from "eslint-plugin-react/lib/util/log";
 function ProductDetail() {
   const { collection, setCollection, delCollect, addCollect } =
     useContext(CollectContext);
-  const [heart, setHeart] = useState(false);
-  console.log(heart);
   const [detail, setDetail] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
   const { sid } = useParams();
   // console.log({ collection });
-
   const [qty, setQty] = useState(1);
+  const [heart, setHeart] = useState(false);
+  // console.log(heart);
 
   async function getDeatil() {
     try {
       const response = await axios.get(
         `http://localhost:3004/product/list?sid=${sid}`
       );
-      console.log(sid);
+      // console.log(sid);
       const result = await axios.get(
         `http://localhost:3004/product/collect?sid=${sid}`
       );
@@ -46,7 +45,7 @@ function ProductDetail() {
   }
   useEffect(() => {
     getDeatil();
-  }, []);
+  }, [heart]);
 
   return (
     <>
@@ -120,8 +119,18 @@ function ProductDetail() {
                 </div>
                 <div className="a-productQuantity">
                   <p>數量</p>
-                  <button id="minus">-</button>
+                  <button
+                    className="minus"
+                    onClick={() => {
+                      if (qty > 1) {
+                        setQty(qty - 1);
+                      }
+                    }}
+                  >
+                    -
+                  </button>
                   <input
+                    className="a-qtyInput"
                     type="text"
                     value={qty ? qty : ""}
                     onChange={(q) => {
@@ -134,7 +143,7 @@ function ProductDetail() {
                     }}
                   />
                   <button
-                    id="plus"
+                    className="plus"
                     onClick={() => {
                       if (qty < details.inventory_qty) {
                         setQty(qty + 1);
@@ -154,7 +163,7 @@ function ProductDetail() {
         })}
       </div>
       <YellowWave2 />
-      {/* <ProductComment sid={sid}/> */}
+      <ProductComment sid={sid} />
       <RecommendCard sid={sid} />
     </>
   );
