@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import CartInfoContext from '../contexts/CartInfoContext'
 
 // scss
 import './../styles/CartInfo.scss'
