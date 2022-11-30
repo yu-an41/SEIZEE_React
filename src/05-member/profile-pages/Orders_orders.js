@@ -19,14 +19,6 @@ function Orders() {
   // 錯誤訊息用
   const [errorMbOrederMg, setErrorMbOrederMg] = useState('')
 
-  // 訂單細項數
-  // 訂單編號
-  const [mbOrderNum, setMbOrderNum] = useState('')
-  // 總共多少筆訂單細項
-  const [mbTotalOrderDetails, setMbTotalOrderDetails] = useState(0)
-  // 總共訂單細項資料用
-  const [mbOrderDisplayDetails, setMbOrderDisplayDetails] = useState([])
-
   // ====================================
 
   function orderToggle() {
@@ -55,7 +47,6 @@ function Orders() {
     console.log(data.row)
     console.log(data.row[1])
     // console.log(response.data)
-
     if (data.success) {
       setMbTotalOrder(data.row.length)
       setMbOrderDisplay(data.row)
@@ -63,19 +54,15 @@ function Orders() {
     } else {
       setErrorMbOrederMg('目前沒有訂單')
     }
-
   }
 
-  // console.log(mbOrderDisplay[0])
-  // console.log(mbOrderDisplay[1])
+  console.log(mbOrderDisplay[0])
+  console.log(mbOrderDisplay[1])
 
   useEffect(() => {
     // console.log(2);
     getOrders()
   }, [location])
-
-  // ====================================
-  // 讀取訂單細節
 
   return (
     <>
@@ -86,7 +73,6 @@ function Orders() {
             <div className="s-o">
               <h2 className="s-o-title">訂單查詢</h2>
               <div className="s-o-card">
-                {/* orders */}
                 {mbTotalOrder === 0 ? (
                   <div className="s-o-data s-o-data-error">
                     {errorMbOrederMg}
@@ -153,8 +139,6 @@ function Orders() {
                       )
                     })
                 )}
-
-                {/* order-details */}
               </div>
             </div>
 

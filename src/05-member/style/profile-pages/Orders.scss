@@ -26,6 +26,7 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     transition: 0.5s;
     padding: 15px;
+    overflow: scroll;
     // background: linear-gradient(45deg, #ffebbd, #ffd374f4, #faa7ec);
 
     // border: 1px solid green;
@@ -36,10 +37,10 @@
       align-items: center;
       position: relative;
       padding: 20px 0;
-    //   box-shadow: (0 6px 4px #ffebbd76);
+      // box-shadow: (0 6px 4px #ffebbd76);
       background-color: #ffffff;
 
-    //   border: 1px solid green;
+      // border: 1px solid green;
 
       .s-o-line {
         width: 100%;
@@ -66,7 +67,7 @@
         }
 
         .s-o-answer {
-            font-size: 13px;
+          font-size: 13px;
           /* border: 1px solid blue; */
         }
 
@@ -91,12 +92,16 @@
       }
     }
 
+    .s-o-data-error {
+      font-size: 24px;
+    }
+
     .s-o-data-details-out {
       padding: 0 20px;
       background-color: bisque;
       overflow: auto;
 
-    //   border: 1px solid red;
+      //   border: 1px solid red;
 
       .s-o-data-details {
         display: flex;
