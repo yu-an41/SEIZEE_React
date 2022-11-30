@@ -95,10 +95,10 @@ function App() {
             />
             <Route path="/product/:sid" element={<ProductDetail />} />
 
-            {/* 05-member
-            {/* <Route path="/login" element={<UserSign />} />
-                <Route path="/forgot-pass" element={<ForgotPass />} />
-                <Route path="/reset-pass" element={<ResetPass />} /> */}
+            {/* 05-member */}
+            <Route path="/login" element={<UserSign />} />
+            <Route path="/forgot-pass" element={<ForgotPass />} />
+            <Route path="/reset-pass" element={<ResetPass />} />
 
             {/* member-profile */}
             <Route path="/profile/">

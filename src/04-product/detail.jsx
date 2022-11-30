@@ -21,7 +21,7 @@ function ProductDetail() {
   async function getDeatil() {
     try {
       const response = await axios.get(
-        `http://localhost:3002/product/list?sid=${sid}`
+        `http://localhost:3004/product/list?sid=${sid}`
       );
       console.log(response.data);
       const Pdata = response.data.product_rows;

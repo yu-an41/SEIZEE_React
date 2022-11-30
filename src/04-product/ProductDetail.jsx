@@ -6,23 +6,33 @@ import YellowWave2 from "./components/YellowWave2";
 import { useParams, useLocation } from "react-router-dom";
 import Carousel from "./components/Carousel";
 import CollectContext from "./components/CollectContext";
+import ProductComment from"./components/ProductComment";
+import CommentArea from"./components/CommentArea";
 
 function ProductDetail() {
-  const { collection, setCollection } = useContext(CollectContext);
+  const { collection, setCollection, delCollect, addCollect } =
+    useContext(CollectContext);
+  const [heart, setHeart] = useState(false);
   const [detail, setDetail] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
   const { sid } = useParams();
-  console.log({ collection });
-
   const [qty, setQty] = useState(1);
-
+  console.log({ collection });
+  
   async function getDeatil() {
     try {
       const response = await axios.get(
-        `http://localhost:3002/product/list?sid=${sid}`
+        `http://localhost:3004/product/list?sid=${sid}`
       );
-      console.log(response.data);
+      const result = await axios.get(
+        `http://localhost:3004/product/collect?sid=${sid}`
+      );
+      console.log(result.data.rows);
+      if (result.data.rows.length !== 0) {
+        setHeart(true);
+      }
       const Pdata = response.data.product_rows;
+      console.log(Pdata);
       setDetail(Pdata);
     } catch (e) {
       console.error(e.message);
@@ -39,6 +49,7 @@ function ProductDetail() {
       <div className="a-deatil">
         {detail.map((details, i) => {
           return (
+            <div className="">
             <div className="a-productDetailWrapper" key={details.sid}>
               <div className="a-detailWrapper">
                 <div className="a-shopNameWrapper">
@@ -62,7 +73,19 @@ function ProductDetail() {
                     <p>最後取餐時間{details.shop_deadline}</p>
                   </div>
                   <div className="a-productCollection">
-                    <img src="/04-product/svg/collection.svg" alt="" />
+                    {heart ? (
+                      <img
+                        src="/04-product/svg/heart.svg"
+                        alt=""
+                        onClick={() => delCollect(sid)}
+                      />
+                    ) : (
+                      <img
+                        src="/04-product/svg/collection.svg"
+                        alt=""
+                        onClick={() => addCollect(sid)}
+                      />
+                    )}
                     <p>加入收藏清單</p>
                   </div>
                 </div>
@@ -90,34 +113,50 @@ function ProductDetail() {
                   <p>惜食剩餘數量</p>
                   <p className="a-qty">{details.inventory_qty}</p>
                 </div>
-                <div class="a-productQuantity">
+                <div className="a-productQuantity">
                   <p>數量</p>
-                  <button id="minus">-</button>
+                  <button
+                    id="minus"
+                    onClick={() => {
+                      if (qty > 1) {
+                        setQty(qty - 1);
+                      }
+                    }}
+                  >
+                    -
+                  </button>
                   <input
-                    type="number"
-                    value={
-                      details.inventory_qty === 0 ? "" : details.inventory_qty
-                    }
+                    id="a-qty"
+                    type="text"
+                    value={qty ? qty : ""}
                     onChange={(q) => {
+                      let a = q.target.value;
+                      if (a > details.inventory_qty) {
+                        return;
+                      }
                       //保持state資料類型一致是數字
                       setQty(Number(q.target.value));
                     }}
                   />
-                  <button id="plus">+</button>
+                  <button
+                    id="plus"
+                    onClick={() => {
+                      if (qty < details.inventory_qty) {
+                        setQty(qty + 1);
+                      }
+                    }}
+                  >
+                    +
+                  </button>
                 </div>
-                {/* <div className="a-quantity">
-                    <p>數量</p>
-                    <div className="a-quantityButton">
-                      <p>-</p>
-                      <p>+</p>
-                    </div>
-                  </div> */}
                 <div className="a-addButton">
                   <p>加入購物車</p>
                   <img src="/04-product/svg/cart.svg" alt="" />
                 </div>
               </div>
             </div>
+            <ProductComment/>
+            </div> 
           );
         })}
       </div>
