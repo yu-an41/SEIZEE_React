@@ -5,10 +5,10 @@ import RecommendCard from "./components/RecommendCard";
 import YellowWave2 from "./components/YellowWave2";
 import { useParams, useLocation } from "react-router-dom";
 import Carousel from "./components/Carousel";
+import Carousel2 from "./components/Carousel2";
 import CollectContext from "./components/CollectContext";
 import ProductComment from"./components/ProductComment";
 import CommentArea from"./components/CommentArea";
-
 
 function ProductDetail() {
   const { collection, setCollection,delCollect ,addCollect} = useContext(CollectContext);
@@ -46,11 +46,11 @@ function ProductDetail() {
 
   return (
     <>
+    <Carousel2/>
       {/* <Carousel/> */}
       <div className="a-deatil">
         {detail.map((details, i) => {
           return (
-            
             <div className="a-productDetailWrapper" key={details.sid}>
               <div className="a-detailWrapper">
                 <div className="a-shopNameWrapper">
@@ -75,8 +75,6 @@ function ProductDetail() {
                   </div>
                   <div className="a-productCollection">
                   {heart?<img src="/04-product/svg/heart.svg" alt="" onClick={() => delCollect(sid)}/>:<img src="/04-product/svg/collection.svg" alt=""  onClick={() => addCollect(sid)}/>}
-                  
-                    
                     <p>加入收藏清單</p>
                   </div>
                 </div>
@@ -125,13 +123,6 @@ function ProductDetail() {
                     }
                   }}>+</button>
                 </div>
-                {/* <div className="a-quantity">
-                    <p>數量</p>
-                    <div className="a-quantityButton">
-                      <p>-</p>
-                      <p>+</p>
-                    </div>
-                  </div> */}
                 <div className="a-addButton">
                   <p>加入購物車</p>
                   <img src="/04-product/svg/cart.svg" alt="" />

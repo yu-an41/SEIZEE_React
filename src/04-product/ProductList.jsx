@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams, useLocation } from 'react-router-dom'
-import { PRODUCT } from "../my-config";
 import axios from "axios";
 import ProductCard from "./components/ProductCard.jsx";
 import HeadWave from "../components/HeadWave";

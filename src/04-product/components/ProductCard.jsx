@@ -47,7 +47,6 @@ const tempRef = useRef();
           <Link to={`/product/${product.sid}`}>
             <h3>{product.product_name}</h3>
           </Link>
-
           {collectionNum.length > 0 ? (
             collectionNum.includes(product.sid) ? (
               <img src="/04-product/svg/heart.svg" alt="" onClick={() => delCollect(product.sid)}/>) 
@@ -55,13 +54,6 @@ const tempRef = useRef();
               <img src="/04-product/svg/collection.svg"
                 alt="" onClick={() => addCollect(+product.sid)} /> )) 
               : ("")}
-          {/* {collectionNum.length < 0 ? (
-            collectionNum.includes(product.sid) ? (
-              <img src="/04-product/svg/heart.svg" alt="" />) 
-              : (
-              <img src="/04-product/svg/collection.svg"
-                alt="" onClick={() => delCollect(-product.sid)} /> )) 
-              : ("")} */}
         </div>
         <div className="a-priceWrapper">
           <div className="a-productPrice">
