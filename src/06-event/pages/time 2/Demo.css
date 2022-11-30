@@ -1,0 +1,10 @@
+.empty-block{
+  height:90px;
+  border:1px solid red;
+  background-color: burlywood;
+}
+
+.normal-block{
+  border: 1px solid green;
+    background-color: grey;
+}

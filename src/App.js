@@ -7,7 +7,7 @@ import MyContextProviders from './contexts/MyContextProviders'
 import ScrollToTop from './components/ScrollToTop'
 
 // 00-homepage
-import Homepage from './00-homepage/pages/Homepage'
+// import Homepage from './00-homepage/pages/Homepage'
 
 // 01-cart
 import CartList from './01-cart/pages/CartList'
@@ -33,22 +33,25 @@ import { CartProvider } from './contexts/useCart'
 // import ShopHome from './03-shop/pages/03-shop-home'
 
 // 04-product
-import ProductList from './04-product/ProductList'
+// import ProductList from './04-product/ProductList'
 // import ProductDetail from './04-product/ProductDetail'
 
 // 05-member
-import UserSign from './05-member/UserSign'
-import ResetPass from './05-member/ResetPass'
-import ForgotPass from './05-member/ForgotPass'
+// import UserSign from './05-member/UserSign'
+// import ResetPass from './05-member/ResetPass'
+// import ForgotPass from './05-member/ForgotPass'
 // 以下會撞波浪XDD
-import UserProfile from './05-member/profile-pages/UserProfile'
-import UpdateInfo from './05-member/profile-pages/UpdateInfo'
-import Likes from './05-member/profile-pages/Likes'
-import Activities from './05-member/profile-pages/Activities'
-import Orders from './05-member/profile-pages/Orders'
+// import UserProfile from './05-member/profile-pages/UserProfile'
+// import UpdateInfo from './05-member/profile-pages/UpdateInfo'
+// import Likes from './05-member/profile-pages/Likes'
+// import Activities from './05-member/profile-pages/Activities'
+// import Orders from './05-member/profile-pages/Orders'
 
 // 06-event
+//event要用的context
+import { TimeTableProvider } from './06-event/context/useTimeTable'
 // import Top from './06-event/pages/06-event-01-top'
+import Eventrender from './06-event/pages/06-event-00-Render'
 
 function App() {
   return (
@@ -56,17 +59,18 @@ function App() {
       <BrowserRouter>
         <CartProvider>
           <MyContextProviders>
-          <ScrollToTop>
-            <Routes>
-              {/* 00-homepage */}
-              <Route path="/" element={<Homepage />} />
+            <ScrollToTop>
+              <TimeTableProvider>
+                <Routes>
+                  {/* 00-homepage */}
+                  {/* <Route path="/" element={<Homepage />} /> */}
 
-              {/* 01-cart */}
-              <Route path="/cart" element={<CartList />} />
-              <Route path="/cart/info" element={<CartInfo />} />
+                  {/* 01-cart */}
+                  {/* <Route path="/cart" element={<CartList />} />
+              <Route path="/cart/info" element={<CartInfo />} /> */}
 
-              {/* 02-forum */}
-              {/* <Route path="/forum">
+                  {/* 02-forum */}
+                  {/* <Route path="/forum">
                 <Route path="/" element={<ForumHome />} />
                 <Route path="/cook" element={<PostCook />} />
                 <Route path="/share" element={<PostShare />} />
@@ -79,40 +83,42 @@ function App() {
                 <Route path="/writeForm" element={<WriteForm />} />
               </Route> */}
 
-              {/* 03-shop */}
-              {/* <Route path="/shop" element={<ShopList />} /> */}
-              {/* <Route path="/shop" element={<ShopHome />} /> */}
+                  {/* 03-shop */}
+                  {/* <Route path="/shop" element={<ShopList />} /> */}
+                  {/* <Route path="/shop" element={<ShopHome />} /> */}
 
-              {/* 04-product  */}
-              <Route
+                  {/* 04-product  */}
+                  {/* <Route
                 path="/productList/:shop_list_sid"
                 element={<ProductList />}
-              />
-              {/* <Route path="/product/:sid" element={<ProductDetail />} /> */}
+              /> */}
+                  {/* <Route path="/product/:sid" element={<ProductDetail />} /> */}
 
-              {/* 05-member */}
-              <Route path="/login" element={<UserSign />} />
+                  {/* 05-member */}
+                  {/* <Route path="/login" element={<UserSign />} />
               <Route path="/forgot-pass" element={<ForgotPass />} />
-              <Route path="/reset-pass" element={<ResetPass />} />
+              <Route path="/reset-pass" element={<ResetPass />} /> */}
 
-              {/* member-profile */}
-              <Route path="/profile/">
+                  {/* member-profile */}
+                  {/* <Route path="/profile/">
                 <Route index path="" element={<UserProfile />} />
                 <Route path="update-info" element={<UpdateInfo />} />
                 <Route path="orders" element={<Orders />} />
                 <Route path="likes" element={<Likes />} />
                 <Route path="activities" element={<Activities />} />
-              </Route>
+              </Route> */}
 
-              {/* 06-event */}
-              {/* <Route path="/top" element={<Top />} />
+                  {/* 06-event */}
+                  {/* <Route path="/top" element={<Top />} />
               <Route path="/events" element={<Events />} />
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/map" element={<Map />} />
               <Route path="/ticket" element={<Ticket />} /> */}
-              {/* <Route path="/Eventrender" element={<Eventrender />} /> */}
-            </Routes>
-          </ScrollToTop>
+
+                  <Route path="/Eventrender" element={<Eventrender />} />
+                </Routes>
+              </TimeTableProvider>
+            </ScrollToTop>
           </MyContextProviders>
         </CartProvider>
       </BrowserRouter>

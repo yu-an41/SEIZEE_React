@@ -1,0 +1,165 @@
+$colorBlue: #113f75;
+$colorYellow: #fad249;
+$colorOrange: #eb8e4c;
+$colorWhite: #ffffff;
+$colorLightGrey: #eeeeee;
+$colorDarkGrey: #4b646a;
+$colorMiddleGrey: #747474;
+$colorBrown: #986868;
+$colorList: #fdfcee;
+$colorLightBlue: #91d3f5;
+$colorGreen: #21a07d;
+$colorPurple: #9786df;
+$colorPink: #efc2d9;
+$colorLine: #cecece;
+
+@mixin position($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+.j-right-wrap {
+  position: fixed;
+  right: 0;
+  width: 43%;
+  display: flex;
+  @media (max-width: 390px) {
+    position: relative;
+    width: 100%;
+    left: 0;
+    outline: 2px solid red;
+  }
+  .j-Rwave {
+    margin-right: -2px;
+    width: 65%;
+    transform: rotate(180deg);
+    @media (max-width: 390px) {
+      width: 100%;
+      transform: rotate(90deg);
+      outline: 2px teal solid;
+      transform: rotate(-90deg);
+    }
+  }
+  .j-right {
+    position: relative;
+    @include size(300px, 100vh);
+    background-color: $colorYellow;
+    @media (max-width: 390px) {
+      @include size(100vw, 1000px);
+      outline: 5px black solid;
+      // transform: rotate(-90deg);
+    }
+    .j-menu {
+      width: 150px;
+      position: absolute;
+      top: 2%;
+      left: 29%;
+      // border: 2px solid red;
+      img {
+        width: 100%;
+      }
+    }
+    .j-table-right {
+      // outline: 2px solid red;
+      position: absolute;
+      top: 9%;
+      left: 8%;
+      width: 270px;
+      height: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .j-banner {
+        // outline: solid 2px brown;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 220px;
+        height: 45px;
+        color: $colorWhite;
+        background-color: $colorBrown;
+
+        font-size: 2.6rem;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 4px solid $colorWhite;
+      }
+      .j-cardG {
+        // outline: solid blue 2px;
+        // padding: 10%;
+        width: 100%;
+        height: 950px;
+        .j-tableself {
+          margin: auto;
+          // outline: 1px solid black;
+          margin-top: 15px;
+          width: 250px;
+          height: 100px;
+          background-color: $colorWhite;
+          border-radius: 15px;
+          overflow: hidden;
+          border: 5px solid $colorWhite;
+          .j-cardtime {
+            width: 100%;
+            height: 35px;
+            font-size: 2rem;
+            padding-left: 10px;
+            padding-top: 5px;
+            color: $colorWhite;
+          }
+          .j-cardname {
+            height: 49px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // outline: black solid 1px;
+            padding: 0 10px;
+            text-align: center;
+            font-size: 2.2rem;
+            color: $colorWhite;
+            border-top: solid 3px $colorWhite;
+          }
+        }
+      }
+      // .j-table-self{
+      //   width: 100%;
+      //   height: 300px;
+      //   outline: 2px solid green;
+      // }
+    }
+
+    // ul {
+    //   @include size(100%, 100%);
+    //   list-style-type: none;
+    //   padding: 0;
+    //   display: flex;
+    //   flex-direction: column;
+    //   justify-content: space-evenly;
+    //   align-items: center;
+    //   li {
+    //     .j-right-banner {
+    //       @include size(240px, 70px);
+    //       font-size: 3.5rem;
+    //       font-weight: 900;
+    //       background-color: $colorWhite;
+    //       color: $colorBrown;
+    //       display: flex;
+    //       justify-content: center;
+    //       align-items: center;
+    //       border-radius: 0;
+    //       margin-top: 30px;
+    //     }
+    //     div {
+    //       @include size(240px, 4px);
+    //       background-color: $colorWhite;
+    //       border-radius: 4px;
+    //       margin-bottom: 100px;
+    //     }
+    //   }
+    // }
+  }
+}
