@@ -184,9 +184,11 @@ input[type="number"] {
       border-radius: 0 8px 8px 0;
       font-size: 20px;
     }
-    .a-productQuantity input {
+    #a-qty {
       border-radius: 0%;
+      border: none;
       height: 30px;
+      text-align: center;
     }
     .a-qty {
       border: $main-border;

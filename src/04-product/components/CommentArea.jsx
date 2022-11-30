@@ -1,12 +1,10 @@
 import React from 'react'
+import './style/ProductComment.scss'
 
 function CommentArea() {
   return (
     <div>
-      <input
-        type="text"
-        naem=""
-      />
+      
     </div>
   )
 }
