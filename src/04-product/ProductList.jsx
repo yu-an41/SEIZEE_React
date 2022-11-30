@@ -40,6 +40,7 @@ function ProductList() {
   useEffect(() => {
     getProductCard();
   }, []);
+  
 
   return (
     <>
