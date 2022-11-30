@@ -6,10 +6,9 @@ import { useLocation } from 'react-router-dom'
 import AuthContext from '../../contexts/AuthContext'
 import axios from 'axios'
 import { PROFILE_ORDERS, PROFILE_ORDERS_DETAILS } from '../../my-config'
+import dayjs from 'dayjs'
 
 function Orders() {
-  const [orderIndex, setOrderIndex] = useState(null)
-
   // 訂單數
   // 總共多少筆訂單
   const [mbTotalOrder, setMbTotalOrder] = useState(0)
@@ -21,7 +20,7 @@ function Orders() {
 
   // 訂單細項數
   // 訂單編號
-  const [mbOrderNum, setMbOrderNum] = useState('')
+  const [orderIndex, setOrderIndex] = useState(null)
   // 總共多少筆訂單細項
   const [mbTotalOrderDetails, setMbTotalOrderDetails] = useState(0)
   // 總共訂單細項資料用
@@ -64,8 +63,8 @@ function Orders() {
     // console.log(myAuth.token)
     // console.log(data)
     // console.log(data.row.length)
-    console.log(data.row)
-    console.log(data.row[1])
+    // console.log(data.row)
+    // console.log(data.row[1])
     // console.log(response.data)
 
     if (data.success) {
@@ -107,9 +106,13 @@ function Orders() {
                   Array(mbTotalOrder)
                     .fill(mbOrderDisplay)
                     .map((v, i) => {
-                      console.log('v', v)
+                      {
+                        /* console.log('v', v)
                       console.log('i', i)
-                      console.log('v[i].order_sid', v[i].order_sid)
+                      console.log('v[i].order_sid', v[i].order_sid) */
+                      }
+
+                      const day = dayjs(v[i].created_at)
 
                       return (
                         <>
@@ -118,7 +121,7 @@ function Orders() {
                             <div className="s-o-items">
                               <h3 className="s-o-question">訂單日期</h3>
                               <span className="s-o-answer" id="mboDate">
-                                {v[i].created_at}
+                                {day.isValid() && day.format('YYYY-MM-DD HH:mm:ss')}
                               </span>
                             </div>
                             <div className="s-o-items">
