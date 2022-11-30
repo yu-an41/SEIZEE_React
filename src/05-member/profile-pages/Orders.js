@@ -1,7 +1,11 @@
 import '.././style/profile-pages/Orders.scss'
 
-import React, { useState } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
+import { useLocation } from 'react-router-dom'
+import AuthContext from '../../contexts/AuthContext'
+import axios from 'axios'
+import { PROFILE_ORDERS } from '../../my-config'
 
 function Orders() {
   const [orderIndex, setOrderIndex] = useState(1)
@@ -13,6 +17,29 @@ function Orders() {
       setOrderIndex(1)
     }
   }
+
+  // ====================================
+  // 讀取訂單
+  const location = useLocation()
+  const { myAuth } = useContext(AuthContext)
+
+  async function getOrders() {
+    const response = await axios.get(PROFILE_ORDERS, {
+      headers: {
+        Authorization: 'Bearer ' + myAuth.token,
+      },
+    })
+    console.log(myAuth)
+    console.log(myAuth.token)
+    console.log(response)
+    console.log(response.data)
+  }
+
+  useEffect(() => {
+    // console.log(2);
+    getOrders()
+  }, [location])
+
   return (
     <>
       <div className="s-body-profile">
