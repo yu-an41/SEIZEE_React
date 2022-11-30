@@ -73,7 +73,7 @@ function Homepage() {
           </section>
           <section className="y-section y-section-carousel">
             <div className="y-carousel-wrap">
-              <TopCarousel />
+              {/* <TopCarousel /> */}
               <div className="y-carousel-block-yellow">
                 <p></p>
               </div>
@@ -114,7 +114,7 @@ function Homepage() {
           <WhiteWave />
         </div>
         <section className="y-section y-section-event">
-          {/* <div class="a-eventBanner">
+          <div class="a-eventBanner">
             <div className="a-eventWrapper">
               <h3 className="a-newEvent">最新活動</h3>
               <div class="a-eventText">
@@ -166,7 +166,7 @@ function Homepage() {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </section>
         <div className="y-wave-wrap">
           <YellowWave />

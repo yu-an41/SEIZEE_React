@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MyContextProviders from './contexts/MyContextProviders'
 import CollectContextProvider from './04-product/components/CollectContext'
-import CartInfoContext from './01-cart/contexts/CartInfoContext'
 
 // components
 // import Menu from './components/Menu'
@@ -59,7 +58,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <CartInfoContext> */}
         <MyContextProviders>
           {/* <CollectContextProvider> */}
           <Routes>
@@ -91,13 +89,13 @@ function App() {
             {/* <Route path="/shop" element={<ShopHome />} /> */}
 
             {/* 04-product  */}
-            {/* <Route
-                  path="/productList/:shop_list_sid"
-                  element={<ProductList />}
-                />
-                <Route path="/product/:sid" element={<ProductDetail />} />
+            <Route
+              path="/productList/:shop_list_sid"
+              element={<ProductList />}
+            />
+            <Route path="/product/:sid" element={<ProductDetail />} />
 
-            {/* 05-member */}
+            {/* 05-member
             {/* <Route path="/login" element={<UserSign />} />
                 <Route path="/forgot-pass" element={<ForgotPass />} />
                 <Route path="/reset-pass" element={<ResetPass />} /> */}
@@ -121,7 +119,6 @@ function App() {
           </Routes>
           {/* </CollectContextProvider> */}
         </MyContextProviders>
-        {/* </CartInfoContext> */}
       </BrowserRouter>
     </>
   )

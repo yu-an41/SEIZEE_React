@@ -5,16 +5,26 @@ import CartIcon from './../../dotown/cart.png'
 import RecMerchPic from './../../dotown/pizza.png'
 
 function RecMerch() {
+  // const {
+  //   sid,
+  //   shop_list_sid,
+  //   product_name,
+  //   product_category,
+  //   unit_price,
+  //   sale_price,
+  //   inventory_qty,
+  //   picture_url,
+  // } = recMerchData
   return (
     <div className="y-rec-merch-border">
       <div className="y-rec-merch-pic">
         <img src={RecMerchPic} />
       </div>
       <div className="y-rec-merch-info">
-        <p className="y-rec-merch-name">料多到爆炸好吃潛艇堡</p>
+        <p className="y-rec-merch-name">{/* {product_name} */}</p>
         <div className="y-rec-merch-bottom">
-          <p className="y-rec-merch-price">$105</p>
-          <p className="y-rec-merch-sale">$59</p>
+          <p className="y-rec-merch-price">{/* {unit_price} */}</p>
+          <p className="y-rec-merch-sale">{/* {unit_price * sale_price} */}</p>
           <div className="y-rec-merch-quantity">
             <select>
               <option value={1}>1</option>

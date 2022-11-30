@@ -27,7 +27,7 @@ export const CartInfoContextProvider = function ({ children }) {
 
   // 加入購物車
   const handleAddCart = async (prodInfo, prodQty) => {
-    console.log(prodInfo)
+    // console.log(prodInfo)
 
     // 確認商品是否已在購物車中
     let index = cartItem.userCart.findIndex((e) => e.sid === prodInfo.sid)
@@ -60,12 +60,12 @@ export const CartInfoContextProvider = function ({ children }) {
       }
 
       localStorage.setItem('cartItem', JSON.stringify({ ...products }))
-      // console.log({ products })
+      console.log({ products })
       setCartItem(products)
     } else {
       cartItem.userCart[index] = {
         ...cartItem.userCart[index],
-        prodQty: cartItem.userCart[index].prodQty + prodQty,
+        amount: cartItem.userCart[index].amount + prodQty,
       }
 
       const newProductState = {
@@ -81,12 +81,75 @@ export const CartInfoContextProvider = function ({ children }) {
     }
   }
 
+  // 購物車數量-1
+  const handleReduce = async (prodInfo) => {
+    // console.log(prodInfo)
+
+    let index = cartItem.userCart.findIndex((e) => e.sid === prodInfo.sid)
+
+    if (index === -1) {
+      alert('錯誤，無此商品')
+      return
+    }
+    if (cartItem.userCart[index].amount > 1) {
+      cartItem.userCart[index] = {
+        ...cartItem.userCart[index],
+        amount:
+          cartItem.userCart[index].amount > 0
+            ? cartItem.userCart[index].amount - 1
+            : cartItem.userCart[index].amount,
+      }
+      const newProductState = {
+        ...cartItem,
+        userCart: cartItem.userCart,
+        totalPrice: cartItem.totalPrice - prodInfo.price,
+        totalAmount:
+          cartItem.totalAmount > 0
+            ? cartItem.totalAmount - 1
+            : cartItem.totalAmount,
+      }
+      localStorage.setItem('cartItem', JSON.stringify(newProductState))
+      console.log({ newProductState })
+      setCartItem(newProductState)
+    } else if (cartItem.userCart[index].amount === 1) {
+      const userCartItems1 = cartItem.userCart.slice(0, index)
+      // console.log(userCartItems1);
+      const userCartItems2 = cartItem.userCart.slice(index + 1)
+      // console.log(userCartItems2);
+      const productItems = userCartItems1.concat(userCartItems2)
+      // console.log(productItems);
+
+      const newProductItems = {
+        ...cartItem,
+        userCart: [...productItems],
+        totalPrice: cartItem.totalPrice - prodInfo.price,
+        totalAmount: cartItem.totalAmount - 1,
+      }
+      localStorage.setItem('cartItem', JSON.stringify(newProductItems))
+      // console.log({ newProductItems });
+      setCartItem(newProductItems)
+    }
+  }
+
+  // 清空購物車
+  const handleEmptyCart = () => {
+    setCartItem({
+      userCart: [],
+      totalItem: 0,
+      totalPrice: 0,
+      totalAmount: 0,
+    })
+    localStorage.removeItem('cartItem')
+  }
+
   return (
     <CartInfoContext.Provider
       value={{
         cartItem,
         setCartItem,
         handleAddCart,
+        handleReduce,
+        handleEmptyCart,
       }}
     >
       {children}

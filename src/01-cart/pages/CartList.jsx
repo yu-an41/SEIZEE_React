@@ -31,6 +31,7 @@ import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
 import log from 'eslint-plugin-react/lib/util/log'
+import axios from 'axios'
 
 // cart init
 // initialState = {
@@ -42,7 +43,8 @@ import log from 'eslint-plugin-react/lib/util/log'
 
 function CartList(props) {
   // 加入購物車
-  const { handleAddCart } = useContext(CartInfoContext)
+  const { handleAddCart, handleReduce, handleEmptyCart } =
+    useContext(CartInfoContext)
 
   // 數量
   const [prodQty, setProdQty] = useState(1)
@@ -50,17 +52,70 @@ function CartList(props) {
   // 取得商品資訊
   const data = products[0]
 
+  // 推薦商品資訊
+
+  // 假的店家編號
+  const shop_sid = 2
+
+  const [recMerchData, setRecMerchData] = useState([
+    {
+      sid: 1,
+      shop_list_sid: 1,
+      product_name: '',
+      product_category_sid: '',
+      unit_price: 100,
+      sale_price: 3.5,
+      // product_launch: 1,
+    },
+  ])
+
+  // 取得推薦商品
+  const getRecMerchData = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:3004/cart/rec-merch/${shop_sid}`
+      )
+
+      setRecMerchData(res.data.rec_merch_rows)
+      console.log(res.data.rec_merch_rows)
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
+
+  useEffect(() => {
+    getRecMerchData()
+  }, [])
+
   return (
     <>
       <div
         className="y-Cart-test-btn"
         onClick={() => {
-          setProdQty(3)
+          // setProdQty(prodQty)
           handleAddCart(data, prodQty)
-          console.log(data, prodQty)
+          // console.log(data, prodQty)
         }}
       >
-        load prod data
+        add item to cart
+      </div>
+      <div
+        className="y-Cart-test-btn"
+        onClick={() => {
+          handleReduce(data)
+          console.log('cart item qty -1')
+        }}
+      >
+        cart item qty -1
+      </div>
+      <div
+        className="y-Cart-test-btn"
+        onClick={() => {
+          handleEmptyCart()
+          console.log('cart emptied')
+        }}
+      >
+        empty cart
       </div>
       <div className="y-CartList-container">
         <div className="y-Cart-nav">
@@ -195,8 +250,17 @@ function CartList(props) {
             </div>
             <div className="y-Cart-rec-bottom">
               <div className="y-Cart-rec-row">
+                {/* {recMerchData.map((v, i) => {
+                  return (
+                    <div className="y-Cart-rec-wrap">
+                      <RecMerch 
+                      recMerchInfo={recMerchData} 
+                      />
+                    </div>
+                  )
+                })} */}
                 <div className="y-Cart-rec-wrap">
-                  <RecMerch />
+                  <RecMerch recMerchInfo={recMerchData} />
                 </div>
                 <div className="y-Cart-rec-wrap">
                   <RecMerch />
