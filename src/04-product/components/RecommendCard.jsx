@@ -10,7 +10,7 @@ function RecommendCard({sid}) {
   async function getRecommend() {
     try {
       const response = await axios.get(
-        "http://localhost:3004/product/suggest?sid=${sid}"
+        "http://localhost:3004/product/suggest?sid="+sid
       );
       console.log(response.data);
       const Sdata = response.data.suggest_rows;

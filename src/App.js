@@ -40,6 +40,7 @@ import ShopList from './03-shop/pages/03-shop-list'
 // 04-product
 import ProductList from './04-product/ProductList'
 import ProductDetail from './04-product/ProductDetail'
+import ProductFilter from './04-product/ProductFilter'
 
 // 05-member
 import UserSign from './05-member/UserSign'
@@ -97,6 +98,7 @@ function App() {
                   element={<ProductList />}
                 />
                 <Route path="/product/:sid" element={<ProductDetail />} />
+                <Route path="/productFilter/" element={<ProductFilter />} />
 
             {/* 05-member */}
             {/* <Route path="/login" element={<UserSign />} />

@@ -1,47 +1,54 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+// import { useState, useEffect } from "react";
+// import axios from "axios";
+// import "./components/style/ProductFilter.scss";
 
-function ProductFilter() {
-  const [filter, setFilter] = useState([]);
-  const [errorMessage, setErrorMessage] = useState([]);
+// function ProductFilter() {
+//   const [filter, setFilter] = useState([]);
+//   const [errorMessage, setErrorMessage] = useState([]);
 
-  async function getFilter() {
-    try {
-    const response = await axios.get(
-      `http://localhost:3004/product/category`
-    );
-    const Cdata = response.data.category_rows
-    setFilter(Cdata)
-  } catch (e) {
-    console.error('this is e-message:',e.message);
-    setErrorMessage(e.message);
-  }
-}
-    // const addComment = async () => {
-    //   const fd = new FormData();
-    //   // fd.append("food_product_sid", comment.food_product_sid);
-    //   // fd.append("comment", comment.user_comment);
-    //   // fd.append("test", filter);
-    //   const { Cdata } = await axios.post(
-    //     "http://localhost:3004/product/comment",
-    //     fd
-    //   );
-  // }
-  useEffect(() => {
-    getFilter();
-  }, []);
-      
-  
+//   async function getFilter() {
+//   //   try {
+//   //     const response = await axios.get(
+//   //       `http://localhost:3004/product/category`
+//   //     );
+//   //     // console.log(response);
+//   //     const Fdata = response.data.category_rows;
+//   //     setFilter(Fdata);
+//   //   } catch (e) {
+//   //     console.error(e.message);
+//   //     setErrorMessage(e.message);
+//   //   }
+//   // }
+//   const addComment = async () => {
+//     const fd = new FormData();
+//     // fd.append("food_product_sid", comment.food_product_sid);
+//     // fd.append("comment", comment.user_comment);
+//     // fd.append("test", filter);
+//     const { Cdata } = await axios.post(
+//       "http://localhost:3004/product/comment",
+//       fd
+//     );
+//   }
+//   useEffect(() => {
+//     getFilter();
+//   }, []);
 
-  return (
-    <>
-    <div className="a-categoryWrapper">
+//   return (
+//     <>
+//       <div className="a-categoryWrapper">
+//         {filter.map((filter, i) => {
+//           return (
+//             <div className="a-categoryContentWapper" key={filter.sid}>
+//               <div className="a-iconWrapper">
+//                 <img className="a-icon" src={`/04-product/svg/${filter.category_icon}`} alt="" />
+//               </div>
+//               <h2 className="a-categoryName">{filter.category_name}</h2>
+//             </div>
+//           );
+//         })}
+//       </div>
+//     </>
+//   );
+// }
 
-    </div>
-    <div></div>
-    
-    </>
-  )
-}
-
-export default ProductFilter
+// export default ProductFilter;
