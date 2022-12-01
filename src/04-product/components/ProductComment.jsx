@@ -4,16 +4,18 @@ import { useParams } from "react-router-dom";
 import "./style/ProductComment.scss";
 
 function ProductComment({ setDoRender, doRender, sid }) {
+    //localStorage得到member_sid
+    const mb_sid = localStorage.getItem("auth")
+    ? JSON.parse(localStorage.getItem("auth")).mb_sid
+    : "尚未登入";
+
   const [comment, setComment] = useState({
-    food_product_sid: 0,
-    mb_sid: 0,
+    food_product_sid: sid,
+    mb_sid: mb_sid,
     comment: '',
   });
 
-  //localStorage得到member_sid
-  const mb_sid = localStorage.getItem("auth")
-    ? JSON.parse(localStorage.getItem("auth")).mb_sid
-    : "尚未登入";
+
 
   const addComment = async () => {
     if (mb_sid === "尚未登入") {
@@ -21,13 +23,13 @@ function ProductComment({ setDoRender, doRender, sid }) {
       return;
     }
     console.log('會員編號：',mb_sid)
-    const fd = new FormData();
-    fd.append("mb_sid", comment.mb_sid);
-    fd.append("food_product_sid", comment.food_product_sid);
-    fd.append("user_comment", comment.user_comment);
+    // const fd = new FormData();
+    // fd.append("mb_sid", comment.mb_sid);
+    // fd.append("food_product_sid", comment.food_product_sid);
+    // fd.append("user_comment", comment.user_comment);
     const { commentData } = await axios.post(
       "http://localhost:3004/product/comment?sid=" + sid,
-      fd
+      {...comment}
     );
     console.log(commentData);
 
@@ -46,7 +48,7 @@ function ProductComment({ setDoRender, doRender, sid }) {
           name="comment"
           placeholder="請輸入留言"
           value={comment.comment}
-          onChange={(e) => setComment({ comment: e.target.value,
+          onChange={(e) => setComment({...comment, comment: e.target.value,
            })}
         />
         <button className="a-sumbitButton" onClick={addComment}>

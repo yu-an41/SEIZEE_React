@@ -17,6 +17,7 @@ export const CollectContextProvider = ({ children }) => {
   const [collection, setCollection] = useState(false);
   //收藏商品編號
   const [collectionNum, setCollectionNum] = useState([]);
+  const handleClick = isHeart => { setCollection(isHeart) }
 
   //localStorage得到member_sid
   const mb_sid = localStorage.getItem("auth")
@@ -69,6 +70,8 @@ export const CollectContextProvider = ({ children }) => {
     setCollectionNum([...collectionNum,food_product_sid])
   };
 
+
+
   //移除收藏
   const delCollect = async (food_product_sid, index) => {
     if (mb_sid === "尚未登入") {
@@ -89,7 +92,7 @@ export const CollectContextProvider = ({ children }) => {
 
   useEffect(() => {
     getCollectList();
-  }, [collection]);
+  }, [collection, mb_sid]);
   // useEffect(() => {
   //   getCollectList();
   // }, []);
@@ -105,7 +108,7 @@ export const CollectContextProvider = ({ children }) => {
         setCollectionNum,
         addCollect,
         delCollect,
-        // handleClick,
+        handleClick,
       }}
     >
       {children}
