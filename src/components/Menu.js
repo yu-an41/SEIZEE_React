@@ -8,6 +8,7 @@ import Apple from './../dotown/apple.png'
 import ShopIcon from './../lifelabel/emoji-house.png'
 import ForumIcon from './../lifelabel/emoji-book.png'
 import EventIcon from './../lifelabel/emoji-light-bulb.png'
+import MemberIcon from './../lifelabel/emoji-man.png'
 import SeizeeIcon from './../lifelabel/emoji-thunder.png'
 
 import FacebookIcon from './../lifelabel/emoji_sns_facebook.png'
@@ -182,13 +183,13 @@ function Menu() {
                 </li>
               </ul>
             </div>
-            <div className="y-menu-section y-menu-section-seizee">
+            <div className="y-menu-section y-menu-section-member">
               <p className="y-menu-section-title">
                 <div className="y-menu-section-icon">
-                  <img src={SeizeeIcon} alt="icon" />
+                  <img src={MemberIcon} alt="icon" />
                 </div>
                 <a href="/#" alt="event_link">
-                  SEIZEE園地
+                  戰士專區
                 </a>
               </p>
               <ul className="y-menu-section-links y-event-links">
@@ -197,21 +198,56 @@ function Menu() {
                     最新消息
                   </a>
                 </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    我的訂單
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    會員中心
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    心願清單
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="y-menu-section y-menu-section-seizee">
+              <p className="y-menu-section-title">
+                <div className="y-menu-section-icon">
+                  <img src={SeizeeIcon} alt="icon" />
+                </div>
+                <a href="/#" alt="event_link">
+                  了解SEIZEE
+                </a>
+              </p>
+              <ul className="y-menu-section-links y-seizee-links">
+                <li>
+                  <a href="/#" alt="about">
+                    關於我們
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="about">
+                    惜時源起
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="about">
+                    最新消息
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="about">
+                    異業合作
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
-          <ul className="y-menu-links">
-            <li>
-              <a href="/#" alt="about">
-                關於我們
-              </a>
-            </li>
-            <li>
-              <a href="/#" alt="about">
-                關於我們
-              </a>
-            </li>
-          </ul>
           <ul className="y-social-media">
             <li>
               <a href="/#">
