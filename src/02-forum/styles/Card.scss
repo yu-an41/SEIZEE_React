@@ -10,11 +10,10 @@ $p:16px;
     box-sizing: border-box;
 }
 .p-crad-h{
-    height: 500px; 
-    width: 480px;
-    background-color: #FFECC7;
+    height: auto; 
+    width: 100%;
+    background-color: #FFF3CB;
     padding: 20px;
-    
     .p-card-title{
     display: flex;
     flex-direction: column;
@@ -59,6 +58,12 @@ $p:16px;
             }
         }
     }
+}
+.p-crad-h:nth-child(2n+2){
+    background-color: #FAD249;
+}
+.p-crad-h:nth-child(2n+3){
+    background-color:#FFF3CB;
 }
 
 .p-card-p{

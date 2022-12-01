@@ -3,20 +3,22 @@ import React, { useState } from 'react'
 import '../styles/Comment.scss'
 import dayjs from 'dayjs'
 import log from 'eslint-plugin-react/lib/util/log'
+import { useLocation, useParams } from 'react-router-dom'
 
-function Message() {
+function Message({ setDoRerender, doRerender }) {
+  const params = useParams()
+  // console.log(params)
   const [messContent, setMessContent] = useState({
     sid: 1,
     member_sid: 1,
     categories_sid: 1,
-    post_sid: 1,
+    post_sid: params.sid,
     content: '',
     parent_sid: 0,
-    created_at: '',
+    created_at: new Date(),
   })
 
   const addMesage = async () => {
-    // const newMessage = { ...messContent }
     const fd = new FormData()
     fd.append('content', messContent.content)
     console.log(fd)
@@ -24,6 +26,8 @@ function Message() {
     console.log(data)
     if (data.success) {
       alert('留言成功')
+      //直接顯示留言無用重刷頁面
+      setDoRerender(!doRerender)
     }
   }
 
@@ -38,7 +42,7 @@ function Message() {
         </div>
         <div className="p-commInput">
           <input
-            type="text"
+            type="text" 
             name="sendMessage"
             placeholder="輸入留言"
             value={messContent.content}
