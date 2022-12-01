@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
-import Collection from "./CollectContext";
-import "./style/ProductCard.scss";
-import Select from "./Select";
-import CollectContext from "./CollectContext";
+import Collection from "../../contexts/CollectContext";
+import "../components/style/ProductCard.scss";
+import Select from "../components/Select";
+import CollectContext from "../../contexts/CollectContext";
 
 function ProductCard({ product }) {
   const {

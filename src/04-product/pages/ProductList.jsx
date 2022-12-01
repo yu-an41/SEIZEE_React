@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
-import ProductCard from "./components/ProductCard.jsx";
-import HeadWave from "../components/HeadWave";
-import YellowWave2 from "./components/YellowWave2";
-import "./components/style/ProductList.scss";
-import Select from "./components/Select";
-import ProductVideo from "./components/ProductVideo";
+import ProductCard from "../components/ProductCard.jsx";
+import HeadWave from "../../components/HeadWave";
+import YellowWave2 from "../components/YellowWave2";
+import "../components/style/ProductList.scss";
+import Select from "../components/Select";
+import ProductVideo from "../components/ProductVideo";
 
 // // 01-cart
 // import CartInfoContext from '../01-cart/contexts/CartInfoContext'

@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import { useParams, useLocation } from "react-router-dom";
+// import Collection from "../contexts/CollectContext";
 import axios from "axios";
 
 const CollectContext = createContext([]);

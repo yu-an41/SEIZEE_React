@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./components/style/ProductFilter.scss";
+import "../components/style/ProductFilter.scss";
 
 function ProductFilter() {
+
   const [filter, setFilter] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
 

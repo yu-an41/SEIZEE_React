@@ -1,15 +1,16 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import "./components/style/ProductDetail.scss";
-import RecommendCard from "./components/RecommendCard";
-import YellowWave2 from "./components/YellowWave2";
+import "../components/style/ProductDetail.scss";
+import RecommendCard from "../components/RecommendCard";
+import YellowWave2 from "../components/YellowWave2";
 import { useParams, useLocation } from "react-router-dom";
-import Carousel from "./components/Carousel";
-import Carousel2 from "./components/Carousel2";
-import CollectContext from "./components/CollectContext";
-import ProductComment from "./components/ProductComment";
-import CommentArea from "./components/CommentArea";
-import log from "eslint-plugin-react/lib/util/log";
+import Carousel2 from "../components/Carousel2";
+import CollectContext from "../../contexts/CollectContext";
+import ProductComment from "../components/ProductComment";
+import CommentArea from "../components/CommentArea";
+// import Menu from "react-select/dist/declarations/src/components/Menu";
+
+
 
 function ProductDetail() {
   const { collection, setCollection, delCollect, addCollect,handleClick } =
@@ -139,6 +140,7 @@ function ProductDetail() {
                       //保持state資料類型一致是數字
                       let a = q.target.value;
                       if (a > details.inventory_qty) {
+                        setQty(details.inventory_qty)
                         return;
                       }
                       setQty(Number(q.target.value));
