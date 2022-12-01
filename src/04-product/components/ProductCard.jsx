@@ -33,10 +33,10 @@ const tempRef = useRef();
       {/* <Collection /> */}
       <div className="a-productCardContent" key={product.sid}>
         <div className="a-discountIconWrapper">
-          {/* <div className="a-iconWrapper">
+          <div className="a-iconWrapper">
             <img src="/04-product/img/sale.png" alt="" />
           </div>
-          <p>{product.sale_price}折</p> */}
+          <p>{product.sale_price}折</p>
         </div>
         <Link to={`/product/${product.sid}`}>
           <div className="a-productImgWrapper">
