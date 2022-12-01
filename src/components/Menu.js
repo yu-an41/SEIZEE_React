@@ -5,6 +5,11 @@ import './../styles/Menu.scss'
 import MenuSvg from './../logo-and-fonts/MENU.svg'
 import CloseSvg from './../logo-and-fonts/CLOSE.svg'
 import Apple from './../dotown/apple.png'
+import ShopIcon from './../lifelabel/emoji-house.png'
+import ForumIcon from './../lifelabel/emoji-book.png'
+import EventIcon from './../lifelabel/emoji-light-bulb.png'
+import SeizeeIcon from './../lifelabel/emoji-thunder.png'
+
 import FacebookIcon from './../lifelabel/emoji_sns_facebook.png'
 import InstagramIcon from './../lifelabel/emoji_sns_instagram.png'
 import PinterestIcon from './../lifelabel/emoji_sns_pinterest.png'
@@ -66,50 +71,154 @@ function Menu() {
             </div>
           </div>
           <div className="y-menu-content">
-            <ul className="y-page-title">
-              <li>
+            <div className="y-menu-section y-menu-section-shop">
+              <p className="y-menu-section-title">
+                <div className="y-menu-section-icon">
+                  <img src={ShopIcon} alt="icon" />
+                </div>
                 <a href="/#" alt="merch_link">
-                  商品快搜
+                  美食快搜
                 </a>
-              </li>
-              <li>
+              </p>
+              <ul className="y-menu-section-links y-shops-links">
+                <li>
+                  <a href="/#" alt="merch_link">
+                    中式
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="merch_link">
+                    美式
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="merch_link">
+                    日式
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="merch_link">
+                    泰式
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="merch_link">
+                    義式
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="merch_link">
+                    甜點
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="y-menu-section y-menu-section-forum">
+              <p className="y-menu-section-title">
+                <div className="y-menu-section-icon">
+                  <img src={ForumIcon} alt="icon" />
+                </div>
                 <a href="/#" alt="merch_link">
-                  商品快搜
+                  聊聊惜食
                 </a>
-              </li>
-              <li>
-                <a href="/#" alt="merch_link">
-                  商品快搜
-                </a>
-              </li>
-              <li>
-                <a href="/#" alt="merch_link">
-                  商品快搜
-                </a>
-              </li>
-            </ul>
-            <ul className="y-page-links">
-              <li>
+              </p>
+              <ul className="y-menu-section-links y-forum-links">
+                <li>
+                  <a href="/#" alt="forum_link">
+                    SEIZEE版
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="forum_link">
+                    店家版
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="forum_link">
+                    戰士版
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="forum_link">
+                    剩食料理版
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="y-menu-section y-menu-section-event">
+              <p className="y-menu-section-title">
+                <div className="y-menu-section-icon">
+                  <img src={EventIcon} alt="icon" />
+                </div>
                 <a href="/#" alt="event_link">
-                  #踢球球活動
+                  找點樂子
                 </a>
-              </li>
-              <li>
+              </p>
+              <ul className="y-menu-section-links y-event-links">
+                <li>
+                  <a href="/#" alt="event_link">
+                    工作坊
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    音樂
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    講座
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    VR體驗
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    劇場
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="y-menu-section y-menu-section-seizee">
+              <p className="y-menu-section-title">
+                <div className="y-menu-section-icon">
+                  <img src={SeizeeIcon} alt="icon" />
+                </div>
                 <a href="/#" alt="event_link">
-                  #踢球球活動
+                  SEIZEE園地
                 </a>
-              </li>
-              <li>
-                <a href="/#" alt="event_link">
-                  #踢球球活動
-                </a>
-              </li>
-              <li>
-                <a href="/#" alt="event_link">
-                  #踢球球活動
-                </a>
-              </li>
-            </ul>
+              </p>
+              <ul className="y-menu-section-links y-event-links">
+                <li>
+                  <a href="/#" alt="event_link">
+                    工作坊
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    音樂
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    講座
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    VR體驗
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" alt="event_link">
+                    劇場
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
           <ul className="y-menu-links">
             <li>

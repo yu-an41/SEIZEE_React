@@ -38,10 +38,6 @@ p, a {
     }
 }
 
-li {
-    list-style: none;
-}
-
 .y-menu-border {
     height: 36px;
     padding: 8px;
@@ -229,9 +225,23 @@ li {
 
                 .y-page-title {
                     margin-right: 30px;
+                    list-style: none;
+
+                    li {
+                        letter-spacing: 3px;
+                        font-weight: bold;
+                        line-height: 40px;
+                    }
+
                 }
 
                 .y-page-links {
+                    list-style: none;
+
+                    li {
+                        letter-spacing: 2px;
+                        line-height: 40px;
+                    }
 
                 }
 

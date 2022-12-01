@@ -21,6 +21,7 @@ import Message from '../components/Ｍessage'
 
 function InnerCook() {
   const { sid } = useParams()
+  const [doRerender, setDoRerender] = useState(false)
   const [cookInnerData, setCookInnerData] = useState({
     sid: 1,
     member_sid: 1,
@@ -76,12 +77,10 @@ function InnerCook() {
   }
   useEffect(() => {
     getCookInnerData()
-  }, [])
-
-  
+  }, [doRerender])
 
   return (
-    <div className="innerCook" key={sid}>
+    <div className="innerCook">
       <div className="sidBar">
         <SideBar />
       </div>
@@ -171,13 +170,13 @@ function InnerCook() {
             <h3>留言</h3>
           </div>
           <div className="p-commentForm">
-            <Message />
+            <Message setDoRerender={setDoRerender} doRerender={doRerender} />
           </div>
           <div className="p-commMessage">
-            {cookInnerData.comment.map((v) => {
+            {cookInnerData.comment.map((v, i) => {
               return (
                 <>
-                  <Comment commData={v} key={v.sid} />
+                  <Comment commData={v} key={i} />
                 </>
               )
             })}
@@ -186,7 +185,16 @@ function InnerCook() {
       </div>
       <div className="p-checkAdWrit">
         <div className="p-checkStep">
-          <h3>STEP1</h3>
+          {cookInnerData.steps.map((v, i) => {
+            return (
+              <>
+                <span>
+                <input type="checkbox"></input>
+                <h3>STEP {v.step}</h3>
+                </span>
+              </>
+            )
+          })}
         </div>
         <div className="p-writWrap">
           <WriteBtn />

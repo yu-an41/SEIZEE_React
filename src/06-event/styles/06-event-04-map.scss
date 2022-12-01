@@ -49,13 +49,13 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
 .j-event-middle-map {
   z-index: 99;
   // outline: 1px black solid;
   @include position(47%, 49%);
+  position: fixed;
   @include size(1100px, 900px);
   transform: translate(-50%, -50%);
 
@@ -131,7 +131,7 @@ body {
         z-index: 4;
         position: absolute;
         @include position(8%, 6%);
-        animation: cloudD 38s linear;
+        animation: cloudD 32s linear;
         animation-iteration-count: infinite;
         animation-direction: normal;
         animation-fill-mode: both;
@@ -173,7 +173,7 @@ body {
         }
 
         100% {
-          transform: translate(1400px, 6%);
+          transform: translate(1200px, 6%);
         }
       }
 

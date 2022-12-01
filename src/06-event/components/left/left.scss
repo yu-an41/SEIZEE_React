@@ -95,7 +95,7 @@ body {
           color: $colorBlue;
           &::after {
             content: '';
-            background-image: url(../svg/tada.svg);
+            background-image: url(./../../svg/tada.svg);
             position: absolute;
             background-repeat: no-repeat;
             top: -28px;
@@ -103,9 +103,28 @@ body {
             width: 250px;
             height: 100px;
             padding: 0;
+            animation: roro 40s linear;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-fill-mode: both;
+            animation-play-state: running;
+            @keyframes roro {
+              0% {
+                transform: rotate(0 deg);
+              }
+              25% {
+                transform: rotate(30 deg);
+              }
+              75% {
+                transform: rotate(0 deg);
+              }
+              100% {
+                transform: rotate(30 deg);
+              }
+            }
             @media (max-width: 390px) {
               outline: 2px solid black;
-              background-image: url(../svg/tada.svg);
+              background-image: url(./../../svg/tada.svg);
               background-size: 100px 50px;
               position: absolute;
               top: -8px;
