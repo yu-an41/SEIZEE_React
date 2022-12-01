@@ -173,78 +173,64 @@ function Orders() {
 
                           {/* order details */}
                           <div className="s-o-data-details-out">
-                            {orderIndex !== v[i].order_num ? (
-                              <div
-                                className={
-                                  orderIndex !== v[i].order_num
-                                    ? 's-o-data-details s-orderCloumn'
-                                    : 's-o-data-details s-orderCloumn s-o-active'
-                                }
-                              ></div>
-                            ) : (
-                              <div
-                                className={
-                                  orderIndex !== v[i].order_num
-                                    ? 's-o-data-details s-orderCloumn'
-                                    : 's-o-data-details s-orderCloumn s-o-active'
-                                }
-                              >
-                                {Array(mbTotalOrderDetails)
-                                  .fill(mbOrderDisplayDetails)
-                                  .map((v, i) => {
-                                    {
-                                      /* console.log(
+                            <div
+                              className={
+                                orderIndex !== v[i].order_num
+                                  ? 's-o-data-details s-orderCloumn'
+                                  : 's-o-data-details s-orderCloumn s-o-active'
+                              }
+                            >
+                              {Array(mbTotalOrderDetails)
+                                .fill(mbOrderDisplayDetails)
+                                .map((v, i) => {
+                                  {
+                                    /* console.log(
                                     'v[i].product_sid',
                                     v[i].product_sid
                                   ) */
-                                    }
+                                  }
 
-                                    return (
-                                      <div
-                                        key={v[i].product_sid}
-                                        className="s-o-data-detail"
-                                      >
-                                        <div className="s-o-line-d"></div>
-                                        <div className="s-o-items-d">
-                                          <h3 className="s-o-question-d">
-                                            商品名稱
-                                          </h3>
-                                          <span className="s-o-answer-d">
-                                            {v[i].product_name}
-                                          </span>
-                                        </div>
-                                        <div className="s-o-items-d">
-                                          <h3 className="s-o-question-d">
-                                            優惠價
-                                          </h3>
-                                          <span className="s-o-answer-d">
-                                            $ {v[i].total_price}
-                                          </span>
-                                        </div>
-                                        <div className="s-o-items-d">
-                                          <h3 className="s-o-question-d">
-                                            數量
-                                          </h3>
-                                          <span
-                                            className="s-o-answer-d"
-                                            id="mbpDate"
-                                          >
-                                            {v[i].quantity}
-                                          </span>
-                                        </div>
-                                        <div className="s-o-items-d">
-                                          <h3 className="s-o-question-d">
-                                            小計
-                                          </h3>
-                                          <span className="s-o-answer-d">
-                                            $ {v[i].total_price}
-                                          </span>
-                                        </div>
+                                  return (
+                                    <div
+                                      key={v[i].product_sid}
+                                      className="s-o-data-detail"
+                                    >
+                                      <div className="s-o-line-d"></div>
+                                      <div className="s-o-items-d">
+                                        <h3 className="s-o-question-d">
+                                          商品名稱
+                                        </h3>
+                                        <span className="s-o-answer-d">
+                                          {v[i].product_name}
+                                        </span>
                                       </div>
-                                    )
-                                  })}
-                              </div>
-                            )}
+                                      <div className="s-o-items-d">
+                                        <h3 className="s-o-question-d">
+                                          優惠價
+                                        </h3>
+                                        <span className="s-o-answer-d">
+                                          $ {v[i].total_price}
+                                        </span>
+                                      </div>
+                                      <div className="s-o-items-d">
+                                        <h3 className="s-o-question-d">數量</h3>
+                                        <span
+                                          className="s-o-answer-d"
+                                          id="mbpDate"
+                                        >
+                                          {v[i].quantity}
+                                        </span>
+                                      </div>
+                                      <div className="s-o-items-d">
+                                        <h3 className="s-o-question-d">小計</h3>
+                                        <span className="s-o-answer-d">
+                                          $ {v[i].total_price}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  )
+                                })}
+                            </div>
                           </div>
                         </React.Fragment>
                       )
