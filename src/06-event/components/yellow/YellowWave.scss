@@ -21,12 +21,12 @@ $wave-height: 40px;
         width: 60%;
         height: 100vh;
         background: {
-            image: url(./../img/wave-1920px.png);
+            image: url(./../../img/wave-1920px.png);
             // repeat: no-repeat;
             position: 46% 0;
             size: 100px 1920px;
         }
-        animation: animate 3.5s linear infinite;
+        animation: jwave 3.5s linear infinite;
         z-index: 100;
         animation-delay: 0.3s;
         @media (max-width: 390px){
@@ -34,7 +34,7 @@ $wave-height: 40px;
             height: 20%;
         }
         
-        @keyframes animate {
+        @keyframes jwave {
             0% {
                 background-position-y: 0px;
             }

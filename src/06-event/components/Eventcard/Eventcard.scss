@@ -1,0 +1,97 @@
+$colorBlue: #113f75;
+$colorYellow: #fad249;
+$colorOrange: #eb8e4c;
+$colorWhite: #ffffff;
+$colorLightGrey: #eeeeee;
+$colorDarkGrey: #4b646a;
+$colorMiddleGrey: #747474;
+$colorBrown: #986868;
+$colorList: #fdfcee;
+$colorLightBlue: #91d3f5;
+$colorGreen: #21a07d;
+$colorPurple: #9786df;
+$colorPink: #efc2d9;
+$colorLine: #cecece;
+$colorBlack: #000000;
+
+@mixin position($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// ----------------!!start!!------------------
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+html {
+  // filter: invert(1);
+
+  //change 1rem into 10px
+  font-size: 62.5%;
+}
+.j-card-lines {
+  height: 11%;
+  background-color: $colorList;
+  border-top: 2px $colorLine solid;
+  border-bottom: 2px $colorLine solid;
+}
+.j-schedule-card {
+  height: 100%;
+  display: flex;
+  margin: 0 4% 0 4%;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $colorWhite;
+  border-radius: 6%;
+  overflow: hidden;
+
+  .j-schedule-card-head {
+    color: $colorWhite;
+    background-color: $colorLightBlue;
+    display: flex;
+    justify-content: space-between;
+
+    .j-schedule-card-time {
+      background-color: $colorLightBlue;
+      font-size: 2rem;
+      padding: 5px;
+      padding-left: 10px;
+      font-size: 1.4rem;
+    }
+
+    .j-schedule-card-heart {
+      display: flex;
+      align-items: center;
+      background-color: $colorLightBlue;
+      width: 30px;
+    }
+  }
+
+  .j-schedule-card-name {
+    padding: 3px;
+    font-weight: 400;
+    font-size: 2.2rem;
+    text-align: center;
+    background-color: $colorWhite;
+    color: $colorBlack;
+  }
+
+  .j-schedule-card-hashtag {
+    color: $colorWhite;
+    text-align: right;
+    padding: 4px;
+    padding-right: 10px;
+    background-color: $colorLightBlue;
+    font-size: 1.4rem;
+  }
+}

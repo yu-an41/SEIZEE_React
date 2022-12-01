@@ -1,12 +1,12 @@
 import '../styles/06-event-02-events.scss'
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 
 import jblueM from '../svg/blueMountain.svg'
 import jriceM from '../svg/riceMountain.svg'
 import jgreenM from '../svg/greenMountain.svg'
 import jorangeM from '../svg/orangeMountain.svg'
 import log from 'eslint-plugin-react/lib/util/log'
+import jHeart from '../svg/heart-none.svg'
 
 function CategoryTab(props) {
   const { text, activeCat, catIndex, handleSwitchCat } = props
@@ -25,28 +25,12 @@ function CategoryTab(props) {
   )
 }
 
-function Events() {
-  const [origins, setOrigins] = useState([])
-
+function Events({ origins }) {
   const [cate, setCate] = useState(1)
   const [epage, setEpage] = useState(1)
   const [cateRow, setCateRow] = useState([])
 
   const [jmactive, setJmactive] = useState(1)
-
-  useEffect(() => {
-    const getEventData = async () => {
-      try {
-        const res = await axios.get('http://localhost:3002/event/event-test')
-        const origin_rows = res.data
-        setOrigins(origin_rows)
-      } catch (error) {
-        console.log(error.message)
-      }
-    }
-
-    getEventData()
-  }, [])
 
   useEffect(() => {
     const new_row = origins.filter((e) => {
@@ -139,7 +123,10 @@ function Events() {
                 key={cateRow[epage - 1].name}
               >
                 <span className="j-lego">
-                  <div className="j-card-name">{cateRow[epage - 1].name}</div>
+                  <div className="j-card-name">
+                    {cateRow[epage - 1].name}
+                    <img src={jHeart} alt="" />
+                  </div>
                   <div className="j-card-image">
                     <img
                       src={`/06-event-img/${cateRow[epage - 1].img}`}
@@ -151,6 +138,7 @@ function Events() {
                   </div>
                   <div className="j-card-sold">
                     {cateRow[epage - 1].maximum}
+                    {/* <img src={jHeart} alt="" /> */}
                   </div>
                 </span>
               </div>
