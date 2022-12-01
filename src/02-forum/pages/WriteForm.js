@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Form } from 'react-router-dom'
 import '../styles/WriteForm.scss'
 
 function WriteForm() {
+  const myRef = useRef()
+  const myStepRef = useRef()
   const [writDate, setWritDate] = useState({
     title: '',
     image: '',
@@ -16,6 +18,8 @@ function WriteForm() {
     stepContent: '',
     ps: '',
   })
+  const [addInstruLab, setAddInstruLab] = useState()
+  const [addStepLab, setAddStepLab] = useState()
   // 選擇的檔案
   const [selectedFile, setSelectedFile] = useState(null)
   // 是否有檔案被挑選
@@ -77,6 +81,8 @@ function WriteForm() {
       })
   }
 
+  const [instrucNums, setInstrucNums] = useState(2)
+  const [stepNums, setStepNums] = useState(2)
   return (
     <>
       <div className="p-writeForm">
@@ -92,6 +98,11 @@ function WriteForm() {
               onChange={changeHandler}
               required
             />
+          </label>
+          <label className="p-WriteTagWrap">
+            <input className="p-wTag p-wTag-1" placeholder="輸入標籤"></input>
+            <input className="p-wTag p-wTag-2" placeholder="輸入標籤"></input>
+            <input className="p-wTag p-wTag-3" placeholder="輸入標籤"></input>
           </label>
           <label className="p-writeImageLab">
             <h3>圖片</h3>
@@ -110,7 +121,10 @@ function WriteForm() {
                 onChange={changeHandler}
                 required
               />
-              <p>上傳圖片</p>
+              <p>
+                點擊上傳圖片 大小：1040x520 內容以食物為主
+                （請勿上傳人像或動物）
+              </p>
             </div>
           </label>
           <label className="p-writeContentLab">
@@ -121,6 +135,7 @@ function WriteForm() {
               name="content"
               value={writDate.content}
               onChange={changeHandler}
+              placeholder="輸入食譜描述（最多150字）"
               required
             />
           </label>
@@ -131,6 +146,7 @@ function WriteForm() {
                 // className="p-writeTime"
                 type="text"
                 name="time"
+                placeholder="例:90分鐘"
                 value={writDate.time}
                 onChange={changeHandler}
                 required
@@ -142,6 +158,7 @@ function WriteForm() {
                 // className="p-writeServing"
                 type="text"
                 name="serving"
+                placeholder="例:2 人份"
                 value={writDate.serving}
                 onChange={changeHandler}
                 required
@@ -151,97 +168,109 @@ function WriteForm() {
 
           <div className="p-instrucAdPortion">
             <h3>食材</h3>
-            <div className="p-instruLabWrap">
-              <label className="p-instrucContent">
-                <input
-                  type="text"
-                  name="instrucContent"
-                  value={writDate.instrucContent}
-                  onChange={''}
-                  required
-                />
-              </label>
-              <label className="p-portion">
-                <input
-                  type="text"
-                  name="portion"
-                  value={writDate.portion}
-                  onChange={changeHandler}
-                  required
-                />
-              </label>
+            {Array(instrucNums)
+              .fill(1)
+              .map((v, i) => {
+                return (
+                  <div className="p-instruLabWrap" key={i}>
+                    <label className="p-instrucContent">
+                      <input
+                        type="text"
+                        name="instrucContent"
+                        value={v.instrucContent}
+                        required
+                        placeholder="食材（最多１5字）"
+                      />
+                    </label>
+                    <label className="p-portion">
+                      <input
+                        type="text"
+                        name="portion"
+                        placeholder="食材份量"
+                        // value={writDate.portion}
+                        // onChange={changeHandler}
+                        required
+                      />
+                    </label>
+                  </div>
+                )
+              })}
+            <div className="p-InstBtnWrap">
+              <button
+                className="p-addInstru"
+                type="button"
+                onClick={() => {
+                  setInstrucNums(instrucNums + 1)
+                }}
+              >
+                <p>加食材</p>
+              </button>
+              <button
+                className="p-delInstru"
+                type="button"
+                onClick={() => {
+                  setInstrucNums(instrucNums - 1)
+                }}
+              >
+                <p>減食材</p>
+              </button>
             </div>
-            <div className="p-instruLabWrap">
-              <label className="p-instrucContent">
-                <input
-                  type="text"
-                  name="instrucContent"
-                  value={writDate.instrucContent}
-                  onChange={''}
-                  required
-                />
-              </label>
-              <label className="p-portion">
-                <input
-                  type="text"
-                  name="portion"
-                  value={writDate.portion}
-                  onChange={changeHandler}
-                  required
-                />
-              </label>
-            </div>
-            <button className="p-addInstru" type="button">
-              <p>加食材</p>
-            </button>
           </div>
 
           <div className="p-writeStep">
             <h3>步驟</h3>
-            <div className="p-stepLabWrap p-stepLabWrap-1">
-              <label
-                className="p-stepImg"
-                placeholder="點擊上傳圖片大小480x260px"
-              >
-                {selectedFile && (
-                  <div className="p-stepimgPreview">
-                    <img src={preview} alt="" />
+            {Array(stepNums)
+              .fill(1)
+              .map((v, i) => {
+                return (
+                  <div className="p-stepLabWrap" key={i}>
+                    <label
+                      className="p-stepImg"
+                      placeholder="點擊上傳圖片大小480x260px"
+                    >
+                      {selectedFile && (
+                        <div className="p-stepimgPreview">
+                          <img src={preview} alt="" />
+                        </div>
+                      )}
+                      <input type="file" name="stepImg" />
+                      <p>點擊上傳圖片大小480x260px</p>
+                    </label>
+                    <label className="p-stepNum">
+                      <h3>STEP{i + 1}</h3>
+                      <input
+                        className="p-stepContent"
+                        placeholder="步驟說明（最多150字）"
+                        name="stepContent"
+                      ></input>
+                    </label>
                   </div>
-                )}
-                <input type="file" />
-                <p>點擊上傳圖片大小480x260px</p>
-              </label>
-              <label className="p-stepNum">
-                <h3>STEP1</h3>
-                <input
-                  className="p-stepContent"
-                  placeholder="步驟說明（最多150字）"
-                ></input>
-              </label>
-            </div>
-            <div className="p-stepLabWrap p-stepLabWrap-2">
-              <label
-                className="p-stepImg"
-                placeholder="點擊上傳圖片大小480x260px"
+                )
+              })}
+            <div className="p-stepBtnWrap">
+              <button
+                className="p-addStep"
+                type="button"
+                onClick={() => {
+                  setStepNums(stepNums + 1)
+                }}
               >
-                {selectedFile && (
-                  <div className="p-stepimgPreview">
-                    <img src={preview} alt="" />
-                  </div>
-                )}
-                <input type="file" />
-              </label>
-              <label className="p-stepNum">
-                <h3>STEP2</h3>
-                <input
-                  className="p-stepContent"
-                  placeholder="步驟說明（最多150字）"
-                ></input>
-              </label>
+                <p>加步驟</p>
+              </button>
+              <button
+                className="p-delStep"
+                type="button"
+                onClick={() => {
+                  if (stepNums === 1) {
+                    setStepNums(1)
+                  } else {
+                    setStepNums(-1)
+                  }
+                }}
+              >
+                <p>減步驟</p>
+              </button>
             </div>
-            <button className="p-addStep" type="button">
-              <p>加步驟</p>
-            </button>
           </div>
           <label className="p-writePS">
             <h3>補充</h3>
