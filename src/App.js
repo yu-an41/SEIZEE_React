@@ -53,7 +53,7 @@ import Orders from './05-member/profile-pages/Orders'
 
 // 06-event
 // import Top from './06-event/pages/06-event-01-top'
-import Eventrender from './06-event/pages/06-event-00-Render'
+// import Eventrender from './06-event/pages/06-event-00-Render'
 
 function App() {
   return (
@@ -117,7 +117,7 @@ function App() {
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/map" element={<Map />} />
               <Route path="/ticket" element={<Ticket />} /> */}
-              <Route path="/Eventrender" element={<Eventrender />} />
+              {/* <Route path="/Eventrender" element={<Eventrender />} /> */}
             </Routes>
           </CollectContextProvider>
         </MyContextProviders>
