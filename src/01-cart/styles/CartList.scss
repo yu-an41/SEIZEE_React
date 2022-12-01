@@ -24,14 +24,18 @@ $border-radius-button: 8px;
     box-sizing: border-box;
 }
 
-.y-Cart-test-btn {
-    margin-top: 100px;
-    color:white;
-    font-size: 24px;
-    width: 180px;
-    height: 40px;
-    background-color: $main-blue;
-
+.y-test-btns {
+    display: flex;
+    
+    .y-Cart-test-btn {
+        margin-top: 100px;
+        margin-right: 40px;
+        color:white;
+        font-size: 24px;
+        width: 180px;
+        height: 40px;
+        background-color: $main-blue;
+    }
 }
 
 .y-CartList-container {

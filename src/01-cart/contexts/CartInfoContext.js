@@ -30,7 +30,7 @@ export const CartInfoContextProvider = function ({ children }) {
     // console.log(prodInfo)
 
     // 確認商品是否已在購物車中
-    let index = cartItem.userCart.findIndex((e) => e.sid === prodInfo.sid)
+    let index = cartItem.userCart.findIndex((e) => e.sid === prodInfo.id)
 
     console.log(index)
 
@@ -40,11 +40,12 @@ export const CartInfoContextProvider = function ({ children }) {
         userCart: [
           ...cartItem.userCart,
           {
-            sid: prodInfo.sid,
+            sid: prodInfo.id,
             price: prodInfo.price,
             name: prodInfo.name,
             picture: prodInfo.picture,
             amount: prodQty,
+            inventory: prodInfo.inventory,
 
             // shop_sid: prodInfo.shop_list_sid,
             // prod_sid: prodInfo.sid,
@@ -85,7 +86,7 @@ export const CartInfoContextProvider = function ({ children }) {
   const handleReduce = async (prodInfo) => {
     // console.log(prodInfo)
 
-    let index = cartItem.userCart.findIndex((e) => e.sid === prodInfo.sid)
+    let index = cartItem.userCart.findIndex((e) => e.sid === prodInfo.id)
 
     if (index === -1) {
       alert('錯誤，無此商品')
