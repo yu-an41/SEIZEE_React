@@ -1,10 +1,10 @@
 import './Timetable.scss'
 
+import carrot from './../../svg/carrot.svg'
 import menu from './../../svg/menu.svg'
 import YellowWave from '../yellow/YellowWave'
-import Eventcard from '../Eventcard/Eventcard'
 import { useTimeTable } from '../../context/useTimeTable'
-
+import jDelete from './../../svg/delete.svg'
 function Timetable() {
   const { timeTable } = useTimeTable()
   return (
@@ -14,8 +14,13 @@ function Timetable() {
           <YellowWave />
         </div>
         <div class="j-right">
-          <div className="j-menu">
-            <img src={menu} alt="" />
+          <div className="j-hidebox">
+            <div className="j-menu">
+              <img src={menu} alt="" />
+            </div>
+            <div className="j-side-carrot">
+              <img src={carrot} alt="" />
+            </div>
           </div>
           <div className="j-table-right">
             <div className="j-banner">我的時間表</div>
@@ -29,10 +34,11 @@ function Timetable() {
                   >
                     <div className="j-card">
                       <div
-                        className="j-cardtime"
+                        className="j-cardTop"
                         style={{ background: `${v.color}` }}
                       >
-                        {v.time}
+                        <div className="j-cardtime">{v.time}</div>
+                        <img src={jDelete} alt="" />
                       </div>
                       <div
                         className="j-cardname"
@@ -40,6 +46,7 @@ function Timetable() {
                       >
                         {v.name}
                       </div>
+                      <div className="j-cardbottom"></div>
                     </div>
                   </div>
                 )

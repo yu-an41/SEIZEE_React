@@ -55,6 +55,7 @@ body {
   z-index: 99;
   // outline: 1px black solid;
   @include position(47%, 49%);
+  position: fixed;
   @include size(1100px, 900px);
   transform: translate(-50%, -50%);
 

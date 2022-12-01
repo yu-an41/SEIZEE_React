@@ -32,11 +32,11 @@ function Eventrender() {
 
   return (
     <>
-      <div className="j-sides">
-        <Left setNowPage={setNowPage} />
-        <NowComponents origins={origins} />
-        <Timetable />
-      </div>
+      {/* <div className="j-sides"> */}
+      <Left setNowPage={setNowPage} />
+      <NowComponents origins={origins} />
+      <Timetable />
+      {/* </div> */}
     </>
   )
 }
