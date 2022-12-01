@@ -40,7 +40,17 @@ function ProductFilter() {
           return (
             <label className="a-categoryContentWapper"
             htmlFor={`a-categoryCheckBox${filter.sid}`}
-            key={filter.sid}>
+            key={filter.sid}
+            >
+             <input
+                className="a-categoryInput"
+                  type="checkbox"
+                  id={`a-categoryCheckBox${filter.sid}`}
+                  name="cate"
+                  value={filter.sid}
+                //   checked={checkedState(filter.sid)}
+                //   onChange={() => {handleOnChange(filter.sid)}}
+                />
               <div className="a-iconWrapper">
                 <img className="a-icon" src={`/04-product/svg/${filter.category_icon}`} alt="" />
               </div>
