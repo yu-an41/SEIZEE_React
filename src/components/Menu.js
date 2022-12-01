@@ -76,7 +76,7 @@ function Menu() {
                 <div className="y-menu-section-icon">
                   <img src={ShopIcon} alt="icon" />
                 </div>
-                <a href="/#" alt="merch_link">
+                <a href="/shop" alt="merch_link">
                   美食快搜
                 </a>
               </p>
@@ -118,7 +118,7 @@ function Menu() {
                 <div className="y-menu-section-icon">
                   <img src={ForumIcon} alt="icon" />
                 </div>
-                <a href="/#" alt="merch_link">
+                <a href="/forum/" alt="merch_link">
                   聊聊惜食
                 </a>
               </p>
@@ -150,7 +150,7 @@ function Menu() {
                 <div className="y-menu-section-icon">
                   <img src={EventIcon} alt="icon" />
                 </div>
-                <a href="/#" alt="event_link">
+                <a href="/Eventrender" alt="event_link">
                   找點樂子
                 </a>
               </p>
@@ -194,27 +194,7 @@ function Menu() {
               <ul className="y-menu-section-links y-event-links">
                 <li>
                   <a href="/#" alt="event_link">
-                    工作坊
-                  </a>
-                </li>
-                <li>
-                  <a href="/#" alt="event_link">
-                    音樂
-                  </a>
-                </li>
-                <li>
-                  <a href="/#" alt="event_link">
-                    講座
-                  </a>
-                </li>
-                <li>
-                  <a href="/#" alt="event_link">
-                    VR體驗
-                  </a>
-                </li>
-                <li>
-                  <a href="/#" alt="event_link">
-                    劇場
+                    最新消息
                   </a>
                 </li>
               </ul>
