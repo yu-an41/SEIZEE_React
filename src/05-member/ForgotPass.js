@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { checkEmpty } from './data/UserSign_valid'
 import { useNavigate } from 'react-router-dom'
-import Modal from 'react-modal'
 // import ModalConfirm from '../components/ModalConfirm'
 import ModalNotification from '../components/ModalNotification'
 
@@ -52,19 +51,17 @@ function ForgotPass() {
 
     if (!errorMgF) {
       const { data } = await axios.post(SEND_FORGOT_PASS, forgotFD)
-      // alert('修改密碼信件已發送')
-      console.log(data)
+
+      // console.log(data)
 
       if (data.success) {
+        openModal()
         setHeaderMg('修改密碼')
         setBodyMg('修改密碼信件已發送')
-        // alert('修改密碼信件已發送')
-        // navigate('/')
       } else {
+        openModal()
         setHeaderMg('修改密碼')
         setBodyMg('請確認電子郵件是否正確')
-
-        // alert('請確認電子郵件是否正確')
       }
     }
   }
@@ -110,20 +107,18 @@ function ForgotPass() {
                 type="submit"
                 value="發送重送連結"
                 className="s-fp-input s-fp-forgotSubmit"
-                onClick={openModal}
               />
             </form>
           </div>
         </div>
       </div>
-      {isOpen && (
-        <ModalNotification
-          openModal={openModal}
-          closeModal={closeModal}
-          NotificationHeader={headerMg}
-          NotificationBody={bodyMg}
-        />
-      )}
+
+      <ModalNotification
+        closeModal={closeModal}
+        isOpen={isOpen}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
     </>
   )
 }
