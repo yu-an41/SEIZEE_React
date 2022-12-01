@@ -21,7 +21,7 @@ function ShopCardRow({ postNums }) {
 
   const getShopCardRow = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/home/shop-posts`)
+      const res = await axios.get(`http://localhost:3004/home/shop-posts`)
 
       setShopCardData(res.data.shopPostRows)
       console.log(res.data.shopPostRows)

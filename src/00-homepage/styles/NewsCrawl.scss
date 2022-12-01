@@ -26,6 +26,8 @@ $border-radius-button: 8px;
 }
 
 .y-news-crawl-container {
+    width: 100%;
+    max-width: 390px;
     display: flex;
     position: absolute;
     top: 0;
@@ -34,7 +36,7 @@ $border-radius-button: 8px;
     animation: newscrawl 15s linear infinite;
 
     .y-news-list-wrap {
-        height: 30px;
+        height: 24px;
         display: flex;
         // border-top: $border-sm;
         // border-bottom: $border-sm;

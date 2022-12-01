@@ -1,0 +1,186 @@
+.s_modal_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  // border: 1px solid red;
+  background-color: rgba(83,83,83,75%); 
+
+  .modal-dialog {
+    // border: 1px solid green;
+    width: 500px;
+    // height: 200px;
+    // box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 5px 0 #113f75;
+    overflow: hidden;
+    border-radius: 10px 10px 6px 6px;
+    .modal-content {
+      padding-bottom: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #FEF3DA;
+      border: 3px solid #113f75;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px 10px 6px 6px;
+      // position: relative;
+      .modal-header {
+        border-bottom: 3px solid #113f75;
+        height: 51px;
+        padding: 12px;
+        position: relative;
+        // border: 1px solid green;
+        .modal-title{
+          text-align: center;
+          font-size: 24px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          // border: 1px solid green;
+
+        }
+        .cross-btn {
+          width: 25px;
+          height: 100%;
+          position: absolute;
+          right: 20px;
+          top: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          // border: 1px solid blue;
+          i {
+            font-size: 30px;
+            text-align: center;
+            color: red;
+            padding: 12px;
+          }
+        }
+      }
+
+      .modal-body {
+        // border: 1px solid orange;
+        font-size: 18px;
+        color: #5E5E5E;
+        height: 100%;
+        min-height: 100px;
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+      }
+
+      .modal-footer {
+        // position: absolute;
+        // bottom: 0;
+        // border: 1px solid blue;
+        height: 62px;
+        display: flex;
+        justify-content: space-around;
+        padding: 0 30px;
+
+
+        .modal-btn {
+          // border: 3px solid #2B325C;
+          border: 3px solid #113F75;
+          height: 42px;
+          width: 180px;
+          font-size: 20px;
+          margin: 10px;
+          border-radius: 8px;
+          color: white;
+          background-color: #113F75;
+          font-weight: 900;
+          letter-spacing: 2px;
+        }
+
+        .modal-btn1 {
+          border: 3px solid #113F75;
+          height: 42px;
+          width: 180px;
+          font-size: 20px;
+          margin: 10px;
+          border-radius: 8px;
+          color: #534E48;
+          background-color: transparent;
+          font-weight: 900;
+          // display: none;
+          letter-spacing: 2px;
+          
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+
+    .modal-dialog { 
+      width: 320px;
+      height: auto;
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+      border-radius: 8px 8px 3px 3px;
+
+      .modal-content {
+        padding-bottom: 6px;
+        border-radius: 10px;
+        border: 2px solid #113f75;
+        .modal-header {
+          border-bottom: 2px solid #113f75;
+          height: 40px;
+          padding: 8px;
+          .modal-title {
+            font-size: 18px;
+          }
+  
+          .cross-btn {
+            width: 22px;
+            right: 15px;
+          }
+
+          i {
+            padding: 8px;
+          }
+        }
+  
+        .modal-body {
+          font-size: 16px;
+          min-height: 80px;
+          padding: 12px;
+  
+        }
+  
+        .modal-footer {
+          height: 48px;
+          padding: 0 18px;
+
+          .modal-btn {
+            border: 2px solid #113F75;
+            height: 36px;
+            width: 120px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            margin: 8px;
+          }
+
+          .modal-btn1 {
+            border: 2px solid #113F75;
+            height: 36px;
+            width: 120px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            margin: 8px;
+
+          }
+        }
+      }
+      
+
+    }
+
+  }
+}

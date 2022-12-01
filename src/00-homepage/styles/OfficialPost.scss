@@ -26,37 +26,56 @@ $border-radius-button: 8px;
 }
 
 .y-official-card-container {
-    // border: $border-sm;
-    padding: 20px;
-    border-radius: $border-radius-card;
-    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: $border-radius-button;
+    margin-bottom: 12px;
 
     .y-official-top {
-
+        margin-bottom: 15px;
         .y-official-author {
+            margin-bottom: 8px;
 
             .y-official-author-name {
                 letter-spacing: 2px;
+                font-size: 9px;
+
             }
         }
 
         .y-official-title {
 
                 p {
-                    
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: $main-blue;
                 }
             }
         
     }
     
     .y-official-text {
+        width: 100%;
+        // height: 100%;
+        // max-height: 200px;
+        overflow: hidden;
+        // background-color: $bgc-yellow;
+        margin-bottom: 15px;
+
         p {
-            
+            letter-spacing: 1px;
+            line-height: 1.2;
+            font-size: 10px;
+            text-align: justify;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
         }
     }
 
     .y-official-pic {
-        
+        width: 100%;
+
         img {
             width: 100%;
         }
@@ -68,17 +87,20 @@ $border-radius-button: 8px;
 }
 
 .y-official-card-container:nth-child(2n+1) {
-    border: $border-sm;
+    border: 2px dashed $main-blue;
 }
 
 @media (min-width: 391px) {
     .y-official-card-container {
+        padding: 20px;
+        border-radius: $border-radius-card;
+        margin-bottom: 30px;
 
         .y-official-top {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             .y-official-author {
                 display: flex;
-                margin-bottom: 8px;
+                margin-bottom: 5px;
                 .y-official-author-name {
                     font-size: 16px;
                     letter-spacing: 2px;
@@ -89,17 +111,13 @@ $border-radius-button: 8px;
 
                 p {
                     font-size: 18px;
-                    font-weight: bold;
-                    color: $main-blue;
+                    letter-spacing: 2px;
                 }
             }
         }
         
         .y-official-text {
-            width: 100%;
-            // height: 100%;
-            max-height: 200px;
-            overflow: hidden;
+            // max-height: 200px;
             // background-color: $bgc-yellow;
             margin-bottom: 25px;
             
@@ -107,18 +125,12 @@ $border-radius-button: 8px;
                 letter-spacing: 5px;
                 line-height: 1.4;
                 font-size: 16px;
-                text-align: justify;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
                 -webkit-line-clamp: 3;
-                overflow: hidden;
             }
         }
 
         .y-official-pic {
             width: 100%;
-            // border: $border-sm;
-            // border-radius: $border-radius-card;
             img {
                 width: 100%;
                 
@@ -130,5 +142,6 @@ $border-radius-button: 8px;
     }
 
     .y-official-card-container:nth-child(2n+1) {
+        border: 3px dashed $main-blue;
     }
 }

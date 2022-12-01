@@ -31,19 +31,19 @@ $border-radius-button: 8px;
         height: auto;
         padding: 5px;
         overflow: hidden;
-        margin-bottom: 5px;
+        margin-bottom: 0px;
 
         p {
+            width: 65px;
             position: absolute;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: bold;
             color: white;
             letter-spacing: 2px;
-            text-shadow: $text-shadow;
+            text-shadow: 1px 1px 1px $main-blue;
             top: 50%;
             left: 50%;
             transform: translateX(-50%);
-            // transform: translateY(50%);
         }
     }
 
@@ -52,10 +52,8 @@ $border-radius-button: 8px;
 
         img {
             width: 100%;
-            object-fit: cover;
             border: $border-sm;
-            border-radius: $border-radius-card;
-
+            border-radius: $border-radius-button;
         }
 
         p {
@@ -76,19 +74,23 @@ $border-radius-button: 8px;
 @media (min-width: 391px) {
     .y-recipe-card-row {
         .y-forum-head {
+            width: 100%;
+            height: auto;
             padding: 10px;
+            overflow: hidden;
             margin-bottom: 10px;
 
             p {
+                width: 180px;
                 font-size: 32px;
-                text-shadow: $text-shadow-lg;
+                text-shadow: 2px 2px 0 $main-blue;
             }
         }
 
         .y-recipe-head {
             img {
-                border: $border-sm;
-            border-radius: $border-radius-card;
+                border: $border-lg;
+                border-radius: $border-radius-card;
 
             }
     

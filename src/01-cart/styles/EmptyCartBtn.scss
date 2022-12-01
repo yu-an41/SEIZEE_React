@@ -35,6 +35,7 @@ $border-radius-button: 8px;
     border: $border-white-sm;
     background-color: $btn-pink;
     padding: 2px 20px;
+    height: 50px;
     display: none;
 
     .y-empty-cart-icon {
@@ -64,7 +65,8 @@ $border-radius-button: 8px;
         border-radius: $border-radius-card;
         border: $border-white-lg;
         padding: 8px 35px;
-    
+        height: 60px;
+
         .y-empty-cart-icon {
             img {
                 
