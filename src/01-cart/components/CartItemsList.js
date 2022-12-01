@@ -44,7 +44,12 @@ function CartItemsList({ cartItemData }) {
                 (v) => v.sid === e.target.id
               )
               const newItem = { ...cartItem }
+              console.log(cartItem.userCart[index].amount)
+
               newItem.userCart[index].amount = +e.target.value
+              // if (cartItem.userCart[index].amount) {
+              //   newItem.userCart[index].amount = +e.target.value
+              // }
               setCartItem(newItem)
             }}
           >
@@ -67,11 +72,7 @@ function CartItemsList({ cartItemData }) {
             <WishListBtn />
           </div>
           <div className="y-Cart-RemoveItemBtn-wrap">
-            <RemoveItemBtn
-              onClick={() => {
-                
-              }}
-            />
+            <RemoveItemBtn onClick={() => {}} />
           </div>
         </div>
       </div>
