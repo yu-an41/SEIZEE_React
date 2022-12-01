@@ -1,15 +1,7 @@
 import './../styles/Modal.scss'
 import React from 'react'
 
-function ModalNotification({
-  closeModal,
-  NotificationHeader,
-  NotificationBody,
-}) {
-  // console.log(setIsOpen)
-  console.log(NotificationHeader)
-  console.log(NotificationBody)
-
+function ModalNotification() {
   return (
     <>
       <div className="s_modal_body" id="myModal">
@@ -18,24 +10,17 @@ function ModalNotification({
             {/* Modal Header */}
             <div className="modal-header">
               <h4 className="modal-title" id="modal_header">
-                {NotificationHeader}
+                登入
               </h4>
-              <p className="cross-btn" onClick={closeModal}>
-                X
-              </p>
+              <p className="cross-btn">X</p>
             </div>
             {/* <!-- Modal body --> */}
             <div className="modal-body" id="modal_body">
-              {NotificationBody}
+              登入成功
             </div>
             {/* Modal footer */}
             <div className="modal-footer">
-              <button
-                type="button"
-                className="modal-btn"
-                id="modal_footer"
-                onClick={closeModal}
-              >
+              <button type="button" className="modal-btn" id="modal_footer">
                 確認
               </button>
             </div>
