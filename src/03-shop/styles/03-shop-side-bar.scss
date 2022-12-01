@@ -35,13 +35,13 @@ $card-btn: #80b938;
         justify-content: center;
         text-align: center;
         letter-spacing: 0.2rem;
-        span {
+        .r-shop-title-span {
           color: #fff;
           font-size: 24px;
           font-weight: 700;
           padding-bottom: 10px;
         }
-        p {
+        .r-shop-title-p {
           color: #fff;
           font-size: 36px;
           font-weight: 700;
@@ -70,13 +70,13 @@ $card-btn: #80b938;
           flex-direction: column;
           justify-content: center;
           letter-spacing: 0.2rem;
-          span {
+          .r-place-title-span {
             color: $main-title;
             font-size: 18px;
             font-weight: 700;
             padding-bottom: 10px;
           }
-          p {
+          .r-place-title-p {
             color: $main-title;
             font-size: 28px;
             font-weight: 700;
@@ -84,11 +84,11 @@ $card-btn: #80b938;
         }
       }
 
-      .r-place-select {
+      .r-place-select-wrap {
         display: flex;
         flex-direction: column;
         // align-items: center;
-        select {
+        .r-place-select {
           font-size: 18px;
           text-align: center;
           color: $main-text;
@@ -123,21 +123,21 @@ $card-btn: #80b938;
           flex-direction: column;
           justify-content: center;
           letter-spacing: 0.2rem;
-          span {
+          .r-cate-title-span {
             color: $main-title;
             font-size: 18px;
             font-weight: 700;
             padding-bottom: 10px;
           }
-          p {
+          .r-cate-title-p {
             color: $main-title;
             font-size: 28px;
             font-weight: 700;
           }
         }
       }
-      .r-cate-select {
-        select {
+      .r-cate-select-wrap {
+        .r-cate-select {
           font-size: 18px;
           text-align: center;
           color: $main-text;
@@ -172,22 +172,22 @@ $card-btn: #80b938;
           flex-direction: column;
           justify-content: center;
           letter-spacing: 0.2rem;
-          span {
+          .r-filter-title-span {
             color: $main-title;
             font-size: 18px;
             font-weight: 700;
             padding-bottom: 10px;
           }
-          p {
+          .r-filter-title-p {
             color: $main-title;
             font-size: 28px;
             font-weight: 700;
           }
         }
       }
-      .r-filter-select {
+      .r-filter-select-wrap {
         padding-bottom: 30px;
-        select {
+        .r-filter-select {
           font-size: 18px;
           text-align: center;
           color: $main-text;
@@ -198,85 +198,6 @@ $card-btn: #80b938;
           margin: 0;
           margin-bottom: 20px;
           outline-style: none;
-        }
-      }
-    }
-  }
-  .r-btn-wrap {
-    .r-search-btn {
-      display: block;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 30px 20px 60px;
-      button {
-        position: relative;
-        width: 250px;
-        height: 50px;
-        background: $main-orange;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #333;
-        letter-spacing: 0.2rem;
-        font-weight: 700;
-        border: 3px solid #333;
-        border-radius: 8px;
-        overflow: hidden;
-        span {
-          font-size: 24px;
-          display: inline-block;
-          z-index: 2;
-          transition: 0.5s ease-in-out;
-        }
-        i {
-          font-size: 30px;
-          padding-right: 10px;
-          display: inline-block;
-          z-index: 2;
-          animation: animateB 1s linear infinite;
-
-          @keyframes animateB {
-            0% {
-              opacity: 0;
-            }
-            25% {
-              opacity: 1;
-            }
-            50% {
-              opacity: 1;
-            }
-            75% {
-              opacity: 1;
-            }
-            100% {
-              opacity: 0;
-            }
-          }
-        }
-      }
-      button::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: $card-btn;
-        transform: scaleX(0);
-        transition: transform 0.5s ease-in-out;
-        transform-origin: right;
-      }
-      button:hover::before {
-        transform: scaleX(1);
-        transform-origin: left;
-      }
-      button:hover {
-        span {
-          color: #fff;
-        }
-        i {
-          color: #fff;
         }
       }
     }
