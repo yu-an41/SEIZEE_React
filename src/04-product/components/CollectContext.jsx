@@ -6,7 +6,7 @@ const CollectContext = createContext([]);
 export default CollectContext;
 
 export const CollectContextProvider = ({ children }) => {
-  let initCollect = {
+  const initCollect = {
     p_sid: 1,
     mb_sid: 0,
   };
@@ -30,12 +30,11 @@ export const CollectContextProvider = ({ children }) => {
       console.log("未登入！無法加入收藏");
       return;
     }
-
     const response = await axios.get(
       `http://localhost:3004/product/collection?mb_sid=${mb_sid}`
     );
-    // console.log({response})
     const collectData = response.data.collection_rows;
+
     const collect = collectData.map((collection, i) => {
       return {
         p_sid: collection.food_product_sid,
@@ -62,19 +61,11 @@ export const CollectContextProvider = ({ children }) => {
       console.log("未登入！無法加入收藏");
       return;
     }
-
     const response = await axios.get(
       `http://localhost:3004/product/add?sid=${food_product_sid}&mb_sid=${mb_sid}`
     );
 
   //建立新的收藏清單並更新狀態
-    // const newcollection = [
-    //   ...collectList,
-    //   { p_sid: food_product_sid, m_sid: m_sid, collect: true },
-    // ];
-    // setCollectList(newcollection);
-    // //更新收藏狀態
-    // setCollection(true);
     setCollectionNum([...collectionNum,food_product_sid])
   };
 
@@ -84,40 +75,17 @@ export const CollectContextProvider = ({ children }) => {
       console.log("未登入！無法加入收藏");
       return;
     }
-    console.log(food_product_sid)
+    // console.log(food_product_sid)
     const response = await axios.get(
       `http://localhost:3004/product/delete?sid=${food_product_sid}&mb_sid=${mb_sid}`
     );
-    // const collect1 = collectList.slice(0, index);
-    // const collect2 = collectList.slice(index + 1);
-    // const newcollection = collect1.concat(collect2);
     const a = collectionNum.filter((e)=>e!== food_product_sid)
-    console.log(a)
+    // console.log(a)
     setCollectionNum(a)
     // setCollectList(newcollection);
      //更新收藏狀態
     // setCollection(false);
   };
-
-  //判斷商品sid新增和移除
-  // const handleClick = async (sid) => {
-  //   const index = collectList.indexOf(sid);
-  //   if (index === -1) {
-  //     addCollect(sid);
-  //     setCollectionNum([...collectionNum, sid]);
-  //   } else {
-  //     delCollect(sid, index);
-  //     const collect1 = collectionNum.slice(0, index);
-  //     const collect2 = collectionNum.slice(index + 1);
-  //     const newCollectNum = collect1.concat(collect2);
-  //     setCollectionNum(newCollectNum);
-  //   }
-  // };
-  
-  // useEffect(() => {
-  //   let index = collectList.findIndex((c) => c.p_sid === sid);
-  //   setCollectionNum(index)
-  // }, [collection, collectionNum]);
 
   useEffect(() => {
     getCollectList();

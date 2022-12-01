@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import ProductCard from "./components/ProductCard.jsx";
 import HeadWave from "../components/HeadWave";
 import YellowWave2 from "./components/YellowWave2";
-import './components/style/ProductList.scss';
-import Select from "./components/Select"
-import ProductVideo from "./components/ProductVideo"
+import "./components/style/ProductList.scss";
+import Select from "./components/Select";
+import ProductVideo from "./components/ProductVideo";
 
 // // 01-cart
 // import CartInfoContext from '../01-cart/contexts/CartInfoContext'
@@ -18,28 +18,27 @@ function ProductList() {
   const [allProduct, setAllProduct] = useState([]);
   const [shopData, setShopData] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
-  const {shop_list_sid} = useParams();
+  const { shop_list_sid } = useParams();
 
   async function getProductCard() {
     try {
       const response = await axios.get(
         `http://localhost:3004/product/list?shop_list_sid=${shop_list_sid}`
       );
-      console.log('this is reponse:',response);
+      console.log("this is reponse:", response);
       const Pdata = response.data.product_rows;
       const Sdata = response.data.shop;
       setAllProduct(Pdata);
       setShopData(Sdata);
       console.log(Sdata);
     } catch (e) {
-      console.error('this is e-message:',e.message);
+      console.error("this is e-message:", e.message);
       setErrorMessage(e.message);
     }
   }
   useEffect(() => {
     getProductCard();
   }, []);
-  
 
   return (
     <>
@@ -48,8 +47,9 @@ function ProductList() {
       <YellowWave2 />
       <div className="race-by">
         <div className="a-productCardList">
-        {allProduct.map(product =>
-        <ProductCard key={product.sid} product={product} />)}
+          {allProduct.map((product) => (
+            <ProductCard key={product.sid} product={product} />
+          ))}
         </div>
       </div>
     </>
