@@ -10,7 +10,7 @@ import ModalConfirm from './components/ModalConfirm'
 import ModalNotification from './components/ModalNotification'
 
 // 00-homepage
-// import Homepage from './00-homepage/pages/Homepage'
+import Homepage from './00-homepage/pages/Homepage'
 
 // 01-cart
 import CartList from './01-cart/pages/CartList'
@@ -75,26 +75,32 @@ function App() {
                   {/* <Route path="done" element={<CartDone />} /> */}
                 </Route>
 
-              {/* 02-forum */}
-              <Route path="/forum/">
-                <Route index path="" element={<ForumHome />} />
-                <Route path="cook" element={<PostCook />} />
-                <Route path="share" element={<PostShare />} />
-                <Route path="store" element={<PostStore />} />
-                <Route path="official" element={<PostOfficial />} />
-                <Route path="cook/inner/:sid" element={<InnerCook />} />
-                <Route path="share/inner/:sid" element={<InnerShare />} />
-                <Route path="store/inner/:sid" element={<InnerStore />} />
-                <Route path="official/inner/:sid" element={<InnerOfficial />} />
-                <Route path="writeForm" element={<WriteForm />} />
-              </Route>
+                {/* 02-forum */}
+                <Route path="/forum/">
+                  <Route index path="" element={<ForumHome />} />
+                  <Route path="cook" element={<PostCook />} />
+                  <Route path="share" element={<PostShare />} />
+                  <Route path="store" element={<PostStore />} />
+                  <Route path="official" element={<PostOfficial />} />
+                  <Route path="cook/inner/:sid" element={<InnerCook />} />
+                  <Route path="share/inner/:sid" element={<InnerShare />} />
+                  <Route path="store/inner/:sid" element={<InnerStore />} />
+                  <Route
+                    path="official/inner/:sid"
+                    element={<InnerOfficial />}
+                  />
+                  <Route path="writeForm" element={<WriteForm />} />
+                </Route>
 
-              {/* 03-shop */}
-              <Route path="/shop" element={<ShopList />} />
-              {/* <Route path="/shop" element={<ShopHome />} /> */}
+                {/* 03-shop */}
+                <Route path="/shop" element={<ShopList />} />
+                {/* <Route path="/shop" element={<ShopHome />} /> */}
 
                 {/* 04-product  */}
-                <Route path="/productList/:shop_list_sid" element={<ProductList />} />
+                <Route
+                  path="/productList/:shop_list_sid"
+                  element={<ProductList />}
+                />
                 <Route path="/product/:sid" element={<ProductDetail />} />
                 <Route path="/productFilter/" element={<ProductFilter />} />
 
@@ -112,8 +118,8 @@ function App() {
                   <Route path="activities" element={<Activities />} />
                 </Route>
 
-              {/* 06-event */}
-              {/* <Route path="/top" element={<Top />} />
+                {/* 06-event */}
+                {/* <Route path="/top" element={<Top />} />
               <Route path="/events" element={<Events />} />
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/map" element={<Map />} />
