@@ -168,23 +168,23 @@ $card-btn: #80b938;
         }
       }
     }
-    .r-card-container:hover {
-      background-color: $main-Blue;
-      box-shadow: 10px 10px 5px gray;
+    // .r-card-container:hover {
+    //   background-color: $main-Blue;
+    //   box-shadow: 10px 10px 5px gray;
 
-      h2 {
-        color: #fff;
-        text-shadow: none;
-      }
-      p {
-        color: #fff;
-      }
-      span {
-        color: #fff;
-      }
-      i {
-        color: #fff;
-      }
-    }
+    //   h2 {
+    //     color: #fff;
+    //     text-shadow: none;
+    //   }
+    //   p {
+    //     color: #fff;
+    //   }
+    //   span {
+    //     color: #fff;
+    //   }
+    //   i {
+    //     color: #fff;
+    //   }
+    // }
   }
 }
