@@ -1,8 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { imgUrl, imgServerUrl } from '../shop-config'
 import axios from 'axios'
 import './../styles/03-shop-card.scss'
 import { Box, Skeleton } from '@mui/material'
+// import { Link, useLocation, useNavigate } from 'react-router-dom';
+// import IsLovedContext from '../03-shop-loveContext'
+// 收藏項目
+// const { lovedList, delLoved, addLoved, loved, indexNum } =
+//   useContext(IsLovedContext);
+// states
+// 收藏連結 Hover
+// const [lovedHover, setLovedHover] = useState(false);
 
 function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
   return (
@@ -29,6 +37,7 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                           src={`${imgServerUrl}/images/03-shop/${v.rows.shop_cover}`}
                           alt=""
                         />
+                        <i class="fa-solid fa-heart"></i>
                       </div>
                       <div className="r-card-body">
                         <h2 className="r-card-body-h2">{v.rows.shop_name}</h2>
@@ -134,6 +143,7 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                         src={`${imgServerUrl}/images/03-shop/${v.rows.shop_cover}`}
                         alt=""
                       />
+                      <i class="fa-solid fa-heart"></i>
                     </div>
                     <div className="r-card-body">
                       <h2 className="r-card-body-h2">{v.rows.shop_name}</h2>
@@ -238,6 +248,7 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                           src={`${imgServerUrl}/images/03-shop/${v[0].shop_cover}`}
                           alt=""
                         />
+                        <i class="fa-solid fa-heart"></i>
                       </div>
                       <div className="r-card-body">
                         <h2 className="r-card-body-h2">{v[0].shop_name}</h2>
@@ -329,6 +340,7 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                         src={`${imgServerUrl}/images/03-shop/${v[0].shop_cover}`}
                         alt=""
                       />
+                      <i class="fa-solid fa-heart"></i>
                     </div>
                     <div className="r-card-body">
                       <h2 className="r-card-body-h2">{v[0].shop_name}</h2>
@@ -415,4 +427,29 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
     </>
   )
 }
+
+{/* <div
+style={{ display: 'flex' }}
+onMouseEnter={() => {
+  setLovedHover(!lovedHover);
+}}
+onMouseLeave={() => {
+  setLovedHover(!lovedHover);
+}}
+onClick={() => {
+  if (!JSON.stringify(localStorage.getItem('auth'))) {
+    navigate('/member/memberProductCollect');
+  } else {
+    alert('請先登入');
+    navigate('/member/memberLogIn');
+  }
+}}
+>
+<i
+  className={`${
+    lovedHover ? 'fa-solid' : 'fa-regular'
+  } fa-heart`}
+></i>
+<p style={{ textAlign: 'end' }}>我的收藏</p>
+</div> */}
 export default ShopCard

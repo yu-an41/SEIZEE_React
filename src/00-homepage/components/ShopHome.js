@@ -146,7 +146,7 @@ function ShopHome() {
                 key={index}
               >
                 <input
-                className="r-shop-home-input"
+                  className="r-shop-home-input"
                   type="checkbox"
                   id={`cate-checkbox-${index}`}
                   name="cate"
