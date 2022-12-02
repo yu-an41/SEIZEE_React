@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import '../components/06-event-comp-left.scss'
+import './left.scss'
 
-import jLogo from '../svg/LOGO.svg'
-import jWorm from '../svg/worm.svg'
-import YellowWave from './YellowWave'
+import jLogo from './../../svg/LOGO.svg'
+import jWorm from './../../svg/worm.svg'
+import YellowWave from './../yellow/YellowWave'
 
 function Left({ setNowPage }) {
   const [jlactive, setJlactive] = useState(1)

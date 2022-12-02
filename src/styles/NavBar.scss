@@ -21,6 +21,7 @@ $border-radius-button: 8px;
 
 .y-section-nav {
     width: 100%;
+    max-width: 390px;
     position: fixed;
     z-index: 999;
     top: 0;
@@ -83,6 +84,7 @@ $border-radius-button: 8px;
 
 @media (min-width:391px) {
     .y-section-nav {
+        max-width: 1920px;
         height: 90px;
         padding: 0 40px;
     

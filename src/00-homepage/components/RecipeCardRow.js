@@ -21,7 +21,7 @@ function RecipeCardRow({ postNums }) {
 
   const getRecipeCardRow = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/home/recipe-posts`)
+      const res = await axios.get(`http://localhost:3004/home/recipe-posts`)
 
       setRecipeCardData(res.data.recipePostRows)
       console.log(res.data.recipePostRows)

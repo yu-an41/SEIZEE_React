@@ -168,7 +168,7 @@ input[type="number"] {
       @extend %p;
       margin-right: 5px;
     }
-    #minus {
+    .minus {
       border: none;
       background: #fff;
       color: $main-text;
@@ -176,7 +176,7 @@ input[type="number"] {
       border-radius: 8px 0 0 8px;
       font-size: 20px;
     }
-    #plus {
+    .plus {
       border: none;
       background: #fff;
       color: $main-text;
@@ -184,9 +184,12 @@ input[type="number"] {
       border-radius: 0 8px 8px 0;
       font-size: 20px;
     }
-    .a-productQuantity input {
+    .a-qtyInput {
       border-radius: 0%;
+      border: none;
+      outline: none;
       height: 30px;
+      text-align: center;
     }
     .a-qty {
       border: $main-border;

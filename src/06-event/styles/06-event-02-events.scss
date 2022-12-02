@@ -51,6 +51,7 @@ body {
   z-index: 100;
   //   outline: 1px black solid;
   @include position(47%, 49%);
+  position: fixed;
   @include size(1100px, 900px);
   transform: translate(-50%, -50%);
   @media (max-width: 390px) {
@@ -153,14 +154,19 @@ body {
     overflow: hidden;
     @media (max-width: 390px) {
       margin-top: 15px;
+      outline: 2px solid red;
+      position: relative;
     }
     .j-blue-mountain {
       transition: 0.5s;
       transform: scale(0.8);
       @include position(16%, -6%);
       @media (max-width: 390px) {
-        transform: scale(0.4);
-        @include position(30%, -40%);
+        // transform: scale(0.4);
+        position: absolute;
+        top: 0;
+        left: 0;
+        outline: 2px solid red;
       }
     }
     .j-rice-mountain {
@@ -169,17 +175,22 @@ body {
       @include position(16%, 18%);
       @media (max-width: 390px) {
         transform: scale(0.4);
-        @include position(30%, -19%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        outline: 2px solid green;
       }
     }
     .j-green-mountain {
-      z-index: 2;
       transition: 0.5s;
       transform: scale(0.8);
       @include position(16%, 41%);
       @media (max-width: 390px) {
         transform: scale(0.4);
-        @include position(30%, 4%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        outline: 2px solid blue;
       }
     }
     .j-orange-mountain {
@@ -188,27 +199,26 @@ body {
       @include position(16%, 65%);
       @media (max-width: 390px) {
         transform: scale(0.4);
-        @include position(30%, 27%);
+        position: absolute;
+        top: 0;
+        left: 20%;
+        outline: 2px solid purple;
       }
-      // &:hover {
-      //   transform: scale(1);
-      //   transform: translateY(-16%);
-      // }
     }
     div.mactive {
       z-index: 199;
       transform: scale(1);
       transform: translateY(-16%);
       @media (max-width: 390px) {
-        transform: scale(0.4);
-        @include position(30%, -40%);
-        transform: translateY(-10px);
+        // transform: scale(0.2);
+        width: 50%;
+        // transform: translateY(-10px);
       }
     }
-    .img {
+    img {
       overflow: hidden;
       @media (max-width: 390px) {
-        transform: scale(0.4);
+        transform: scale(1);
       }
     }
   }
@@ -248,16 +258,18 @@ body {
         align-items: center;
         grid-area: name;
         border-radius: 15px;
-        padding: 18px;
+        padding: 2% 7%;
         font-size: 4.5rem;
         font-weight: 900;
         color: $colorMiddleGrey;
+        display: flex;
+        justify-content: space-between;
+        img {
+          width: 5%;
+        }
         @media (max-width: 390px) {
           border-radius: 5px;
-          font-size: 3rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          font-size: 2.5rem;
         }
       }
       .j-card-image {
@@ -294,11 +306,12 @@ body {
       .j-card-sold {
         grid-area: sold;
         border-radius: 15px;
-        padding: 13px;
+        padding: 13px 20%;
         font-size: 4rem;
         font-weight: 900;
         text-align: center;
         color: $colorMiddleGrey;
+
         @media (max-width: 390px) {
           border-radius: 5px;
           font-size: 2.5rem;

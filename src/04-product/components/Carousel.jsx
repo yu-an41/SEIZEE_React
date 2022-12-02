@@ -41,7 +41,7 @@ function Carousel() {
   async function getCarousel() {
     try {
       const response = await axios.get(
-        "http://localhost:3002/product/picture?sid=${sid}"
+        "http://localhost:3004/product/picture?sid=${sid}"
       );
       console.log(response);
       const Cdata = response.data.picture_rows;

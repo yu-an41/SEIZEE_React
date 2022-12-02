@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MyContextProviders from './contexts/MyContextProviders'
-import CollectContextProvider from './04-product/components/CollectContext'
+import { CollectContextProvider } from './04-product/components/CollectContext'
 
 // components
 // import Menu from './components/Menu'
 // 切換頁面捲動至最上方
-// import ScrollToTop from './components/ScrollToTop'
+// import ScrollTonpm sTop from './components/ScrollToTop'
 import ModalConfirm from './components/ModalConfirm'
 import ModalNotification from './components/ModalNotification'
 
@@ -15,6 +15,7 @@ import Homepage from './00-homepage/pages/Homepage'
 // 01-cart
 import CartList from './01-cart/pages/CartList'
 import CartInfo from './01-cart/pages/CartInfo'
+// import CartDone from './01-cart/pages/CartDone'
 
 // Cart 要用的 ContextProvider
 
@@ -37,6 +38,7 @@ import ShopList from './03-shop/pages/03-shop-list'
 // 04-product
 import ProductList from './04-product/ProductList'
 import ProductDetail from './04-product/ProductDetail'
+import ProductFilter from './04-product/ProductFilter'
 
 // 05-member
 import UserSign from './05-member/UserSign'
@@ -50,6 +52,8 @@ import Activities from './05-member/profile-pages/Activities'
 import Orders from './05-member/profile-pages/Orders'
 
 // 06-event
+//event要用的context
+import { TimeTableProvider } from './06-event/context/useTimeTable'
 // import Top from './06-event/pages/06-event-01-top'
 import Eventrender from './06-event/pages/06-event-00-Render'
 
@@ -58,14 +62,18 @@ function App() {
     <>
       <BrowserRouter>
         <MyContextProviders>
-          {/* <CollectContextProvider> */}
-          <Routes>
-            {/* 00-homepage */}
-            <Route path="/" element={<Homepage />} />
+          <CollectContextProvider>
+            <TimeTableProvider>
+              <Routes>
+                {/* 00-homepage */}
+                <Route path="/" element={<Homepage />} />
 
-            {/* 01-cart */}
-            <Route path="/cart" element={<CartList />} />
-            <Route path="/cart/info" element={<CartInfo />} />
+                {/* 01-cart */}
+                <Route path="/cart/">
+                  <Route index path="" element={<CartList />} />
+                  <Route path="info" element={<CartInfo />} />
+                  {/* <Route path="done" element={<CartDone />} /> */}
+                </Route>
 
             {/* 02-forum */}
             <Route path="/forum/">
@@ -85,12 +93,13 @@ function App() {
             <Route path="/shop" element={<ShopList />} />
             {/* <Route path="/shop" element={<ShopHome />} /> */}
 
-            {/* 04-product  */}
-            <Route
-              path="/productList/:shop_list_sid"
-              element={<ProductList />}
-            />
-            <Route path="/product/:sid" element={<ProductDetail />} />
+                {/* 04-product  */}
+                <Route
+                  path="/productList/:shop_list_sid"
+                  element={<ProductList />}
+                />
+                <Route path="/product/:sid" element={<ProductDetail />} />
+                <Route path="/productFilter/" element={<ProductFilter />} />
 
             {/* 05-member */}
             <Route path="/login" element={<UserSign />} />
@@ -112,9 +121,10 @@ function App() {
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/map" element={<Map />} />
               <Route path="/ticket" element={<Ticket />} /> */}
-            <Route path="/Eventrender" element={<Eventrender />} />
-          </Routes>
-          {/* </CollectContextProvider> */}
+                <Route path="/Eventrender" element={<Eventrender />} />
+              </Routes>
+            </TimeTableProvider>
+          </CollectContextProvider>
         </MyContextProviders>
       </BrowserRouter>
     </>

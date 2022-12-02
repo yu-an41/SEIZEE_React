@@ -18,6 +18,7 @@ function PostCook() {
       title: '',
       img: '',
       video: '',
+      induction: '',
       content: '',
       hashtag: '',
       created_at: '',
@@ -49,8 +50,8 @@ function PostCook() {
           </div>
           <div className="p-CardWrap">
             {officialPostData &&
-              officialPostData.map((v) => {
-                return <CardPost postData={v} key={v.sid} />
+              officialPostData.map((v, i) => {
+                return <CardPost postData={v} key={i} />
               })}
           </div>
         </div>

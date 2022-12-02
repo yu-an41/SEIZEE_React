@@ -1,10 +1,10 @@
-import '../styles/03-shop-home.scss'
+import '../styles/ShopHome.scss'
 import '../../00-homepage/styles/YellowWave.scss'
-import YellowWave from '../../00-homepage/components/YellowWave'
-import ShopHcard from '../components/03-shop-h-card'
+import YellowWave from './YellowWave'
+import ShopHcard from './ShopHcard'
 import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
-import { toppings } from './../toppings'
+import { toppings } from '../toppings'
 
 function ShopHome() {
   // 記錄原始資料用
@@ -22,7 +22,7 @@ function ShopHome() {
 
   const getShops = async () => {
     try {
-      const response = await axios.get('http://localhost:3002/api/shop')
+      const response = await axios.get('http://localhost:3004/api/shop')
       // console.log(response.data.shop_c_rows)
       const shopData = response.data
       //設定到state裡
@@ -110,22 +110,19 @@ function ShopHome() {
   }, [cateFilters])
   // console.log(selResultShop)
   // console.log(shops);
-  
+
   return (
     <>
       <div className="r-shop-home-container">
-        <YellowWave />
         <div className="r-shop-home-main">
           <div className="r-shop-home-main-inner">
             <div className="r-shop-home-main-text">
-              <p>Creating a better future through food.</p>
-              <span>開啟屬於你的惜食地圖</span>
-              <div className="r-shop-home-main-btn">
-                <input placeholder="請輸入地址" />
-                <a href="/#">
-                  <i className="fa-solid fa-magnifying-glass"></i>
-                </a>
-              </div>
+              <p className="r-shop-home-main-text-p">
+                Creating a better future through food.
+              </p>
+              <span className="r-shop-home-main-text-span">
+                開啟屬於你的惜食地圖
+              </span>
             </div>
           </div>
           <div className="r-shop-home-main-visual"></div>
@@ -136,15 +133,20 @@ function ShopHome() {
           <div className="r-wave-wrap"></div>
         </div>
         <div className="r-shop-home-carousel-title">
-          <p className="r-shop-home-carousel-p">
+          <h2 className="r-shop-home-carousel-h2">
             An idea, a way of living, a way of eating.
-          </p>
+          </h2>
         </div>
         <div className="r-shop-home-carousel-check">
           {toppings.map(({ cate, imgurl }, index) => {
             return (
-              <label className="r-check-wrap" htmlFor="cate1" key={index}>
+              <label
+                className="r-check-wrap"
+                htmlFor={`cate-checkbox-${index}`}
+                key={index}
+              >
                 <input
+                className="r-shop-home-input"
                   type="checkbox"
                   id={`cate-checkbox-${index}`}
                   name="cate"
@@ -152,7 +154,7 @@ function ShopHome() {
                   checked={checkedState[index]}
                   onChange={() => handleOnChange(index)}
                 />
-                <span>
+                <span className="r-shop-home-carousel-check-span">
                   {cate}
                   <div className="r-check-icon">
                     <img src={`/03-shop-img/${imgurl}`} alt="" />
@@ -164,7 +166,7 @@ function ShopHome() {
         </div>
         <div className="r-shop-slider">
           <div className="r-shop-home-slider-inner1">
-            <span>推薦店鋪</span>
+            <span className="r-shop-home-slider-inner1-span">推薦店鋪</span>
           </div>
           <ShopHcard
             shops={shops}
@@ -172,6 +174,7 @@ function ShopHome() {
             statusShop={statusShop}
           />
         </div>
+        <YellowWave />
       </div>
     </>
   )

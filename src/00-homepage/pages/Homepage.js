@@ -5,7 +5,6 @@ import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
 
 // scss
 import './../styles/Homepage.scss'
-import './../../03-shop/styles/03-shop-home.scss'
 // import './../styles/AboutUs.scss'
 // import './../styles/NewEvent.scss'
 
@@ -22,6 +21,7 @@ import RecipeCardRow from '../components/RecipeCardRow'
 import ShopCardRow from '../components/ShopCardRow'
 import OfficialCardRow from '../components/OfficialCardRow'
 import Runman from '../../components/Runman'
+import ShopHome from '../components/ShopHome'
 
 //img srcs
 // import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
@@ -29,13 +29,9 @@ import Runman from '../../components/Runman'
 // import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
 
 function Homepage() {
-  // miee's ------------------------------------
+  // miee's search and shop ------------------------------------
 
-  // cart's ------------------------------------
-
-  // ariel's ---------------------------------
-  // console.log(shops);
-
+  // ariel's about and events ---------------------------------
   const videoEl = useRef(null)
 
   const attemptPlay = () => {
@@ -52,9 +48,9 @@ function Homepage() {
 
   // forum post's -----------------------------
   const [postNums, setPostNums] = useState(3)
-  const [offPostNums, setOffPostNums] = useState(2)
+  // const [offPostNums, setOffPostNums] = useState(2)
 
-  // NavBar cart's
+  // NavBar cart's ----------------------------
 
   return (
     <>
@@ -89,15 +85,16 @@ function Homepage() {
             </div>
           </section>
         </div>
-        <section className="y-section y-section-search">
-        </section>
-        <section className="y-section y-section-merch">
-        </section>
+        <section className="y-section y-section-search"></section>
+        <section className="y-section y-section-merch"></section>
         <div className="y-wave-wrap">
           <YellowWave />
         </div>
+        <section className="r-section r-section-shop">
+          <ShopHome />
+        </section>
         <section className="y-section y-section-about">
-          <div className="a-video">
+          {/* <div className="a-video">
             <div className="a-videoWrapper">
               <h3 className="a-aboutUs">關於我們</h3>
               <video
@@ -110,12 +107,12 @@ function Homepage() {
                 ref={videoEl}
               />
             </div>
-          </div>
+          </div> */}
         </section>
+        <div className="y-wave-wrap-white">
+          <WhiteWave />
+        </div>
         <section className="y-section y-section-event">
-          <div className="y-wave-wrap-white">
-            <WhiteWave />
-          </div>
           <div class="a-eventBanner">
             <div className="a-eventWrapper">
               <h3 className="a-newEvent">最新活動</h3>
@@ -170,11 +167,10 @@ function Homepage() {
             </div>
           </div>
         </section>
-
+        <div className="y-wave-wrap">
+          <YellowWave />
+        </div>
         <section className="y-section y-section-forum">
-          <div className="y-wave-wrap">
-            <YellowWave />
-          </div>
           <div className="y-section-forum-title">
             <p>最新論壇消息</p>
           </div>
@@ -186,7 +182,7 @@ function Homepage() {
               <ShopCardRow postNums={postNums} />
             </div>
             <div className="y-forum-row-wrap y-official-row-wrap">
-              <OfficialCardRow offPostNums={offPostNums} />
+              <OfficialCardRow postNums={postNums} />
             </div>
           </div>
           <div className="y-forum-more-wrap">
@@ -194,7 +190,7 @@ function Homepage() {
               className="y-forum-more-btn"
               onClick={() => {
                 setPostNums(postNums + 2)
-                setOffPostNums(offPostNums + 2)
+                // setOffPostNums(offPostNums + 2)
               }}
             >
               <div className="y-forum-more-icon">

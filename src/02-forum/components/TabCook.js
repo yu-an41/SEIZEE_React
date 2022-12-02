@@ -1,19 +1,20 @@
+import axios from 'axios'
 import log from 'eslint-plugin-react/lib/util/log'
 import React, { useState } from 'react'
 
 import '../styles/TabCook.scss'
 
-function TabCook() {
+function TabCook({ likeInstructions, setLikeInstructions, setCookPostData }) {
   const [toggleState, setToggleState] = useState(1)
-
+  // const searchInstru = URLSearchParams()
   const toggleTab = (index) => {
     setToggleState(index)
   }
   const [hateInstructions, setHateInstructions] = useState([''])
-  const [likeInstructions, setLikeInstructions] = useState([''])
+
   const [tools, setTools] = useState([''])
   const [spendTime, setSpendTime] = useState([''])
-
+  const searchParme = new URLSearchParams()
   const hateOptions = [
     '蛋',
     '香菜',
@@ -31,16 +32,22 @@ function TabCook() {
     '牛肉',
     '香菇',
     '蝦子',
-    '螃蟹',
+    '蛋',
     '魚',
     '豬肉',
     '雞肉',
     '巧克力',
     '牛奶',
   ]
-  const toolsOptions = ['炒鍋', '電鍋', '平底鍋', '氣炸鍋', '微波爐', '烤箱']
-  const spendTimeOptions = ['30分鐘內', '60分鐘內', '90分鐘內', '100分鐘以上']
-
+  const servingOptions = ['1人份', '2人份', '3人份', '4人份', '5人份', '6人份']
+  const spendTimeOptions = ['30分鐘', '60分鐘', '90分鐘', '100分鐘']
+  const getChoos = async (choosInst) => {
+    const { data } = await axios.get(
+      `http://localhost:3002/forum/post_cook?${choosInst}`
+    )
+    console.log(data)
+    setCookPostData(data.cookPostRows)
+  }
   return (
     <>
       <div className="p-TabContainer">
@@ -116,7 +123,7 @@ function TabCook() {
                   <div key={i} className="p-checkOption  p-likeOption">
                     <input
                       type="checkbox"
-                      checked={likeInstructions.includes(v)}
+                      // checked={likeInstructions.includes(v)}
                       value={v}
                       onChange={(e) => {
                         const likeValue = e.target.value
@@ -124,10 +131,29 @@ function TabCook() {
                           const newLikeInstru = likeInstructions.filter(
                             (likeV, likeI) => likeV !== likeValue
                           )
+                          getChoos(newLikeInstru)
                           setLikeInstructions(newLikeInstru)
                         } else {
-                          const newLikeInstru = [...likeInstructions, likeValue]
-                          setLikeInstructions(newLikeInstru)
+                          if (likeInstructions === '') {
+                            searchParme.append('likes[]', likeValue)
+                            const LikeString = searchParme.toString()
+                            console.log(LikeString)
+                            getChoos(LikeString)
+                            setLikeInstructions(LikeString)
+                          } else {
+                            searchParme.append('likes[]', likeValue)
+                            const LikeString = searchParme.toString()
+                            const LikeStringParm =
+                              likeInstructions + '&' + LikeString
+                            console.log(LikeStringParm)
+                            getChoos(LikeStringParm)
+                            setLikeInstructions(LikeStringParm)
+                          }
+
+                          // const likes = cook.toString()
+                          // const newLikeInstru = [...likeInstructions, likeValue]
+
+                          // setLikeInstructions(newLikeInstru)
                         }
                       }}
                     />
@@ -144,7 +170,7 @@ function TabCook() {
             }
           >
             <h4 className="p-option p-option-hate">
-              {toolsOptions.map((v, i) => {
+              {servingOptions.map((v, i) => {
                 return (
                   <div key={i} className="p-checkOption p-toolsOption">
                     <input

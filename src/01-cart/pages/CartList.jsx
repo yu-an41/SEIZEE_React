@@ -1,11 +1,14 @@
 import { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import CartInfoContext from '../contexts/CartInfoContext'
+import products from './../data/products.json' // 假資料
 
 // scss
 import './../styles/CartList.scss'
 
 // components
-import NavBar from '../../00-homepage/components/NavBar'
+// import NavBar from '../../00-homepage/components/NavBar'
+import NavBar from './../../components/NavBar'
 import OpenHoursBtn from '../components/OpenHoursBtn'
 import PickupHoursBtn from '../components/PickupHoursBtn'
 import EmptyCartBtn from '../components/EmptyCartBtn'
@@ -15,6 +18,10 @@ import GoPayBtn from '../components/GoPayBtn'
 import RecMerch from '../components/RecMerch'
 import Footer from '../../components/Footer'
 
+// modal測試用
+import ModalConfirm from '../../components/ModalConfirm'
+import ModalNotification from '../../components/ModalNotification'
+
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
 import YellowWaveReverse from '../../00-homepage/components/YellowWaveReverse'
@@ -23,6 +30,8 @@ import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
+import log from 'eslint-plugin-react/lib/util/log'
+import axios from 'axios'
 
 // cart init
 // initialState = {
@@ -33,8 +42,119 @@ import ShopCover from './../images/01cover.jpg'
 // }
 
 function CartList(props) {
+  // 加入購物車
+  const { cartItem, handleAddCart, handleReduce, handleEmptyCart } =
+    useContext(CartInfoContext)
+
+  // 數量
+  const [prodQty, setProdQty] = useState(1)
+
+  // 商品訂單明細 即時商品數量
+  const [amount, setAmount] = useState([])
+
+  // 取得商品資訊
+  const data = products[0]
+  const data2 = products[4]
+
+  // 商品訂單明細 引入來源資料原始商品金額小計
+  const [totalPrice, setTotalPrice] = useState([])
+
+  // 商品訂單明細 有被修改過數量的商品金額小計
+  const [newTotalPrice, setNewTotalPrice] = useState(0)
+
+  // 商品訂單明細 取資料上狀態為了要刪除時使用
+  const [myData, setMyData] = useState([{}])
+  const [myPhotoData, setMyPhotoData] = useState([{}])
+
+  // 推薦商品資訊
+
+  // 假的店家編號
+  const shop_sid = 2
+
+  const [recMerchData, setRecMerchData] = useState([
+    {
+      sid: 1,
+      shop_list_sid: 1,
+      product_name: '',
+      product_category_sid: '',
+      unit_price: 100,
+      sale_price: 3.5,
+      // product_launch: 1,
+    },
+  ])
+
+  // 真實串接資料來源
+  // const myCart = localStorage.getItem('cartItem')
+  // const myProduct = JSON.parse(myCart).userCart
+
+  // 獲取來源資料
+  const getCartData = () => {
+    // setMyData(myProduct)
+    // setMyData(jsonData);
+
+    setMyPhotoData(cartItem.userCart)
+    console.log(cartItem.userCart.price)
+    // setNewPhotoPrice(myPhotoData[0].price);
+  }
+
+  // 商品訂單明細 商品數量相關連動功能
+  const dataAmount = () => {
+    // console.log(myProduct)
+    // // 來源資料原始商品數量map
+    // const origiAmount = myProduct.map((v, i) => {
+    //   return [v.amount]
+    // })
+    // setAmount(origiAmount)
+    // 來源資料商品原始小計金額map
+    // const origiTotalPrice = myProduct.map((v, i) => v.member_price * v.amount)
+    // setTotalPrice(origiTotalPrice)
+    // 所有商品小計加總後要結帳之總額
+    // setNewTotalPrice(origiTotalPrice.reduce((a, b) => a + b))
+  }
+
+  // 取得推薦商品
+  const getRecMerchData = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:3004/cart/rec-merch/${shop_sid}`
+      )
+
+      setRecMerchData(res.data.rec_merch_rows)
+      // console.log(res.data.rec_merch_rows)
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
+
+  useEffect(() => {
+    getRecMerchData()
+    getCartData()
+  }, [])
+
   return (
     <>
+      <div className="y-test-btns">
+        <div
+          className="y-Cart-test-btn"
+          onClick={() => {
+            // setProdQty(prodQty)
+            handleAddCart(data, prodQty)
+            // console.log(data, prodQty)
+          }}
+        >
+          add item to cart
+        </div>
+        <div
+          className="y-Cart-test-btn"
+          onClick={() => {
+            // setProdQty(prodQty)
+            handleAddCart(data2, prodQty)
+            // console.log(data, prodQty)
+          }}
+        >
+          add item2 to cart
+        </div>
+      </div>
       <div className="y-CartList-container">
         <div className="y-Cart-nav">
           <NavBar />
@@ -113,7 +233,7 @@ function CartList(props) {
           </div>
           <div className="y-Cart-details y-Cart-sections">
             <div className="y-empty-cart-wrap">
-              <EmptyCartBtn />
+              <EmptyCartBtn onClick={handleEmptyCart} />
             </div>
             <p className="y-Cart-tab y-Cart-details-tab">明細一覽</p>
             <div className="y-Cart-details-top">
@@ -132,29 +252,25 @@ function CartList(props) {
               </p>
             </div>
             <div className="y-Cart-details-area">
-              <div className="y-Cart-details-row">
-                <CartItemsList />
-              </div>
-              <div className="y-Cart-details-row">
-                <CartItemsList />
-              </div>
-              <div className="y-Cart-details-row">
-                <CartItemsList />
-              </div>
-              <div className="y-Cart-details-row">
-                <CartItemsList />
-              </div>
+              {cartItem.userCart.map((v, i) => {
+                return (
+                  <div className="y-Cart-details-row">
+                    <CartItemsList cartItemData={v} key={i} />
+                  </div>
+                )
+              })}
             </div>
             <div className="y-Cart-details-bottom">
               <p className="y-Cart-details-total">
-                共 1 項商品，數量 1 個，總金額NT$ 537 元
+                共 {cartItem.totalItem} 項商品，數量 {cartItem.totalAmount}{' '}
+                個，總金額NT$ {cartItem.totalPrice} 元
               </p>
               <div className="y-Cart-details-btns">
                 <div className="y-continue-shopping-wrap">
                   <ContinueShoppingBtn />
                 </div>
                 <div className="y-cart-pay-wrap">
-                  <GoPayBtn />
+                  <GoPayBtn cartItem={cartItem} />
                 </div>
               </div>
             </div>
@@ -168,18 +284,19 @@ function CartList(props) {
             </div>
             <div className="y-Cart-rec-bottom">
               <div className="y-Cart-rec-row">
-                <div className="y-Cart-rec-wrap">
-                  <RecMerch />
-                </div>
-                <div className="y-Cart-rec-wrap">
-                  <RecMerch />
-                </div>
-                <div className="y-Cart-rec-wrap">
-                  <RecMerch />
-                </div>
-                <div className="y-Cart-rec-wrap">
-                  <RecMerch />
-                </div>
+                {Array(recMerchData.length)
+                  .fill(1)
+                  .map((v, i) => {
+                    const item = recMerchData[i]
+                    return (
+                      <div className="y-Cart-rec-wrap">
+                        <RecMerch recMerchInfo={recMerchData[i]} key={item.i} />
+                      </div>
+                    )
+                  })}
+                {/* <div className="y-Cart-rec-wrap">
+                  <RecMerch recMerchData={recMerchData} />
+                </div> */}
               </div>
             </div>
           </div>

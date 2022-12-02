@@ -14,7 +14,7 @@ function ShopSideBar(props) {
   const getCity = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:3002/api/shop/shop_city'
+        'http://localhost:3004/api/shop/shop_city'
       )
       // console.log(response.data.city_rows)
       const cityData = response.data.city_rows
@@ -29,7 +29,7 @@ function ShopSideBar(props) {
   const getArea = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:3002/api/shop/shop_area'
+        'http://localhost:3004/api/shop/shop_area'
       )
       // console.log(response.data.area_rows)
       const areaData = response.data.area_rows
@@ -43,7 +43,7 @@ function ShopSideBar(props) {
   const getCate = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:3002/api/shop/shop_cate'
+        'http://localhost:3004/api/shop/shop_cate'
       )
       // console.log(response.data.cate_rows)
       const cateData = response.data.cate_rows
@@ -95,8 +95,8 @@ function ShopSideBar(props) {
             <img src="/03-shop-img/town_house_02.png" alt="" />
           </div>
           <div className="r-shop-title">
-            <span>ALL SHOP</span>
-            <p>店鋪搜尋</p>
+            <span className="r-shop-title-span">ALL SHOP</span>
+            <p className="r-shop-title-p">店鋪搜尋</p>
           </div>
         </div>
 
@@ -106,13 +106,14 @@ function ShopSideBar(props) {
               <img src="/03-shop-img/other_mappin_01.png" alt="" />
             </div>
             <div className="r-place-title">
-              <span>Place</span>
-              <p>地區搜尋</p>
+              <span className="r-place-title-span">Place</span>
+              <p className="r-place-title-p">地區搜尋</p>
             </div>
           </div>
-          <div className="r-place-select">
+          <div className="r-place-select-wrap">
             <div>
               <select
+                className="r-place-select"
                 name="r-selCity"
                 id="r-selCity"
                 onChange={whenCityChanged}
@@ -130,6 +131,7 @@ function ShopSideBar(props) {
             </div>
             <div>
               <select
+                className="r-place-select"
                 name="r-selArea"
                 id="r-selArea"
                 onChange={(e) => props.setSelectedArea(+e.currentTarget.value)}
@@ -155,12 +157,13 @@ function ShopSideBar(props) {
               <img src="/03-shop-img/food_hamburger_01.png" alt="" />
             </div>
             <div className="r-cate-title">
-              <span>Category</span>
-              <p>種類搜尋</p>
+              <span className="r-cate-title-span">Category</span>
+              <p className="r-cate-title-p">種類搜尋</p>
             </div>
           </div>
-          <div className="r-cate-select">
+          <div className="r-cate-select-wrap">
             <select
+              className="r-cate-select"
               name="r-selCate"
               id="r-selCate"
               onChange={(e) => props.setSelectedCate(e.currentTarget.value)}
@@ -183,12 +186,13 @@ function ShopSideBar(props) {
               <img src="/03-shop-img/other_magnifyingglass_01.png" alt="" />
             </div>
             <div className="r-filter-title">
-              <span>Filter</span>
-              <p>進階搜尋</p>
+              <span className="r-filter-title-span">Filter</span>
+              <p className="r-filter-title-p">進階搜尋</p>
             </div>
           </div>
-          <div className="r-filter-select">
+          <div className="r-filter-select-wrap">
             <select
+              className="r-filter-select"
               name="r-selOpen"
               id="r-selOpen"
               onChange={(e) => props.setSelectedOpen(+e.currentTarget.value)}
