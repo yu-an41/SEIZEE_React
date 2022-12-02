@@ -64,9 +64,10 @@ function App() {
         <MyContextProviders>
           <CollectContextProvider>
             <TimeTableProvider>
+              {/* <ModalConfirm /> */}
               <Routes>
                 {/* 00-homepage */}
-                <Route path="/" element={<Homepage />} />
+                {/* <Route path="/" element={<Homepage />} /> */}
 
                 {/* 01-cart */}
                 <Route path="/cart/">

@@ -8,17 +8,21 @@ import WhiteLineWave from './../images/white-line-wave.svg'
 
 import WishListBtn from './WishListBtn'
 import RemoveItemBtn from './RemoveItemBtn'
+import log from 'eslint-plugin-react/lib/util/log'
 
 function CartItemsList({ cartItemData }) {
-  const { cartItem, setCartItem, handleEmptyCart } = useContext(CartInfoContext)
+  const {
+    cartItem,
+    setCartItem,
+    updateItemQty,
+    handleRemoveItem,
+    handleEmptyCart,
+  } = useContext(CartInfoContext)
 
   const { sid, name, price, picture, amount } = cartItemData
 
   // 假的庫存數量
   const maxQty = 5
-
-  // 改變數量時重新計算小計
-  const getItemQty = () => {}
 
   return (
     <div className="y-Cart-items">
@@ -40,12 +44,7 @@ function CartItemsList({ cartItemData }) {
             id={sid}
             defaultValue={amount}
             onChange={(e) => {
-              const index = cartItem.userCart.findIndex(
-                (v) => v.sid === e.target.id
-              )
-              const newItem = { ...cartItem }
-              newItem.userCart[index].amount = +e.target.value
-              setCartItem(newItem)
+              updateItemQty(e.target.id, e.target.value)
             }}
           >
             {Array(maxQty)
@@ -69,7 +68,8 @@ function CartItemsList({ cartItemData }) {
           <div className="y-Cart-RemoveItemBtn-wrap">
             <RemoveItemBtn
               onClick={() => {
-                
+                handleRemoveItem(sid)
+                console.log('item removed!!!!')
               }}
             />
           </div>

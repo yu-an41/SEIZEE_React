@@ -32,6 +32,7 @@ import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
 import log from 'eslint-plugin-react/lib/util/log'
 import axios from 'axios'
+import { set } from 'ramda'
 
 // cart init
 // initialState = {
@@ -43,8 +44,13 @@ import axios from 'axios'
 
 function CartList(props) {
   // 加入購物車
-  const { cartItem, handleAddCart, handleReduce, handleEmptyCart } =
-    useContext(CartInfoContext)
+  const {
+    cartItem,
+    setCartItem,
+    handleAddCart,
+    handleReduce,
+    handleEmptyCart,
+  } = useContext(CartInfoContext)
 
   // 數量
   const [prodQty, setProdQty] = useState(1)
@@ -68,20 +74,40 @@ function CartList(props) {
 
   // 推薦商品資訊
 
+  // 撈店家資料
+  const [cartShopInfo, setCartShopInfo] = useState([
+    {
+      shop_sid: 1,
+      shop_cover: '',
+      shop_name: '',
+      shop_phone: '',
+      shop_address_city: '',
+      shop_address_area: '',
+      shop_address_detail: '',
+      shop_opentime: '',
+      shop_closetime: '',
+      shop_deadline: '',
+      shop_sun: 0,
+      shop_mon: 0,
+      shop_tues: 0,
+      shop_wed: 0,
+      shop_thu: 0,
+      shop_fri: 0,
+      shop_sat: 0,
+    },
+  ])
   // 假的店家編號
   const shop_sid = 2
 
-  const [recMerchData, setRecMerchData] = useState([
-    {
-      sid: 1,
-      shop_list_sid: 1,
-      product_name: '',
-      product_category_sid: '',
-      unit_price: 100,
-      sale_price: 3.5,
-      // product_launch: 1,
-    },
-  ])
+  const getShopInfo = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3004/cart/shop/${shop_sid}`)
+      setCartShopInfo(res.data.shop_info_rows)
+      console.log(res.data.shop_info_rows)
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
 
   // 真實串接資料來源
   // const myCart = localStorage.getItem('cartItem')
@@ -91,9 +117,7 @@ function CartList(props) {
   const getCartData = () => {
     // setMyData(myProduct)
     // setMyData(jsonData);
-
-    setMyPhotoData(cartItem.userCart)
-    console.log(cartItem.userCart.price)
+    // setMyPhotoData(cartItem.userCart)
     // setNewPhotoPrice(myPhotoData[0].price);
   }
 
@@ -113,6 +137,18 @@ function CartList(props) {
   }
 
   // 取得推薦商品
+  const [recMerchData, setRecMerchData] = useState([
+    {
+      sid: 1,
+      shop_list_sid: 1,
+      product_name: '',
+      product_category_sid: '',
+      unit_price: 100,
+      sale_price: 3.5,
+      // product_launch: 1,
+    },
+  ])
+
   const getRecMerchData = async () => {
     try {
       const res = await axios.get(
@@ -129,7 +165,12 @@ function CartList(props) {
   useEffect(() => {
     getRecMerchData()
     getCartData()
+    getShopInfo()
   }, [])
+
+  useEffect(() => {
+    getCartData()
+  }, [cartItem])
 
   return (
     <>
@@ -233,7 +274,12 @@ function CartList(props) {
           </div>
           <div className="y-Cart-details y-Cart-sections">
             <div className="y-empty-cart-wrap">
-              <EmptyCartBtn onClick={handleEmptyCart} />
+              <EmptyCartBtn 
+                onClick={() => {
+                  handleEmptyCart()
+                  console.log('cart emptied!!!!')
+                }}
+              />
             </div>
             <p className="y-Cart-tab y-Cart-details-tab">明細一覽</p>
             <div className="y-Cart-details-top">
