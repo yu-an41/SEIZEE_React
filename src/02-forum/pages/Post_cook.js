@@ -13,7 +13,9 @@ import { Link } from 'react-router-dom'
 
 function PostCook() {
   const [postNums, setPostNums] = useState(10)
-  const [likeInstructions, setLikeInstructions] = useState('')
+  const [likeInstructions, setLikeInstructions] = useState([''])
+  const [spendServing, setSpendServing] = useState([''])
+  const [spendTime, setSpendTime] = useState([''])
   const [cookPostData, setCookPostData] = useState([
     {
       sid: 1,
@@ -29,8 +31,20 @@ function PostCook() {
     },
   ])
   const getCookPostData = async () => {
+    const usp = new URLSearchParams()
+    // likeInstructions.forEach((v) => {
+    //   if (v) usp.append('likesOp[]', v)
+    // })
+    // spendserving.forEach((v)=>{
+    //   if (v) usp.append('servingOp[]', v)
+    // })
+    spendTime.forEach((v) => {
+      if (v) usp.append('timeOp[]', v)
+    })
     try {
-      const res = await axios.get(`http://localhost:3002/forum/post_cook`)
+      const res = await axios.get(
+        `http://localhost:3004/forum/post_cook?${usp}`
+      )
 
       setCookPostData(res.data.cookPostRows)
       console.log(res.data.cookPostRows)
@@ -40,7 +54,7 @@ function PostCook() {
   }
   useEffect(() => {
     getCookPostData()
-  }, [])
+  }, [likeInstructions, spendServing, spendTime])
 
   const min = Math.min(postNums, cookPostData.length)
   return (
@@ -57,21 +71,23 @@ function PostCook() {
             <TabCook
               likeInstructions={likeInstructions}
               setLikeInstructions={setLikeInstructions}
-              setCookPostData={setCookPostData}
+              spendServing={spendServing}
+              setSpendServing={setSpendServing}
+              spendTime={spendTime}
+              setSpendTime={setSpendTime}
             />
           </div>
           <div className="p-CardWrap">
+            {/* Array(min).fill(1). */}
             {cookPostData &&
-              Array(min)
-                .fill(1)
-                .map((v, i) => {
-                  const item = cookPostData[i]
-                  return (
-                    <>
-                      <CardPost postData={item} key={item.i} />
-                    </>
-                  )
-                })}
+              cookPostData.map((v, i) => {
+                const item = cookPostData[i]
+                return (
+                  <>
+                    <CardPost postData={item} key={item.i} />
+                  </>
+                )
+              })}
             <div
               className="p-nonBtn"
               onChange={() => {
