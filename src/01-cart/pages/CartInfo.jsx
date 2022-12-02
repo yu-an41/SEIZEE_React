@@ -15,6 +15,7 @@ import CartItemsList from '../components/CartItemsList'
 import ContinueShoppingBtn from '../components/ContinueShoppingBtn'
 import GoPayBtn from '../components/GoPayBtn'
 import RecMerch from '../components/RecMerch'
+import NewsCrawl from '../../00-homepage/components/NewsCrawl'
 import Footer from '../../components/Footer'
 
 //img srcs
@@ -27,6 +28,7 @@ import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
 
 function CartInfo() {
+  const { cartItem, setCartItem } = useContext(CartInfoContext)
   return (
     <>
       <div className="y-CartInfo-container">
@@ -63,13 +65,29 @@ function CartInfo() {
         <div className="y-Cart-middle">
           <div className="y-Cart-pickup  y-Cart-sections">
             <p className="y-Cart-tab y-Cart-pickup-tab">取餐方式</p>
-            <div className="y-Cart-main y-Cart-pickup-main"></div>
+            <div className="y-Cart-main y-Cart-pickup-main">
+              <div className="y-Cart-pickup-radio">
+                
+              </div>
+              
+            </div>
+          </div>
+          <div className="y-Cart-rec  y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-rec-tab">付款方式</p>
+            <div className="y-Cart-main y-Cart-pickup-main">
+              <div className="y-Cart-rec-top"></div>
+              <div className="y-Cart-rec-bottom">
+                <div className="y-Cart-rec-row"></div>
+              </div>
+            </div>
           </div>
           <div className="y-Cart-rec  y-Cart-sections">
             <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
-            <div className="y-Cart-rec-top"></div>
-            <div className="y-Cart-rec-bottom">
-              <div className="y-Cart-rec-row"></div>
+            <div className="y-Cart-rec-top">
+              <div className="y-Cart-rec-top"></div>
+              <div className="y-Cart-rec-bottom">
+                <div className="y-Cart-rec-row"></div>
+              </div>
             </div>
           </div>
           <div className="y-Cart-details y-Cart-sections">
@@ -107,8 +125,9 @@ function CartInfo() {
         </div>
         <div className="y-Cart-bottom">
           <YellowWaveReverse />
-          <div className="y-Cart-rec">rec</div>
-          <div className="y-Cart-news">news</div>
+          <div className="y-Cart-news">
+            {/* <NewsCrawl /> */}
+          </div>
           <div className="y-cart-footer">
             <Footer />
           </div>

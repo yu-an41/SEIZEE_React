@@ -14,13 +14,6 @@ export const CartInfoContextProvider = function ({ children }) {
 
   if (localStorage.getItem('cartItem')) {
     initCart = JSON.parse(localStorage.getItem('cartItem'))
-  } else {
-    initCart = {
-      userCart: [],
-      totalItem: 0,
-      totalPrice: 0,
-      totalAmount: 0,
-    }
   }
 
   const [cartItem, setCartItem] = useState(initCart)
@@ -83,7 +76,7 @@ export const CartInfoContextProvider = function ({ children }) {
   }
 
   // 購物車數量-1
-  const handleReduce = async (prodInfo) => {
+  const handleReduce = (prodInfo) => {
     // console.log(prodInfo)
 
     let index = cartItem.userCart.findIndex((e) => e.sid === prodInfo.id)
@@ -132,15 +125,88 @@ export const CartInfoContextProvider = function ({ children }) {
     }
   }
 
+  // 改變數量時重新計算小計總計
+  const updateItemQty = (pid, amount) => {
+    amount = +amount
+
+    let { userCart, totalItem, totalPrice, totalAmount } = cartItem
+
+    let newUserCart = [...userCart]
+
+    newUserCart = newUserCart.map((item) => {
+      console.log(item, item.sid === pid)
+      if (+item.sid === +pid) {
+        return { ...item, amount }
+      } else {
+        return { ...item }
+      }
+    })
+
+    totalAmount = newUserCart.reduce((a, v) => {
+      return a + v.amount
+    }, 0)
+    totalPrice = newUserCart.reduce((a, v) => {
+      return a + v.amount * v.price
+    }, 0)
+
+    setCartItem({ userCart: newUserCart, totalItem, totalPrice, totalAmount })
+
+    localStorage.setItem(
+      'cartItem',
+      JSON.stringify({
+        userCart: newUserCart,
+        totalItem,
+        totalPrice,
+        totalAmount,
+      })
+    )
+  }
+
+  // 刪除單項商品
+  const handleRemoveItem = (pid) => {
+    pid = +pid
+
+    let { userCart, totalItem, totalPrice, totalAmount } = cartItem
+
+    let newUserCart = [...userCart]
+
+    newUserCart = newUserCart.filter((item) => {
+      console.log(item, item.sid !== pid)
+      return +item.sid !== pid
+    })
+
+    totalItem = newUserCart.length
+
+    totalAmount = newUserCart.reduce((a, v) => {
+      return a + v.amount
+    }, 0)
+    totalPrice = newUserCart.reduce((a, v) => {
+      return v.amount * v.price
+    }, 0)
+
+    localStorage.setItem(
+      'cartItem',
+      JSON.stringify({
+        userCart: newUserCart,
+        totalItem,
+        totalPrice,
+        totalAmount,
+      })
+    )
+    setCartItem({ userCart: newUserCart, totalItem, totalPrice, totalAmount })
+  }
+
   // 清空購物車
   const handleEmptyCart = () => {
-    setCartItem({
+    const emptyCart = {
       userCart: [],
       totalItem: 0,
       totalPrice: 0,
       totalAmount: 0,
-    })
-    localStorage.removeItem('cartItem')
+    }
+    console.log({ emptyCart })
+    localStorage.setItem('cartItem', JSON.stringify(emptyCart))
+    setCartItem(emptyCart)
   }
 
   return (
@@ -149,7 +215,8 @@ export const CartInfoContextProvider = function ({ children }) {
         cartItem,
         setCartItem,
         handleAddCart,
-        handleReduce,
+        updateItemQty,
+        handleRemoveItem,
         handleEmptyCart,
       }}
     >

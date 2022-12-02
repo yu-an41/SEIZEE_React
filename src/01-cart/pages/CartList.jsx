@@ -44,8 +44,13 @@ import { set } from 'ramda'
 
 function CartList(props) {
   // 加入購物車
-  const { cartItem, handleAddCart, handleReduce, handleEmptyCart } =
-    useContext(CartInfoContext)
+  const {
+    cartItem,
+    setCartItem,
+    handleAddCart,
+    handleReduce,
+    handleEmptyCart,
+  } = useContext(CartInfoContext)
 
   // 數量
   const [prodQty, setProdQty] = useState(1)
@@ -112,9 +117,7 @@ function CartList(props) {
   const getCartData = () => {
     // setMyData(myProduct)
     // setMyData(jsonData);
-
-    setMyPhotoData(cartItem.userCart)
-    console.log(cartItem.userCart.price)
+    // setMyPhotoData(cartItem.userCart)
     // setNewPhotoPrice(myPhotoData[0].price);
   }
 
@@ -164,6 +167,10 @@ function CartList(props) {
     getCartData()
     getShopInfo()
   }, [])
+
+  useEffect(() => {
+    getCartData()
+  }, [cartItem])
 
   return (
     <>
@@ -267,7 +274,12 @@ function CartList(props) {
           </div>
           <div className="y-Cart-details y-Cart-sections">
             <div className="y-empty-cart-wrap">
-              <EmptyCartBtn onClick={handleEmptyCart} />
+              <EmptyCartBtn 
+                onClick={() => {
+                  handleEmptyCart()
+                  console.log('cart emptied!!!!')
+                }}
+              />
             </div>
             <p className="y-Cart-tab y-Cart-details-tab">明細一覽</p>
             <div className="y-Cart-details-top">
