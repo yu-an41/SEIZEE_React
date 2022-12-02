@@ -1,9 +1,12 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
-import { Link } from "react-router-dom";
-import Collection from "./CollectContext";
-import "./style/ProductCard.scss";
-import Select from "./Select";
-import CollectContext from "./CollectContext";
+import React, { useState, useEffect, useRef, useContext } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import Collection from './CollectContext'
+import './style/ProductCard.scss'
+import Select from './Select'
+import CollectContext from './CollectContext'
+
+// cart
+import CartInfoContext from './../../01-cart/contexts/CartInfoContext'
 
 function ProductCard({ product }) {
   const {
@@ -16,17 +19,25 @@ function ProductCard({ product }) {
     addCollect,
     delCollect,
     handleClick,
-  } = useContext(CollectContext);
-// console.log(collection);
-  
-const tempRef = useRef();
-  const countOptions =product ? new Array(product.inventory_qty).fill(0).map((_, i) => ({
-    text: i + 1,
-    value: i + 1,
-  })) : new Array(1).fill(0).map((_, i) => ({
-    text: i + 1,
-    value: i + 1,
-  }));
+  } = useContext(CollectContext)
+  // console.log(collection);
+
+  const tempRef = useRef()
+  const countOptions = product
+    ? new Array(product.inventory_qty).fill(0).map((_, i) => ({
+        text: i + 1,
+        value: i + 1,
+      }))
+    : new Array(1).fill(0).map((_, i) => ({
+        text: i + 1,
+        value: i + 1,
+      }))
+
+  // cart
+  const { cartItem, setCartItem, handleAddCart, updateItemQty } =
+    useContext(CartInfoContext)
+  // const [productDataFromCard, setProductDataFromCard] = useState([{}])
+  const { shop_list_sid } = useParams()
 
   return (
     <div className="a-produtCardWrapper">
@@ -49,13 +60,27 @@ const tempRef = useRef();
           </Link>
           {collectionNum.length > 0 ? (
             collectionNum.includes(product.sid) ? (
-              <img src="/04-product/svg/heart.svg" alt="" onClick={() => {delCollect(product.sid)
-              handleClick(false)}}/>) 
-              : (
-              <img src="/04-product/svg/collection.svg"
-                alt="" onClick={() => {addCollect(+product.sid)
-                handleClick(true)}} /> )) 
-              : ("")}
+              <img
+                src="/04-product/svg/heart.svg"
+                alt=""
+                onClick={() => {
+                  delCollect(product.sid)
+                  handleClick(false)
+                }}
+              />
+            ) : (
+              <img
+                src="/04-product/svg/collection.svg"
+                alt=""
+                onClick={() => {
+                  addCollect(+product.sid)
+                  handleClick(true)
+                }}
+              />
+            )
+          ) : (
+            ''
+          )}
         </div>
         <div className="a-priceWrapper">
           <div className="a-productPrice">
@@ -83,7 +108,24 @@ const tempRef = useRef();
             ))}
           </select> */}
         </div>
-        <div className="a-addButton">
+        <div
+          className="a-addButton"
+          onClick={() => {
+            // const prodData = {
+            //   sid: +product.sid,
+            //   picture: `/04-product/img/${product.picture_url}`,
+            //   name: product.product_name,
+            //   price: product.unit_price,
+            //   sale_price: Math.round(
+            //     (product.unit_price * product.sale_price) / 10
+            //   ),
+            //   inventory: product.inventory_qty,
+            // }
+
+            // console.log(tempRef.current.value)
+            handleAddCart(shop_list_sid, product.sid, tempRef.current.value)
+          }}
+        >
           <p>加入購物車</p>
           <img src="/04-product/svg/cart.svg" alt="" />
         </div>
@@ -92,7 +134,7 @@ const tempRef = useRef();
       }}>get Value</button> */}
       </div>
     </div>
-  );
+  )
 }
 
-export default ProductCard;
+export default ProductCard

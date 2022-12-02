@@ -19,8 +19,8 @@ import RecMerch from '../components/RecMerch'
 import Footer from '../../components/Footer'
 
 // modal測試用
-import ModalConfirm from '../../components/ModalConfirm'
-import ModalNotification from '../../components/ModalNotification'
+// import ModalConfirm from '../../components/ModalConfirm'
+// import ModalNotification from '../../components/ModalNotification'
 
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
@@ -34,16 +34,7 @@ import log from 'eslint-plugin-react/lib/util/log'
 import axios from 'axios'
 import { set } from 'ramda'
 
-// cart init
-// initialState = {
-//   items: [],
-//   isEmpty: true,
-//   totalItems: 0,
-//   cartTotal: 0,
-// }
-
 function CartList(props) {
-  // 加入購物車
   const {
     cartItem,
     setCartItem,
@@ -109,31 +100,9 @@ function CartList(props) {
     }
   }
 
-  // 真實串接資料來源
-  // const myCart = localStorage.getItem('cartItem')
-  // const myProduct = JSON.parse(myCart).userCart
-
-  // 獲取來源資料
   const getCartData = () => {
     // setMyData(myProduct)
     // setMyData(jsonData);
-    // setMyPhotoData(cartItem.userCart)
-    // setNewPhotoPrice(myPhotoData[0].price);
-  }
-
-  // 商品訂單明細 商品數量相關連動功能
-  const dataAmount = () => {
-    // console.log(myProduct)
-    // // 來源資料原始商品數量map
-    // const origiAmount = myProduct.map((v, i) => {
-    //   return [v.amount]
-    // })
-    // setAmount(origiAmount)
-    // 來源資料商品原始小計金額map
-    // const origiTotalPrice = myProduct.map((v, i) => v.member_price * v.amount)
-    // setTotalPrice(origiTotalPrice)
-    // 所有商品小計加總後要結帳之總額
-    // setNewTotalPrice(origiTotalPrice.reduce((a, b) => a + b))
   }
 
   // 取得推薦商品
@@ -142,9 +111,10 @@ function CartList(props) {
       sid: 1,
       shop_list_sid: 1,
       product_name: '',
-      product_category_sid: '',
+      product_category_sid: 1,
       unit_price: 100,
-      sale_price: 3.5,
+      sale_price: 50,
+      amount: 1,
       // product_launch: 1,
     },
   ])
@@ -163,18 +133,18 @@ function CartList(props) {
   }
 
   useEffect(() => {
-    getRecMerchData()
-    getCartData()
+    console.log(cartItem)
     getShopInfo()
+    getRecMerchData()
   }, [])
 
-  useEffect(() => {
-    getCartData()
-  }, [cartItem])
+  // useEffect(() => {
+  //   getCartData()
+  // }, [cartItem])
 
   return (
     <>
-      <div className="y-test-btns">
+      {/* <div className="y-test-btns">
         <div
           className="y-Cart-test-btn"
           onClick={() => {
@@ -195,7 +165,7 @@ function CartList(props) {
         >
           add item2 to cart
         </div>
-      </div>
+      </div> */}
       <div className="y-CartList-container">
         <div className="y-Cart-nav">
           <NavBar />
@@ -274,7 +244,7 @@ function CartList(props) {
           </div>
           <div className="y-Cart-details y-Cart-sections">
             <div className="y-empty-cart-wrap">
-              <EmptyCartBtn 
+              <EmptyCartBtn
                 onClick={() => {
                   handleEmptyCart()
                   console.log('cart emptied!!!!')
@@ -309,7 +279,7 @@ function CartList(props) {
             <div className="y-Cart-details-bottom">
               <p className="y-Cart-details-total">
                 共 {cartItem.totalItem} 項商品，數量 {cartItem.totalAmount}{' '}
-                個，總金額NT$ {cartItem.totalPrice} 元
+                個，總金額 NT $ {cartItem.totalSalePrice} 元
               </p>
               <div className="y-Cart-details-btns">
                 <div className="y-continue-shopping-wrap">
