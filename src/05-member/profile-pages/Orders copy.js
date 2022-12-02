@@ -218,7 +218,7 @@ function Orders() {
                                             優惠價
                                           </h3>
                                           <span className="s-o-answer-d">
-                                            $ {v[i].total_price / v[i].quantity}
+                                            $ {v[i].total_price}
                                           </span>
                                         </div>
                                         <div className="s-o-items-d">

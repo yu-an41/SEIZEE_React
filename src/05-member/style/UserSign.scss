@@ -121,7 +121,47 @@ $s-main-b: #113f75;
             /* padding: 10px; */
           }
 
-          .s-login-input {
+          .s-login-input-general {
+            width: 100%;
+            margin-bottom: 5px;
+            padding: 10px;
+            outline: none;
+            font-size: 16px;
+            border: 1px solid #333;
+          }
+
+          .s-login-input-eye {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: relative;
+
+            .s-login-input {
+              width: 100%;
+              margin-bottom: 5px;
+              padding: 10px;
+              outline: none;
+              font-size: 16px;
+              border: 1px solid #333;
+            }
+
+            .s-login-input::placeholder {
+              font-size: 15px;
+            }
+
+            .s-login-eye {
+              font-size: 15px;
+              // margin-left: 10px;
+              color: #5c5c5c;
+              width: 40px;
+              text-align: center;
+              position: absolute;
+              right: 0;
+            }
+          }
+
+          .s-login-input-btn {
             width: 100%;
             margin-bottom: 5px;
             padding: 10px;
@@ -151,11 +191,18 @@ $s-main-b: #113f75;
             color: $s-font;
             margin-bottom: 20px;
             font-size: 18px;
+            text-decoration: underline;
           }
 
           .s-login-p {
             color: $s-font;
             font-size: 18px;
+
+            .s-login-p-a {
+              text-decoration: underline;
+              font-size: 18px;
+              color: $s-font;
+            }
           }
 
           .s-login-errorMg {

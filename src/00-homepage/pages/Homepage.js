@@ -5,7 +5,6 @@ import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
 
 // scss
 import './../styles/Homepage.scss'
-// import './../../03-shop/styles/03-shop-home.scss'
 // import './../styles/AboutUs.scss'
 // import './../styles/NewEvent.scss'
 
@@ -25,9 +24,9 @@ import Runman from '../../components/Runman'
 import ShopHome from '../components/ShopHome'
 
 //img srcs
-import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
-import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
-import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
+// import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
+// import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
+// import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
 
 function Homepage() {
   // miee's search and shop ------------------------------------
@@ -195,7 +194,7 @@ function Homepage() {
               }}
             >
               <div className="y-forum-more-icon">
-                <img src={MoreBtnIcon} alt="load more posts" />
+                {/* <img src={MoreBtnIcon} alt="load more posts" /> */}
               </div>
               <p>更多好文</p>
             </div>

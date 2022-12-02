@@ -303,7 +303,7 @@ function UpdateInfo(props) {
         // post axios寫法: post(backend link, data (if not, use {}), headers)
       )
 
-      console.log('dataAuth', dataAuth)
+      // console.log('dataAuth', dataAuth)
 
       if (dataAuth.success) {
         localStorage.setItem('auth', JSON.stringify(dataAuth.auth))
