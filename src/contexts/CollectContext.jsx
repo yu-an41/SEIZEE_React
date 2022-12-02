@@ -1,6 +1,5 @@
 import { useState, useEffect, createContext } from "react";
 import { useParams, useLocation } from "react-router-dom";
-// import Collection from "../contexts/CollectContext";
 import axios from "axios";
 
 const CollectContext = createContext([]);
@@ -14,10 +13,12 @@ export const CollectContextProvider = ({ children }) => {
 
   //收藏列表
   const [collectList, setCollectList] = useState([initCollect]);
-  //收藏狀態
+  //收藏狀態（用true & false判斷）
   const [collection, setCollection] = useState(false);
   //收藏商品編號
   const [collectionNum, setCollectionNum] = useState([]);
+
+  //把狀態無限傳給小孩（商品細節頁才需要）
   const handleClick = isHeart => { setCollection(isHeart) }
 
   //localStorage得到member_sid
@@ -67,11 +68,9 @@ export const CollectContextProvider = ({ children }) => {
       `http://localhost:3004/product/add?sid=${food_product_sid}&mb_sid=${mb_sid}`
     );
 
-  //建立新的收藏清單並更新狀態
+  //建立新的收藏清單
     setCollectionNum([...collectionNum,food_product_sid])
   };
-
-
 
   //移除收藏
   const delCollect = async (food_product_sid, index) => {
@@ -87,16 +86,13 @@ export const CollectContextProvider = ({ children }) => {
     // console.log(a)
     setCollectionNum(a)
     // setCollectList(newcollection);
-     //更新收藏狀態
+    //更新收藏狀態
     // setCollection(false);
   };
 
   useEffect(() => {
     getCollectList();
   }, [collection, mb_sid]);
-  // useEffect(() => {
-  //   getCollectList();
-  // }, []);
 
   return (
     <CollectContext.Provider

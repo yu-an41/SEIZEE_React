@@ -2,11 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import ProductCard from "../components/ProductCard.jsx";
-import HeadWave from "../../components/HeadWave";
-import YellowWave2 from "../components/YellowWave2";
-import "../components/style/ProductList.scss";
+import "../components/style/ProductDetail.scss";
 import Select from "../components/Select";
 import ProductVideo from "../components/ProductVideo";
+import NavBar from "../../components/NavBar.js";
+import YellowWave from "../../00-homepage/components/YellowWave.js";
+import YellowWave2 from "../components/YellowWave2";
 
 // // 01-cart
 // import CartInfoContext from '../01-cart/contexts/CartInfoContext'
@@ -42,14 +43,25 @@ function ProductList() {
 
   return (
     <>
-      {/* <ShopMcard/> */}
-      <ProductVideo />
-      <YellowWave2 />
-      <div className="race-by">
-        <div className="a-productCardList">
-          {allProduct.map((product) => (
-            <ProductCard key={product.sid} product={product} />
-          ))}
+    <div className="y-index-container">
+      <section className="y-section y-section-nav-bg">
+            <NavBar />
+          </section>
+        <section className="y-section y-section-search"></section>
+        <section className="y-section y-section-merch"></section>
+        <div className="y-wave-wrap">
+          <YellowWave />
+        </div>
+        <div className="a-videoWrapper" style={{paddingTop:'50px'}}>
+        <ProductVideo />
+        </div>
+        <YellowWave2 />
+        <div className="race-by">
+          <div className="a-productCardList">
+            {allProduct.map((product) => (
+              <ProductCard key={product.sid} product={product} />
+            ))}
+          </div>
         </div>
       </div>
     </>

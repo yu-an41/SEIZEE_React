@@ -52,6 +52,15 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+.a-productCardList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  background: $main-yellow;
+  padding-top: line(3);
+}
+
 .a-productDetailWrapper {
   display: flex;
   justify-content: space-evenly;

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "./style/ProductComment.scss";
 
 function ProductComment({ setDoRender, doRender, sid }) {
+
     //localStorage得到member_sid
     const mb_sid = localStorage.getItem("auth")
     ? JSON.parse(localStorage.getItem("auth")).mb_sid
@@ -14,8 +15,6 @@ function ProductComment({ setDoRender, doRender, sid }) {
     mb_sid: mb_sid,
     comment: '',
   });
-
-
 
   const addComment = async () => {
     if (mb_sid === "尚未登入") {

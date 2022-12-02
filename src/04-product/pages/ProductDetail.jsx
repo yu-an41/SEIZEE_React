@@ -2,18 +2,17 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "../components/style/ProductDetail.scss";
 import RecommendCard from "../components/RecommendCard";
-import YellowWave2 from "../components/YellowWave2";
 import { useParams, useLocation } from "react-router-dom";
 import Carousel2 from "../components/Carousel2";
 import CollectContext from "../../contexts/CollectContext";
 import ProductComment from "../components/ProductComment";
 import CommentArea from "../components/CommentArea";
-// import Menu from "react-select/dist/declarations/src/components/Menu";
-
-
+import NavBar from "../../components/NavBar";
+import YellowWave from "../../00-homepage/components/YellowWave";
+import YellowWave2 from "../components/YellowWave2";
 
 function ProductDetail() {
-  const { collection, setCollection, delCollect, addCollect,handleClick } =
+  const { collection, setCollection, delCollect, addCollect, handleClick } =
     useContext(CollectContext);
   const [detail, setDetail] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
@@ -50,125 +49,138 @@ function ProductDetail() {
 
   return (
     <>
-      {/* <Carousel2 sid={sid} /> */}
-      {/* <Carousel/> */}
-      <div className="a-deatil">
-        {detail.map((details, i) => {
-          return (
-            <div className="a-productDetailWrapper" key={details.sid}>
-              <div className="a-detailWrapper">
-                <div className="a-shopNameWrapper">
-                  <img src="/04-product/svg/map.svg" alt="" />
-                  <h3>{details.shop_name}</h3>
-                </div>
-                <div className="a-productName">
-                  <img src="/04-product/svg/bling.svg" alt="" />
-                  <h3>{details.product_name}</h3>
-                </div>
-                <div className="a-informationWrapper">
-                  <div className="a-productCategory">
-                    <img
-                      src={`/04-product/svg/${details.category_icon}`}
-                      alt=""
-                    />
-                    <p>{details.category_name}</p>
+      <div className="y-index-container">
+        <section className="y-section y-section-nav-bg">
+          <NavBar />
+        </section>
+        <section className="y-section y-section-search"></section>
+        <section className="y-section y-section-merch"></section>
+        <div className="y-wave-wrap">
+          <YellowWave />
+        </div>
+        {/* <Carousel2 sid={sid} /> */}
+        <div className="a-deatil">
+          {detail.map((details, i) => {
+            return (
+              <div className="a-productDetailWrapper" key={details.sid}>
+                <div className="a-detailWrapper">
+                  <div className="a-shopNameWrapper">
+                    <img src="/04-product/svg/map.svg" alt="" />
+                    <h3>{details.shop_name}</h3>
                   </div>
-                  <div className="a-shopDeadline">
-                    <img src="/04-product/svg/shop.svg" alt="" />
-                    <p>最後取餐時間{details.shop_deadline}</p>
+                  <div className="a-productName">
+                    <img src="/04-product/svg/bling.svg" alt="" />
+                    <h3>{details.product_name}</h3>
                   </div>
-                  <div className="a-productCollection">
-                    {collection ? (
+                  <div className="a-informationWrapper">
+                    <div className="a-productCategory">
                       <img
-                        src="/04-product/svg/heart.svg"
+                        src={`/04-product/svg/${details.category_icon}`}
                         alt=""
-                        onClick={() => {delCollect(sid) 
-                          handleClick(false)}}
                       />
-                    ) : (
-                      <img
-                        src="/04-product/svg/collection.svg"
-                        alt=""
-                        onClick={() => {addCollect(sid)
-                          handleClick(true)}}
-                      />
-                    )}
-                    <p>加入收藏清單</p>
-                  </div>
-                </div>
-                <div className="a-productDescription">
-                  <p>{details.product_description}</p>
-                </div>
-              </div>
-              <div className="a-priceContent">
-                <div className="a-priceWrapper">
-                  <div className="a-productPrice">
-                    <p>$原價{details.unit_price}元</p>
-                  </div>
-                  <div className="a-productDiscount">
-                    <img src="/04-product/svg/like.svg" alt="" />
-                    <p>
-                      $特價
-                      {Math.round(
-                        (details.unit_price * details.sale_price) / 10
+                      <p>{details.category_name}</p>
+                    </div>
+                    <div className="a-shopDeadline">
+                      <img src="/04-product/svg/shop.svg" alt="" />
+                      <p>最後取餐時間{details.shop_deadline}</p>
+                    </div>
+                    <div className="a-productCollection">
+                      {collection ? (
+                        <img
+                          src="/04-product/svg/heart.svg"
+                          alt=""
+                          onClick={() => {
+                            delCollect(sid);
+                            handleClick(false);
+                          }}
+                        />
+                      ) : (
+                        <img
+                          src="/04-product/svg/collection.svg"
+                          alt=""
+                          onClick={() => {
+                            addCollect(sid);
+                            handleClick(true);
+                          }}
+                        />
                       )}
-                      元
-                    </p>
+                      <p>加入收藏清單</p>
+                    </div>
+                  </div>
+                  <div className="a-productDescription">
+                    <p>{details.product_description}</p>
                   </div>
                 </div>
-                <div className="a-productQuantity">
-                  <p>惜食剩餘數量</p>
-                  <p className="a-qty">{details.inventory_qty}</p>
-                </div>
-                <div className="a-productQuantity">
-                  <p>數量</p>
-                  <button
-                    className="minus"
-                    onClick={() => {
-                      if (qty > 1) {
-                        setQty(qty - 1);
-                      }
-                    }}
-                  >
-                    -
-                  </button>
-                  <input
-                    className="a-qtyInput"
-                    type="text"
-                    value={qty ? qty : ""}
-                    onChange={(q) => {
-                      //保持state資料類型一致是數字
-                      let a = q.target.value;
-                      if (a > details.inventory_qty) {
-                        setQty(details.inventory_qty)
-                        return;
-                      }
-                      setQty(Number(q.target.value));
-                    }}
-                  />
-                  <button
-                    className="plus"
-                    onClick={() => {
-                      if (qty < details.inventory_qty) {
-                        setQty(qty + 1);
-                      }
-                    }}
-                  >
-                    +
-                  </button>
-                </div>
-                <div className="a-addButton">
-                  <p>加入購物車</p>
-                  <img src="/04-product/svg/cart.svg" alt="" />
+                <div className="a-priceContent">
+                  <div className="a-priceWrapper">
+                    <div className="a-productPrice">
+                      <p>$原價{details.unit_price}元</p>
+                    </div>
+                    <div className="a-productDiscount">
+                      <img src="/04-product/svg/like.svg" alt="" />
+                      <p>
+                        $特價
+                        {Math.round(
+                          (details.unit_price * details.sale_price) / 10
+                        )}
+                        元
+                      </p>
+                    </div>
+                  </div>
+                  <div className="a-productQuantity">
+                    <p>惜食剩餘數量</p>
+                    <p className="a-qty">{details.inventory_qty}</p>
+                  </div>
+                  <div className="a-productQuantity">
+                    <p>數量</p>
+                    <button
+                      className="minus"
+                      onClick={() => {
+                        if (qty > 1) {
+                          setQty(qty - 1);
+                        }
+                      }}
+                    >
+                      -
+                    </button>
+                    <input
+                      className="a-qtyInput"
+                      type="text"
+                      value={qty ? qty : ""}
+                      onChange={(q) => {
+                        //保持state資料類型一致是數字
+                        let a = q.target.value;
+                        if (a > details.inventory_qty) {
+                          setQty(details.inventory_qty);
+                          return;
+                        }
+                        setQty(Number(q.target.value));
+                      }}
+                    />
+                    <button
+                      className="plus"
+                      onClick={() => {
+                        if (qty < details.inventory_qty) {
+                          setQty(qty + 1);
+                        }
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div className="a-addButton">
+                    <p>加入購物車</p>
+                    <img src="/04-product/svg/cart.svg" alt="" />
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+        <ProductComment sid={sid} />
+        <YellowWave2 />
+        <RecommendCard sid={sid} />
       </div>
-      <YellowWave2 />
-      <ProductComment sid={sid} />
-      <RecommendCard sid={sid} />
     </>
   );
 }

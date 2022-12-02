@@ -26,29 +26,12 @@ $main-border-radius: 8px;
 @function line($count:1) {
     @return $base-line-eight * $count;
 }
-%h1 {
-    font-size: 48px;
-}
-%h2 {
-    font-size: 36px;
-}
-%h3 {
-    font-size: 20px;
-    color: #2B325C;
-    font-weight: 500;
-}
-%h4 {
-    font-size: 18px;
-}
-%p{
-    font-size: 16px;
-}
 
 .a-recommendText {
     display: flex;
     justify-content: center;
     background-color: $main-yellow;
-    @extend %h3;
+    color: $secondary-blue;
     @extend %a-flex;
     height: 100px;
     padding-bottom: 30px;
