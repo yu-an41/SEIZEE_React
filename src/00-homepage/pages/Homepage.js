@@ -114,29 +114,29 @@ function Homepage() {
           <WhiteWave />
         </div>
         <section className="y-section y-section-event">
-          <div class="a-eventBanner">
+          <div className="a-eventBanner">
             <div className="a-eventWrapper">
               <h3 className="a-newEvent">最新活動</h3>
-              <div class="a-eventText">
+              <div className="a-eventText">
                 <h1 className="a-whatFun">What's New Fun</h1>
               </div>
               <div className="a-eventContent">
                 <div className="a-calendarWrapper">
-                  <div class="a-imgWrapper">
+                  <div className="a-imgWrapper">
                     <img src="./svg/calendar.svg" alt="" />
                   </div>
-                  <div class="a-dateWrapper">
+                  <div className="a-dateWrapper">
                     <h2 className="a-month">Dec.</h2>
                     <h2 className="a-day">25</h2>
                   </div>
                 </div>
-                <div class="a-eventContentWrapper">
+                <div className="a-eventContentWrapper">
                   <div className="a-event">
                     <div className="a-eventDayWrapper">
                       <h4>Dec.</h4>
                       <h4>25</h4>
                     </div>
-                    <div class="a-eventImgWrapper">
+                    <div className="a-eventImgWrapper">
                       <img src="../../04-product/event.svg" alt="" />
                     </div>
                     <div className="a-eventName">
@@ -152,7 +152,7 @@ function Homepage() {
                       <h4>Dec.</h4>
                       <h4>25</h4>
                     </div>
-                    <div class="a-eventImgWrapper">
+                    <div className="a-eventImgWrapper">
                       <img src="../../04-product/calendar.svg" alt="" />
                     </div>
                     <div className="a-eventName">
