@@ -3,7 +3,6 @@ import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import ProductCard from "../components/ProductCard.jsx";
 import "../components/style/ProductDetail.scss";
-import Select from "../components/Select";
 import ProductVideo from "../components/ProductVideo";
 import NavBar from "../../components/NavBar.js";
 import YellowWave from "../../00-homepage/components/YellowWave.js";
@@ -44,13 +43,16 @@ function ProductList() {
   return (
     <>
     <div className="y-index-container">
+    <div className="a-navBarWrapper" style={{
+        height: '70px',
+        backgroundColor: '#fad249'
+      }}></div>
       <section className="y-section y-section-nav-bg">
             <NavBar />
           </section>
         <section className="y-section y-section-search"></section>
         <section className="y-section y-section-merch"></section>
         <div className="y-wave-wrap">
-        
           <YellowWave />
         </div>
         <div className="a-videoWrapper" style={{paddingTop:'50px'}}>

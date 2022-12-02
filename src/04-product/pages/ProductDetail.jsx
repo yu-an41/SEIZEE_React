@@ -50,6 +50,7 @@ function ProductDetail() {
   return (
     <>
       <div className="y-index-container">
+        <div className="a-navBarWrapper"></div>
         <section className="y-section y-section-nav-bg">
           <NavBar />
         </section>

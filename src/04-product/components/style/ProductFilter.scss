@@ -1,45 +1,61 @@
 main {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    letter-spacing: 2px
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  letter-spacing: 2px;
 }
-$main-blue: #2B325C;
-$main-yellow: #FAD249;
-$main-text: #5E5E5E;
-$secondary-blue: #113F75;
-$secondary-yellow: #FEF3DA;
-$green: #53B2A8;
-$red: #ED4743;
-$text-shadow: #E4E4E4;
+$main-blue: #2b325c;
+$main-yellow: #fad249;
+$main-text: #5e5e5e;
+$secondary-blue: #113f75;
+$secondary-yellow: #fef3da;
+$green: #53b2a8;
+$red: #ed4743;
+$text-shadow: #e4e4e4;
 $base-line-eight: 10px;
-$main-border: 3px solid #113F75;
+$main-border: 3px solid #113f75;
 $main-border-radius: 8px;
 %a-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.a-categoryWrapper {
+.a-category {
+  @extend %a-flex;
+  .a-categoryWrapper {
     display: flex;
-}
-.a-categoryContentWapper {
-    @extend %a-flex;
-    flex-direction: column;
-}
-.a-iconWrapper {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 3px $main-blue;
-    overflow: hidden;
-    background-color: #fff;
-    @extend %a-flex;
-    .a-icon {
-        width: 100px;
-        object-fit: cover;
+    width: 500px;
+    flex-wrap: wrap;
+    .a-categoryContentWapper {
+      @extend %a-flex;
+      flex-direction: column;
+      .a-iconSpan {
+        @extend %a-flex;
+        flex-direction: column;
+        .a-iconWrapper {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          border: 3px $main-blue;
+          overflow: hidden;
+          background-color: #fff;
+          @extend %a-flex;
+          .a-icon {
+            width: 100px;
+            object-fit: cover;
+          }
+          .a-categoryInput {
+            display: none;
+            background-color: transparent;
+          }
+          .a-categoryName {
+            text-align: center;
+          }
+        }
+      }
     }
+  }
 }

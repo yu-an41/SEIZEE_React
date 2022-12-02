@@ -61,6 +61,10 @@ input[type="number"] {
   padding-top: line(3);
 }
 
+.a-navBarWrapper{
+  height: 70px;
+  background-color: $main-yellow;
+}
 .a-productDetailWrapper {
   display: flex;
   justify-content: space-evenly;
