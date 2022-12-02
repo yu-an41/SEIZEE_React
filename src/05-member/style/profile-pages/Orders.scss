@@ -163,4 +163,19 @@
       }
     }
   }
+
+  .s-o-card::-webkit-scrollbar-track {
+
+  }
+  .s-o-card::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+    
+  }
+
+  .s-o-card::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: red;
+    
+  }
 }
