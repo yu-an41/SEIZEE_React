@@ -2,18 +2,23 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import NavBar from "../../components/NavBar";
 import "../components/style/ProductFilter.scss";
+import { set } from "ramda";
 
 function ProductFilter() {
-  //篩選全部資料
-  const [] = useState([]);
+  //篩選Data
+  const [filterList, setFilterList] = useState([]);
+
   //checkbox勾選狀態（用true & false判斷）
-  const [checked, setChecked] = useState(Array(10).fill(false))
+  // const [checked, setChecked] = useState(Array(10).fill(false))
+
   //checkbox篩選條件
-  const [categoryFilter, SetcategoryFilter] = useState
+  const [categoryFilter, SetcategoryFilter] = useState([])
+
   //使用者勾選篩選checkbox
-  const [filter, setFilter] = useState([])
-  //錯誤訊息提醒
-  const [errorMessage, setErrorMessage] = useState([]);
+  const [choice, setchoice] = useState([])
+
+  //篩選結果
+  const [filterResult, setFilterResult] = useState(1)
 
   async function getFilter() {
     try {
@@ -22,37 +27,49 @@ function ProductFilter() {
       );
       // console.log(response);
       const Fdata = response.data.category_rows;
-      setFilter(Fdata);
+      setFilterList(Fdata);
     } catch (e) {
       console.error(e.message);
-      setErrorMessage(e.message);
     }
   }
-
-//判斷category和index位置
-const handleOnChange = (location) => {
-  const newCheck = 
-  checked.map((cate, index) => 
-    index === location ? !cate : cate
-  )
-  setChecked(newCheck)
-
-//category如果是true就放入array
-let choiceList = 
-newCheck.map((c, index) => { 
-  if(c) {
-      return filter[index].sid
-    } else {
-      return null
+const checkboxClick = e=>{
+  const val = +e.target.value;
+  const c = e.target.checked;
+  if(c){
+    if(! choice.includes(val)){
+      setchoice([...choice, val]);
     }
-  })
-
-  choiceList = choiceList.map((c) => !!c)
-  SetcategoryFilter(choiceList)
-  if (choiceList.length !== 0) {
-
+  } else {
+    const newChoice = choice.filter(v=>v!==val)
+    setchoice(newChoice);
   }
 }
+// //判斷category和index位置
+// const handleOnChange = (location) => {
+//   const newCheck = 
+//   checked.map((cate, index) => 
+//     index === location ? !cate : cate
+//   )
+//   setChecked(newCheck)
+
+//category如果是true就放入array
+// let choiceList = 
+// newCheck.map((c, index) => { 
+//   if(c) {
+//       return choice[index].sid
+//     } else {
+//       return null
+//     }
+//   })
+
+  // choiceList = choiceList.filter((c) => !!c)
+  // SetcategoryFilter(choiceList)
+  // if (choiceList.length !== 0) {
+  //   setFilterResult = (0)
+  // } else {
+  // setFilterList = (1)
+  // }
+
   useEffect(() => {
     getFilter();
   }, []);
@@ -60,7 +77,7 @@ newCheck.map((c, index) => {
   return (
     <>
       <div className="a-categoryWrapper">
-        {filter.map((filter, i) => {
+        {filterList.map((filter, i) => {
           return (
             <label className="a-categoryContentWapper"
             htmlFor={`a-categoryCheckBox${filter.sid}`}
@@ -73,7 +90,7 @@ newCheck.map((c, index) => {
                   name="cate"
                   value={filter.sid}
                 //   checked={checkedState(filter.sid)}
-                //   onChange={() => {handleOnChange(filter.sid)}}
+                onChange={checkboxClick}
                 />
               <div className="a-iconWrapper">
                 <img className="a-icon" src={`/04-product/svg/${filter.category_icon}`} alt="" />

@@ -17,7 +17,7 @@ function ProductDetail() {
   const [detail, setDetail] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
   const { sid } = useParams();
-  // console.log({ collection });
+  console.log({ collection });
   const [qty, setQty] = useState(1);
   // const [heart, setHeart] = useState(false);
   // console.log(heart);
@@ -58,7 +58,7 @@ function ProductDetail() {
         <div className="y-wave-wrap">
           <YellowWave />
         </div>
-        {/* <Carousel2 sid={sid} /> */}
+        <Carousel2 sid={sid} />
         <div className="a-deatil">
           {detail.map((details, i) => {
             return (

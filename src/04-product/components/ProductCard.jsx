@@ -55,7 +55,9 @@ const tempRef = useRef();
               <img src="/04-product/svg/collection.svg"
                 alt="" onClick={() => {addCollect(+product.sid)
                 handleClick(true)}} /> )) 
-              : ("")}
+              : (<img src="/04-product/svg/collection.svg"
+                alt="" onClick={() => {addCollect(+product.sid)
+                handleClick(true)}}/>)}
         </div>
         <div className="a-priceWrapper">
           <div className="a-productPrice">

@@ -50,6 +50,7 @@ function ProductList() {
         <section className="y-section y-section-search"></section>
         <section className="y-section y-section-merch"></section>
         <div className="y-wave-wrap">
+        
           <YellowWave />
         </div>
         <div className="a-videoWrapper" style={{paddingTop:'50px'}}>
