@@ -59,7 +59,7 @@ $card-btn: #80b938;
         justify-content: space-around;
 
         .r-card-body-h2 {
-          font-size: 26px;
+          font-size: 24px;
           font-weight: 700;
           color: $main-title;
           padding-bottom: 5px;
@@ -67,14 +67,14 @@ $card-btn: #80b938;
           letter-spacing: 0.2rem;
         }
         .r-card-body-p {
-          font-size: 18px;
+          font-size: 16px;
           letter-spacing: 0.2rem;
           line-height: 2rem;
         }
         .r-card-body-cates {
           margin-bottom: 5px;
           .r-card-body-cates-span {
-            font-size: 20px;
+            font-size: 18px;
             color: #000;
             letter-spacing: 0.2rem;
             background: $main-yellow;
@@ -119,13 +119,13 @@ $card-btn: #80b938;
             overflow: hidden;
 
             .r-card-button-span {
-              font-size: 18px;
+              font-size: 20px;
               display: inline-block;
               z-index: 2;
               transition: 0.5s ease-in-out;
             }
             i {
-              font-size: 28px;
+              font-size: 24px;
               display: inline-block;
               z-index: 2;
               animation: r-animateBtn 1s linear infinite;
