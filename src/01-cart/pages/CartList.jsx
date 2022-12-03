@@ -54,6 +54,7 @@ function CartList(props) {
 
   // 取得商品資訊
   const data = products[0]
+  const data2 = products[4]
 
   // 商品訂單明細 引入來源資料原始商品金額小計
   const [totalPrice, setTotalPrice] = useState([])
@@ -127,38 +128,32 @@ function CartList(props) {
 
   useEffect(() => {
     getRecMerchData()
-    // getCartData()
+    getCartData()
   }, [])
 
   return (
     <>
-      <div
-        className="y-Cart-test-btn"
-        onClick={() => {
-          // setProdQty(prodQty)
-          handleAddCart(data, prodQty)
-          // console.log(data, prodQty)
-        }}
-      >
-        add item to cart
-      </div>
-      <div
-        className="y-Cart-test-btn"
-        onClick={() => {
-          handleReduce(data)
-          console.log('cart item qty -1')
-        }}
-      >
-        cart item qty -1
-      </div>
-      <div
-        className="y-Cart-test-btn"
-        onClick={() => {
-          handleEmptyCart()
-          console.log('cart emptied')
-        }}
-      >
-        empty cart
+      <div className="y-test-btns">
+        <div
+          className="y-Cart-test-btn"
+          onClick={() => {
+            // setProdQty(prodQty)
+            handleAddCart(data, prodQty)
+            // console.log(data, prodQty)
+          }}
+        >
+          add item to cart
+        </div>
+        <div
+          className="y-Cart-test-btn"
+          onClick={() => {
+            // setProdQty(prodQty)
+            handleAddCart(data2, prodQty)
+            // console.log(data, prodQty)
+          }}
+        >
+          add item2 to cart
+        </div>
       </div>
       <div className="y-CartList-container">
         <div className="y-Cart-nav">
@@ -238,7 +233,7 @@ function CartList(props) {
           </div>
           <div className="y-Cart-details y-Cart-sections">
             <div className="y-empty-cart-wrap">
-              <EmptyCartBtn />
+              <EmptyCartBtn onClick={handleEmptyCart} />
             </div>
             <p className="y-Cart-tab y-Cart-details-tab">明細一覽</p>
             <div className="y-Cart-details-top">
@@ -257,29 +252,25 @@ function CartList(props) {
               </p>
             </div>
             <div className="y-Cart-details-area">
-              <div className="y-Cart-details-row">
-                <CartItemsList />
-              </div>
-              <div className="y-Cart-details-row">
-                <CartItemsList />
-              </div>
-              <div className="y-Cart-details-row">
-                <CartItemsList />
-              </div>
-              <div className="y-Cart-details-row">
-                <CartItemsList />
-              </div>
+              {cartItem.userCart.map((v, i) => {
+                return (
+                  <div className="y-Cart-details-row">
+                    <CartItemsList cartItemData={v} key={i} />
+                  </div>
+                )
+              })}
             </div>
             <div className="y-Cart-details-bottom">
               <p className="y-Cart-details-total">
-                共 1 項商品，數量 1 個，總金額NT$ 537 元
+                共 {cartItem.totalItem} 項商品，數量 {cartItem.totalAmount}{' '}
+                個，總金額NT$ {cartItem.totalPrice} 元
               </p>
               <div className="y-Cart-details-btns">
                 <div className="y-continue-shopping-wrap">
                   <ContinueShoppingBtn />
                 </div>
                 <div className="y-cart-pay-wrap">
-                  <GoPayBtn />
+                  <GoPayBtn cartItem={cartItem} />
                 </div>
               </div>
             </div>

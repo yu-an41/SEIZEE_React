@@ -1,8 +1,8 @@
 import { useState, useEffect} from "react";
 import axios from "axios";
-// import './Carouse.css';
+import "./style/Carousel.scss";
 
-export default function Carousel() {
+export default function Carousel({sid}) {
     const [carousel, setCarousel] = useState([]);
     const [myArray, setMyArray] = useState([0, 0, 0]);
     const [myZindexArr, setMyZindexArr] = useState([0, 0, 0]);
@@ -11,7 +11,7 @@ export default function Carousel() {
     async function getCarousel() {
         try {
           const response = await axios.get(
-            `http://localhost:3004/product/picture`
+            `http://localhost:3004/product/picture?sid=`+sid
           );
           const Pdata = response.data.picture_rows;
           // console.log(Pdata)
@@ -41,16 +41,17 @@ export default function Carousel() {
 
     return (
         <div>
-        {carousel.pic.split(',').map((carousel, i) => {
+        {carousel.picture.split(',').map((carousel, i) => {
             return (
-            <div style={{ display: 'flex' }} >
+            <div className="a-caroudelWrapper"  key={carousel.sid}>
                 <div
                     className="bg-1"
                     style={{
                         width: '200px',
                         height: '200px',
                         fontSize: '1.5rem',
-                        background: 'red',
+                        background:{image:
+                        `url(/04-product/img/${carousel.picture})`   } ,
                         transform: `translateX(${myArray[0] * 200}px)`,
                         transition: 'transform 1s',
                         zIndex: `${myZindexArr[0]}`,

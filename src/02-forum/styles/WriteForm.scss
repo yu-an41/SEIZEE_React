@@ -17,22 +17,12 @@ form{
     width: 70%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
 
     label{
         width: 100%;
         margin-top: 20px; 
-        input {
-        width: 100%;
-        height: 50px;
-        border: 2px solid $main-blue ;
-        appearance:none;
-        -moz-appearance:none;
-        background-color: #d7d7d7;
-        }
-        input:focus{
-            outline:none;
-            }
+     
         textarea{
             width: 100%;
             height: 120px;
@@ -51,6 +41,25 @@ form{
             color: $main-blue;
             margin-bottom: 5px;
            }
+           input {
+            width: 100%;
+            height: 50px;
+            border: 2px solid $main-blue ;
+            appearance:none;
+            -moz-appearance:none;
+            background-color: #d7d7d7;
+            }
+            input:focus{
+                outline:none;
+                }
+    .p-WriteTagWrap{
+        width: 100%;
+        .p-wTag{
+            width: 20%;
+            margin-right: 20px;
+            
+        }
+    }
     .p-writeImageLab{
             width: 100%;
             height: 520px;
@@ -80,8 +89,8 @@ form{
             p{
             position:absolute;
             top: 30%;
-            right: 48%;
-            color: $main-blue;
+            right:30%;
+            color: #5C5C5C;
             
             }
         }
@@ -102,6 +111,7 @@ form{
             }
         }
     .p-instrucAdPortion{
+        position: relative;
         width: 100%;
         margin-top: 50px;
         h3{
@@ -117,35 +127,43 @@ form{
         .p-instrucContent{
             width: 60%;
             margin-right: 15px;
+            input{
+
+            }
         }
         .p-portion{
             width: 40%;
-            
         }
         }
         
     }
-    .p-addInstru{
-        position: absolute;
+    .p-InstBtnWrap{
         margin-top: 20px;
-        right: 48%;
+        display: flex;
+        justify-content: flex-end;
         p{
             font-size: $h4;
             color: $main-blue;
         }
+        .p-addInstru{
+        margin-right: 20px;      
+        }
+
     }
+   
 
     .p-writeStep{
+        position: relative;
         width: 100%;
         margin-top: 50px;
         h3{
 
         }
         .p-stepLabWrap{
+            display: flex;
+            align-items: flex-end;
             width: 100%;
             height: 260px;
-            display: flex;
-            position: relative;
             margin-bottom: 20px;
             .p-stepImg{
                 width: 60%;
@@ -194,14 +212,17 @@ form{
             
             
         }
-        .p-addStep{
-        position: absolute;
-        margin-top: 20px;
-        right: 48%;
-        p{
-            font-size: $h4;
-            color: $main-blue;
-        }
+        .p-stepBtnWrap{
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+            p{
+                font-size: $h4;
+                color: $main-blue;
+            }
+            .p-addStep{
+                margin-right: 20px;
+            }       
         }
         
     }

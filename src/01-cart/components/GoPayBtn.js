@@ -1,8 +1,16 @@
+import axios from 'axios'
+import dayjs from 'dayjs'
 import './../styles/GoPayBtn.scss'
 
-function GoPayBtn() {
-  const GoPay = () => {
-    console.log('Go Pay')
+function GoPayBtn({ cartItem }) {
+  const GoPay = async () => {
+    const order_num = dayjs(new Date()).format('YYYYMMDDHHmmss')
+    console.log(order_num)
+    const { data } = await axios.post(
+      `http://localhost:3004/cart/add-order/${order_num}`,
+      cartItem
+    )
+    // console.log('Go Pay')
   }
 
   return (

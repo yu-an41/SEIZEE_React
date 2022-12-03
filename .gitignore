@@ -43,6 +43,9 @@ public/06-event-img/*
 
 src/02-forum/p-imgs
 src/06-event/img/*
+src/02-forum/components/useWindowDimensions.js
+src/02-forum/components/WriteStep.js
+
 
 # src/dotown/*
 # src/logo-and-fonts

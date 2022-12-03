@@ -12,6 +12,8 @@ import TabCook from '../components/TabCook'
 import { Link } from 'react-router-dom'
 
 function PostCook() {
+  const [postNums, setPostNums] = useState(10)
+  const [likeInstructions, setLikeInstructions] = useState('')
   const [cookPostData, setCookPostData] = useState([
     {
       sid: 1,
@@ -19,7 +21,7 @@ function PostCook() {
       categories_sid: 4,
       title: '',
       img: '',
-      content: '',
+      induction: '',
       serving: '',
       times: '',
       likes: 1,
@@ -40,6 +42,7 @@ function PostCook() {
     getCookPostData()
   }, [])
 
+  const min = Math.min(postNums, cookPostData.length)
   return (
     <>
       <div className="p-PostWrap">
@@ -51,17 +54,30 @@ function PostCook() {
             <SearchBar />
           </div>
           <div className="p-tabCookWrap">
-            <TabCook />
+            <TabCook
+              likeInstructions={likeInstructions}
+              setLikeInstructions={setLikeInstructions}
+              setCookPostData={setCookPostData}
+            />
           </div>
           <div className="p-CardWrap">
             {cookPostData &&
-              cookPostData.map((v) => {
-                return (
-                  <>
-                    <CardPost postData={v} key={v.sid} />
-                  </>
-                )
-              })}
+              Array(min)
+                .fill(1)
+                .map((v, i) => {
+                  const item = cookPostData[i]
+                  return (
+                    <>
+                      <CardPost postData={item} key={item.i} />
+                    </>
+                  )
+                })}
+            <div
+              className="p-nonBtn"
+              onChange={() => {
+                setPostNums(postNums + 3)
+              }}
+            ></div>
           </div>
         </div>
         <div className="p-recomAdWrit">

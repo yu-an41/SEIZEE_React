@@ -12,29 +12,28 @@ import CommentArea from "./components/CommentArea";
 import log from "eslint-plugin-react/lib/util/log";
 
 function ProductDetail() {
-  const { collection, setCollection, delCollect, addCollect } =
+  const { collection, setCollection, delCollect, addCollect,handleClick } =
     useContext(CollectContext);
-  const [heart, setHeart] = useState(false);
-  console.log(heart);
   const [detail, setDetail] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
   const { sid } = useParams();
   // console.log({ collection });
-
   const [qty, setQty] = useState(1);
+  // const [heart, setHeart] = useState(false);
+  // console.log(heart);
 
   async function getDeatil() {
     try {
       const response = await axios.get(
         `http://localhost:3004/product/list?sid=${sid}`
       );
-      console.log(sid);
+      // console.log(sid);
       const result = await axios.get(
         `http://localhost:3004/product/collect?sid=${sid}`
       );
       // console.log(result.data.rows)
       if (result.data.rows.length !== 0) {
-        setHeart(true);
+        handleClick(true);
       }
       const Pdata = response.data.product_rows;
       // console.log(Pdata)
@@ -46,11 +45,11 @@ function ProductDetail() {
   }
   useEffect(() => {
     getDeatil();
-  }, []);
+  }, [collection]);
 
   return (
     <>
-      {/* <Carousel2/> */}
+      {/* <Carousel2 sid={sid} /> */}
       {/* <Carousel/> */}
       <div className="a-deatil">
         {detail.map((details, i) => {
@@ -78,17 +77,19 @@ function ProductDetail() {
                     <p>最後取餐時間{details.shop_deadline}</p>
                   </div>
                   <div className="a-productCollection">
-                    {heart ? (
+                    {collection ? (
                       <img
                         src="/04-product/svg/heart.svg"
                         alt=""
-                        onClick={() => delCollect(sid)}
+                        onClick={() => {delCollect(sid) 
+                          handleClick(false)}}
                       />
                     ) : (
                       <img
                         src="/04-product/svg/collection.svg"
                         alt=""
-                        onClick={() => addCollect(sid)}
+                        onClick={() => {addCollect(sid)
+                          handleClick(true)}}
                       />
                     )}
                     <p>加入收藏清單</p>
@@ -120,8 +121,18 @@ function ProductDetail() {
                 </div>
                 <div className="a-productQuantity">
                   <p>數量</p>
-                  <button id="minus">-</button>
+                  <button
+                    className="minus"
+                    onClick={() => {
+                      if (qty > 1) {
+                        setQty(qty - 1);
+                      }
+                    }}
+                  >
+                    -
+                  </button>
                   <input
+                    className="a-qtyInput"
                     type="text"
                     value={qty ? qty : ""}
                     onChange={(q) => {
@@ -134,7 +145,7 @@ function ProductDetail() {
                     }}
                   />
                   <button
-                    id="plus"
+                    className="plus"
                     onClick={() => {
                       if (qty < details.inventory_qty) {
                         setQty(qty + 1);
@@ -154,7 +165,7 @@ function ProductDetail() {
         })}
       </div>
       <YellowWave2 />
-      {/* <ProductComment sid={sid}/> */}
+      <ProductComment sid={sid} />
       <RecommendCard sid={sid} />
     </>
   );

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import dayjs from 'dayjs';
+import dayjs from 'dayjs'
 
 import '../styles/Message.scss'
-
 
 import Member from './Member'
 function Comment({ commData }) {
@@ -15,7 +14,9 @@ function Comment({ commData }) {
           <div className="p-messageMember">
             <Member />
           </div>
-          <p className="p-messCreatAt">{created_at}</p>
+          <p className="p-messCreatAt">
+            {dayjs(created_at).format('YYYY.MM.DD')}
+          </p>
         </div>
         <div className="p-messContent">
           <p>{content}</p>

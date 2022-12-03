@@ -17,7 +17,7 @@ function ProductCard({ product }) {
     delCollect,
     handleClick,
   } = useContext(CollectContext);
-console.log(collection);
+// console.log(collection);
   
 const tempRef = useRef();
   const countOptions =product ? new Array(product.inventory_qty).fill(0).map((_, i) => ({
@@ -49,10 +49,12 @@ const tempRef = useRef();
           </Link>
           {collectionNum.length > 0 ? (
             collectionNum.includes(product.sid) ? (
-              <img src="/04-product/svg/heart.svg" alt="" onClick={() => delCollect(product.sid)}/>) 
+              <img src="/04-product/svg/heart.svg" alt="" onClick={() => {delCollect(product.sid)
+              handleClick(false)}}/>) 
               : (
               <img src="/04-product/svg/collection.svg"
-                alt="" onClick={() => addCollect(+product.sid)} /> )) 
+                alt="" onClick={() => {addCollect(+product.sid)
+                handleClick(true)}} /> )) 
               : ("")}
         </div>
         <div className="a-priceWrapper">

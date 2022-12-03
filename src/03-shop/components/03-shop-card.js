@@ -1,18 +1,21 @@
 import { useEffect, useState, useContext } from 'react'
 import { imgUrl, imgServerUrl } from '../shop-config'
-import axios from 'axios'
+// import axios from 'axios'
 import './../styles/03-shop-card.scss'
 import { Box, Skeleton } from '@mui/material'
+import IsLovedContext from '../../contexts/03-shop-loveContext.js'
 // import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import IsLovedContext from '../03-shop-loveContext'
-// 收藏項目
-// const { lovedList, delLoved, addLoved, loved, indexNum } =
-//   useContext(IsLovedContext);
+
 // states
-// 收藏連結 Hover
-// const [lovedHover, setLovedHover] = useState(false);
 
 function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
+  //收藏項目
+  const { lovedList, delLoved, addLoved, loved, isLovedNum, handleClickLove } =
+    useContext(IsLovedContext)
+
+  // 收藏連結 Hover
+  const [lovedStatus, setLovedStatus] = useState(false)
+
   return (
     <>
       {startShop ? (
@@ -23,7 +26,7 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                 {isLoading ? (
                   <Skeleton
                     variant="rectangular"
-                    style={{ background: '#ffeeb2' }}
+                    style={{ background: '#ccc' }}
                   >
                     <div className="r-card-container">
                       <div className="r-card-img-wrap">
@@ -37,7 +40,7 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                           src={`${imgServerUrl}/images/03-shop/${v.rows.shop_cover}`}
                           alt=""
                         />
-                        <i class="fa-solid fa-heart"></i>
+                        <i className="fa-solid fa-heart"></i>
                       </div>
                       <div className="r-card-body">
                         <h2 className="r-card-body-h2">{v.rows.shop_name}</h2>
@@ -143,7 +146,31 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                         src={`${imgServerUrl}/images/03-shop/${v.rows.shop_cover}`}
                         alt=""
                       />
-                      <i class="fa-solid fa-heart"></i>
+                      {isLovedNum.length > 0 ? (
+                        isLovedNum.includes(v.rows.sid) ? (
+                          <i
+                            className="fa-solid fa-heart"
+                            style={{ color: '#f00' }}
+                            onClick={() => {
+                              handleClickLove(v.rows.sid)
+                            }}
+                          ></i>
+                        ) : (
+                          <i
+                            className="fa-solid fa-heart"
+                            onClick={() => {
+                              handleClickLove(v.rows.sid)
+                            }}
+                          ></i>
+                        )
+                      ) : (
+                        <i
+                          className="fa-solid fa-heart"
+                          onClick={() => {
+                            handleClickLove(v.rows.sid)
+                          }}
+                        ></i>
+                      )}
                     </div>
                     <div className="r-card-body">
                       <h2 className="r-card-body-h2">{v.rows.shop_name}</h2>
@@ -234,7 +261,7 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                 {isLoading ? (
                   <Skeleton
                     variant="rectangular"
-                    style={{ background: '#ffeeb2' }}
+                    style={{ background: '#ccc' }}
                   >
                     <div className="r-card-container">
                       <div className="r-card-img-wrap">
@@ -248,7 +275,7 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                           src={`${imgServerUrl}/images/03-shop/${v[0].shop_cover}`}
                           alt=""
                         />
-                        <i class="fa-solid fa-heart"></i>
+                        <i className="fa-solid fa-heart"></i>
                       </div>
                       <div className="r-card-body">
                         <h2 className="r-card-body-h2">{v[0].shop_name}</h2>
@@ -340,7 +367,31 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                         src={`${imgServerUrl}/images/03-shop/${v[0].shop_cover}`}
                         alt=""
                       />
-                      <i class="fa-solid fa-heart"></i>
+                      {isLovedNum.length > 0 ? (
+                        isLovedNum.includes(v[0].sid) ? (
+                          <i
+                            className="fa-solid fa-heart"
+                            style={{ color: '#f00' }}
+                            onClick={() => {
+                              handleClickLove(v[0].sid)
+                            }}
+                          ></i>
+                        ) : (
+                          <i
+                            className="fa-solid fa-heart"
+                            onClick={() => {
+                              handleClickLove(v[0].sid)
+                            }}
+                          ></i>
+                        )
+                      ) : (
+                        <i
+                          className="fa-solid fa-heart"
+                          onClick={() => {
+                            handleClickLove(v.rows.sid)
+                          }}
+                        ></i>
+                      )}
                     </div>
                     <div className="r-card-body">
                       <h2 className="r-card-body-h2">{v[0].shop_name}</h2>
@@ -428,28 +479,4 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
   )
 }
 
-{/* <div
-style={{ display: 'flex' }}
-onMouseEnter={() => {
-  setLovedHover(!lovedHover);
-}}
-onMouseLeave={() => {
-  setLovedHover(!lovedHover);
-}}
-onClick={() => {
-  if (!JSON.stringify(localStorage.getItem('auth'))) {
-    navigate('/member/memberProductCollect');
-  } else {
-    alert('請先登入');
-    navigate('/member/memberLogIn');
-  }
-}}
->
-<i
-  className={`${
-    lovedHover ? 'fa-solid' : 'fa-regular'
-  } fa-heart`}
-></i>
-<p style={{ textAlign: 'end' }}>我的收藏</p>
-</div> */}
 export default ShopCard

@@ -1,10 +1,12 @@
 import '../styles/06-event-03-schedule.scss'
+import React, { Fragment, useEffect, useState } from 'react'
 
 import jStar from '../svg/star.svg'
 import jHeart from '../svg/heart-none.svg'
-import Eventcard from '../components/06-event-comp-box'
+import Eventcard from '../components/Eventcard/Eventcard'
+import Emptycard from '../components/Emptycard/Emptycard'
 
-function Schedule() {
+function Schedule({ origins }) {
   return (
     <>
       <div className="j-event-middle-schedule">
@@ -16,7 +18,7 @@ function Schedule() {
         <div>
           <div className="j-event-schedule">
             <div className="j-event-schedule-title">
-            <div className="j-stages-card-1">
+              <div className="j-stages-card-1">
                 <div className="j-stage-deco">
                   <span className="j-star-left">
                     <img src={jStar} alt="" />
@@ -101,23 +103,93 @@ function Schedule() {
                   </span>
                 </div>
               </div>
-              
             </div>
             <div className="j-event-schedule-wrap">
               <div className="j-event-schedule-column-1">
-              <Eventcard
-                  data={{
-                    time: '12:00-13:00',
-                    txt1: '全食物利用',
-                    txt2: '-水果酵釀-',
-                    tags: '#穢土轉生#工作坊',
-                  }}
-                />
+                {origins
+                  .filter((e) => e.cate === 1)
+                  .map((cat, i) => (
+                    <Fragment key={cat.sid}>
+                      <Eventcard
+                        cat={cat}
+                        time={cat.time}
+                        name={cat.name}
+                        nick={cat.nick}
+                        color={cat.color}
+                      />
+                      <Emptycard />
+                    </Fragment>
+                  ))}
+                <div className="j-big-bottom"></div>
               </div>
-              <div className="j-event-schedule-column-2"></div>
-              <div className="j-event-schedule-column-3"></div>
-              <div className="j-event-schedule-column-4"></div>
-              <div className="j-event-schedule-column-5"></div>
+              <div className="j-event-schedule-column-2">
+                {origins
+                  .filter((e) => e.cate === 2)
+                  .map((cat, i) => (
+                    <>
+                      <Emptycard />
+                      <Eventcard
+                        cat={cat}
+                        time={cat.time}
+                        name={cat.name}
+                        nick={cat.nick}
+                        color={cat.color}
+                      />
+                    </>
+                  ))}
+                <div className="j-big-bottom"></div>
+              </div>
+              <div className="j-event-schedule-column-3">
+                {origins
+                  .filter((e) => e.cate === 3)
+                  .map((cat, i) => (
+                    <>
+                      <Eventcard
+                        cat={cat}
+                        time={cat.time}
+                        name={cat.name}
+                        nick={cat.nick}
+                        color={cat.color}
+                      />
+                      <Emptycard />
+                    </>
+                  ))}
+                <div className="j-big-bottom"></div>
+              </div>
+              <div className="j-event-schedule-column-4">
+                {origins
+                  .filter((e) => e.cate === 4)
+                  .map((cat, i) => (
+                    <>
+                      <Emptycard />
+                      <Eventcard
+                        cat={cat}
+                        time={cat.time}
+                        name={cat.name}
+                        nick={cat.nick}
+                        color={cat.color}
+                      />
+                    </>
+                  ))}
+                <div className="j-big-bottom"></div>
+              </div>
+              <div className="j-event-schedule-column-5">
+                {origins
+                  .filter((e) => e.cate === 5)
+                  .map((cat, i) => (
+                    <>
+                      <Eventcard
+                        cat={cat}
+                        time={cat.time}
+                        name={cat.name}
+                        nick={cat.nick}
+                        color={cat.color}
+                      />
+                      <Emptycard />
+                    </>
+                  ))}
+                <div className="j-big-bottom"></div>
+              </div>
             </div>
           </div>
         </div>
