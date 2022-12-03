@@ -10,7 +10,7 @@ import ModalConfirm from './components/ModalConfirm'
 import ModalNotification from './components/ModalNotification'
 
 // 00-homepage
-import Homepage from './00-homepage/pages/Homepage'
+// import Homepage from './00-homepage/pages/Homepage'
 
 // 01-cart
 import CartList from './01-cart/pages/CartList'
@@ -32,8 +32,7 @@ import InnerOfficial from './02-forum/pages/Inner_official'
 import WriteForm from './02-forum/pages/WriteForm'
 
 // 03-shop
-// import ShopList from './03-shop/pages/03-shop-list'
-// import ShopHome from './03-shop/pages/03-shop-home'
+import ShopList from './03-shop/pages/03-shop-list'
 
 // 04-product
 import ProductList from './04-product/pages/ProductList'
@@ -44,7 +43,6 @@ import ProductFilter from './04-product/pages/ProductFilter'
 import UserSign from './05-member/UserSign'
 import ResetPass from './05-member/ResetPass'
 import ForgotPass from './05-member/ForgotPass'
-// 以下會撞波浪XDD
 import UserProfile from './05-member/profile-pages/UserProfile'
 import UpdateInfo from './05-member/profile-pages/UpdateInfo'
 import Likes from './05-member/profile-pages/Likes'
@@ -54,7 +52,7 @@ import Orders from './05-member/profile-pages/Orders'
 // 06-event
 //event要用的context
 import { TimeTableProvider } from './06-event/context/useTimeTable'
-// import Top from './06-event/pages/06-event-01-top'
+import Top from './06-event/pages/06-event-01-top'
 import Eventrender from './06-event/pages/06-event-00-Render'
 
 function App() {
@@ -94,8 +92,7 @@ function App() {
                 </Route>
 
                 {/* 03-shop */}
-                {/* <Route path="/shop" element={<ShopList />} /> */}
-                {/* <Route path="/shop" element={<ShopHome />} /> */}
+                <Route path="/shop" element={<ShopList />} />
 
                 {/* 04-product  */}
                 <Route
@@ -121,11 +118,11 @@ function App() {
 
                 {/* 06-event */}
                 {/* <Route path="/top" element={<Top />} />
-              <Route path="/events" element={<Events />} />
-              <Route path="/schedule" element={<Schedule />} />
-              <Route path="/map" element={<Map />} />
-              <Route path="/ticket" element={<Ticket />} /> */}
-                <Route path="/Eventrender" element={<Eventrender />} />
+                <Route path="/events" element={<Events />} />
+                <Route path="/schedule" element={<Schedule />} />
+                <Route path="/map" element={<Map />} />
+                <Route path="/ticket" element={<Ticket />} />
+                <Route path="/Eventrender" element={<Eventrender />} /> */}
               </Routes>
             </TimeTableProvider>
           </CollectContextProvider>
