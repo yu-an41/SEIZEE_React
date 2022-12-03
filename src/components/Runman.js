@@ -1,4 +1,4 @@
-import './Runman.scss'
+import '../styles/Runman.scss'
 
 function Runman() {
   return (

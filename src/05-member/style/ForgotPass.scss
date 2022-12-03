@@ -68,6 +68,10 @@ $s-main-b: #113f75;
           border: 1px solid #333;
         }
 
+        .s-fp-input::placeholder {
+          font-size: 15px;
+        }
+
         .s-fp-forgotSubmit {
           background: $s-main-b;
           box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);

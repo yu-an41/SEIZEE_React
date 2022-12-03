@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { checkEmpty } from './data/UserSign_valid'
 import { useNavigate } from 'react-router-dom'
-// import ModalConfirm from '../components/ModalConfirm'
+import ModalConfirm from '../components/ModalConfirm'
 import ModalNotification from '../components/ModalNotification'
 
 function ForgotPass() {
@@ -22,13 +22,6 @@ function ForgotPass() {
 
     setForgotFD({ ...forgotFD, [id]: val })
   }
-
-  // Modal
-  const [isOpen, setIsOpen] = useState(false)
-  const [headerMg, setHeaderMg] = useState('')
-  const [bodyMg, setBodyMg] = useState('')
-
-  // ====================================
 
   const checkForgotEmail = async (e) => {
     const val = e.currentTarget.value
@@ -51,30 +44,17 @@ function ForgotPass() {
 
     if (!errorMgF) {
       const { data } = await axios.post(SEND_FORGOT_PASS, forgotFD)
-
-      // console.log(data)
+      // alert('修改密碼信件已發送')
+      console.log(data)
 
       if (data.success) {
-        openModal()
-        setHeaderMg('修改密碼')
-        setBodyMg('修改密碼信件已發送')
+        alert('修改密碼信件已發送')
+        navigate('/')
       } else {
-        openModal()
-        setHeaderMg('修改密碼')
-        setBodyMg('請確認電子郵件是否正確')
+        alert('請確認電子郵件是否正確')
       }
     }
   }
-
-  function openModal() {
-    setIsOpen(true)
-  }
-
-  function closeModal() {
-    setIsOpen(false)
-    navigate('/')
-  }
-
   return (
     <>
       <div className="s-body-forgotpass">
@@ -112,18 +92,7 @@ function ForgotPass() {
           </div>
         </div>
       </div>
-
-      <ModalNotification
-        closeModal={closeModal}
-        isOpen={isOpen}
-        NotificationHeader={headerMg}
-        NotificationBody={bodyMg}
-      />
     </>
-
-    // reference:
-    // 1. react-modal: https://www.npmjs.com/package/react-modal
-    // 2. other modal ref: https://dev.to/franciscomendes10866/how-to-create-a-modal-in-react-3coc#:~:text=jsx%20import%20React%2C%20%7B%20useState%20%7D,%2Fbutton%3E%20%2F%2F%20
   )
 }
 export default ForgotPass

@@ -34,23 +34,24 @@ $main-border-radius: 8px;
     }
   }
 }
-.myselectedImage {
-  border: 8px solid $main-yellow;  object-fit: cover;
-  overflow: hidden;
-  padding: 10px;
-//   width: 320px;
-//   height: 320px;
-    img {
-        object-fit: cover;
-    }
-}
+// .myselectedImage {
+//   border: 8px solid $main-yellow;  object-fit: cover;
+//   overflow: hidden;
+//   padding: 10px;
+// //   width: 320px;
+// //   height: 320px;
+//     img {
+//         object-fit: cover;
+//     }
+// }
 
 // .bg-1 {
-//     width: 330px;
-//     height: 330px;
-//     object-fit: cover;
-//     overflow: hidden;
-//     margin: 10px;
+  //     width: 330px;
+  //     height: 330px;
+  //     object-fit: cover;
+  //     overflow: hidden;
+  //     margin: 10px;
+//          background-image: url(../../../../public/04-product/img/10015.jpg);
 // }
 // .bg-1 img {
 //     width: 100%;

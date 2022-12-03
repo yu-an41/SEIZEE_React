@@ -37,6 +37,10 @@ function UserSign() {
   const [errorMgN, setErrorMgN] = useState('')
   const [errorMgP1, setErrorMgP1] = useState('')
   const [errorMgP2, setErrorMgP2] = useState('')
+  // eyes show up
+  const [showSignInP, setShowSignInP] = useState(false)
+  const [showSignInP1, setShowSignInP1] = useState(false)
+  const [showSignInP2, setShowSignInP2] = useState(false)
 
   // ====================================
   // 註冊登入畫面切換
@@ -220,7 +224,7 @@ function UserSign() {
                   placeholder="請輸入電子郵件"
                   id="mblEmail"
                   onChange={signInHandler}
-                  className="s-login-input"
+                  className="s-login-input-general"
                 />
                 <div
                   className="s-login-errorMg"
@@ -230,13 +234,25 @@ function UserSign() {
                 <label htmlFor="mblPass" className="s-login-label">
                   密碼<span style={{ color: 'red' }}> *</span>
                 </label>
-                <input
-                  type="password"
-                  placeholder="請輸入密碼"
-                  id="mblPass"
-                  onChange={signInHandler}
-                  className="s-login-input"
-                />
+                <div className="s-login-input-eye">
+                  <input
+                    type={showSignInP ? 'text' : 'password'}
+                    placeholder="請輸入密碼"
+                    id="mblPass"
+                    onChange={signInHandler}
+                    className="s-login-input"
+                  />
+                  <i
+                    onClick={() => {
+                      setShowSignInP(!showSignInP)
+                    }}
+                    className={
+                      showSignInP
+                        ? 'fas fa-eye s-login-eye'
+                        : 'fas fa-eye-slash s-login-eye'
+                    }
+                  ></i>
+                </div>
                 <div
                   className="s-login-errorMg"
                   style={{ color: 'red' }}
@@ -248,7 +264,7 @@ function UserSign() {
                 <input
                   type="submit"
                   value="登入"
-                  className="s-login-input s-login-submit s-signinSubmit"
+                  className="s-login-input-btn s-login-submit s-signinSubmit"
                 />
                 <div className="s-login-gmailBtn">
                   <img
@@ -259,7 +275,7 @@ function UserSign() {
                   <input
                     type="submit"
                     value="以Google帳號登入"
-                    className="s-login-input s-login-submit s-login-googleSubmit"
+                    className="s-login-input-general s-login-submit s-login-googleSubmit"
                   />
                 </div>
               </form>
@@ -280,7 +296,7 @@ function UserSign() {
                   id="mbrEmail"
                   onChange={signUpHandler}
                   onBlur={checkEmail}
-                  className="s-login-input"
+                  className="s-login-input-general"
                 />
                 <div
                   className="s-login-errorMg"
@@ -298,7 +314,7 @@ function UserSign() {
                   id="mbrName"
                   onChange={signUpHandler}
                   onBlur={checkName}
-                  className="s-login-input"
+                  className="s-login-input-general"
                 />
                 <div
                   className="s-login-errorMg"
@@ -310,14 +326,26 @@ function UserSign() {
                 <label htmlFor="mbrPass" className="s-login-label">
                   密碼<span style={{ color: 'red' }}> *</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="請設定8位英(大小寫)數混合密碼"
-                  id="mbrPass"
-                  onChange={signUpHandler}
-                  onBlur={checkPass1}
-                  className="s-login-input"
-                />
+                <div className="s-login-input-eye">
+                  <input
+                    type={showSignInP1 ? 'text' : 'password'}
+                    placeholder="請設定8位英(大小寫)數混合密碼"
+                    id="mbrPass"
+                    onChange={signUpHandler}
+                    onBlur={checkPass1}
+                    className="s-login-input"
+                  />
+                  <i
+                    onClick={() => {
+                      setShowSignInP1(!showSignInP1)
+                    }}
+                    className={
+                      showSignInP1
+                        ? 'fas fa-eye s-login-eye'
+                        : 'fas fa-eye-slash s-login-eye'
+                    }
+                  ></i>
+                </div>
                 <div
                   className="s-login-errorMg"
                   style={{ color: 'red' }}
@@ -328,14 +356,26 @@ function UserSign() {
                 <label htmlFor="mbrPassConfirm" className="s-login-label">
                   確認密碼<span style={{ color: 'red' }}> *</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="請再輸入一次密碼"
-                  id="mbrPassConfirm"
-                  onChange={signUpHandler}
-                  onBlur={checkPass2}
-                  className="s-login-input"
-                />
+                <div className="s-login-input-eye">
+                  <input
+                    type={showSignInP2 ? 'text' : 'password'}
+                    placeholder="請再輸入一次密碼"
+                    id="mbrPassConfirm"
+                    onChange={signUpHandler}
+                    onBlur={checkPass2}
+                    className="s-login-input"
+                  />
+                  <i
+                    onClick={() => {
+                      setShowSignInP2(!showSignInP2)
+                    }}
+                    className={
+                      showSignInP2
+                        ? 'fas fa-eye s-login-eye'
+                        : 'fas fa-eye-slash s-login-eye'
+                    }
+                  ></i>
+                </div>
                 <div
                   className="s-login-errorMg"
                   style={{ color: 'red' }}
@@ -344,13 +384,19 @@ function UserSign() {
                   {errorMgP2}
                 </div>
                 <input
-                  className="s-login-input s-login-submit"
+                  className="s-login-input-btn s-login-submit"
                   type="submit"
                   value="註冊"
                 />
                 <p className="s-login-p">
-                  註冊即代表同意惜食的<a href="/#">服務條款</a>及
-                  <a href="/#">隱私權政策</a>
+                  註冊即代表同意惜食的
+                  <a className="s-login-p-a" href="/#">
+                    服務條款
+                  </a>
+                  及
+                  <a href="/#" className="s-login-p-a">
+                    隱私權政策
+                  </a>
                 </p>
               </form>
             </div>

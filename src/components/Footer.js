@@ -36,6 +36,9 @@ function Footer() {
               </div>
               <ul className="y-footer-section-links y-shops-links">
                 <li>
+                  <div className="y-shop-links-icon">
+                    <img src="/03-shop-img/food-" />
+                  </div>
                   <a href="/#" alt="merch_link">
                     中式
                   </a>

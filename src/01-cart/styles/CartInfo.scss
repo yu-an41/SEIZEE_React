@@ -24,7 +24,7 @@ $border-radius-button: 8px;
     box-sizing: border-box;
 }
 
-.y-CartList-container {
+.y-CartInfo-container {
     position: relative;
     .y-Cart-nav {
         width: 100%;
@@ -93,7 +93,7 @@ $border-radius-button: 8px;
                     display: flex;
 
                     .y-progress-bar {
-                        width: $progress-width;
+                        width: 66%;
                         height: 100%;
                         background-color: $main-blue;
                         // background: linear-gradient(135deg, #fff 50%, $main-blue 50%);
@@ -300,7 +300,7 @@ $border-radius-button: 8px;
     }
 }
 @media (min-width:391px) {
-    .y-CartList-container {
+    .y-CartInfo-container {
         .y-Cart-nav {
     
             .y-Cart-wave-base {

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MyContextProviders from './contexts/MyContextProviders'
-import { CollectContextProvider } from './04-product/components/CollectContext'
+import { CollectContextProvider } from './contexts/CollectContext'
 
 // components
 // import Menu from './components/Menu'
@@ -10,7 +10,7 @@ import ModalConfirm from './components/ModalConfirm'
 import ModalNotification from './components/ModalNotification'
 
 // 00-homepage
-// import Homepage from './00-homepage/pages/Homepage'
+import Homepage from './00-homepage/pages/Homepage'
 
 // 01-cart
 import CartList from './01-cart/pages/CartList'
@@ -35,9 +35,9 @@ import WriteForm from './02-forum/pages/WriteForm'
 import ShopList from './03-shop/pages/03-shop-list'
 
 // 04-product
-import ProductList from './04-product/ProductList'
-import ProductDetail from './04-product/ProductDetail'
-import ProductFilter from './04-product/ProductFilter'
+import ProductList from './04-product/pages/ProductList'
+import ProductDetail from './04-product/pages/ProductDetail'
+import ProductFilter from './04-product/pages/ProductFilter'
 
 // 05-member
 import UserSign from './05-member/UserSign'
@@ -48,7 +48,6 @@ import UpdateInfo from './05-member/profile-pages/UpdateInfo'
 import Likes from './05-member/profile-pages/Likes'
 import Activities from './05-member/profile-pages/Activities'
 import Orders from './05-member/profile-pages/Orders'
-// 以下會撞波浪XDD
 
 // 06-event
 //event要用的context
@@ -63,9 +62,10 @@ function App() {
         <MyContextProviders>
           <CollectContextProvider>
             <TimeTableProvider>
+              {/* <ModalConfirm /> */}
               <Routes>
                 {/* 00-homepage */}
-                {/* <Route path="/" element={<Homepage />} /> */}
+                <Route path="/" element={<Homepage />} />
 
                 {/* 01-cart */}
                 <Route path="/cart/">

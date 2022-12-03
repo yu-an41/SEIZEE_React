@@ -1,9 +1,9 @@
-$main-yellow: #fad249;
-$main-blue: #2b325c;
-$main-text: #5e5e5e;
-$text-shadow: #e4e4e4;
-$min-width: 390px;
-$wave-height: 40px;
+// $main-yellow: #fad249;
+// $main-blue: #2b325c;
+// $main-text: #5e5e5e;
+// $text-shadow: #e4e4e4;
+// $min-width: 390px;
+// $wave-height: 40px;
 
 .s-wave-section {
   //position: relative;
@@ -23,11 +23,11 @@ $wave-height: 40px;
       position: 50% 0;
       size: 100px 1920px;
     }
-    animation: animate 3.5s linear infinite;
+    animation: s-wave-animate 3.5s linear infinite;
     z-index: 100;
     animation-delay: 0.3s;
 
-    @keyframes animate {
+    @keyframes s-wave-animate {
       0% {
         background-position-y: 0px;
       }
