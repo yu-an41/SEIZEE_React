@@ -75,6 +75,7 @@ function ProductFilter() {
               <input className="a-filterInput"></input>
             </label>
           </div>
+          {/* CategoryFilter */}
           <div className="a-category">
             <div className="a-categoryWrapper">
               {filterList.map((filter, i) => {

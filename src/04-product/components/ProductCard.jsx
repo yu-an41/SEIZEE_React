@@ -1,12 +1,9 @@
-import React, { useState, useEffect, useRef, useContext } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import Collection from './CollectContext'
-import '../components/style/ProductCard.scss'
-import Select from '../components/Select'
-import CollectContext from '../../contexts/CollectContext'
-
-// cart
-import CartInfoContext from './../../01-cart/contexts/CartInfoContext'
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { Link } from "react-router-dom";
+import Collection from "../../contexts/CollectContext";
+import "../components/style/ProductCard.scss";
+import Select from "../components/Select";
+import CollectContext from "../../contexts/CollectContext";
 
 function ProductCard({ product }) {
   const {
@@ -19,25 +16,17 @@ function ProductCard({ product }) {
     addCollect,
     delCollect,
     handleClick,
-  } = useContext(CollectContext)
-  // console.log(collection);
-
-  const tempRef = useRef()
-  const countOptions = product
-    ? new Array(product.inventory_qty).fill(0).map((_, i) => ({
-        text: i + 1,
-        value: i + 1,
-      }))
-    : new Array(1).fill(0).map((_, i) => ({
-        text: i + 1,
-        value: i + 1,
-      }))
-
-  // cart
-  const { cartItem, setCartItem, handleAddCart, updateItemQty } =
-    useContext(CartInfoContext)
-  // const [productDataFromCard, setProductDataFromCard] = useState([{}])
-  const { shop_list_sid } = useParams()
+  } = useContext(CollectContext);
+// console.log(collection);
+  
+const tempRef = useRef();
+  const countOptions =product ? new Array(product.inventory_qty).fill(0).map((_, i) => ({
+    text: i + 1,
+    value: i + 1,
+  })) : new Array(1).fill(0).map((_, i) => ({
+    text: i + 1,
+    value: i + 1,
+  }));
 
   return (
     <div className="a-produtCardWrapper">
@@ -60,34 +49,15 @@ function ProductCard({ product }) {
           </Link>
           {collectionNum.length > 0 ? (
             collectionNum.includes(product.sid) ? (
-              <img
-                src="/04-product/svg/heart.svg"
-                alt=""
-                onClick={() => {
-                  delCollect(product.sid)
-                  handleClick(false)
-                }}
-              />
-            ) : (
-              <img
-                src="/04-product/svg/collection.svg"
-                alt=""
-                onClick={() => {
-                  addCollect(+product.sid)
-                  handleClick(true)
-                }}
-              />
-            )
-          ) : (
-            <img
-              src="/04-product/svg/collection.svg"
-              alt=""
-              onClick={() => {
-                addCollect(+product.sid)
-                handleClick(true)
-              }}
-            />
-          )}
+              <img src="/04-product/svg/heart.svg" alt="" onClick={() => {delCollect(product.sid)
+              handleClick(false)}}/>) 
+              : (
+              <img src="/04-product/svg/collection.svg"
+                alt="" onClick={() => {addCollect(+product.sid)
+                handleClick(true)}} /> )) 
+              : (<img src="/04-product/svg/collection.svg"
+                alt="" onClick={() => {addCollect(+product.sid)
+                handleClick(true)}}/>)}
         </div>
         <div className="a-priceWrapper">
           <div className="a-productPrice">
@@ -105,6 +75,7 @@ function ProductCard({ product }) {
           <p>惜食剩餘數量</p>
           <p className="a-quantity">{product.inventory_qty}</p>
           <p>數量</p>
+
           <Select options={countOptions} ref={tempRef} />
           {/* <select>
             {new Array(product.inventory_qty).fill(0).map((_, i) => (
@@ -114,24 +85,7 @@ function ProductCard({ product }) {
             ))}
           </select> */}
         </div>
-        <div
-          className="a-addButton"
-          onClick={() => {
-            // const prodData = {
-            //   sid: +product.sid,
-            //   picture: `/04-product/img/${product.picture_url}`,
-            //   name: product.product_name,
-            //   price: product.unit_price,
-            //   sale_price: Math.round(
-            //     (product.unit_price * product.sale_price) / 10
-            //   ),
-            //   inventory: product.inventory_qty,
-            // }
-
-            // console.log(tempRef.current.value)
-            handleAddCart(shop_list_sid, product.sid, tempRef.current.value)
-          }}
-        >
+        <div className="a-addButton">
           <p>加入購物車</p>
           <img src="/04-product/svg/cart.svg" alt="" />
         </div>
@@ -140,7 +94,7 @@ function ProductCard({ product }) {
       }}>get Value</button> */}
       </div>
     </div>
-  )
+  );
 }
 
-export default ProductCard
+export default ProductCard;
