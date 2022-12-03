@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MyContextProviders from './contexts/MyContextProviders'
-import { CollectContextProvider } from './04-product/components/CollectContext'
+import { CollectContextProvider } from './contexts/CollectContext'
 
 // components
 // import Menu from './components/Menu'
@@ -32,13 +32,13 @@ import InnerOfficial from './02-forum/pages/Inner_official'
 import WriteForm from './02-forum/pages/WriteForm'
 
 // 03-shop
-import ShopList from './03-shop/pages/03-shop-list'
+// import ShopList from './03-shop/pages/03-shop-list'
 // import ShopHome from './03-shop/pages/03-shop-home'
 
 // 04-product
-import ProductList from './04-product/ProductList'
-import ProductDetail from './04-product/ProductDetail'
-import ProductFilter from './04-product/ProductFilter'
+import ProductList from './04-product/pages/ProductList'
+import ProductDetail from './04-product/pages/ProductDetail'
+import ProductFilter from './04-product/pages/ProductFilter'
 
 // 05-member
 import UserSign from './05-member/UserSign'
@@ -94,7 +94,7 @@ function App() {
                 </Route>
 
                 {/* 03-shop */}
-                <Route path="/shop" element={<ShopList />} />
+                {/* <Route path="/shop" element={<ShopList />} /> */}
                 {/* <Route path="/shop" element={<ShopHome />} /> */}
 
                 {/* 04-product  */}

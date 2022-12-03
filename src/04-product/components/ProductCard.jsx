@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Collection from './CollectContext'
-import './style/ProductCard.scss'
-import Select from './Select'
-import CollectContext from './CollectContext'
+import '../components/style/ProductCard.scss'
+import Select from '../components/Select'
+import CollectContext from '../../contexts/CollectContext'
 
 // cart
 import CartInfoContext from './../../01-cart/contexts/CartInfoContext'
@@ -44,10 +44,10 @@ function ProductCard({ product }) {
       {/* <Collection /> */}
       <div className="a-productCardContent" key={product.sid}>
         <div className="a-discountIconWrapper">
-          {/* <div className="a-iconWrapper">
+          <div className="a-saleWrapper">
             <img src="/04-product/img/sale.png" alt="" />
           </div>
-          <p>{product.sale_price}折</p> */}
+          <p>{product.sale_price}折</p>
         </div>
         <Link to={`/product/${product.sid}`}>
           <div className="a-productImgWrapper">
@@ -79,7 +79,14 @@ function ProductCard({ product }) {
               />
             )
           ) : (
-            ''
+            <img
+              src="/04-product/svg/collection.svg"
+              alt=""
+              onClick={() => {
+                addCollect(+product.sid)
+                handleClick(true)
+              }}
+            />
           )}
         </div>
         <div className="a-priceWrapper">
@@ -98,7 +105,6 @@ function ProductCard({ product }) {
           <p>惜食剩餘數量</p>
           <p className="a-quantity">{product.inventory_qty}</p>
           <p>數量</p>
-
           <Select options={countOptions} ref={tempRef} />
           {/* <select>
             {new Array(product.inventory_qty).fill(0).map((_, i) => (
