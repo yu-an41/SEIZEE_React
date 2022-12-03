@@ -1,8 +1,11 @@
+import React, { useContext } from 'react'
 import axios from 'axios'
 import dayjs from 'dayjs'
+import CartInfoContext from '../contexts/CartInfoContext'
 import './../styles/GoPayBtn.scss'
 
 function GoPayBtn({ cartItem }) {
+  const { handleEmptyCart } = useContext(CartInfoContext)
   const GoPay = async () => {
     const order_num = dayjs(new Date()).format('YYYYMMDDHHmmss')
     console.log(order_num)
@@ -10,6 +13,7 @@ function GoPayBtn({ cartItem }) {
       `http://localhost:3004/cart/add-order/${order_num}`,
       cartItem
     )
+    const empty = await handleEmptyCart()
     // console.log('Go Pay')
   }
 

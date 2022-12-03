@@ -47,7 +47,7 @@ export const CartInfoContextProvider = function ({ children }) {
               ...cartItem.userCart,
               {
                 shop_sid: shopSid,
-                prod_sid: prodInfo.sid,
+                prod_sid: prodSid,
                 unit_price: prodInfo.unit_price, // 原價
                 sale_price: prodInfo.product_price, // 優惠價
                 sale: prodInfo.sale_price, // 折數
@@ -206,6 +206,29 @@ export const CartInfoContextProvider = function ({ children }) {
     setCartItem(emptyCart)
   }
 
+  // 點icon時確認購物車不為空才跳轉
+
+  const [emptyCart, setEmptyCart] = useState(true)
+
+  const checkCartempty = (e) => {
+    if (
+      !localStorage.getItem('cartItem') ||
+      (cartItem = {
+        userCart: [],
+        totalItem: 0,
+        totalUnitPrice: 0,
+        totalSalePrice: 0,
+        totalAmount: 0,
+      })
+    ) {
+      e.preventDefault()
+      alert('Your cart is empty!')
+    } else {
+      setEmptyCart(false)
+    }
+    return emptyCart
+  }
+
   return (
     <CartInfoContext.Provider
       value={{
@@ -215,6 +238,7 @@ export const CartInfoContextProvider = function ({ children }) {
         updateItemQty,
         handleRemoveItem,
         handleEmptyCart,
+        checkCartempty,
       }}
     >
       {children}
@@ -235,30 +259,27 @@ export const CartInfoContextProvider = function ({ children }) {
 
 //   if (index === -1) {
 //     const products = await {
-//       ...cartItem,
-//       userCart: [
-//         ...cartItem.userCart,
-//         {
-//           sid: prodInfo.id,
-//           price: prodInfo.price,
-//           name: prodInfo.name,
-//           picture: prodInfo.picture,
-//           amount: prodQty,
-//           inventory: prodInfo.inventory,
-
-//           // shop_sid: prodInfo.shop_list_sid,
-//           // prod_sid: prodInfo.sid,
-//           // name: prodInfo.name,
-//           // price: Math.round((prodInfo.unit_price * prodInfo.sale_price) / 10),
-//           // img: prodInfo.picture_url,
-//           // amount: prodQty,
-//         },
-//       ],
-//       totalItem: cartItem.totalItem + 1,
-//       totalPrice: cartItem.totalPrice + prodInfo.price * prodQty,
-//       totalAmount: cartItem.totalAmount + prodQty,
-//     }
-
+// ...cartItem,
+//           userCart: [
+//             ...cartItem.userCart,
+//             {
+//               shop_sid: shopSid,
+//               prod_sid: prodSid,
+//               unit_price: prodInfo.unit_price, // 原價
+//               sale_price: prodInfo.product_price, // 優惠價
+//               sale: prodInfo.sale_price, // 折數
+//               name: prodInfo.product_name,
+//               picture: prodInfo.picture_url,
+//               amount: prodQty,
+//               inventory: prodInfo.inventory_qty,
+//             },
+// ],
+// totalUnitPrice:
+//   cartItem.totalUnitPrice + prodInfo.unit_price * prodQty,
+// totalSalePrice:
+//   cartItem.totalSalePrice + prodInfo.sale_price * prodQty,
+// totalAmount: cartItem.totalAmount + prodQty,
+// }
 //     localStorage.setItem('cartItem', JSON.stringify({ ...products }))
 //     console.log({ products })
 //     setCartItem(products)

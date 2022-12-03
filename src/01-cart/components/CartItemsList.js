@@ -21,16 +21,8 @@ function CartItemsList({ cartItemData }) {
 
   const { userCart, totalItem, totalUnitPrice, totalSalePrice, totalAmount } =
     cartItem
-  const {
-    prod_sid,
-    name,
-    unit_price,
-    sale_price,
-    sale,
-    picture,
-    amount,
-    inventory,
-  } = cartItemData
+  const { prod_sid, name, sale_price, sale, picture, amount, inventory } =
+    cartItemData
 
   // 假的庫存數量
   // const maxQty = 5
