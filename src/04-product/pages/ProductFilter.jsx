@@ -15,7 +15,7 @@ function ProductFilter() {
   async function getFilter() {
     try {
       const response = await axios.get(
-        `http://localhost:3004/product/category?category_sid`
+        ` http://localhost:3004/product/category?category_sid`
       );
       // console.log(data);
       const categoryData = response.data.category_rows;

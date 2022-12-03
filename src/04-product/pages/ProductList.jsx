@@ -8,20 +8,14 @@ import NavBar from "../../components/NavBar.js";
 import YellowWave from "../../00-homepage/components/YellowWave.js";
 import YellowWave2 from "../components/YellowWave2";
 
-// // 01-cart
-// import CartInfoContext from '../01-cart/contexts/CartInfoContext'
-// // 01-cart
-// const { cartItem, setCartItem } = useContext(CartInfoContext)
-// const [productDataFromCard, setProductDataFrpmCard] = useContext()
+// cart
+import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
 
 function ProductList() {
   const [allProduct, setAllProduct] = useState([]);
   const [shopData, setShopData] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
   const { shop_list_sid } = useParams();
-
-// cart
-import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
 
 function ProductList() {
   const [allProduct, setAllProduct] = useState([])
