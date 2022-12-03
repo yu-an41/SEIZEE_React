@@ -46,6 +46,10 @@ function ModalNotification({
       </div>
     </Modal>
   )
+  // reference:
+  // 1. react-modal: https://www.npmjs.com/package/react-modal
+  // 2. other modal ref: https://dev.to/franciscomendes10866/how-to-create-a-modal-in-react-3coc#:~:text=jsx%20import%20React%2C%20%7B%20useState%20%7D,%2Fbutton%3E%20%2F%2F%20
+  // 3. centralize modal: https://stackoverflow.com/questions/68094619/center-align-modal-reactjs
 }
 
 export default ModalNotification
