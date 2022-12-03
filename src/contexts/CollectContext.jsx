@@ -10,14 +10,13 @@ export const CollectContextProvider = ({ children }) => {
     p_sid: 1,
     mb_sid: 0,
   };
-
+  const location = useLocation()
   //收藏列表
   const [collectList, setCollectList] = useState([initCollect]);
-  //收藏狀態
+  //收藏狀態（用true & false判斷）
   const [collection, setCollection] = useState(false);
   //收藏商品編號
   const [collectionNum, setCollectionNum] = useState([]);
-  const handleClick = isHeart => { setCollection(isHeart) }
 
   //localStorage得到member_sid
   const mb_sid = localStorage.getItem("auth")
@@ -66,11 +65,9 @@ export const CollectContextProvider = ({ children }) => {
       `http://localhost:3004/product/add?sid=${food_product_sid}&mb_sid=${mb_sid}`
     );
 
-  //建立新的收藏清單並更新狀態
+  //建立新的收藏清單
     setCollectionNum([...collectionNum,food_product_sid])
   };
-
-
 
   //移除收藏
   const delCollect = async (food_product_sid, index) => {
@@ -82,20 +79,32 @@ export const CollectContextProvider = ({ children }) => {
     const response = await axios.get(
       `http://localhost:3004/product/delete?sid=${food_product_sid}&mb_sid=${mb_sid}`
     );
-    const a = collectionNum.filter((e)=>e!== food_product_sid)
+    const a = collectionNum.filter((e)=> e !== food_product_sid)
     // console.log(a)
     setCollectionNum(a)
     // setCollectList(newcollection);
-     //更新收藏狀態
+    //更新收藏狀態
     // setCollection(false);
   };
 
+    //把狀態無限傳給小孩（商品細節頁需要）
+    // const handleClick = async (food_product_sid) => {
+    //   const index = collectionNum.indexOf(food_product_sid)
+    //     if (index === -1) {
+    //       addCollect(food_product_sid)
+    //       setCollectionNum([...collectionNum, food_product_sid])
+    //     } else {
+    //       delCollect(food_product_sid, index)
+    //       const a = collectionNum.filter((e)=> e !== food_product_sid)
+    //       setCollectionNum(a)
+    //       console.log(a);
+    //     }
+    // }
+    const handleClick = isHeart => { setCollection(isHeart) }
+
   useEffect(() => {
     getCollectList();
-  }, [collection, mb_sid]);
-  // useEffect(() => {
-  //   getCollectList();
-  // }, []);
+  }, [collection, mb_sid,location]);
 
   return (
     <CollectContext.Provider

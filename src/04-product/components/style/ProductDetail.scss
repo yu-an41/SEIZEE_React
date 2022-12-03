@@ -22,23 +22,6 @@ $main-border-radius: 8px;
 @function line($count: 1) {
   @return $base-line-eight * $count;
 }
-%h1 {
-  font-size: 48px;
-}
-%h2 {
-  font-size: 36px;
-}
-%h3 {
-  font-size: 20px;
-  color: #2b325c;
-  font-weight: 500;
-}
-%h4 {
-  font-size: 18px;
-}
-%p {
-  font-size: 16px;
-}
 %a-flex {
   display: flex;
   justify-content: center;
@@ -52,6 +35,19 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+.a-productCardList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  background: $main-yellow;
+  padding-top: line(3);
+}
+
+.a-navBarWrapper {
+  height: 70px;
+  background-color: $main-yellow;
+}
 .a-productDetailWrapper {
   display: flex;
   justify-content: space-evenly;
@@ -69,13 +65,15 @@ input[type="number"] {
       width: 40px;
     }
     .a-shopNameWrapper h3 {
-      @extend %h3;
+      color: $main-blue;
+      font-size: 18px;
     }
     .a-productName {
       @extend %a-flex;
     }
     .a-productName h3 {
-      @extend %h3;
+      color: $main-blue;
+      font-size: 18px;
     }
     .a-productName img {
       width: 35px;
@@ -165,8 +163,8 @@ input[type="number"] {
       margin: 5px;
     }
     .a-productQuantity p {
-      @extend %p;
       margin-right: 5px;
+      font-size: 16px;
     }
     .minus {
       border: none;
