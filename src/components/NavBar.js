@@ -2,20 +2,25 @@ import React, { useContext, useState } from 'react'
 import './../styles/NavBar.scss'
 import Menu from './Menu'
 
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import AuthContext from '../contexts/AuthContext'
 import { PROFILE, imgUrl, imgServerUrl } from '../my-config'
+
+import CartInfoContext from '../01-cart/contexts/CartInfoContext'
 
 import LogoBluePink from './../logo-and-fonts/LOGO-blue-pink.svg'
 import CartIcon from './../dotown/cart.png'
 import MemberIcon from './../logo-and-fonts/default.png'
 
 function NavBar() {
-  const [emptyCart, setEmptyCart] = useState(false)
-
-  const checkCartempty = () => {
-    console.log('Your cart is empty!')
-  }
+  // cart
+  const {
+    cartItem,
+    setCartItem,
+    handleAddCart,
+    updateItemQty,
+    checkCartempty,
+  } = useContext(CartInfoContext)
 
   const { myAuth } = useContext(AuthContext)
   // console.log('photo:', myAuth.mb_photo)
@@ -35,7 +40,13 @@ function NavBar() {
       </div>
       <div className="y-nav-right">
         <div className="y-icon-round y-cart-icon">
-          <a href="/cart" alt="my cart" onClick={checkCartempty}>
+          <a
+            href="/cart"
+            alt="my cart"
+            onClick={(e) => {
+              checkCartempty(e)
+            }}
+          >
             <img src={CartIcon} alt="cart icon" />
           </a>
         </div>

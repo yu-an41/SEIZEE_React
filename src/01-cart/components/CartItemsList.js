@@ -19,35 +19,40 @@ function CartItemsList({ cartItemData }) {
     handleEmptyCart,
   } = useContext(CartInfoContext)
 
-  const { sid, name, price, picture, amount } = cartItemData
+  const { userCart, totalItem, totalUnitPrice, totalSalePrice, totalAmount } =
+    cartItem
+  const { prod_sid, name, sale_price, sale, picture, amount, inventory } =
+    cartItemData
 
   // 假的庫存數量
-  const maxQty = 5
+  // const maxQty = 5
 
+  // 假圖片路徑
+  const FakePic = 'https://via.placeholder.com/32'
   return (
     <div className="y-Cart-items">
       <div className="y-Cart-items-top">
         <div className="y-Cart-items-info">
           <div className="y-Cart-items-info-left">
-            <div className="y-Cart-items-sale">5.2折</div>
+            <div className="y-Cart-items-sale">{sale} 折</div>
             <div className="y-Cart-items-info-pic">
-              <img src={picture} alt="picture of merch" />
+              <img src={FakePic} alt="picture of merch" />
             </div>
           </div>
           <p className="y-Cart-items-info-name">{name}</p>
         </div>
         <div className="y-Cart-items-price">
-          <p>{price}</p>
+          <p>{sale_price}</p>
         </div>
         <div className="y-Cart-items-quantity">
           <select
-            id={sid}
+            id={prod_sid}
             defaultValue={amount}
             onChange={(e) => {
               updateItemQty(e.target.id, e.target.value)
             }}
           >
-            {Array(maxQty)
+            {Array(inventory)
               .fill(1)
               .map((v, i) => {
                 return (
@@ -59,7 +64,7 @@ function CartItemsList({ cartItemData }) {
           </select>
         </div>
         <div className="y-Cart-items-unit">
-          <p>{price * amount}</p>
+          <p>{sale_price * amount}</p>
         </div>
         <div className="y-Cart-items-actions">
           <div className="y-Cart-WishListBtn-wrap">
@@ -68,7 +73,7 @@ function CartItemsList({ cartItemData }) {
           <div className="y-Cart-RemoveItemBtn-wrap">
             <RemoveItemBtn
               onClick={() => {
-                handleRemoveItem(sid)
+                handleRemoveItem(prod_sid)
                 console.log('item removed!!!!')
               }}
             />

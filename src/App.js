@@ -67,7 +67,7 @@ function App() {
               {/* <ModalConfirm /> */}
               <Routes>
                 {/* 00-homepage */}
-                {/* <Route path="/" element={<Homepage />} /> */}
+                <Route path="/" element={<Homepage />} />
 
                 {/* 01-cart */}
                 <Route path="/cart/">
@@ -76,23 +76,26 @@ function App() {
                   {/* <Route path="done" element={<CartDone />} /> */}
                 </Route>
 
-            {/* 02-forum */}
-            <Route path="/forum/">
-              <Route index path="" element={<ForumHome />} />
-              <Route path="cook" element={<PostCook />} />
-              <Route path="share" element={<PostShare />} />
-              <Route path="store" element={<PostStore />} />
-              <Route path="official" element={<PostOfficial />} />
-              <Route path="cook/inner/:sid" element={<InnerCook />} />
-              <Route path="share/inner/:sid" element={<InnerShare />} />
-              <Route path="store/inner/:sid" element={<InnerStore />} />
-              <Route path="official/inner/:sid" element={<InnerOfficial />} />
-              <Route path="writeForm" element={<WriteForm />} />
-            </Route>
+                {/* 02-forum */}
+                <Route path="/forum/">
+                  <Route index path="" element={<ForumHome />} />
+                  <Route path="cook" element={<PostCook />} />
+                  <Route path="share" element={<PostShare />} />
+                  <Route path="store" element={<PostStore />} />
+                  <Route path="official" element={<PostOfficial />} />
+                  <Route path="cook/inner/:sid" element={<InnerCook />} />
+                  <Route path="share/inner/:sid" element={<InnerShare />} />
+                  <Route path="store/inner/:sid" element={<InnerStore />} />
+                  <Route
+                    path="official/inner/:sid"
+                    element={<InnerOfficial />}
+                  />
+                  <Route path="writeForm" element={<WriteForm />} />
+                </Route>
 
-            {/* 03-shop */}
-            <Route path="/shop" element={<ShopList />} />
-            {/* <Route path="/shop" element={<ShopHome />} /> */}
+                {/* 03-shop */}
+                <Route path="/shop" element={<ShopList />} />
+                {/* <Route path="/shop" element={<ShopHome />} /> */}
 
                 {/* 04-product  */}
                 <Route
@@ -102,22 +105,22 @@ function App() {
                 <Route path="/product/:sid" element={<ProductDetail />} />
                 <Route path="/productFilter/" element={<ProductFilter />} />
 
-            {/* 05-member */}
-            <Route path="/login" element={<UserSign />} />
-            <Route path="/forgot-pass" element={<ForgotPass />} />
-            <Route path="/reset-pass" element={<ResetPass />} />
+                {/* 05-member */}
+                <Route path="/login" element={<UserSign />} />
+                <Route path="/forgot-pass" element={<ForgotPass />} />
+                <Route path="/reset-pass" element={<ResetPass />} />
 
-            {/* member-profile */}
-            <Route path="/profile/">
-              <Route index path="" element={<UserProfile />} />
-              <Route path="update-info" element={<UpdateInfo />} />
-              <Route path="orders" element={<Orders />} />
-              <Route path="likes" element={<Likes />} />
-              <Route path="activities" element={<Activities />} />
-            </Route>
+                {/* member-profile */}
+                <Route path="/profile/">
+                  <Route index path="" element={<UserProfile />} />
+                  <Route path="update-info" element={<UpdateInfo />} />
+                  <Route path="orders" element={<Orders />} />
+                  <Route path="likes" element={<Likes />} />
+                  <Route path="activities" element={<Activities />} />
+                </Route>
 
-            {/* 06-event */}
-            {/* <Route path="/top" element={<Top />} />
+                {/* 06-event */}
+                {/* <Route path="/top" element={<Top />} />
               <Route path="/events" element={<Events />} />
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/map" element={<Map />} />

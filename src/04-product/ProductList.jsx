@@ -1,44 +1,46 @@
-import { useState, useEffect, useRef } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import axios from "axios";
-import ProductCard from "./components/ProductCard.jsx";
-import HeadWave from "../components/HeadWave";
-import YellowWave2 from "./components/YellowWave2";
-import "./components/style/ProductList.scss";
-import Select from "./components/Select";
-import ProductVideo from "./components/ProductVideo";
+import { useState, useEffect, useRef, useContext } from 'react'
+import { useParams, useLocation } from 'react-router-dom'
+import axios from 'axios'
+import ProductCard from './components/ProductCard.jsx'
+import HeadWave from '../components/HeadWave'
+import YellowWave2 from './components/YellowWave2'
+import './components/style/ProductList.scss'
+import Select from './components/Select'
+import ProductVideo from './components/ProductVideo'
 
-// // 01-cart
-// import CartInfoContext from '../01-cart/contexts/CartInfoContext'
-// // 01-cart
-// const { cartItem, setCartItem } = useContext(CartInfoContext)
-// const [productDataFromCard, setProductDataFrpmCard] = useContext()
+// cart
+import CartInfoContext from '../01-cart/contexts/CartInfoContext'
 
 function ProductList() {
-  const [allProduct, setAllProduct] = useState([]);
-  const [shopData, setShopData] = useState([]);
-  const [errorMessage, setErrorMessage] = useState([]);
-  const { shop_list_sid } = useParams();
+  const [allProduct, setAllProduct] = useState([])
+  const [shopData, setShopData] = useState([])
+  const [errorMessage, setErrorMessage] = useState([])
+  const { shop_list_sid } = useParams()
+
+  // cart
+  const { cartItem, setCartItem, handleAddCart, updateItemQty } =
+    useContext(CartInfoContext)
+  const [productDataFromCard, setProductDataFromCard] = useState([{}])
 
   async function getProductCard() {
     try {
       const response = await axios.get(
         `http://localhost:3004/product/list?shop_list_sid=${shop_list_sid}`
-      );
-      console.log("this is reponse:", response);
-      const Pdata = response.data.product_rows;
-      const Sdata = response.data.shop;
-      setAllProduct(Pdata);
-      setShopData(Sdata);
-      console.log(Sdata);
+      )
+      console.log('this is reponse:', response)
+      const Pdata = response.data.product_rows
+      const Sdata = response.data.shop
+      setAllProduct(Pdata)
+      setShopData(Sdata)
+      console.log(Sdata)
     } catch (e) {
-      console.error("this is e-message:", e.message);
-      setErrorMessage(e.message);
+      console.error('this is e-message:', e.message)
+      setErrorMessage(e.message)
     }
   }
   useEffect(() => {
-    getProductCard();
-  }, []);
+    getProductCard()
+  }, [])
 
   return (
     <>
@@ -53,7 +55,7 @@ function ProductList() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default ProductList;
+export default ProductList
