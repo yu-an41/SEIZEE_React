@@ -1,0 +1,52 @@
+import React, { useState } from 'react'
+import UserProfileTmp from '../components/UserProfileTmp'
+import '.././style/profile-pages/LikesShop.scss'
+import LikeLabels from '../components/LikeLabels'
+
+function LikesShop() {
+  return (
+    <>
+      <div className="s-body-profile">
+        <div className="s-container">
+          <UserProfileTmp />
+          <div className="s-main-content">
+            <div className="s-l-s">
+              <h2 className="s-l-s-title">我的收藏</h2>
+              <div className="s-l-s-card">
+                <LikeLabels />
+                <div className="s-l-s-card-inside">
+                  <div className="s-l-s-data">
+                    <div className="s-l-s-line"></div>
+                    <div className="s-l-s-items">
+                      <h3 className="s-l-s-question">訂單日期</h3>
+                      <span className="s-l-s-answer">aa</span>
+                    </div>
+                    <div className="s-l-s-items">
+                      <h3 className="s-l-s-question">訂單編號</h3>
+                      <span className="s-l-s-answer">bb</span>
+                    </div>
+                    <div className="s-l-s-items">
+                      <h3 className="s-l-s-question">訂單金額</h3>
+                      <span className="s-l-s-answer">cc</span>
+                    </div>
+                    <div className="s-l-s-items">
+                      <h3 className="s-l-s-question">訂單狀態</h3>
+                      <span className="s-l-s-answer">dd</span>
+                    </div>
+                    <div className="s-l-s-items">
+                      <h3 className="s-l-s-question">訂單備註</h3>
+                      <span className="s-l-s-answer">查詢訂單</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="s-footer"></div>
+      </div>
+    </>
+  )
+}
+
+export default LikesShop

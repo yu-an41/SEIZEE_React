@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import React, { useState, useContext } from 'react'
-import '.././style/UserProfileTmp.scss'
+import '.././style/components/UserProfileTmp.scss'
 import YellowWave from './YellowWave'
 import AuthContext from '../../contexts/AuthContext'
 
@@ -84,7 +84,7 @@ function UserProfileTmp() {
             <Link
               className="s-upt-item"
               style={actives.likes}
-              to="/profile/likes"
+              to="/profile/likes/product"
             >
               <span className="s-upt-icon">
                 <img
