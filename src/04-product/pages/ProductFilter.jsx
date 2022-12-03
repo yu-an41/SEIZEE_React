@@ -3,6 +3,7 @@ import axios from "axios";
 import NavBar from "../../components/NavBar";
 import "../components/style/ProductFilter.scss";
 import YellowWave from "../../00-homepage/components/YellowWave.js";
+import ReactStars from "react-rating-stars-component";
 
 function ProductFilter() {
   //種類data
@@ -24,10 +25,16 @@ function ProductFilter() {
       console.error(e.message);
     }
   }
-  //searchBar input
-  const [inputValue, setInputValue] = "";
 
-  const sideBar = ["5折以下", "庫存告急", "100元以下", "50元以下", "評分5顆星"];
+  //searchBar
+  const [inputValue, setInputValue] = "";
+  const sideBarOptions = [
+    "5折以下",
+    "庫存告急",
+    "100元以下",
+    "50元以下",
+    "評分5顆星",
+  ];
 
   const checkboxClick = (e) => {
     const val = +e.target.value;
@@ -49,7 +56,13 @@ function ProductFilter() {
   return (
     <>
       <div className="y-index-container">
-        <div className="a-navBarWrapper"></div>
+        <div
+          className="a-navBarWrapper"
+          style={{
+            height: "70px",
+            backgroundColor: "#fad249",
+          }}
+        ></div>
         <section className="y-section y-section-nav-bg">
           <NavBar />
         </section>
@@ -60,27 +73,27 @@ function ProductFilter() {
         </div>
         {/* ProductFilter */}
         <div className="a-productFilterWrapper">
-        {/* SideBar */}
-        <div className="a-aladdinWrapper">
+        
+          {/* SideBar */}
+          <div className="a-aladdinWrapper">
             <img src="/04-product/svg/aladin.png" alt="" />
           </div>
           <div className="a-searchBarWrapper">
-            <label>
-              <input
-                className="a-searchInput"
-                value={inputValue}
-                onChange={(i) => setInputValue.target.value(i)}
-              />
-              <h3 className="a-inputValue">{inputValue}</h3>
-              <input className="a-filterInput"></input>
-            </label>
+            
           </div>
+          {/* <input
+            className="a-searchInput"
+            value={inputValue}
+            onChange={(i) => setInputValue.target.value(i)}
+          />
+          <h3 className="a-inputValue">{inputValue}</h3> */}
+
           {/* CategoryFilter */}
           <div className="a-category">
             <div className="a-categoryWrapper">
               {filterList.map((filter, i) => {
                 return (
-                  <div className="a-productFilterWrapper">
+                  <div className="a-productFilterWrapper" key={i}>
                     <label
                       className="a-categoryContentWapper"
                       htmlFor={`a-categoryCheckBox${filter.sid}`}

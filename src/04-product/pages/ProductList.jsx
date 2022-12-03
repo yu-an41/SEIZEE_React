@@ -42,21 +42,24 @@ function ProductList() {
 
   return (
     <>
-    <div className="y-index-container">
-    <div className="a-navBarWrapper" style={{
-        height: '70px',
-        backgroundColor: '#fad249'
-      }}></div>
-      <section className="y-section y-section-nav-bg">
-            <NavBar />
-          </section>
+      <div className="y-index-container">
+        <div
+          className="a-navBarWrapper"
+          style={{
+            height: "70px",
+            backgroundColor: "#fad249",
+          }}
+        ></div>
+        <section className="y-section y-section-nav-bg">
+          <NavBar />
+        </section>
         <section className="y-section y-section-search"></section>
         <section className="y-section y-section-merch"></section>
         <div className="y-wave-wrap">
           <YellowWave />
         </div>
-        <div className="a-videoWrapper" style={{paddingTop:'50px'}}>
-        <ProductVideo />
+        <div className="a-videoWrapper" style={{ paddingTop: "50px" }}>
+          <ProductVideo />
         </div>
         <YellowWave2 />
         <div className="race-by">

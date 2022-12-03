@@ -61,18 +61,18 @@ const tempRef = useRef();
         </div>
         <div className="a-priceWrapper">
           <div className="a-productPrice">
-            <p>$原價{product.unit_price}元</p>
+            <p className="a-unitPriceText">$原價{product.unit_price}元</p>
           </div>
           <div className="a-productDiscount">
             <img src="./04-product/svg/like.svg" alt="" />
-            <p>
+            <p className="a-productPriceText">
               $特價
-              {Math.round((product.unit_price * product.sale_price) / 10)}元
+              {product.product_price}元
             </p>
           </div>
         </div>
         <div className="a-productQuantity">
-          <p>惜食剩餘數量</p>
+          <p >惜食剩餘數量</p>
           <p className="a-quantity">{product.inventory_qty}</p>
           <p>數量</p>
 
