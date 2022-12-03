@@ -11,8 +11,8 @@ function ModalNotification({
   isOpen,
 }) {
   // console.log(setIsOpen)
-  console.log(NotificationHeader)
-  console.log(NotificationBody)
+  // console.log(NotificationHeader)
+  // console.log(NotificationBody)
 
   return (
     <Modal isOpen={isOpen} className="s_modal_body" overlayClassName="Overlay">

@@ -8,6 +8,7 @@ import React, { useState } from 'react'
 import { UPDATE_PASS } from '../my-config'
 import axios from 'axios'
 import { useNavigate, useLocation } from 'react-router-dom'
+import ModalNotification from '../components/ModalNotification'
 
 function ResetPass() {
   const [errorResetMgP1, setErrorResetMgP1] = useState('')
@@ -18,6 +19,11 @@ function ResetPass() {
   })
   const [showP1, setShowP1] = useState(false)
   const [showP2, setShowP2] = useState(false)
+
+  // Modal
+  const [isOpen, setIsOpen] = useState(false)
+  const [headerMg, setHeaderMg] = useState('')
+  const [bodyMg, setBodyMg] = useState('')
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -78,11 +84,30 @@ function ResetPass() {
       })
 
       if (data.success) {
-        alert('密碼修改成功')
-        navigate('/')
+        openModal()
+        setHeaderMg('修改密碼')
+        setBodyMg('密碼修改成功')
       } else {
-        alert('密碼修改失敗')
+        openModal()
+        setHeaderMg('修改密碼')
+        setBodyMg('密碼修改失敗')
       }
+    } else {
+      openModal()
+      setHeaderMg('修改密碼')
+      setBodyMg('密碼修改失敗')
+    }
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
+
+  function closeModal() {
+    setIsOpen(false)
+
+    if (bodyMg === '密碼修改成功') {
+      navigate('/')
     }
   }
 
@@ -158,6 +183,13 @@ function ResetPass() {
           </div>
         </div>
       </div>
+
+      <ModalNotification
+        closeModal={closeModal}
+        isOpen={isOpen}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
     </>
   )
 }
