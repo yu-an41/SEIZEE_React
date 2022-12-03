@@ -59,53 +59,67 @@ function ProductFilter() {
           <YellowWave />
         </div>
         {/* ProductFilter */}
-        <div className="a-category">
-          <div className="a-categoryWrapper">
-            {filterList.map((filter, i) => {
-              return (
-                <div className="a-productFilterWrapper">
-                  <label
-                    className="a-categoryContentWapper"
-                    htmlFor={`a-categoryCheckBox${filter.sid}`}
-                    key={filter.sid}
-                  >
-                    <input
-                      className="a-categoryInput"
-                      type="checkbox"
-                      id={`a-categoryCheckBox${filter.sid}`}
-                      name="cate"
-                      value={filter.sid}
-                      onChange={checkboxClick}
-                    />
-                    <span className="a-iconSpan">
-                      <div className="a-iconWrapper">
-                        <img
-                          className="a-icon"
-                          src={`/04-product/svg/${filter.category_icon}`}
-                          alt=""
-                        />
-                      </div>
-                      <h2 className="a-categoryName">{filter.category_name}</h2>
-                    </span>
-                  </label>
-                </div>
-              );
-            })}
-            <div className="a-searchBarWrapper">
-              <input className="a-filterWrapper"></input>
+        <div className="a-productFilterWrapper">
+        {/* SideBar */}
+        <div className="a-aladdinWrapper">
+            <img src="/04-product/svg/aladin.png" alt="" />
+          </div>
+          <div className="a-searchBarWrapper">
+            <label>
               <input
                 className="a-searchInput"
                 value={inputValue}
                 onChange={(i) => setInputValue.target.value(i)}
               />
               <h3 className="a-inputValue">{inputValue}</h3>
-              <label></label>
+              <input className="a-filterInput"></input>
+            </label>
+          </div>
+          <div className="a-category">
+            <div className="a-categoryWrapper">
+              {filterList.map((filter, i) => {
+                return (
+                  <div className="a-productFilterWrapper">
+                    <label
+                      className="a-categoryContentWapper"
+                      htmlFor={`a-categoryCheckBox${filter.sid}`}
+                      key={filter.sid}
+                    >
+                      <input
+                        className="a-categoryInput"
+                        type="checkbox"
+                        id={`a-categoryCheckBox${filter.sid}`}
+                        name="cate"
+                        value={filter.sid}
+                        onChange={checkboxClick}
+                      />
+                      <span className="a-iconSpan">
+                        <div className="a-iconWrapper">
+                          <img
+                            className="a-icon"
+                            src={`/04-product/svg/${filter.category_icon}`}
+                            alt=""
+                          />
+                        </div>
+                        <h2 className="a-categoryName">
+                          {filter.category_name}
+                        </h2>
+                      </span>
+                    </label>
+                  </div>
+                );
+              })}
             </div>
-            <div className="a-filterProudct">
-              <div className="a-filterImgWrapper">
-                <img src="/04-product/img/10003.jpg" alt="" />
-              </div>
+          </div>
+          {/* ProductCard */}
+          <div className="a-filterProudctWrapper">
+            <div className="a-filterImgWrapper">
+              <img src="/04-product/img/10003.jpg" alt="" />
             </div>
+            <h2 className="a-filterProudctName">麵包</h2>
+            <p className="a-filterProudctPrice">100元</p>
+            <p className="a-filterProudctDiscount">折</p>
+            <p className="a-filterProudctQty">剩餘數量</p>
           </div>
         </div>
       </div>
