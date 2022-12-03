@@ -5,6 +5,9 @@ import "../components/style/ProductCard.scss";
 import Select from "../components/Select";
 import CollectContext from "../../contexts/CollectContext";
 
+// cart
+import CartInfoContext from './../../01-cart/contexts/CartInfoContext'
+
 function ProductCard({ product }) {
   const {
     collection,
@@ -75,7 +78,6 @@ const tempRef = useRef();
           <p>惜食剩餘數量</p>
           <p className="a-quantity">{product.inventory_qty}</p>
           <p>數量</p>
-
           <Select options={countOptions} ref={tempRef} />
           {/* <select>
             {new Array(product.inventory_qty).fill(0).map((_, i) => (

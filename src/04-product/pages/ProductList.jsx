@@ -20,6 +20,20 @@ function ProductList() {
   const [errorMessage, setErrorMessage] = useState([]);
   const { shop_list_sid } = useParams();
 
+// cart
+import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
+
+function ProductList() {
+  const [allProduct, setAllProduct] = useState([])
+  const [shopData, setShopData] = useState([])
+  const [errorMessage, setErrorMessage] = useState([])
+  const { shop_list_sid } = useParams()
+
+  // cart
+  const { cartItem, setCartItem, handleAddCart, updateItemQty } =
+    useContext(CartInfoContext)
+  const [productDataFromCard, setProductDataFromCard] = useState([{}])
+
   async function getProductCard() {
     try {
       const response = await axios.get(

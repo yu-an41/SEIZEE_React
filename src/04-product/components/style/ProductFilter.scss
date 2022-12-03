@@ -26,36 +26,53 @@ $main-border-radius: 8px;
 .a-category {
   @extend %a-flex;
   .a-categoryWrapper {
+    width: 900px;
     display: flex;
-    width: 500px;
+    align-items: flex-end;
     flex-wrap: wrap;
     .a-categoryContentWapper {
       @extend %a-flex;
       flex-direction: column;
+      margin-top: 30px;
       .a-iconSpan {
         @extend %a-flex;
         flex-direction: column;
         .a-iconWrapper {
-          width: 100px;
-          height: 100px;
+          width: 150px;
+          height: 150px;
           border-radius: 50%;
-          border: 3px $main-blue;
+          border: 3px solid $secondary-blue;
           overflow: hidden;
-          background-color: #fff;
+          background-color: $secondary-yellow;
+          margin: 20px 10px 5px 10px;
           @extend %a-flex;
           .a-icon {
-            width: 100px;
+            width: 120px;
             object-fit: cover;
           }
           .a-categoryInput {
             display: none;
             background-color: transparent;
           }
-          .a-categoryName {
-            text-align: center;
-          }
+        }
+        .a-categoryName {
+          text-align: center;
+          font-size: 20px;
+          color: $secondary-blue;
         }
       }
     }
   }
+}
+
+.a-filterImgWrapper {
+  width: 100%;
+  overflow: hidden;
+  
+}
+.a-filterImgWrapper img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+  padding: 0;
 }
