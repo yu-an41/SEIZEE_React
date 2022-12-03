@@ -23,10 +23,14 @@ $main-border-radius: 8px;
   align-items: center;
 }
 
+.a-productFilterWrapper {
+display: flex;
+justify-content: center;
+
 .a-category {
   @extend %a-flex;
   .a-categoryWrapper {
-    width: 900px;
+    width: 800px;
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
@@ -38,16 +42,16 @@ $main-border-radius: 8px;
         @extend %a-flex;
         flex-direction: column;
         .a-iconWrapper {
-          width: 150px;
-          height: 150px;
+          width: 120px;
+          height: 120px;
           border-radius: 50%;
-          border: 3px solid $secondary-blue;
+          border: 8px solid #87efbd;
           overflow: hidden;
-          background-color: $secondary-yellow;
+          background-color: $secondary-blue;
           margin: 20px 10px 5px 10px;
           @extend %a-flex;
           .a-icon {
-            width: 120px;
+            width: 80px;
             object-fit: cover;
           }
           .a-categoryInput {
@@ -64,15 +68,32 @@ $main-border-radius: 8px;
     }
   }
 }
-
-.a-filterImgWrapper {
-  width: 100%;
-  overflow: hidden;
-  
+.a-searchBarWrapper {
+  margin: 50px 50px 0 30px;
+  width: 200px;
+  height: 400px;
+  background-color: $main-yellow;
+  border-radius: 8px;
+  position: relative;
 }
-.a-filterImgWrapper img {
-  width: 100%;
-  object-fit: cover;
-  object-position: center center;
-  padding: 0;
+.a-aladdinWrapper {
+  width: 120px;
+  position: absolute;
+  top: -70px;
+  left: 10px;
+  img {
+    width: 100%;
+  }
+}
+.a-filterImgWrapper {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 3px solid $secondary-blue;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
 }

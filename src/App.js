@@ -10,7 +10,7 @@ import ModalConfirm from './components/ModalConfirm'
 import ModalNotification from './components/ModalNotification'
 
 // 00-homepage
-// import Homepage from './00-homepage/pages/Homepage'
+import Homepage from './00-homepage/pages/Homepage'
 
 // 01-cart
 import CartList from './01-cart/pages/CartList'
