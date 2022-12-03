@@ -43,12 +43,10 @@ function CartList(props) {
     handleEmptyCart,
   } = useContext(CartInfoContext)
 
-  // 數量
-  const [prodQty, setProdQty] = useState(1)
-
-  // 取得假商品資訊
-  const data = products[0]
-  const data2 = products[4]
+  // 取得假商品資訊，數量1
+  // const data = products[0]
+  // const data2 = products[4]
+  // const [prodQty, setProdQty] = useState(1)
 
   // 推薦商品資訊
 
@@ -75,18 +73,20 @@ function CartList(props) {
     },
   ])
 
-  // 店家編號
+  // 店家編號 //拿不到？？？？
   // const shopsid = cartItem.userCart[0].shop_sid
   //   ? cartItem.userCart[0].shop_sid
   //   : 1
 
-  let shopsid = 1
+  const shopsid = 1
   const getShopInfo = async () => {
     try {
       const res = await axios.get(`http://localhost:3004/cart/shop/${shopsid}`)
 
       setCartShopInfo(res.data.shop_info_rows[0])
       console.log(res.data.shop_info_rows)
+
+      // 這邊放營業取餐判斷
     } catch (err) {
       console.log(err.message)
     }
@@ -143,10 +143,10 @@ function CartList(props) {
 
   const min = Math.min(recMerchData.length, 4)
   useEffect(() => {
-    console.log(cartItem)
+    // console.log(cartItem)
     getShopInfo()
     getRecMerchData()
-  }, [])
+  }, [cartItem])
 
   // useEffect(() => {
   //   getCartData()
@@ -311,7 +311,9 @@ function CartList(props) {
             <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
             <div className="y-Cart-rec-top">
               <p className="y-Cart-rec-header">
-                以下是來自「好ㄘ早午餐」的更多寶物，錯過會很可惜的...
+                以下是來自「
+                <span>{cartShopInfo.shop_name}</span>
+                」的更多寶物，錯過會很可惜的...
               </p>
             </div>
             <div className="y-Cart-rec-bottom">
