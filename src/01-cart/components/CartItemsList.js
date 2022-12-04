@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import './../styles/CartItemsList.scss'
 import CartInfoContext from '../contexts/CartInfoContext'
+import AuthContext from '../../contexts/AuthContext'
 
 import CartMerchPic from './../../dotown/strawberry.png'
 // import YellowLineWave from './../images/line-wave.svg'
@@ -24,11 +25,12 @@ function CartItemsList({ cartItemData }) {
   const { prod_sid, name, sale_price, sale, picture, amount, inventory } =
     cartItemData
 
-  // 假的庫存數量
-  // const maxQty = 5
-
   // 假圖片路徑
   const FakePic = 'https://via.placeholder.com/32'
+
+  // 會員登入驗證
+  
+
   return (
     <div className="y-Cart-items">
       <div className="y-Cart-items-top">
@@ -74,7 +76,7 @@ function CartItemsList({ cartItemData }) {
             <RemoveItemBtn
               onClick={() => {
                 handleRemoveItem(prod_sid)
-                console.log('item removed!!!!')
+                console.log(prod_sid, 'item removed!!!!')
               }}
             />
           </div>

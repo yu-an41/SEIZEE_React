@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { set } from 'ramda'
 import React, { useState, useContext, createContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
@@ -8,7 +9,19 @@ export default CartInfoContext
 
 export const CartInfoContextProvider = function ({ children }) {
   let initCart = {
-    userCart: [],
+    userCart: [
+      // {
+      // shop_sid: '1',
+      // prod_sid: 0,
+      // unit_price: 0,
+      // sale_price: 0,
+      // sale: 0,
+      // name: '',
+      // amount: 0,
+      // inventory: 0,
+      // picture: '',
+      // },
+    ],
     totalItem: 0,
     totalUnitPrice: 0,
     totalSalePrice: 0,
@@ -20,6 +33,8 @@ export const CartInfoContextProvider = function ({ children }) {
   }
 
   const [cartItem, setCartItem] = useState(initCart)
+
+  const [emptyCart, setEmptyCart] = useState(true)
 
   // 加入購物車（只拿product.sid跟數量，其他去後台找資料）
   // 待加入店家資料做判斷
@@ -61,10 +76,10 @@ export const CartInfoContextProvider = function ({ children }) {
             totalUnitPrice:
               cartItem.totalUnitPrice + prodInfo.unit_price * prodQty,
             totalSalePrice:
-              cartItem.totalSalePrice + prodInfo.sale_price * prodQty,
+              cartItem.totalSalePrice + prodInfo.product_price * prodQty,
             totalAmount: cartItem.totalAmount + prodQty,
           }
-          // console.log({ products })
+          console.log(products.totalSalePrice)
           localStorage.setItem('cartItem', JSON.stringify({ ...products }))
           setCartItem(products)
         } else {
@@ -96,6 +111,7 @@ export const CartInfoContextProvider = function ({ children }) {
       setCartItem(newProducts)
       console.log('qty updated')
     }
+    if (emptyCart) setEmptyCart(false)
   }
 
   // 改變數量時重新計算小計總計
@@ -145,6 +161,7 @@ export const CartInfoContextProvider = function ({ children }) {
         totalAmount,
       })
     )
+    if (emptyCart) setEmptyCart(false)
   }
 
   // 刪除單項商品
@@ -157,74 +174,90 @@ export const CartInfoContextProvider = function ({ children }) {
     let newUserCart = [...userCart]
 
     newUserCart = newUserCart.filter((item) => {
-      console.log(item, item.sid !== pid)
-      return +item.sid !== pid
+      // console.log(item, item.sid !== pid)
+      return +item.prod_sid !== pid
     })
+    // console.log(newUserCart)
 
     totalItem = newUserCart.length
 
-    totalAmount = newUserCart.reduce((a, v) => {
-      return a + v.amount
-    }, 0)
-    totalUnitPrice = newUserCart.reduce((a, v) => {
-      return v.amount * v.unit_price
-    }, 0)
-    totalSalePrice = newUserCart.reduce((a, v) => {
-      return v.amount * v.sale_price
-    }, 0)
+    if (totalItem === 0) {
+      handleEmptyCart()
+    } else {
+      totalAmount = newUserCart.reduce((a, v) => {
+        return a + v.amount
+      }, 0)
+      totalUnitPrice = newUserCart.reduce((a, v) => {
+        return v.amount * v.unit_price
+      }, 0)
+      totalSalePrice = newUserCart.reduce((a, v) => {
+        return v.amount * v.sale_price
+      }, 0)
 
-    localStorage.setItem(
-      'cartItem',
-      JSON.stringify({
+      localStorage.setItem(
+        'cartItem',
+        JSON.stringify({
+          userCart: newUserCart,
+          totalItem,
+          totalUnitPrice,
+          totalSalePrice,
+          totalAmount,
+        })
+      )
+      setCartItem({
         userCart: newUserCart,
         totalItem,
         totalUnitPrice,
         totalSalePrice,
         totalAmount,
       })
-    )
-    setCartItem({
-      userCart: newUserCart,
-      totalItem,
-      totalUnitPrice,
-      totalSalePrice,
-      totalAmount,
-    })
+    }
   }
 
   // 清空購物車
   const handleEmptyCart = () => {
     const emptyCart = {
-      userCart: [],
+      userCart: [
+        // {
+        // shop_sid: '0',
+        // prod_sid: 0,
+        // unit_price: 0,
+        // sale_price: 0,
+        // sale: 0,
+        // name: '',
+        // amount: 0,
+        // inventory: 0,
+        // picture: '',
+        // },
+      ],
       totalItem: 0,
       totalUnitPrice: 0,
       totalSalePrice: 0,
       totalAmount: 0,
     }
     // console.log({ emptyCart })
-    localStorage.setItem('cartItem', JSON.stringify(emptyCart))
-    setCartItem(emptyCart)
+    // localStorage.setItem('cartItem', JSON.stringify(emptyCart))
+    localStorage.removeItem('cartItem')
+    setEmptyCart(true)
+    // setCartItem(emptyCart)
+    alert('Your cart is empty!')
+    document.location.href = 'http://localhost:3000/'
   }
 
   // 點icon時確認購物車不為空才跳轉
-
-  const [emptyCart, setEmptyCart] = useState(true)
-
-  const checkCartempty = (e) => {
+  const checkCartEmpty = (e) => {
+    console.log(localStorage.getItem('cartItem'))
     if (
       !localStorage.getItem('cartItem') ||
-      (cartItem = {
-        userCart: [],
-        totalItem: 0,
-        totalUnitPrice: 0,
-        totalSalePrice: 0,
-        totalAmount: 0,
-      })
+      localStorage.getItem('cartItem') ==
+        '{"userCart":[],"totalItem":0,"totalUnitPrice":0,"totalSalePrice":0,"totalAmount":0}'
     ) {
       e.preventDefault()
       alert('Your cart is empty!')
+      handleEmptyCart()
     } else {
       setEmptyCart(false)
+      document.location.href = 'http://localhost:3000/cart'
     }
     return emptyCart
   }
@@ -234,11 +267,13 @@ export const CartInfoContextProvider = function ({ children }) {
       value={{
         cartItem,
         setCartItem,
+        emptyCart,
+        setEmptyCart,
         handleAddCart,
         updateItemQty,
         handleRemoveItem,
         handleEmptyCart,
-        checkCartempty,
+        checkCartEmpty,
       }}
     >
       {children}

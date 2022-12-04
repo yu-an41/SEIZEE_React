@@ -19,7 +19,9 @@ function NavBar() {
     setCartItem,
     handleAddCart,
     updateItemQty,
-    checkCartempty,
+    checkCartEmpty,
+    emptyCart,
+    setEmptyCart,
   } = useContext(CartInfoContext)
 
   const { myAuth } = useContext(AuthContext)
@@ -44,7 +46,10 @@ function NavBar() {
             href="/cart"
             alt="my cart"
             onClick={(e) => {
-              checkCartempty(e)
+              
+              checkCartEmpty(e)
+
+              
             }}
           >
             <img src={CartIcon} alt="cart icon" />
