@@ -1,10 +1,41 @@
-import React, { useState } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
 import '.././style/profile-pages/LikesShop.scss'
 import LikeLabels from '../components/LikeLabels'
-import img from '../../00-homepage/images/01cover.jpg'
+// import img from '../../00-homepage/images/01cover.jpg'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 
 function LikesShop() {
+  const [likeShops, setLikeShops] = useState([])
+
+  const mb_sid = JSON.parse(localStorage.getItem('auth'))
+    ? JSON.parse(localStorage.getItem('auth')).mb_sid
+    : '未登入'
+
+  const getLikeShops = async () => {
+    try {
+      if (mb_sid === '未登入') {
+        // console.log('未登入，無法取得收藏列表');
+        return
+      }
+      const response = await axios.get(
+        `http://localhost:3004/api/shop/shop_love?mb_sid=${mb_sid}`
+      )
+      const loveData = response.data.lovemember_rows
+      //設定到state裡
+      setLikeShops(loveData)
+    } catch (e) {
+      // 錯誤處理
+      console.error(e.message)
+      // setErrorMessage(e.message)
+    }
+  }
+  // console.log(likeShops)
+  // didMount時載入資料
+  useEffect(() => {
+    getLikeShops()
+  }, [])
+
   return (
     <>
       <div className="s-body-profile">
@@ -39,104 +70,29 @@ function LikesShop() {
                       <span className="s-l-s-answer">查詢訂單</span>
                     </div>
                   </div> */}
-                  <div className="r-love-card-container">
-                    <div className="r-love-card-title">
-                      <i className="fa-solid fa-heart"></i>
-                    </div>
-                    <div className="r-love-card-cover-middle">
-                      <div className="r-love-card-cover-wrap">
-                        <img className="r-love-card-cover" src={img} />
+                  {likeShops.map((v, i) => {
+                    return (
+                      <div className="r-love-card-container" key={v.sid}>
+                        <div className="r-love-card-title">
+                          <i className="fa-solid fa-heart"></i>
+                        </div>
+                        <div className="r-love-card-cover-middle">
+                          <div className="r-love-card-cover-wrap">
+                            <img
+                              className="r-love-card-cover"
+                              src={`http://localhost:3004/images/03-shop/${v.shop_cover}`}
+                            />
+                          </div>
+                        </div>
+                        <div className="r-love-card-footer">
+                          <p className="r-love-card-name">{v.shop_name}</p>
+                          <p className="r-love-card-info">
+                            {v.shop_opentime}-{v.shop_closetime}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="r-love-card-footer">
-                      <p className="r-love-card-name">惜食店鋪</p>
-                      <p className="r-love-card-info">12:00-21:00</p>
-                    </div>
-                  </div>
-                  <div className="r-love-card-container">
-                    <div className="r-love-card-title">
-                      <i className="fa-solid fa-heart"></i>
-                    </div>
-                    <div className="r-love-card-cover-middle">
-                      <div className="r-love-card-cover-wrap">
-                        <img className="r-love-card-cover" src={img} />
-                      </div>
-                    </div>
-                    <div className="r-love-card-footer">
-                      <p className="r-love-card-name">惜食店鋪</p>
-                      <p className="r-love-card-info">12:00-21:00</p>
-                    </div>
-                  </div>
-                  <div className="r-love-card-container">
-                    <div className="r-love-card-title">
-                      <i className="fa-solid fa-heart"></i>
-                    </div>
-                    <div className="r-love-card-cover-middle">
-                      <div className="r-love-card-cover-wrap">
-                        <img className="r-love-card-cover" src={img} />
-                      </div>
-                    </div>
-                    <div className="r-love-card-footer">
-                      <p className="r-love-card-name">惜食店鋪</p>
-                      <p className="r-love-card-info">12:00-21:00</p>
-                    </div>
-                  </div>
-                  <div className="r-love-card-container">
-                    <div className="r-love-card-title">
-                      <i className="fa-solid fa-heart"></i>
-                    </div>
-                    <div className="r-love-card-cover-middle">
-                      <div className="r-love-card-cover-wrap">
-                        <img className="r-love-card-cover" src={img} />
-                      </div>
-                    </div>
-                    <div className="r-love-card-footer">
-                      <p className="r-love-card-name">惜食店鋪</p>
-                      <p className="r-love-card-info">12:00-21:00</p>
-                    </div>
-                  </div>
-                  <div className="r-love-card-container">
-                    <div className="r-love-card-title">
-                      <i className="fa-solid fa-heart"></i>
-                    </div>
-                    <div className="r-love-card-cover-middle">
-                      <div className="r-love-card-cover-wrap">
-                        <img className="r-love-card-cover" src={img} />
-                      </div>
-                    </div>
-                    <div className="r-love-card-footer">
-                      <p className="r-love-card-name">惜食店鋪</p>
-                      <p className="r-love-card-info">12:00-21:00</p>
-                    </div>
-                  </div>
-                  <div className="r-love-card-container">
-                    <div className="r-love-card-title">
-                      <i className="fa-solid fa-heart"></i>
-                    </div>
-                    <div className="r-love-card-cover-middle">
-                      <div className="r-love-card-cover-wrap">
-                        <img className="r-love-card-cover" src={img} />
-                      </div>
-                    </div>
-                    <div className="r-love-card-footer">
-                      <p className="r-love-card-name">惜食店鋪</p>
-                      <p className="r-love-card-info">12:00-21:00</p>
-                    </div>
-                  </div>
-                  <div className="r-love-card-container">
-                    <div className="r-love-card-title">
-                      <i className="fa-solid fa-heart"></i>
-                    </div>
-                    <div className="r-love-card-cover-middle">
-                      <div className="r-love-card-cover-wrap">
-                        <img className="r-love-card-cover" src={img} />
-                      </div>
-                    </div>
-                    <div className="r-love-card-footer">
-                      <p className="r-love-card-name">惜食店鋪</p>
-                      <p className="r-love-card-info">12:00-21:00</p>
-                    </div>
-                  </div>
+                    )
+                  })}
                 </div>
               </div>
             </div>

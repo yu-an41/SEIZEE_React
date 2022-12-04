@@ -388,7 +388,7 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                         <i
                           className="fa-solid fa-heart"
                           onClick={() => {
-                            handleClickLove(v.rows.sid)
+                            handleClickLove(v[0].sid)
                           }}
                         ></i>
                       )}

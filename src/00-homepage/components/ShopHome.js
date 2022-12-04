@@ -39,7 +39,7 @@ function ShopHome() {
       index === position ? !item : item
     )
     setCheckedState(updatedCheckedState)
-    console.log(statusShop)
+    // console.log(statusShop)
     // cateFilters
     let selectedFilters = updatedCheckedState.map((v, index) => {
       if (v) {
