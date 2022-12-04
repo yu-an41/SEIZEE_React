@@ -4,7 +4,7 @@ import axios from 'axios'
 import './../styles/PostCook.scss'
 
 import SideBar from '../components/Side_bar'
-import CardPost from '../components/Card_post'
+import { Card_share } from '../components/Card_post'
 import SearchBar from '../components/Search_bar'
 import Recommendation from '../components/Recommendation'
 import WriteBtn from '../components/WriteBtn'
@@ -25,7 +25,7 @@ function PostCook() {
   ])
   const getSharePostData = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/forum/post_share`)
+      const res = await axios.get(`http://localhost:3004/forum/post_share`)
 
       setSharePostData(res.data.sharePostRows)
       console.log(res.data.sharePostRows)
@@ -50,7 +50,7 @@ function PostCook() {
           <div className="p-CardWrap">
             {sharePostData &&
               sharePostData.map((v) => {
-                return <CardPost postData={v} key={v.sid} />
+                return <Card_share postData={v} key={v.sid} />
               })}
           </div>
         </div>

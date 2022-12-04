@@ -12,14 +12,14 @@ import SideBar from '../components/Side_bar'
 import WriteBtn from '../components/WriteBtn'
 import Comment from '../components/Comment'
 import Recommendation from '../components/Recommendation'
-import Message from '../components/Ｍessage'
+import Message from '../components/Message'
 
 function InnerShare() {
   const { sid } = useParams()
   const [doRerender, setDoRerender] = useState(false)
   const [shareInnerData, setShareInnerData] = useState({
     sid: 1,
-    categories_sid: 1,
+    categories_sid: 3,
     title: '',
     img: '',
     video: '',
@@ -42,7 +42,7 @@ function InnerShare() {
   const getShareData = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3002/forum/share/inner/${sid}`
+        `http://localhost:3004/forum/share/inner/${sid}`
       )
       console.log(res.data)
       setShareInnerData(res.data)
@@ -88,7 +88,11 @@ function InnerShare() {
               <h3>留言</h3>
             </div>
             <div className="p-commentForm">
-              <Message setDoRerender={setDoRerender} doRerender={doRerender} />
+              <Message
+                setDoRerender={setDoRerender}
+                doRerender={doRerender}
+                InnerCategoriesSid={shareInnerData}
+              />
             </div>
             <div className="p-commMessage">
               {shareInnerData.comment &&

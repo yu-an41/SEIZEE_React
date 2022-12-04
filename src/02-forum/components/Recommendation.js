@@ -18,7 +18,7 @@ function Recommendation() {
   ])
   const getRecomPostData = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/forum/all_post`)
+      const res = await axios.get(`http://localhost:3004/forum/all_post`)
       res.data.sort(() => {
         return Math.random() - 0.5
       })

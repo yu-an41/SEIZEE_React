@@ -14,7 +14,7 @@ import SideBar from '../components/Side_bar'
 import WriteBtn from '../components/WriteBtn'
 import Comment from '../components/Comment'
 import Recommendation from '../components/Recommendation'
-import Message from '../components/Ｍessage'
+import Message from '../components/Message'
 
 function InnerOfficial() {
   const { sid } = useParams()
@@ -44,7 +44,7 @@ function InnerOfficial() {
   const getOfficialInnerData = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3002/forum/official/inner/${sid}`
+        `http://localhost:3004/forum/official/inner/${sid}`
       )
       console.log(res.data)
       setOfficialInnerData(res.data)
@@ -99,7 +99,11 @@ function InnerOfficial() {
               <h3>留言</h3>
             </div>
             <div className="p-commentForm">
-              <Message setDoRerender={setDoRerender} doRerender={doRerender} />
+              <Message
+                setDoRerender={setDoRerender}
+                doRerender={doRerender}
+                InnerCategoriesSid={offficialInnerData}
+              />
             </div>
             <div className="p-commMessage">
               {offficialInnerData.comment &&

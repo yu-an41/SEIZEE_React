@@ -4,7 +4,7 @@ import axios from 'axios'
 import './../styles/PostCook.scss'
 
 import SideBar from '../components/Side_bar'
-import CardPost from '../components/Card_post'
+import { Card_store } from '../components/Card_post'
 import SearchBar from '../components/Search_bar'
 import Recommendation from '../components/Recommendation'
 import WriteBtn from '../components/WriteBtn'
@@ -27,7 +27,7 @@ function PostCook() {
   ])
   const getStorePostData = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/forum/post_store`)
+      const res = await axios.get(`http://localhost:3004/forum/post_store`)
 
       setStorePostData(res.data.storePostRows)
       console.log(res.data.storePostRows)
@@ -52,7 +52,7 @@ function PostCook() {
           <div className="p-CardWrap">
             {storePostData &&
               storePostData.map((v) => {
-                return <CardPost postData={v} key={v.sid} />
+                return <Card_store postData={v} key={v.sid} />
               })}
           </div>
         </div>

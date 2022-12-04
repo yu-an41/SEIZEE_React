@@ -13,9 +13,10 @@ function Step() {
       content: '',
     },
   ])
+  console.log(step.stepImg);
   const getStep = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/forum/step`)
+      const res = await axios.get(`http://localhost:3004/forum/step`)
       console.log(res.data.stepRows)
       setStep(res.data.stepRows)
     } catch (error) {
@@ -34,7 +35,10 @@ function Step() {
         return (
           <div className="p-step">
             <div className="p-stepImg">
-              <img src={stepImg} alt="" />
+              <img
+                src={`http://localhost:3004/images/02-forum/cook/${stepImg}`}
+                alt=""
+              />
             </div>
             <div className="p-stepContent">
               <h3>STEP{step}</h3>

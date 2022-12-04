@@ -1,10 +1,12 @@
+/* eslint-disable react/jsx-pascal-case */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 import './../styles/PostCook.scss'
 
 import SideBar from '../components/Side_bar'
-import CardPost from '../components/Card_post'
+import { Card_cook } from '../components/Card_post'
 import SearchBar from '../components/Search_bar'
 import Recommendation from '../components/Recommendation'
 import WriteBtn from '../components/WriteBtn'
@@ -32,12 +34,12 @@ function PostCook() {
   ])
   const getCookPostData = async () => {
     const usp = new URLSearchParams()
-    // likeInstructions.forEach((v) => {
-    //   if (v) usp.append('likesOp[]', v)
-    // })
-    // spendserving.forEach((v)=>{
-    //   if (v) usp.append('servingOp[]', v)
-    // })
+    likeInstructions.forEach((v) => {
+      if (v) usp.append('likesOp[]', v)
+    })
+    spendServing.forEach((v) => {
+      if (v) usp.append('servingOp[]', v)
+    })
     spendTime.forEach((v) => {
       if (v) usp.append('timeOp[]', v)
     })
@@ -84,7 +86,7 @@ function PostCook() {
                 const item = cookPostData[i]
                 return (
                   <>
-                    <CardPost postData={item} key={item.i} />
+                    <Card_cook postData={item} key={item.i} />
                   </>
                 )
               })}

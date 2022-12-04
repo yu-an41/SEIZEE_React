@@ -37,20 +37,20 @@ function ForumHome() {
   //   right: Math.round((contentWidth - width) / 2),
   // }
 
- 
   const [homeCadrd, setHomeCard] = useState([
     {
       sid: '',
       member_sid: '',
       categories_sid: '',
       title: '',
+      icon: '',
       img: '',
       creat_at: '',
     },
   ])
   const getHomePostData = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/forum/all_post`)
+      const res = await axios.get(`http://localhost:3004/forum/all_post`)
       res.data.sort(() => {
         //隨機產生資料
         return Math.random() - 0.5

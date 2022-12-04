@@ -17,7 +17,7 @@ import SideBar from '../components/Side_bar'
 import WriteBtn from '../components/WriteBtn'
 import log from 'eslint-plugin-react/lib/util/log'
 import Comment from '../components/Comment'
-import Message from '../components/Ｍessage'
+import Message from '../components/Message'
 
 function InnerCook() {
   const { sid } = useParams()
@@ -29,10 +29,10 @@ function InnerCook() {
     title: '',
     img: '',
     video: '',
-    content: '',
+    induction: '',
     serving: '',
     times: '',
-    PS: '',
+    ps: '',
     likes: 1,
     creat_at: '',
     instructions: [
@@ -67,7 +67,7 @@ function InnerCook() {
   const getCookInnerData = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3002/forum/cook/inner/${sid}`
+        `http://localhost:3004/forum/cook/inner/${sid}`
       )
       console.log(res.data)
       setCookInnerData(res.data)
@@ -103,9 +103,12 @@ function InnerCook() {
 
         <div className="p-imgAdContet">
           <div className="p-innerImgWrap">
-            <img src={cookInnerData.img} alt="" />
+            <img
+              src={`http://localhost:3004/images/02-forum/cook/${cookInnerData.img}`}
+              alt=""
+            />
           </div>
-          <p>{cookInnerData.content}</p>
+          <p>{cookInnerData.induction}</p>
         </div>
         <div className="p-instAdTimAdServ">
           <div className="p-timeAdServ">
@@ -151,7 +154,10 @@ function InnerCook() {
             return (
               <div className="p-step" key={i}>
                 <div className="p-stepImg">
-                  <img src={v.stepImg} alt="" />
+                  <img
+                    src={`http://localhost:3004/images/02-forum/cook/${v.stepImg}`}
+                    alt=""
+                  />
                 </div>
                 <div className="p-stepContent">
                   <h3>STEP{v.step}</h3>
@@ -163,14 +169,18 @@ function InnerCook() {
         </div>
         <div className="p-PS">
           <h2>補充</h2>
-          <h4>{cookInnerData.PS}</h4>
+          <h4>{cookInnerData.ps}</h4>
         </div>
         <div className="p-commentWrap">
           <div className="p-commentTitle">
             <h3>留言</h3>
           </div>
           <div className="p-commentForm">
-            <Message setDoRerender={setDoRerender} doRerender={doRerender} />
+            <Message
+              setDoRerender={setDoRerender}
+              doRerender={doRerender}
+              InnerCategoriesSid={cookInnerData}
+            />
           </div>
           <div className="p-commMessage">
             {cookInnerData.comment.map((v, i) => {
@@ -189,8 +199,8 @@ function InnerCook() {
             return (
               <>
                 <span>
-                <input type="checkbox"></input>
-                <h3>STEP {v.step}</h3>
+                  <input type="checkbox"></input>
+                  <h3>STEP {v.step}</h3>
                 </span>
               </>
             )

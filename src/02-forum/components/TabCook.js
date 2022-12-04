@@ -7,7 +7,7 @@ import '../styles/TabCook.scss'
 function TabCook({
   likeInstructions,
   setLikeInstructions,
-  spendserving,
+  spendServing,
   setSpendServing,
   spendTime,
   setSpendTime,
@@ -110,14 +110,14 @@ function TabCook({
                         const servingValue = e.target.value
                         if (e.target.checked) {
                           // selected
-                          if (!spendserving.includes(servingValue)) {
-                            setLikeInstructions([...spendserving, servingValue])
+                          if (!spendServing.includes(servingValue)) {
+                            setSpendServing([...spendServing, servingValue])
                           }
                         } else {
                           //cancle
-                          if (spendserving.includes(servingValue)) {
-                            setLikeInstructions(
-                              spendserving.filter((v) => v !== servingValue)
+                          if (spendServing.includes(servingValue)) {
+                            setSpendServing(
+                              spendServing.filter((v) => v !== servingValue)
                             )
                           }
                         }
@@ -146,12 +146,12 @@ function TabCook({
                         if (e.target.checked) {
                           // selected
                           if (!spendTime.includes(timeValue)) {
-                            setLikeInstructions([...spendTime, timeValue])
+                            setSpendTime([...spendTime, timeValue])
                           }
                         } else {
                           //cancle
                           if (spendTime.includes(timeValue)) {
-                            setLikeInstructions(
+                            setSpendTime(
                               spendTime.filter((v) => v !== timeValue)
                             )
                           }
