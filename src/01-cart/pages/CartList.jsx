@@ -25,6 +25,8 @@ import Footer from '../../components/Footer'
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
 import YellowWaveReverse from '../../00-homepage/components/YellowWaveReverse'
+import YellowWave2 from '../../04-product/components/YellowWave2'
+import YellowWaveLight from '../../00-homepage/components/YellowWaveLight'
 import YellowLineWave from './../images/line-wave.svg'
 import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
@@ -41,6 +43,9 @@ function CartList(props) {
     handleAddCart,
     handleReduce,
     handleEmptyCart,
+    emptyCart,
+    setEmptyCart,
+    checkCartempty,
   } = useContext(CartInfoContext)
 
   // 取得假商品資訊，數量1
@@ -73,12 +78,11 @@ function CartList(props) {
     },
   ])
 
-  // 店家編號 //拿不到？？？？
-  // const shopsid = cartItem.userCart[0].shop_sid
-  //   ? cartItem.userCart[0].shop_sid
-  //   : 1
+  // 店家編號
+  const shopsid = cartItem.userCart[0].shop_sid
+    ? +cartItem.userCart[0].shop_sid
+    : 1
 
-  const shopsid = 1
   const getShopInfo = async () => {
     try {
       const res = await axios.get(`http://localhost:3004/cart/shop/${shopsid}`)
@@ -113,7 +117,7 @@ function CartList(props) {
     shop_sat,
   } = cartShopInfo
 
-  const getCartData = () => {}
+  // const getCartData = () => {}
 
   // 取得推薦商品
   const [recMerchData, setRecMerchData] = useState([
@@ -154,28 +158,6 @@ function CartList(props) {
 
   return (
     <>
-      {/* <div className="y-test-btns">
-        <div
-          className="y-Cart-test-btn"
-          onClick={() => {
-            // setProdQty(prodQty)
-            handleAddCart(data, prodQty)
-            // console.log(data, prodQty)
-          }}
-        >
-          add item to cart
-        </div>
-        <div
-          className="y-Cart-test-btn"
-          onClick={() => {
-            // setProdQty(prodQty)
-            handleAddCart(data2, prodQty)
-            // console.log(data, prodQty)
-          }}
-        >
-          add item2 to cart
-        </div>
-      </div> */}
       <div className="y-CartList-container">
         <div className="y-Cart-nav">
           <NavBar />
@@ -284,6 +266,17 @@ function CartList(props) {
               </p>
             </div>
             <div className="y-Cart-details-area">
+              {/* {!emptyCart
+                ? cartItem.userCart.map((v, i) => {
+                    setEmptyCart(false)
+                    console.log(emptyCart)
+                    return (
+                      <div className="y-Cart-details-row">
+                        <CartItemsList cartItemData={v} key={i} />
+                      </div>
+                    )
+                  })
+                : ''} */}
               {cartItem.userCart.map((v, i) => {
                 return (
                   <div className="y-Cart-details-row">
@@ -336,9 +329,9 @@ function CartList(props) {
           </div>
         </div>
         <div className="y-Cart-bottom">
-          <YellowWaveReverse />
-          <div className="y-Cart-rec">rec</div>
-          <div className="y-Cart-news">news</div>
+          <div className="y-Cart-bottom-wave">
+            <YellowWaveLight />
+          </div>
           <div className="y-cart-footer">
             <Footer />
           </div>
