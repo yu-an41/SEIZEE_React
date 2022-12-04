@@ -10,12 +10,14 @@ import {
   check2Password,
 } from './data/UserSign_valid'
 import AuthContext from '../contexts/AuthContext'
+import ModalNotification from '../components/ModalNotification'
 
 function UserSign() {
   const { setMyAuth } = useContext(AuthContext)
   const navigate = useNavigate()
 
   const [signInIndex, setSignInIndex] = useState(1)
+
   // FD = Form Data
   const [signInFD, setSignInFD] = useState({
     mblEmail: '',
@@ -32,15 +34,22 @@ function UserSign() {
     mbuAddressDetail: '',
     mbuPhone: '',
   })
+
   // 註冊errorMg
   const [errorMgE, setErrorMgE] = useState('')
   const [errorMgN, setErrorMgN] = useState('')
   const [errorMgP1, setErrorMgP1] = useState('')
   const [errorMgP2, setErrorMgP2] = useState('')
+
   // eyes show up
   const [showSignInP, setShowSignInP] = useState(false)
   const [showSignInP1, setShowSignInP1] = useState(false)
   const [showSignInP2, setShowSignInP2] = useState(false)
+
+  // Modal
+  const [isOpen, setIsOpen] = useState(false)
+  const [headerMg, setHeaderMg] = useState('')
+  const [bodyMg, setBodyMg] = useState('')
 
   // ====================================
   // 註冊登入畫面切換
@@ -67,13 +76,18 @@ function UserSign() {
     const { data } = await axios.post(LOGIN, signInFD)
 
     if (data.success) {
-      alert('登入成功')
       localStorage.setItem('auth', JSON.stringify(data.auth))
       setMyAuth({ ...data.auth, authorised: true })
-      navigate('/')
+
+      openModal()
+      setHeaderMg('登入')
+      setBodyMg('登入成功')
     } else {
       localStorage.removeItem('auth')
-      alert('登入失敗')
+
+      openModal()
+      setHeaderMg('登入')
+      setBodyMg('請確認帳號和密碼')
     }
 
     console.log(setMyAuth)
@@ -170,17 +184,34 @@ function UserSign() {
       console.log(errorMgE)
       console.log(!errorMgE)
       if (data.success) {
-        alert('註冊成功')
-        navigate('/')
+        openModal()
+        setHeaderMg('註冊')
+        setBodyMg('註冊成功')
       } else {
-        alert('註冊失敗')
+        openModal()
+        setHeaderMg('註冊')
+        setBodyMg('請填寫完整')
       }
     } else {
-      alert('請填寫完整')
+      openModal()
+      setHeaderMg('註冊')
+      setBodyMg('請填寫完整')
     }
 
     // const response = await axios.post(CHECK_USER, signUpFD);
     // // console.log(response.data.success);
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
+
+  function closeModal() {
+    setIsOpen(false)
+
+    if (bodyMg === '登入成功' || '註冊成功') {
+      navigate('/')
+    }
   }
 
   return (
@@ -403,6 +434,13 @@ function UserSign() {
           </div>
         </div>
       </div>
+
+      <ModalNotification
+        closeModal={closeModal}
+        isOpen={isOpen}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
     </>
   )
 }
