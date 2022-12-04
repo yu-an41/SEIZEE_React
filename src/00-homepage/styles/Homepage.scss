@@ -133,77 +133,77 @@ $main-border-radius: 8px;
   }
 
   .y-section-search {
-    .r-shop-home-container {
-      background: url(./../../../public/03-shop-img/food_cola_s_01.png) 290px
-          120px/13% no-repeat,
-        url(./../../../public/03-shop-img/food_ramen_01.png) 150px 60px/15%
-          no-repeat,
-        url(./../../../public/03-shop-img/food_pizza_01.png) 220px 340px/15%
-          no-repeat,
-        url(./../../../public/03-shop-img/food_french_fries_01.png) 30px 580px/20%
-          no-repeat;
+    // .r-shop-home-container {
+    //   background: url(./../../../public/03-shop-img/food_cola_s_01.png) 290px
+    //       120px/13% no-repeat,
+    //     url(./../../../public/03-shop-img/food_ramen_01.png) 150px 60px/15%
+    //       no-repeat,
+    //     url(./../../../public/03-shop-img/food_pizza_01.png) 220px 340px/15%
+    //       no-repeat,
+    //     url(./../../../public/03-shop-img/food_french_fries_01.png) 30px 580px/20%
+    //       no-repeat;
 
-      .r-shop-home-main {
-        padding: 60px 0;
-        display: flex;
-        .r-shop-home-main-inner {
-          display: flex;
-          align-items: center;
-          .r-shop-home-main-text {
-            width: 100%;
-            max-width: 240px;
-            margin-left: 30px;
-            p {
-              font-size: 24px;
-              font-weight: 700;
-              letter-spacing: 0.2rem;
-              line-height: 2rem;
-              padding-bottom: 20px;
-            }
-            span {
-              font-size: 20px;
-              font-weight: 700;
-              letter-spacing: 0.2rem;
-              color: $main-text;
-            }
-          }
-          .r-shop-home-main-btn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 45px;
-            border: $border-sm;
-            border-radius: 10px;
-            margin-top: 40px;
-            padding: 0 12px;
-            box-shadow: 10px 5px 0 $main-Blue;
-            input {
-              font-size: 16px;
-              border: none;
-              outline: none;
-            }
-            input:focus {
-              outline-style: none;
-            }
-            a {
-              text-decoration: none;
-              i {
-                font-size: 20px;
-                color: $main-blue;
-              }
-            }
-          }
-        }
-        .r-shop-home-main-visual {
-          display: none;
-          width: 30%;
-          height: 120px;
-          background: url('./../../../public/03-shop-img/potato.png') 50% 50%/cover
-            no-repeat;
-          margin-top: 40px;
-        }
-      }
-    }
+    //   .r-shop-home-main {
+    //     padding: 60px 0;
+    //     display: flex;
+    //     .r-shop-home-main-inner {
+    //       display: flex;
+    //       align-items: center;
+    //       .r-shop-home-main-text {
+    //         width: 100%;
+    //         max-width: 240px;
+    //         margin-left: 30px;
+    //         p {
+    //           font-size: 24px;
+    //           font-weight: 700;
+    //           letter-spacing: 0.2rem;
+    //           line-height: 2rem;
+    //           padding-bottom: 20px;
+    //         }
+    //         span {
+    //           font-size: 20px;
+    //           font-weight: 700;
+    //           letter-spacing: 0.2rem;
+    //           color: $main-text;
+    //         }
+    //       }
+    //       .r-shop-home-main-btn {
+    //         display: flex;
+    //         justify-content: space-between;
+    //         align-items: center;
+    //         height: 45px;
+    //         border: $border-sm;
+    //         border-radius: 10px;
+    //         margin-top: 40px;
+    //         padding: 0 12px;
+    //         box-shadow: 10px 5px 0 $main-Blue;
+    //         input {
+    //           font-size: 16px;
+    //           border: none;
+    //           outline: none;
+    //         }
+    //         input:focus {
+    //           outline-style: none;
+    //         }
+    //         a {
+    //           text-decoration: none;
+    //           i {
+    //             font-size: 20px;
+    //             color: $main-blue;
+    //           }
+    //         }
+    //       }
+    //     }
+    //     .r-shop-home-main-visual {
+    //       display: none;
+    //       width: 30%;
+    //       height: 120px;
+    //       background: url('./../../../public/03-shop-img/potato.png') 50% 50%/cover
+    //         no-repeat;
+    //       margin-top: 40px;
+    //     }
+    //   }
+    // }
   }
 
   .y-section-merch {

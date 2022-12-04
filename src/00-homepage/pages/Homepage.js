@@ -7,6 +7,7 @@ import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
 import './../styles/Homepage.scss'
 // import './../styles/AboutUs.scss'
 // import './../styles/NewEvent.scss'
+import './../styles/EventHomeBanner.scss'
 
 // components
 // import NavBar from '../components/NavBar'
@@ -27,6 +28,9 @@ import ShopHome from '../components/ShopHome'
 // import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
 // import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
 // import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
+import img from '../images/01cover.jpg'
+import hanabi from '../images/hanabi_02.png'
+import star from '../images/other_glitter_02.png'
 
 function Homepage() {
   // miee's search and shop ------------------------------------
@@ -164,6 +168,176 @@ function Homepage() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="r-home-event-container">
+            <div className="r-home-event-main-visual">
+              <div className="r-home-event-article-wrap">
+                <h2 className="r-home-event-article">What's New FUN?</h2>
+                <div className="r-home-event-article-img-div">
+                  <div className="r-home-event-article-img-wrap1">
+                    <img className="r-home-event-article-img1" src={hanabi} />
+                  </div>
+                  <div className="r-home-event-article-img-wrap2">
+                    <img className="r-home-event-article-img2" src={star} />
+                  </div>
+                </div>
+              </div>
+              <div className="r-home-event-eventlist">
+                <ul className="r-home-event-eventlist-ul">
+                  <li className="r-home-event-eventlist-li">
+                    <div className="r-home-event-eventlist-img-wrap">
+                      <img className="r-home-event-eventlist-img" src={img} />
+                    </div>
+                    <div className="r-home-event-eventlist-info">
+                      <span className="r-home-event-eventlist-info-cate">
+                        穢土轉生
+                      </span>
+                      <p className="r-home-event-eventlist-info-time">
+                        12:00-13:00
+                      </p>
+                      <p className="r-home-event-eventlist-info-name">
+                        全食物利用 -水果酵釀
+                      </p>
+                    </div>
+                    <div className="r-home-event-event-list-link-wrap">
+                      <a href="#/" className="r-home-event-eventlist-li-link">
+                        詳細
+                      </a>
+                    </div>
+                  </li>
+                  <li className="r-home-event-eventlist-li">
+                    <div className="r-home-event-eventlist-img-wrap">
+                      <img className="r-home-event-eventlist-img" src={img} />
+                    </div>
+                    <div className="r-home-event-eventlist-info">
+                      <span className="r-home-event-eventlist-info-cate">
+                        穢土轉生
+                      </span>
+                      <p className="r-home-event-eventlist-info-time">
+                        12:00-13:00
+                      </p>
+                      <p className="r-home-event-eventlist-info-name">
+                        全食物利用 -水果酵釀
+                      </p>
+                    </div>
+                    <div className="r-home-event-event-list-link-wrap">
+                      <a href="#/" className="r-home-event-eventlist-li-link">
+                        詳細
+                      </a>
+                    </div>
+                  </li>
+                  <li className="r-home-event-eventlist-li">
+                    <div className="r-home-event-eventlist-img-wrap">
+                      <img className="r-home-event-eventlist-img" src={img} />
+                    </div>
+                    <div className="r-home-event-eventlist-info">
+                      <span className="r-home-event-eventlist-info-cate">
+                        穢土轉生
+                      </span>
+                      <p className="r-home-event-eventlist-info-time">
+                        12:00-13:00
+                      </p>
+                      <p className="r-home-event-eventlist-info-name">
+                        全食物利用 -水果酵釀
+                      </p>
+                    </div>
+                    <div className="r-home-event-event-list-link-wrap">
+                      <a href="#/" className="r-home-event-eventlist-li-link">
+                        詳細
+                      </a>
+                    </div>
+                  </li>
+                  <li className="r-home-event-eventlist-li">
+                    <div className="r-home-event-eventlist-img-wrap">
+                      <img className="r-home-event-eventlist-img" src={img} />
+                    </div>
+                    <div className="r-home-event-eventlist-info">
+                      <span className="r-home-event-eventlist-info-cate">
+                        穢土轉生
+                      </span>
+                      <p className="r-home-event-eventlist-info-time">
+                        12:00-13:00
+                      </p>
+                      <p className="r-home-event-eventlist-info-name">
+                        全食物利用 -水果酵釀
+                      </p>
+                    </div>
+                    <div className="r-home-event-event-list-link-wrap">
+                      <a href="#/" className="r-home-event-eventlist-li-link">
+                        詳細
+                      </a>
+                    </div>
+                  </li>
+                  <li className="r-home-event-eventlist-li">
+                    <div className="r-home-event-eventlist-img-wrap">
+                      <img className="r-home-event-eventlist-img" src={img} />
+                    </div>
+                    <div className="r-home-event-eventlist-info">
+                      <span className="r-home-event-eventlist-info-cate">
+                        穢土轉生
+                      </span>
+                      <p className="r-home-event-eventlist-info-time">
+                        12:00-13:00
+                      </p>
+                      <p className="r-home-event-eventlist-info-name">
+                        全食物利用 -水果酵釀
+                      </p>
+                    </div>
+                    <div className="r-home-event-event-list-link-wrap">
+                      <a href="#/" className="r-home-event-eventlist-li-link">
+                        詳細
+                      </a>
+                    </div>
+                  </li>
+                  <li className="r-home-event-eventlist-li">
+                    <div className="r-home-event-eventlist-img-wrap">
+                      <img className="r-home-event-eventlist-img" src={img} />
+                    </div>
+                    <div className="r-home-event-eventlist-info">
+                      <span className="r-home-event-eventlist-info-cate">
+                        穢土轉生
+                      </span>
+                      <p className="r-home-event-eventlist-info-time">
+                        12:00-13:00
+                      </p>
+                      <p className="r-home-event-eventlist-info-name">
+                        全食物利用 -水果酵釀
+                      </p>
+                    </div>
+                    <div className="r-home-event-event-list-link-wrap">
+                      <a href="#/" className="r-home-event-eventlist-li-link">
+                        詳細
+                      </a>
+                    </div>
+                  </li>
+                  <li className="r-home-event-eventlist-li">
+                    <div className="r-home-event-eventlist-img-wrap">
+                      <img className="r-home-event-eventlist-img" src={img} />
+                    </div>
+                    <div className="r-home-event-eventlist-info">
+                      <span className="r-home-event-eventlist-info-cate">
+                        穢土轉生
+                      </span>
+                      <p className="r-home-event-eventlist-info-time">
+                        12:00-13:00
+                      </p>
+                      <p className="r-home-event-eventlist-info-name">
+                        全食物利用 -水果酵釀
+                      </p>
+                    </div>
+                    <div className="r-home-event-event-list-link-wrap">
+                      <a href="#/" className="r-home-event-eventlist-li-link">
+                        詳細
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="r-home-event-titlebox">
+              <p className="r-home-event-titlebox-p">Event New</p>
+              <p className="r-home-event-titlebox-p">最新活動</p>
             </div>
           </div>
         </section>
