@@ -11,9 +11,7 @@ function ProductFilter() {
   //使用者勾選種類checkbox
   const [choice, setchoice] = useState([]);
   //使用者勾選sideBar
-  const [productFilter, setProductFilter] = useState(['']);
-  //後端api
-  
+  const [productFilter, setProductFilter] = useState([""]);
 
   async function getFilter(categoriesString) {
     try {
@@ -29,13 +27,13 @@ function ProductFilter() {
   }
 
   //searchBar
-  const [inputValue, setInputValue] = '';
+  const [inputValue, setInputValue] = "";
   const sideBarOptions = [
-    '5折以下',
-    '庫存告急',
-    '100元以下',
-    '50元以下',
-    '評分5顆星',
+    "5折以下",
+    "庫存告急",
+    "100元以下",
+    "50元以下",
+    "評分5顆星",
   ];
 
   const checkboxClick = (e) => {
@@ -55,17 +53,17 @@ function ProductFilter() {
     getFilter();
   }, []);
 
-  const handleSendFilter = ()=>{
+  const handleSendFilter = () => {
     const searchParam = new URLSearchParams();
-    
-    const categoryString = choice.reduce((acc, cur)=>{
-      return acc + `${cur},`
-    },'')
+
+    const categoryString = choice.reduce((acc, cur) => {
+      return acc + `${cur},`;
+    }, "");
     // const sids = categoryString.substring(0,categoryString.length-1)
 
-    searchParam.append('category_sid', choice)
+    searchParam.append("category_sid", choice);
     getFilter(searchParam.toString());
-  }
+  };
 
   return (
     <>
@@ -87,10 +85,6 @@ function ProductFilter() {
         </div>
         {/* ProductFilter */}
         <div className="a-productFilterWrapper">
-          {/* SideBar */}
-          <div className="a-aladdinWrapper">
-            <img src="/04-product/svg/aladin.png" alt="" />
-          </div>
           <div className="a-searchBarWrapper">
             {sideBarOptions.map((v, i) => {
               return (
@@ -160,17 +154,6 @@ function ProductFilter() {
             </div>
           </div>
           <button onClick={handleSendFilter}>Do Filter</button>
-
-          {/* ProductCard */}
-          <div className="a-filterProudctWrapper">
-            <div className="a-filterImgWrapper">
-              <img src="/04-product/img/10003.jpg" alt="" />
-            </div>
-            <h2 className="a-filterProudctName">麵包</h2>
-            <p className="a-filterText">100元</p>
-            <p className="a-filterText">折</p>
-            <p className="a-filterText">剩餘數量</p>
-          </div>
         </div>
       </div>
     </>

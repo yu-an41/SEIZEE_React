@@ -19,7 +19,7 @@ function ProductDetail() {
     checkList,
     handleClick,
   } = useContext(CollectContext);
-  
+
   //接收父層sid
   const { sid } = useParams();
   //detailData
@@ -180,7 +180,6 @@ function ProductDetail() {
                       type="text"
                       value={qty ? qty : ""}
                       onChange={(q) => {
-                        //保持state資料類型一致是數字
                         let a = q.target.value;
                         if (a > details.inventory_qty) {
                           setQty(details.inventory_qty);

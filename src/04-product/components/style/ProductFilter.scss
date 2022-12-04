@@ -23,21 +23,10 @@ $main-border-radius: 8px;
   align-items: center;
 }
 
+//CategoryFilter
 .a-productFilterWrapper {
 display: flex;
 justify-content: center;
-
-// ProductCard
-.a-filterProudctName {
-  color: $main-blue;
-  font-size: 20px;
-  font-weight: 400;
-}
-.a-filterText {
-  color: $main-blue;
-  font-size: 18px;
-}
-
 .a-category {
   @extend %a-flex;
   .a-categoryWrapper {
@@ -83,36 +72,89 @@ justify-content: center;
     }
   }
 }
-// seachBar
-.a-searchBarWrapper {
-  margin: 50px 50px 0 30px;
-  width: 200px;
-  height: 400px;
-  background-color: $main-yellow;
-  border-radius: 8px;
-  position: relative;
 }
-.a-aladdinWrapper {
-  width: 120px;
-  position: absolute;
-  top: -70px;
-  left: 10px;
-  img {
-    width: 100%;
+
+// searchBar
+.a-sideBarWrapper{
+  .a-searchBarWrapper {
+    margin: 50px 50px 0 30px;
+    width: 200px;
+    height: 400px;
+    background-color: $main-yellow;
+    border-radius: 8px;
+    // position: relative;
   }
-}
-.a-filterImgWrapper {
+  .a-aladdinWrapper {
+    width: 100px;
+    overflow: hidden;
+    // position: absolute;
+    // top: -30px;
+    // left: 10px;
+    .a-aladdinWrapper img {
+      width: 100%;
+      object-fit: cover;
+    }
+    
+  }
+  }
+  // seachBar
+.a-sideBarWrapper{
+  display: flex;
+  .a-aladdinWrapper {
+    width: 200px;
+    // overflow: hidden;
+    // position: absolute;
+    // top: -30px;
+    // left: 10px;
+    .a-aladdinWrapper img {
+      width: 100%;
+      // object-fit: cover;
+    }
+    .a-searchBarWrapper {
+      margin: 50px 50px 0 30px;
+      width: 200px;
+      height: 800px;
+      background-color: $main-yellow;
+      border-radius: 8px;
+      // position: relative;
+    }
+  }
+  }
+// ProductCard
+.a-filterProductCard {
+display: flex;
+flex-wrap: wrap;
+width: 800px;
+.a-filterProudctWrapper {
   width: 150px;
-  height: 150px;
-  overflow: hidden;
-  border-radius: 8px;
-  border: 3px solid $secondary-blue;
-  img {
-    width: 100%;
-    object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  .a-filterImgWrapper {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 3px solid $secondary-blue;
+    img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
   }
-
-
+  .a-filterProudctName {
+    color: $main-blue;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+  }
+  .a-filterTextWrapper {
+    display: flex;
+    justify-content: center;
+    .a-filterText {
+      color: $main-blue;
+      font-size: 16px;
+    }
+  }
+  
 }
 }
-
