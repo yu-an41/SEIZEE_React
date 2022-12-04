@@ -4,9 +4,13 @@ $s-padding-top: 100px;
 .s-body-profile {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
+  // min-height: 100vh;
+  // overflow: scroll;
+  // overflow-x: hidden;
   // background-color: red;
+  position: relative;
+
+  // border: 1px solid green;
 
   .s-container {
     height: calc(100vh - $s-footer-height);
@@ -18,7 +22,7 @@ $s-padding-top: 100px;
     .s-upt-navigation {
       // position: fixed;
       width: 650px;
-      height: 100%;
+      height: 100vh;
       background: #fad249;
       transition: 0.5s;
       overflow: hidden;
@@ -40,6 +44,7 @@ $s-padding-top: 100px;
 
           .s-upt-h4 {
             margin: 10px 0;
+            font-size: 15px;
           }
 
           .s-upt-item {
@@ -100,7 +105,7 @@ $s-padding-top: 100px;
         background: #fad249;
         // transition: 0.5s;
         overflow: hidden;
-        z-index: 2;
+        z-index: 5;
 
         // border: 1px solid red;
 
@@ -145,7 +150,7 @@ $s-padding-top: 100px;
     @media (max-width: 991px) {
       .s-upt-toggle {
         position: fixed;
-        bottom: $s-footer-height;
+        bottom: 0px;
         // top: 0;
         width: 60px;
         height: 60px;
@@ -153,7 +158,7 @@ $s-padding-top: 100px;
         cursor: pointer;
         transform: scale(0.5);
         transition: 0.5s;
-        z-index: 3;
+        z-index: 6;
       }
 
       .s-upt-toggle:before {
@@ -166,6 +171,8 @@ $s-padding-top: 100px;
         text-align: center;
         font-size: 24px;
         color: #fff;
+
+        // border: 1px solid red;
       }
 
       .s-upt-toggle.s-upt-active {
@@ -184,14 +191,14 @@ $s-padding-top: 100px;
     .s-main-content {
       // overflow: scroll;
       margin-left: 25px;
-      margin-right: 470px;
+      // margin-right: 470px;
       width: 40%;
       height: 100%;
       padding-top: $s-padding-top;
       position: absolute;
       left: 750px;
 
-      border: 1px solid red;
+      // border: 1px solid red;
       // background-color: red;
     }
 
@@ -204,14 +211,27 @@ $s-padding-top: 100px;
       }
     }
   }
+}
 
-  .s-footer {
-    height: $s-footer-height;
-    bottom: 0;
-    position: fixed;
-    width: 100%;
-    background-color: #2b325c;
+@media (max-width: 991px) {
+  .s-body-profile {
+    // overflow: scroll;
+    // padding-top: 1110px;
 
-    z-index: 4;
+    .s-container {
+      margin-bottom: 400px;
+    }
+
+    .s-footer {
+      // height: $s-footer-height;
+      // top: 1110px;
+      // position: absolute;
+      // padding-top: 1110px;
+
+      // width: 100%;
+      // background-color: #2b325c;
+
+      // z-index: 4;
+    }
   }
 }

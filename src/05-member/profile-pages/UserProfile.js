@@ -8,6 +8,7 @@ import { PROFILE, imgServerUrl } from '../../my-config'
 import dayjs from 'dayjs'
 import AuthContext from '../../contexts/AuthContext'
 import Navbar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function UserProfile() {
   // -----取得sid-----
@@ -126,7 +127,10 @@ function UserProfile() {
             </div>
           </div>
         </div>
-        <div className="s-footer"></div>
+        <Footer />
+        {/* <div className="s-footer">
+          <Footer />
+        </div> */}
       </div>
     </>
   )

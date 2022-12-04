@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
 import '.././style/profile-pages/LikesProduct.scss'
 import LikeLabels from '../components/LikeLabels'
+import Navbar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function LikesProduct() {
   return (
     <>
       <div className="s-body-profile">
         <div className="s-container">
+          <Navbar />
           <UserProfileTmp />
           <div className="s-main-content">
             <div className="s-l-p">
@@ -43,7 +46,7 @@ function LikesProduct() {
             </div>
           </div>
         </div>
-        <div className="s-footer"></div>
+        <Footer />
       </div>
     </>
   )

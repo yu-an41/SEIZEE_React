@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
+import Navbar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function Activities() {
   return (
     <>
       <div className="s-body-profile">
         <div className="s-container">
+          <Navbar />
           <UserProfileTmp />
           <div className="s-main-content">
             <div className="s-l">
@@ -46,7 +49,7 @@ function Activities() {
             </div>
           </div>
         </div>
-        <div className="s-footer"></div>
+        <Footer />
       </div>
     </>
   )

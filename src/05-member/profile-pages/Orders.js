@@ -8,6 +8,8 @@ import axios from 'axios'
 import { PROFILE_ORDERS, PROFILE_ORDERS_DETAILS } from '../../my-config'
 import dayjs from 'dayjs'
 import ReactLoading from 'react-loading'
+import Navbar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function Orders() {
   // 訂單數
@@ -89,6 +91,7 @@ function Orders() {
     <>
       <div className="s-body-profile">
         <div className="s-container">
+          <Navbar />
           <UserProfileTmp />
           <div className="s-main-content">
             <div className="s-o">
@@ -250,7 +253,7 @@ function Orders() {
             </div>
           </div>
         </div>
-        <div className="s-footer"></div>
+        <Footer />
       </div>
     </>
   )
