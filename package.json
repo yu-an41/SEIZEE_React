@@ -30,6 +30,7 @@
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.5",
     "react-leaflet": "^4.1.0",
+    "react-loading": "^2.0.3",
     "react-modal": "^3.16.1",
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^6.4.3",

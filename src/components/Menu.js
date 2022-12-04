@@ -73,14 +73,14 @@ function Menu() {
           </div>
           <div className="y-menu-content">
             <div className="y-menu-section y-menu-section-shop">
-              <p className="y-menu-section-title">
+              <div className="y-menu-section-title">
                 <div className="y-menu-section-icon">
                   <img src={ShopIcon} alt="icon" />
                 </div>
                 <a href="/shop" alt="merch_link">
                   美食快搜
                 </a>
-              </p>
+              </div>
               <ul className="y-menu-section-links y-shops-links">
                 <li>
                   <a href="/#" alt="merch_link">
@@ -115,14 +115,14 @@ function Menu() {
               </ul>
             </div>
             <div className="y-menu-section y-menu-section-forum">
-              <p className="y-menu-section-title">
+              <div className="y-menu-section-title">
                 <div className="y-menu-section-icon">
                   <img src={ForumIcon} alt="icon" />
                 </div>
                 <a href="/forum/" alt="merch_link">
                   聊聊惜食
                 </a>
-              </p>
+              </div>
               <ul className="y-menu-section-links y-forum-links">
                 <li>
                   <a href="/#" alt="forum_link">
@@ -147,14 +147,14 @@ function Menu() {
               </ul>
             </div>
             <div className="y-menu-section y-menu-section-event">
-              <p className="y-menu-section-title">
+              <div className="y-menu-section-title">
                 <div className="y-menu-section-icon">
                   <img src={EventIcon} alt="icon" />
                 </div>
                 <a href="/Eventrender" alt="event_link">
                   找點樂子
                 </a>
-              </p>
+              </div>
               <ul className="y-menu-section-links y-event-links">
                 <li>
                   <a href="/#" alt="event_link">
@@ -184,14 +184,14 @@ function Menu() {
               </ul>
             </div>
             <div className="y-menu-section y-menu-section-member">
-              <p className="y-menu-section-title">
+              <div className="y-menu-section-title">
                 <div className="y-menu-section-icon">
                   <img src={MemberIcon} alt="icon" />
                 </div>
                 <a href="/#" alt="event_link">
                   戰士專區
                 </a>
-              </p>
+              </div>
               <ul className="y-menu-section-links y-event-links">
                 <li>
                   <a href="/#" alt="event_link">
@@ -216,14 +216,14 @@ function Menu() {
               </ul>
             </div>
             <div className="y-menu-section y-menu-section-seizee">
-              <p className="y-menu-section-title">
+              <div className="y-menu-section-title">
                 <div className="y-menu-section-icon">
                   <img src={SeizeeIcon} alt="icon" />
                 </div>
                 <a href="/#" alt="event_link">
                   了解SEIZEE
                 </a>
-              </p>
+              </div>
               <ul className="y-menu-section-links y-seizee-links">
                 <li>
                   <a href="/#" alt="about">
