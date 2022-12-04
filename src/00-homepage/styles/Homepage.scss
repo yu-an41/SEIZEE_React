@@ -535,6 +535,9 @@ $main-border-radius: 8px;
                 align-items: center;
                 .r-home-event-eventlist-img {
                   width: 100%;
+                  object-fit: cover;
+                  object-position: 50% 50%;
+                  padding: 0;
                 }
               }
               .r-home-event-eventlist-info {
@@ -556,9 +559,10 @@ $main-border-radius: 8px;
                   margin: 0;
                   padding-top: 10px;
                   letter-spacing: 0.1rem;
-                  font-size: 16px;
+                  font-size: 20px;
                   display: flex;
                   flex-wrap: wrap;
+                  line-height: 20px;
                 }
               }
               .r-home-event-event-list-link-wrap {

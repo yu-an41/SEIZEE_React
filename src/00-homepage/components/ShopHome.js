@@ -2,7 +2,7 @@ import '../styles/ShopHome.scss'
 import '../../00-homepage/styles/YellowWave.scss'
 import YellowWave from './YellowWave'
 import ShopHcard from './ShopHcard'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { toppings } from '../toppings'
 
