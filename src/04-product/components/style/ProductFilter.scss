@@ -27,6 +27,17 @@ $main-border-radius: 8px;
 display: flex;
 justify-content: center;
 
+// ProductCard
+.a-filterProudctName {
+  color: $main-blue;
+  font-size: 20px;
+  font-weight: 400;
+}
+.a-filterText {
+  color: $main-blue;
+  font-size: 18px;
+}
+
 .a-category {
   @extend %a-flex;
   .a-categoryWrapper {
@@ -54,6 +65,10 @@ justify-content: center;
             width: 80px;
             object-fit: cover;
           }
+          .a-categoryIconWrapper {
+            display: flex;
+            justify-content: c;
+          }
           .a-categoryInput {
             display: none;
             background-color: transparent;
@@ -68,6 +83,7 @@ justify-content: center;
     }
   }
 }
+// seachBar
 .a-searchBarWrapper {
   margin: 50px 50px 0 30px;
   width: 200px;
@@ -95,5 +111,8 @@ justify-content: center;
     width: 100%;
     object-fit: cover;
   }
+
+
 }
 }
+

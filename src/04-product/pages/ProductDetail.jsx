@@ -11,8 +11,15 @@ import YellowWave from "../../00-homepage/components/YellowWave";
 import YellowWave2 from "../components/YellowWave2";
 
 function ProductDetail() {
-  const { collection, setCollection, delCollect, addCollect, handleClick } =
-    useContext(CollectContext);
+  const {
+    collection,
+    setCollection,
+    delCollect,
+    addCollect,
+    checkList,
+    handleClick,
+  } = useContext(CollectContext);
+  
   //接收父層sid
   const { sid } = useParams();
   //detailData

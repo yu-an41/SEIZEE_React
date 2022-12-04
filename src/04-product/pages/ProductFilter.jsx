@@ -8,15 +8,17 @@ import ReactStars from "react-rating-stars-component";
 function ProductFilter() {
   //種類data
   const [filterList, setFilterList] = useState([]);
-  //使用者勾選篩選checkbox結果
+  //使用者勾選種類checkbox
   const [choice, setchoice] = useState([]);
+  //使用者勾選sideBar
+  const [productFilter, setProductFilter] = useState(['']);
   //後端api
-  const searchParam = new URLSearchParams();
+  
 
-  async function getFilter() {
+  async function getFilter(categoriesString) {
     try {
       const response = await axios.get(
-        ` http://localhost:3004/product/category?category_sid`
+        ` http://localhost:3004/product/category?${categoriesString}`
       );
       // console.log(data);
       const categoryData = response.data.category_rows;
@@ -27,13 +29,13 @@ function ProductFilter() {
   }
 
   //searchBar
-  const [inputValue, setInputValue] = "";
+  const [inputValue, setInputValue] = '';
   const sideBarOptions = [
-    "5折以下",
-    "庫存告急",
-    "100元以下",
-    "50元以下",
-    "評分5顆星",
+    '5折以下',
+    '庫存告急',
+    '100元以下',
+    '50元以下',
+    '評分5顆星',
   ];
 
   const checkboxClick = (e) => {
@@ -52,6 +54,18 @@ function ProductFilter() {
   useEffect(() => {
     getFilter();
   }, []);
+
+  const handleSendFilter = ()=>{
+    const searchParam = new URLSearchParams();
+    
+    const categoryString = choice.reduce((acc, cur)=>{
+      return acc + `${cur},`
+    },'')
+    // const sids = categoryString.substring(0,categoryString.length-1)
+
+    searchParam.append('category_sid', choice)
+    getFilter(searchParam.toString());
+  }
 
   return (
     <>
@@ -73,13 +87,31 @@ function ProductFilter() {
         </div>
         {/* ProductFilter */}
         <div className="a-productFilterWrapper">
-        
           {/* SideBar */}
           <div className="a-aladdinWrapper">
             <img src="/04-product/svg/aladin.png" alt="" />
           </div>
           <div className="a-searchBarWrapper">
-            
+            {sideBarOptions.map((v, i) => {
+              return (
+                <div key={i} className="a-sideBarOptionsWrapper">
+                  {/* <input
+                    type="checkbox"
+                    className="a-sideBarInput"
+                    checked={productFilter.includes(v)}
+                    value={v}
+                    onChange={(e) => 
+                      const productValue = e.target.value
+                      if (productFilter.includes(productValue)) {
+                        const newproductValue = productFilter.filter (
+                          () 
+                        )
+                      }
+
+                  /> */}
+                </div>
+              );
+            })}
           </div>
           {/* <input
             className="a-searchInput"
@@ -99,14 +131,6 @@ function ProductFilter() {
                       htmlFor={`a-categoryCheckBox${filter.sid}`}
                       key={filter.sid}
                     >
-                      <input
-                        className="a-categoryInput"
-                        type="checkbox"
-                        id={`a-categoryCheckBox${filter.sid}`}
-                        name="cate"
-                        value={filter.sid}
-                        onChange={checkboxClick}
-                      />
                       <span className="a-iconSpan">
                         <div className="a-iconWrapper">
                           <img
@@ -115,9 +139,19 @@ function ProductFilter() {
                             alt=""
                           />
                         </div>
-                        <h2 className="a-categoryName">
-                          {filter.category_name}
-                        </h2>
+                        <div className="a-categoryIconWrapper">
+                          <input
+                            className="a-categoryInput"
+                            type="checkbox"
+                            id={`a-categoryCheckBox${filter.sid}`}
+                            name="cate"
+                            value={filter.sid}
+                            onChange={checkboxClick}
+                          />
+                          <h2 className="a-categoryName">
+                            {filter.category_name}
+                          </h2>
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -125,15 +159,17 @@ function ProductFilter() {
               })}
             </div>
           </div>
+          <button onClick={handleSendFilter}>Do Filter</button>
+
           {/* ProductCard */}
           <div className="a-filterProudctWrapper">
             <div className="a-filterImgWrapper">
               <img src="/04-product/img/10003.jpg" alt="" />
             </div>
             <h2 className="a-filterProudctName">麵包</h2>
-            <p className="a-filterProudctPrice">100元</p>
-            <p className="a-filterProudctDiscount">折</p>
-            <p className="a-filterProudctQty">剩餘數量</p>
+            <p className="a-filterText">100元</p>
+            <p className="a-filterText">折</p>
+            <p className="a-filterText">剩餘數量</p>
           </div>
         </div>
       </div>

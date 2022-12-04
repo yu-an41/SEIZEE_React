@@ -15,6 +15,7 @@ function ProductCard({ product }) {
     setCollectionNum,
     addCollect,
     delCollect,
+    checkList,
     handleClick,
   } = useContext(CollectContext);
 // console.log(collection);

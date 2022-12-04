@@ -27,10 +27,10 @@ function ProductList() {
       );
       console.log("this is reponse:", response);
       const Pdata = response.data.product_rows;
-      const Sdata = response.data.shop;
+      // const Sdata = response.data.shop;
       setAllProduct(Pdata);
-      setShopData(Sdata);
-      console.log(Sdata);
+      // setShopData(Sdata);
+      // console.log(Sdata);
     } catch (e) {
       console.error("this is e-message:", e.message);
       setErrorMessage(e.message);
