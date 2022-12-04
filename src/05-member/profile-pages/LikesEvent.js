@@ -19,7 +19,7 @@ function LikesEvent() {
                     <div className="s-l-e-line"></div>
                     <div className="s-l-e-items">
                       <h3 className="s-l-e-question">訂單日期</h3>
-                      <span className="s-l-e-answer">aa</span>
+                      <span className="s-l-e-answer">event</span>
                     </div>
                     <div className="s-l-e-items">
                       <h3 className="s-l-e-question">訂單編號</h3>

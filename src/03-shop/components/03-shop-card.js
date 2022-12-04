@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from 'react'
 import { imgUrl, imgServerUrl } from '../shop-config'
 // import axios from 'axios'
 import './../styles/03-shop-card.scss'
-import { Box, Skeleton } from '@mui/material'
+import { Skeleton } from '@mui/material'
 import IsLovedContext from '../../contexts/03-shop-loveContext.js'
 // import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -388,7 +388,7 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                         <i
                           className="fa-solid fa-heart"
                           onClick={() => {
-                            handleClickLove(v.rows.sid)
+                            handleClickLove(v[0].sid)
                           }}
                         ></i>
                       )}

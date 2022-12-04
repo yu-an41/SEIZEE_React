@@ -49,11 +49,6 @@ $base-line-eight: 10px;
 $main-border: 3px solid #113F75;
 $main-border-radius: 8px;
 
-%a-flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 * {
   box-sizing: border-box;
@@ -133,77 +128,77 @@ $main-border-radius: 8px;
   }
 
   .y-section-search {
-    .r-shop-home-container {
-      background: url(./../../../public/03-shop-img/food_cola_s_01.png) 290px
-          120px/13% no-repeat,
-        url(./../../../public/03-shop-img/food_ramen_01.png) 150px 60px/15%
-          no-repeat,
-        url(./../../../public/03-shop-img/food_pizza_01.png) 220px 340px/15%
-          no-repeat,
-        url(./../../../public/03-shop-img/food_french_fries_01.png) 30px 580px/20%
-          no-repeat;
+    // .r-shop-home-container {
+    //   background: url(./../../../public/03-shop-img/food_cola_s_01.png) 290px
+    //       120px/13% no-repeat,
+    //     url(./../../../public/03-shop-img/food_ramen_01.png) 150px 60px/15%
+    //       no-repeat,
+    //     url(./../../../public/03-shop-img/food_pizza_01.png) 220px 340px/15%
+    //       no-repeat,
+    //     url(./../../../public/03-shop-img/food_french_fries_01.png) 30px 580px/20%
+    //       no-repeat;
 
-      .r-shop-home-main {
-        padding: 60px 0;
-        display: flex;
-        .r-shop-home-main-inner {
-          display: flex;
-          align-items: center;
-          .r-shop-home-main-text {
-            width: 100%;
-            max-width: 240px;
-            margin-left: 30px;
-            p {
-              font-size: 24px;
-              font-weight: 700;
-              letter-spacing: 0.2rem;
-              line-height: 2rem;
-              padding-bottom: 20px;
-            }
-            span {
-              font-size: 20px;
-              font-weight: 700;
-              letter-spacing: 0.2rem;
-              color: $main-text;
-            }
-          }
-          .r-shop-home-main-btn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 45px;
-            border: $border-sm;
-            border-radius: 10px;
-            margin-top: 40px;
-            padding: 0 12px;
-            box-shadow: 10px 5px 0 $main-Blue;
-            input {
-              font-size: 16px;
-              border: none;
-              outline: none;
-            }
-            input:focus {
-              outline-style: none;
-            }
-            a {
-              text-decoration: none;
-              i {
-                font-size: 20px;
-                color: $main-blue;
-              }
-            }
-          }
-        }
-        .r-shop-home-main-visual {
-          display: none;
-          width: 30%;
-          height: 120px;
-          background: url('./../../../public/03-shop-img/potato.png') 50% 50%/cover
-            no-repeat;
-          margin-top: 40px;
-        }
-      }
-    }
+    //   .r-shop-home-main {
+    //     padding: 60px 0;
+    //     display: flex;
+    //     .r-shop-home-main-inner {
+    //       display: flex;
+    //       align-items: center;
+    //       .r-shop-home-main-text {
+    //         width: 100%;
+    //         max-width: 240px;
+    //         margin-left: 30px;
+    //         p {
+    //           font-size: 24px;
+    //           font-weight: 700;
+    //           letter-spacing: 0.2rem;
+    //           line-height: 2rem;
+    //           padding-bottom: 20px;
+    //         }
+    //         span {
+    //           font-size: 20px;
+    //           font-weight: 700;
+    //           letter-spacing: 0.2rem;
+    //           color: $main-text;
+    //         }
+    //       }
+    //       .r-shop-home-main-btn {
+    //         display: flex;
+    //         justify-content: space-between;
+    //         align-items: center;
+    //         height: 45px;
+    //         border: $border-sm;
+    //         border-radius: 10px;
+    //         margin-top: 40px;
+    //         padding: 0 12px;
+    //         box-shadow: 10px 5px 0 $main-Blue;
+    //         input {
+    //           font-size: 16px;
+    //           border: none;
+    //           outline: none;
+    //         }
+    //         input:focus {
+    //           outline-style: none;
+    //         }
+    //         a {
+    //           text-decoration: none;
+    //           i {
+    //             font-size: 20px;
+    //             color: $main-blue;
+    //           }
+    //         }
+    //       }
+    //     }
+    //     .r-shop-home-main-visual {
+    //       display: none;
+    //       width: 30%;
+    //       height: 120px;
+    //       background: url('./../../../public/03-shop-img/potato.png') 50% 50%/cover
+    //         no-repeat;
+    //       margin-top: 40px;
+    //     }
+    //   }
+    // }
   }
 
   .y-section-merch {
@@ -407,7 +402,9 @@ $main-border-radius: 8px;
       border-radius: $main-border-radius;
       width: 170px;
       height: 50px;
-      @extend %a-flex
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
   }
@@ -418,141 +415,184 @@ $main-border-radius: 8px;
 
   .y-section-event {
     background-color: $main-yellow;
-    padding-bottom: 20px;
+    padding: 20px 0;
 
-    @function line($count:1) {
-      @return $base-line-eight * $count;
-    }
-    %a-flex {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-      %h1 {
-          font-size: 48px;
-      }
-      %h2 {
-          font-size: 36px;
-      }
-      %h3 {
-          font-size: 20px;
-          color: #2B325C;
-          font-weight: 500;
-      }
-      %h4 {
-          font-size: 18px;
-      }
-      %p{
-          font-size: 16px;
-      }
-    img {
-      padding-top: 20px;
-    }
-    
-    .a-eventBanner {
-    display: flex;
-    justify-content: center;
-    .a-eventWrapper {
-      width: 800px;
-      background-color: $secondary-blue;
-      display: flex;
-      justify-content: center;
+    .r-home-event-container {
+      width: 50%;
+      margin: 50px auto;
       position: relative;
-        .a-newEvent {
-          background-color: $secondary-yellow;
-          border-radius: $main-border-radius;
-          width: 170px;
-          height: 50px;
-          @extend %a-flex;
-          position: absolute;
-          top: 0;
-          left: -30px;
-          z-index: 1;
-        }
-        .a-eventText {
-          width: 140px;
-          margin-top: line(6.5);
-          .a-whatFun {
-            color: #fff;
-            font-weight: 900;
-            letter-spacing: 3px; 
-          }
-        }
-      .a-eventContent {
-        @extend %a-flex;
-        background-color: #fff;
-        height: 230px;
-        margin: 20px 5px 20px 0;
-      .a-calendarWrapper {
-        @extend %a-flex;
-        flex-direction: column;
-        background-color: $text-shadow;
-        width: 150px;
-        height: 180px;
-        margin-left: 10px;
-        .a-imgWrapper img{
-          width: 43px;
-          margin: 0 0 5px 0;
-          padding: 0;
-        }
-        .a-dateWrapper {
+      .r-home-event-titlebox {
+        position: absolute;
+        top: 30px;
+        left: -30px;
+        background-color: rgb(255, 231, 170);
+        border-radius:10px;
+        width: 30%;
+        height: 80px;
+        padding-top: 35px;
+        // text-align: center;
+        .r-home-event-titlebox-p {
+          font-size: 30px;
+          font-weight: 700;
           text-align: center;
+        }
+      }
+      .r-home-event-main-visual {
+        background-color: $main-Blue;
+        display: flex;
+        justify-content: space-between;
+        padding: 30px;
+        .r-home-event-article-wrap {
+          width: 20%;
           display: flex;
           flex-direction: column;
-          width: 100px;
-          height: 90px;
-          color: $main-blue;
+          justify-content: flex-end;
+          .r-home-event-article {
+            color: #fff;
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0;
+            padding: 20px 0;
+            line-height: 6rem;
+            letter-spacing: .1rem;
+          }
+          .r-home-event-article-img-div {
+            display: flex;
+            .r-home-event-article-img-wrap1 {
+              width: 80px;
+              height: 80px;
+              .r-home-event-article-img1 {
+                width: 100%;
+                transform: rotate(-30deg);
+              }
+            }
+            .r-home-event-article-img-wrap2 {
+              width: 80px;
+              height: 80px;
+              .r-home-event-article-img2 {
+                width: 80%;
+              }
+            }
+          }
+        }
+    
+        .r-home-event-eventlist {
           background-color: #fff;
-          border-radius: $main-border-radius;
+          width: 70%;
+          padding: 10px;
+          display: flex;
+          .r-home-event-calendar{
+            width: 20%;
+            height: 100%;
+            background-color: #ccc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .r-home-event-calendar-img-wrap{
+              text-align: center;
+              padding-bottom: 20px;
+            }
+            .r-home-event-calendar-date{
+              background-color: #fff;
+              border-radius: 10px;
+              width: 80%;
+              height: 50%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              .r-home-event-calendar-date-month{
+                text-align: center;
+                padding-bottom: 20px;
+              }
+              .r-home-event-calendar-date-day{
+                font-size: 60px;
+                line-height: 60px;
+                font-weight: 700;
+                text-align: center;
+              }
+            }
+          }
+          .r-home-event-eventlist-ul {
+            width: 80%;
+            height: 250px;
+            list-style: none;
+            padding: 10px;
+            // margin-left: auto;
+            overflow-y: scroll;
+            .r-home-event-eventlist-li {
+              display: flex;
+              justify-content: space-between;
+              border-bottom: 3px dotted rgb(181, 181, 181);
+              padding: 10px;
+              .r-home-event-eventlist-img-wrap {
+                width: 100px;
+                height: 100px;
+                overflow: hidden;
+                border-radius: 8px;
+                display: flex;
+                // flex-direction: column;
+                // justify-content: center;
+                align-items: center;
+                .r-home-event-eventlist-img {
+                  width: 100%;
+                  object-fit: cover;
+                  object-position: 50% 50%;
+                  padding: 0;
+                }
+              }
+              .r-home-event-eventlist-info {
+                width: 50%;
+                padding-top: 5px;
+                .r-home-event-eventlist-info-cate {
+                  border: 1px solid #000;
+                  font-size: 16px;
+                }
+                .r-home-event-eventlist-info-time {
+                  margin: 0;
+                  padding-top: 10px;
+                  font-size: 16px;
+                  font-weight: 700;
+                  letter-spacing: 0.2rem;
+                }
+    
+                .r-home-event-eventlist-info-name {
+                  margin: 0;
+                  padding-top: 10px;
+                  letter-spacing: 0.1rem;
+                  font-size: 20px;
+                  display: flex;
+                  flex-wrap: wrap;
+                  line-height: 20px;
+                }
+              }
+              .r-home-event-event-list-link-wrap {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .r-home-event-eventlist-li-link {
+                  text-decoration: none;
+                  padding: 8px 15px;
+                  border-radius: 5px;
+                  background-color: #000;
+                  color: #fff;
+                  font-size: 18px;
+                }
+              }
+            }
+          }
+          .r-home-event-eventlist-ul::-webkit-scrollbar-track {
+            box-shadow: none;
+            border-radius: 0;
+          }
+          .r-home-event-eventlist-ul::-webkit-scrollbar-thumb {
+            background: $main-text;
+            border-radius: 10px;
+          }
+          .r-home-event-eventlist-ul::-webkit-scrollbar {
+            width: 8px;
+          }
         }
-        .a-month {
-          margin: 0;
-        }
-        .a-day {
-          @extend %h2;
-          margin: 0px;
-        }
       }
-      .a-eventContentWrapper {
-        display: flex;
-        flex-direction: column;
-      .a-event {
-        @extend %a-flex;
-        // height: 100px;
-      }
-      .a-eventDayWrapper h4 {
-        @extend %h4;
-        @extend %a-flex;
-        margin: 0px 8px;
-        color: $main-blue;
-      }
-      .a-eventImgWrapper {
-        width: 130px;
-        overflow: hidden;
-      }
-      .a-eventImgWrapper img {
-        width: 100%;
-        object-fit: cover;
-      }
-      .a-eventName h4{
-        @extend %h4;
-        margin: 3px;
-        color: $main-blue;
-      }
-      .a-eventButton {
-        width: 100px;
-        height: 40px;
-        @extend %a-flex;
-        background-color: $main-yellow;
-        color: $main-blue;
-        border: $main-border;
-        border-radius:$main-border-radius;
-        margin: 10px;
-      }
-    }
-    }
-    }
     }
   }
 

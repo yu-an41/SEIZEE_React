@@ -1,62 +1,55 @@
-import React from 'react'
-import './style/NewEvent.scss'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 
 function NewEvent() {
+  const [events, setEvents] = useState([])
+
+  const getEvents = async () => {
+    try {
+      const response = await axios.get(
+        'http://localhost:3004/home/event-banner'
+      )
+      // console.log(response.data.shop_c_rows)
+      const eventData = response.data.eventRows
+      //設定到state裡
+      setEvents(eventData)
+    } catch (e) {
+      // 錯誤處理
+      console.error(e.message)
+      // setErrorMessage(e.message)
+    }
+  }
+
+  // didMount時載入資料
+  useEffect(() => {
+    getEvents()
+  }, [])
+
+  // console.log(events)
   return (
     <>
-      <div class="a-eventBanner">
-        <div className="a-eventWrapper">
-          <h3 className="a-newEvent">最新活動</h3>
-          <div class="a-eventText">
-            <h1 className="a-whatFun">What's New Fun</h1>
-          </div>
-          <div className="a-eventContent">
-            <div className="a-calendarWrapper">
-              <div class="a-imgWrapper">
-                <img src="./svg/calendar.svg" alt="" />
-              </div>
-              <div class="a-dateWrapper">
-                <h2 className="a-month">Dec.</h2>
-                <h2 className="a-day">25</h2>
-              </div>
+      {events.map((v, i) => {
+        return (
+          <li className="r-home-event-eventlist-li" key={v.sid}>
+            <div className="r-home-event-eventlist-img-wrap">
+              <img
+                className="r-home-event-eventlist-img"
+                src={`/06-event-img/${v.img}`}
+              />
             </div>
-            <div class="a-eventContentWrapper">
-              <div className="a-event">
-                <div className="a-eventDayWrapper">
-                  <h4>Dec.</h4>
-                  <h4>25</h4>
-                </div>
-                <div class="a-eventImgWrapper">
-                  <img src="../../04-product/event.svg" alt="" />
-                </div>
-                <div className="a-eventName">
-                  <h4>劇場</h4>
-                  <h4>快對醜蔬果出手</h4>
-                </div>
-                <div className="a-eventButton">
-                  <h4>詳細</h4>
-                </div>
-              </div>
-              <div className="a-event">
-                <div className="a-eventDayWrapper">
-                  <h4>Dec.</h4>
-                  <h4>25</h4>
-                </div>
-                <div class="a-eventImgWrapper">
-                  <img src="../../04-product/calendar.svg" alt=""/>
-                </div>
-                <div className="a-eventName">
-                  <h4>劇場</h4>
-                  <h4>快對醜蔬果出手</h4>
-                </div>
-                <div className="a-eventButton">
-                  <h4>詳細</h4>
-                </div>
-              </div>
+            <div className="r-home-event-eventlist-info">
+              <span className="r-home-event-eventlist-info-cate">{v.nick}</span>
+              <p className="r-home-event-eventlist-info-time">{v.time}</p>
+              <p className="r-home-event-eventlist-info-name">{v.name}</p>
             </div>
-          </div>
-        </div>
-      </div>
+            <div className="r-home-event-event-list-link-wrap">
+              <a href="#/" className="r-home-event-eventlist-li-link">
+                詳細
+              </a>
+            </div>
+          </li>
+        )
+      })}
     </>
   )
 }
