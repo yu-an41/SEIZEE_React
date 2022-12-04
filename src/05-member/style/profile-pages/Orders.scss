@@ -84,7 +84,7 @@
         .s-mboNote2 {
           display: none;
         }
-        
+
         .s-mboNote2.s-o-active {
           display: block;
           cursor: pointer;
@@ -95,6 +95,13 @@
 
     .s-o-data-error {
       font-size: 24px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+      padding: 20px 0;
+      // box-shadow: (0 6px 4px #ffebbd76);
+      background-color: #ffffff;
     }
 
     .s-o-data-details-out {
@@ -183,6 +190,14 @@
 
       .s-o-data {
         width: 500px;
+
+        // border: 1px solid green;
+      }
+
+      .s-o-data-error {
+        font-size: 20px;
+
+        // border: 1px solid red;
       }
 
       .s-o-data-details-out {

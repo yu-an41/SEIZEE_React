@@ -5,7 +5,7 @@ import '../style/components/LikeLabels.scss'
 function LikeLabels() {
   const location = useLocation()
   let seg1 = location.pathname.split('/')[3]
-  console.log(seg1)
+  // console.log(seg1)
 
   const actives = {}
   actives[seg1] = {

@@ -7,7 +7,6 @@ import AuthContext from '../../contexts/AuthContext'
 import axios from 'axios'
 import { PROFILE_ORDERS, PROFILE_ORDERS_DETAILS } from '../../my-config'
 import dayjs from 'dayjs'
-import ReactLoading from 'react-loading'
 import Navbar from '../../components/NavBar'
 import Footer from '../../components/Footer'
 
@@ -99,9 +98,7 @@ function Orders() {
               <div className="s-o-card">
                 {/* orders */}
                 {mbTotalOrder === 0 ? (
-                  <div className="s-o-data s-o-data-error">
-                    {errorMbOrederMg}
-                  </div>
+                  <div className=" s-o-data-error">{errorMbOrederMg}</div>
                 ) : (
                   Array(mbTotalOrder)
                     .fill(mbOrderDisplay)
@@ -253,7 +250,9 @@ function Orders() {
             </div>
           </div>
         </div>
-        <Footer />
+        <div className="s-footer">
+          <Footer />
+        </div>
       </div>
     </>
   )

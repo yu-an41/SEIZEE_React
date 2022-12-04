@@ -49,7 +49,9 @@ function Activities() {
             </div>
           </div>
         </div>
-        <Footer />
+        <div className="s-footer">
+          <Footer />
+        </div>
       </div>
     </>
   )

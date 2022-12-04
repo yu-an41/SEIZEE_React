@@ -485,7 +485,9 @@ function UpdateInfo(props) {
             </div>
           </div>
         </div>
-        <Footer />
+        <div className="s-footer">
+          <Footer />
+        </div>
       </div>
 
       <ModalNotification

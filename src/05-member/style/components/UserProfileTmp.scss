@@ -22,7 +22,7 @@ $s-padding-top: 100px;
     .s-upt-navigation {
       // position: fixed;
       width: 650px;
-      height: 100vh;
+      height: 100%;
       background: #fad249;
       transition: 0.5s;
       overflow: hidden;
@@ -207,31 +207,18 @@ $s-padding-top: 100px;
         transform: translateX(-690px);
         margin-left: 10px;
         width: 80%;
-        height: 1110px;
+        height: 1000px;
       }
     }
   }
-}
 
-@media (max-width: 991px) {
-  .s-body-profile {
-    // overflow: scroll;
-    // padding-top: 1110px;
+  .s-footer {
+    display: block;
+  }
 
-    .s-container {
-      margin-bottom: 400px;
-    }
-
+  @media (max-width: 991px) {
     .s-footer {
-      // height: $s-footer-height;
-      // top: 1110px;
-      // position: absolute;
-      // padding-top: 1110px;
-
-      // width: 100%;
-      // background-color: #2b325c;
-
-      // z-index: 4;
+      display: none;
     }
   }
 }
