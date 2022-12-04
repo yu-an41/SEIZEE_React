@@ -45,7 +45,12 @@ import ResetPass from './05-member/ResetPass'
 import ForgotPass from './05-member/ForgotPass'
 import UserProfile from './05-member/profile-pages/UserProfile'
 import UpdateInfo from './05-member/profile-pages/UpdateInfo'
-import Likes from './05-member/profile-pages/Likes'
+
+import LikesProduct from './05-member/profile-pages/LikesProduct'
+import LikesShop from './05-member/profile-pages/LikesShop'
+import LikesForum from './05-member/profile-pages/LikesForum'
+import LikesEvent from './05-member/profile-pages/LikesEvent'
+
 import Activities from './05-member/profile-pages/Activities'
 import Orders from './05-member/profile-pages/Orders'
 
@@ -112,7 +117,10 @@ function App() {
                   <Route index path="" element={<UserProfile />} />
                   <Route path="update-info" element={<UpdateInfo />} />
                   <Route path="orders" element={<Orders />} />
-                  <Route path="likes" element={<Likes />} />
+                  <Route path="likes/product" element={<LikesProduct />} />
+                  <Route path="likes/shop" element={<LikesShop />} />
+                  <Route path="likes/forum" element={<LikesForum />} />
+                  <Route path="likes/event" element={<LikesEvent />} />
                   <Route path="activities" element={<Activities />} />
                 </Route>
 
