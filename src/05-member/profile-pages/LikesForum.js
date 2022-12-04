@@ -19,7 +19,7 @@ function LikesForum() {
                     <div className="s-l-f-line"></div>
                     <div className="s-l-f-items">
                       <h3 className="s-l-f-question">訂單日期</h3>
-                      <span className="s-l-f-answer">aa</span>
+                      <span className="s-l-f-answer">forum</span>
                     </div>
                     <div className="s-l-f-items">
                       <h3 className="s-l-f-question">訂單編號</h3>

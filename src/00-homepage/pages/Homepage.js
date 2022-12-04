@@ -6,8 +6,6 @@ import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
 // scss
 import './../styles/Homepage.scss'
 // import './../styles/AboutUs.scss'
-// import './../styles/NewEvent.scss'
-import './../styles/EventHomeBanner.scss'
 
 // components
 // import NavBar from '../components/NavBar'
@@ -29,8 +27,7 @@ import ShopHome from '../components/ShopHome'
 // import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
 // import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
 import img from '../images/01cover.jpg'
-import hanabi from '../images/hanabi_02.png'
-import star from '../images/other_glitter_02.png'
+// import calendar from '../../../public/04-product/svg/calendar.svg'
 
 function Homepage() {
   // miee's search and shop ------------------------------------
@@ -117,73 +114,21 @@ function Homepage() {
           <WhiteWave />
         </div>
         <section className="y-section y-section-event">
-          <div className="a-eventBanner">
-            <div className="a-eventWrapper">
-              <h3 className="a-newEvent">最新活動</h3>
-              <div className="a-eventText">
-                <h1 className="a-whatFun">What's New Fun</h1>
-              </div>
-              <div className="a-eventContent">
-                <div className="a-calendarWrapper">
-                  <div className="a-imgWrapper">
-                    <img src="./svg/calendar.svg" alt="" />
-                  </div>
-                  <div className="a-dateWrapper">
-                    <h2 className="a-month">Dec.</h2>
-                    <h2 className="a-day">25</h2>
-                  </div>
-                </div>
-                <div className="a-eventContentWrapper">
-                  <div className="a-event">
-                    <div className="a-eventDayWrapper">
-                      <h4>Dec.</h4>
-                      <h4>25</h4>
-                    </div>
-                    <div className="a-eventImgWrapper">
-                      <img src="../../04-product/event.svg" alt="" />
-                    </div>
-                    <div className="a-eventName">
-                      <h4>劇場</h4>
-                      <h4>快對醜蔬果出手</h4>
-                    </div>
-                    <div className="a-eventButton">
-                      <h4>詳細</h4>
-                    </div>
-                  </div>
-                  <div className="a-event">
-                    <div className="a-eventDayWrapper">
-                      <h4>Dec.</h4>
-                      <h4>25</h4>
-                    </div>
-                    <div className="a-eventImgWrapper">
-                      <img src="../../04-product/calendar.svg" alt="" />
-                    </div>
-                    <div className="a-eventName">
-                      <h4>劇場</h4>
-                      <h4>快對醜蔬果出手</h4>
-                    </div>
-                    <div className="a-eventButton">
-                      <h4>詳細</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div className="r-home-event-container">
             <div className="r-home-event-main-visual">
               <div className="r-home-event-article-wrap">
                 <h2 className="r-home-event-article">What's New FUN?</h2>
-                <div className="r-home-event-article-img-div">
-                  <div className="r-home-event-article-img-wrap1">
-                    <img className="r-home-event-article-img1" src={hanabi} />
-                  </div>
-                  <div className="r-home-event-article-img-wrap2">
-                    <img className="r-home-event-article-img2" src={star} />
-                  </div>
-                </div>
               </div>
               <div className="r-home-event-eventlist">
+                <div className="r-home-event-calendar">
+                  <div className="r-home-event-calendar-img-wrap">
+                    <img src="/04-product/svg/calendar.svg" />
+                  </div>
+                  <div className="r-home-event-calendar-date">
+                    <p className="r-home-event-calendar-date-month">Dec</p>
+                    <p className="r-home-event-calendar-date-day">14</p>
+                  </div>
+                </div>
                 <ul className="r-home-event-eventlist-ul">
                   <li className="r-home-event-eventlist-li">
                     <div className="r-home-event-eventlist-img-wrap">
@@ -336,8 +281,7 @@ function Homepage() {
               </div>
             </div>
             <div className="r-home-event-titlebox">
-              <p className="r-home-event-titlebox-p">Event New</p>
-              <p className="r-home-event-titlebox-p">最新活動</p>
+              <p className="r-home-event-titlebox-p">最新活動 Event</p>
             </div>
           </div>
         </section>
