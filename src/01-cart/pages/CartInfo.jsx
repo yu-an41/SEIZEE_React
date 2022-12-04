@@ -1,14 +1,13 @@
 import { useContext, useState, useEffect } from 'react'
-import { useCart } from '../../contexts/useCart'
 import { Link } from 'react-router-dom'
-import LinkItems from '../components/LinkItems'
-import ListItemsWithHook from '../components/ListItemsWithHook'
+import CartInfoContext from '../contexts/CartInfoContext'
 
 // scss
 import './../styles/CartInfo.scss'
 
 // components
-import NavBar from '../../00-homepage/components/NavBar'
+// import NavBar from '../../00-homepage/components/NavBar'
+import NavBar from './../../components/NavBar'
 import OpenHoursBtn from '../components/OpenHoursBtn'
 import PickupHoursBtn from '../components/PickupHoursBtn'
 import EmptyCartBtn from '../components/EmptyCartBtn'
@@ -16,6 +15,7 @@ import CartItemsList from '../components/CartItemsList'
 import ContinueShoppingBtn from '../components/ContinueShoppingBtn'
 import GoPayBtn from '../components/GoPayBtn'
 import RecMerch from '../components/RecMerch'
+import NewsCrawl from '../../00-homepage/components/NewsCrawl'
 import Footer from '../../components/Footer'
 
 //img srcs
@@ -27,38 +27,11 @@ import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
 
-// cart init
-// initialState = {
-//   items: [],
-//   isEmpty: true,
-//   totalItems: 0,
-//   cartTotal: 0,
-// }
-
-function CartInfo(props) {
-  const [quantity, setQuantity] = useState([])
-
-  // 商品金額小計
-  const [totalPrice, setTotalPrice] = useState([])
-
-  // 修改過數量的商品金額小計
-  const [newTotalPrice, setNewTotalPrice] = useState(0)
-
-  const {
-    cart,
-    items,
-    addItem,
-    removeItem,
-    updateItem,
-    clearCart,
-    isInCart,
-    plusOne,
-    minusOne,
-  } = useCart()
-
+function CartInfo() {
+  const { cartItem, setCartItem } = useContext(CartInfoContext)
   return (
     <>
-      <div className="y-CartList-container">
+      <div className="y-CartInfo-container">
         <div className="y-Cart-nav">
           <NavBar />
           <div className="y-Cart-wave-base"></div>
@@ -90,8 +63,35 @@ function CartInfo(props) {
           </div>
         </div>
         <div className="y-Cart-middle">
-          <div className="y-Cart-pickup-way y-Cart-sections">
-            <p className="y-Cart-tab y-Cart-details-tab">取餐方式</p>
+          <div className="y-Cart-pickup  y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-pickup-tab">取餐方式</p>
+            <div className="y-Cart-main y-Cart-pickup-main">
+              <div className="y-Cart-pickup-radio">
+                
+              </div>
+              
+            </div>
+          </div>
+          <div className="y-Cart-rec  y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-rec-tab">付款方式</p>
+            <div className="y-Cart-main y-Cart-pickup-main">
+              <div className="y-Cart-rec-top"></div>
+              <div className="y-Cart-rec-bottom">
+                <div className="y-Cart-rec-row"></div>
+              </div>
+            </div>
+          </div>
+          <div className="y-Cart-rec  y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
+            <div className="y-Cart-rec-top">
+              <div className="y-Cart-rec-top"></div>
+              <div className="y-Cart-rec-bottom">
+                <div className="y-Cart-rec-row"></div>
+              </div>
+            </div>
+          </div>
+          <div className="y-Cart-details y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-details-tab">餐點明細</p>
             <div className="y-Cart-details-top">
               <p className="y-Cart-details-name y-Cart-details-header">
                 商品名稱
@@ -122,18 +122,12 @@ function CartInfo(props) {
               </div>
             </div>
           </div>
-          <div className="y-Cart-rec  y-Cart-sections">
-            <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
-            <div className="y-Cart-rec-top"></div>
-            <div className="y-Cart-rec-bottom">
-              <div className="y-Cart-rec-row"></div>
-            </div>
-          </div>
         </div>
         <div className="y-Cart-bottom">
           <YellowWaveReverse />
-          <div className="y-Cart-rec">rec</div>
-          <div className="y-Cart-news">news</div>
+          <div className="y-Cart-news">
+            {/* <NewsCrawl /> */}
+          </div>
           <div className="y-cart-footer">
             <Footer />
           </div>
@@ -142,5 +136,4 @@ function CartInfo(props) {
     </>
   )
 }
-
 export default CartInfo

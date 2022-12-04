@@ -8,6 +8,7 @@ import React, { useState } from 'react'
 import { UPDATE_PASS } from '../my-config'
 import axios from 'axios'
 import { useNavigate, useLocation } from 'react-router-dom'
+import ModalNotification from '../components/ModalNotification'
 
 function ResetPass() {
   const [errorResetMgP1, setErrorResetMgP1] = useState('')
@@ -16,6 +17,14 @@ function ResetPass() {
     mbResetPass: '',
     mbResetPassConfirm: '',
   })
+  const [showP1, setShowP1] = useState(false)
+  const [showP2, setShowP2] = useState(false)
+
+  // Modal
+  const [isOpen, setIsOpen] = useState(false)
+  const [headerMg, setHeaderMg] = useState('')
+  const [bodyMg, setBodyMg] = useState('')
+
   const navigate = useNavigate()
   const location = useLocation()
   const usp = new URLSearchParams(location.search)
@@ -75,11 +84,30 @@ function ResetPass() {
       })
 
       if (data.success) {
-        alert('密碼修改成功')
-        navigate('/')
+        openModal()
+        setHeaderMg('修改密碼')
+        setBodyMg('密碼修改成功')
       } else {
-        alert('密碼修改失敗')
+        openModal()
+        setHeaderMg('修改密碼')
+        setBodyMg('密碼修改失敗')
       }
+    } else {
+      openModal()
+      setHeaderMg('修改密碼')
+      setBodyMg('密碼修改失敗')
+    }
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
+
+  function closeModal() {
+    setIsOpen(false)
+
+    if (bodyMg === '密碼修改成功') {
+      navigate('/')
     }
   }
 
@@ -93,14 +121,24 @@ function ResetPass() {
               <label htmlFor="mbResetPass" className="s-rp-label">
                 密碼<span style={{ color: 'red' }}> *</span>
               </label>
-              <input
-                type="text"
-                placeholder="請設定8位英數混合密碼(英文大小寫)"
-                id="mbResetPass"
-                onChange={resetHandler}
-                onBlur={checkResetPass1}
-                className="s-rp-input"
-              />
+              <div className="s-rp-input-eye">
+                <input
+                  type={showP1 ? 'text' : 'password'}
+                  placeholder="請設定8位英數混合密碼(英文大小寫)"
+                  id="mbResetPass"
+                  onChange={resetHandler}
+                  onBlur={checkResetPass1}
+                  className="s-rp-input"
+                />
+                <i
+                  onClick={() => {
+                    setShowP1(!showP1)
+                  }}
+                  className={
+                    showP1 ? 'fas fa-eye s-rp-eye' : 'fas fa-eye-slash s-rp-eye'
+                  }
+                ></i>
+              </div>
               <div
                 className="s-rp-errorMg"
                 style={{ color: 'red' }}
@@ -111,14 +149,24 @@ function ResetPass() {
               <label htmlFor="mbResetPassConfirm" className="s-rp-label">
                 確認密碼<span style={{ color: 'red' }}> *</span>
               </label>
-              <input
-                type="text"
-                placeholder="請再輸入一次密碼"
-                id="mbResetPassConfirm"
-                onChange={resetHandler}
-                onBlur={checkResetPass2}
-                className="s-rp-input"
-              />
+              <div className="s-rp-input-eye">
+                <input
+                  type={showP2 ? 'text' : 'password'}
+                  placeholder="請再輸入一次密碼"
+                  id="mbResetPassConfirm"
+                  onChange={resetHandler}
+                  onBlur={checkResetPass2}
+                  className="s-rp-input"
+                />
+                <i
+                  onClick={() => {
+                    setShowP2(!showP2)
+                  }}
+                  className={
+                    showP2 ? 'fas fa-eye s-rp-eye' : 'fas fa-eye-slash s-rp-eye'
+                  }
+                ></i>
+              </div>
               <div
                 className="s-rp-errorMg"
                 style={{ color: 'red' }}
@@ -129,12 +177,19 @@ function ResetPass() {
               <input
                 type="submit"
                 value="確認"
-                className="s-rp-input s-rp-resetSubmit"
+                className="s-rp-input-btn s-rp-resetSubmit"
               />
             </form>
           </div>
         </div>
       </div>
+
+      <ModalNotification
+        closeModal={closeModal}
+        isOpen={isOpen}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
     </>
   )
 }

@@ -4,6 +4,10 @@
     flex-direction: row;
     justify-content: space-between;
     @media (max-width: 390px){
-      
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      outline: solid red 2px;
     }
   }

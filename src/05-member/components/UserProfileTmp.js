@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import React, { useState, useContext } from 'react'
-import '.././style/UserProfileTmp.scss'
+import '.././style/components/UserProfileTmp.scss'
 import YellowWave from './YellowWave'
 import AuthContext from '../../contexts/AuthContext'
 
@@ -14,6 +14,10 @@ function UserProfileTmp() {
 
   if (seg1 === '' || seg1 === undefined) {
     seg1 = 'profile'
+  }
+
+  if (seg1 === 'update-info') {
+    seg1 = 'update_info'
   }
 
   const actives = {}
@@ -46,7 +50,11 @@ function UserProfileTmp() {
             <h4 className="s-upt-h4">使用者設定</h4>
           </li>
           <li className="s-upt-li">
-            <Link className="s-upt-item" style={actives.profile} to="/profile">
+            <Link
+              className="s-upt-item"
+              style={actives.profile || actives.update_info}
+              to="/profile"
+            >
               <span className="s-upt-icon">
                 <img
                   src="/05-member/green-book.png"
@@ -76,7 +84,7 @@ function UserProfileTmp() {
             <Link
               className="s-upt-item"
               style={actives.likes}
-              to="/profile/likes"
+              to="/profile/likes/product"
             >
               <span className="s-upt-icon">
                 <img

@@ -65,6 +65,7 @@ $main-border-radius: 8px;
   position: relative;
 
   .y-go-to-top {
+    display: none;
     position: fixed;
     z-index: 300;
     right: 8%;
@@ -96,53 +97,71 @@ $main-border-radius: 8px;
 
   .y-section-news {
     width: 100%;
-    // padding-top: 90px;
-    background-color: $main-yellow;
+    // background-color: $main-yellow;
+    position: absolute;
+    top: 50px;
 
     .y-section-news-first {
+      display: none;
       overflow: hidden;
       width: 100%;
-      .y-news-crawl-wrap {
-      }
+      background-color: $bgc-yellow;
     }
   }
 
   .y-section-carousel {
     background-color: $main-yellow;
     padding: 30px;
+    padding-top: 70px;
 
     .y-carousel-wrap {
+    
+        .y-carousel-block-yellow {
+          p {
+
+          }
+        }
+        .y-carousel-block-blue {
+          .y-block-bg {
+            p {
+
+            }
+          }
+        }
     }
+
   }
 
   .y-section-search {
     .r-shop-home-container {
-      background: url(./../../../public/03-shop-img/food_cola_s_01.png) 280px
-          200px/10% no-repeat,
-        url(./../../../public/03-shop-img/food_ramen_01.png) 1700px 700px/8%
+      background: url(./../../../public/03-shop-img/food_cola_s_01.png) 290px
+          120px/13% no-repeat,
+        url(./../../../public/03-shop-img/food_ramen_01.png) 150px 60px/15%
           no-repeat,
-        url(./../../../public/03-shop-img/food_pizza_01.png) 750px 80px/15%
+        url(./../../../public/03-shop-img/food_pizza_01.png) 220px 340px/15%
           no-repeat,
-        url(./../../../public/03-shop-img/food_french_fries_01.png) 50px 550px/20%
+        url(./../../../public/03-shop-img/food_french_fries_01.png) 30px 580px/20%
           no-repeat;
 
       .r-shop-home-main {
+        padding: 60px 0;
         display: flex;
         .r-shop-home-main-inner {
           display: flex;
           align-items: center;
           .r-shop-home-main-text {
-            width: 40%;
-            margin-left: auto;
+            width: 100%;
+            max-width: 240px;
+            margin-left: 30px;
             p {
-              font-size: 48px;
+              font-size: 24px;
               font-weight: 700;
               letter-spacing: 0.2rem;
-              line-height: 3.5rem;
+              line-height: 2rem;
               padding-bottom: 20px;
             }
             span {
-              font-size: 24px;
+              font-size: 20px;
               font-weight: 700;
               letter-spacing: 0.2rem;
               color: $main-text;
@@ -150,17 +169,18 @@ $main-border-radius: 8px;
           }
           .r-shop-home-main-btn {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            height: 60px;
-            border: 3px solid #000;
-            border-radius: 15px;
-            margin-top: 80px;
-            box-shadow: 10px 5px 0 #333;
+            height: 45px;
+            border: $border-sm;
+            border-radius: 10px;
+            margin-top: 40px;
+            padding: 0 12px;
+            box-shadow: 10px 5px 0 $main-Blue;
             input {
-              font-size: 20px;
+              font-size: 16px;
               border: none;
-              margin-right: 5px;
+              outline: none;
             }
             input:focus {
               outline-style: none;
@@ -168,24 +188,27 @@ $main-border-radius: 8px;
             a {
               text-decoration: none;
               i {
-                font-size: 24px;
+                font-size: 20px;
                 color: $main-blue;
               }
             }
           }
         }
         .r-shop-home-main-visual {
-          width: 60%;
-          height: 80vh;
-          background: url('./../../../public/03-shop-img/potato.png') 0 0
+          display: none;
+          width: 30%;
+          height: 120px;
+          background: url('./../../../public/03-shop-img/potato.png') 50% 50%/cover
             no-repeat;
-          margin-top: 120px;
+          margin-top: 40px;
         }
       }
     }
   }
 
   .y-section-merch {
+    // max-width: 360px;
+    overflow: hidden;
     .r-shop-home-carousel {
       .r-wave-section {
         width: 100%;
@@ -361,7 +384,8 @@ $main-border-radius: 8px;
 
   .y-section-about {
     margin-top: 20px;
-
+    // max-width: 360px;
+    overflow: hidden;
     .a-video {
       text-align: center;
     }
@@ -388,13 +412,14 @@ $main-border-radius: 8px;
 
   }
 
+  .y-wave-wrap-white {
+    margin-bottom: 20px;
+  }
+
   .y-section-event {
     background-color: $main-yellow;
     padding-bottom: 20px;
 
-    .y-wave-wrap-white {
-      margin-bottom: 20px;
-    }
     @function line($count:1) {
       @return $base-line-eight * $count;
     }
@@ -533,31 +558,30 @@ $main-border-radius: 8px;
 
   .y-section-forum {
     position: relative;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
+    width: 100%;
 
     .y-section-forum-title {
-      margin-bottom: 40px;
+      margin-bottom: 0px;
 
       p {
-        font-size: 36px;
+        font-size: 18px;
         font-weight: bold;
-        letter-spacing: 4px;
+        letter-spacing: 2px;
         color: $main-text;
         text-align: center;
       }
     }
 
     .y-section-forum-wrap {
-      // outline: 1px solid #333;
-      max-width: 1320px;
+      width: 100%;
       margin: 0 auto;
-      padding: 20px;
+      padding: 5px;
       display: flex;
       justify-content: space-between;
       .y-forum-row-wrap {
         width: 100%;
-        padding: 15px;
-        // outline: 1px solid red;
+        padding: 4px;
         .y-forum-card-wrap {
         }
       }
@@ -573,37 +597,39 @@ $main-border-radius: 8px;
     }
 
     .y-forum-more-wrap {
-      width: 100%;
-      position: relative;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 15px;
+      margin: 0;
+
       .y-forum-more-btn {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 15px;
-        margin: 0;
         display: flex;
         align-items: center;
-        background-color: $bgc-yellow;
+        background-color: $main-orange;
         border-radius: $border-radius-button;
-        border: $border-lg;
-        padding: 10px 15px;
-        width: 180px;
+        border: $border-sm;
+        padding: 4px 8px;
+        width: 90px;
 
         .y-forum-more-icon {
-            width: 26px;
-            height: 26px;
+          width: 10px;
+          height: 10px;
+          margin-right: 2px;
             
           img {
             width: 100%;
             object-fit: cover;
-            vertical-align: middle;
+            vertical-align: top;
           }
         }
         
         p {
-          font-size: 28px;
+          font-size: 13px;
+          letter-spacing: 1px;
           font-weight: bold;
           text-shadow: $text-shadow;
+          color: white;
         }
       }
     }
@@ -612,15 +638,22 @@ $main-border-radius: 8px;
   .y-wave-wrap {
   }
   
+  .y-section-dotown {
+    display: none;
+  }
   .y-section-news-bottom {
     display: flex;
     .y-section-news-second {
       position: relative;
       width: 100%;
-      height: 24px;
+      height: 20px;
       overflow: hidden;
       background-color: $bgc-yellow;
     }
+  }
+
+  .y-section-footer {
+
   }
 }
 
@@ -652,9 +685,10 @@ $main-border-radius: 8px;
     .y-section-news {
       padding-top: 90px;
       display: flex;
-      margin-bottom: 20px;
-
+      // margin-bottom: 20px;
+      top: 0;
       .y-section-news-first {
+        display: block;
         position: relative;
         width: 100%;
         height: 30px;
@@ -671,13 +705,25 @@ $main-border-radius: 8px;
         margin: 0 auto;
         max-width: 1040px;
         // border: $border-lg;
+        .y-carousel-block-yellow {
+          p {
+
+          }
+        }
+        .y-carousel-block-blue {
+          .y-block-bg {
+            p {
+              
+            }
+          }
+        }
       }
     }
 
     .y-section-search {
         .r-shop-home-container {
           background: url(./../../../public/03-shop-img/food_cola_s_01.png) 280px
-              200px/10% no-repeat,
+              100px/10% no-repeat,
             url(./../../../public/03-shop-img/food_ramen_01.png) 1700px 700px/8%
               no-repeat,
             url(./../../../public/03-shop-img/food_pizza_01.png) 750px 80px/15%
@@ -687,53 +733,44 @@ $main-border-radius: 8px;
     
           .r-shop-home-main {
             display: flex;
+
             .r-shop-home-main-inner {
-              display: flex;
-              align-items: center;
+
               .r-shop-home-main-text {
                 width: 40%;
                 margin-left: auto;
                 p {
                   font-size: 48px;
-                  font-weight: 700;
-                  letter-spacing: 0.2rem;
                   line-height: 3.5rem;
                   padding-bottom: 20px;
                 }
                 span {
                   font-size: 24px;
-                  font-weight: 700;
-                  letter-spacing: 0.2rem;
-                  color: $main-text;
                 }
               }
               .r-shop-home-main-btn {
-                display: flex;
                 justify-content: center;
-                align-items: center;
                 height: 60px;
-                border: 3px solid #000;
+                border: $border-lg;
                 border-radius: 15px;
                 margin-top: 80px;
-                box-shadow: 10px 5px 0 #333;
+                padding: 4 24px;
+                box-shadow: 10px 5px 0 $main-Blue;
                 input {
                   font-size: 20px;
-                  border: none;
                   margin-right: 5px;
                 }
                 input:focus {
-                  outline-style: none;
                 }
                 a {
-                  text-decoration: none;
                   i {
                     font-size: 24px;
-                    color: $main-blue;
                   }
                 }
               }
             }
             .r-shop-home-main-visual {
+              display: block;
               width: 60%;
               height: 80vh;
               background: url('./../../../public/03-shop-img/potato.png') 0 0
@@ -745,6 +782,9 @@ $main-border-radius: 8px;
     }
 
     .y-section-merch {
+      // max-width: 360px;
+      overflow: hidden;
+
       .r-shop-home-carousel {
         .r-wave-section {
           width: 100%;
@@ -947,11 +987,13 @@ $main-border-radius: 8px;
   
     }
   
-    .y-section-event {
-      .y-wave-wrap-white {
-        margin-bottom: 40px;
+    .y-wave-wrap-white {
+      margin-bottom: 40px;
 
-      }
+    }
+
+    .y-section-event {
+      
       padding-bottom: 20px;
 
       @function line($count:1) {
@@ -1091,27 +1133,20 @@ $main-border-radius: 8px;
     }
 
     .y-section-forum {
+      padding: 40px;
       .y-section-forum-title {
         margin-bottom: 40px;
 
         p {
           font-size: 36px;
-          font-weight: bold;
           letter-spacing: 4px;
-          color: $main-text;
-          text-align: center;
         }
       }
 
       .y-section-forum-wrap {
-        // outline: 1px solid #333;
         max-width: 1320px;
-        margin: 0 auto;
         padding: 20px;
-        display: flex;
-        justify-content: space-between;
         .y-forum-row-wrap {
-          width: 100%;
           padding: 15px;
           // outline: 1px solid red;
           .y-forum-card-wrap {
@@ -1131,9 +1166,14 @@ $main-border-radius: 8px;
 
       .y-forum-more-wrap {
         .y-forum-more-btn {
-
+          padding: 10px 15px;
+          border: $border-lg;
+          // padding: 4px 8px;
+          width: 180px;
           .y-forum-more-icon {
-            
+            width: 24px;
+          height: 24px;
+          margin-right: 10px;
             img {
   
             }
@@ -1141,7 +1181,8 @@ $main-border-radius: 8px;
           
           
           p {
-            
+            font-size: 14px;
+            letter-spacing: 2px;
           }
         }
       }
@@ -1150,11 +1191,18 @@ $main-border-radius: 8px;
 
     .y-wave-wrap {
     }
+    .y-section-dotown {
+      display: block;
+    }
 
     .y-section-news-bottom {
       .y-section-news-second {
         height: 30px;
       }
+    }
+
+    .y-section-footer {
+
     }
   }
 }

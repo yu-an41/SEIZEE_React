@@ -1,0 +1,212 @@
+$colorBlue: #113f75;
+$colorYellow: #fad249;
+$colorOrange: #eb8e4c;
+$colorWhite: #ffffff;
+$colorLightGrey: #eeeeee;
+$colorDarkGrey: #4b646a;
+$colorMiddleGrey: #747474;
+$colorBrown: #986868;
+$colorList: #fdfcee;
+$colorLightBlue: #91d3f5;
+$colorGreen: #21a07d;
+$colorPurple: #9786df;
+$colorPink: #efc2d9;
+$colorLine: #cecece;
+
+@mixin position($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+.j-right-wrap {
+  position: absolute;
+  right: 0;
+  width: 43%;
+  height: 1700px;
+  display: flex;
+  @media (max-width: 390px) {
+    position: relative;
+    width: 100%;
+    left: 0;
+    outline: 2px solid red;
+  }
+  .j-Rwave {
+    position: fixed;
+    right: 15%;
+    height: 100vh;
+    margin-right: -2px;
+    width: 40%;
+    transform: rotate(180deg);
+    @media (max-width: 390px) {
+      width: 100%;
+      transform: rotate(90deg);
+      outline: 2px teal solid;
+      transform: rotate(-90deg);
+    }
+  }
+  .j-right {
+    position: absolute;
+    right: 0;
+    @include size(300px, 2000px);
+    background-color: $colorYellow;
+    // outline: 5px black solid;
+    @media (max-width: 390px) {
+      @include size(100vw, 1000px);
+      // outline: 5px black solid;
+      // transform: rotate(-90deg);
+    }
+    .j-hidebox{
+      z-index: 99;
+      position: fixed;
+      overflow: hidden;
+      width: 300px;
+      height: 300px;
+      background-color: $colorYellow;
+      outline: 2px blue solid;
+      .j-menu {
+        z-index: 199;
+        width: 180px;
+        position: fixed;
+        top: 2%;
+        right: 3%;
+        border: 2px solid red;
+        img {
+          width: 100%;
+        }
+      }
+      .j-side-carrot{
+        width: 80px;
+        position: absolute;
+        top: 40%;
+        right: 40%;
+        outline: solid 2px purple;
+        background-color: $colorBlue;
+        img{
+          width: 100%;
+        }
+      }
+    }
+    .j-table-right {
+      // outline: 2px solid red;
+      position: absolute;
+      top: 15%;
+      left: 8%;
+      width: 265px;
+      height: 85%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .j-banner {
+        // outline: solid 2px brown;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 220px;
+        height: 120px;
+        color: $colorBrown;
+        background-color: $colorWhite;
+
+        font-size: 3rem;
+        font-weight: 700;
+        // border-radius: 10px;
+        // overflow: hidden;
+        // border: 4px solid $colorWhite;
+      }
+      .j-cardG {
+        // outline: solid blue 2px;
+        // padding: 10%;
+        width: 100%;
+        height: 95%;
+        margin-top: 20px;
+        .j-tableself {
+          margin: auto;
+          // outline: 1px solid black;
+          margin-top: 12px;
+          width: 230px;
+          height: 155px;
+          // background-color: $colorWhite;
+          border-radius: 15px;
+          overflow: hidden;
+          border: 5px solid $colorWhite;
+          .j-cardTop {
+            width: 100%;
+            height: 35px;
+            padding-left: 10px;
+            padding-right: 6px;
+            // padding-top: 5px;
+            color: $colorWhite;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .j-cardtime{
+              font-size: 2rem;
+              height: 100%;
+              display: flex;
+              align-items: center;
+            }
+            img{
+
+            }
+          }
+          .j-cardname {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // outline: black solid 1px;
+            padding: 0 10px;
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: $colorWhite;
+            border-top: solid 3px $colorWhite;
+          }
+          .j-cardbottom{
+            border-top: solid 3px $colorWhite;
+            width: 100%;
+            height: 35px;
+          }
+        }
+      }
+      // .j-table-self{
+      //   width: 100%;
+      //   height: 300px;
+      //   outline: 2px solid green;
+      // }
+    }
+
+    // ul {
+    //   @include size(100%, 100%);
+    //   list-style-type: none;
+    //   padding: 0;
+    //   display: flex;
+    //   flex-direction: column;
+    //   justify-content: space-evenly;
+    //   align-items: center;
+    //   li {
+    //     .j-right-banner {
+    //       @include size(240px, 70px);
+    //       font-size: 3.5rem;
+    //       font-weight: 900;
+    //       background-color: $colorWhite;
+    //       color: $colorBrown;
+    //       display: flex;
+    //       justify-content: center;
+    //       align-items: center;
+    //       border-radius: 0;
+    //       margin-top: 30px;
+    //     }
+    //     div {
+    //       @include size(240px, 4px);
+    //       background-color: $colorWhite;
+    //       border-radius: 4px;
+    //       margin-bottom: 100px;
+    //     }
+    //   }
+    // }
+  }
+}

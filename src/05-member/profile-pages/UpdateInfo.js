@@ -9,6 +9,7 @@ import axios from 'axios'
 import { PROFILE, imgServerUrl, PROFILE_AUTH } from '../../my-config'
 import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import AuthContext from '../../contexts/AuthContext'
+import ModalNotification from '../../components/ModalNotification'
 
 // selectedCity
 const selectedCity = (cityName) => ({ value: cityName, label: cityName })
@@ -91,6 +92,11 @@ function UpdateInfo(props) {
     mbuPhone: '',
     // mbuSid: '',
   })
+
+  // Modal
+  const [isOpen, setIsOpen] = useState(false)
+  const [headerMg, setHeaderMg] = useState('')
+  const [bodyMg, setBodyMg] = useState('')
 
   // -----更新會員Auth-----
   const { setMyAuth } = useContext(AuthContext)
@@ -286,10 +292,11 @@ function UpdateInfo(props) {
       },
     })
 
-    console.log('update info', data)
-    console.log('data success', data.success)
-    console.log('myAuth', myAuth)
-    console.log('myAuth.token', myAuth.token)
+    // console.log('update info', data)
+    // console.log('data success', data.success)
+    // console.log('update info', data.error)
+    // console.log('myAuth', myAuth)
+    // console.log('myAuth.token', myAuth.token)
 
     if (data.success) {
       const { data: dataAuth } = await axios.post(
@@ -303,14 +310,31 @@ function UpdateInfo(props) {
         // post axios寫法: post(backend link, data (if not, use {}), headers)
       )
 
-      console.log('dataAuth', dataAuth)
+      // console.log('dataAuth', dataAuth)
 
       if (dataAuth.success) {
         localStorage.setItem('auth', JSON.stringify(dataAuth.auth))
         setMyAuth({ ...dataAuth.auth, authorised: true })
-        alert('更新成功')
-        navigate('/profile/')
+        openModal()
+        setHeaderMg('資料修改')
+        setBodyMg('更新成功')
       }
+    } else {
+      openModal()
+      setHeaderMg('資料修改')
+      setBodyMg(data.error)
+    }
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
+
+  function closeModal() {
+    setIsOpen(false)
+
+    if (bodyMg === '更新成功') {
+      navigate('/profile/')
     }
   }
   return (
@@ -460,6 +484,13 @@ function UpdateInfo(props) {
         </div>
         <div className="s-footer"></div>
       </div>
+
+      <ModalNotification
+        closeModal={closeModal}
+        isOpen={isOpen}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
     </>
   )
 }

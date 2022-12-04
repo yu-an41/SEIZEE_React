@@ -1,0 +1,123 @@
+$main-yellow: #fad249;
+$main-Blue: #113f75;
+$main-title: #2b325c;
+$main-text: #5e5e5e;
+$text-shadow: #e4e4e4;
+$cate-btn: #fce38c;
+$main-orange: #ff8200;
+$card-btn: #80b938;
+
+.r-banner-wrap {
+    // padding: 30px 0 0 0;
+    margin-top: 30px;
+    background-color: $main-Blue;
+    position: relative;
+
+    .r-banner-article {
+      padding: 15px 20px;
+      display: flex;
+      .r-banner-icon {
+        height: 100px;
+        img {
+          height: 100%;
+        }
+      }
+      .r-banner-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        letter-spacing: 0.2rem;
+        .r-banner-inner-small {
+          color: #fff;
+          font-size: 24px;
+          font-weight: 700;
+        }
+        .r-banner-inner-p {
+          color: #fff;
+          font-size: 36px;
+          font-weight: 700;
+          padding-top: 10px;
+        }
+      }
+    }
+
+    .r-banner-button-wrap {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      .r-banner-button {
+        display: flex;
+        justify-content: end;
+        background-color: #fff;
+        border-radius: 8px 0 0 0;
+        padding: 10px 10px 0 10px;
+        .r-btn-list {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: 150px;
+          height: 50px;
+          text-align: right;
+          background-color: #fff;
+          border: 3px solid #333;
+          border-radius: 15px;
+
+          .r-btn-list-button {
+            border: none;
+            color: $main-Blue;
+            border-radius: 8px;
+            background: #fff;
+            padding: 10px;
+            .r-btn-list-button-span {
+              letter-spacing: 0.2rem;
+              font-size: 18px;
+              font-weight: 700;
+              padding-left: 8px;
+            }
+            i {
+              font-size: 20px;
+            }
+          }
+        }
+        .r-btn-map {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: 150px;
+          height: 50px;
+          text-align: right;
+          background-color: #fff;
+          border: 3px solid #333;
+          border-radius: 15px;
+          // padding-right: 5px;
+          margin-left: 10px;
+          .r-btn-map-button {
+            border: none;
+            color: $main-Blue;
+            border-radius: 8px;
+            background: #fff;
+            padding: 10px;
+            .r-btn-map-button-span {
+              letter-spacing: 0.2rem;
+              font-size: 18px;
+              font-weight: 700;
+              padding-left: 8px;
+            }
+            i {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .r-banner-wrap::after {
+    width: 100%;
+    content: '';
+    display: block;
+    height: 8px;
+    background-color: $main-Blue;
+    position: absolute;
+    bottom: -20px;
+  }

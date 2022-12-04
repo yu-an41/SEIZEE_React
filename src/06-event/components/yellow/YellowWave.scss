@@ -1,0 +1,47 @@
+$main-yellow: #FAD249;
+$main-blue: #2B325C;
+$main-text: #5E5E5E;
+$text-shadow: #E4E4E4;
+$min-width: 390px;
+$wave-height: 40px;
+
+.j-wave-section {
+    //position: relative;
+    width: 20%;
+    height: 100vh;
+    // background-color: transparent; 
+    overflow: hidden;
+    @media (max-width: 390px){
+        
+    }
+
+    .j-wave-wrap {
+        // position: absolute;
+        // top: $wave-height;
+        width: 60%;
+        height: 100vh;
+        background: {
+            image: url(./../../img/wave-1920px.png);
+            // repeat: no-repeat;
+            position: 46% 0;
+            size: 100px 1920px;
+        }
+        animation: jwave 3.5s linear infinite;
+        z-index: 100;
+        animation-delay: 0.3s;
+        @media (max-width: 390px){
+            width: 100vw;
+            height: 20%;
+        }
+        
+        @keyframes jwave {
+            0% {
+                background-position-y: 0px;
+            }
+
+            100% {
+                background-position-y: 1920px;
+            }
+        }
+    }
+}

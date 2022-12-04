@@ -6,7 +6,7 @@ import './../styles/ShopCardRow.scss'
 import ShopPost from './ShopPost'
 import ShopHead from './../images/homepage-forum-store.svg'
 
-function ShopCardRow() {
+function ShopCardRow({ postNums }) {
   const [shopCardData, setShopCardData] = useState([
     {
       sid: 1,
@@ -21,7 +21,7 @@ function ShopCardRow() {
 
   const getShopCardRow = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/home/shop-posts`)
+      const res = await axios.get(`http://localhost:3004/home/shop-posts`)
 
       setShopCardData(res.data.shopPostRows)
       console.log(res.data.shopPostRows)
@@ -34,17 +34,21 @@ function ShopCardRow() {
     getShopCardRow()
   }, [])
 
+  const min = Math.min(postNums, shopCardData.length)
+
   return (
-    // 要怎麼選擇只要前三篇，之後每次再拿三篇
     <div className="y-shop-card-row">
       <div className="y-forum-head y-shop-head">
         <img src={ShopHead} alt="shop posts" />
         <p>戰士分享</p>
       </div>
       <div className="y-forum-card-wrap y-shop-card-wrap">
-        {shopCardData.map((v, i) => {
-          return <ShopPost shopInfo={v} key={v.sid} />
-        })}
+        {Array(min)
+          .fill(1)
+          .map((v, i) => {
+            const item = shopCardData[i]
+            return <ShopPost shopInfo={item} key={item.sid} />
+          })}
       </div>
     </div>
   )

@@ -26,18 +26,22 @@ $border-radius-button: 8px;
 }
 
 .y-shop-card-container {
-    padding: 20px;
-    border-radius: $border-radius-card;
-    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: $border-radius-button;
+    margin-bottom: 12px;
     
     .y-shop-top {
+        margin-bottom: 15px;
 
         .y-shop-author {
+            margin-bottom: 8px;
 
             .y-shop-author-name {
+                font-size: 9px;
 
             }
             .y-shop-author-account {
+                font-size: 9px;
 
             }
         }
@@ -45,20 +49,37 @@ $border-radius-button: 8px;
         .y-shop-title {
 
                 p {
-                    letter-spacing: 2px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: $main-blue;
+                    
                 }
             }
         
     }
     
     .y-shop-text {
+        width: 100%;
+        // height: 100%;
+        // max-height: 200px;
+        overflow: hidden;
+        // background-color: $bgc-yellow;
+        margin-bottom: 15px;
         p {
-
+            letter-spacing: 1px;
+            line-height: 1.2;
+            font-size: 10px;
+            text-align: justify;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
         }
     }
 
     .y-shop-pic {
-        
+        width: 100%;
+
         img {
             width: 100%;
         }
@@ -66,7 +87,7 @@ $border-radius-button: 8px;
 }
 
 .y-shop-card-container:nth-child(2n) {
-    border: $border-sm;
+    border: 2px dashed $main-blue;
 }
 
 .y-shop-card-container:nth-child(2n+1) {
@@ -75,12 +96,15 @@ $border-radius-button: 8px;
 
 @media (min-width: 391px) {
     .y-shop-card-container {
+        padding: 20px;
+        border-radius: $border-radius-card;
+        margin-bottom: 30px;
 
         .y-shop-top {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             .y-shop-author {
                 display: flex;
-                margin-bottom: 8px;
+                margin-bottom: 5px;
                 .y-shop-author-name {
                     font-size: 16px;
                     letter-spacing: 2px;
@@ -95,17 +119,13 @@ $border-radius-button: 8px;
 
                 p {
                     font-size: 18px;
-                    font-weight: bold;
-                    color: $main-blue;
+                    letter-spacing: 2px;
                 }
             }
         }
         
         .y-shop-text {
-            width: 100%;
-            // height: 100%;
-            max-height: 200px;
-            overflow: hidden;
+            // max-height: 200px;
             // background-color: $bgc-yellow;
             margin-bottom: 25px;
             
@@ -113,17 +133,12 @@ $border-radius-button: 8px;
                 letter-spacing: 5px;
                 line-height: 1.4;
                 font-size: 16px;
-
-                // overflow: hidden;
-                // text-overflow: ellipsis;
-                // white-space: nowrap;
+                -webkit-line-clamp: 3;
             }
         }
 
         .y-shop-pic {
             width: 100%;
-            // border: $border-sm;
-            // border-radius: $border-radius-card;
             img {
                 width: 100%;
                 
@@ -131,6 +146,7 @@ $border-radius-button: 8px;
         }
     }
     .y-shop-card-container:nth-child(2n) {
+        border: 3px dashed $main-blue;
     }
 
     .y-shop-card-container:nth-child(2n+1) {

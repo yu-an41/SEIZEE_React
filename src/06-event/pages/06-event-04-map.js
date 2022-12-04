@@ -14,52 +14,52 @@ import jCyber from '../img/augmented-reality.png'
 function Maps() {
   return (
     <>
-      <div class="j-event-middle-map">
-        <div class="j-cate-banner">
-          <div class="j-cate-banner-deco">
+      <div className="j-event-middle-map">
+        <div className="j-cate-banner">
+          <div className="j-cate-banner-deco">
             <div>場域地圖</div>
           </div>
         </div>
-        <div class="j-map-wrap">
-          <div class="j-map-background">
-            <div class="j-cloudA">
+        <div className="j-map-wrap">
+          <div className="j-map-background">
+            <div className="j-cloudA">
               <img src={jCloud1} alt="" />
             </div>
-            <div class="j-cloudB">
+            <div className="j-cloudB">
               <img src={jCloud2} alt="" />
             </div>
-            <div class="j-cloudC">
+            <div className="j-cloudC">
               <img src={jCloud3} alt="" />
             </div>
-            <div class="j-cloudD">
+            <div className="j-cloudD">
               <img src={jCloud4} alt="" />
             </div>
-            <div class="j-show-pink-wrap">
-              <div class="j-show-pink">
+            <div className="j-show-pink-wrap">
+              <div className="j-show-pink">
                 <div>看的場所</div>
                 <img src={jMask} alt="" />
               </div>
             </div>
-            <div class="j-ted-blue-wrap">
-              <div class="j-ted-blue">
+            <div className="j-ted-blue-wrap">
+              <div className="j-ted-blue">
                 <div>泰迪托克</div>
                 <img src={jMicrophone} alt="" />
               </div>
             </div>
-            <div class="j-cook-green-wrap">
-              <div class="j-cook-green">
+            <div className="j-cook-green-wrap">
+              <div className="j-cook-green">
                 <div>穢土轉生</div>
                 <img src={jJuice} alt="" />
               </div>
             </div>
-            <div class="j-music-orange-wrap">
-              <div class="j-music-orange">
+            <div className="j-music-orange-wrap">
+              <div className="j-music-orange">
                 <div>橘色舞台</div>
                 <img src={jStage} alt="" />
               </div>
             </div>
-            <div class="j-cyber-purple-wrap">
-              <div class="j-cyber-purple">
+            <div className="j-cyber-purple-wrap">
+              <div className="j-cyber-purple">
                 <div>合法幻舞</div>
                 <img src={jCyber} alt="" />
               </div>
