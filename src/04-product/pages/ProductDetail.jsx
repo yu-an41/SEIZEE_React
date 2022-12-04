@@ -217,7 +217,6 @@ function ProductDetail() {
           })}
         </div>
         <ProductComment sid={sid} />
-        {/* <ProductCommentArea /> */}
         <YellowWave2 />
         <RecommendCard sid={sid} />
       </div>

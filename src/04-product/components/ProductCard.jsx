@@ -48,6 +48,7 @@ const tempRef = useRef();
           <Link to={`/product/${product.sid}`}>
             <h3>{product.product_name}</h3>
           </Link>
+          {/* 判斷收藏愛心圖示 */}
           {collectionNum.length > 0 ? (
             collectionNum.includes(product.sid) ? (
               <img src="/04-product/svg/heart.svg" alt="" onClick={() => {delCollect(product.sid)
