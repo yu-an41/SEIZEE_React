@@ -48,16 +48,27 @@ function ProductFilter() {
   }, []);
 
   const handleSendFilter = () => {
-    const searchParam = new URLSearchParams();
+    let searchParam = new URLSearchParams();
 
     const categoryString = choice.reduce((acc, cur) => {
       return acc + `${cur},`;
     }, "");
+    console.log( 'cate ' + categoryString);
+    if (categoryString == "")
+    {
+      navigate(`/products`)
+    } else {
+      const sids = categoryString.substring(0,categoryString.length-1)
+      searchParam.append("category_sid", sids);
+    navigate(`/products?${searchParam.toString()}
+    `)
+    }
     // const sids = categoryString.substring(0,categoryString.length-1)
-    searchParam.append("category_sid", choice);
-    navigate(`/products?${searchParam.toString()}`)
+    // searchParam.append("category_sid", categoryString);
+    // navigate(`/products?${searchParam.toString()}`)
     // getFilter(searchParam.toString());
   };
+  
 
   return (
     <>

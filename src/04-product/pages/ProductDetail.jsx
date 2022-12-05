@@ -10,7 +10,6 @@ import NavBar from "../../components/NavBar";
 import YellowWave from "../../00-homepage/components/YellowWave";
 import YellowWave2 from "../components/YellowWave2";
 import Carousel1 from "../components/Carousel1";
-import Carousel from "../components/Carousel";
 
 function ProductDetail() {
   const {
@@ -79,9 +78,7 @@ function ProductDetail() {
           <YellowWave />
         </div>
         <div className="a-carouselBigWrapper">
-          <Carousel/>
-          <Carousel1 />
-          <Carousel2 sid={sid} />
+          <Carousel1 sid={sid} />
         </div>
         <div className="a-deatil">
           {detail.map((details, i) => {
@@ -222,7 +219,7 @@ function ProductDetail() {
         </div>
         <ProductComment sid={sid} />
         <YellowWave2 />
-        {/* <RecommendCard sid={sid} /> */}
+        <RecommendCard sid={sid} />
       </div>
     </>
   );

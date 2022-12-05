@@ -58,12 +58,12 @@ export default function Carousel({sid=1}) {
             <div
                 className="bg-1"
                 style={{
-                    width: '200px',
-                    height: '200px',
+                    width: '400px',
+                    height: '400px',
                     fontSize: '1.5rem',
                     //background: 'red',
                     // border: centerImg===imgArray[0] ? '3px solid red':'',
-                    transform: `translateX(${myArray[0] * 200}px)`,
+                    transform: `translateX(${myArray[0] * 500}px)`,
                     transition: 'transform 1s',
                     zIndex: `${myZindexArr[0]}`,
                 }}
@@ -71,37 +71,37 @@ export default function Carousel({sid=1}) {
                     handleClick(0, imgArray[0])
                 }}
             >
-                <img src={`/04-product/img/${imgArray[0]}`} width={200} height={200}/>
+                <img src={`/04-product/img/${imgArray[0]}`} width={400} height={400}/>
             </div>
             <div
                 className="bg-2"
                 style={{
-                    width: '200px',
-                    height: '200px',
+                    width: '400px',
+                    height: '400px',
                     fontSize: '1.5rem',
                     //background: 'blue',
-                    transform: `translateX(${myArray[1] * 200}px)`,
+                    transform: `translateX(${myArray[1] * 300}px)`,
                     transition: 'transform 1s .1s',
                     zIndex: `${myZindexArr[1]}`,
                 }}
                 onClick={() => handleClick(1, imgArray[1])}
             >
-                <img src={`/04-product/img/${imgArray[1]}`} width={200} height={200}/>
+                <img src={`/04-product/img/${imgArray[1]}`} width={400} height={400}/>
             </div>
             <div
                 className="bg-3"
                 style={{
-                    width: '200px',
-                    height: '200px',
+                    width: '500px',
+                    height: '500px',
                     fontSize: '1.5rem',
                    //s background: 'green',
-                    transform: `translateX(${myArray[2] * 200}px)`,
+                    transform: `translateX(${myArray[2] * 300}px)`,
                     transition: 'transform 1s .2s',
                     zIndex: `${myZindexArr[2]}`,
                 }}
                 onClick={() => handleClick(2, imgArray[2])}
             >
-                <img src={`/04-product/img/${imgArray[2]}`} width={200} height={200}/>
+                <img src={`/04-product/img/${imgArray[2]}`} width={400} height={400}/>
             </div>
         </div>
     );

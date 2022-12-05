@@ -6,9 +6,10 @@ import { useLocation } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [curFilters, setCurFilteres] = useState([]);
+  const [filter, setFilter] = useState([]);
+  const [cardList, setCardList] =useState([]);
+  // const [curFilters, setCurFilteres] = useState([]);
   const location = useLocation();
-
 
   const categories = new URLSearchParams(window.location.search).get(
     "categories"
@@ -36,13 +37,35 @@ const Products = () => {
     underHundred: "100元以下",
     underFifty: "50元以下",
     fiveStarts: "評分5顆星",
-    foutStarts: "評分4顆星以上",
-    threeStarts: "評分3顆星以上",
+    // foutStarts: "評分4顆星以上",
+    // threeStarts: "評分3顆星以上",
   };
   const filterOptionsKeys = Object.keys(filterOptions);
   const filterOptionsVals = Object.values(filterOptions);
-  console.log(filterOptionsVals);
+  // console.log(filterOptionsVals);
+
+  filterOptionsVals = filterOptionsVals.filter((v) => !!v)
+  setFilter(filterOptionsVals)
+  // if (filterOptionsVals.length !== 0) {
+  //   setCardsate(0)
+  // } else {
+  //   setCardsate(1)
+  // }
   
+  const checkboxClick = (e) => {
+    const val = +e.target.value;
+    const c = e.target.checked;
+    if (c) {
+      if (!cardList.includes(val)) {
+        setCardList([...cardList, val]);
+      }
+    } else {
+      const newCard = cardList.filter((v) => v !== val);
+      setCardList(newCard);
+    }
+  };
+
+    
   // const showProducts = products.filter((p) => {
   //   const booleanArr = []; 
 
@@ -79,23 +102,22 @@ const Products = () => {
       </div> */}
         <div className="a-searchBarWrapper">
           {/* <div className="a-sideBarOptionsWrapper">
-            {object.filterOptions.map((v, i) => {
+            {filterOptionsKeys.map((v, i) => {
               return (
-                <div className="a-filterOptionsWrapper" key={i}> */}
-                  {/* <input
+                <div className="a-filterOptionsWrapper" key={i}> 
+                  <input
                     type="checkbox"
                     className="a-sideBarCheckBox"
                     checked={state}
                     value={v}
-                    onChange={setstate
-                    }
-                  /> */}
-                   {/* <label
+                    onChange={setstate}
+                  /> 
+                   <label
                     className="a-sideBarLabel"
                     htmlFor={`sideBarCheckBox${i}`}
                     key={i}
-                  ></label> */}
-                {/* </div>
+                  ></label>
+                </div>
               );
             })}
           </div> */}
@@ -119,6 +141,7 @@ const Products = () => {
             );
           })}
         </div>
+        {/* <button className="a-filterBtn" onClick={handleSendFilter}>送出</button> */}
       </div>
     </>
   );
