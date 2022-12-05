@@ -168,7 +168,7 @@ export const AuthContextProvider = function ({ children }) {
         NotificationBody={bodyMg}
       />
 
-      {/* ==================================== // 刪除帳號 */}
+      {/* ============刪除帳號============ */}
 
       <ModalConfirm
         closeModalConfirm={closeModalConfirmD}
