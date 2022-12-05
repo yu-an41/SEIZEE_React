@@ -7,6 +7,7 @@ import './../styles/RecipePost.scss'
 
 function RecipePost({ recipeInfo }) {
   const { sid, member_sid, title, img, content, mb_name } = recipeInfo
+
   return (
     <div className="y-recipe-card-container">
       <Link

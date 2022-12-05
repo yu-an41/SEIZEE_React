@@ -7,14 +7,23 @@ import Tag from './Tag'
 import post from './../p-imgs/post.jpeg'
 import cake from './../../dotown/cake.png'
 import heartNormal from './../p-imgs/pixel-heartNormal.svg'
+import dayjs from 'dayjs'
 
-function Card_post({ cookinner }) {
-  const { sid, img, title, content, creat_at } = cookinner
+function Card_post({ postData }) {
+  const { sid, img, title, induction, content, creat_at, categories_sid } =
+    postData
+  const cateMap = {
+    1: '/forum/official/inner/',
+    2: '/forum/store/inner/',
+    3: '/forum/share/inner/',
+    4: '/forum/cook/inner/',
+  }
+
   return (
     <>
       <div className="p-card-p" key={sid}>
         <Link
-          to={`/forum/cook/inner/${cookinner.sid}`}
+          to={`${cateMap[categories_sid] + sid}`}
           style={{ textDecoration: 'none' }}
         >
           <div className="p-img-wrap">
@@ -26,7 +35,7 @@ function Card_post({ cookinner }) {
               <div className="p-tag-wrap">
                 <Tag />
               </div>
-              <p className="p-contenter-p">{content}</p>
+              <p className="p-contenter-p">{induction}</p>
             </div>
 
             <div className="p-infor-wrap">
@@ -40,7 +49,7 @@ function Card_post({ cookinner }) {
                 </div>
               </div>
               <div className="p-day-wrap">
-                <p className="p-day">{creat_at}</p>
+                <p className="p-day">{dayjs(creat_at).format('YYYY.MM.DD')}</p>
                 <div className="p-like-wrap">
                   <img src={heartNormal} alt="" />
                 </div>

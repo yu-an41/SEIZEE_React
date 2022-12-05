@@ -1,5 +1,5 @@
 $main-yellow: #FAD249;
-$main-blue: #2B325C;
+$main-blue: #113F75;
 $main-text: #5E5E5E;
 
 $border-lg: $main-blue 3px solid;
@@ -71,50 +71,53 @@ li {
             }
         }
 
-        .y-footer-title {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            padding: 0 20%;
-            margin-bottom: 20px;
-
-            li {
-                letter-spacing: 5px;
-                font-weight: bold;
-                margin-bottom: 10px;
-            }
-        
-        }
-
-        .y-footer-links {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            padding: 0 20%;
-            margin-bottom: 20px;
-
-            li {
-                letter-spacing: 5px;
-                font-weight: bold;
-                
-            }
-        }
-
-        .y-footer-media {
-            display: flex;
+        .y-footer-content {
             width: 100%;
-            li {
-                width: 20%;
-                padding: 12px;
+            padding: 0 40px;
+            margin-bottom: 40px;
+            display: flex;
 
-                a {
-                    img {
-                        width: 100%;
+        .y-footer-section {
+            width: 20%;
+            .y-footer-section-title {
+                font-size: 40px;
+                font-weight: bold;
+                color: $main-blue;
+                margin-bottom: 30px;
+                display: flex;
+                align-items: center;
+                .y-footer-section-icon {
+                        width: 36px;
+                        height: 36px;
+                        margin-right: 20px;
+                        img {
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                }
+                a:hover {
+                    cursor: pointer;
+                }
+            }
 
+            .y-footer-section-links {
+                margin-left: 60px;
+
+                li {
+                    font-size: 24px;
+                    font-weight: bold;
+                    letter-spacing: 2px;
+                    line-height: 1.2;
+                    a:hover {
+                        cursor: pointer;
+                        color: $main-blue;
+                        text-decoration: underline;
                     }
                 }
             }
         }
+        }
+
     }
 
     .y-footer-rights {
@@ -154,38 +157,51 @@ li {
                 }
             }
     
-            .y-footer-title {
-                li {
-                    width: 50%;
-                    margin-bottom: 40px;
-                    text-align: center;
-                }
-            }
-    
-            .y-footer-links {
+            .y-footer-content {
                 width: 100%;
-                justify-content: space-between;
-                // flex-direction: column;
-                margin-bottom: 100px;
+                padding: 0 40px;
+                margin-bottom: 40px;
+                display: flex;
 
-                li {
-                    font-size: 36px;
-                    margin-bottom: 40px;
+            .y-footer-section {
+                width: 20%;
+                .y-footer-section-title {
+                    font-size: 40px;
+                    font-weight: bold;
+                    color: $main-blue;
+                    margin-bottom: 30px;
+                    display: flex;
+                    align-items: center;
+                    .y-footer-section-icon {
+                            width: 36px;
+                            height: 36px;
+                            margin-right: 20px;
+                            img {
+                                width: 100%;
+                                object-fit: cover;
+                            }
+                    }
+                    a:hover {
+                        cursor: pointer;
+                    }
                 }
-            }
 
-            .y-footer-media {
-                width: 100%;
-                padding: 0 200px;
-                justify-content: space-between;
-                li {
-                    width: 130px;
-                    a {
-                        img {
-                            
+                .y-footer-section-links {
+                    margin-left: 60px;
+
+                    li {
+                        font-size: 24px;
+                        font-weight: bold;
+                        letter-spacing: 2px;
+                        line-height: 1.2;
+                        a:hover {
+                            cursor: pointer;
+                            color: $main-blue;
+                            text-decoration: underline;
                         }
                     }
                 }
+            }
             }
         }
     

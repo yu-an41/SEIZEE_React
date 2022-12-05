@@ -30,7 +30,7 @@ $border-radius-button: 8px;
 
 .y-top-carousel-container{
     border: $border-lg;
-
+    overflow: hidden;
     .slick-prev,
     .slick-next
     {

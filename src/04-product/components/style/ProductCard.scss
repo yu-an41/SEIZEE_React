@@ -26,28 +26,11 @@ $main-border-radius: 8px;
     align-items: center;
 }
 
-    %h1 {
-        font-size: 48px;
-    }
-    %h2 {
-        font-size: 36px;
-    }
-    %h3 {
-        font-size: 20px;
-        color: #2B325C;
-        font-weight: 500;
-    }
-    %h4 {
-        font-size: 18px;
-    }
-    %p{
-        font-size: 16px;
-    }
-
 .a-produtCardWrapper {
-    width: 30%;
+    width: 25%;
     display: flex;
     flex-wrap: wrap;
+    margin: 10px 20px;
     .a-productCardContent {
         background-color: $secondary-yellow;
         width: 100%;
@@ -69,14 +52,15 @@ $main-border-radius: 8px;
     }
     .a-productCardTitle {
         @extend %a-flex;
-        @extend %h3;
+        color: $main-blue;
+        font-size: 18px;
     }
     .a-discountIconWrapper {
         position: absolute;
-        top: 30%;
-        left: 80%;
+        top: 40%;
+        right: -15%;
     }
-    .a-iconWrapper {
+    .a-saleWrapper {
         width: 100px;
     }
     .a-discountIconWrapper img {
@@ -89,7 +73,7 @@ $main-border-radius: 8px;
         color: #fff;
         position: absolute;
         top:35%;
-        left:20%;
+        left:30%;
         z-index: 1;
     }
     .a-productCardTitle img {

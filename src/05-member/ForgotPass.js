@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { checkEmpty } from './data/UserSign_valid'
 import { useNavigate } from 'react-router-dom'
+import ModalNotification from '../components/ModalNotification'
 
 function ForgotPass() {
   const [forgotFD, setForgotFD] = useState({
@@ -20,6 +21,13 @@ function ForgotPass() {
 
     setForgotFD({ ...forgotFD, [id]: val })
   }
+
+  // Modal
+  const [isOpen, setIsOpen] = useState(false)
+  const [headerMg, setHeaderMg] = useState('')
+  const [bodyMg, setBodyMg] = useState('')
+
+  // ====================================
 
   const checkForgotEmail = async (e) => {
     const val = e.currentTarget.value
@@ -42,17 +50,37 @@ function ForgotPass() {
 
     if (!errorMgF) {
       const { data } = await axios.post(SEND_FORGOT_PASS, forgotFD)
-      // alert('修改密碼信件已發送')
-      console.log(data)
+
+      // console.log(data)
 
       if (data.success) {
-        alert('修改密碼信件已發送')
-        navigate('/')
+        openModal()
+        setHeaderMg('修改密碼')
+        setBodyMg('修改密碼信件已發送')
       } else {
-        alert('請確認電子郵件是否正確')
+        openModal()
+        setHeaderMg('修改密碼')
+        setBodyMg('請確認電子郵件是否正確')
       }
+    } else {
+      openModal()
+      setHeaderMg('修改密碼')
+      setBodyMg('請確認電子郵件是否正確')
     }
   }
+
+  function openModal() {
+    setIsOpen(true)
+  }
+
+  function closeModal() {
+    setIsOpen(false)
+
+    if (bodyMg === '修改密碼信件已發送') {
+      navigate('/')
+    }
+  }
+
   return (
     <>
       <div className="s-body-forgotpass">
@@ -90,6 +118,13 @@ function ForgotPass() {
           </div>
         </div>
       </div>
+
+      <ModalNotification
+        closeModal={closeModal}
+        isOpen={isOpen}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
     </>
   )
 }

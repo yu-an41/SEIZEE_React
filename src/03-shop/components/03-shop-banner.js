@@ -1,3 +1,5 @@
+import './../styles/03-shop-banner.scss'
+
 function ShopBanner({ toggleStatus, setToggleStatus }) {
   function shopToggle() {
     if (toggleStatus === 1) {
@@ -17,8 +19,8 @@ function ShopBanner({ toggleStatus, setToggleStatus }) {
           </div>
           <div className="r-banner-title">
             <div className="r-banner-inner">
-              <small>SHOP LIST</small>
-              <p>店鋪一覽</p>
+              <small className="r-banner-inner-small">SHOP LIST</small>
+              <p className="r-banner-inner-p">店鋪一覽</p>
             </div>
           </div>
         </div>
@@ -26,6 +28,7 @@ function ShopBanner({ toggleStatus, setToggleStatus }) {
           <div className="r-banner-button">
             <div className="r-btn-list">
               <button
+                className="r-btn-list-button"
                 onClick={shopToggle}
                 style={
                   toggleStatus
@@ -34,11 +37,12 @@ function ShopBanner({ toggleStatus, setToggleStatus }) {
                 }
               >
                 <i className="fa-solid fa-caret-right"></i>
-                <span>依列表檢視</span>
+                <span className="r-btn-list-button-span">依列表檢視</span>
               </button>
             </div>
             <div className="r-btn-map">
               <button
+                className="r-btn-map-button"
                 onClick={shopToggle}
                 style={
                   toggleStatus
@@ -47,7 +51,7 @@ function ShopBanner({ toggleStatus, setToggleStatus }) {
                 }
               >
                 <i className="fa-solid fa-caret-right"></i>
-                <span>依地圖檢視</span>
+                <span className="r-btn-map-button-span">依地圖檢視</span>
               </button>
             </div>
           </div>

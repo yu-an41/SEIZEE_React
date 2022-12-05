@@ -26,55 +26,68 @@ $border-radius-button: 8px;
 }
 
 .y-news-crawl-container {
+    width: 100%;
+    max-width: 390px;
     display: flex;
     position: absolute;
     top: 0;
     bottom: 0;
     white-space: nowrap;
-    animation: newscrawl 30s linear infinite;
-    // animation-delay: .5s;
+    animation: newscrawl 15s linear infinite;
 
     .y-news-list-wrap {
-        height: 100%;
+        height: 24px;
         display: flex;
         // border-top: $border-sm;
         // border-bottom: $border-sm;
         padding: 0 15px;
     
         .y-new-icon-wrap {
-            height: 100%;
-            aspect-ratio: 1/1;
-    
+            width: 16px;
+            height: 16px;
+            border: $border-sm;
+            border-radius: 50%;
+            padding: 1px;
+
             img {
-                height: 100%;
-                object-fit: contain;
+                width: 100%;
+                object-fit: cover;
+                object-position: 50% 50%;
             }
         }
     
         .y-news-category {
             p {
-                
+                font-size: 12px;
+                    letter-spacing: 2px;
+                    font-weight: bold;
+                    color: $main-text;
             }
         }
     
         .y-news-content {
             a {
                 // text-decoration: none;
-                font-size: 14px;
+                font-size: 12px;
+                letter-spacing: 2px;
                 color: $main-text;
+                font-weight: bold;
             }
     
         }
     }
 }
 
+.y-news-crawl-container:hover {
+    animation-play-state: paused;
+}
 
 
 @media (min-width: 391px) {
     .y-news-crawl-container {
-    
+        animation: newscrawl 30s linear infinite;
+
         .y-news-list-wrap {
-            display: flex;
             align-items: center;
             // border-top: $border-sm;
             // border-bottom: $border-sm;
@@ -89,23 +102,22 @@ $border-radius-button: 8px;
                 padding: 2px;
     
                 img {
-                    width: 100%;
-                    object-fit: cover;
-                    object-position: 50% 50%;
+                    
                 }
             }
             .y-news-category {
                 p {
                     font-size: 16px;
-                    letter-spacing: 2px;
-                    font-weight: bold;
+                    letter-spacing: 3px;
                 }
             }
             .y-news-content {
+
                 a {
                     font-size: 16px;
-                    letter-spacing: 2px;
+                    letter-spacing: 3px;
                     font-weight: bold;
+
                 }
     
             }

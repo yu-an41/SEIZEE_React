@@ -1,0 +1,156 @@
+$main-yellow:#FAD249;
+$main-blue:#113F75;
+$main-text:#5C5C5C;
+$h1:48px;
+$h2:36px;
+$h3:20px;
+$h4:18px;
+$p:16px;
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+.innerOfficial{
+    display: flex;
+    position: relative;
+    width: 100%;
+    
+    .sidBar{
+        position: fixed;
+    }
+    .p-officialContainer{
+    max-width: 1040px;
+    position: relative;
+    left: 15%;
+    margin-top: 100px;
+    .p-officialTitle{
+    
+    .p-officialH1AdIcon{
+        display: flex;
+        justify-content: space-between;
+       h1{
+        font-size:$h1;
+        color: $main-blue;
+        letter-spacing: 5px;
+        font-weight: 800;
+        
+    }
+    .p-saveIcon{
+        width: 40px;
+        img{
+            width: 100%;
+        }
+    } 
+    }
+    
+    .p-officialTagWrap{
+        display: flex;
+        margin-top: 10px;
+    }
+    .p-officialMemberWrap{
+        margin-top: 20px;
+
+    }
+    }
+
+    .p-officialImg{
+        width: 100%;
+        height: 520px;
+        margin-top: 50px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }   
+    .p-abstract{
+    width: 1040px;
+    height: 260px;
+    background: url('../p-imgs/pixel-frame.svg') no-repeat center  ;
+    background-size:contain;
+    padding:50px 100px;
+    margin-top: 100px;
+    letter-spacing: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+        .p-arrowAdH3{
+            width: 80%;
+            display: flex;
+            
+                .p-arrowIcon{
+                    width: 25px;
+                    margin-right: 5px;
+                    img{
+                        width: 100%;
+                        object-fit:contain;
+                    }
+                }
+                h3{
+                    font-size: $h4;
+                    color: $main-blue;
+                    line-height: 150%;
+                    font-weight: 800;
+                }
+        }
+        p{
+        color: $main-text;
+        margin-top: 10px;
+        line-height: 150%;
+        }
+    }
+    .p-officialContent{
+        margin-top: 50px;
+        p{
+        line-height: 150%;
+           letter-spacing: 5px; 
+           color: $main-text;
+           font-size: $p;
+        }
+        
+    }
+    .p-commentWrap{
+        width: 100%;
+        margin-top: 100px;
+        .p-commentTitle{
+            border-top: 2px solid $main-text;
+            padding-top: 20px;
+            h3{
+                color: $main-blue;
+                font-size: $h3;
+                font-weight: 800;
+            }
+        }
+        .p-commInput{
+            .p-commInputImg{
+                width: 25px;
+                height: 25px;
+                margin-right:8px;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+.p-recomAdWrit{
+    width: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 22%;
+    margin-top: 180px;
+    .p-RecommendationWrap{
+    
+  }
+    .p-writWrap{
+      position: fixed;
+      top: 75%;
+      
+    }
+    
+  }
+ 
+}
+

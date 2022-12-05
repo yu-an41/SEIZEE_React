@@ -1,0 +1,205 @@
+$main-yellow: #fad249;
+$main-Blue: #113f75;
+$main-title: #2b325c;
+$main-text: #5e5e5e;
+$text-shadow: #e4e4e4;
+$cate-btn: #fce38c;
+$main-orange: #ff8200;
+$card-btn: #80b938;
+
+.r-side-bar {
+  width: 25%;
+  background: $main-yellow;
+  padding-top: 80px;
+
+  .r-search-wrap {
+    padding: 50px 30px 30px 60px;
+
+    .r-search-article {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // text-align: center;
+      border-bottom: 8px dashed #fff;
+      padding-bottom: 25px;
+
+      .r-shop-icon {
+        width: 80px;
+        img {
+          width: 100%;
+        }
+      }
+      .r-shop-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        letter-spacing: 0.2rem;
+        .r-shop-title-span {
+          color: #fff;
+          font-size: 24px;
+          font-weight: 700;
+          padding-bottom: 10px;
+        }
+        .r-shop-title-p {
+          color: #fff;
+          font-size: 36px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .r-place-wrap {
+      text-align: center;
+      padding-top: 30px;
+
+      .r-place-article {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+        .r-shop-icon-p {
+          width: 60px;
+          img {
+            width: 100%;
+          }
+        }
+        .r-place-title {
+          padding-bottom: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          letter-spacing: 0.2rem;
+          .r-place-title-span {
+            color: $main-title;
+            font-size: 18px;
+            font-weight: 700;
+            padding-bottom: 10px;
+          }
+          .r-place-title-p {
+            color: $main-title;
+            font-size: 24px;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .r-place-select-wrap {
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        .r-place-select {
+          font-size: 18px;
+          text-align: center;
+          color: $main-text;
+          width: 180px;
+          height: 50px;
+          border: none;
+          border-radius: 8px;
+          margin: 0;
+          margin-bottom: 20px;
+          outline-style: none;
+        }
+      }
+    }
+
+    .r-cate-wrap {
+      text-align: center;
+      padding-top: 20px;
+      .r-cate-article {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+        .r-shop-icon-c {
+          width: 60px;
+          img {
+            width: 100%;
+          }
+        }
+        .r-cate-title {
+          padding-bottom: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          letter-spacing: 0.2rem;
+          .r-cate-title-span {
+            color: $main-title;
+            font-size: 18px;
+            font-weight: 700;
+            padding-bottom: 10px;
+          }
+          .r-cate-title-p {
+            color: $main-title;
+            font-size: 24px;
+            font-weight: 700;
+          }
+        }
+      }
+      .r-cate-select-wrap {
+        .r-cate-select {
+          font-size: 18px;
+          text-align: center;
+          color: $main-text;
+          width: 180px;
+          height: 50px;
+          border: none;
+          border-radius: 8px;
+          margin: 0;
+          margin-bottom: 20px;
+          outline-style: none;
+        }
+      }
+    }
+
+    .r-filter-wrap {
+      text-align: center;
+      padding-top: 20px;
+      .r-filter-article {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+        .r-shop-icon-f {
+          width: 60px;
+          img {
+            width: 100%;
+          }
+        }
+        .r-filter-title {
+          padding-bottom: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          letter-spacing: 0.2rem;
+          .r-filter-title-span {
+            color: $main-title;
+            font-size: 18px;
+            font-weight: 700;
+            padding-bottom: 10px;
+          }
+          .r-filter-title-p {
+            color: $main-title;
+            font-size: 24px;
+            font-weight: 700;
+          }
+        }
+      }
+      .r-filter-select-wrap {
+        padding-bottom: 30px;
+        .r-filter-select {
+          font-size: 18px;
+          text-align: center;
+          color: $main-text;
+          width: 180px;
+          height: 50px;
+          border: none;
+          border-radius: 8px;
+          margin: 0;
+          margin-bottom: 20px;
+          outline-style: none;
+        }
+      }
+    }
+  }
+}

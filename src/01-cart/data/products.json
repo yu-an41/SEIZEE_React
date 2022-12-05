@@ -5,7 +5,8 @@
       "stock": 5,
       "name": "iPhone 12 Pro",
       "price": 25000,
-      "tags": "蘋果,大螢幕"
+      "tags": "蘋果,大螢幕",
+      "inventory": 8
     },
     {
       "id": "2",
@@ -13,7 +14,8 @@
       "stock": 5,
       "name": "iPhone 12",
       "price": 15000,
-      "tags": "蘋果,小螢幕"
+      "tags": "蘋果,小螢幕",
+      "inventory": 12
     },
     {
       "id": "3",
@@ -21,7 +23,8 @@
       "stock": 10,
       "name": "iPhone SE",
       "price": 12500,
-      "tags": "蘋果,小螢幕"
+      "tags": "蘋果,小螢幕",
+      "inventory": 3
     },
     {
       "id": "4",
@@ -29,7 +32,8 @@
       "stock": 10,
       "name": "iPhone XS",
       "price": 22000,
-      "tags": "蘋果,大螢幕"
+      "tags": "蘋果,大螢幕",
+      "inventory": 2
     },
     {
       "id": "5",
@@ -37,7 +41,8 @@
       "stock": 6,
       "name": "Google Pixel 5",
       "price": 17000,
-      "tags": "安卓,大螢幕"
+      "tags": "安卓,大螢幕",
+      "inventory": 5
     },
     {
       "id": "6",
@@ -45,6 +50,7 @@
       "stock": 6,
       "name": "Google Pixel 4",
       "price": 15500,
-      "tags": "安卓,大螢幕"
+      "tags": "安卓,大螢幕",
+      "inventory": 8
     }
   ]
