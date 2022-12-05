@@ -304,7 +304,7 @@ export const CartInfoContextProvider = function ({ children }) {
 //               sale_price: prodInfo.product_price, // 優惠價
 //               sale: prodInfo.sale_price, // 折數
 //               name: prodInfo.product_name,
-//               picture: prodInfo.picture_url,
+//               picture: prodInfo.picture_url,ƒ
 //               amount: prodQty,
 //               inventory: prodInfo.inventory_qty,
 //             },

@@ -43,10 +43,12 @@ input[type="number"] {
   background: $main-yellow;
   padding-top: line(3);
 }
-
 .a-navBarWrapper {
   height: 70px;
   background-color: $main-yellow;
+}
+.a-carouselBigWrapper {
+  margin: 50px 0 10px 0;
 }
 .a-productDetailWrapper {
   display: flex;
@@ -166,7 +168,12 @@ input[type="number"] {
       margin-right: 5px;
       font-size: 16px;
     }
-    .minus {
+    .a-minusButton {
+      border: none;
+      background: transparent;
+      margin-right: 6px;
+    }
+    .a-minus {
       border: none;
       background: #fff;
       color: $main-text;
@@ -174,7 +181,12 @@ input[type="number"] {
       border-radius: 8px 0 0 8px;
       font-size: 20px;
     }
-    .plus {
+    .a-minusButton {
+      border: none;
+      background: transparent;
+      margin-left: 6px;
+    }
+    .a-plus {
       border: none;
       background: #fff;
       color: $main-text;
