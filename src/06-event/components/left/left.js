@@ -22,23 +22,11 @@ function Left({ setNowPage }) {
             <li
               onClick={(e) => {
                 e.preventDefault()
-                setNowPage(1)
+                setNowPage(2)
                 setJlactive(1)
               }}
             >
-              <div className={jlactive === 1 ? 'active' : ''}>所有活動</div>
-            </li>
-            <li>
-              <img src={jWorm} alt="" />
-            </li>
-            <li
-              onClick={(e) => {
-                e.preventDefault()
-                setNowPage(2)
-                setJlactive(2)
-              }}
-            >
-              <div className={jlactive === 2 ? 'active' : ''}>時間表</div>
+              <div className={jlactive === 1 ? 'jactive' : ''}>所有活動</div>
             </li>
             <li>
               <img src={jWorm} alt="" />
@@ -47,10 +35,10 @@ function Left({ setNowPage }) {
               onClick={(e) => {
                 e.preventDefault()
                 setNowPage(3)
-                setJlactive(3)
+                setJlactive(2)
               }}
             >
-              <div className={jlactive === 3 ? 'active' : ''}>場域地圖</div>
+              <div className={jlactive === 2 ? 'jactive' : ''}>時間表</div>
             </li>
             <li>
               <img src={jWorm} alt="" />
@@ -59,10 +47,22 @@ function Left({ setNowPage }) {
               onClick={(e) => {
                 e.preventDefault()
                 setNowPage(4)
+                setJlactive(3)
+              }}
+            >
+              <div className={jlactive === 3 ? 'jactive' : ''}>場域地圖</div>
+            </li>
+            <li>
+              <img src={jWorm} alt="" />
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault()
+                setNowPage(5)
                 setJlactive(4)
               }}
             >
-              <div className={jlactive === 4 ? 'active' : ''}>我的票卷</div>
+              <div className={jlactive === 4 ? 'jactive' : ''}>我的票卷</div>
             </li>
             <li>
               <img src={jWorm} alt="" />

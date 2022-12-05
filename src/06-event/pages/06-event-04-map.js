@@ -11,7 +11,28 @@ import jJuice from '../img/juice.png'
 import jStage from '../img/stage.png'
 import jCyber from '../img/augmented-reality.png'
 
+import { useState } from 'react'
+import { useTimeTable } from '../context/useTimeTable'
+
 function Maps() {
+  // const [hover, setHover] = useState(false)
+  const { whichHover } = useTimeTable()
+
+  // useEffect(() => {
+  //   var element = document.getElementById('j-cook-green-id')
+  //   console.log(element)
+  //   element.addEventListener('mouseover', function () {
+  //     console.log('Event triggered')
+  //   })
+
+  //   var event = new MouseEvent('mouseover', {
+  //     view: window,
+  //     bubbles: true,
+  //     cancelable: true,
+  //   })
+
+  //   element.dispatchEvent(event)
+  // }, [])
   return (
     <>
       <div className="j-event-middle-map">
@@ -23,7 +44,8 @@ function Maps() {
         <div className="j-map-wrap">
           <div className="j-map-background">
             <div className="j-cloudA">
-              <img src={jCloud1} alt="" />
+              {/* <img src={jCloud3} alt="" /> */}
+              {/* <img src={jCloud4} alt="" /> */}
             </div>
             <div className="j-cloudB">
               <img src={jCloud2} alt="" />
@@ -32,34 +54,62 @@ function Maps() {
               <img src={jCloud3} alt="" />
             </div>
             <div className="j-cloudD">
-              <img src={jCloud4} alt="" />
+              <img src={jCloud1} alt="" />
+            </div>
+            <div className="j-cloudE">
+              <img src={jCloud3} alt="" />
+            </div>
+            <div className="j-cloudF">
+              <img src={jCloud1} alt="" />
             </div>
             <div className="j-show-pink-wrap">
-              <div className="j-show-pink">
+              <div
+                className={`j-show-pink ${whichHover === 5 ? 'p-hover' : ''}`}
+              >
                 <div>看的場所</div>
                 <img src={jMask} alt="" />
               </div>
             </div>
-            <div className="j-ted-blue-wrap">
-              <div className="j-ted-blue">
+            <div
+              className={`j-ted-blue-wrap ${
+                whichHover === 1 ? 'b-hover2' : ''
+              }`}
+            >
+              <div
+                className={`j-ted-blue ${whichHover === 1 ? 'b-hover' : ''}`}
+              >
                 <div>泰迪托克</div>
                 <img src={jMicrophone} alt="" />
               </div>
             </div>
             <div className="j-cook-green-wrap">
-              <div className="j-cook-green">
+              <div
+                className={`j-cook-green ${whichHover === 3 ? 'g-hover' : ''}`}
+              >
                 <div>穢土轉生</div>
                 <img src={jJuice} alt="" />
               </div>
             </div>
-            <div className="j-music-orange-wrap">
-              <div className="j-music-orange">
+            <div
+              className={`j-music-orange-wrap ${
+                whichHover === 2 ? 'o-hover2' : ''
+              }`}
+            >
+              <div
+                className={`j-music-orange ${
+                  whichHover === 2 ? 'o-hover' : ''
+                }`}
+              >
                 <div>橘色舞台</div>
                 <img src={jStage} alt="" />
               </div>
             </div>
             <div className="j-cyber-purple-wrap">
-              <div className="j-cyber-purple">
+              <div
+                className={`j-cyber-purple ${
+                  whichHover === 4 ? 'p-hover' : ''
+                }`}
+              >
                 <div>合法幻舞</div>
                 <img src={jCyber} alt="" />
               </div>

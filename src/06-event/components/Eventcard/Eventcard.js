@@ -4,7 +4,10 @@ import jHeart from './../../svg/heart-none.svg'
 import { useTimeTable } from '../../context/useTimeTable'
 
 function Eventcard({ time, name, nick, color, cat }) {
-  const { handleAddTimeTable } = useTimeTable()
+  const { handleAddTimeTable, timeTable } = useTimeTable()
+
+  const names = timeTable.map((v) => v.name)
+
   return (
     <div
       className="j-card-lines"
@@ -12,7 +15,9 @@ function Eventcard({ time, name, nick, color, cat }) {
         handleAddTimeTable(cat)
       }}
     >
-      <div class="j-schedule-card">
+      <div
+        class={`j-schedule-card ${names.includes(name) ? 'j-dark-card' : ''} `}
+      >
         <div class="j-schedule-card-head" style={{ background: `${color}` }}>
           <div class="j-schedule-card-time" style={{ background: `${color}` }}>
             {time}
