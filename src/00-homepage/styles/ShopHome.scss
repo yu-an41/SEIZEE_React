@@ -10,8 +10,7 @@ $title-text: rgb(190, 174, 146);
       no-repeat,
     url(./../../../public/03-shop-img/food_ramen_01.png) 1550px 150px/8%
       no-repeat,
-    url(./../../../public/03-shop-img/food_pizza_01.png) 800px 30px/7%
-      no-repeat,
+    url(./../../../public/03-shop-img/food_pizza_01.png) 800px 30px/7% no-repeat,
     url(./../../../public/03-shop-img/food_french_fries_01.png) 150px 180px/7%
       no-repeat;
 
@@ -36,12 +35,26 @@ $title-text: rgb(190, 174, 146);
           letter-spacing: 0.2rem;
           color: $main-text;
         }
+        .r-shop-home-main-text-button {
+          display: inline-block;
+          text-align: center;
+          font-size: 30px;
+          font-weight: 700;
+          line-height: 60px;
+          letter-spacing: .2rem;
+          width: 60px;
+          color: #fff;
+          background-color: $main-orange;
+          border-radius: 50%;
+          margin-left: 20px;
+        }
       }
     }
     .r-shop-home-main-visual {
       width: 60%;
       height: 40vh;
-      background: url('./../../../public/03-shop-img/potato.png') 20% center/50% no-repeat;
+      background: url('./../../../public/03-shop-img/potato.png') 20% center/50%
+        no-repeat;
       margin-top: 50px;
     }
   }
