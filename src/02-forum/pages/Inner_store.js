@@ -13,6 +13,8 @@ import WriteBtn from '../components/WriteBtn'
 import Comment from '../components/Comment'
 import Recommendation from '../components/Recommendation'
 import Message from '../components/Message'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function InnerStore() {
   const { sid } = useParams()
@@ -26,6 +28,8 @@ function InnerStore() {
     induction: '',
     content: '',
     hashtag: '',
+    mb_name: '',
+    mb_email: '',
     created_at: '',
     comment: [
       {
@@ -56,6 +60,9 @@ function InnerStore() {
 
   return (
     <>
+      <div className="p-navBar">
+        <NavBar />
+      </div>
       <div className="innerOfficial">
         <div className="sidBar">
           <SideBar />
@@ -69,11 +76,9 @@ function InnerStore() {
               </div>
             </div>
 
-            <div className="p-officialTagWrap">
-              <Tag />
-            </div>
+            <div className="p-officialTagWrap">{/* <Tag /> */}</div>
             <div className="p-officialMemberWrap">
-              <Member />
+              <Member cookMb={shareInnerData} />
             </div>
           </div>
 
@@ -117,6 +122,9 @@ function InnerStore() {
             <WriteBtn />
           </div>
         </div>
+      </div>
+      <div className="p-footer">
+        <Footer />
       </div>
     </>
   )

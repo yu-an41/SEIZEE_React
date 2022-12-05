@@ -2,7 +2,12 @@ import axios from 'axios'
 import log from 'eslint-plugin-react/lib/util/log'
 import React, { useState, useEffect, useRef, ChangeEvent } from 'react'
 import { Form } from 'react-router-dom'
+
 import '../styles/WriteForm.scss'
+
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
+import ImageItemPreview from './ImageItemPreview'
 
 function WriteForm() {
   // const [doRerender, setDoRerender] = useState(false)
@@ -13,6 +18,13 @@ function WriteForm() {
     member_sid: 1,
     categories_sid: 4,
     title: '',
+    hashtag: [
+      {
+        categories_sid: 4,
+        post_sid: 1,
+        tagContent: '',
+      },
+    ],
     img: '',
     induction: '',
     time: '',
@@ -82,10 +94,27 @@ function WriteForm() {
   // server上的圖片網址
   const [imgServerUrl, setImgServerUrl] = useState('')
 
+  useEffect(() => {
+    if (!image) {
+      setPreview('')
+      return
+    }
+
+    const objectUrl = URL.createObjectURL(image)
+    console.log(objectUrl)
+    setPreview(objectUrl)
+
+    // 當元件unmounted時清除記憶體
+    return () => URL.revokeObjectURL(objectUrl)
+  }, [image])
+
   const [instrucNums, setInstrucNums] = useState(2)
   const [stepNums, setStepNums] = useState(2)
   return (
     <>
+      <div className="p-navBar">
+        <NavBar />
+      </div>
       <div className="p-writeForm">
         <form>
           <label className="p-writeTitleLab">
@@ -107,7 +136,7 @@ function WriteForm() {
               className="p-wTag p-wTag-1"
               placeholder="輸入標籤"
               name="hashtag1"
-              value={writData.hashtag}
+              value={writData.hashtag[0].tagContent}
             ></input>
             <input
               className="p-wTag p-wTag-2"
@@ -268,7 +297,7 @@ function WriteForm() {
                     </label>
                     <label className="p-stepNum">
                       <h3>STEP{i + 1}</h3>
-                      
+
                       <input
                         className="p-stepContent"
                         placeholder="步驟說明（最多150字）"
@@ -338,9 +367,13 @@ function WriteForm() {
             console.log('帶入123')
             setWritData({
               title: '蕃茄菇菇雞肉飯',
-              hashtag1: '家常菜',
-              hashtag2: '電鍋',
-              hashtag3: '剩食',
+              hashtag: [
+                {
+                  categories_sid: 4,
+                  post_sid: 1,
+                  tagContent: '電鍋',
+                },
+              ],
               induction:
                 '菇菇控最愛的香菇、杏鮑菇、蘑菇，三菇一體加上雞腿肉的多汁鮮甜蕃茄入菜帶出酸甜感，最後撒上烹大師鰹魚風味，獨到的煙燻香氣讓料理美味無可挑剔!',
               time: '20分鐘',
@@ -379,6 +412,10 @@ function WriteForm() {
         >
           填入範例資料
         </button>
+      </div>
+
+      <div className="p-footer">
+        <Footer />
       </div>
     </>
   )

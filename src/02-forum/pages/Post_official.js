@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -9,6 +10,8 @@ import SearchBar from '../components/Search_bar'
 import Recommendation from '../components/Recommendation'
 import WriteBtn from '../components/WriteBtn'
 import TabCook from '../components/TabCook'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function PostCook() {
   const [officialPostData, setOfficialPostData] = useState([
@@ -22,6 +25,14 @@ function PostCook() {
       content: '',
       hashtag: '',
       created_at: '',
+      tag: [
+        {
+          categories_sid: 1,
+          post_sid: 1,
+          tagContent: '',
+          created_at: '',
+        },
+      ],
     },
   ])
   const getOfficialData = async () => {
@@ -40,6 +51,9 @@ function PostCook() {
 
   return (
     <>
+      <div className="p-navBar">
+        <NavBar />
+      </div>
       <div className="p-PostWrap">
         <div className="p-sideBarWrap">
           <SideBar />
@@ -63,6 +77,9 @@ function PostCook() {
             <WriteBtn />
           </div>
         </div>
+      </div>
+      <div className="p-footer">
+        <Footer />
       </div>
     </>
   )

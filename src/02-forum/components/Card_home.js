@@ -15,6 +15,7 @@ function Card_home({ homeData }) {
     title,
     induction,
     content,
+    mb_name,
     creat_at,
     categories_sid,
   } = homeData
@@ -47,7 +48,7 @@ function Card_home({ homeData }) {
 
         <div className="p-card-play">
           <div className="p-card-member">
-            <p>惜食料理王</p>
+            <p>{mb_name}</p>
             <p>{dayjs(creat_at).format('YYYY.MM.DD')}</p>
           </div>
           <div className="p-icon-arrow">

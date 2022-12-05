@@ -9,6 +9,8 @@ import SearchBar from '../components/Search_bar'
 import Recommendation from '../components/Recommendation'
 import WriteBtn from '../components/WriteBtn'
 import TabCook from '../components/TabCook'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function PostCook() {
   const [sharePostData, setSharePostData] = useState([
@@ -39,6 +41,9 @@ function PostCook() {
 
   return (
     <>
+      <div className="p-navBar">
+        <NavBar />
+      </div>
       <div className="p-PostWrap">
         <div className="p-sideBarWrap">
           <SideBar />
@@ -62,6 +67,9 @@ function PostCook() {
             <WriteBtn />
           </div>
         </div>
+      </div>
+      <div className="p-footer">
+        <Footer />
       </div>
     </>
   )

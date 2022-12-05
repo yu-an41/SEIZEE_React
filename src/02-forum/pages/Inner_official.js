@@ -15,6 +15,8 @@ import WriteBtn from '../components/WriteBtn'
 import Comment from '../components/Comment'
 import Recommendation from '../components/Recommendation'
 import Message from '../components/Message'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function InnerOfficial() {
   const { sid } = useParams()
@@ -58,6 +60,9 @@ function InnerOfficial() {
 
   return (
     <>
+      <div className="p-navBar">
+        <NavBar />
+      </div>
       <div className="innerOfficial">
         <div className="sidBar">
           <SideBar />
@@ -72,7 +77,7 @@ function InnerOfficial() {
             </div>
 
             <div className="p-officialTagWrap">
-              <Tag />
+              {/* <Tag /> */}
             </div>
             <div className="p-officialMemberWrap">
               <Member />
@@ -125,6 +130,9 @@ function InnerOfficial() {
             <WriteBtn />
           </div>
         </div>
+      </div>
+      <div className="p-footer">
+        <Footer />
       </div>
     </>
   )

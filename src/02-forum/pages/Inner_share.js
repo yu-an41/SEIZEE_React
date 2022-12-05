@@ -13,6 +13,8 @@ import WriteBtn from '../components/WriteBtn'
 import Comment from '../components/Comment'
 import Recommendation from '../components/Recommendation'
 import Message from '../components/Message'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function InnerShare() {
   const { sid } = useParams()
@@ -25,6 +27,9 @@ function InnerShare() {
     video: '',
     induction: '',
     content: '',
+    mb_photo: '',
+    mb_name: '',
+    mb_email: '',
     hashtag: '',
     created_at: '',
     comment: [
@@ -56,6 +61,9 @@ function InnerShare() {
 
   return (
     <>
+      <div className="p-navBar">
+        <NavBar />
+      </div>
       <div className="innerOfficial">
         <div className="sidBar">
           <SideBar />
@@ -69,11 +77,9 @@ function InnerShare() {
               </div>
             </div>
 
-            <div className="p-officialTagWrap">
-              <Tag />
-            </div>
+            <div className="p-officialTagWrap">{/* <Tag /> */}</div>
             <div className="p-officialMemberWrap">
-              <Member />
+              <Member cookMb={shareInnerData}/>
             </div>
           </div>
 
@@ -114,6 +120,9 @@ function InnerShare() {
             <WriteBtn />
           </div>
         </div>
+      </div>
+      <div className="p-footer">
+        <Footer />
       </div>
     </>
   )

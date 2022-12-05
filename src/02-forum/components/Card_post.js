@@ -1,24 +1,65 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
+import dayjs from 'dayjs'
 
 import './../styles/Card.scss'
 import Tag from './Tag'
 import post from './../p-imgs/post.jpeg'
 import cake from './../../dotown/cake.png'
 import heartNormal from './../p-imgs/pixel-heartNormal.svg'
-import dayjs from 'dayjs'
+import ForumCollectContext from '../../contexts/02-forum-lovePost'
 
-export function Card_cook({ postData }) {
-  const { sid, img, title, induction, content, creat_at, categories_sid } =
-    postData
+export function Card_cook({ postData, heart }) {
+  const [solid, setSolid] = useState(false)
+  const {
+    sid,
+    img,
+    title,
+    induction,
+    content,
+    creat_at,
+    tag,
+    categories_sid,
+    mb_photo,
+    mb_name,
+    mb_email,
+  } = postData
+  // const {
+  //   collection,
+  //   setCollection,
+  //   collectList,
+  //   setCollectList,
+  //   collectionNum,
+  //   setCollectionNum,
+  //   addCollect,
+  //   delCollect,
+  //   handleClick,
+  // } = useContext(ForumCollectContext)
+  const t = categories_sid + '_' + sid
+  console.log({ solid, t, heart })
+
   const cateMap = {
     1: '/forum/official/inner/',
     2: '/forum/store/inner/',
     3: '/forum/share/inner/',
     4: '/forum/cook/inner/',
   }
-
+  const changeLike = async () => {
+    const res2 = await axios.get(
+      `http://localhost:3004/forum/forum_toggle?mid=29&cid=${categories_sid}&pid=${sid}`
+    )
+    if (res2.data.success) {
+      if (res2.data.msg === 'insert') {
+        setSolid(true)
+      } else {
+        setSolid(false)
+      }
+    }
+  }
+  useEffect(() => {
+    setSolid(heart)
+  }, [heart])
   return (
     <>
       <div className="p-card-p" key={sid}>
@@ -32,49 +73,106 @@ export function Card_cook({ postData }) {
               alt=""
             />
           </div>
-          <div className="p-card-contenter-wrap">
-            <div className="p-card-contenter">
-              <h4>{title}</h4>
-              <div className="p-tag-wrap">
-                <Tag />
-              </div>
-              <p className="p-contenter-p">{induction}</p>
-            </div>
+        </Link>
+        <div className="p-card-contenter-wrap">
+          <div className="p-card-contenter">
+            <h4>{title}</h4>
+            <div className="p-tag-wrap">{/* <Tag /> */}</div>
+            <p className="p-contenter-p">{induction}</p>
+          </div>
 
-            <div className="p-infor-wrap">
-              <div className="p-card-member">
-                <div className="p-member-photo">
-                  <img src={cake} alt="" />
-                </div>
-                <div className="p-memberId">
-                  <p>惜食料理王</p>
-                  <p>@love_cooking</p>
-                </div>
+          <div className="p-infor-wrap">
+            <div className="p-card-member">
+              <div className="p-member-photo">
+                <img src={cake} alt="" />
               </div>
-              <div className="p-day-wrap">
-                <p className="p-day">{dayjs(creat_at).format('YYYY.MM.DD')}</p>
-                <div className="p-like-wrap">
-                  <img src={heartNormal} alt="" />
-                </div>
+              <div className="p-memberId">
+                <p>{mb_name}</p>
+                <p>{mb_email}</p>
               </div>
+            </div>
+            <div className="p-day-wrap">
+              <p className="p-day">{dayjs(creat_at).format('YYYY.MM.DD')}</p>
+
+              {solid ? (
+                <img
+                  src="/04-product/svg/heart.svg"
+                  alt=""
+                  onClick={() => {
+                    changeLike()
+                  }}
+                />
+              ) : (
+                <img
+                  src="/04-product/svg/collection.svg"
+                  alt=""
+                  onClick={() => {
+                    changeLike()
+                  }}
+                />
+              )}
+              {/* <div className="p-like-wrap">
+                {collectionNum.length > 0 ? (
+                  collectionNum.includes(sid) ? (
+                    <img
+                      src="/04-product/svg/heart.svg"
+                      alt=""
+                      onClick={() => {
+                        delCollect(sid)
+                        handleClick(false)
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src="/04-product/svg/collection.svg"
+                      alt=""
+                      onClick={() => {
+                        addCollect(+sid)
+                        handleClick(true)
+                      }}
+                    />
+                  )
+                ) : (
+                  <img
+                    src="/04-product/svg/collection.svg"
+                    alt=""
+                    onClick={() => {
+                      addCollect(+sid)
+                      handleClick(true)
+                    }}
+                  />
+                )}
+              </div> */}
             </div>
           </div>
-        </Link>
+        </div>
       </div>
     </>
   )
 }
 
 export function Card_official({ postData }) {
-  const { sid, img, title, induction, content, creat_at, categories_sid } =
-    postData
+  const {
+    sid,
+    img,
+    title,
+    induction,
+    content,
+    mb_photo,
+    mb_name,
+    mb_email,
+    creat_at,
+    tag,
+    tagContent,
+    categories_sid,
+  } = postData
   const cateMap = {
     1: '/forum/official/inner/',
     2: '/forum/store/inner/',
     3: '/forum/share/inner/',
     4: '/forum/cook/inner/',
   }
-
+  // console.log(tag)
   return (
     <>
       <div className="p-card-p" key={sid}>
@@ -88,9 +186,7 @@ export function Card_official({ postData }) {
           <div className="p-card-contenter-wrap">
             <div className="p-card-contenter">
               <h4>{title}</h4>
-              <div className="p-tag-wrap">
-                <Tag />
-              </div>
+              <div className="p-tag-wrap">{/* <Tag tagSid={tag} /> */}</div>
               <p className="p-contenter-p">{induction}</p>
             </div>
 
@@ -124,6 +220,9 @@ export function Card_store({ postData }) {
     title,
     induction,
     content,
+    mb_photo,
+    mb_name,
+    shop_phone,
     creat_at,
     categories_sid,
     shop_cover,
@@ -148,9 +247,7 @@ export function Card_store({ postData }) {
           <div className="p-card-contenter-wrap">
             <div className="p-card-contenter">
               <h4>{title}</h4>
-              <div className="p-tag-wrap">
-                <Tag />
-              </div>
+              <div className="p-tag-wrap">{/* <Tag /> */}</div>
               <p className="p-contenter-p">{induction}</p>
             </div>
 
@@ -160,8 +257,8 @@ export function Card_store({ postData }) {
                   <img src={cake} alt="" />
                 </div>
                 <div className="p-memberId">
-                  <p>惜食料理王</p>
-                  <p>@love_cooking</p>
+                  <p>{mb_name}</p>
+                  <p>{shop_phone}</p>
                 </div>
               </div>
               <div className="p-day-wrap">
@@ -179,8 +276,18 @@ export function Card_store({ postData }) {
 }
 
 export function Card_share({ postData }) {
-  const { sid, img, title, induction, content, creat_at, categories_sid } =
-    postData
+  const {
+    sid,
+    img,
+    title,
+    induction,
+    content,
+    mb_photo,
+    mb_name,
+    mb_email,
+    creat_at,
+    categories_sid,
+  } = postData
   const cateMap = {
     1: '/forum/official/inner/',
     2: '/forum/store/inner/',
@@ -201,9 +308,7 @@ export function Card_share({ postData }) {
           <div className="p-card-contenter-wrap">
             <div className="p-card-contenter">
               <h4>{title}</h4>
-              <div className="p-tag-wrap">
-                <Tag />
-              </div>
+              <div className="p-tag-wrap">{/* <Tag /> */}</div>
               <p className="p-contenter-p">{induction}</p>
             </div>
 
@@ -213,8 +318,8 @@ export function Card_share({ postData }) {
                   <img src={cake} alt="" />
                 </div>
                 <div className="p-memberId">
-                  <p>惜食料理王</p>
-                  <p>@love_cooking</p>
+                  <p>{mb_name}</p>
+                  <p>{mb_email}</p>
                 </div>
               </div>
               <div className="p-day-wrap">

@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 import '../styles/InnerCook.scss'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 import postImg from './../p-imgs/post.jpeg'
 import timeIcon from './../p-imgs/pixel-time.svg'
@@ -35,6 +37,9 @@ function InnerCook() {
     ps: '',
     likes: 1,
     creat_at: '',
+    mb_photo: '',
+    mb_name: '惜食料理王',
+    mb_email: 'test1@abc.com',
     instructions: [
       {
         sid: '',
@@ -80,137 +85,144 @@ function InnerCook() {
   }, [doRerender])
 
   return (
-    <div className="innerCook">
-      <div className="sidBar">
-        <SideBar />
+    <>
+      <div className="p-navBar">
+        <NavBar />
       </div>
-      <div className="p-cookContainer">
-        <div className="p-cookTitle">
-          <div className="p-cookH1AdIcon">
-            <h1>{cookInnerData.title}</h1>
-            <div className="p-saveIcon" alt="">
-              <img src={heartIcon} alt="" />
-            </div>
-          </div>
-
-          <div className="p-cookTagWrap">
-            <Tag />
-          </div>
-          <div className="p-cookMemberWrap">
-            <Member />
-          </div>
+      <div className="innerCook">
+        <div className="sidBar">
+          <SideBar />
         </div>
-
-        <div className="p-imgAdContet">
-          <div className="p-innerImgWrap">
-            <img
-              src={`http://localhost:3004/images/02-forum/cook/${cookInnerData.img}`}
-              alt=""
-            />
-          </div>
-          <p>{cookInnerData.induction}</p>
-        </div>
-        <div className="p-instAdTimAdServ">
-          <div className="p-timeAdServ">
-            <div className="p-timeWrap">
-              <div className="p-timeIcon">
-                <img src={timeIcon} alt="" />
+        <div className="p-cookContainer">
+          <div className="p-cookTitle">
+            <div className="p-cookH1AdIcon">
+              <h1>{cookInnerData.title}</h1>
+              <div className="p-saveIcon" alt="">
+                <img src={heartIcon} alt="" />
               </div>
-              <h4 className="p-timeText">
-                時間
-                <span />
-                {cookInnerData.times}
-              </h4>
             </div>
-            <div className="p-servingWrap">
-              <div className="p-servingIcon">
-                <img src={servingIcon} alt="" />
-              </div>
-              <h4 className="p-servingText">
-                人份 <span />
-                {cookInnerData.serving}
-              </h4>
+
+            <div className="p-cookTagWrap">
+              {/* <Tag /> */}
+            </div>
+            <div className="p-cookMemberWrap">
+              <Member cookMb={cookInnerData} />
             </div>
           </div>
-          <div className="p-instAdTitle">
-            <h3>食材</h3>
 
-            <ul className="p-instructions">
-              {cookInnerData.instructions.map((v, i) => {
-                console.log(v.instrucContent)
+          <div className="p-imgAdContet">
+            <div className="p-innerImgWrap">
+              <img
+                src={`http://localhost:3004/images/02-forum/cook/${cookInnerData.img}`}
+                alt=""
+              />
+            </div>
+            <p>{cookInnerData.induction}</p>
+          </div>
+          <div className="p-instAdTimAdServ">
+            <div className="p-timeAdServ">
+              <div className="p-timeWrap">
+                <div className="p-timeIcon">
+                  <img src={timeIcon} alt="" />
+                </div>
+                <h4 className="p-timeText">
+                  時間
+                  <span />
+                  {cookInnerData.times}
+                </h4>
+              </div>
+              <div className="p-servingWrap">
+                <div className="p-servingIcon">
+                  <img src={servingIcon} alt="" />
+                </div>
+                <h4 className="p-servingText">
+                  人份 <span />
+                  {cookInnerData.serving}
+                </h4>
+              </div>
+            </div>
+            <div className="p-instAdTitle">
+              <h3>食材</h3>
+
+              <ul className="p-instructions">
+                {cookInnerData.instructions.map((v, i) => {
+                  console.log(v.instrucContent)
+                  return (
+                    <li key={i}>
+                      <p className="p-instContent">{v.instrucContent}</p>
+                      <p className="p-portion">{v.portion}</p>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          </div>
+          <div className="p-stepWrap">
+            {cookInnerData.steps.map((v, i) => {
+              console.log(v.step)
+              return (
+                <div className="p-step" key={i}>
+                  <div className="p-stepImg">
+                    <img
+                      src={`http://localhost:3004/images/02-forum/cook/${v.stepImg}`}
+                      alt=""
+                    />
+                  </div>
+                  <div className="p-stepContent">
+                    <h3>STEP{v.step}</h3>
+                    <h4>{v.stepContent}</h4>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+          <div className="p-PS">
+            <h2>補充</h2>
+            <h4>{cookInnerData.ps}</h4>
+          </div>
+          <div className="p-commentWrap">
+            <div className="p-commentTitle">
+              <h3>留言</h3>
+            </div>
+            <div className="p-commentForm">
+              <Message
+                setDoRerender={setDoRerender}
+                doRerender={doRerender}
+                InnerCategoriesSid={cookInnerData}
+              />
+            </div>
+            <div className="p-commMessage">
+              {cookInnerData.comment.map((v, i) => {
                 return (
-                  <li key={i}>
-                    <p className="p-instContent">{v.instrucContent}</p>
-                    <p className="p-portion">{v.portion}</p>
-                  </li>
+                  <>
+                    <Comment commData={v} key={i} />
+                  </>
                 )
               })}
-            </ul>
+            </div>
           </div>
         </div>
-        <div className="p-stepWrap">
-          {cookInnerData.steps.map((v, i) => {
-            console.log(v.step)
-            return (
-              <div className="p-step" key={i}>
-                <div className="p-stepImg">
-                  <img
-                    src={`http://localhost:3004/images/02-forum/cook/${v.stepImg}`}
-                    alt=""
-                  />
-                </div>
-                <div className="p-stepContent">
-                  <h3>STEP{v.step}</h3>
-                  <h4>{v.stepContent}</h4>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-        <div className="p-PS">
-          <h2>補充</h2>
-          <h4>{cookInnerData.ps}</h4>
-        </div>
-        <div className="p-commentWrap">
-          <div className="p-commentTitle">
-            <h3>留言</h3>
-          </div>
-          <div className="p-commentForm">
-            <Message
-              setDoRerender={setDoRerender}
-              doRerender={doRerender}
-              InnerCategoriesSid={cookInnerData}
-            />
-          </div>
-          <div className="p-commMessage">
-            {cookInnerData.comment.map((v, i) => {
+        <div className="p-checkAdWrit">
+          <div className="p-checkStep">
+            {cookInnerData.steps.map((v, i) => {
               return (
                 <>
-                  <Comment commData={v} key={i} />
+                  <span>
+                    <input type="checkbox"></input>
+                    <h3>STEP {v.step}</h3>
+                  </span>
                 </>
               )
             })}
           </div>
+          <div className="p-writWrap">
+            <WriteBtn />
+          </div>
         </div>
       </div>
-      <div className="p-checkAdWrit">
-        <div className="p-checkStep">
-          {cookInnerData.steps.map((v, i) => {
-            return (
-              <>
-                <span>
-                  <input type="checkbox"></input>
-                  <h3>STEP {v.step}</h3>
-                </span>
-              </>
-            )
-          })}
-        </div>
-        <div className="p-writWrap">
-          <WriteBtn />
-        </div>
-      </div>
-    </div>
+      <div className="p-footer" />
+      <Footer />
+    </>
   )
 }
 

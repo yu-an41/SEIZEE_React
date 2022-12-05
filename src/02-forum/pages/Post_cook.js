@@ -2,6 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 import './../styles/PostCook.scss'
 
@@ -11,7 +12,8 @@ import SearchBar from '../components/Search_bar'
 import Recommendation from '../components/Recommendation'
 import WriteBtn from '../components/WriteBtn'
 import TabCook from '../components/TabCook'
-import { Link } from 'react-router-dom'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function PostCook() {
   const [postNums, setPostNums] = useState(10)
@@ -30,8 +32,12 @@ function PostCook() {
       times: '',
       likes: 1,
       creat_at: '',
+      mb_photo: '',
+      mb_name: '惜食料理王',
+      mb_email: 'test1@abc.com',
     },
   ])
+  const [pLikes, setPLikes] = useState({})
   const getCookPostData = async () => {
     const usp = new URLSearchParams()
     likeInstructions.forEach((v) => {
@@ -53,6 +59,20 @@ function PostCook() {
     } catch (error) {
       console.log(error.message)
     }
+
+    const res2 = await axios.get(
+      `http://localhost:3004/forum/forum_likes?mid=29`
+    )
+    if (res2.data.success) {
+      let likeObj = {}
+      if (res2.data.rows && res2.data.rows.length) {
+        for (let i of res2.data.rows) {
+          likeObj[i.categories_sid + '_' + i.post_sid] = 1
+        }
+        setPLikes(likeObj)
+      }
+      console.log({ likeObj })
+    }
   }
   useEffect(() => {
     getCookPostData()
@@ -61,6 +81,9 @@ function PostCook() {
   const min = Math.min(postNums, cookPostData.length)
   return (
     <>
+      <div className="p-navBar">
+        <NavBar />
+      </div>
       <div className="p-PostWrap">
         <div className="p-sideBarWrap">
           <SideBar />
@@ -84,9 +107,12 @@ function PostCook() {
             {cookPostData &&
               cookPostData.map((v, i) => {
                 const item = cookPostData[i]
+                const likeKey = item.categories_sid + '_' + item.sid
+                const heart = !!pLikes[likeKey]
+                console.log({ likeKey, heart })
                 return (
                   <>
-                    <Card_cook postData={item} key={item.i} />
+                    <Card_cook postData={item} key={item.i} heart={heart} />
                   </>
                 )
               })}
@@ -106,6 +132,9 @@ function PostCook() {
             <WriteBtn />
           </div>
         </div>
+      </div>
+      <div className="p-footer">
+        <Footer />
       </div>
     </>
   )

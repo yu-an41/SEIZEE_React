@@ -6,6 +6,7 @@ import dayjs from 'dayjs'
 //import useWindowDimensions from '../components/useWindowDimensions'
 
 import CardHome from '../components/Card_home'
+import NavBar from '../../components/NavBar'
 import '../styles/ForumHome.scss'
 
 function ForumHome() {
@@ -45,6 +46,7 @@ function ForumHome() {
       title: '',
       icon: '',
       img: '',
+      mb_name: '惜食料理王',
       creat_at: '',
     },
   ])
@@ -66,6 +68,9 @@ function ForumHome() {
   }, [])
   return (
     <>
+      <div className="p-navBar">
+        <NavBar />
+      </div>
       <div className="p-home">
         <Draggable
           axis="both"
