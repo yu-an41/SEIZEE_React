@@ -68,9 +68,7 @@ function Homepage() {
             <NavBar />
           </section>
           <section className="y-section y-section-news">
-            <div className="y-section-news-first">
-              <NewsCrawl />
-            </div>
+            <div className="y-section-news-first">{/* <NewsCrawl /> */}</div>
           </section>
           <section className="y-section y-section-carousel">
             <div className="y-carousel-wrap">
@@ -177,9 +175,7 @@ function Homepage() {
           <Runman />
         </section>
         <section className="y-section y-section-news-bottom">
-          <div className="y-section-news-second">
-            <NewsCrawl />
-          </div>
+          <div className="y-section-news-second">{/* <NewsCrawl /> */}</div>
         </section>
         <section className="y-section y-section-footer">
           <Footer />

@@ -10,7 +10,7 @@ function CheckCartInfo({ cartItem }) {
   return (
     <div className="y-check-info-border">
       <a href="http://localhost:3000/cart/info">
-        <p className="y-check-info"></p>確認資訊
+        <p className="y-check-info">我要結帳</p>
       </a>
     </div>
   )

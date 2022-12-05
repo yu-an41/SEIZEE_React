@@ -38,6 +38,7 @@ import axios from 'axios'
 import { set } from 'ramda'
 
 function CartList(props) {
+  const [cartPrevText, setCartPrevText] = useState()
   const {
     cartItem,
     setCartItem,

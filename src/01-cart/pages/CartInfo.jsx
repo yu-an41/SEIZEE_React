@@ -30,8 +30,13 @@ import ShopCover from './../images/01cover.jpg'
 function CartInfo() {
   const { cartItem, setCartItem } = useContext(CartInfoContext)
 
-  if (localStorage.getItem('auth')) {
-  }
+  const page = document.location.href
+
+  // const [cartMbSid, setCartMbSid] = useState(0)
+  // 結帳按鈕驗證
+  // if (localStorage.getItem('auth')) {
+  //   setCartMbSid(+localStorage.getItem('auth').mb_sid)
+  // }
   return (
     <>
       <div className="y-CartInfo-container">
@@ -69,25 +74,48 @@ function CartInfo() {
           <div className="y-Cart-pickup  y-Cart-sections">
             <p className="y-Cart-tab y-Cart-pickup-tab">取餐方式</p>
             <div className="y-Cart-main y-Cart-pickup-main">
-              <div className="y-Cart-pickup-radio"></div>
-            </div>
-          </div>
-          <div className="y-Cart-rec  y-Cart-sections">
-            <p className="y-Cart-tab y-Cart-rec-tab">付款方式</p>
-            <div className="y-Cart-main y-Cart-pickup-main">
-              <div className="y-Cart-rec-top"></div>
-              <div className="y-Cart-rec-bottom">
-                <div className="y-Cart-rec-row"></div>
+              <div className="y-Cart-pickup-radio">
+                <label
+                  htmlFor="y-pickup-way-self"
+                  className="y-pickup-way-options y-pickup-radio-labels"
+                >
+                  店內自取
+                </label>
+                <input
+                  id="y-pickup-way-self"
+                  type="radio"
+                  name="pickup_way"
+                  value={1}
+                />
+                <label
+                  htmlFor="y-pickup-way-shop"
+                  className="y-pickup-way-options y-pickup-radio-labels"
+                >
+                  店家配送
+                </label>
+                <input
+                  id="y-pickup-way-shop"
+                  type="radio"
+                  name="pickup_way"
+                  value={2}
+                  disabled
+                />
+                <span className="y-pickup-notice">暫不提供此選項</span>
               </div>
             </div>
           </div>
-          <div className="y-Cart-rec  y-Cart-sections">
-            <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
-            <div className="y-Cart-rec-top">
-              <div className="y-Cart-rec-top"></div>
-              <div className="y-Cart-rec-bottom">
-                <div className="y-Cart-rec-row"></div>
-              </div>
+          <div className="y-Cart-pay  y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-pay-tab">付款方式</p>
+            <div className="y-Cart-main y-Cart-pay-main">
+              <div className="y-Cart-pay-top"></div>
+              <div className="y-Cart-pay-bottom"></div>
+            </div>
+          </div>
+          <div className="y-Cart-member  y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-member-tab">戰士資訊</p>
+            <div className="y-Cart-main y-Cart-member-main">
+              <div className="y-Cart-member-top"></div>
+              <div className="y-Cart-member-bottom"></div>
             </div>
           </div>
           <div className="y-Cart-details y-Cart-sections">
@@ -114,7 +142,7 @@ function CartInfo() {
               </p>
               <div className="y-Cart-details-btns">
                 <div className="y-continue-shopping-wrap">
-                  <ContinueShoppingBtn linkTo={`http://localhost:3000/cart`}/>
+                  <ContinueShoppingBtn linkTo={`http://localhost:3000/cart`} />
                 </div>
                 <div className="y-cart-pay-wrap">
                   <GoPayBtn
