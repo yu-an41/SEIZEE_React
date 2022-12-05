@@ -44,8 +44,8 @@ const Products = () => {
   const filterOptionsVals = Object.values(filterOptions);
   // console.log(filterOptionsVals);
 
-  filterOptionsVals = filterOptionsVals.filter((v) => !!v)
-  setFilter(filterOptionsVals)
+  const OptionsVals = filterOptionsVals.filter((v) => !!v)
+  setFilter(OptionsVals)
   // if (filterOptionsVals.length !== 0) {
   //   setCardsate(0)
   // } else {

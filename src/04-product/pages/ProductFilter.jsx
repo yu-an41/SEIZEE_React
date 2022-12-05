@@ -48,18 +48,19 @@ function ProductFilter() {
   }, []);
 
   const handleSendFilter = () => {
-    let searchParam = new URLSearchParams();
+    const searchParam = new URLSearchParams();
 
     const categoryString = choice.reduce((acc, cur) => {
       return acc + `${cur},`;
     }, "");
-    console.log( 'cate ' + categoryString);
+    // console.log( 'cate ' + categoryString);
     if (categoryString == "")
     {
       navigate(`/products`)
     } else {
       const sids = categoryString.substring(0,categoryString.length-1)
       searchParam.append("category_sid", sids);
+      console.log(sids);
     navigate(`/products?${searchParam.toString()}
     `)
     }
