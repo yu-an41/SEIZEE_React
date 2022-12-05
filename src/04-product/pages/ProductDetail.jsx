@@ -6,19 +6,30 @@ import { useParams, useLocation } from "react-router-dom";
 import Carousel2 from "../components/Carousel2";
 import CollectContext from "../../contexts/CollectContext";
 import ProductComment from "../components/ProductComment";
-import CommentArea from "../components/CommentArea";
 import NavBar from "../../components/NavBar";
 import YellowWave from "../../00-homepage/components/YellowWave";
 import YellowWave2 from "../components/YellowWave2";
 
 function ProductDetail() {
-  const { collection, setCollection, delCollect, addCollect, handleClick } =
-    useContext(CollectContext);
-  const [detail, setDetail] = useState([]);
-  const [errorMessage, setErrorMessage] = useState([]);
+  const {
+    collection,
+    setCollection,
+    delCollect,
+    addCollect,
+    checkList,
+    handleClick,
+  } = useContext(CollectContext);
+
+  //接收父層sid
   const { sid } = useParams();
+  //detailData
+  const [detail, setDetail] = useState([]);
   console.log({ collection });
+  //數量
   const [qty, setQty] = useState(1);
+  //留言
+  const [doRerender, setDoRerender] = useState(false);
+  const [errorMessage, setErrorMessage] = useState([]);
   // const [heart, setHeart] = useState(false);
   // console.log(heart);
 
@@ -45,12 +56,18 @@ function ProductDetail() {
   }
   useEffect(() => {
     getDeatil();
-  }, [collection]);
+  }, [collection, doRerender]);
 
   return (
     <>
       <div className="y-index-container">
-        <div className="a-navBarWrapper"></div>
+        <div
+          className="a-navBarWrapper"
+          style={{
+            height: "70px",
+            backgroundColor: "#fad249",
+          }}
+        ></div>
         <section className="y-section y-section-nav-bg">
           <NavBar />
         </section>
@@ -59,11 +76,13 @@ function ProductDetail() {
         <div className="y-wave-wrap">
           <YellowWave />
         </div>
-        <Carousel2 sid={sid} />
+        <div className="a-carouselBigWrapper">
+          <Carousel2 sid={sid} />
+        </div>
         <div className="a-deatil">
           {detail.map((details, i) => {
             return (
-              <div className="a-productDetailWrapper" key={details.sid}>
+              <div className="a-productDetailWrapper" key={i}>
                 <div className="a-detailWrapper">
                   <div className="a-shopNameWrapper">
                     <img src="/04-product/svg/map.svg" alt="" />
@@ -81,6 +100,10 @@ function ProductDetail() {
                       />
                       <p>{details.category_name}</p>
                     </div>
+                    {/* <div className="a-shopName">
+                    <img src="/04-product/svg/map.svg" alt="" />
+                    <h3>{details.shop_}</h3>
+                    </div> */}
                     <div className="a-shopDeadline">
                       <img src="/04-product/svg/shop.svg" alt="" />
                       <p>最後取餐時間{details.shop_deadline}</p>
@@ -135,7 +158,15 @@ function ProductDetail() {
                   <div className="a-productQuantity">
                     <p>數量</p>
                     <button
-                      className="minus"
+                      className="a-minusButton"
+                      onClick={() => {
+                        setQty(1);
+                      }}
+                    >
+                      min
+                    </button>
+                    <button
+                      className="a-minus"
                       onClick={() => {
                         if (qty > 1) {
                           setQty(qty - 1);
@@ -149,7 +180,6 @@ function ProductDetail() {
                       type="text"
                       value={qty ? qty : ""}
                       onChange={(q) => {
-                        //保持state資料類型一致是數字
                         let a = q.target.value;
                         if (a > details.inventory_qty) {
                           setQty(details.inventory_qty);
@@ -159,7 +189,7 @@ function ProductDetail() {
                       }}
                     />
                     <button
-                      className="plus"
+                      className="a-plus"
                       onClick={() => {
                         if (qty < details.inventory_qty) {
                           setQty(qty + 1);
@@ -167,6 +197,14 @@ function ProductDetail() {
                       }}
                     >
                       +
+                    </button>
+                    <button
+                      className="a-minusButton"
+                      onClick={() => {
+                        setQty(details.inventory_qty);
+                      }}
+                    >
+                      max
                     </button>
                   </div>
                   <div className="a-addButton">
@@ -179,6 +217,7 @@ function ProductDetail() {
           })}
         </div>
         <ProductComment sid={sid} />
+        {/* <ProductCommentArea /> */}
         <YellowWave2 />
         <RecommendCard sid={sid} />
       </div>

@@ -3,19 +3,20 @@ import axios from "axios";
 import NavBar from "../../components/NavBar";
 import "../components/style/ProductFilter.scss";
 import YellowWave from "../../00-homepage/components/YellowWave.js";
+import ReactStars from "react-rating-stars-component";
 
 function ProductFilter() {
   //種類data
   const [filterList, setFilterList] = useState([]);
-  //使用者勾選篩選checkbox結果
+  //使用者勾選種類checkbox
   const [choice, setchoice] = useState([]);
-  //後端api
-  const searchParam = new URLSearchParams();
+  //使用者勾選sideBar
+  const [productFilter, setProductFilter] = useState([""]);
 
-  async function getFilter() {
+  async function getFilter(categoriesString) {
     try {
       const response = await axios.get(
-        ` http://localhost:3004/product/category?category_sid`
+        ` http://localhost:3004/product/category?${categoriesString}`
       );
       // console.log(data);
       const categoryData = response.data.category_rows;
@@ -24,10 +25,16 @@ function ProductFilter() {
       console.error(e.message);
     }
   }
-  //searchBar input
-  const [inputValue, setInputValue] = "";
 
-  const sideBar = ["5折以下", "庫存告急", "100元以下", "50元以下", "評分5顆星"];
+  //searchBar
+  const [inputValue, setInputValue] = "";
+  const sideBarOptions = [
+    "5折以下",
+    "庫存告急",
+    "100元以下",
+    "50元以下",
+    "評分5顆星",
+  ];
 
   const checkboxClick = (e) => {
     const val = +e.target.value;
@@ -46,10 +53,28 @@ function ProductFilter() {
     getFilter();
   }, []);
 
+  const handleSendFilter = () => {
+    const searchParam = new URLSearchParams();
+
+    const categoryString = choice.reduce((acc, cur) => {
+      return acc + `${cur},`;
+    }, "");
+    // const sids = categoryString.substring(0,categoryString.length-1)
+
+    searchParam.append("category_sid", choice);
+    getFilter(searchParam.toString());
+  };
+
   return (
     <>
       <div className="y-index-container">
-        <div className="a-navBarWrapper"></div>
+        <div
+          className="a-navBarWrapper"
+          style={{
+            height: "70px",
+            backgroundColor: "#fad249",
+          }}
+        ></div>
         <section className="y-section y-section-nav-bg">
           <NavBar />
         </section>
@@ -60,40 +85,46 @@ function ProductFilter() {
         </div>
         {/* ProductFilter */}
         <div className="a-productFilterWrapper">
-        {/* SideBar */}
-        <div className="a-aladdinWrapper">
-            <img src="/04-product/svg/aladin.png" alt="" />
-          </div>
           <div className="a-searchBarWrapper">
-            <label>
-              <input
-                className="a-searchInput"
-                value={inputValue}
-                onChange={(i) => setInputValue.target.value(i)}
-              />
-              <h3 className="a-inputValue">{inputValue}</h3>
-              <input className="a-filterInput"></input>
-            </label>
+            {sideBarOptions.map((v, i) => {
+              return (
+                <div key={i} className="a-sideBarOptionsWrapper">
+                  {/* <input
+                    type="checkbox"
+                    className="a-sideBarInput"
+                    checked={productFilter.includes(v)}
+                    value={v}
+                    onChange={(e) => 
+                      const productValue = e.target.value
+                      if (productFilter.includes(productValue)) {
+                        const newproductValue = productFilter.filter (
+                          () 
+                        )
+                      }
+
+                  /> */}
+                </div>
+              );
+            })}
           </div>
+          {/* <input
+            className="a-searchInput"
+            value={inputValue}
+            onChange={(i) => setInputValue.target.value(i)}
+          />
+          <h3 className="a-inputValue">{inputValue}</h3> */}
+
           {/* CategoryFilter */}
           <div className="a-category">
             <div className="a-categoryWrapper">
               {filterList.map((filter, i) => {
                 return (
-                  <div className="a-productFilterWrapper">
+                  <div className="a-productFilterWrapper" key={i}>
                     <label
                       className="a-categoryContentWapper"
                       htmlFor={`a-categoryCheckBox${filter.sid}`}
                       key={filter.sid}
                     >
-                      <input
-                        className="a-categoryInput"
-                        type="checkbox"
-                        id={`a-categoryCheckBox${filter.sid}`}
-                        name="cate"
-                        value={filter.sid}
-                        onChange={checkboxClick}
-                      />
                       <span className="a-iconSpan">
                         <div className="a-iconWrapper">
                           <img
@@ -102,9 +133,19 @@ function ProductFilter() {
                             alt=""
                           />
                         </div>
-                        <h2 className="a-categoryName">
-                          {filter.category_name}
-                        </h2>
+                        <div className="a-categoryIconWrapper">
+                          <input
+                            className="a-categoryInput"
+                            type="checkbox"
+                            id={`a-categoryCheckBox${filter.sid}`}
+                            name="cate"
+                            value={filter.sid}
+                            onChange={checkboxClick}
+                          />
+                          <h2 className="a-categoryName">
+                            {filter.category_name}
+                          </h2>
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -112,16 +153,7 @@ function ProductFilter() {
               })}
             </div>
           </div>
-          {/* ProductCard */}
-          <div className="a-filterProudctWrapper">
-            <div className="a-filterImgWrapper">
-              <img src="/04-product/img/10003.jpg" alt="" />
-            </div>
-            <h2 className="a-filterProudctName">麵包</h2>
-            <p className="a-filterProudctPrice">100元</p>
-            <p className="a-filterProudctDiscount">折</p>
-            <p className="a-filterProudctQty">剩餘數量</p>
-          </div>
+          <button onClick={handleSendFilter}>Do Filter</button>
         </div>
       </div>
     </>

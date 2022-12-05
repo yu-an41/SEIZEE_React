@@ -18,12 +18,21 @@ $base-line-eight: 10px;
 $main-border: 3px solid #113F75;
 $main-border-radius: 8px;
 
-.a-buttonWrapper {
+.a-ratingWrapper {
+    width: 420px;
     display: flex;
     flex-direction: column;
-    // align-items: center;
-#a-input {
-    width: 400px;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+.a-commentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    
+.a-commentInput {
+    width: 420px;
     height: 80px;
     border-radius: $main-border-radius;
     appearance:none;

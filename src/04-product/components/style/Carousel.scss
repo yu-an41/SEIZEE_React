@@ -25,58 +25,71 @@ $main-border-radius: 8px;
     // width: 330px;
     // height: 330px;
 
-    overflow: hidden;
-    margin: 10px;
+    // overflow: hidden;
+    // margin: 10px;
     img {
       width: 330px;
       height: 330px;
       object-fit: cover;
     }
   }
-}
-// .myselectedImage {
-//   border: 8px solid $main-yellow;  object-fit: cover;
-//   overflow: hidden;
-//   padding: 10px;
-// //   width: 320px;
-// //   height: 320px;
-//     img {
-//         object-fit: cover;
-//     }
-// }
 
-// .bg-1 {
-  //     width: 330px;
-  //     height: 330px;
-  //     object-fit: cover;
-  //     overflow: hidden;
-  //     margin: 10px;
+.myselectedImage {
+  border: 8px solid $main-yellow;  object-fit: cover;
+  overflow: hidden;
+  padding: 10px;
+//   width: 320px;
+//   height: 320px;
+    img {
+        object-fit: cover;
+    }
+}
+
+.bg-1 {
+  width: 330px;
+  height: 330px;
+  // object-fit: cover;
+  overflow: hidden;
+  margin: 10px;
+}
 //          background-image: url(../../../../public/04-product/img/10015.jpg);
 // }
-// .bg-1 img {
-//     width: 100%;
+.bg-1 img {
+  width: 330px;
+  height: 330px;
+  object-fit: cover;
+  position: center center;
+}
 //     // background-image: url(../../../../public/04-product/img/10015.jpg)
 // }
-// .bg-2 {
-//     width: 330px;
-//     height: 330px;
-//     object-fit: cover;
-//     overflow: hidden;
-//     margin: 10px;
-// }
-// .bg-2 img {
-//     width: 330px;
-//     height: 330px;
+.bg-2 {
+  width: 330px;
+  height: 330px;
+  // object-fit: cover;
+  overflow: hidden;
+  margin: 10px;
+ 
+}
+.bg-2 img {
+  width: 330px;
+  height: 330px;
+  object-fit: cover;
+  position: center center;
+}
 //     // background-image: url(../../../../public/04-product/img/10015.jpg)
 // }
-// .bg-3 {
-//     width: 330px;
-//     height: 330px;
-//     object-fit: cover;
-//     overflow: hidden;
-//     margin: 10px;
-// }
-// .bg-3 img {
-//     width: 100%;
+.bg-3 {
+  width: 330px;
+  height: 330px;
+  overflow: hidden;
+  margin: 10px;
+}
+.bg-3 img {
+  width: 330px;
+  height: 330px;
+  position: center center;
+  object-fit: cover;
+}
 //     // background-image: url(../../../../public/04-product/img/10015.jpg)
 // }
+}
