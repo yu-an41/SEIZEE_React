@@ -29,6 +29,9 @@ import ShopCover from './../images/01cover.jpg'
 
 function CartInfo() {
   const { cartItem, setCartItem } = useContext(CartInfoContext)
+
+  if (localStorage.getItem('auth')) {
+  }
   return (
     <>
       <div className="y-CartInfo-container">
@@ -66,10 +69,7 @@ function CartInfo() {
           <div className="y-Cart-pickup  y-Cart-sections">
             <p className="y-Cart-tab y-Cart-pickup-tab">取餐方式</p>
             <div className="y-Cart-main y-Cart-pickup-main">
-              <div className="y-Cart-pickup-radio">
-                
-              </div>
-              
+              <div className="y-Cart-pickup-radio"></div>
             </div>
           </div>
           <div className="y-Cart-rec  y-Cart-sections">
@@ -114,10 +114,17 @@ function CartInfo() {
               </p>
               <div className="y-Cart-details-btns">
                 <div className="y-continue-shopping-wrap">
-                  <ContinueShoppingBtn />
+                  <ContinueShoppingBtn linkTo={`http://localhost:3000/cart`}/>
                 </div>
                 <div className="y-cart-pay-wrap">
-                  <GoPayBtn />
+                  <GoPayBtn
+                    mbsid={
+                      localStorage.getItem('auth')
+                        ? localStorage.getItem('auth').mb_sid
+                        : 0
+                    }
+                    cartItem={cartItem}
+                  />
                 </div>
               </div>
             </div>
@@ -125,9 +132,7 @@ function CartInfo() {
         </div>
         <div className="y-Cart-bottom">
           <YellowWaveReverse />
-          <div className="y-Cart-news">
-            {/* <NewsCrawl /> */}
-          </div>
+          <div className="y-Cart-news">{/* <NewsCrawl /> */}</div>
           <div className="y-cart-footer">
             <Footer />
           </div>
