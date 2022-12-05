@@ -1,4 +1,4 @@
-$s-footer-height: 120px;
+$s-footer-height: 50px;
 $s-padding-top: 100px;
 
 .s-body-profile {
@@ -214,6 +214,7 @@ $s-padding-top: 100px;
 
   .s-footer {
     display: block;
+    // margin-top: 60px;
   }
 
   @media (max-width: 991px) {

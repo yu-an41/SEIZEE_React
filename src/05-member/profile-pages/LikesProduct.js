@@ -34,8 +34,8 @@ function LikesProduct() {
     })
 
     // console.log(response)
-    console.log(data)
-    console.log(data.row)
+    // console.log(data)
+    // console.log(data.row)
 
     if (data.success) {
       setLikePDetails(data.row.length)
@@ -48,6 +48,57 @@ function LikesProduct() {
   useEffect(() => {
     getLikeP()
   }, [location])
+
+  // ====================================
+  // 取消收藏
+
+  // console.log('LikePIndex0', LikePIndex)
+
+  async function LikePToggle(likePSid) {
+    // console.log('likePSid1', likePSid)
+    // console.log('LikePIndex1', LikePIndex)
+
+    if (LikePIndex === likePSid) {
+      setLikePIndex(null)
+      // console.log('inside null')
+    } else {
+      setLikePIndex(likePSid)
+      // console.log('inside likepsid')
+
+      const response = await axios.delete(PROFILE_LIKE_PRODUCT, {
+        headers: { Authorization: 'Bearer ' + myAuth.token },
+        data: {
+          mbLikePSid: likePSid,
+        },
+      })
+
+      // const response = await axios.delete(
+      //   PROFILE_LIKE_PRODUCT,
+      //   {
+      //     headers: { Authorization: 'Bearer ' + myAuth.token },
+      //   },
+      //   {
+      //     mbLikePSid: likePSid,
+      //   }
+      // )
+
+      // const response = await axios.delete(
+      //   PROFILE_LIKE_PRODUCT,
+      //   {
+      //     mbLikePSid: likePSid,
+      //   },
+      //   {
+      //     headers: { Authorization: 'Bearer ' + myAuth.token },
+      //   }
+      // )
+      // console.log('likePSid2', likePSid)
+      // console.log('LikePIndex2', LikePIndex)
+      // console.log(response)
+
+      // keyword: axios withcredentials jwt delete
+      // reference: https://stackoverflow.com/questions/51069552/axios-delete-request-with-request-body-and-headers
+    }
+  }
 
   return (
     <>
@@ -67,13 +118,27 @@ function LikesProduct() {
                     Array(LikePDetails)
                       .fill(LikePDisplayDetails)
                       .map((v, i) => {
-                        console.log(v)
-                        console.log(v[i].sid)
+                        {
+                          /* console.log(v)
+                        console.log(v[i].sid) */
+                        }
 
                         return (
                           <div key={v[i].sid} className="r-love-card-container">
-                            <div className="r-love-card-title">
-                              <i className="fa-solid fa-heart"></i>
+                            <div
+                              className="r-love-card-title"
+                              id="mbLikePSid"
+                              onClick={() => {
+                                LikePToggle(v[i].sid)
+                              }}
+                            >
+                              <i
+                                className={
+                                  LikePIndex !== v[i].sid
+                                    ? 'fa-solid fa-heart s-l-p-heart'
+                                    : 'fa-solid fa-heart s-l-p-heart s-l-p-heart-active'
+                                }
+                              ></i>
                             </div>
                             <div className="r-love-card-cover-middle">
                               <div className="r-love-card-cover-wrap">

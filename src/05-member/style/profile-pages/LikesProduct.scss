@@ -37,72 +37,26 @@
       flex-wrap: wrap;
       overflow-y: scroll;
 
-      .s-l-p-data {
+      .s-l-p-data-error {
+        font-size: 24px;
+        width: 100%;
         display: flex;
-        justify-content: space-around;
-        align-items: center;
+        justify-content: center;
+        // align-items: center;
         position: relative;
         padding: 20px 0;
         // box-shadow: (0 6px 4px #ffebbd76);
         background-color: #ffffff;
 
-        // border: 1px solid green;
+        // border: 1px solid red;
+      }
 
-        .s-l-p-line {
-          width: 100%;
-          position: absolute;
-          /* top: 60; */
-
-          border-bottom: 1px solid black;
-        }
-
-        .s-l-p-items {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-
-          /* border: 1px solid pink; */
-
-          .s-l-p-question {
-            margin-bottom: 20px;
-            font-size: 15px;
-            font-weight: 700;
-
-            /* border: 1px solid black; */
-          }
-
-          .s-l-p-answer {
-            font-size: 13px;
-            /* border: 1px solid blue; */
-          }
-
-          .s-mboNote1 {
-            display: block;
-            cursor: pointer;
-            text-decoration: underline;
-          }
-
-          .s-mboNote1.s-l-p-active {
-            display: none;
-          }
-
-          .s-mboNote2 {
-            display: none;
-          }
-
-          .s-mboNote2.s-l-p-active {
-            display: block;
-            cursor: pointer;
-            text-decoration: underline;
-          }
+      @media (max-width: 991px) {
+        .s-l-p-data-error {
+          font-size: 20px;
         }
       }
 
-
-      .s-l-p-data-error {
-        font-size: 24px;
-      }
       .r-love-card-container {
         width: 23%;
         margin: 5px;
@@ -114,8 +68,15 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
-          i {
+
+          .s-l-p-heart {
             color: #f00;
+            text-align: center;
+            font-size: 20px;
+          }
+
+          .s-l-p-heart.s-l-p-heart-active {
+            color: #fff;
             text-align: center;
             font-size: 20px;
           }
@@ -125,17 +86,19 @@
           display: flex;
           justify-content: center;
           border: 1px solid #000;
+
           .r-love-card-cover-wrap {
             width: 180px;
             height: 100px;
-            overflow: hidden;
+            // overflow: hidden;
 
             // border: 1px solid red;
 
             .r-love-card-cover {
               width: 100%;
-              // object-fit: cover;
-              // object-position: 50% 80%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center center;
             }
           }
         }
@@ -148,12 +111,12 @@
           flex-direction: column;
           justify-content: space-around;
           .r-love-card-name {
-            font-size: 16px;
+            font-size: 14px;
             color: #fff;
             text-align: center;
           }
           .r-love-card-info {
-            font-size: 14px;
+            font-size: 12px;
             color: #fff;
             text-align: center;
           }
@@ -178,12 +141,6 @@
   @media (max-width: 991px) {
     .s-l-p-card {
       height: 700px;
-
-      .s-l-p-card-inside {
-        .s-l-p-data {
-          width: 500px;
-        }
-      }
     }
   }
 }

@@ -309,7 +309,7 @@ function UpdateInfo(props) {
             Authorization: 'Bearer ' + myAuth.token,
           },
         }
-        // post axios寫法: post(backend link, data (if not, use {}), headers)
+        // post axios寫法: post/delete (backend link, data (if not, use {}), headers)
       )
 
       // console.log('dataAuth', dataAuth)
