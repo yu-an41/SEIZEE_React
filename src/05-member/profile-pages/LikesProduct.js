@@ -65,7 +65,7 @@ function LikesProduct() {
       setLikePIndex(likePSid)
       // console.log('inside likepsid')
 
-      const response = await axios.delete(PROFILE_LIKE_PRODUCT, {
+      await axios.delete(PROFILE_LIKE_PRODUCT, {
         headers: { Authorization: 'Bearer ' + myAuth.token },
         data: {
           mbLikePSid: likePSid,
@@ -99,6 +99,9 @@ function LikesProduct() {
       // reference: https://stackoverflow.com/questions/51069552/axios-delete-request-with-request-body-and-headers
     }
   }
+
+  // ====================================
+  // 新增收藏
 
   return (
     <>
