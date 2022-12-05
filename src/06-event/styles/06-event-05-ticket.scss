@@ -51,70 +51,111 @@ body {
   justify-content: space-between;
 }
 .j-event-middle-ticket {
+  z-index: 99;
+  // outline: 1px black solid;
+  @include position(47%, 49%);
+  position: fixed;
+  @include size(1100px, 900px);
+  transform: translate(-50%, -50%);
+  animation: moveIn 1s ease-out;
+  @keyframes moveIn {
+    0% {
+      transform: translate(-50%, 130%);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translate(-50%, -70%);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
+  @media (max-width: 390px) {
     // outline: 1px black solid;
-    @include position(47%, 49%);
-    position: fixed;
-    @include size(1100px, 900px);
-    transform: translate(-50%, -50%);
+    @include position(67%, 51%);
+    @include size(360px, 844px);
+  }
 
-    .j-cate-banner {
-        @include size(100%, 170px);
-        background-color: $colorLightGrey;
-        padding: 15px 20px;
-
-        .j-cate-banner-deco {
-            @include size(100%, 100%);
-            border: solid 4px #ffffff;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding-left: 50px;
-
-            div {
-                font-size: 7rem;
-                font-weight: 900;
-                color: $colorDarkGrey;
-                letter-spacing: 0.8rem;
-            }
-        }
+  .j-cate-banner {
+    @include size(100%, 170px);
+    background-color: $colorLightGrey;
+    padding: 15px 20px;
+    @media (max-width: 390px) {
+      @include size(100%, 100px);
+      padding: 6px 10px;
     }
 
-    .j-bang-hide {
-        // outline: black solid 1px;
-        height: 83%;
-        margin-top: 3%;
-        margin-left: 4%;
+    .j-cate-banner-deco {
+      @include size(100%, 100%);
+      border: solid 4px #ffffff;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 50px;
+      @media (max-width: 390px) {
         display: flex;
         justify-content: center;
-        align-items: center;
-        // overflow: hidden;
-        transform: scale(0.3);
-        transition: 1s;
+        padding-left: 0;
+      }
 
-        .j-bang {
-            transform: scale(0.35);
-            margin-left: -5%;
-            margin-top: -5%;
+      div {
+        font-size: 7rem;
+        font-weight: 900;
+        color: $colorDarkGrey;
+        letter-spacing: 0.8rem;
+        @media (max-width: 390px) {
+          font-size: 4rem;
+          text-align: center;
         }
-
-        .j-ticket {
-            position: absolute;
-            transform: scale(0.3) rotate(0);
-            transition: .8s;
-            transform-origin: center center;
-        }
-
-        &:hover {
-            transform: scale(1);
-
-            .j-bang {
-                transform: scale(0.35);
-            }
-
-            .j-ticket {
-                transform: scale(0.3) rotate(720deg);
-            }
-        }
-
+      }
     }
+  }
+
+  .j-bang-hide {
+    // outline: black solid 1px;
+    height: 83%;
+    margin-top: 3%;
+    margin-left: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // overflow: hidden;
+    transform: scale(0.3);
+    transition: 1s;
+    @media (max-width: 390px){
+      transform: scale(0.25);
+      margin-top: -230px;
+    }
+
+    .j-bang {
+      transform: scale(0.35);
+      margin-left: -5%;
+      margin-top: -5%;
+      @media (max-width: 390px){
+        margin-left: -6%;
+        transform: scale(0.38);
+      }
+    }
+
+    .j-ticket {
+      position: absolute;
+      transform: scale(0.3) rotate(0);
+      transition: 0.8s;
+      transform-origin: center center;
+    }
+
+    &:hover {
+      transform: scale(1);
+
+      .j-bang {
+        transform: scale(0.33);
+      }
+
+      .j-ticket {
+        transform: scale(0.3) rotate(720deg);
+      }
+    }
+  }
 }

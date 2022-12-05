@@ -48,7 +48,8 @@ body {
   width: 70%;
   display: flex;
   @media (max-width: 390px) {
-    position: static;
+    z-index: 300;
+    position: fixed;
     display: flex;
     flex-direction: column;
   }
@@ -56,9 +57,10 @@ body {
   .j-left {
     @include size(250px, 100vh);
     background-color: $colorYellow;
+    padding-left: 10px;
     @media (max-width: 390px) {
       @include size(100vw, 100px);
-      outline: 2px black solid;
+      // outline: 2px black solid;
     }
     ul {
       @include size(100%, 100%);
@@ -71,6 +73,7 @@ body {
       @media (max-width: 390px) {
         display: flex;
         flex-direction: row;
+        margin-top: 30px;
       }
 
       li {
@@ -86,49 +89,55 @@ body {
           position: relative;
           text-align: center;
           @media (max-width: 390px) {
-            width: 20px;
+            width: 50px;
             font-size: 1rem;
-            outline: 1px solid black;
+            // outline: 1px solid black;
           }
         }
-        div.active {
+        .jactive {
           color: $colorBlue;
+          // outline: black solid 1px;
+
           &::after {
             content: '';
             background-image: url(./../../svg/tada.svg);
             position: absolute;
             background-repeat: no-repeat;
-            top: -28px;
-            left: 12px;
+            top: -25px;
+            left: 9px;
             width: 250px;
             height: 100px;
             padding: 0;
-            animation: roro 40s linear;
-            animation-iteration-count: infinite;
-            animation-direction: normal;
-            animation-fill-mode: both;
-            animation-play-state: running;
-            @keyframes roro {
+            animation: DUDULU .6s linear infinite;
+            transform-origin: 50% 50%;
+            @keyframes DUDULU {
               0% {
-                transform: rotate(0 deg);
+                // transform: rotate(0deg);
+                transform: scale(0.8);
               }
               25% {
-                transform: rotate(30 deg);
+                // transform: rotate(10deg);
+              }
+              50% {
+                // transform: rotate(0deg);
+                transform: scale(1);
               }
               75% {
-                transform: rotate(0 deg);
+                // transform: rotate(-10deg);
               }
               100% {
-                transform: rotate(30 deg);
+                // transform: rotate(0deg);
+                transform: scale(0.8);
               }
             }
+
             @media (max-width: 390px) {
-              outline: 2px solid black;
+              // outline: 2px solid black;
               background-image: url(./../../svg/tada.svg);
               background-size: 100px 50px;
               position: absolute;
-              top: -8px;
-              left: -70px;
+              top: -18px;
+              left: -25px;
               width: 100px;
               height: 50px;
             }
@@ -142,7 +151,10 @@ body {
     margin-left: -2px;
     width: 50%;
     @media (max-width: 390px) {
+      height: 390px;
       transform: rotate(90deg);
+      transform-origin: 50% 50%;
+      margin-top: -130px;
     }
   }
 }
