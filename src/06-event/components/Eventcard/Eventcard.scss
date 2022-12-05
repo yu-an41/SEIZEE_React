@@ -44,8 +44,13 @@ html {
   background-color: $colorList;
   border-top: 2px $colorLine solid;
   border-bottom: 2px $colorLine solid;
+  // @media (max-width: 390px){
+  //   border-top: 1px $colorLine solid;
+  // border-bottom: 1px $colorLine solid;
+  // }
 }
 .j-schedule-card {
+  z-index: 50;
   height: 100%;
   display: flex;
   margin: 0 4% 0 4%;
@@ -54,12 +59,18 @@ html {
   background-color: $colorWhite;
   border-radius: 6%;
   overflow: hidden;
+  @media (max-width: 390px) {
+    margin: 0 0 0 -15%;
+  }
 
   .j-schedule-card-head {
     color: $colorWhite;
     background-color: $colorLightBlue;
     display: flex;
     justify-content: space-between;
+    @media (max-width: 390px) {
+      width: 100px;
+    }
 
     .j-schedule-card-time {
       background-color: $colorLightBlue;
@@ -67,6 +78,11 @@ html {
       padding: 5px;
       padding-left: 10px;
       font-size: 1.4rem;
+      @media (max-width: 390px) {
+        font-size: 0.8rem;
+        padding: 1px;
+        padding-left: 6px;
+      }
     }
 
     .j-schedule-card-heart {
@@ -74,6 +90,9 @@ html {
       align-items: center;
       background-color: $colorLightBlue;
       width: 30px;
+      @media (max-width: 390px) {
+        display: none;
+      }
     }
   }
 
@@ -84,6 +103,9 @@ html {
     text-align: center;
     background-color: $colorWhite;
     color: $colorBlack;
+    @media (max-width: 390px) {
+      font-size: 1rem;
+    }
   }
 
   .j-schedule-card-hashtag {
@@ -93,5 +115,17 @@ html {
     padding-right: 10px;
     background-color: $colorLightBlue;
     font-size: 1.4rem;
+    @media (max-width: 390px) {
+      font-size: 0.6rem;
+      padding: 1px;
+      padding-right: 6px;
+    }
   }
+}
+.j-dark-card {
+  transition: .3s;
+  height: 100%;
+  background-color: $colorWhite;
+  opacity: 0.3;
+  z-index: 100;
 }

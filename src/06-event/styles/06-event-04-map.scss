@@ -58,11 +58,36 @@ body {
   position: fixed;
   @include size(1100px, 900px);
   transform: translate(-50%, -50%);
+  animation: moveIn 1s ease-out;
+  @keyframes moveIn {
+    0% {
+      transform: translate(-50%, 130%);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translate(-50%, -70%);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
+  @media (max-width: 390px) {
+    // outline: 1px black solid;
+    @include position(67%, 51%);
+    @include size(360px, 844px);
+    position: fixed;
+  }
 
   .j-cate-banner {
     @include size(100%, 170px);
     background-color: $colorLightGrey;
     padding: 15px 20px;
+    @media (max-width: 390px) {
+      @include size(100%, 100px);
+      padding: 6px 10px;
+    }
 
     .j-cate-banner-deco {
       @include size(100%, 100%);
@@ -71,12 +96,21 @@ body {
       justify-content: flex-start;
       align-items: center;
       padding-left: 50px;
+      @media (max-width: 390px) {
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+      }
 
       div {
         font-size: 7rem;
         font-weight: 900;
         color: $colorDarkGrey;
         letter-spacing: 0.8rem;
+        @media (max-width: 390px) {
+          font-size: 4rem;
+          text-align: center;
+        }
       }
     }
   }
@@ -85,6 +119,11 @@ body {
     @include size(1100px, 750px);
     margin-top: 25px;
     overflow: hidden;
+    @media (max-width: 390px) {
+      width: 360px;
+      height: 260px;
+      // outline: red solid 1px;
+    }
 
     .j-map-background {
       position: relative;
@@ -93,57 +132,102 @@ body {
       width: 100%;
       height: 100%;
       background-position: center center;
+      @media (max-width: 390px) {
+        background: url('../img/mobile-map.png') no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+      }
 
       .j-cloudA {
         z-index: 2;
         position: absolute;
-        @include position(7%, 24.5%);
-        animation: cloudA 40s linear;
+        @include position(8%, 24.5%);
+        animation: cloudA 70s linear;
         animation-iteration-count: infinite;
         animation-direction: normal;
         animation-fill-mode: both;
         animation-play-state: running;
+        @media (max-width: 390px) {
+          display: none;
+        }
       }
 
       .j-cloudB {
         z-index: 1;
         position: absolute;
         @include position(9%, 35%);
-        animation: cloudB 90s linear;
+        animation: cloudB 85s linear;
         animation-iteration-count: infinite;
         animation-direction: normal;
         animation-fill-mode: both;
         animation-play-state: running;
+        @media (max-width: 390px) {
+          display: none;
+        }
       }
 
       .j-cloudC {
         z-index: 3;
         position: absolute;
         @include position(3%, 15%);
-        animation: cloudC 60s linear;
+        animation: cloudC 55s linear;
         animation-iteration-count: infinite;
         animation-direction: normal;
         animation-fill-mode: both;
         animation-play-state: running;
+        @media (max-width: 390px) {
+          display: none;
+        }
       }
 
       .j-cloudD {
         z-index: 4;
         position: absolute;
-        @include position(8%, 6%);
-        animation: cloudD 32s linear;
+        @include position(7%, 9%);
+        animation: cloudD 35s linear;
         animation-iteration-count: infinite;
         animation-direction: normal;
         animation-fill-mode: both;
         animation-play-state: running;
+        @media (max-width: 390px) {
+          display: none;
+        }
+      }
+      .j-cloudE {
+        z-index: 4;
+        position: absolute;
+        @include position(4%, 36%);
+        animation: cloudE 34s linear;
+        // animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-fill-mode: both;
+        animation-play-state: running;
+        @media (max-width: 390px) {
+          display: none;
+        }
+      }
+      .j-cloudF {
+        z-index: 4;
+        position: absolute;
+        @include position(8%, 66%);
+        animation: cloudF 37s linear;
+        // animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-fill-mode: both;
+        animation-play-state: running;
+        @media (max-width: 390px) {
+          display: none;
+        }
       }
 
       @keyframes cloudA {
         0% {
-          transform: translate(-800px, 7%);
+          transform: translate(-1000px, 5%);
         }
         100% {
-          transform: translate(1000px, 7%);
+          transform: translate(1000px, 5%);
         }
       }
 
@@ -163,13 +247,31 @@ body {
         }
 
         100% {
-          transform: translate(1200px, 3%);
+          transform: translate(1100px, 3%);
         }
       }
 
       @keyframes cloudD {
         0% {
-          transform: translate(-300px, 6%);
+          transform: translate(-600px, 6%);
+        }
+
+        100% {
+          transform: translate(1100px, 6%);
+        }
+      }
+      @keyframes cloudE {
+        0% {
+          transform: translate(0, 0);
+        }
+
+        100% {
+          transform: translate(1200px, 6%);
+        }
+      }
+      @keyframes cloudF {
+        0% {
+          transform: translate(0, 0);
         }
 
         100% {
@@ -180,6 +282,9 @@ body {
       .j-show-pink-wrap {
         @include size(300px, 68px);
         @include position(19.7%, 9.3%);
+        @media (max-width: 390px) {
+          display: none;
+        }
 
         // border: solid black 1px;
         .j-show-pink {
@@ -220,21 +325,37 @@ body {
             margin-bottom: 40px;
           }
 
-          &:hover {
-            width: 250px;
+          // &:hover {
+          //   width: 250px;
 
-            div {
-              opacity: 1;
-            }
+          //   div {
+          //     opacity: 1;
+          //   }
 
-            img {
-              transform: translateX(0);
-              margin-left: 20px;
-              margin-bottom: 40px;
-              opacity: 1;
-              position: absolute;
-              left: 0;
-            }
+          //   img {
+          //     transform: translateX(0);
+          //     margin-left: 20px;
+          //     margin-bottom: 40px;
+          //     opacity: 1;
+          //     position: absolute;
+          //     left: 0;
+          //   }
+          // }
+        }
+        .p-hover {
+          width: 250px;
+
+          div {
+            opacity: 1;
+          }
+
+          img {
+            transform: translateX(0);
+            margin-left: 20px;
+            margin-bottom: 40px;
+            opacity: 1;
+            position: absolute;
+            left: 0;
           }
         }
       }
@@ -245,6 +366,9 @@ body {
       @include position(20.7%, 42.5%);
       transition: 0.5s;
       // border: solid black 1px;
+      @media (max-width: 390px) {
+        display: none;
+      }
 
       .j-ted-blue {
         position: absolute;
@@ -276,24 +400,41 @@ body {
           transform: translateX(-100px);
         }
 
-        &:hover {
-          width: 150px;
-          height: 60px;
+        // &:hover {
+        //   width: 150px;
+        //   height: 60px;
 
-          img {
-            opacity: 1;
-          }
+        //   img {
+        //     opacity: 1;
+        //   }
 
-          div {
-            opacity: 1;
-            transform: translateX(0);
-          }
+        //   div {
+        //     opacity: 1;
+        //     transform: translateX(0);
+        //   }
+        // }
+      }
+
+      // &:hover {
+      //   margin-top: 70px;
+      // }
+
+      .b-hover {
+        width: 150px;
+        height: 60px;
+
+        img {
+          opacity: 1;
+        }
+
+        div {
+          opacity: 1;
+          transform: translateX(0);
         }
       }
-
-      &:hover {
-        margin-top: 70px;
-      }
+    }
+    .b-hover2 {
+      margin-top: 70px;
     }
 
     .j-cook-green-wrap {
@@ -305,6 +446,9 @@ body {
         @include position(30.4%, 66.9%);
         border: solid black 1px;
         transition: width 0.5s ease-in-out;
+        @media (max-width: 390px) {
+          display: none;
+        }
 
         img {
           width: 80px;
@@ -329,18 +473,31 @@ body {
           transition: 0.7s;
         }
 
-        &:hover {
-          width: 150px;
+        // &:hover {
+        //   width: 150px;
 
-          img {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        //   img {
+        //     opacity: 1;
+        //     transform: translateY(0);
+        //   }
 
-          div {
-            opacity: 1;
-            transform: translateX(-5px);
-          }
+        //   div {
+        //     opacity: 1;
+        //     transform: translateX(-5px);
+        //   }
+        // }
+      }
+      .g-hover {
+        width: 150px;
+
+        img {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        div {
+          opacity: 1;
+          transform: translateX(-5px);
         }
       }
     }
@@ -350,6 +507,9 @@ body {
       @include position(59.6%, 41.8%);
       // outline: solid teal 2px;
       transition: 0.8s;
+      @media (max-width: 390px) {
+        display: none;
+      }
 
       .j-music-orange {
         position: absolute;
@@ -379,29 +539,47 @@ body {
           left: 35px;
         }
 
-        &:hover {
-          height: 90px;
+        // &:hover {
+        //   height: 90px;
 
-          img {
-            transform: translateY(0);
-            opacity: 1;
-          }
+        //   img {
+        //     transform: translateY(0);
+        //     opacity: 1;
+        //   }
 
-          div {
-            opacity: 1;
-          }
+        //   div {
+        //     opacity: 1;
+        //   }
+        // }
+      }
+      .o-hover {
+        height: 90px;
+
+        img {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        div {
+          opacity: 1;
         }
       }
 
-      &:hover {
-        transform: translateY(45%);
-      }
+      // &:hover {
+      //   transform: translateY(45%);
+      // }
+    }
+    .o-hover2 {
+      transform: translateY(45%);
     }
 
     .j-cyber-purple-wrap {
       @include size(190px, 67px);
       @include position(57.8%, 75.75%);
       // border: solid black 1px;
+      @media (max-width: 390px) {
+        display: none;
+      }
 
       .j-cyber-purple {
         @include size(91px, 67px);
@@ -433,18 +611,31 @@ body {
           opacity: 0;
         }
 
-        &:hover {
-          width: 190px;
+        // &:hover {
+        //   width: 190px;
 
-          img {
-            opacity: 1;
-            transform: scale(1);
-          }
+        //   img {
+        //     opacity: 1;
+        //     transform: scale(1);
+        //   }
 
-          div {
-            opacity: 1;
-            transform: translateX(0);
-          }
+        //   div {
+        //     opacity: 1;
+        //     transform: translateX(0);
+        //   }
+        // }
+      }
+      .p-hover {
+        width: 190px;
+
+        img {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        div {
+          opacity: 1;
+          transform: translateX(0);
         }
       }
     }
