@@ -45,7 +45,7 @@ export default function Carousel({ sid }) {
 
   return (
     <div>
-      {imgArray.length && (
+      {imgArray.length > 0 && (
         <div className="a-caroudelWrapper">
           <div
             className="bg-1"

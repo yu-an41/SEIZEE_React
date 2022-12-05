@@ -18,7 +18,7 @@ function ProductCard({ product }) {
     checkList,
     handleClick,
   } = useContext(CollectContext);
-// console.log(collection);
+// console.log(collectionNum);
   
 const tempRef = useRef();
   const countOptions =product ? new Array(product.inventory_qty).fill(0).map((_, i) => ({

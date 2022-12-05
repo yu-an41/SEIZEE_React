@@ -2,11 +2,13 @@ import { useEffect, useState, useParams } from "react";
 import axios from "axios";
 import { filter, product } from "ramda";
 import { object } from "prop-types";
+import { useLocation } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [curFilters, setCurFilteres] = useState([]);
-  const { sid } = useParams();
+  const location = useLocation();
+
 
   const categories = new URLSearchParams(window.location.search).get(
     "categories"
@@ -18,7 +20,7 @@ const Products = () => {
       );
       // console.log(data);
       const categoryData = response.data.category_rows;
-      console.log("initial", categoryData);
+      // console.log("initial", categoryData);
       setProducts(categoryData);
     } catch (e) {
       console.error(e.message);
@@ -33,33 +35,40 @@ const Products = () => {
     qtyEnough: "庫存告急",
     underHundred: "100元以下",
     underFifty: "50元以下",
-    highestRate: "評分5顆星",
+    fiveStarts: "評分5顆星",
+    foutStarts: "評分4顆星以上",
+    threeStarts: "評分3顆星以上",
   };
+  const filterOptionsKeys = Object.keys(filterOptions);
+  const filterOptionsVals = Object.values(filterOptions);
+  console.log(filterOptionsVals);
+  
+  // const showProducts = products.filter((p) => {
+  //   const booleanArr = []; 
 
-  const showProducts = products.filter((p) => {
-    const booleanArr = [];
-
-    if (curFilters.includes("fiftyPercentOff")) {
-      booleanArr.push(p.sale_price <= 5);
-    }
-
-    if (curFilters.includes("qtyEnough")) {
-      booleanArr.push(p.qty <= 3);
-    }
-
-    if (curFilters.includes("underHundred")) {
-      booleanArr.push(p.product_price < 100);
-    }
-
-    if (curFilters.includes("underFifty")) {
-      booleanArr.push(p.product_price < 50);
-    }
-
-    if (curFilters.includes("highestRate")) {
-      booleanArr.push(p.rating === 5);
-    }
-    return booleanArr.every((boo) => boo === true);
-  });
+  //   if (curFilters.includes("fiftyPercentOff")) {
+  //     booleanArr.push(p.sale_price <= 5);
+  //   }
+  //   if (curFilters.includes("qtyEnough")) {
+  //     booleanArr.push(p.qty <= 3);
+  //   }
+  //   if (curFilters.includes("underHundred")) {
+  //     booleanArr.push(p.product_price < 100);
+  //   }
+  //   if (curFilters.includes("underFifty")) {
+  //     booleanArr.push(p.product_price < 50);
+  //   }
+  //   if (curFilters.includes("fiveStarts")) {
+  //     booleanArr.push(p.rating === 5);
+  //   }
+  //   if (curFilters.includes("fourStarts")) {
+  //     booleanArr.push(p.rating >= 4);
+  //   }
+  //   if (curFilters.includes("threeStarts")) {
+  //     booleanArr.push(p.rating >= 3);
+  //   }
+  //   return booleanArr.every((boo) => boo === true);
+  // });
 
   return (
     <>
@@ -68,17 +77,17 @@ const Products = () => {
         {/* <div className="a-aladdinWrapper">
         <img src="/04-product/svg/aladin.png" alt="" />
       </div> */}
-        {/* <div className="a-searchBarWrapper">
-          <div className="a-sideBarOptionsWrapper">
+        <div className="a-searchBarWrapper">
+          {/* <div className="a-sideBarOptionsWrapper">
             {object.filterOptions.map((v, i) => {
               return (
                 <div className="a-filterOptionsWrapper" key={i}> */}
                   {/* <input
                     type="checkbox"
                     className="a-sideBarCheckBox"
-                    checked={curFilters.includes(v)}
+                    checked={state}
                     value={v}
-                    onChange={showProducts
+                    onChange={setstate
                     }
                   /> */}
                    {/* <label
@@ -110,7 +119,7 @@ const Products = () => {
             );
           })}
         </div>
-      {/* </div> */}
+      </div>
     </>
   );
 };

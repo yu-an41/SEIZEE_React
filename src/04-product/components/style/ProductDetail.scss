@@ -59,24 +59,27 @@ input[type="number"] {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     .a-shopNameWrapper {
       @extend %a-flex;
     }
     .a-shopNameWrapper img {
       width: 40px;
     }
-    .a-shopNameWrapper h3 {
+    .a-detailsTitle {
+      color: $main-blue;
+      font-size: 18px;
+    }
+    .a-detailsTitle {
       color: $main-blue;
       font-size: 18px;
     }
     .a-productName {
       @extend %a-flex;
     }
-    .a-productName h3 {
-      color: $main-blue;
-      font-size: 18px;
-    }
+    // .a-productName h3 {
+    //   color: $main-blue;
+    //   font-size: 18px;
+    // }
     .a-productName img {
       width: 35px;
     }

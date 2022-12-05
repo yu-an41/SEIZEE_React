@@ -25,7 +25,7 @@ function ProductList() {
       const response = await axios.get(
         `http://localhost:3004/product/list?shop_list_sid=${shop_list_sid}`
       );
-      console.log("this is reponse:", response);
+      // console.log("this is reponse:", response);
       const Pdata = response.data.product_rows;
       // const Sdata = response.data.shop;
       setAllProduct(Pdata);

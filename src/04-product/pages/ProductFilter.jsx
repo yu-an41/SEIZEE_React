@@ -1,19 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Link } from "react";
 import axios from "axios";
 import NavBar from "../../components/NavBar";
 import "../components/style/ProductFilter.scss";
 import YellowWave from "../../00-homepage/components/YellowWave.js";
-import ReactStars from "react-rating-stars-component";
+import { useNavigate } from "react-router-dom";
 
 function ProductFilter() {
   //種類data
   const [filterList, setFilterList] = useState([]);
   //使用者勾選種類checkbox
   const [choice, setchoice] = useState([]);
+  const navigate = useNavigate();
   //使用者勾選sideBar
-  const [productFilter, setProductFilter] = useState([""]);
+  // const [productFilter, setProductFilter] = useState([""]);
 
   async function getFilter(categoriesString) {
+
+    // http://localhost:3000/producst/category?category_sid=5,6
+
     try {
       const response = await axios.get(
         ` http://localhost:3004/product/category?${categoriesString}`
@@ -25,16 +29,6 @@ function ProductFilter() {
       console.error(e.message);
     }
   }
-
-  //searchBar
-  const [inputValue, setInputValue] = "";
-  const sideBarOptions = [
-    "5折以下",
-    "庫存告急",
-    "100元以下",
-    "50元以下",
-    "評分5顆星",
-  ];
 
   const checkboxClick = (e) => {
     const val = +e.target.value;
@@ -60,9 +54,9 @@ function ProductFilter() {
       return acc + `${cur},`;
     }, "");
     // const sids = categoryString.substring(0,categoryString.length-1)
-
     searchParam.append("category_sid", choice);
-    getFilter(searchParam.toString());
+    navigate(`/products?${searchParam.toString()}`)
+    // getFilter(searchParam.toString());
   };
 
   return (
@@ -83,43 +77,13 @@ function ProductFilter() {
         <div className="y-wave-wrap">
           <YellowWave />
         </div>
-        {/* ProductFilter */}
+        {/* CategoryFilter */}
         <div className="a-productFilterWrapper">
-          <div className="a-searchBarWrapper">
-            {sideBarOptions.map((v, i) => {
-              return (
-                <div key={i} className="a-sideBarOptionsWrapper">
-                  {/* <input
-                    type="checkbox"
-                    className="a-sideBarInput"
-                    checked={productFilter.includes(v)}
-                    value={v}
-                    onChange={(e) => 
-                      const productValue = e.target.value
-                      if (productFilter.includes(productValue)) {
-                        const newproductValue = productFilter.filter (
-                          () 
-                        )
-                      }
-
-                  /> */}
-                </div>
-              );
-            })}
-          </div>
-          {/* <input
-            className="a-searchInput"
-            value={inputValue}
-            onChange={(i) => setInputValue.target.value(i)}
-          />
-          <h3 className="a-inputValue">{inputValue}</h3> */}
-
-          {/* CategoryFilter */}
           <div className="a-category">
             <div className="a-categoryWrapper">
               {filterList.map((filter, i) => {
                 return (
-                  <div className="a-productFilterWrapper" key={i}>
+                  <div className="a-productFilterContent" key={i}>
                     <label
                       className="a-categoryContentWapper"
                       htmlFor={`a-categoryCheckBox${filter.sid}`}
@@ -152,8 +116,10 @@ function ProductFilter() {
                 );
               })}
             </div>
+            {/* <a href="{`${filter.sid}`}"> */}
+            <button className="a-filterButton" onClick={handleSendFilter}>送出</button>
+            {/* </a> */}
           </div>
-          <button onClick={handleSendFilter}>Do Filter</button>
         </div>
       </div>
     </>
