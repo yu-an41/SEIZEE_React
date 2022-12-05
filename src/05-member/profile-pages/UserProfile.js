@@ -7,7 +7,6 @@ import axios from 'axios'
 import { PROFILE, imgServerUrl } from '../../my-config'
 import dayjs from 'dayjs'
 import AuthContext from '../../contexts/AuthContext'
-import { DELETE_ACCOUNT } from '../../my-config'
 import Navbar from '../../components/NavBar'
 import Footer from '../../components/Footer'
 
@@ -63,24 +62,6 @@ function UserProfile() {
   }, [location])
 
   const day = dayjs(listFD.mbpDate)
-
-  // ====================================
-  // 刪除帳號
-
-  // function deleteAccount() {
-  //   deleteAccountD()
-  //   // const response = await axios.delete(DELETE_ACCOUNT, {
-  //   //   headers: { Authorization: 'Bearer ' + myAuth.token },
-  //   // })
-
-  //   // if (response.data.success === true) {
-  //   //   logout()
-  //   //   Navigate('/')
-  //   // }
-  //   // console.log(response)
-  //   // console.log(response.data)
-  //   // console.log(response.data.success)
-  // }
 
   return (
     <>
