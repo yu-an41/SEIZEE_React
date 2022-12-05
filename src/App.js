@@ -104,8 +104,8 @@ function App() {
                   element={<ProductList />}
                 />
                 <Route path="/product/:sid" element={<ProductDetail />} />
-                <Route path="/productFilter/" element={<ProductFilter />} />
-                <Route path="/products/" element={<Products />} />
+                {/* <Route path="/productFilter/" element={<ProductFilter />} />
+                <Route path="/products/" element={<Products />} /> */}
 
                 {/* 05-member */}
                 <Route path="/login" element={<UserSign />} />
