@@ -1,4 +1,5 @@
 import { imgUrl, imgServerUrl } from '../../03-shop/shop-config'
+import { Link } from 'react-router-dom'
 
 function ShopHcard({ shops, selResultShop, statusShop }) {
   // console.log(selResultShop)
@@ -10,10 +11,12 @@ function ShopHcard({ shops, selResultShop, statusShop }) {
           {shops.map((v, i) => {
             return (
               <div className="r-shop-slider-img-wrap" key={v.rows.sid}>
-                <img
-                  src={`${imgServerUrl}/images/03-shop/${v.rows.shop_cover}`}
-                  alt=""
-                />
+                <Link to={`/productList/${v.rows.sid}`}>
+                  <img
+                    src={`${imgServerUrl}/images/03-shop/${v.rows.shop_cover}`}
+                    alt=""
+                  />
+                </Link>
                 <div className="r-shop-slider-content">
                   <p className="r-shop-slider-content-p">{v.rows.shop_name}</p>
                   <div className="r-shop-slider-content-cate">
@@ -38,10 +41,12 @@ function ShopHcard({ shops, selResultShop, statusShop }) {
           {selResultShop.map((v, i) => {
             return (
               <div className="r-shop-slider-img-wrap" key={v.rows.sid}>
-                <img
-                  src={`${imgServerUrl}/images/03-shop/${v.rows.shop_cover}`}
-                  alt=""
-                />
+                <Link to={`/productList/${v.rows.sid}`}>
+                  <img
+                    src={`${imgServerUrl}/images/03-shop/${v.rows.shop_cover}`}
+                    alt=""
+                  />
+                </Link>
                 <div className="r-shop-slider-content">
                   <p className="r-shop-slider-content-p">{v.rows.shop_name}</p>
                   <div className="r-shop-slider-content-cate">
