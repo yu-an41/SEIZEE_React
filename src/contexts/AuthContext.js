@@ -66,8 +66,13 @@ export const AuthContextProvider = function ({ children }) {
     setIsOpen1(false)
 
     openModal2()
+
+    localStorage.removeItem('auth')
+    setMyAuth(unAuth)
+
     setHeaderMg('登出')
     setBodyMg('登出成功')
+
     // console.log('3')
   }
 
@@ -82,8 +87,6 @@ export const AuthContextProvider = function ({ children }) {
 
   function closeModal() {
     setIsOpen2(false)
-    localStorage.removeItem('auth')
-    setMyAuth(unAuth)
     navigate('/')
 
     // console.log('4')

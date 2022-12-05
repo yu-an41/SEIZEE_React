@@ -8,8 +8,9 @@ import { useLocation } from 'react-router-dom'
 import AuthContext from '../../contexts/AuthContext'
 import axios from 'axios'
 import { PROFILE_LIKE_PRODUCT } from '../../my-config'
-import img from '../../05-member/images/food.png'
 import { useEffect } from 'react'
+import ModalConfirm from '../../components/ModalConfirm'
+import ModalNotification from '../../components/ModalNotification'
 
 function LikesProduct() {
   // 商品收藏細項數
@@ -22,6 +23,12 @@ function LikesProduct() {
 
   // 錯誤訊息用
   const [errorLikePMg, setLikePMg] = useState('')
+
+  // Modal
+  const [isOpen1, setIsOpen1] = useState(false)
+  const [isOpen2, setIsOpen2] = useState(false)
+  const [headerMg, setHeaderMg] = useState('')
+  const [bodyMg, setBodyMg] = useState('')
 
   // ====================================
   // 讀取商品收藏
@@ -58,50 +65,59 @@ function LikesProduct() {
     // console.log('likePSid1', likePSid)
     // console.log('LikePIndex1', LikePIndex)
 
-    if (LikePIndex === likePSid) {
-      setLikePIndex(null)
-      // console.log('inside null')
-    } else {
-      setLikePIndex(likePSid)
-      // console.log('inside likepsid')
+    setLikePIndex(likePSid)
 
-      await axios.delete(PROFILE_LIKE_PRODUCT, {
-        headers: { Authorization: 'Bearer ' + myAuth.token },
-        data: {
-          mbLikePSid: likePSid,
-        },
-      })
+    openModal1()
+    setHeaderMg('商品收藏')
+    setBodyMg('確定要取消收藏?')
 
-      // const response = await axios.delete(
-      //   PROFILE_LIKE_PRODUCT,
-      //   {
-      //     headers: { Authorization: 'Bearer ' + myAuth.token },
-      //   },
-      //   {
-      //     mbLikePSid: likePSid,
-      //   }
-      // )
-
-      // const response = await axios.delete(
-      //   PROFILE_LIKE_PRODUCT,
-      //   {
-      //     mbLikePSid: likePSid,
-      //   },
-      //   {
-      //     headers: { Authorization: 'Bearer ' + myAuth.token },
-      //   }
-      // )
-      // console.log('likePSid2', likePSid)
-      // console.log('LikePIndex2', LikePIndex)
-      // console.log(response)
-
-      // keyword: axios withcredentials jwt delete
-      // reference: https://stackoverflow.com/questions/51069552/axios-delete-request-with-request-body-and-headers
-    }
+    // console.log('likePSid2', likePSid)
+    // console.log('LikePIndex2', LikePIndex)
+    // console.log(response)
+    // keyword: axios withcredentials jwt delete
+    // reference: https://stackoverflow.com/questions/51069552/axios-delete-request-with-request-body-and-headers
+    // }
   }
 
-  // ====================================
-  // 新增收藏
+  // ModalConfirm
+  function openModal1() {
+    setIsOpen1(true)
+    // console.log('2')
+  }
+
+  async function closeModalConfirm() {
+    setIsOpen1(false)
+    // setIsOpen2(true)
+    openModal2()
+
+    await axios.delete(PROFILE_LIKE_PRODUCT, {
+      headers: { Authorization: 'Bearer ' + myAuth.token },
+      data: {
+        mbLikePSid: LikePIndex,
+      },
+    })
+    // closeModal()
+    setHeaderMg('商品收藏')
+    setBodyMg('取消收藏成功')
+    // console.log('3')
+  }
+
+  function closeModalCancel() {
+    setIsOpen1(false)
+  }
+
+  // ModalNotification
+  function openModal2() {
+    setIsOpen2(true)
+  }
+
+  function closeModal() {
+    setIsOpen2(false)
+
+    getLikeP()
+
+    // console.log('4')
+  }
 
   return (
     <>
@@ -114,6 +130,7 @@ function LikesProduct() {
               <h2 className="s-l-p-title">我的收藏</h2>
               <div className="s-l-p-card">
                 <LikeLabels />
+
                 <div className="s-l-p-card-inside">
                   {LikePDetails === 0 ? (
                     <div className=" s-l-p-data-error">{errorLikePMg}</div>
@@ -123,9 +140,8 @@ function LikesProduct() {
                       .map((v, i) => {
                         {
                           /* console.log(v)
-                        console.log(v[i].sid) */
+                          console.log(v[i].sid) */
                         }
-
                         return (
                           <div key={v[i].sid} className="r-love-card-container">
                             <div
@@ -136,11 +152,7 @@ function LikesProduct() {
                               }}
                             >
                               <i
-                                className={
-                                  LikePIndex !== v[i].sid
-                                    ? 'fa-solid fa-heart s-l-p-heart'
-                                    : 'fa-solid fa-heart s-l-p-heart s-l-p-heart-active'
-                                }
+                                className={'fa-solid fa-heart s-l-p-heart'}
                               ></i>
                             </div>
                             <div className="r-love-card-cover-middle">
@@ -175,6 +187,21 @@ function LikesProduct() {
           <Footer />
         </div>
       </div>
+
+      <ModalConfirm
+        closeModalConfirm={closeModalConfirm}
+        closeModalCancel={closeModalCancel}
+        isOpen={isOpen1}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
+
+      <ModalNotification
+        closeModal={closeModal}
+        isOpen={isOpen2}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
     </>
   )
 }
