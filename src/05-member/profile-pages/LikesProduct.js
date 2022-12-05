@@ -74,6 +74,7 @@ function LikesProduct() {
     // console.log('likePSid2', likePSid)
     // console.log('LikePIndex2', LikePIndex)
     // console.log(response)
+
     // keyword: axios withcredentials jwt delete
     // reference: https://stackoverflow.com/questions/51069552/axios-delete-request-with-request-body-and-headers
     // }
@@ -87,7 +88,6 @@ function LikesProduct() {
 
   async function closeModalConfirm() {
     setIsOpen1(false)
-    // setIsOpen2(true)
     openModal2()
 
     await axios.delete(PROFILE_LIKE_PRODUCT, {
@@ -96,9 +96,10 @@ function LikesProduct() {
         mbLikePSid: LikePIndex,
       },
     })
-    // closeModal()
+
     setHeaderMg('商品收藏')
     setBodyMg('取消收藏成功')
+
     // console.log('3')
   }
 
@@ -114,6 +115,7 @@ function LikesProduct() {
   function closeModal() {
     setIsOpen2(false)
 
+    // 重刷頁面 取得最新收藏狀態
     getLikeP()
 
     // console.log('4')
