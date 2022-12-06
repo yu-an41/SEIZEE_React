@@ -55,9 +55,10 @@ body {
   }
 
   .j-left {
-    @include size(250px, 100vh);
+    @include size(280px, 100vh);
     background-color: $colorYellow;
-    padding-left: 10px;
+    padding-left: 20px;
+    outline: 2px black solid;
     @media (max-width: 390px) {
       @include size(100vw, 100px);
       // outline: 2px black solid;
@@ -77,7 +78,11 @@ body {
       }
 
       li {
+        .j-hidehide {
+          opacity: 0;
+        }
         img {
+         
           @media (max-width: 390px) {
             display: none;
           }
@@ -108,7 +113,7 @@ body {
             width: 250px;
             height: 100px;
             padding: 0;
-            animation: DUDULU .6s linear infinite;
+            animation: DUDULU 0.6s linear infinite;
             transform-origin: 50% 50%;
             @keyframes DUDULU {
               0% {
@@ -150,6 +155,7 @@ body {
   .j-wave {
     margin-left: -2px;
     width: 50%;
+    // outline: 1px solid black;
     @media (max-width: 390px) {
       height: 390px;
       transform: rotate(90deg);

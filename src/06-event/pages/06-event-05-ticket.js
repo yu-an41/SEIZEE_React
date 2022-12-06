@@ -13,12 +13,16 @@ function Ticket() {
           </div>
         </div>
         <div className="j-bang-hide">
+          <div className="j-box-top"></div>
+          <div className="j-box-right"></div>
+          <div className="j-box-bottom"></div>
+          <div className="j-box-left"></div>
           <div className="j-bang">
             <img src={jBang} alt="" />
           </div>
-
-          <img className="j-ticket" src={jTicket} alt="" />
         </div>
+
+        {/* <img className="j-ticket" src={jTicket} alt="" /> */}
       </div>
     </>
   )

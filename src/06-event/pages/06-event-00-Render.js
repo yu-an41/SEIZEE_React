@@ -9,6 +9,7 @@ import Schedule from './06-event-03-schedule'
 import Maps from './06-event-04-map'
 import Ticket from './06-event-05-ticket'
 import '../styles/06-event-00-Render.scss'
+import NavBar from './../../components/NavBar'
 
 function Eventrender() {
   const components = [Top, Events, Schedule, Maps, Ticket]
@@ -40,6 +41,7 @@ function Eventrender() {
   return (
     <>
       {/* <div className="j-sides"> */}
+      <NavBar />
       <Left setNowPage={setNowPage} />
       <NowComponents origins={origins} />
       <Timetable />

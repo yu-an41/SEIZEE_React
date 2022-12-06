@@ -66,7 +66,7 @@ $colorLine: #cecece;
       position: fixed;
       overflow: hidden;
       width: 300px;
-      height: 250px;
+      height: 230px;
       background-color: $colorYellow;
       // outline: 2px blue solid;
       .j-menu {
@@ -78,6 +78,9 @@ $colorLine: #cecece;
         // border: 2px solid red;
         img {
           width: 100%;
+        }
+        .j-hidehide {
+          opacity: 0;
         }
         @media (max-width: 390px) {
           width: 90px;
@@ -100,7 +103,7 @@ $colorLine: #cecece;
         font-size: 3rem;
         font-weight: 700;
         position: absolute;
-        top: 52%;
+        top: 45%;
         right: 12%;
         // border-radius: 10px;
         // overflow: hidden;
@@ -121,11 +124,11 @@ $colorLine: #cecece;
       .j-dialogue {
         // outline: 2px white solid;
         width: 200px;
-        height: 120px;
+        height: 150px;
         position: absolute;
         // transform: rotateZ(180deg);
         // transform: rotateY(180deg);
-        top: -3%;
+        top: -3.4%;
         right: 18%;
         display: flex;
         justify-content: center;
@@ -138,7 +141,7 @@ $colorLine: #cecece;
           width: 1000px;
           font-size: 3rem;
           position: absolute;
-          top: 30px;
+          top: 38px;
           color: $colorWhite;
           animation: 35s taskede infinite;
           right: -900px;

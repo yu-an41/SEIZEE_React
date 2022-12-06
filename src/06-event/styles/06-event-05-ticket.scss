@@ -53,7 +53,7 @@ body {
 .j-event-middle-ticket {
   z-index: 99;
   // outline: 1px black solid;
-  @include position(47%, 49%);
+  @include position(46%, 50%);
   position: fixed;
   @include size(1100px, 900px);
   transform: translate(-50%, -50%);
@@ -114,26 +114,92 @@ body {
   }
 
   .j-bang-hide {
-    // outline: black solid 1px;
-    height: 83%;
-    margin-top: 3%;
-    margin-left: 4%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // overflow: hidden;
-    transform: scale(0.3);
-    transition: 1s;
-    @media (max-width: 390px){
+    @media (max-width: 390px) {
       transform: scale(0.25);
       margin-top: -230px;
     }
+    .j-box-top {
+      z-index: 866;
+      width: 2100px;
+      height: 500px;
+      position: absolute;
+      left: -500px;
+      top: -50px;
+      outline: 3px black solid;
+      background-color: teal;
+      animation-delay: 1s;
+      animation: boxtop 1.5s;
+      @keyframes boxtop {
+        0% {
+          left: -500px;
+          top: -50px;
+        }
+        100% {
+          left: -500px;
+          top: -900px;
+        }
+      }
+    }
+    .j-box-bottom {
+      z-index: 866;
+      width: 2100px;
+      height: 500px;
+      position: absolute;
+      left: -500px;
+      top: 550px;
+      background-color: teal;
+      outline: 3px teal solid;
+    }
+    .j-box-right {
+      z-index: 867;
+      width: 900px;
+      height: 1200px;
+      position: absolute;
+      left: 700px;
+      top: -150px;
+      background-color: orange;
+      outline: 3px teal solid;
+    }
+    .j-box-left {
+      z-index: 867;
+      width: 1100px;
+      height: 1200px;
+      position: absolute;
+      left: -550px;
+      top: -150px;
+      background-color: brown;
+      outline: 3px teal solid;
+    }
 
     .j-bang {
-      transform: scale(0.35);
-      margin-left: -5%;
-      margin-top: -5%;
-      @media (max-width: 390px){
+      // margin-left: -5%;
+      // margin-top: -5%;
+      // animation: bang 5s;
+      position: absolute;
+      top: -50px;
+      left: -450px;
+      outline: 2px solid red;
+      width: 1920px;
+      height: 1080px;
+      img {
+        height: 100%;
+      }
+      @keyframes bang {
+        0% {
+          top: -450px;
+          left: -850px;
+        }
+        // 10% {
+        //   top: 100px;
+        //   left: 100px;
+        // }
+        100% {
+          top: 100px;
+          left: 100px;
+        }
+      }
+
+      @media (max-width: 390px) {
         margin-left: -6%;
         transform: scale(0.38);
       }
@@ -143,19 +209,28 @@ body {
       position: absolute;
       transform: scale(0.3) rotate(0);
       transition: 0.8s;
+      animation: tickets 0.8s;
+      // @keyframes bang {
+      //   0% {
+      //     transform: scale(0.3) rotate(0);
+      //   }
+      //   100% {
+      //     transform: scale(0.3) rotate(720deg);
+      //   }
+      // }
       transform-origin: center center;
     }
 
-    &:hover {
-      transform: scale(1);
+    // &:hover {
+    //   transform: scale(1);
 
-      .j-bang {
-        transform: scale(0.33);
-      }
+    // .j-bang {
+    //   transform: scale(0.33);
+    // }
 
-      .j-ticket {
-        transform: scale(0.3) rotate(720deg);
-      }
-    }
+    // .j-ticket {
+    //   transform: scale(0.3) rotate(720deg);
+    // }
+    // }
   }
 }

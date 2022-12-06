@@ -36,7 +36,7 @@ function Timetable() {
         <div class="j-right">
           <div className="j-hidebox">
             <div className="j-menu">
-              <img src={menu} alt="" />
+              <img className="j-hidehide" src={menu} alt="" />
             </div>
             <div className="j-banner">我的時間表</div>
           </div>

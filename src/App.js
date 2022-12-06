@@ -127,12 +127,7 @@ function App() {
                 </Route>
 
                 {/* 06-event */}
-                {/* <Route path="/top" element={<Top />} />
-                <Route path="/events" element={<Events />} />
-                <Route path="/schedule" element={<Schedule />} />
-                <Route path="/map" element={<Map />} />
-                <Route path="/ticket" element={<Ticket />} />
-                <Route path="/Eventrender" element={<Eventrender />} /> */}
+                <Route path="/event" element={<Eventrender />} />
               </Routes>
             </TimeTableProvider>
           </CollectContextProvider>
