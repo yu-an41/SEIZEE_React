@@ -12,20 +12,24 @@ import SideBar from '../components/Side_bar'
 import WriteBtn from '../components/WriteBtn'
 import Comment from '../components/Comment'
 import Recommendation from '../components/Recommendation'
-import Message from '../components/Ｍessage'
+import Message from '../components/Message'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function InnerStore() {
   const { sid } = useParams()
   const [doRerender, setDoRerender] = useState(false)
   const [shareInnerData, setShareInnerData] = useState({
     sid: 1,
-    categories_sid: 1,
+    categories_sid: 2,
     title: '',
     img: '',
     video: '',
     induction: '',
     content: '',
     hashtag: '',
+    mb_name: '',
+    mb_email: '',
     created_at: '',
     comment: [
       {
@@ -42,7 +46,7 @@ function InnerStore() {
   const getShareData = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3002/forum/store/inner/${sid}`
+        `http://localhost:3004/forum/store/inner/${sid}`
       )
       console.log(res.data)
       setShareInnerData(res.data)
@@ -56,6 +60,9 @@ function InnerStore() {
 
   return (
     <>
+      <div className="p-navBar">
+        <NavBar />
+      </div>
       <div className="innerOfficial">
         <div className="sidBar">
           <SideBar />
@@ -69,16 +76,17 @@ function InnerStore() {
               </div>
             </div>
 
-            <div className="p-officialTagWrap">
-              <Tag />
-            </div>
+            <div className="p-officialTagWrap">{/* <Tag /> */}</div>
             <div className="p-officialMemberWrap">
-              <Member />
+              <Member cookMb={shareInnerData} />
             </div>
           </div>
 
           <div className="p-officialImg">
-            <img src={shareInnerData.img} alt="" />
+            <img
+              src={`http://localhost:3004/images/03-shop/${shareInnerData.img}`}
+              alt=""
+            />
           </div>
           <div className="p-officialContent">
             <p>{shareInnerData.induction}</p>
@@ -88,7 +96,11 @@ function InnerStore() {
               <h3>留言</h3>
             </div>
             <div className="p-commentForm">
-              <Message setDoRerender={setDoRerender} doRerender={doRerender} />
+              <Message
+                setDoRerender={setDoRerender}
+                doRerender={doRerender}
+                InnerCategoriesSid={shareInnerData}
+              />
             </div>
             <div className="p-commMessage">
               {shareInnerData.comment &&
@@ -110,6 +122,9 @@ function InnerStore() {
             <WriteBtn />
           </div>
         </div>
+      </div>
+      <div className="p-footer">
+        <Footer />
       </div>
     </>
   )

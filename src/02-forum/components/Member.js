@@ -2,7 +2,7 @@ import React from 'react'
 import cake from './../p-imgs/food/cake.png'
 import '../styles/Member.scss'
 
-function Member() {
+function Member({ cookMb }) {
   return (
     <>
       <div className="p-card-member">
@@ -10,8 +10,8 @@ function Member() {
           <img src={cake} alt="" />
         </div>
         <div className="p-memberId">
-          <p>惜食料理王</p>
-          <p>@love_cooking</p>
+          <p>{cookMb?.mb_name}</p>
+          <p>{cookMb?.mb_email}</p>
         </div>
       </div>
     </>

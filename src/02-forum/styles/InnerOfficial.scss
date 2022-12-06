@@ -14,14 +14,14 @@ $p:16px;
     display: flex;
     position: relative;
     width: 100%;
-    
+    height: auto;
     .sidBar{
         position: fixed;
     }
     .p-officialContainer{
     max-width: 1040px;
     position: relative;
-    left: 15%;
+    left: 18%;
     margin-top: 100px;
     .p-officialTitle{
     
@@ -94,6 +94,7 @@ $p:16px;
                 }
         }
         p{
+        font-size: $p;
         color: $main-text;
         margin-top: 10px;
         line-height: 150%;
@@ -112,6 +113,7 @@ $p:16px;
     .p-commentWrap{
         width: 100%;
         margin-top: 100px;
+       margin-bottom: 200px;
         .p-commentTitle{
             border-top: 2px solid $main-text;
             padding-top: 20px;

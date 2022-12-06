@@ -1,28 +1,36 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/Comment.scss'
 import dayjs from 'dayjs'
 import log from 'eslint-plugin-react/lib/util/log'
 import { useLocation, useParams } from 'react-router-dom'
 
-function Message({ setDoRerender, doRerender }) {
+function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
   const params = useParams()
+  //console.log(cookInnerData)
+  const { categories_sid } = InnerCategoriesSid
+  // console.log(cookInnerCategories)
   // console.log(params)
   const [messContent, setMessContent] = useState({
     sid: 1,
     member_sid: 1,
-    categories_sid: 1,
+    categories_sid: categories_sid,
     post_sid: params.sid,
     content: '',
     parent_sid: 0,
     created_at: new Date(),
   })
+  //console.log(messContent.categories_sid)
+  //console.log(messContent.post_sid)
 
   const addMesage = async () => {
     const fd = new FormData()
     fd.append('content', messContent.content)
+    fd.append('post_sid', messContent.post_sid)
+    fd.append('categories_sid', messContent.categories_sid)
     console.log(fd)
-    const { data } = await axios.post('http://localhost:3002/forum/message', fd)
+    const { data } = await axios.post('http://localhost:3004/forum/message', fd)
+
     console.log(data)
     if (data.success) {
       alert('留言成功')
@@ -42,11 +50,13 @@ function Message({ setDoRerender, doRerender }) {
         </div>
         <div className="p-commInput">
           <input
-            type="text" 
+            type="text"
             name="sendMessage"
             placeholder="輸入留言"
             value={messContent.content}
-            onChange={(e) => setMessContent({ content: e.target.value })}
+            onChange={(e) =>
+              setMessContent({ ...messContent, content: e.target.value })
+            }
           />
         </div>
       </div>
