@@ -17,7 +17,7 @@ function LikesEvent() {
               <h2 className="s-l-e-title">我的收藏</h2>
               <div className="s-l-e-card">
                 <LikeLabels />
-                <div className="s-l-e-card-inside">
+                {/* <div className="s-l-e-card-inside">
                   <div className="s-l-e-data">
                     <div className="s-l-e-line"></div>
                     <div className="s-l-e-items">
@@ -41,7 +41,7 @@ function LikesEvent() {
                       <span className="s-l-e-answer">查詢訂單</span>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

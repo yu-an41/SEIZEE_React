@@ -17,7 +17,7 @@ function LikesForum() {
               <h2 className="s-l-f-title">我的收藏</h2>
               <div className="s-l-f-card">
                 <LikeLabels />
-                <div className="s-l-f-card-inside">
+                {/* <div className="s-l-f-card-inside">
                   <div className="s-l-f-data">
                     <div className="s-l-f-line"></div>
                     <div className="s-l-f-items">
@@ -41,7 +41,7 @@ function LikesForum() {
                       <span className="s-l-f-answer">查詢訂單</span>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

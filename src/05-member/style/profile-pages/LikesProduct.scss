@@ -140,6 +140,12 @@
   @media (max-width: 991px) {
     .s-l-p-card {
       height: 700px;
+
+      .s-l-p-card-inside {
+        .r-love-card-container {
+          width: 45%;
+        }
+      }
     }
   }
 }
