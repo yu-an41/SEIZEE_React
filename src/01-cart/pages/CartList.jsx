@@ -20,8 +20,7 @@ import RecMerch from '../components/RecMerch'
 import Footer from '../../components/Footer'
 
 // modal測試用
-// import ModalConfirm from '../../components/ModalConfirm'
-// import ModalNotification from '../../components/ModalNotification'
+import ModalConfirm from '../../components/ModalConfirm'
 
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
@@ -38,7 +37,25 @@ import axios from 'axios'
 import { set } from 'ramda'
 
 function CartList(props) {
-  const [cartPrevText, setCartPrevText] = useState()
+  // modal
+  const [isOpen2, setIsOpen2] = useState(false)
+  const [headerMg, setHeaderMg] = useState('')
+  const [bodyMg, setBodyMg] = useState('')
+
+  const closeModalConfirm = () => {
+    setIsOpen2(false)
+    handleEmptyCart()
+  }
+
+  const openModalConfirm = () => {
+    setIsOpen2(true)
+  }
+  const closeModalCancel = () => {
+    setIsOpen2(false)
+    // navigate('/')
+  }
+
+  // 購物車
   const {
     cartItem,
     setCartItem,
@@ -49,13 +66,6 @@ function CartList(props) {
     setEmptyCart,
     checkCartempty,
   } = useContext(CartInfoContext)
-
-  // 取得假商品資訊，數量1
-  // const data = products[0]
-  // const data2 = products[4]
-  // const [prodQty, setProdQty] = useState(1)
-
-  // 推薦商品資訊
 
   // 設定店家資料格式
   const [cartShopInfo, setCartShopInfo] = useState([
@@ -154,10 +164,6 @@ function CartList(props) {
     getRecMerchData()
   }, [cartItem])
 
-  // useEffect(() => {
-  //   getCartData()
-  // }, [cartItem])
-
   // 設定回上頁按鈕內文
   const [btnText, setBtnText] = useState('繼續逛逛')
   return (
@@ -248,8 +254,9 @@ function CartList(props) {
             <div className="y-empty-cart-wrap">
               <EmptyCartBtn
                 onClick={() => {
-                  handleEmptyCart()
-                  console.log('cart emptied!!!!')
+                  openModalConfirm()
+                  setHeaderMg('購物車')
+                  setBodyMg('確定要清空購物車嗎？')
                 }}
               />
             </div>

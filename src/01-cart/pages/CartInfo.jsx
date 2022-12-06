@@ -30,6 +30,8 @@ import ShopCover from './../images/01cover.jpg'
 function CartInfo() {
   const { cartItem, setCartItem } = useContext(CartInfoContext)
 
+  // 設定回上頁按鈕內文
+  const [btnText, setBtnText] = useState('回購物車')
   const page = document.location.href
 
   // const [cartMbSid, setCartMbSid] = useState(0)
@@ -38,8 +40,7 @@ function CartInfo() {
   //   setCartMbSid(+localStorage.getItem('auth').mb_sid)
   // }
 
-  // 設定回上頁按鈕內文
-  const [btnText, setBtnText] = useState('回購物車')
+  const [couponCode, setCouponCode] = useState('welcome80')
   return (
     <>
       <div className="y-CartInfo-container">
@@ -77,41 +78,119 @@ function CartInfo() {
           <div className="y-Cart-pickup  y-Cart-sections">
             <p className="y-Cart-tab y-Cart-pickup-tab">取餐方式</p>
             <div className="y-Cart-main y-Cart-pickup-main">
-              <div className="y-Cart-pickup-radio">
-                <label
-                  htmlFor="y-pickup-way-self"
-                  className="y-pickup-way-options y-pickup-radio-labels"
-                >
-                  店內自取
-                </label>
-                <input
-                  id="y-pickup-way-self"
-                  type="radio"
-                  name="pickup_way"
-                  value={1}
-                />
-                <label
-                  htmlFor="y-pickup-way-shop"
-                  className="y-pickup-way-options y-pickup-radio-labels"
-                >
-                  店家配送
-                </label>
-                <input
-                  id="y-pickup-way-shop"
-                  type="radio"
-                  name="pickup_way"
-                  value={2}
-                  disabled
-                />
-                <span className="y-pickup-notice">暫不提供此選項</span>
-              </div>
+              <ul className="y-Cart-pickup-radio">
+                <li>
+                  <i className="fa-solid fa-triangle"></i>
+                  <label
+                    htmlFor="y-pickup-way-self"
+                    className="y-pickup-way-options y-pickup-radio-labels"
+                  >
+                    店內自取
+                  </label>
+                  <input
+                    id="y-pickup-way-self"
+                    type="radio"
+                    name="pickup_way"
+                    value={1}
+                  />
+                </li>
+                <li>
+                  <label
+                    htmlFor="y-pickup-way-shop"
+                    className="y-pickup-way-options y-pickup-radio-labels"
+                  >
+                    店家配送
+                  </label>
+                  <input
+                    id="y-pickup-way-shop"
+                    type="radio"
+                    name="pickup_way"
+                    value={2}
+                    disabled
+                  />
+                  <span className="y-pickup-notice">暫不提供此選項</span>
+                </li>
+              </ul>
             </div>
           </div>
           <div className="y-Cart-pay  y-Cart-sections">
             <p className="y-Cart-tab y-Cart-pay-tab">付款方式</p>
             <div className="y-Cart-main y-Cart-pay-main">
-              <div className="y-Cart-pay-top"></div>
-              <div className="y-Cart-pay-bottom"></div>
+              <ul className="y-Cart-pickup-radio">
+                <li>
+                  <label
+                    htmlFor="y-pay-line"
+                    className="y-pickup-way-options y-pay-radio-labels"
+                  >
+                    LINE Pay
+                  </label>
+                  <input
+                    id="y-pay-line"
+                    type="radio"
+                    name="pay_way"
+                    value={1}
+                  />
+                  <span className="y-pickup-notice">
+                    （可用LINE POINTS折抵）
+                  </span>
+                </li>
+                <li>
+                  <label
+                    htmlFor="y-pay-credit"
+                    className="y-pickup-way-options y-pay-radio-labels"
+                  >
+                    信用卡線上刷卡一次付清
+                  </label>
+                  <input
+                    id="y-pay-credit"
+                    type="radio"
+                    name="pay_way"
+                    value={2}
+                  />
+                  <span className="y-pickup-notice">
+                    （可接受VISA, Master, JCB, 聯合信用卡）
+                  </span>
+                </li>
+                <li>
+                  <label
+                    htmlFor="y-pay-credit"
+                    className="y-pickup-way-options y-pay-radio-labels"
+                  >
+                    取貨付款
+                  </label>
+                  <input
+                    id="y-pay-shop"
+                    type="radio"
+                    name="pay_way"
+                    value={3}
+                    disabled
+                  />
+                  <span className="y-pickup-notice">（暫不提供此選項）</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="y-Cart-coupon  y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-coupon-tab">優惠折抵</p>
+            <div className="y-Cart-main y-Cart-coupon-main">
+              <label
+                htmlFor="y-pay-line"
+                className="y-pickup-way-options y-coupon-labels"
+              >
+                折扣碼
+              </label>
+              <div className="y-coupon-input">
+                <input
+                  id="y-pay-line"
+                  type="text"
+                  name="coupon"
+                  value={couponCode}
+                  placeholder={`請輸入折扣碼`}
+                  onChange={(e) => {
+                    setCouponCode(e.target.value)
+                  }}
+                />
+              </div>
             </div>
           </div>
           <div className="y-Cart-member  y-Cart-sections">

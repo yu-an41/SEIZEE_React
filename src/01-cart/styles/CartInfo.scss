@@ -183,15 +183,56 @@ $border-radius-button: 8px;
             .y-Cart-main {
                 border: $border-sm;
 
+                .y-Cart-member-info {
+                    display: flex;
+                    .y-Cart-member-details {
+
+                    }
+                    .y-Cart-member-left {
+
+                    }
+                    .y-Cart-member-right {
+
+                    }
+                }
                 .y-Cart-pickup-radio {
 
-                    .y-pickup-way-options {
-                        input {
-
+                    li {
+                        .fa-triangle {
+                            font-size: 24px;
+                            color: $main-text;
                         }
+                        .y-pickup-way-options {
+                        
+
+                            input {
+                                display: none;
+                            }
+                        
+                        
+                    }
+                    }
+                    
+                }
+            }
+        }
+
+        .y-Cart-coupon {
+            .y-Cart-coupon-main {
+                display: flex;
+                .y-coupon-input {
+                    border: $border-sm;
+                    border-radius: $border-radius-button;
+                    overflow: hidden;
+                    background-color: #fff;
+                    input {
+                        padding: 2px 13px;
+                        outline: none;
+                        border: none;
                     }
                 }
             }
+            
         }
 
 
@@ -433,11 +474,26 @@ $border-radius-button: 8px;
 
                 .y-Cart-main {
                     border: $border-lg;
+                    .y-Cart-member-info {
+                        display: flex;
+                        .y-Cart-member-details {
+    
+                        }
+                        .y-Cart-member-left {
+    
+                        }
+                        .y-Cart-member-right {
+    
+                        }
+                    }
 
                     .y-Cart-pickup-radio {
 
-                        .y-pickup-radio-labels {
-                            display: block;
+                        li {
+                            .y-pickup-radio-labels {
+                                display: block;
+                            
+                            }
                             input {
                                 display: none;
                             }
@@ -445,7 +501,19 @@ $border-radius-button: 8px;
                     }
                 }
             }
+            .y-Cart-coupon {
+                .y-Cart-coupon-main {
 
+                    .y-coupon-input {
+                        border: $border-lg;
+                        input {
+                            padding: 4px 20px;
+                        
+                        }
+                    }
+                }
+                
+            }
             .y-Cart-rec {
                 .y-Cart-rec-tab {
                     max-width: 190px;

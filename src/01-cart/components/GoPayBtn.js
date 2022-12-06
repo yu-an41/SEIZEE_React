@@ -1,12 +1,19 @@
 import React, { useState, useContext } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import dayjs from 'dayjs'
 import CartInfoContext from '../contexts/CartInfoContext'
 import './../styles/GoPayBtn.scss'
 
 function GoPayBtn({ cartItem, mbsid }) {
-  const { handleEmptyCart, checkCartEmpty, emptyCart, setEmptyCart } =
-    useContext(CartInfoContext)
+  const {
+    handleEmptyCart,
+    checkCartEmpty,
+    emptyCart,
+    setEmptyCart,
+    ModalNotification,
+    ModalConfirm,
+  } = useContext(CartInfoContext)
 
   const GoPay = async () => {
     if (!!mbsid) {
@@ -17,8 +24,9 @@ function GoPayBtn({ cartItem, mbsid }) {
           `http://localhost:3004/cart/add-order/${order_num}`,
           cartItem
         )
-        const empty = await handleEmptyCart()
-        console.log('Go Pay')
+        await localStorage.removeItem('cartItem')
+        setEmptyCart(true)
+        // const empty = await handleEmptyCart()
       } else {
         console.log('no items to be paid')
       }
