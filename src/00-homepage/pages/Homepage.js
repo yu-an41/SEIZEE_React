@@ -74,7 +74,7 @@ function Homepage() {
           </section>
           <section className="y-section y-section-carousel">
             <div className="y-carousel-wrap">
-              {/* <TopCarousel /> */}
+              <TopCarousel />
               <div className="y-carousel-block-yellow">
                 <p></p>
               </div>

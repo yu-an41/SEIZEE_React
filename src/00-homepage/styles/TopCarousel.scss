@@ -58,6 +58,8 @@ $border-radius-button: 8px;
     }
 
     .y-top-carousel-banner {
+        overflow: hidden;
+        
         font-size: 0;
         img {
             width: 100%;

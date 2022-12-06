@@ -14,7 +14,8 @@ import PickupHoursBtn from '../components/PickupHoursBtn'
 import EmptyCartBtn from '../components/EmptyCartBtn'
 import CartItemsList from '../components/CartItemsList'
 import ContinueShoppingBtn from '../components/ContinueShoppingBtn'
-import GoPayBtn from '../components/GoPayBtn'
+import CheckCartInfo from '../components/CheckCartInfo'
+// import GoPayBtn from '../components/GoPayBtn'
 import RecMerch from '../components/RecMerch'
 import Footer from '../../components/Footer'
 
@@ -37,6 +38,7 @@ import axios from 'axios'
 import { set } from 'ramda'
 
 function CartList(props) {
+  const [cartPrevText, setCartPrevText] = useState()
   const {
     cartItem,
     setCartItem,
@@ -292,10 +294,10 @@ function CartList(props) {
               </p>
               <div className="y-Cart-details-btns">
                 <div className="y-continue-shopping-wrap">
-                  <ContinueShoppingBtn />
+                  <ContinueShoppingBtn linkTo={`http://localhost:3000/shop`} />
                 </div>
-                <div className="y-cart-pay-wrap">
-                  <GoPayBtn cartItem={cartItem} />
+                <div className="y-check-info-wrap">
+                  <CheckCartInfo cartItem={cartItem} />
                 </div>
               </div>
             </div>

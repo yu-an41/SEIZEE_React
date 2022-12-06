@@ -47,46 +47,58 @@ export const CartInfoContextProvider = function ({ children }) {
     let index = cartItem.userCart.findIndex((e) => e.prod_sid === prodSid)
 
     if (index === -1) {
-      try {
-        const res = await axios.get(
-          `http://localhost:3004/cart/prod/${prodSid}`
-        )
-        // console.log(res.data.prod_info_rows)
-        const prodInfo = res.data.prod_info_rows[0]
-        console.log(prodInfo)
+      // 確認店家是否為同一家（或是空車）才將商品加入購物車
+      console.log(cartItem.userCart[0]?.shop_sid)
+      console.log(+shopSid)
+      console.log(+cartItem.userCart[0].shop_sid === +shopSid)
+      if (
+        cartItem.userCart[0]?.shop_sid &&
+        +cartItem.userCart[0].shop_sid === +shopSid
+      ) {
+        try {
+          const res = await axios.get(
+            `http://localhost:3004/cart/prod/${prodSid}`
+          )
+          // console.log(res.data.prod_info_rows)
+          const prodInfo = res.data.prod_info_rows[0]
+          console.log(prodInfo)
 
-        if (prodInfo.inventory_qty >= prodQty) {
-          const products = await {
-            ...cartItem,
-            userCart: [
-              ...cartItem.userCart,
-              {
-                shop_sid: shopSid,
-                prod_sid: prodSid,
-                unit_price: prodInfo.unit_price, // 原價
-                sale_price: prodInfo.product_price, // 優惠價
-                sale: prodInfo.sale_price, // 折數
-                name: prodInfo.product_name,
-                picture: prodInfo.picture_url,
-                amount: prodQty,
-                inventory: prodInfo.inventory_qty,
-              },
-            ],
-            totalItem: cartItem.totalItem + 1,
-            totalUnitPrice:
-              cartItem.totalUnitPrice + prodInfo.unit_price * prodQty,
-            totalSalePrice:
-              cartItem.totalSalePrice + prodInfo.product_price * prodQty,
-            totalAmount: cartItem.totalAmount + prodQty,
+          if (prodInfo.inventory_qty >= prodQty) {
+            const products = await {
+              ...cartItem,
+              userCart: [
+                ...cartItem.userCart,
+                {
+                  shop_sid: shopSid,
+                  prod_sid: prodSid,
+                  unit_price: prodInfo.unit_price, // 原價
+                  sale_price: prodInfo.product_price, // 優惠價
+                  sale: prodInfo.sale_price, // 折數
+                  name: prodInfo.product_name,
+                  picture: prodInfo.picture_url,
+                  amount: prodQty,
+                  inventory: prodInfo.inventory_qty,
+                },
+              ],
+              totalItem: cartItem.totalItem + 1,
+              totalUnitPrice:
+                cartItem.totalUnitPrice + prodInfo.unit_price * prodQty,
+              totalSalePrice:
+                cartItem.totalSalePrice + prodInfo.product_price * prodQty,
+              totalAmount: cartItem.totalAmount + prodQty,
+            }
+            console.log(products.totalSalePrice)
+            localStorage.setItem('cartItem', JSON.stringify({ ...products }))
+            setCartItem(products)
+            setEmptyCart(false)
+          } else {
+            alert(`已達本產品購買上限：${prodInfo.inventory}，請重新修改數量！`)
           }
-          console.log(products.totalSalePrice)
-          localStorage.setItem('cartItem', JSON.stringify({ ...products }))
-          setCartItem(products)
-        } else {
-          alert(`已達本產品購買上限：${prodInfo.inventory}，請重新修改數量！`)
+        } catch (err) {
+          console.log(err.message)
         }
-      } catch (err) {
-        console.log(err.message)
+      } else {
+        alert(`撞車了，購物已有其他店家商品！要去瞧瞧嗎？`)
       }
     } else {
       cartItem.userCart[index] = {
@@ -109,9 +121,10 @@ export const CartInfoContextProvider = function ({ children }) {
       localStorage.setItem('cartItem', JSON.stringify(newProducts))
       console.log({ newProducts })
       setCartItem(newProducts)
+      setEmptyCart(false)
       console.log('qty updated')
     }
-    if (emptyCart) setEmptyCart(false)
+    // if (emptyCart) setEmptyCart(false)
   }
 
   // 改變數量時重新計算小計總計
@@ -253,7 +266,7 @@ export const CartInfoContextProvider = function ({ children }) {
         '{"userCart":[],"totalItem":0,"totalUnitPrice":0,"totalSalePrice":0,"totalAmount":0}'
     ) {
       e.preventDefault()
-      alert('Your cart is empty!')
+      // alert('Your cart is empty!')
       handleEmptyCart()
     } else {
       setEmptyCart(false)
@@ -262,6 +275,18 @@ export const CartInfoContextProvider = function ({ children }) {
     return emptyCart
   }
 
+  //回上一步連結跳轉(cartList->home CartInfo->CartList)
+  // const [cartPrevLink, setCartPrevLink] = useState('')
+  // const [cartPrevText, setCartPrevText] = useState('')
+  // const page = document.location.href
+
+  // if (page == 'http://localhost:3000/cart/') {
+  //   setCartPrevLink('http://localhost:3000/shop')
+  //   setCartPrecText('繼續逛逛')
+  // } else {
+  //   setCartPrevLink('http://localhost:3000/cart')
+  //   setCartPrevText('回購物車')
+  // }
   return (
     <CartInfoContext.Provider
       value={{
