@@ -112,10 +112,34 @@ function CartInfo() {
             </div>
           </div>
           <div className="y-Cart-member  y-Cart-sections">
-            <p className="y-Cart-tab y-Cart-member-tab">戰士資訊</p>
+            <p className="y-Cart-tab y-Cart-member-tab">取餐資訊</p>
             <div className="y-Cart-main y-Cart-member-main">
-              <div className="y-Cart-member-top"></div>
-              <div className="y-Cart-member-bottom"></div>
+              <ul className="y-Cart-member-info">
+                <li className="y-Cart-member-details y-Cart-member-left">
+                  訂購人：
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-right">
+                  member name
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-left">
+                  取餐店家：
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-right">
+                  shop name
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-left">
+                  取餐時間：
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-right">
+                  shop pickup
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-left">
+                  取餐位址：
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-right">
+                  shop address
+                </li>
+              </ul>
             </div>
           </div>
           <div className="y-Cart-details y-Cart-sections">
