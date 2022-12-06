@@ -31,8 +31,8 @@ function ProductDetail() {
   //留言
   const [doRerender, setDoRerender] = useState(false);
   const [errorMessage, setErrorMessage] = useState([]);
-  // const [heart, setHeart] = useState(false);
-  // console.log(heart);
+  const [heart, setHeart] = useState(false);
+  console.log(heart);
 
   async function getDeatil() {
     try {
@@ -40,13 +40,13 @@ function ProductDetail() {
         `http://localhost:3004/product/list?sid=${sid}`
       );
       // console.log(sid);
-      // const result = await axios.get(
-      //   `http://localhost:3004/product/collect?sid=${sid}`
-      // );
-      // // console.log(result.data.rows)
-      // if (result.data.rows.length !== 0) {
-      //   handleClick(true);
-      // }
+      const result = await axios.get(
+        `http://localhost:3004/product/collect?sid=${sid}`
+      );
+      // console.log(result.data.rows)
+      if (result.data.rows.length !== 0) {
+        handleClick(true);
+      }
       const Pdata = response.data.product_rows;
       // console.log(Pdata)
       setDetail(Pdata);
