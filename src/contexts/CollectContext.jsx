@@ -49,7 +49,7 @@ export const CollectContextProvider = ({ children }) => {
      for (let i = 0; i < collect.length; i++) {
        collectNum.push(collect[i].p_sid);
      }
-     console.log({collectNum});
+    //  console.log({collectNum});
      setCollectionNum(collectNum);
      // console.log(collectNum)
    };

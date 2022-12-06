@@ -4,7 +4,7 @@ import ReactStars from "react-rating-stars-component";
 import "./style/ProductComment.scss";
 
 function ProductComment({ setDoRender, doRender, sid }) {
-  //localStorage得到membera_sid
+  //localStorage得到member_sid
   const mb_sid = localStorage.getItem("auth")
     ? JSON.parse(localStorage.getItem("auth")).mb_sid
     : "尚未登入";

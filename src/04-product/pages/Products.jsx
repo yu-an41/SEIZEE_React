@@ -8,7 +8,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState([]);
   const [cardList, setCardList] =useState([]);
-  // const [curFilters, setCurFilteres] = useState([]);
+  const [curFilters, setCurFilteres] = useState([]);
   const location = useLocation();
 
   const categories = new URLSearchParams(window.location.search).get(
@@ -33,9 +33,9 @@ const Products = () => {
 
   const filterOptions = {
     fiftyPercentOff: "5折以下",
-    qtyEnough: "庫存告急",
+    qtyUrgent: "庫存告急",
     underHundred: "100元以下",
-    underFifty: "50元以下",
+    overFifty: "50元以上",
     fiveStarts: "評分5顆星",
     // foutStarts: "評分4顆星以上",
     // threeStarts: "評分3顆星以上",
@@ -44,14 +44,14 @@ const Products = () => {
   const filterOptionsVals = Object.values(filterOptions);
   // console.log(filterOptionsVals);
 
-  const OptionsVals = filterOptionsVals.filter((v) => !!v)
-  setFilter(OptionsVals)
+  // const OptionsVals = filterOptionsVals.filter((v) => !!v)
+  // setFilter(OptionsVals)
   // if (filterOptionsVals.length !== 0) {
   //   setCardsate(0)
   // } else {
   //   setCardsate(1)
   // }
-  
+
   const checkboxClick = (e) => {
     const val = +e.target.value;
     const c = e.target.checked;
@@ -64,34 +64,34 @@ const Products = () => {
       setCardList(newCard);
     }
   };
-
     
-  // const showProducts = products.filter((p) => {
-  //   const booleanArr = []; 
+  const showProducts = products.filter((p) => {
+    const booleanArr = []; 
 
-  //   if (curFilters.includes("fiftyPercentOff")) {
-  //     booleanArr.push(p.sale_price <= 5);
-  //   }
-  //   if (curFilters.includes("qtyEnough")) {
-  //     booleanArr.push(p.qty <= 3);
-  //   }
-  //   if (curFilters.includes("underHundred")) {
-  //     booleanArr.push(p.product_price < 100);
-  //   }
-  //   if (curFilters.includes("underFifty")) {
-  //     booleanArr.push(p.product_price < 50);
-  //   }
-  //   if (curFilters.includes("fiveStarts")) {
-  //     booleanArr.push(p.rating === 5);
-  //   }
-  //   if (curFilters.includes("fourStarts")) {
-  //     booleanArr.push(p.rating >= 4);
-  //   }
-  //   if (curFilters.includes("threeStarts")) {
-  //     booleanArr.push(p.rating >= 3);
-  //   }
-  //   return booleanArr.every((boo) => boo === true);
-  // });
+    if (curFilters.includes("fiftyPercentOff")) {
+      booleanArr.push(p.sale_price <= 5);
+    }
+    if (curFilters.includes("qtyEnough")) {
+      booleanArr.push(p.qty <= 3);
+    }
+    if (curFilters.includes("underHundred")) {
+      booleanArr.push(p.product_price < 100);
+    }
+    if (curFilters.includes("underFifty")) {
+      booleanArr.push(p.product_price < 50);
+    }
+    if (curFilters.includes("fiveStarts")) {
+      booleanArr.push(p.rating === 5);
+    }
+    if (curFilters.includes("fourStarts")) {
+      booleanArr.push(p.rating >= 4);
+    }
+    if (curFilters.includes("threeStarts")) {
+      booleanArr.push(p.rating >= 3);
+    }
+    return booleanArr.every((boo) => boo === true);
+  });
+  
 
   return (
     <>
@@ -101,16 +101,16 @@ const Products = () => {
         <img src="/04-product/svg/aladin.png" alt="" />
       </div> */}
         <div className="a-searchBarWrapper">
-          {/* <div className="a-sideBarOptionsWrapper">
-            {filterOptionsKeys.map((v, i) => {
+          <div className="a-sideBarOptionsWrapper">
+            {filterOptionsVals.map((v, i) => {
               return (
                 <div className="a-filterOptionsWrapper" key={i}> 
                   <input
                     type="checkbox"
                     className="a-sideBarCheckBox"
-                    checked={state}
+                    checked={cardList}
                     value={v}
-                    onChange={setstate}
+                    onChange={checkboxClick}
                   /> 
                    <label
                     className="a-sideBarLabel"
@@ -120,7 +120,7 @@ const Products = () => {
                 </div>
               );
             })}
-          </div> */}
+          </div>
           
         </div>
         {/* ProductCard */}
