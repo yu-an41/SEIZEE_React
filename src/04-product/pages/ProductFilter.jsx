@@ -11,8 +11,8 @@ function ProductFilter() {
   const [filterList, setFilterList] = useState([]);
   //使用者勾選種類checkbox
   const [choice, setchoice] = useState([]);
-  //使用者勾選sideBar
-  const [productFilter, setProductFilter] = useState([""]);
+  // //使用者勾選sideBar
+  // const [productFilter, setProductFilter] = useState([""]);
   const navigate = useNavigate()
 
   async function getFilter(categoriesString) {
@@ -27,16 +27,6 @@ function ProductFilter() {
       console.error(e.message);
     }
   }
-
-  // //searchBar
-  // const [inputValue, setInputValue] = "";
-  // const sideBarOptions = [
-  //   "5折以下",
-  //   "庫存告急",
-  //   "100元以下",
-  //   "50元以下",
-  //   "評分5顆星",
-  // ];
 
   const checkboxClick = (e) => {
     const val = +e.target.value;
@@ -66,7 +56,6 @@ function ProductFilter() {
     navigate('/products?'+searchParam.toString())
   };
   
-
   return (
     <>
       <div className="y-index-container">

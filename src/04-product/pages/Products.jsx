@@ -6,9 +6,11 @@ import { useLocation } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  // const [filter, setFilter] = useState([]);
-  const [cardList, setCardList] = useState([]);
-  // const [curFilters, setCurFilteres] = useState([]);
+  //使用者打勾篩選條件
+  const [filterCheck, setFilterCheck] = useState([]);
+  console.log(filterCheck);
+  //post使用者打勾結果
+  const [curFilter, setCurFilteres] = useState({});
   const location = useLocation();
 
   const categories = new URLSearchParams(window.location.search).get(
@@ -25,7 +27,6 @@ const Products = () => {
       const categoryData = response.data.category_rows;
       // console.log("initial", categoryData);
       setProducts(categoryData);
-      // console.log(categoryData);
     } catch (e) {
       console.error(e.message);
     }
@@ -43,39 +44,36 @@ const Products = () => {
   // }
   // console.log(filterO["5折以下"])
 
-  const filterDisplay = [
-    "低於5折以下",
-    "庫存低於3個",
-    "價格100元以上",
-    "價格50元以下",
-    "評分4星以上",
-  ];
+  // const filterDisplay = [
+  //   "低於5折以下",
+  //   "庫存低於3個",
+  //   "價格100元以上",
+  //   "價格50元以下",
+  //   "評分4星以上",
+  // ];
 
   const productFilter =[
     {
       label:'低於5折以下',
-      value:5,
+      value:'fiftyPercentOff',
     },
     { 
-      label:'庫存低於3個',
-      value:3,
-    },
-    { 
-      label:'價格100元以上',
-      value:100,
+      label:'庫存低於5個',
+      value:'invUnder5',
     },
     { 
       label:'價格50元以下',
-      value:50,
+      value:'priceUnder50',
+    },
+    { 
+      label:'價格100元以上',
+      value:'priceOver100',
     },
     { 
       label:'評分4星以上',
-      value:4,
+      value:'ratingOver4',
     },
   ]
-  //使用者打勾篩選條件
-  const [filterCheck, setFilterCheck] = useState([]);
-  console.log(filterCheck);
 
   // const filterOptions = {
   //   fiftyPercentOff: "5折以下",
@@ -96,41 +94,61 @@ const Products = () => {
   //   setCardsate(1)
   // }
 
-  const checkboxResult = (e) => {
-    const val = +e.target.value;
-    const c = e.target.checked;
-    if (c) {
-      if (!cardList.includes(val)) {
-        setCardList([...cardList, val]);
-      }
-    } else {
-      const newCard = cardList.filter((v) => v !== val);
-      setCardList(newCard);
+  // const checkboxResult = (e) => {
+  //   const val = +e.target.value;
+  //   const c = e.target.checked;
+  //   if (c) {
+  //     if (!cardList.includes(val)) {
+  //       setCardList([...cardList, val]);
+  //     }
+  //   } else {
+  //     const newCard = cardList.filter((v) => v !== val);
+  //     setCardList(newCard);
+  //   }
+  // };
+
+  const handleSend  = async () => {
+    filterCheck.forEach(function (filterName) {
+      curFilter[filterName] = 1 
+    })
+    curFilter['categories'] = categories
+    // console.log('filter', curFilter);
+    const { data } = await axios.post(
+      `http://localhost:3004/product/productFilter`,
+      curFilter
+    )
+    // console.log(data);
+    if (data.curFilter.success) {
+      setCurFilteres(data);
     }
+    // const filterData = data.filter_rows;
+    // console.log("filter", filterData);
+    
   };
+  
 
   // const showProducts = products.filter((p) => {
   //   const booleanArr = [];
 
-  //   if (curFilters.includes("fiftyPercentOff")) {
+  //   if (curFilter.includes("fiftyPercentOff")) {
   //     booleanArr.push(p.sale_price <= 5);
   //   }
-  //   if (curFilters.includes("qtyEnough")) {
+  //   if (curFilter.includes("qtyEnough")) {
   //     booleanArr.push(p.qty <= 3);
   //   }
-  //   if (curFilters.includes("underHundred")) {
+  //   if (curFilter.includes("underHundred")) {
   //     booleanArr.push(p.product_price < 100);
   //   }
-  //   if (curFilters.includes("underFifty")) {
+  //   if (curFilter.includes("underFifty")) {
   //     booleanArr.push(p.product_price < 50);
   //   }
-  //   if (curFilters.includes("fiveStarts")) {
+  //   if (curFilter.includes("fiveStarts")) {
   //     booleanArr.push(p.rating === 5);
   //   }
-  //   if (curFilters.includes("fourStarts")) {
+  //   if (curFilter.includes("fourStarts")) {
   //     booleanArr.push(p.rating >= 4);
   //   }
-  //   if (curFilters.includes("threeStarts")) {
+  //   if (curFilter.includes("threeStarts")) {
   //     booleanArr.push(p.rating >= 3);
   //   }
   //   return booleanArr.every((boo) => boo === true);
@@ -177,6 +195,7 @@ const Products = () => {
       </div>
       {/* ProductCard */}
       <div className="a-filterProductCard">
+      {/* <div className="a-oldOpthion">
         {products
           .filter((v, i) => {
             let flag = false;
@@ -200,9 +219,11 @@ const Products = () => {
 
             return flag;
           })
-          .map((p, i) => {
-            return (
-              <div className="a-filterProudctWrapper" key={i + p.product_name}>
+          }
+      </div> */}
+          {/* {curFilter.map((p, i) => {
+            return ( */}
+              <div className="a-filterProudctWrapper" {p.product_name}>
                 <div className="a-filterImgWrapper">
                   <img src={`/04-product/img/${p.picture_url}`} alt="" />
                 </div>
@@ -211,12 +232,12 @@ const Products = () => {
                   <p className="a-filterText">{p.product_price}元</p>
                   <p className="a-filterText">{p.sale_price}折</p>
                 </div>
-                <p className="a-filterText">剩餘數量{p.qty}</p>
+                {/* <p className="a-filterText">剩餘數量{p.qty}</p> */}
               </div>
-            );
-          })}
+            {/* );
+          })} */}
       </div>
-      {/* <button className="a-filterBtn" onClick={handleSendFilter}>送出</button> */}
+      <button className="a-filterBtn" onClick={handleSend}>送出</button>
       </div>
     </>
   );

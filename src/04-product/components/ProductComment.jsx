@@ -3,13 +3,12 @@ import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import "./style/ProductComment.scss";
 
-function ProductComment({ setDoRender, doRender, sid }) {
+function ProductComment({ sid }) {
   //localStorage得到member_sid
   const mb_sid = localStorage.getItem("auth")
     ? JSON.parse(localStorage.getItem("auth")).mb_sid
     : "尚未登入";
-
-    const [text, setText] =useState("")
+  const [text, setText] =useState("")
 
   //使用者輸入留言post後端
   const [comment, setComment] = useState({
@@ -25,27 +24,25 @@ function ProductComment({ setDoRender, doRender, sid }) {
   //     rating :"",
   //   })
 
-  
-
   //星星評分數
   const ratingChanged = (newRating) => {
     if (mb_sid === "尚未登入") {
-      console.log("未登入！無法留言");
+      // console.log("未登入！無法留言");
       return;
     }
     setComment({
       ...comment,
       rating: newRating,
     });
-    console.log(newRating);
+    // console.log(newRating);
   };
 
   const addComment = async () => {
     if (mb_sid === "尚未登入") {
-      console.log("未登入！無法留言");
+      // console.log("未登入！無法留言");
       return;
     }
-    console.log("會員編號：", mb_sid);
+    // console.log("會員編號：", mb_sid);
     // const fd = new FormData();
     // fd.append("mb_sid", comment.mb_sid);
     // fd.append("food_product_sid", comment.food_product_sid);
@@ -55,11 +52,10 @@ function ProductComment({ setDoRender, doRender, sid }) {
       "http://localhost:3004/product/comment?sid=" + sid,
       { ...comment }
     );
-    console.log(data);
+    // console.log(data);
 
     if (data.user_comment.comment.success) {
       alert("留言成功");
-      //setDoRender(!doRender);
       setText(data.text)
     }
   };
