@@ -7,6 +7,7 @@ import CollectContext from '../../contexts/CollectContext'
 
 // cart
 import CartInfoContext from './../../01-cart/contexts/CartInfoContext'
+import log from 'eslint-plugin-react/lib/util/log'
 
 function ProductCard({ product }) {
   const {
@@ -20,23 +21,26 @@ function ProductCard({ product }) {
     delCollect,
     checkList,
     handleClick,
-  } = useContext(CollectContext);
-// console.log(collectionNum);
-  
-const tempRef = useRef();
-  const countOptions =product ? new Array(product.inventory_qty).fill(0).map((_, i) => ({
-    text: i + 1,
-    value: i + 1,
-  })) : new Array(1).fill(0).map((_, i) => ({
-    text: i + 1,
-    value: i + 1,
-  }));
+  } = useContext(CollectContext)
+  // console.log(collectionNum);
+
+  const tempRef = useRef()
+  const countOptions = product
+    ? new Array(product.inventory_qty).fill(0).map((_, i) => ({
+        text: i + 1,
+        value: i + 1,
+      }))
+    : new Array(1).fill(0).map((_, i) => ({
+        text: i + 1,
+        value: i + 1,
+      }))
 
   // cart
   const { cartItem, setCartItem, handleAddCart, updateItemQty } =
     useContext(CartInfoContext)
   // const [productDataFromCard, setProductDataFromCard] = useState([{}])
   const { shop_list_sid } = useParams()
+  console.log(shop_list_sid)
 
   return (
     <div className="a-produtCardWrapper">
@@ -102,7 +106,7 @@ const tempRef = useRef();
           </div>
         </div>
         <div className="a-productQuantity">
-          <p >惜食剩餘數量</p>
+          <p>惜食剩餘數量</p>
           <p className="a-quantity">{product.inventory_qty}</p>
           <p>數量</p>
 
@@ -130,7 +134,13 @@ const tempRef = useRef();
             // }
 
             // console.log(tempRef.current.value)
-            handleAddCart(shop_list_sid, product.sid, tempRef.current.value)
+            // shop_list_sid = +shop_list_sid
+            console.log(product.shop_list_sid)
+            handleAddCart(
+              product.shop_list_sid,
+              product.sid,
+              tempRef.current.value
+            )
           }}
         >
           <p>加入購物車</p>

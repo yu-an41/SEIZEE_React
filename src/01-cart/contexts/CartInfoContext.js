@@ -39,22 +39,78 @@ export const CartInfoContextProvider = function ({ children }) {
   // 加入購物車（只拿product.sid跟數量，其他去後台找資料）
   // 待加入店家資料做判斷
   const handleAddCart = async (shopSid, prodSid, prodQty) => {
-    // console.log(prodInfo)
+    console.log('eddie', shopSid)
     prodSid = +prodSid
     prodQty = +prodQty
+    shopSid = +shopSid
 
     // 確認商品是否已在購物車中
     let index = cartItem.userCart.findIndex((e) => e.prod_sid === prodSid)
 
+    // 購物車找不到該商品（購物車可能為空）
     if (index === -1) {
       // 確認店家是否為同一家（或是空車）才將商品加入購物車
-      console.log(cartItem.userCart[0]?.shop_sid)
+
+      // console.log(cartItem.userCart[0]?.shop_sid)
       console.log(+shopSid)
-      console.log(+cartItem.userCart[0].shop_sid === +shopSid)
-      if (
-        cartItem.userCart[0]?.shop_sid &&
-        +cartItem.userCart[0].shop_sid === +shopSid
-      ) {
+      // console.log(+cartItem.userCart[0].shop_sid === shopSid)
+
+      // 購物車不為空（找得到第一個商品的shop_sid）
+      if (!!cartItem.userCart[0]?.shop_sid) {
+        // 判斷是否為同一家的商品（第一個商品的shop_sid=現在點擊商品的商店sid）
+        if (+cartItem.userCart[0].shop_sid === shopSid) {
+          try {
+            const res = await axios.get(
+              `http://localhost:3004/cart/prod/${prodSid}`
+            )
+            // console.log(res.data.prod_info_rows)
+            const prodInfo = res.data.prod_info_rows[0]
+            console.log(prodInfo)
+
+            if (prodInfo.inventory_qty >= prodQty) {
+              const products = await {
+                ...cartItem,
+                userCart: [
+                  ...cartItem.userCart,
+                  {
+                    shop_sid: shopSid,
+                    prod_sid: prodSid,
+                    unit_price: prodInfo.unit_price, // 原價
+                    sale_price: prodInfo.product_price, // 優惠價
+                    sale: prodInfo.sale_price, // 折數
+                    name: prodInfo.product_name,
+                    picture: prodInfo.picture_url,
+                    amount: prodQty,
+                    inventory: prodInfo.inventory_qty,
+                  },
+                ],
+                totalItem: cartItem.totalItem + 1,
+                totalUnitPrice:
+                  cartItem.totalUnitPrice + prodInfo.unit_price * prodQty,
+                totalSalePrice:
+                  cartItem.totalSalePrice + prodInfo.product_price * prodQty,
+                totalAmount: cartItem.totalAmount + prodQty,
+              }
+              console.log(products.totalSalePrice)
+              localStorage.setItem('cartItem', JSON.stringify({ ...products }))
+              setCartItem(products)
+              setEmptyCart(false)
+            } else {
+              alert(
+                `已達本產品購買上限：${prodInfo.inventory}，請重新修改數量！`
+              )
+            }
+          } catch (err) {
+            console.log(err.message)
+          }
+        }
+        // 不同家->發出撞車警告
+        else {
+          alert(`撞車了，購物已有其他店家商品！要去瞧瞧嗎？`)
+        }
+      }
+      // 購物車是空的話直接加入購物車
+      else {
         try {
           const res = await axios.get(
             `http://localhost:3004/cart/prod/${prodSid}`
@@ -97,10 +153,11 @@ export const CartInfoContextProvider = function ({ children }) {
         } catch (err) {
           console.log(err.message)
         }
-      } else {
-        alert(`撞車了，購物已有其他店家商品！要去瞧瞧嗎？`)
       }
-    } else {
+    }
+
+    // 找到的話直接改數量金額
+    else {
       cartItem.userCart[index] = {
         ...cartItem.userCart[index],
         amount: cartItem.userCart[index].amount + prodQty,

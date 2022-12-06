@@ -25,26 +25,26 @@ export default class TopCarousel extends Component {
               alt="banner carousel"
             />
           </div>
+          <div className="y-top-carousel-banner">
+            <img
+              src={`/00-homepage/banner1-ice-cream.png`}
+              alt="banner carousel"
+            />
+          </div>
+          <div className="y-top-carousel-banner">
+            <img
+              src={`/00-homepage/banner1-ice-cream.png`}
+              alt="banner carousel"
+            />
+          </div>
+          {/* <div className="y-top-carousel-banner">
+            <img
+              src={`/00-homepage/banner1-ice-cream.png`}
+              alt="banner carousel"
+            />
+          </div> */}
           {/* <div className="y-top-carousel-banner">
             <h1>Hello Carousel</h1>
-          </div> */}
-          {/* <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
           </div> */}
         </Slider>
       </div>
