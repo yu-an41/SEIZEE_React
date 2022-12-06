@@ -101,6 +101,10 @@ function ForgotPass() {
     }, 2000)
   }, [])
 
+  // reference:
+  // react-loading-overlay: https://www.npmjs.com/package/react-loading-overlay#quick-start-running_woman
+  // react-spinners: https://www.npmjs.com/package/react-spinners
+
   return (
     <>
       <LoadingOverlay
