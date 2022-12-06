@@ -22,22 +22,44 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
   })
   //console.log(messContent.categories_sid)
   //console.log(messContent.post_sid)
+  const aaa = JSON.parse(localStorage.getItem('auth')).mb_sid
 
   const addMesage = async () => {
     const fd = new FormData()
     fd.append('content', messContent.content)
     fd.append('post_sid', messContent.post_sid)
     fd.append('categories_sid', messContent.categories_sid)
-    console.log(fd)
-    const { data } = await axios.post('http://localhost:3004/forum/message', fd)
+    //fd.append('member_sid', forumMember)
+    fd.append('member_sid', aaa)
+    console.log(
+      messContent.content,
+      messContent.post_sid,
+      messContent.categories_sid,
+      aaa
+      // forumMember
+    )
+    // console.log(fd)
+    // const { data } = await axios.post('http://localhost:3004/forum/message', fd)
 
-    console.log(data)
-    if (data.success) {
-      alert('留言成功')
-      //直接顯示留言無用重刷頁面
-      setDoRerender(!doRerender)
-    }
+    // console.log(data)
+    //if (data.success) {
+    // alert('留言成功')
+    //直接顯示留言無用重刷頁面
+    //setDoRerender(!doRerender)
+    //}
   }
+  // const [forumMember, setForumMember] = useState(0)
+
+  // const checkMemeber = (e) => {
+  //   if (localStorage.getItem('auth')) {
+  //     setForumMember(+localStorage.getItem('auth').mb_sid)
+  //   } else {
+  //     e.preventDefault()
+  //     alert('請先註冊/登入')
+  //   }
+  // }
+
+
 
   return (
     <div className="p-comment">
@@ -59,6 +81,11 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
             }
           />
         </div>
+        {/* <input
+          className="forumMember"
+          name="member_sid"
+          value={forumMember}
+        ></input> */}
       </div>
       <div className="p-commBtn">
         <button onClick={addMesage}>送出</button>

@@ -9,7 +9,7 @@ import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
 // import ImageItemPreview from './ImageItemPreview'
 
-function WriteForm() {
+function WriteForm({ mbsid }) {
   // const [doRerender, setDoRerender] = useState(false)
   const [image, setImage] = useState()
   const [stepImages, setStepImages] = useState([])
@@ -37,6 +37,12 @@ function WriteForm() {
       },
     ],
     steps: [
+      {
+        cooking_post_sid: '',
+        step: '',
+        stepImg: '',
+        stepContent: '',
+      },
       {
         cooking_post_sid: '',
         step: '',
@@ -81,29 +87,18 @@ function WriteForm() {
       //setDoRerender(!doRerender)
     }
   }
-
-  // const {fmData}= await axios.post('',fd)
-  const [addInstruLab, setAddInstruLab] = useState()
-  const [addStepLab, setAddStepLab] = useState()
-  // 選擇的檔案
-  const [selectedFile, setSelectedFile] = useState(null)
-  // 是否有檔案被挑選
-  const [isFilePicked, setIsFilePicked] = useState(false)
-  // 預覽圖片
-  const [preview, setPreview] = useState('')
-  // server上的圖片網址
-  const [imgServerUrl, setImgServerUrl] = useState('')
-
+  //圖片預覽
+  const [previewConImg, setPreviewConImg] = useState('')
+  // 當選擇檔案更動時建立預覽圖
   useEffect(() => {
     if (!image) {
-      setPreview('')
+      setPreviewConImg('')
       return
     }
 
     const objectUrl = URL.createObjectURL(image)
     console.log(objectUrl)
-    setPreview(objectUrl)
-
+    setPreviewConImg(objectUrl)
     // 當元件unmounted時清除記憶體
     return () => URL.revokeObjectURL(objectUrl)
   }, [image])
@@ -131,7 +126,7 @@ function WriteForm() {
               required
             />
           </label>
-          <label className="p-WriteTagWrap">
+          {/* <label className="p-WriteTagWrap">
             <input
               className="p-wTag p-wTag-1"
               placeholder="輸入標籤"
@@ -148,14 +143,14 @@ function WriteForm() {
               placeholder="輸入標籤"
               name="hashtag3"
             ></input>
-          </label>
+          </label> */}
           <label className="p-writeImageLab">
             <h3>圖片</h3>
 
             <div className="p-writImgBtn">
-              {selectedFile && (
+              {image && (
                 <div className="p-imgPreview">
-                  <img src={preview} alt="" />
+                  <img src={previewConImg} alt="" />
                 </div>
               )}
               <input
@@ -278,9 +273,9 @@ function WriteForm() {
                       className="p-stepImg"
                       placeholder="點擊上傳圖片大小480x260px"
                     >
-                      {selectedFile && (
+                      {stepImages && (
                         <div className="p-stepimgPreview">
-                          <img src={preview} alt="" />
+                          <ImageItemPreview stepImages={stepImages} />
                         </div>
                       )}
                       <input
@@ -302,7 +297,7 @@ function WriteForm() {
                         className="p-stepContent"
                         placeholder="步驟說明（最多150字）"
                         name="steps.stepContent"
-                        value={writData.steps[0].stepContent}
+                        value={writData.steps[i].stepContent}
                         onChange={(e) => {
                           const steps = writData.steps
                           steps[i] = {
@@ -367,25 +362,18 @@ function WriteForm() {
             console.log('帶入123')
             setWritData({
               title: '蕃茄菇菇雞肉飯',
-              hashtag: [
-                {
-                  categories_sid: 4,
-                  post_sid: 1,
-                  tagContent: '電鍋',
-                },
-              ],
               induction:
                 '菇菇控最愛的香菇、杏鮑菇、蘑菇，三菇一體加上雞腿肉的多汁鮮甜蕃茄入菜帶出酸甜感，最後撒上烹大師鰹魚風味，獨到的煙燻香氣讓料理美味無可挑剔!',
               time: '20分鐘',
               serving: '2人份',
               instructions: [
                 {
-                  sid: '',
+                  sid: '1',
                   instrucContent: '番茄',
                   portion: '2顆',
                 },
                 {
-                  sid: '',
+                  sid: '2',
                   instrucContent: '雞肉',
                   portion: '500g',
                 },
@@ -393,14 +381,14 @@ function WriteForm() {
               steps: [
                 {
                   cooking_post_sid: '',
-                  step: '',
+                  step: '1',
                   stepImg: '',
                   stepContent:
                     '雞腿肉先用醬油、胡椒粉、糖抓醃。白米洗乾淨瀝乾。',
                 },
                 {
                   cooking_post_sid: '',
-                  step: '',
+                  step: '2',
                   stepImg: '',
                   stepContent:
                     '將洗好的白米放入內鍋，加入水、米酒、菇類、洋蔥、雞肉、小番茄、花椰菜，拌均勻，開始煮飯。',

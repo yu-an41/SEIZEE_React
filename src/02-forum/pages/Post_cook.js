@@ -79,6 +79,17 @@ function PostCook() {
   }, [likeInstructions, spendServing, spendTime])
 
   const min = Math.min(postNums, cookPostData.length)
+
+  // member sid
+  const [forumMember, setForumMember] = useState(0)
+  const checkMemeber = (e) => {
+    if (localStorage.getItem('auth')) {
+      setForumMember(+localStorage.getItem('auth').mb_sid)
+    } else {
+      e.preventDefault()
+      alert('請先註冊/登入')
+    }
+  }
   return (
     <>
       <div className="p-navBar">
@@ -106,13 +117,15 @@ function PostCook() {
             {/* Array(min).fill(1). */}
             {cookPostData &&
               cookPostData.map((v, i) => {
-                const item = cookPostData[i]
-                const likeKey = item.categories_sid + '_' + item.sid
+                {
+                  /* const item = cookPostData[i] */
+                }
+                const likeKey = v.categories_sid + '_' + v.sid
                 const heart = !!pLikes[likeKey]
                 console.log({ likeKey, heart })
                 return (
                   <>
-                    <Card_cook postData={item} key={item.i} heart={heart} />
+                    <Card_cook postData={v} key={v.i} heart={heart} />
                   </>
                 )
               })}
@@ -128,8 +141,13 @@ function PostCook() {
           <div className="p-RecommendationWrap">
             <Recommendation />
           </div>
-          <div className="p-writWrap">
-            <WriteBtn />
+          <div
+            className="p-writWrap"
+            onClick={(e) => {
+              checkMemeber(e)
+            }}
+          >
+            <WriteBtn mbsid={forumMember} />
           </div>
         </div>
       </div>
