@@ -1,5 +1,5 @@
 import './Timetable.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import carrot from './../../svg/carrot.svg'
 import dialogue from './../../svg/dialogue-box.svg'
 import menu from './../../svg/menu.svg'
@@ -8,7 +8,8 @@ import { useTimeTable } from '../../context/useTimeTable'
 import jDelete from './../../svg/delete.svg'
 import axios from 'axios'
 function Timetable() {
-  const { timeTable, removeTimeTable, setWhichHover } = useTimeTable()
+  const { timeTable, removeTimeTable, setWhichHover, setTimeTable } =
+    useTimeTable()
 
   const getTicketData = async () => {
     const postData = {
@@ -27,6 +28,12 @@ function Timetable() {
     //toggle
     setIsClicked((current) => !current)
   }
+
+  // useEffect(() => {
+  //   const timeTable = localStorage.getItem('timetable') || []
+  //   console.log('timeTable', timeTable)
+  //   // setTimeTable(timeTable)
+  // }, [])
   return (
     <>
       <div className="j-right-wrap">

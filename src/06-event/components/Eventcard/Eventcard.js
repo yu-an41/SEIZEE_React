@@ -3,7 +3,7 @@ import './Eventcard.scss'
 import jHeart from './../../svg/heart-none.svg'
 import { useTimeTable } from '../../context/useTimeTable'
 
-function Eventcard({ time, name, nick, color, cat }) {
+function Eventcard({ time, name, nick, color, cat, like }) {
   const { handleAddTimeTable, timeTable } = useTimeTable()
 
   const names = timeTable.map((v) => v.name)

@@ -6,7 +6,8 @@ import jriceM from '../svg/riceMountain.svg'
 import jgreenM from '../svg/greenMountain.svg'
 import jorangeM from '../svg/orangeMountain.svg'
 import log from 'eslint-plugin-react/lib/util/log'
-import jHeart from '../svg/heart-none.svg'
+import jEmptyHeart from '../svg/heart-none.svg'
+import jHeart from '../svg/full-heart.svg'
 import { useTimeTable } from './../context/useTimeTable'
 import axios from 'axios'
 
@@ -36,6 +37,20 @@ function Events({ origins }) {
 
   const [registeredNum, setRegisteredNum] = useState(0)
   const { timeTable, removeTimeTable, setWhichHover } = useTimeTable()
+  const [likeImg, setLikeImg] = useState(jEmptyHeart)
+
+  const onAddLike = async (cateRow) => {
+    console.log('cateRow', cateRow)
+    try {
+      const res = await axios.post(`http://localhost:3004/event/event-add`, {
+        memberSid: 1,
+        eventSid: cateRow.sid,
+      })
+      setLikeImg(jHeart)
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
 
   const getRegeistered = async () => {
     try {
@@ -58,6 +73,11 @@ function Events({ origins }) {
   useEffect(() => {
     // getRegeistered()
   }, [])
+
+  useEffect(() => {
+    cateRow[epage - 1]?.like ? setLikeImg(jHeart) : setLikeImg(jEmptyHeart)
+  }, [cateRow])
+
   const handleSwitchCat = (catIndex) => {
     setCate(catIndex)
   }
@@ -144,7 +164,11 @@ function Events({ origins }) {
                 <span className="j-lego">
                   <div className="j-card-name">
                     {cateRow[epage - 1].name}
-                    <img src={jHeart} alt="" />
+                    <img
+                      onClick={() => onAddLike(cateRow[epage - 1])}
+                      src={likeImg}
+                      alt=""
+                    />
                   </div>
                   <div className="j-card-image">
                     <img

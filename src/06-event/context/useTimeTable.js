@@ -54,6 +54,7 @@ export const TimeTableProvider = ({ children }) => {
     console.log(timeTable)
 
     setTimeTable(newTimeTable)
+    localStorage.setItem('timetable', JSON.stringify(newTimeTable))
   }
 
   return (
@@ -64,6 +65,7 @@ export const TimeTableProvider = ({ children }) => {
         removeTimeTable,
         setWhichHover,
         whichHover,
+        setTimeTable,
       }}
     >
       {children}

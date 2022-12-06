@@ -7,6 +7,7 @@ import Eventcard from '../components/Eventcard/Eventcard'
 import Emptycard from '../components/Emptycard/Emptycard'
 
 function Schedule({ origins }) {
+  
   return (
     <>
       <div className="j-event-middle-schedule">
@@ -116,6 +117,7 @@ function Schedule({ origins }) {
                         name={cat.name}
                         nick={cat.nick}
                         color={cat.color}
+                        like={cat.like}
                       />
                       <Emptycard />
                     </Fragment>
