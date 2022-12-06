@@ -183,6 +183,14 @@ $border-radius-button: 8px;
             .y-Cart-main {
                 border: $border-sm;
 
+                .y-Cart-pickup-radio {
+
+                    .y-pickup-way-options {
+                        input {
+
+                        }
+                    }
+                }
             }
         }
 
@@ -401,10 +409,10 @@ $border-radius-button: 8px;
             padding-top: 215px;
             padding-bottom: 40px;
 
-            li {
-                font-size: 18px;
-                margin-bottom: 10px;
-            }
+            // li {
+            //     font-size: 18px;
+            //     margin-bottom: 10px;
+            // }
     
             .y-Cart-sections {
                 max-width: 1320px;
@@ -425,6 +433,16 @@ $border-radius-button: 8px;
 
                 .y-Cart-main {
                     border: $border-lg;
+
+                    .y-Cart-pickup-radio {
+
+                        .y-pickup-radio-labels {
+                            display: block;
+                            input {
+                                display: none;
+                            }
+                        }
+                    }
                 }
             }
 

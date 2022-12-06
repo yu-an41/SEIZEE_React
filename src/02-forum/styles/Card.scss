@@ -19,6 +19,7 @@ $p:16px;
     flex-direction: column;
     align-items: center;
     margin-top: -0px;
+    font-weight: 800;
      .p-img-div{
     height: 320px;
     width: 100%;
@@ -60,7 +61,7 @@ $p:16px;
     }
 }
 .p-crad-h:nth-child(2n+2){
-    background-color: #FAD249;
+    background-color: #FFDC96;
 }
 .p-crad-h:nth-child(2n+3){
     background-color:#FFF3CB;
@@ -91,6 +92,7 @@ $p:16px;
                 font-size: $h3;
                 color: $main-blue;
                 font-weight: 800;
+                line-height: 25px;
             }
            .p-contenter-p{
             font-size: $p;

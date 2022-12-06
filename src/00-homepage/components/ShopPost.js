@@ -6,7 +6,7 @@ import './../styles/ShopPost.scss'
 // import ShopPic from './../../dotown/toast.png'
 
 function shopPost({ shopInfo }) {
-  const { sid, member_sid, title, img, content, mb_name } = shopInfo
+  const { sid, member_sid, title, img, induction, mb_name } = shopInfo
   return (
     <div className="y-shop-card-container">
       <Link
@@ -23,7 +23,7 @@ function shopPost({ shopInfo }) {
           </div>
         </div>
         <div className="y-shop-text">
-          <p>{content}</p>
+          <p>{induction}</p>
         </div>
         <div className="y-shop-pic">
           <img src={img} alt="shop banner" />

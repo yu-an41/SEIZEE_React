@@ -564,6 +564,7 @@ $main-border-radius: 8px;
         height: 30px;
         overflow: hidden;
         background-color: $bgc-yellow;
+        padding-top: 2px;
 
         .y-news-crawl-wrap {
         }
@@ -571,7 +572,10 @@ $main-border-radius: 8px;
     }
 
     .y-section-carousel {
+      height: 960px;
+      overflow: hidden;
       .y-carousel-wrap {
+        padding-top: 90px;
         margin: 0 auto;
         max-width: 1040px;
         // border: $border-lg;

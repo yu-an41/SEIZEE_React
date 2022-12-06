@@ -31,6 +31,9 @@ function NavBar() {
 
   const [profileImg, setProfileImg] = useState('')
 
+  let items = +cartItem.totalAmount
+  items = items > 99 ? '99+' : items
+
   return (
     <div className="y-section-nav">
       <div className="y-logo-wrap">
@@ -40,16 +43,14 @@ function NavBar() {
           </a>
         </div>
       </div>
-      <div className="y-nav-right">
+      <div className="y-nav-right" >
         <div className="y-icon-round y-cart-icon">
+          {items > 0 ? <p className="y-cart-amount">{items}</p> : <></>}
           <a
             href="/cart"
             alt="my cart"
             onClick={(e) => {
-              
               checkCartEmpty(e)
-
-              
             }}
           >
             <img src={CartIcon} alt="cart icon" />

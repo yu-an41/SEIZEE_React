@@ -20,19 +20,17 @@ function ProductCard({ product }) {
     delCollect,
     checkList,
     handleClick,
-  } = useContext(CollectContext)
-  // console.log(collection);
-
-  const tempRef = useRef()
-  const countOptions = product
-    ? new Array(product.inventory_qty).fill(0).map((_, i) => ({
-        text: i + 1,
-        value: i + 1,
-      }))
-    : new Array(1).fill(0).map((_, i) => ({
-        text: i + 1,
-        value: i + 1,
-      }))
+  } = useContext(CollectContext);
+// console.log(collectionNum);
+  
+const tempRef = useRef();
+  const countOptions =product ? new Array(product.inventory_qty).fill(0).map((_, i) => ({
+    text: i + 1,
+    value: i + 1,
+  })) : new Array(1).fill(0).map((_, i) => ({
+    text: i + 1,
+    value: i + 1,
+  }));
 
   // cart
   const { cartItem, setCartItem, handleAddCart, updateItemQty } =
@@ -59,6 +57,7 @@ function ProductCard({ product }) {
           <Link to={`/product/${product.sid}`}>
             <h3>{product.product_name}</h3>
           </Link>
+          {/* 判斷收藏愛心圖示 */}
           {collectionNum.length > 0 ? (
             collectionNum.includes(product.sid) ? (
               <img

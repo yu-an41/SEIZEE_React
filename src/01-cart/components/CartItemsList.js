@@ -29,7 +29,6 @@ function CartItemsList({ cartItemData }) {
   const FakePic = 'https://via.placeholder.com/32'
 
   // 會員登入驗證
-  
 
   return (
     <div className="y-Cart-items">
@@ -38,7 +37,7 @@ function CartItemsList({ cartItemData }) {
           <div className="y-Cart-items-info-left">
             <div className="y-Cart-items-sale">{sale} 折</div>
             <div className="y-Cart-items-info-pic">
-              <img src={FakePic} alt="picture of merch" />
+              <img src={`/04-product/img/${picture}`} alt="picture of merch" />
             </div>
           </div>
           <p className="y-Cart-items-info-name">{name}</p>

@@ -14,13 +14,14 @@ $p:16px;
     display: flex;
     position: relative;
     width: 100%;
+    height: auto;
     .sidBar{
         position: fixed;
     }
     .p-cookContainer{
     max-width: 1040px;
     position: relative;
-    left: 15%;
+    left: 18%;
     margin-top: 100px;
     .p-cookTitle{
     
@@ -239,13 +240,12 @@ $p:16px;
     }
     }
     .p-checkAdWrit{
-        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         position: fixed;
         left: 83%;
-        top: 30%;
+        bottom: 10%;
         .p-checkStep{
         width: 230px;
         background-color: $main-yellow;

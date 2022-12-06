@@ -2,6 +2,10 @@ $main-yellow: #FAD249;
 $main-blue: #2B325C;
 $main-text: #5E5E5E;
 
+$btn-red: #ED4743;
+$btn-green: #CCDE73;
+$btn-pink: #FF9696;
+
 $border-lg: $main-blue 3px solid;
 $border-sm: $main-blue 2px solid;
 
@@ -57,7 +61,7 @@ $border-radius-button: 8px;
             width: 30px;
             aspect-ratio: 1/1;
             border-radius: 50%;
-            overflow: hidden;
+            // overflow: hidden;
             border: $border-sm;
             margin-right: 6px;
             background-color: #fff;
@@ -65,13 +69,30 @@ $border-radius-button: 8px;
             img {
                 width: 100%;
                 object-fit: cover;
+                border-radius: 50%;
             }
             
         }
 
         .y-cart-icon {
             margin-right: 8px;
+            position: relative;
 
+            .y-cart-amount {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                top: -18%;
+                left: 55%;
+                border-radius: 50%;
+                background-color: $btn-red;
+                font-size: 12px;
+                line-height: 30px;
+                text-align: center;
+                color: white;
+                font-weight: bold;
+                letter-spacing: 1px;
+            }
             a {
 
                 img {
@@ -120,6 +141,14 @@ $border-radius-button: 8px;
             .y-cart-icon {
                 margin-right: 20px;
 
+                .y-cart-amount {
+                    width: 30px;
+                    height: 30px;
+                    top: -18%;
+                    left: 55%;
+                    font-size: 12px;
+                    line-height: 30px;
+                }
                 a {
 
                     img {
@@ -129,6 +158,8 @@ $border-radius-button: 8px;
             }
         }
         
-    
+        .y-member-icon {
+            margin-right: 20px;
+        }
     }
 }

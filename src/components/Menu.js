@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './../styles/Menu.scss'
 
 //img srcs
@@ -77,9 +78,9 @@ function Menu() {
                 <div className="y-menu-section-icon">
                   <img src={ShopIcon} alt="icon" />
                 </div>
-                <a href="/shop" alt="merch_link">
+                <Link to={`/shop`} alt="merch_link">
                   美食快搜
-                </a>
+                </Link>
               </div>
               <ul className="y-menu-section-links y-shops-links">
                 <li>
@@ -119,9 +120,9 @@ function Menu() {
                 <div className="y-menu-section-icon">
                   <img src={ForumIcon} alt="icon" />
                 </div>
-                <a href="/forum/" alt="merch_link">
+                <Link to={`/forum`} alt="merch_link">
                   聊聊惜食
-                </a>
+                </Link>
               </div>
               <ul className="y-menu-section-links y-forum-links">
                 <li>
@@ -151,9 +152,9 @@ function Menu() {
                 <div className="y-menu-section-icon">
                   <img src={EventIcon} alt="icon" />
                 </div>
-                <a href="/Eventrender" alt="event_link">
+                <Link to={`/event`} alt="event_link">
                   找點樂子
-                </a>
+                </Link>
               </div>
               <ul className="y-menu-section-links y-event-links">
                 <li>
@@ -188,9 +189,18 @@ function Menu() {
                 <div className="y-menu-section-icon">
                   <img src={MemberIcon} alt="icon" />
                 </div>
-                <a href="/#" alt="event_link">
+                {localStorage.getItem('auth')?.mb_sid ? (
+                  <Link to={`/profile`} alt="event_link">
+                    戰士專區
+                  </Link>
+                ) : (
+                  <Link to={`/login`} alt="event_link">
+                    戰士專區
+                  </Link>
+                )}
+                {/* <Link to={`/profile`} alt="event_link">
                   戰士專區
-                </a>
+                </Link> */}
               </div>
               <ul className="y-menu-section-links y-event-links">
                 <li>

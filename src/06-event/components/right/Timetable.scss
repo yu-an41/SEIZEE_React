@@ -22,6 +22,7 @@ $colorLine: #cecece;
   width: $width;
   height: $height;
 }
+
 .j-right-wrap {
   position: absolute;
   right: 0;
@@ -31,7 +32,8 @@ $colorLine: #cecece;
   @media (max-width: 390px) {
     position: relative;
     width: 100%;
-    left: 0;
+    top: 900px;
+    height: 1vh;
     outline: 2px solid red;
   }
   .j-Rwave {
@@ -55,43 +57,59 @@ $colorLine: #cecece;
     background-color: $colorYellow;
     // outline: 5px black solid;
     @media (max-width: 390px) {
-      @include size(100vw, 1000px);
+      @include size(100vw, 1440px);
       // outline: 5px black solid;
       // transform: rotate(-90deg);
     }
-    .j-hidebox{
+    .j-hidebox {
       z-index: 99;
       position: fixed;
       overflow: hidden;
       width: 300px;
-      height: 300px;
+      height: 250px;
       background-color: $colorYellow;
-      outline: 2px blue solid;
+      // outline: 2px blue solid;
       .j-menu {
         z-index: 199;
         width: 180px;
         position: fixed;
         top: 2%;
-        right: 3%;
-        border: 2px solid red;
+        right: 2.5%;
+        // border: 2px solid red;
         img {
           width: 100%;
         }
-      }
-      .j-side-carrot{
-        width: 80px;
-        position: absolute;
-        top: 40%;
-        right: 40%;
-        outline: solid 2px purple;
-        background-color: $colorBlue;
-        img{
-          width: 100%;
+        @media (max-width: 390px) {
+          width: 90px;
+          position: fixed;
+          top: 2%;
+          right: 24%;
+          z-index: 700;
         }
+      }
+
+      .j-banner {
+        // outline: solid 2px brown;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 220px;
+        height: 100px;
+        color: $colorBrown;
+        background-color: $colorWhite;
+        font-size: 3rem;
+        font-weight: 700;
+        position: absolute;
+        top: 52%;
+        right: 12%;
+        // border-radius: 10px;
+        // overflow: hidden;
+        // border: 4px solid $colorWhite;
       }
     }
     .j-table-right {
       // outline: 2px solid red;
+      padding-top: 125px;
       position: absolute;
       top: 15%;
       left: 8%;
@@ -100,21 +118,81 @@ $colorLine: #cecece;
       display: flex;
       flex-direction: column;
       align-items: center;
-      .j-banner {
-        // outline: solid 2px brown;
+      .j-dialogue {
+        // outline: 2px white solid;
+        width: 200px;
+        height: 120px;
+        position: absolute;
+        // transform: rotateZ(180deg);
+        // transform: rotateY(180deg);
+        top: -3%;
+        right: 18%;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 220px;
-        height: 120px;
-        color: $colorBrown;
+        // outline: 1px solid black;
+        overflow: hidden;
+        .j-sayhi {
+          // outline: 1px solid black;
+          font-weight: 700;
+          width: 1000px;
+          font-size: 3rem;
+          position: absolute;
+          top: 30px;
+          color: $colorWhite;
+          animation: 35s taskede infinite;
+          right: -900px;
+          @keyframes taskede {
+            0% {
+              right: -1000px;
+            }
+            100% {
+              right: 200px;
+            }
+          }
+        }
+        img {
+          position: absolute;
+          top: 20px;
+          width: 100%;
+        }
+      }
+      .j-side-carrot {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 2%;
+        right: 10%;
+        // outline: solid 2px purple;
         background-color: $colorWhite;
-
-        font-size: 3rem;
-        font-weight: 700;
-        // border-radius: 10px;
-        // overflow: hidden;
-        // border: 4px solid $colorWhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        overflow: hidden;
+        animation: roll 1.7s linear infinite;
+        transform-origin: 50% 50%;
+        @keyframes roll {
+          0% {
+            transform: translateX(0) rotate(0deg);
+          }
+          20% {
+            transform: translateX(0) rotate(0deg);
+          }
+          40% {
+            transform: translateX(20px) rotate(25deg);
+          }
+          80% {
+            transform: translateX(-20px) rotate(-25deg);
+          }
+          100% {
+            transform: translateX(0) rotate(0deg);
+          }
+        }
+        img {
+          width: 90%;
+          height: 90%;
+        }
       }
       .j-cardG {
         // outline: solid blue 2px;
@@ -122,16 +200,25 @@ $colorLine: #cecece;
         width: 100%;
         height: 95%;
         margin-top: 20px;
+        @media (max-width: 390px) {
+          margin-right: -77px;
+        }
         .j-tableself {
-          margin: auto;
           // outline: 1px solid black;
+          // background-color: $colorWhite;
+          // transition: .3s;
+          margin: auto;
           margin-top: 12px;
           width: 230px;
           height: 155px;
-          // background-color: $colorWhite;
           border-radius: 15px;
           overflow: hidden;
-          border: 5px solid $colorWhite;
+          border: 3px solid $colorWhite;
+          @media (max-width: 390px) {
+            width: 260px;
+            height: 100px;
+          }
+
           .j-cardTop {
             width: 100%;
             height: 35px;
@@ -142,14 +229,14 @@ $colorLine: #cecece;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            .j-cardtime{
+            @media (max-width: 390px) {
+              height: 25px;
+            }
+            .j-cardtime {
               font-size: 2rem;
               height: 100%;
               display: flex;
               align-items: center;
-            }
-            img{
-
             }
           }
           .j-cardname {
@@ -164,49 +251,71 @@ $colorLine: #cecece;
             font-weight: 500;
             color: $colorWhite;
             border-top: solid 3px $colorWhite;
+            // transition: .5s;
           }
-          .j-cardbottom{
+          .j-cardbottom {
             border-top: solid 3px $colorWhite;
             width: 100%;
             height: 35px;
           }
         }
-      }
-      // .j-table-self{
-      //   width: 100%;
-      //   height: 300px;
-      //   outline: 2px solid green;
-      // }
-    }
+        .j-selfshake {
+          animation: shaking 0.5s;
+          @keyframes shaking {
+            0% {
+              transform: translateX(0);
+            }
+            25% {
+              transform: translateX(5px);
+            }
+            50% {
+              transform: translateX(-5px);
+            }
+            75% {
+              transform: translateX(5px);
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+        }
+        // .j-table-self{
+        //   width: 100%;
+        //   height: 300px;
+        //   outline: 2px solid green;
+        // }
+        .j-saveBtn {
+          position: absolute;
+          bottom: 5%;
+          // right: calc(7% + 8px);
+          right: 7%;
+          width: 230px;
+          height: 100px;
+          border: solid 3px $colorWhite;
+          border-radius: 15px;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
-    // ul {
-    //   @include size(100%, 100%);
-    //   list-style-type: none;
-    //   padding: 0;
-    //   display: flex;
-    //   flex-direction: column;
-    //   justify-content: space-evenly;
-    //   align-items: center;
-    //   li {
-    //     .j-right-banner {
-    //       @include size(240px, 70px);
-    //       font-size: 3.5rem;
-    //       font-weight: 900;
-    //       background-color: $colorWhite;
-    //       color: $colorBrown;
-    //       display: flex;
-    //       justify-content: center;
-    //       align-items: center;
-    //       border-radius: 0;
-    //       margin-top: 30px;
-    //     }
-    //     div {
-    //       @include size(240px, 4px);
-    //       background-color: $colorWhite;
-    //       border-radius: 4px;
-    //       margin-bottom: 100px;
-    //     }
-    //   }
-    // }
+          font-size: 3rem;
+          color: $colorWhite;
+          background-color: #e24f4f;
+          box-shadow: 0 10px #999;
+          cursor: pointer;
+          @media (max-width: 390px) {
+            margin-right: -38px;
+          }
+        }
+        .j-clickedBtn {
+          transition: 0.2s;
+          box-shadow: none;
+          transform: translateY(5px);
+          color: $colorWhite;
+          box-shadow: 0 5px #666;
+          background-color: #e24f4f;
+        }
+      }
+    }
   }
 }

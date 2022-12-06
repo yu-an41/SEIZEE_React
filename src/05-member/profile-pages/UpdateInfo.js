@@ -10,6 +10,8 @@ import { PROFILE, imgServerUrl, PROFILE_AUTH } from '../../my-config'
 import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import AuthContext from '../../contexts/AuthContext'
 import ModalNotification from '../../components/ModalNotification'
+import Navbar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 // selectedCity
 const selectedCity = (cityName) => ({ value: cityName, label: cityName })
@@ -307,7 +309,7 @@ function UpdateInfo(props) {
             Authorization: 'Bearer ' + myAuth.token,
           },
         }
-        // post axios寫法: post(backend link, data (if not, use {}), headers)
+        // post axios寫法: post/delete (backend link, data (if not, use {}), headers)
       )
 
       // console.log('dataAuth', dataAuth)
@@ -341,6 +343,7 @@ function UpdateInfo(props) {
     <>
       <div className="s-body-profile">
         <div className="s-container">
+          <Navbar />
           <UserProfileTmp />
           <div className="s-main-content">
             <div className="s-ui">
@@ -482,7 +485,9 @@ function UpdateInfo(props) {
             </div>
           </div>
         </div>
-        <div className="s-footer"></div>
+        <div className="s-footer">
+          <Footer />
+        </div>
       </div>
 
       <ModalNotification

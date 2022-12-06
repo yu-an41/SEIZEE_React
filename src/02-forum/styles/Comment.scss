@@ -27,7 +27,10 @@ $p-m:10px;
     }
     .p-messContent{
         font-size: $p;
-        margin: 0px 0 0 30px;
+        margin: 10px 0 0 30px;
+        p{
+            font-size: $p;
+        }
        
     }
 }

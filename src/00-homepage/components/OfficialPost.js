@@ -26,7 +26,7 @@ function OfficialPost({ officialInfo }) {
           <p>{content}</p>
         </div>
         <div className="y-official-pic">
-          <img src={OfficialPic} alt="official banner" />
+          <img src={img} alt="official banner" />
         </div>
       </Link>
     </div>

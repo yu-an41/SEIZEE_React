@@ -7,6 +7,11 @@ export const appConfig = {
 }
 export const MY_HOST = appConfig.devServerUrl
 
+// 00-homepage 01-cart
+export const imgReactUrl = 'http://localhost:3000'
+
+export const imgNodeUrl = 'http://localhost:3004'
+
 // 04-product
 export const PRODUCT = `{MY_HOST}/product`
 
@@ -26,7 +31,10 @@ export const PROFILE_AUTH = `${MY_HOST}/user/updateAuth`
 export const PROFILE_ORDERS = `${MY_HOST}/user-search/orders`
 export const PROFILE_ORDERS_DETAILS = `${MY_HOST}/user-search/order-details`
 
+export const PROFILE_LIKE_PRODUCT = `${MY_HOST}/user-search/likes-product`
+
 export const DELETE_ACCOUNT = `${MY_HOST}/user/deleteAccount`
+
 
 export const imgUrl = appConfig.debug ? appConfig.devUrl : appConfig.prodUrl
 

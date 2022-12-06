@@ -19,9 +19,9 @@ $p-size:16px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    margin: 100px 0;
     position: relative;
-    left: 15%;
+    left: 18%;
     .p-searchBarWrap{
       width: 100%;
     }
@@ -57,7 +57,7 @@ $p-size:16px;
   }
     .p-writWrap{
       position: fixed;
-      top: 75%;
+      bottom: 15%;
       
     }
     
