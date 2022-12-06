@@ -189,8 +189,8 @@ function Menu() {
                 <div className="y-menu-section-icon">
                   <img src={MemberIcon} alt="icon" />
                 </div>
-                {localStorage.getItem('auth')?.mb_sid ? (
-                  <Link to={`/profile`} alt="event_link">
+                {!localStorage.getItem('auth').mb_sid ? (
+                  <Link to={`/profile/`} alt="event_link">
                     戰士專區
                   </Link>
                 ) : (
