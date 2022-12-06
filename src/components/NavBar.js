@@ -46,10 +46,7 @@ function NavBar() {
             href="/cart"
             alt="my cart"
             onClick={(e) => {
-              
               checkCartEmpty(e)
-
-              
             }}
           >
             <img src={CartIcon} alt="cart icon" />

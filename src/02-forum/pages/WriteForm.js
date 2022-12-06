@@ -7,7 +7,7 @@ import '../styles/WriteForm.scss'
 
 import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
-import ImageItemPreview from './ImageItemPreview'
+// import ImageItemPreview from './ImageItemPreview'
 
 function WriteForm() {
   // const [doRerender, setDoRerender] = useState(false)
