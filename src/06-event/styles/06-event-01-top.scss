@@ -1,197 +1,261 @@
-// $colorBlue: #113f75;
-// $colorYellow: #fad249;
-// $colorOrange: #eb8e4c;
-// $colorWhite: #ffffff;
-// $colorLightGrey: #eeeeee;
-// $colorDarkGrey: #4b646a;
-// $colorMiddleGrey: #747474;
-// $colorBrown: #986868;
-// $colorList: #fdfcee;
-// $colorLightBlue: #91d3f5;
-// $colorGreen: #21a07d;
-// $colorPurple: #9786df;
-// $colorPink: #efc2d9;
-// $colorLine: #cecece;
+$colorBlue: #113f75;
+$colorYellow: #fad249;
+$colorOrange: #eb8e4c;
+$colorWhite: #ffffff;
+$colorLightGrey: #eeeeee;
+$colorDarkGrey: #4b646a;
+$colorMiddleGrey: #747474;
+$colorBrown: #986868;
+$colorList: #fdfcee;
+$colorLightBlue: #91d3f5;
+$colorGreen: #21a07d;
+$colorPurple: #9786df;
+$colorPink: #efc2d9;
+$colorLine: #cecece;
 
-// @mixin position($top, $left) {
-//   position: absolute;
-//   top: $top;
-//   left: $left;
-// }
+@mixin position($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
 
-// @mixin size($width, $height) {
-//   width: $width;
-//   height: $height;
-// }
-// // ----------------!!start!!------------------
-// * {
-//   box-sizing: border-box;
-//   margin: 0;
-//   font-family: sans-serif;
-//   list-style-type: none;
-//   text-decoration: none;
-// }
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+// ----------------!!start!!------------------
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
 
-// html {
-//   // filter: invert(1);
+html {
+  // filter: invert(1);
 
-//   //change 1rem into 10px
-//   font-size: 62.5%;
-// }
+  //change 1rem into 10px
+  font-size: 62.5%;
+}
 
-// body {
-//   background-color: $colorWhite;
-// }
-// .j-buleBack {
-//   @include size(100vw, 100vh);
-//   background-color: $colorBlue;
-// }
-// .j-sides {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-between;
-//   @media (max-width: 390px) {
-//   }
-// }
-// .j-middle-group-top {
-//   @include position(53%, 53%);
-//   @include size(800px, 500px);
-//   transform: translate(-50%, -50%);
+.j-blueBack {
+  @include size(1500px, 100vh);
+  background-color: $colorBlue;
+  position: fixed;
+  right: 10%;
+  z-index: -10;
+  animation: moveUp 1s ease-out;
+  animation-delay: 1s;
+}
+@keyframes moveUp {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(0, 200px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -1200px);
+    opacity: 0.5;
+  }
+}
 
-//   @media (max-width: 390px) {
-//     @include position(45%, 48%);
-//     @include size(270px, 250px);
-//     // outline: 2px black solid;
-//   }
-//   .j-carrot {
-//     z-index: 99;
-//     @include position(-40%, 88%);
-//     @include size(100px, 200px);
-//     transform-origin: 50% 50%;
-//     animation: jump 0.5s linear alternate infinite;
-//     @keyframes jump {
-//       0% {
-//         transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
-//       }
-//       40% {
-//         transform: translate3d(0, 30%, 0) scale3d(0.7, 1.5, 1);
-//       }
-//       100% {
-//         transform: translate3d(0, 100%, 0) scale3d(1.5, 0.7, 1);
-//       }
-//     }
-//     // outline: white 1px solid;
-//     @media (max-width: 390px) {
-//       @include position(-20%, 100%);
-//       @include size(40px, 80px);
-//     }
-//     img {
-//       width: 100%;
-//       @media (max-width: 390px) {
-//         width: 100%;
-//       }
-//     }
-//   }
-//   .j-circle {
-//     @include position(-7%, -9%);
-//     @include size(290px, 290px);
-//     background-color: $colorOrange;
-//     border-radius: 145px;
-//     @media (max-width: 390px) {
-//       @include position(-3%, -9%);
-//       @include size(130px, 130px);
-//       border-radius: 65px;
-//     }
-//   }
-//   .j-tilt-circle {
-//     @include position(25%, 53%);
-//     @include size(400px, 400px);
-//     @media (max-width: 390px) {
-//       @include position(28%, 53%);
-//       @include size(140px, 100px);
-//       // outline: WHITE 1px solid ;
-//     }
-//     img {
-//       width: 80%;
-//       @media (max-width: 390px) {
-//         width: 100%;
-//       }
-//     }
-//   }
-//   .j-rectangle {
-//     @include position(63%, 30%);
-//     @include size(580px, 78px);
-//     background-color: $colorOrange;
-//     @media (max-width: 390px) {
-//       @include position(60%, 33%);
-//       @include size(80%, 10%);
-//     }
-//   }
-//   .j-front-word-1 {
-//     @include position(10%, 4%);
-//     @media (max-width: 390px) {
-//       @include position(14%, 7%);
-//     }
-//     img {
-//       width: 85%;
-//       @media (max-width: 390px) {
-//         width: 90%;
-//       }
-//     }
-//   }
-//   .j-front-word-2 {
-//     @include size(500px, 500px);
-//     @include position(53%, 41%);
-//     transform: rotate(-1deg);
-//     @media (max-width: 390px) {
-//       @include size(180px, 80px);
-//       @include position(53%, 45%);
-//       // outline: WHITE 1px solid ;
-//     }
-//     img {
-//       width: 96%;
-//       @media (max-width: 390px) {
-//         width: 100%;
-//       }
-//     }
-//   }
-//   .j-star1 {
-//     @include position(63%, -10%);
-//     @include size(100px, 100px);
-//     @media (max-width: 390px) {
-//       @include position(59%, -8%);
-//     }
-//     img {
-//       width: 70%;
-//       @media (max-width: 390px) {
-//         width: 25%;
-//       }
-//     }
-//   }
-//   .j-star2 {
-//     @include position(63%, 3%);
-//     @include size(100px, 100px);
-//     @media (max-width: 390px) {
-//       @include position(59%, 5%);
-//     }
-//     img {
-//       width: 70%;
-//       @media (max-width: 390px) {
-//         width: 25%;
-//       }
-//     }
-//   }
-//   .j-star3 {
-//     @include position(63%, 15%);
-//     @include size(100px, 100px);
-//     @media (max-width: 390px) {
-//       @include position(59%, 17%);
-//     }
-//     img {
-//       width: 70%;
-//       @media (max-width: 390px) {
-//         width: 25%;
-//       }
-//     }
-//   }
-// }
+.j-middle-group-top {
+  @include position(53%, 53%);
+  @include size(800px, 500px);
+  transform: translate(-50%, -50%);
+
+  @media (max-width: 390px) {
+    @include position(45%, 48%);
+    @include size(270px, 250px);
+    // outline: 2px black solid;
+  }
+  .j-carrot {
+    z-index: 99;
+    @include position(-40%, 88%);
+    @include size(100px, 200px);
+    transform-origin: 50% 50%;
+    animation: jump 0.3s linear alternate infinite;
+    @keyframes jump {
+      0% {
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+      }
+      40% {
+        transform: translate3d(0, 30%, 0) scale3d(0.7, 1.5, 1);
+      }
+      100% {
+        transform: translate3d(0, 100%, 0) scale3d(1.5, 0.7, 1);
+      }
+    }
+    // outline: white 1px solid;
+    @media (max-width: 390px) {
+      @include position(-20%, 100%);
+      @include size(40px, 80px);
+    }
+    img {
+      width: 100%;
+      @media (max-width: 390px) {
+        width: 100%;
+      }
+    }
+  }
+  .j-circle {
+    @include position(-7%, -9%);
+    @include size(290px, 290px);
+    background-color: $colorOrange;
+    border-radius: 145px;
+    animation: smalll 1s;
+    @keyframes smalll {
+      0% {
+        // @include size(0, 0);
+        scale: 0.5;
+      }
+      50% {
+        // @include size(360px, 360px);
+        // border-radius: 180px;
+        scale: 1.3;
+      }
+      100% {
+        // @include size(290px, 290px);
+        scale: 1;
+      }
+    }
+
+    @media (max-width: 390px) {
+      @include position(-3%, -9%);
+      @include size(130px, 130px);
+      border-radius: 65px;
+    }
+  }
+  .j-tilt-circle {
+    @include position(25%, 53%);
+    @include size(400px, 400px);
+
+    @media (max-width: 390px) {
+      @include position(28%, 53%);
+      @include size(140px, 100px);
+      // outline: WHITE 1px solid ;
+    }
+    img {
+      width: 80%;
+      @media (max-width: 390px) {
+        width: 100%;
+      }
+    }
+  }
+  .j-rectangle {
+    @include position(63%, 30%);
+    @include size(580px, 78px);
+    background-color: $colorOrange;
+    animation: shrink 1s;
+    @keyframes shrink {
+      0% {
+        @include size(580px, 378px);
+      }
+      50% {
+        @include size(580px, 38px);
+      }
+      100% {
+        @include size(580px, 78px);
+      }
+    }
+    @media (max-width: 390px) {
+      @include position(60%, 33%);
+      @include size(80%, 10%);
+    }
+  }
+  .j-front-word-1 {
+    @include position(10%, 4%);
+    animation: slideinfromLeft 1s;
+    @keyframes slideinfromLeft {
+      0% {
+        left: -500px;
+      }
+      50% {
+        left: 15%;
+      }
+      100% {
+        left: 4%;
+      }
+    }
+    @media (max-width: 390px) {
+      @include position(14%, 7%);
+    }
+    img {
+      width: 85%;
+      @media (max-width: 390px) {
+        width: 90%;
+      }
+    }
+  }
+  .j-front-word-2 {
+    @include size(500px, 500px);
+    @include position(53%, 41%);
+    transform: rotate(-1deg);
+    animation: slideinfromRight 1s;
+    @keyframes slideinfromRight {
+      0% {
+        left: 1000px;
+      }
+      50% {
+        left: 30%;
+      }
+      100% {
+        left: 41%;
+      }
+    }
+    @media (max-width: 390px) {
+      @include size(180px, 80px);
+      @include position(53%, 45%);
+      // outline: WHITE 1px solid ;
+    }
+    img {
+      width: 96%;
+      @media (max-width: 390px) {
+        width: 100%;
+      }
+    }
+  }
+  .j-star1 {
+    @include position(63%, -10%);
+    @include size(100px, 100px);
+    @media (max-width: 390px) {
+      @include position(59%, -8%);
+    }
+    img {
+      width: 70%;
+      @media (max-width: 390px) {
+        width: 25%;
+      }
+    }
+  }
+  .j-star2 {
+    @include position(63%, 3%);
+    @include size(100px, 100px);
+    @media (max-width: 390px) {
+      @include position(59%, 5%);
+    }
+    img {
+      width: 70%;
+      @media (max-width: 390px) {
+        width: 25%;
+      }
+    }
+  }
+  .j-star3 {
+    @include position(63%, 15%);
+    @include size(100px, 100px);
+    @media (max-width: 390px) {
+      @include position(59%, 17%);
+    }
+    img {
+      width: 70%;
+      @media (max-width: 390px) {
+        width: 25%;
+      }
+    }
+  }
+}

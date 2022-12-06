@@ -14,11 +14,11 @@ $p-m:10px;
     flex-direction: column;
     align-items: center;
 form{
-    width: 70%;
+    width: 65%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-
+    margin-top: 100px;
     label{
         width: 100%;
         margin-top: 20px; 
@@ -90,6 +90,7 @@ form{
             position:absolute;
             top: 30%;
             right:30%;
+            font-size: $h4;
             color: #5C5C5C;
             
             }

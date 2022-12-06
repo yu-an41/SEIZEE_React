@@ -37,33 +37,48 @@ function Footer() {
               <ul className="y-footer-section-links y-shops-links">
                 <li>
                   <div className="y-shop-links-icon">
-                    <img src="/03-shop-img/food-" />
+                    <img src={`/03-shop-img/food_rice_02.png`} />
                   </div>
                   <a href="/#" alt="merch_link">
                     中式
                   </a>
                 </li>
                 <li>
+                  <div className="y-shop-links-icon">
+                    <img src={`/03-shop-img/food_hamburger_01.png`} />
+                  </div>
                   <a href="/#" alt="merch_link">
                     美式
                   </a>
                 </li>
                 <li>
+                  <div className="y-shop-links-icon">
+                    <img src={`/03-shop-img/food_osushi_03.png`} />
+                  </div>
                   <a href="/#" alt="merch_link">
                     日式
                   </a>
                 </li>
                 <li>
+                  <div className="y-shop-links-icon">
+                    <img src={`/03-shop-img/food_ramen_01.png`} />
+                  </div>
                   <a href="/#" alt="merch_link">
                     泰式
                   </a>
                 </li>
                 <li>
+                  <div className="y-shop-links-icon">
+                    <img src={`/03-shop-img/food_spaghetti_01.png`} />
+                  </div>
                   <a href="/#" alt="merch_link">
                     義式
                   </a>
                 </li>
                 <li>
+                  <div className="y-shop-links-icon">
+                    <img src={`/03-shop-img/food_cake_01.png`} />
+                  </div>
                   <a href="/#" alt="merch_link">
                     甜點
                   </a>

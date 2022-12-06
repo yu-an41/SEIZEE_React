@@ -96,7 +96,7 @@ $card-btn: #80b938;
           padding-top: 5px;
           .r-m-card-button-a {
             position: relative;
-            width: 100%;
+            width: 100px;
             height: 40px;
             background: $main-orange;
             display: flex;
@@ -143,7 +143,7 @@ $card-btn: #80b938;
               }
             }
           }
-          a::before {
+          .r-m-card-button-a::before {
             content: '';
             position: absolute;
             top: 0;
@@ -155,11 +155,11 @@ $card-btn: #80b938;
             transition: transform 0.5s ease-in-out;
             transform-origin: right;
           }
-          a:hover::before {
+          .r-m-card-button-a:hover::before {
             transform: scaleX(1);
             transform-origin: left;
           }
-          a:hover {
+          .r-m-card-button-a:hover {
             span {
               color: #fff;
             }

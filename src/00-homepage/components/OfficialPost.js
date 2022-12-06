@@ -7,11 +7,17 @@ import './../styles/OfficialPost.scss'
 import OfficialPic from './../../dotown/toast.png'
 
 function OfficialPost({ officialInfo }) {
-  const { sid, title, img, content } = officialInfo
+  const { sid, categories_sid,title, img, content } = officialInfo
+  const cateMap = {
+    1: '/forum/official/inner/',
+    2: '/forum/store/inner/',
+    3: '/forum/share/inner/',
+    4: '/forum/cook/inner/',
+  }
   return (
     <div className="y-official-card-container">
       <Link
-        to={`/forum/cook/inner${officialInfo.sid}`}
+        to={`${cateMap[categories_sid] + sid}`}
         style={{ textDecoration: 'none' }}
       >
         <div className="y-official-top">
@@ -26,7 +32,7 @@ function OfficialPost({ officialInfo }) {
           <p>{content}</p>
         </div>
         <div className="y-official-pic">
-          <img src={OfficialPic} alt="official banner" />
+          <img src={img} alt="official banner" />
         </div>
       </Link>
     </div>

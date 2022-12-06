@@ -3,6 +3,7 @@ import axios from 'axios'
 import { imgUrl, imgServerUrl } from '../shop-config'
 import './../styles/03-shop-m-card.scss'
 import { Box, Skeleton } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 function ShopMcard({ filterShop, startShop, demoShop, setFindPos, isLoading }) {
   // console.log(startShop)
@@ -16,7 +17,7 @@ function ShopMcard({ filterShop, startShop, demoShop, setFindPos, isLoading }) {
                 {isLoading ? (
                   <Skeleton
                     variant="rectangular"
-                    style={{ background: '#ffeeb2' }}
+                    style={{ background: '#ccc' }}
                   >
                     <div className="r-m-card-container">
                       <div className="r-m-card-img">
@@ -237,10 +238,12 @@ function ShopMcard({ filterShop, startShop, demoShop, setFindPos, isLoading }) {
                           <i className="fa-solid fa-caret-right"></i>
                           <span className="r-m-card-button-span">尋找</span>
                         </a>
-                        <a className="r-m-card-button-a" href="/#">
-                          <i className="fa-solid fa-caret-right"></i>
-                          <span className="r-m-card-button-span">去逛逛</span>
-                        </a>
+                        <Link to={`/productList/${v.rows.sid}`}>
+                          <p className="r-m-card-button-a">
+                            <i className="fa-solid fa-caret-right"></i>
+                            <span className="r-m-card-button-span">去逛逛</span>
+                          </p>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -257,7 +260,7 @@ function ShopMcard({ filterShop, startShop, demoShop, setFindPos, isLoading }) {
                 {isLoading ? (
                   <Skeleton
                     variant="rectangular"
-                    style={{ background: '#ffeeb2' }}
+                    style={{ background: '#ccc' }}
                   >
                     <div className="r-m-card-container">
                       <div className="r-m-card-img">
@@ -464,10 +467,12 @@ function ShopMcard({ filterShop, startShop, demoShop, setFindPos, isLoading }) {
                           <i className="fa-solid fa-caret-right"></i>
                           <span className="r-m-card-button-span">尋找</span>
                         </a>
-                        <a href="#/" className="r-m-card-button-a">
-                          <i className="fa-solid fa-caret-right"></i>
-                          <span className="r-m-card-button-span">去逛逛</span>
-                        </a>
+                        <Link to={`/productList/${v[0].sid}`}>
+                          <p className="r-m-card-button-a">
+                            <i className="fa-solid fa-caret-right"></i>
+                            <span className="r-m-card-button-span">去逛逛</span>
+                          </p>
+                        </Link>
                       </div>
                     </div>
                   </div>

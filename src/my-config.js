@@ -7,6 +7,11 @@ export const appConfig = {
 }
 export const MY_HOST = appConfig.devServerUrl
 
+// 00-homepage 01-cart
+export const imgReactUrl = 'http://localhost:3000'
+
+export const imgNodeUrl = 'http://localhost:3004'
+
 // 04-product
 export const PRODUCT = `{MY_HOST}/product`
 

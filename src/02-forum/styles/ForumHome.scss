@@ -12,10 +12,12 @@ $p:16px;
 .p-home{
     position: relative;
     .p-homeCardWrap{
+        width: 200%;
         height: auto;
         display: column;
-        columns: 4;
+        columns: 6;
         column-gap: 0;
+        overflow: hidden;
               
     }
     // .p-homeCardWrap > * {

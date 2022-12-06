@@ -19,7 +19,9 @@ function NavBar() {
     setCartItem,
     handleAddCart,
     updateItemQty,
-    checkCartempty,
+    checkCartEmpty,
+    emptyCart,
+    setEmptyCart,
   } = useContext(CartInfoContext)
 
   const { myAuth } = useContext(AuthContext)
@@ -28,6 +30,9 @@ function NavBar() {
   // console.log('photo:', myAuth.mb_sid)
 
   const [profileImg, setProfileImg] = useState('')
+
+  let items = +cartItem.totalAmount
+  items = items > 99 ? '99+' : items
 
   return (
     <div className="y-section-nav">
@@ -38,13 +43,14 @@ function NavBar() {
           </a>
         </div>
       </div>
-      <div className="y-nav-right">
+      <div className="y-nav-right" >
         <div className="y-icon-round y-cart-icon">
+          {items > 0 ? <p className="y-cart-amount">{items}</p> : <></>}
           <a
             href="/cart"
             alt="my cart"
             onClick={(e) => {
-              checkCartempty(e)
+              checkCartEmpty(e)
             }}
           >
             <img src={CartIcon} alt="cart icon" />
