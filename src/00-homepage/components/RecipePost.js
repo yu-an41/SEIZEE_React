@@ -7,12 +7,18 @@ import './../styles/RecipePost.scss'
 //import RecipePic from './../../dotown/toast.png'
 
 function RecipePost({ recipeInfo }) {
-  const { sid, member_sid, title, img, induction, mb_name } = recipeInfo
-
+  const { sid, categories_sid, member_sid, title, img, induction, mb_name } =
+    recipeInfo
+  const cateMap = {
+    1: '/forum/official/inner/',
+    2: '/forum/store/inner/',
+    3: '/forum/share/inner/',
+    4: '/forum/cook/inner/',
+  }
   return (
     <div className="y-recipe-card-container">
       <Link
-        to={`/forum/cook/inner${recipeInfo.sid}`}
+        to={`${cateMap[categories_sid] + sid}`}
         style={{ textDecoration: 'none' }}
       >
         <div className="y-recipe-top">

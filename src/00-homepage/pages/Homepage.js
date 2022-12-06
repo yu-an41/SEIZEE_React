@@ -50,7 +50,7 @@ function Homepage() {
 
   // forum post's -----------------------------
   const [postNums, setPostNums] = useState(3)
-  // const [offPostNums, setOffPostNums] = useState(2)
+  const [offPostNums, setOffPostNums] = useState(3)
 
   // NavBar cart's ----------------------------
 
@@ -155,7 +155,7 @@ function Homepage() {
               <ShopCardRow postNums={postNums} />
             </div>
             <div className="y-forum-row-wrap y-official-row-wrap">
-              <OfficialCardRow postNums={postNums} />
+              <OfficialCardRow postNums={offPostNums} />
             </div>
           </div>
           <div className="y-forum-more-wrap">
@@ -163,7 +163,7 @@ function Homepage() {
               className="y-forum-more-btn"
               onClick={() => {
                 setPostNums(postNums + 2)
-                // setOffPostNums(offPostNums + 2)
+                setOffPostNums(offPostNums + 3)
               }}
             >
               <div className="y-forum-more-icon">
