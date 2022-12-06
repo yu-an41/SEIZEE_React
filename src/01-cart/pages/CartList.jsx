@@ -158,6 +158,8 @@ function CartList(props) {
   //   getCartData()
   // }, [cartItem])
 
+  // 設定回上頁按鈕內文
+  const [btnText, setBtnText] = useState('繼續逛逛')
   return (
     <>
       <div className="y-CartList-container">
@@ -294,7 +296,10 @@ function CartList(props) {
               </p>
               <div className="y-Cart-details-btns">
                 <div className="y-continue-shopping-wrap">
-                  <ContinueShoppingBtn linkTo={`http://localhost:3000/shop`} />
+                  <ContinueShoppingBtn
+                    linkTo={`http://localhost:3000/shop`}
+                    btnText={btnText}
+                  />
                 </div>
                 <div className="y-check-info-wrap">
                   <CheckCartInfo cartItem={cartItem} />

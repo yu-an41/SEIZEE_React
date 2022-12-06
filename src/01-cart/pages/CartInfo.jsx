@@ -37,6 +37,9 @@ function CartInfo() {
   // if (localStorage.getItem('auth')) {
   //   setCartMbSid(+localStorage.getItem('auth').mb_sid)
   // }
+
+  // 設定回上頁按鈕內文
+  const [btnText, setBtnText] = useState('回購物車')
   return (
     <>
       <div className="y-CartInfo-container">
@@ -166,7 +169,10 @@ function CartInfo() {
               </p>
               <div className="y-Cart-details-btns">
                 <div className="y-continue-shopping-wrap">
-                  <ContinueShoppingBtn linkTo={`http://localhost:3000/cart`} />
+                  <ContinueShoppingBtn
+                    linkTo={`http://localhost:3000/cart`}
+                    btnText={btnText}
+                  />
                 </div>
                 <div className="y-cart-pay-wrap">
                   <GoPayBtn

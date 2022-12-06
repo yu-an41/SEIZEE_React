@@ -24,8 +24,8 @@ import ShopHome from '../components/ShopHome'
 import NewEvent from '../components/NewEvent'
 
 //img srcs
-// import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
-// import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
+import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
+import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
 // import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
 import img from '../images/01cover.jpg'
 // import calendar from '../../../public/04-product/svg/calendar.svg'
@@ -57,12 +57,6 @@ function Homepage() {
   return (
     <>
       <div className="y-index-container">
-        <div
-          className="y-go-to-top"
-          onClick={() => {
-            console.log('go to top')
-          }}
-        ></div>
         <div className="y-index-top">
           <section className="y-section y-section-nav-bg">
             <NavBar />
@@ -144,6 +138,13 @@ function Homepage() {
           <YellowWave />
         </div>
         <section className="y-section y-section-forum">
+          <div
+            className="y-go-to-top"
+            onClick={() => {
+              window.scrollTo(0, 0)
+              console.log('go to top')
+            }}
+          ></div>
           <div className="y-section-forum-title">
             <p>最新論壇消息</p>
           </div>
