@@ -1,6 +1,6 @@
 import './style/ForgotPass.scss'
 import { CHECK_FORGOT_PASS, SEND_FORGOT_PASS } from '../my-config'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { checkEmpty } from './data/UserSign_valid'
 import { useNavigate } from 'react-router-dom'
@@ -29,6 +29,11 @@ function ForgotPass() {
   const [headerMg, setHeaderMg] = useState('')
   const [bodyMg, setBodyMg] = useState('')
 
+  // Loading
+  const [isActive, setIsActive] = useState(false)
+
+  console.log(isActive)
+
   // ====================================
 
   const checkForgotEmail = async (e) => {
@@ -47,8 +52,12 @@ function ForgotPass() {
     }
   }
 
+  // setIsActive(true)
+
   async function forgotSubmit(e) {
     e.preventDefault()
+
+    setIsActive(true)
 
     if (!errorMgF) {
       const { data } = await axios.post(SEND_FORGOT_PASS, forgotFD)
@@ -83,9 +92,21 @@ function ForgotPass() {
     }
   }
 
+  // ====================================
+  // Loading
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsActive(false)
+    }, 2000)
+  }, [])
+
   return (
     <>
-      <LoadingOverlay active={true} spinner={<ClockLoader color="red" />}>
+      <LoadingOverlay
+        active={isActive}
+        spinner={<ClockLoader color="#ED4743" />}
+      >
         <div className="s-body-forgotpass">
           <div className="s-fp-container">
             <div className="s-fp-forgotBx">
