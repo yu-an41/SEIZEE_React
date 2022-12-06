@@ -1,0 +1,27 @@
+main {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    letter-spacing: 2px;
+  }
+  
+//navBar
+  .a-navBarWrapper {
+    height: 70px;
+    background-color: $main-yellow;
+  }
+  .a-carouselBigWrapper {
+    margin: 50px 0 0 0;
+  }
+
+//productList
+.a-productCardList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    background: $main-yellow;
+    padding-top: 30px;
+  }

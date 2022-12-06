@@ -90,11 +90,14 @@ $main-border-radius: 8px;
   font-weight: 500;
 }
 
+.a-productCardsWrapper {
+  display: flex;
+  justify-content: center;
 // searchBar
 .a-sideBarWrapper {
   .a-searchBarWrapper {
     margin: 50px 50px 0 30px;
-    width: 200px;
+    width: 160px;
     height: 400px;
     background-color: $main-yellow;
     border-radius: 8px;
@@ -113,28 +116,29 @@ $main-border-radius: 8px;
   }
 }
 // seachBar
-.a-sideBarWrapper {
-  display: flex;
-  .a-aladdinWrapper {
-    width: 200px;
-    // overflow: hidden;
-    // position: absolute;
-    // top: -30px;
-    // left: 10px;
-    .a-aladdinWrapper img {
-      width: 100%;
-      // object-fit: cover;
-    }
-    .a-searchBarWrapper {
-      margin: 50px 50px 0 30px;
-      width: 200px;
-      height: 800px;
-      background-color: $main-yellow;
-      border-radius: 8px;
-      // position: relative;
-    }
-  }
-}
+// .a-sideBarWrapper {
+//   display: flex;
+//   .a-aladdinWrapper {
+//     width: 200px;
+//     // overflow: hidden;
+//     // position: absolute;
+//     // top: -30px;
+//     // left: 10px;
+//     .a-aladdinWrapper img {
+//       width: 100%;
+//       // object-fit: cover;
+//     }
+//     .a-searchBarWrapper {
+//       margin: 50px 50px 0 30px;
+//       width: 200px;
+//       height: 800px;
+//       background-color: $main-yellow;
+//       border-radius: 8px;
+//       // position: relative;
+//     }
+//   }
+// }
+
 // ProductCard
 .a-filterProductCard {
   display: flex;
@@ -144,6 +148,7 @@ $main-border-radius: 8px;
     width: 150px;
     display: flex;
     flex-direction: column;
+    margin: 10px;
     .a-filterImgWrapper {
       width: 150px;
       height: 150px;
@@ -165,10 +170,12 @@ $main-border-radius: 8px;
     .a-filterTextWrapper {
       display: flex;
       justify-content: center;
+    }
       .a-filterText {
         color: $main-blue;
         font-size: 16px;
       }
-    }
+    
   }
+}
 }

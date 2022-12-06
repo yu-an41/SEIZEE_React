@@ -80,6 +80,7 @@ function ProductDetail() {
         <div className="a-carouselBigWrapper">
           <Carousel1 sid={sid} />
         </div>
+        <div className="a-productDatilsBigWrapper">
         <div className="a-deatil">
           {detail.map((details, i) => {
             return (
@@ -138,6 +139,7 @@ function ProductDetail() {
                   <div className="a-productDescription">
                     <p className="a-detailsText">{details.product_description}</p>
                   </div>
+                  <div className="a-productRating">{details.rating}</div>
                 </div>
                 <div className="a-priceContent">
                   <div className="a-priceWrapper">
@@ -217,9 +219,16 @@ function ProductDetail() {
             );
           })}
         </div>
-        <ProductComment sid={sid} />
+        <div className="a-userCommentWrapper">
+        <ProductComment sid={sid} setDoRerender={setDoRerender} doRerender={doRerender} />
+        <div className="a-commentArea">
+          
+        </div>
+        </div>
         <YellowWave2 />
         <RecommendCard sid={sid} />
+
+      </div>
       </div>
     </>
   );

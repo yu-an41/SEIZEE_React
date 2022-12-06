@@ -9,6 +9,8 @@ function ProductComment({ setDoRender, doRender, sid }) {
     ? JSON.parse(localStorage.getItem("auth")).mb_sid
     : "尚未登入";
 
+    const [text, setText] =useState("")
+
   //使用者輸入留言post後端
   const [comment, setComment] = useState({
     food_product_sid: sid,
@@ -22,6 +24,8 @@ function ProductComment({ setDoRender, doRender, sid }) {
   //     mb_sid: mb_sid,
   //     rating :"",
   //   })
+
+  
 
   //星星評分數
   const ratingChanged = (newRating) => {
@@ -55,14 +59,15 @@ function ProductComment({ setDoRender, doRender, sid }) {
 
     if (data.user_comment.comment.success) {
       alert("留言成功");
-      setDoRender(!doRender);
+      //setDoRender(!doRender);
+      setText(data.text)
     }
   };
+
 
   return (
     <>
     <div className="a-productCommentWrapper">
-      <div className="a-ratingWrapper">
         <ReactStars
           count={5}
           value={comment.rating}
@@ -74,6 +79,7 @@ function ProductComment({ setDoRender, doRender, sid }) {
           fullIcon={<i className="fa fa-star"></i>}
           activeColor="#ffd700"
         />
+     
         <div className="a-commentWrapper">
           <input
             className="a-commentInput"
@@ -88,9 +94,9 @@ function ProductComment({ setDoRender, doRender, sid }) {
           <button className="a-sumbitButton" onClick={addComment}>
             送出
           </button>
+          {text}
         </div>
-      </div>
-      </div>
+        </div>
     </>
   );
 }
