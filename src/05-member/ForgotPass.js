@@ -57,12 +57,16 @@ function ForgotPass() {
   async function forgotSubmit(e) {
     e.preventDefault()
 
-    setIsActive(true)
+    // setIsActive(true)
 
     if (!errorMgF) {
+
+      setIsActive(true)
       const { data } = await axios.post(SEND_FORGOT_PASS, forgotFD)
 
       // console.log(data)
+
+      setIsActive(false)
 
       if (data.success) {
         openModal()
@@ -95,11 +99,11 @@ function ForgotPass() {
   // ====================================
   // Loading
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsActive(false)
-    }, 2000)
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsActive(false)
+  //   }, 2000)
+  // }, [])
 
   // reference:
   // react-loading-overlay: https://www.npmjs.com/package/react-loading-overlay#quick-start-running_woman
