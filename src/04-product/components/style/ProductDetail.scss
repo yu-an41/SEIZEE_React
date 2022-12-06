@@ -48,35 +48,39 @@ input[type="number"] {
   background-color: $main-yellow;
 }
 .a-carouselBigWrapper {
-  margin: 50px 0 10px 0;
+  margin: 50px 0 0 0;
 }
 .a-productDetailWrapper {
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
   background-color: #fff;
+  margin: 0;
   .a-detailWrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     .a-shopNameWrapper {
       @extend %a-flex;
     }
     .a-shopNameWrapper img {
       width: 40px;
     }
-    .a-shopNameWrapper h3 {
+    .a-detailsTitle {
+      color: $main-blue;
+      font-size: 18px;
+    }
+    .a-detailsTitle {
       color: $main-blue;
       font-size: 18px;
     }
     .a-productName {
       @extend %a-flex;
     }
-    .a-productName h3 {
-      color: $main-blue;
-      font-size: 18px;
-    }
+    // .a-productName h3 {
+    //   color: $main-blue;
+    //   font-size: 18px;
+    // }
     .a-productName img {
       width: 35px;
     }

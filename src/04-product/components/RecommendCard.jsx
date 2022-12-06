@@ -3,14 +3,14 @@ import { useParams, Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import "./style/RecommendCard.scss";
 
-function RecommendCard({sid}) {
+function RecommendCard({ sid }) {
   const [recommend, setRecommend] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
 
   async function getRecommend() {
     try {
       const response = await axios.get(
-        "http://localhost:3004/product/suggest?sid="+sid
+        "http://localhost:3004/product/suggest?sid=" + sid
       );
       // console.log(response.data);
       const Sdata = response.data.suggest_rows;
@@ -34,8 +34,13 @@ function RecommendCard({sid}) {
         {recommend.map((recommend, i) => {
           return (
             <div className="a-recommendImgWrapper" key={recommend.sid}>
-              <div className="a-recommendWrapper" >
-                <img src={`/04-product/img/${recommend.picture_url}`} alt="" />
+              <div className="a-recommendWrapper">
+                <a href={`${recommend.sid}`}>
+                  <img
+                    src={`/04-product/img/${recommend.picture_url}`}
+                    alt=""
+                  />
+                </a>
               </div>
             </div>
           );
