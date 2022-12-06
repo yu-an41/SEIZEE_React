@@ -5,7 +5,7 @@
   justify-content: flex-start;
   align-items: flex-start;
 
-  border: 1px solid red;
+  // border: 1px solid red;
 
   .s-l-s-title {
     font-size: 30px;
@@ -20,7 +20,7 @@
   .s-l-s-card {
     position: relative;
     width: 100%;
-    height: 420px;
+    height: 550px;
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
@@ -28,12 +28,14 @@
     padding: 15px;
     // background: linear-gradient(45deg, #ffebbd, #ffd374f4, #faa7ec);
 
-    border: 1px solid green;
+    // border: 1px solid green;
 
     .s-l-s-card-inside {
       width: 100%;
       height: 100%;
-      overflow: auto;
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: scroll;
 
       .s-l-s-data {
         display: flex;
@@ -100,7 +102,59 @@
       .s-l-s-data-error {
         font-size: 24px;
       }
-
+      .r-love-card-container{
+        width: 23%;
+        margin: 5px;
+        // border: 1px solid #000;
+        .r-love-card-title{
+          height: 30px;
+          background-color: #113f75;
+          border-radius: 10px 10px 0 0 ;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          i{
+            color: #f00;
+            text-align: center;
+            font-size: 20px;
+          }
+        }
+        .r-love-card-cover-middle{
+          padding: 5px;
+          display: flex;
+          justify-content: center;
+          border: 1px solid #000;
+          .r-love-card-cover-wrap{
+            width: 180px;
+            height: 100px;
+            overflow: hidden;
+            .r-love-card-cover{
+              width: 100%;
+              // object-fit: cover;
+              // object-position: 50% 80%;
+            }
+          }
+        }
+        .r-love-card-footer{
+          height: 50px;
+          background-color: #113f75;
+          border-radius: 0 0 10px 10px;
+          padding: 0 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          .r-love-card-name{
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+          }
+          .r-love-card-info{
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+          }
+        }
+      }
     }
   }
 

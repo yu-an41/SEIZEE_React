@@ -7,6 +7,8 @@ import jgreenM from '../svg/greenMountain.svg'
 import jorangeM from '../svg/orangeMountain.svg'
 import log from 'eslint-plugin-react/lib/util/log'
 import jHeart from '../svg/heart-none.svg'
+import { useTimeTable } from './../context/useTimeTable'
+import axios from 'axios'
 
 function CategoryTab(props) {
   const { text, activeCat, catIndex, handleSwitchCat } = props
@@ -32,13 +34,30 @@ function Events({ origins }) {
 
   const [jmactive, setJmactive] = useState(1)
 
+  const [registeredNum, setRegisteredNum] = useState(0)
+  const { timeTable, removeTimeTable, setWhichHover } = useTimeTable()
+
+  const getRegeistered = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:3004/event/event-registered/$1`
+      )
+      console.log(res)
+      setRegisteredNum(res)
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
   useEffect(() => {
     const new_row = origins.filter((e) => {
       return e.cate === cate
     })
     setCateRow(new_row)
-  }, [cate, origins])
+  }, [cate, origins, timeTable])
 
+  useEffect(() => {
+    // getRegeistered()
+  }, [])
   const handleSwitchCat = (catIndex) => {
     setCate(catIndex)
   }
@@ -137,8 +156,10 @@ function Events({ origins }) {
                     {cateRow[epage - 1].content}
                   </div>
                   <div className="j-card-sold">
-                    {cateRow[epage - 1].maximum}
+                    {/* {registeredNum} */}
+                    {/* {cateRow[epage - 1].maximum} */}
                     {/* <img src={jHeart} alt="" /> */}
+                    報名額滿
                   </div>
                 </span>
               </div>

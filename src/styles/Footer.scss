@@ -92,7 +92,7 @@ li {
                         margin-right: 20px;
                         img {
                             width: 100%;
-                            object-fit: cover;
+                            object-fit: fill;
                         }
                 }
                 a:hover {
@@ -108,10 +108,33 @@ li {
                     font-weight: bold;
                     letter-spacing: 2px;
                     line-height: 1.2;
+                    margin-bottom: 10px;
+
                     a:hover {
                         cursor: pointer;
                         color: $main-blue;
                         text-decoration: underline;
+                    }
+                }
+            }
+
+            .y-shops-links {
+                li {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    line-height: 1.2;
+
+
+                }
+                .y-shop-links-icon {
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 12px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        // object-fit: cover;
                     }
                 }
             }

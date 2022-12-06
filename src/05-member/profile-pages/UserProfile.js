@@ -1,5 +1,5 @@
 import '.././style/profile-pages/UserProfile.scss'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import React, { useEffect, useState, useContext } from 'react'
 import UserProfileTmp from '../components/UserProfileTmp'
 import { useParams, useLocation } from 'react-router-dom'
@@ -8,6 +8,7 @@ import { PROFILE, imgServerUrl } from '../../my-config'
 import dayjs from 'dayjs'
 import AuthContext from '../../contexts/AuthContext'
 import Navbar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function UserProfile() {
   // -----取得sid-----
@@ -28,8 +29,9 @@ function UserProfile() {
 
   // 讀取資料
   const location = useLocation()
-  const { myAuth } = useContext(AuthContext)
-
+  const { myAuth, deleteAccountD } = useContext(AuthContext)
+  console.log('deleteAccountD', deleteAccountD)
+  console.log('myAuth', myAuth)
   // console.log(myAuth.token)
 
   async function getList() {
@@ -41,7 +43,7 @@ function UserProfile() {
       },
     })
     // setListData(response.data)
-    console.log(response.data.row)
+    // console.log(response.data.row)
     // console.log(response)
 
     setListFD({
@@ -122,11 +124,16 @@ function UserProfile() {
               </div>
               <div className="s-up-line" />
               <h2 className="s-up-deleteTitle">移除帳號</h2>
-              <button className="s-up-deleteAccount">刪除帳號</button>
+              <button className="s-up-deleteAccount" onClick={deleteAccountD}>
+                刪除帳號
+              </button>
             </div>
           </div>
         </div>
-        <div className="s-footer"></div>
+        {/* <Footer /> */}
+        <div className="s-footer">
+          <Footer />
+        </div>
       </div>
     </>
   )

@@ -2,9 +2,9 @@ import { useEffect, useState, useContext } from 'react'
 import { imgUrl, imgServerUrl } from '../shop-config'
 // import axios from 'axios'
 import './../styles/03-shop-card.scss'
-import { Box, Skeleton } from '@mui/material'
+import { Skeleton } from '@mui/material'
 import IsLovedContext from '../../contexts/03-shop-loveContext.js'
-// import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 // states
 
@@ -239,12 +239,13 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                         {v.rows.shop_area}
                         {v.rows.shop_address_detail}
                       </p>
-
                       <div className="r-card-button">
-                        <a className="r-card-button-a" href="/#">
-                          <i className="fa-solid fa-caret-right"></i>
-                          <span className="r-card-button-span">去逛逛</span>
-                        </a>
+                        <Link to={`/productList/${v.rows.sid}`}>
+                          <p className="r-card-button-a">
+                            <i className="fa-solid fa-caret-right"></i>
+                            <span className="r-card-button-span">去逛逛</span>
+                          </p>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -388,7 +389,7 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                         <i
                           className="fa-solid fa-heart"
                           onClick={() => {
-                            handleClickLove(v.rows.sid)
+                            handleClickLove(v[0].sid)
                           }}
                         ></i>
                       )}
@@ -460,12 +461,13 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                         {v[0].shop_area}
                         {v[0].shop_address_detail}
                       </p>
-
                       <div className="r-card-button">
-                        <a className="r-card-button-a" href="/#">
-                          <i className="fa-solid fa-caret-right"></i>
-                          <span className="r-card-button-span">去逛逛</span>
-                        </a>
+                        <Link to={`/productList/${v[0].sid}`}>
+                          <p className="r-card-button-a">
+                            <i className="fa-solid fa-caret-right"></i>
+                            <span className="r-card-button-span">去逛逛</span>
+                          </p>
+                        </Link>
                       </div>
                     </div>
                   </div>

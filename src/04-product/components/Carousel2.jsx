@@ -6,21 +6,19 @@ export default function Carousel({ sid }) {
   const [carousel, setCarousel] = useState([]);
   const [myArray, setMyArray] = useState([0, 0, 0]);
   const [myZindexArr, setMyZindexArr] = useState([0, 0, 0]);
-  const [errorMessage, setErrorMessage] = useState([]);
   const [imgArray, setImgArray] = useState([]);
-
+  
   async function getCarousel() {
     try {
       const response = await axios.get(
         `http://localhost:3004/product/picture?sid=` + sid
       );
       const Pdata = response.data.product_rows[0];
-      setImgArray(Pdata.picture.split(','));
+      setImgArray(Pdata.picture.split(","));
       setCarousel(Pdata);
       console.log(Pdata);
-    } catch (error) {
-      console.error(error.message);
-      setErrorMessage(error.message);
+    } catch (e) {
+      console.error(e.message);
     }
   }
 
@@ -47,68 +45,60 @@ export default function Carousel({ sid }) {
 
   return (
     <div>
-      {imgArray.length &&
-            <div className="a-caroudelWrapper">
-              <div
-                className="bg-1"
-                style={{
-                  width: "200px",
-                  height: "200px",
-                  fontSize: "1.5rem",
-                  backgroundImage: 
-                     `url('/04-product/img/${imgArray[0]}')`,
-                  
-                  transform: `translateX(${myArray[0] * 200}px)`,
-                  transition: "transform 1s",
-                  zIndex: `${myZindexArr[0]}`,
-                }}
-                onClick={(e) => {
-                  handleClick(e);
-                }}
-              >
-                0
-              </div>
+      {imgArray.length > 0 && (
+        <div className="a-caroudelWrapper">
+          <div
+            className="bg-1"
+            style={{
+              // width: "200px",
+              // height: "200px",
+              // fontSize: "1.5rem",
+              // backgroundImage: `url('/04-product/img/${imgArray[0]}')`,
+              transform: `translateX(${myArray[0] * 200}px)`,
+              transition: "transform 1s",
+              zIndex: `${myZindexArr[0]}`,
+            }}
+            onClick={(e) => {
+              handleClick(e);
+            }}
+          >
+          <img src={`/04-product/img/${imgArray[0]}`} alt="" />
+            0
+          </div>
 
-              { imgArray[1] &&
-                <div
-                className="bg-2"
-                style={{
-                  width: "200px",
-                  height: "200px",
-                  fontSize: "1.5rem",
-                  backgroundImage: 
-                     `url('/04-product/img/${imgArray[1]}')`,
-                  transform: `translateX(${myArray[1] * 200}px)`,
-                  transition: "transform 1s .1s",
-                  zIndex: `${myZindexArr[1]}`,
-                }}
-                onClick={(e) => handleClick(e)}
-              >
-                1
-              </div>
-               }
-
-               { imgArray[2] &&
-              <div
-                className="bg-3"
-                style={{
-                  width: "200px",
-                  height: "200px",
-                  fontSize: "1.5rem",
-                  backgroundImage: 
-                  `url('/04-product/img/${imgArray[1]}')`,
-                  transform: `translateX(${myArray[2] * 200}px)`,
-                  transition: "transform 1s .2s",
-                  zIndex: `${myZindexArr[2]}`,
-                }}
-                onClick={(e) => handleClick(e)}
-              >
-                2
-              </div>
-            }
+          {imgArray[1] && (
+            <div
+              className="bg-2"
+              style={{
+                // backgroundImage: `url('/04-product/img/${imgArray[1]}')`,
+                transform: `translateX(${myArray[1] * 200}px)`,
+                transition: "transform 1s .1s",
+                zIndex: `${myZindexArr[1]}`,
+              }}
+              onClick={(e) => handleClick(e)}
+            >
+            <img src={`/04-product/img/${imgArray[1]}`} alt="" />
+              1
             </div>
-          
-        }
+          )}
+
+          {imgArray[2] && (
+            <div
+              className="bg-3"
+              style={{
+                // backgroundImage: `url('/04-product/img/${imgArray[2]}')`,
+                transform: `translateX(${myArray[2] * 200}px)`,
+                transition: "transform 1s .2s",
+                zIndex: `${myZindexArr[2]}`,
+              }}
+              onClick={(e) => handleClick(e)}
+            >
+            <img src={`/04-product/img/${imgArray[2]}`} alt=""/>
+              2
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

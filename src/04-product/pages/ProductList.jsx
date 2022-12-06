@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useContext } from 'react'
 import { useParams, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import ProductCard from '../components/ProductCard.jsx'
@@ -8,11 +8,8 @@ import NavBar from '../../components/NavBar.js'
 import YellowWave from '../../00-homepage/components/YellowWave.js'
 import YellowWave2 from '../components/YellowWave2'
 
-// // 01-cart
-// import CartInfoContext from '../01-cart/contexts/CartInfoContext'
-// // 01-cart
-// const { cartItem, setCartItem } = useContext(CartInfoContext)
-// const [productDataFromCard, setProductDataFrpmCard] = useContext()
+// 01-cart
+import CartInfoContext from './../../01-cart/contexts/CartInfoContext'
 
 function ProductList() {
   const [allProduct, setAllProduct] = useState([])
@@ -21,16 +18,20 @@ function ProductList() {
   const { shop_list_sid } = useParams()
 
   async function getProductCard() {
+    // 01-cart
+    // const { cartItem, setCartItem, handleAddCart, updateItemQty } = useContext(CartInfoContext)
+    // const [productDataFromCard, setProductDataFromCard] = useState([{}])
+
     try {
       const response = await axios.get(
         `http://localhost:3004/product/list?shop_list_sid=${shop_list_sid}`
-      )
-      console.log('this is reponse:', response)
-      const Pdata = response.data.product_rows
-      const Sdata = response.data.shop
+      );
+      // console.log("this is reponse:", response);
+      const Pdata = response.data.product_rows;
+      // const Sdata = response.data.shop;
       setAllProduct(Pdata)
-      setShopData(Sdata)
-      console.log(Sdata)
+      // setShopData(Sdata);
+      // console.log(Sdata);
     } catch (e) {
       console.error('this is e-message:', e.message)
       setErrorMessage(e.message)

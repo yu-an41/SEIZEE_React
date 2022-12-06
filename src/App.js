@@ -37,7 +37,8 @@ import ShopList from './03-shop/pages/03-shop-list'
 // 04-product
 import ProductList from './04-product/pages/ProductList'
 import ProductDetail from './04-product/pages/ProductDetail'
-import ProductFilter from './04-product/pages/ProductFilter'
+// import ProductFilter from './04-product/pages/ProductFilter'
+// import Products from './04-product/pages/Products'
 
 // 05-member
 import UserSign from './05-member/UserSign'
@@ -105,7 +106,8 @@ function App() {
                   element={<ProductList />}
                 />
                 <Route path="/product/:sid" element={<ProductDetail />} />
-                <Route path="/productFilter/" element={<ProductFilter />} />
+                {/* <Route path="/productFilter/" element={<ProductFilter />} /> */}
+                {/* <Route path="/products/" element={<Products />} /> */}
 
                 {/* 05-member */}
                 <Route path="/login" element={<UserSign />} />
@@ -130,7 +132,7 @@ function App() {
                 <Route path="/schedule" element={<Schedule />} />
                 <Route path="/map" element={<Map />} />
                 <Route path="/ticket" element={<Ticket />} /> */}
-                <Route path="/Eventrender" element={<Eventrender />} />
+                <Route path="/event" element={<Eventrender />} />
               </Routes>
             </TimeTableProvider>
           </CollectContextProvider>

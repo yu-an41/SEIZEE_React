@@ -38,6 +38,18 @@ $main-border-radius: 8px;
 }
 .a-recommendText img {
     width: 35px;
+    animation: 1s swing infinite;
+    @keyframes swing {
+        0%{
+            transform: rotate(30deg)
+        }
+        50%{
+            transform: rotate(-30deg)
+        }
+        100%{
+            transform: rotate(30deg)
+        }
+    }
 }
 .a-productRecommend {
     @extend %a-flex;

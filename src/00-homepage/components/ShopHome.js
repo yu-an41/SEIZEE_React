@@ -2,9 +2,10 @@ import '../styles/ShopHome.scss'
 import '../../00-homepage/styles/YellowWave.scss'
 import YellowWave from './YellowWave'
 import ShopHcard from './ShopHcard'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { toppings } from '../toppings'
+import { Link } from 'react-router-dom'
 
 function ShopHome() {
   // 記錄原始資料用
@@ -39,7 +40,7 @@ function ShopHome() {
       index === position ? !item : item
     )
     setCheckedState(updatedCheckedState)
-    console.log(statusShop)
+    // console.log(statusShop)
     // cateFilters
     let selectedFilters = updatedCheckedState.map((v, index) => {
       if (v) {
@@ -123,6 +124,9 @@ function ShopHome() {
               <span className="r-shop-home-main-text-span">
                 開啟屬於你的惜食地圖
               </span>
+              <Link to={'/shop'}>
+                <span className="r-shop-home-main-text-button">Go</span>
+              </Link>
             </div>
           </div>
           <div className="r-shop-home-main-visual"></div>

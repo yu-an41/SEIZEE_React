@@ -9,8 +9,9 @@ import Schedule from './06-event-03-schedule'
 import Maps from './06-event-04-map'
 import Ticket from './06-event-05-ticket'
 import '../styles/06-event-00-Render.scss'
+
 function Eventrender() {
-  const components = [Events, Schedule, Maps, Ticket]
+  const components = [Top, Events, Schedule, Maps, Ticket]
   const [nowPage, setNowPage] = useState(1)
   const NowComponents = components[nowPage - 1]
   const [addRight, setAddRight] = useState()
@@ -28,6 +29,12 @@ function Eventrender() {
     }
 
     getEventData()
+  }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setNowPage(2)
+    }, 2000)
   }, [])
 
   return (

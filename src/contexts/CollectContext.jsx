@@ -49,7 +49,7 @@ export const CollectContextProvider = ({ children }) => {
      for (let i = 0; i < collect.length; i++) {
        collectNum.push(collect[i].p_sid);
      }
-     console.log({collectNum});
+    //  console.log({collectNum});
      setCollectionNum(collectNum);
      // console.log(collectNum)
    };
@@ -80,6 +80,7 @@ export const CollectContextProvider = ({ children }) => {
       `http://localhost:3004/product/delete?sid=${food_product_sid}&mb_sid=${mb_sid}`
     );
     const a = collectionNum.filter((e)=> e !== food_product_sid)
+
     // console.log(a)
     setCollectionNum(a)
     // setCollectList(newcollection);
@@ -87,20 +88,26 @@ export const CollectContextProvider = ({ children }) => {
     // setCollection(false);
   };
 
-    //把狀態無限傳給小孩（商品細節頁需要）
-    // const handleClick = async (food_product_sid) => {
-    //   const index = collectionNum.indexOf(food_product_sid)
-    //     if (index === -1) {
-    //       addCollect(food_product_sid)
-    //       setCollectionNum([...collectionNum, food_product_sid])
-    //     } else {
-    //       delCollect(food_product_sid, index)
-    //       const a = collectionNum.filter((e)=> e !== food_product_sid)
-    //       setCollectionNum(a)
-    //       console.log(a);
-    //     }
-    // }
-    const handleClick = isHeart => { setCollection(isHeart) }
+    //確定清單裡商品的sid有沒有重複
+    const checkList = async (food_product_sid) => {
+      const listIndex = collectionNum.indexOf(food_product_sid)
+        if (listIndex === -1) {
+          addCollect(food_product_sid)
+          setCollectionNum([...collectionNum, food_product_sid])
+        } else {
+          delCollect(food_product_sid, listIndex)
+          const a = collectionNum.filter((e)=> e !== food_product_sid)
+          setCollectionNum(a)
+          console.log(a);
+        }
+    }
+
+  //把狀態無限傳給小孩（商品細節頁需要）
+  const handleClick = isHeart => { setCollection(isHeart) }
+
+  useEffect(() => {
+    getCollectList();
+  }, []);
 
   useEffect(() => {
     getCollectList();
@@ -117,6 +124,7 @@ export const CollectContextProvider = ({ children }) => {
         setCollectionNum,
         addCollect,
         delCollect,
+        checkList,
         handleClick,
       }}
     >
