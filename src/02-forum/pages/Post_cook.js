@@ -16,7 +16,6 @@ import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
 
 function PostCook() {
-  
   const [postNums, setPostNums] = useState(10)
   const [likeInstructions, setLikeInstructions] = useState([''])
   const [spendServing, setSpendServing] = useState([''])
@@ -56,7 +55,7 @@ function PostCook() {
       )
 
       setCookPostData(res.data.cookPostRows)
-      console.log(res.data.cookPostRows)
+      //console.log(res.data.cookPostRows)
     } catch (error) {
       console.log(error.message)
     }
@@ -72,7 +71,7 @@ function PostCook() {
         }
         setPLikes(likeObj)
       }
-      console.log({ likeObj })
+      //console.log({ likeObj })
     }
   }
   useEffect(() => {
@@ -84,11 +83,12 @@ function PostCook() {
   // member sid
   const [forumMember, setForumMember] = useState(0)
   const checkMemeber = (e) => {
+    e.preventDefault()
     if (localStorage.getItem('auth')) {
       setForumMember(+localStorage.getItem('auth').mb_sid)
     } else {
-      e.preventDefault()
       alert('請先註冊/登入')
+      return null
     }
   }
   return (
@@ -123,7 +123,7 @@ function PostCook() {
                 }
                 const likeKey = v.categories_sid + '_' + v.sid
                 const heart = !!pLikes[likeKey]
-                console.log({ likeKey, heart })
+                //console.log({ likeKey, heart })
                 return (
                   <>
                     <Card_cook postData={v} key={v.i} heart={heart} />
@@ -148,7 +148,7 @@ function PostCook() {
               checkMemeber(e)
             }}
           >
-            <WriteBtn mbsid={forumMember} />
+            <WriteBtn />
           </div>
         </div>
       </div>
