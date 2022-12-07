@@ -45,7 +45,7 @@ src/02-forum/p-imgs
 src/06-event/img/*
 src/02-forum/components/useWindowDimensions.js
 src/02-forum/components/WriteStep.js
-src/02-forum/pages/ImageItemPreview.js
+
 
 
 # src/dotown/*

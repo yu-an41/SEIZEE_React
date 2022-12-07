@@ -55,13 +55,13 @@ function PostCook() {
       )
 
       setCookPostData(res.data.cookPostRows)
-      console.log(res.data.cookPostRows)
+      //console.log(res.data.cookPostRows)
     } catch (error) {
       console.log(error.message)
     }
-
+    const mbSid = JSON.parse(localStorage.getItem('auth')).mb_sid
     const res2 = await axios.get(
-      `http://localhost:3004/forum/forum_likes?mid=29`
+      `http://localhost:3004/forum/forum_likes?mid=${mbSid}`
     )
     if (res2.data.success) {
       let likeObj = {}
@@ -71,7 +71,7 @@ function PostCook() {
         }
         setPLikes(likeObj)
       }
-      console.log({ likeObj })
+      //console.log({ likeObj })
     }
   }
   useEffect(() => {
@@ -79,6 +79,18 @@ function PostCook() {
   }, [likeInstructions, spendServing, spendTime])
 
   const min = Math.min(postNums, cookPostData.length)
+
+  // member sid
+  const [forumMember, setForumMember] = useState(0)
+  const checkMemeber = (e) => {
+    e.preventDefault()
+    if (localStorage.getItem('auth')) {
+      setForumMember(+localStorage.getItem('auth').mb_sid)
+    } else {
+      alert('請先註冊/登入')
+      return null
+    }
+  }
   return (
     <>
       <div className="p-navBar">
@@ -106,13 +118,15 @@ function PostCook() {
             {/* Array(min).fill(1). */}
             {cookPostData &&
               cookPostData.map((v, i) => {
-                const item = cookPostData[i]
-                const likeKey = item.categories_sid + '_' + item.sid
+                {
+                  /* const item = cookPostData[i] */
+                }
+                const likeKey = v.categories_sid + '_' + v.sid
                 const heart = !!pLikes[likeKey]
-                console.log({ likeKey, heart })
+                //console.log({ likeKey, heart })
                 return (
                   <>
-                    <Card_cook postData={item} key={item.i} heart={heart} />
+                    <Card_cook postData={v} key={v.i} heart={heart} />
                   </>
                 )
               })}
@@ -128,7 +142,12 @@ function PostCook() {
           <div className="p-RecommendationWrap">
             <Recommendation />
           </div>
-          <div className="p-writWrap">
+          <div
+            className="p-writWrap"
+            onClick={(e) => {
+              checkMemeber(e)
+            }}
+          >
             <WriteBtn />
           </div>
         </div>

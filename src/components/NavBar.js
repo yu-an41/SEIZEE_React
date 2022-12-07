@@ -58,9 +58,9 @@ function NavBar() {
       <div className="y-section-nav">
         <div className="y-logo-wrap">
           <div className="y-svg-wrap">
-            <a href="/" alt="homepage of SEIZEE">
+            <Link to={`/`} alt="homepage of SEIZEE">
               <img src={LogoBluePink} alt="SEIZEE_logo" />
-            </a>
+            </Link>
           </div>
         </div>
         <div className="y-nav-right">

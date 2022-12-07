@@ -8,7 +8,6 @@ $main-orange: #ff8200;
 $card-btn: #80b938;
 
 .r-banner-wrap {
-    // padding: 30px 0 0 0;
     margin-top: 30px;
     background-color: $main-Blue;
     position: relative;
@@ -31,11 +30,13 @@ $card-btn: #80b938;
         .r-banner-inner-small {
           color: #fff;
           font-size: 24px;
+          line-height: 24px;
           font-weight: 700;
         }
         .r-banner-inner-p {
           color: #fff;
           font-size: 36px;
+          line-height: 36px;
           font-weight: 700;
           padding-top: 10px;
         }
@@ -90,7 +91,6 @@ $card-btn: #80b938;
           background-color: #fff;
           border: 3px solid #333;
           border-radius: 15px;
-          // padding-right: 5px;
           margin-left: 10px;
           .r-btn-map-button {
             border: none;

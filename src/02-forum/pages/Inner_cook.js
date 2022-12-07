@@ -26,7 +26,7 @@ function InnerCook() {
   const [doRerender, setDoRerender] = useState(false)
   const [cookInnerData, setCookInnerData] = useState({
     sid: 1,
-    member_sid: 1,
+    member_sid: '1',
     categories_sid: 4,
     title: '',
     img: '',
@@ -65,6 +65,9 @@ function InnerCook() {
         content: '',
         parent_sid: '',
         created_at: '',
+        mb_photo: '2.png',
+        mb_name: '拖拖拖拖',
+        mb_email: 'test1@abc.com',
       },
     ],
   })
@@ -102,9 +105,7 @@ function InnerCook() {
               </div>
             </div>
 
-            <div className="p-cookTagWrap">
-              {/* <Tag /> */}
-            </div>
+            <div className="p-cookTagWrap">{/* <Tag /> */}</div>
             <div className="p-cookMemberWrap">
               <Member cookMb={cookInnerData} />
             </div>
@@ -161,7 +162,11 @@ function InnerCook() {
             {cookInnerData.steps.map((v, i) => {
               console.log(v.step)
               return (
-                <div className="p-step" key={i}>
+                <div
+                  id={`p-stepWrap${v.cooking_post_sid}_${i}`}
+                  className="p-step"
+                  key={i}
+                >
                   <div className="p-stepImg">
                     <img
                       src={`http://localhost:3004/images/02-forum/cook/${v.stepImg}`}
@@ -209,7 +214,11 @@ function InnerCook() {
                 <>
                   <span>
                     <input type="checkbox"></input>
-                    <h3>STEP {v.step}</h3>
+                    <h3>
+                      <a href={`#p-stepWrap${v.cooking_post_sid}_${i}`}>
+                        STEP {v.step}
+                      </a>
+                    </h3>
                   </span>
                 </>
               )

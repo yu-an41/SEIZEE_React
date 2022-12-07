@@ -5,14 +5,15 @@ import '../styles/Message.scss'
 
 import Member from './Member'
 function Comment({ commData }) {
-  const { content, created_at } = commData
+  const { content, created_at, member_sid, mb_photo, mb_name, mb_email } =
+    commData
 
   return (
     <>
       <div className="p-message">
         <div className="p-messMembAdCreat">
           <div className="p-messageMember">
-            <Member />
+            <Member cookMb={commData}/>
           </div>
           <p className="p-messCreatAt">
             {dayjs(created_at).format('YYYY.MM.DD')}
