@@ -44,14 +44,14 @@ function NavBar() {
   const [profileImg, setProfileImg] = useState('')
 
   let items = +cartItem.totalAmount || 0
-  // if (emptyCart) {
-  //   items = 0
-  // } else if (items > 99) {
-  //   items = '99+'
-  // } else {
-  //   return
-  // }
-  items = items > 99 ? '99+' : items
+  if (checkCartEmpty || !localStorage.getItem('cartItem')) {
+    items = 0
+  } else if (+items > 99) {
+    items = '99+'
+  } else {
+    items = +items
+  }
+  // items = items > 99 ? '99+' : items
 
   return (
     <>

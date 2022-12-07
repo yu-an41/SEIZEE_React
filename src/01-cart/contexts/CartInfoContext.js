@@ -164,7 +164,6 @@ export const CartInfoContextProvider = function ({ children }) {
         }
         // 不同家->發出撞車警告
         else {
-          // alert(`撞車了，購物已有其他店家商品！要去瞧瞧嗎？`)
           openModalConfirm()
           setHeaderMg('購物車')
           setBodyMg(`購物已有其他店家商品！要清空現有購物車嗎？`)

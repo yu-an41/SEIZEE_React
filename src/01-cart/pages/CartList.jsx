@@ -1,7 +1,13 @@
 import { useContext, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import log from 'eslint-plugin-react/lib/util/log'
+import axios from 'axios'
+import { set } from 'ramda'
+
+// context
 import CartInfoContext from '../contexts/CartInfoContext'
 import products from './../data/products.json' // 假資料
+import AuthContext from '../../contexts/AuthContext'
 
 // scss
 import './../styles/CartList.scss'
@@ -19,8 +25,9 @@ import CheckCartInfo from '../components/CheckCartInfo'
 import RecMerch from '../components/RecMerch'
 import Footer from '../../components/Footer'
 
-// modal測試用
+// modal
 import ModalConfirm from '../../components/ModalConfirm'
+import ModalNotification from '../../components/ModalNotification'
 
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
@@ -32,12 +39,14 @@ import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
-import log from 'eslint-plugin-react/lib/util/log'
-import axios from 'axios'
-import { set } from 'ramda'
+import { dblClick } from '@testing-library/user-event/dist/click'
 
 function CartList(props) {
+  const { myAuth, setMyAuth, logout, deleteAccountD } = useContext(AuthContext)
+  const navigate = useNavigate()
+
   // modal
+  const [isOpen1, setIsOpen1] = useState(false)
   const [isOpen2, setIsOpen2] = useState(false)
   const [headerMg, setHeaderMg] = useState('')
   const [bodyMg, setBodyMg] = useState('')
@@ -53,6 +62,11 @@ function CartList(props) {
   const closeModalCancel = () => {
     setIsOpen2(false)
     // navigate('/')
+  }
+
+  const closeModal = () => {
+    setIsOpen1(false)
+    navigate('/login')
   }
 
   // 購物車
@@ -312,7 +326,17 @@ function CartList(props) {
                   />
                 </div>
                 <div className="y-check-info-wrap">
-                  <CheckCartInfo cartItem={cartItem} />
+                  <CheckCartInfo
+                    cartItem={cartItem}
+                    onClick={() => {
+                      if (myAuth.authorised) navigate('/cart/info')
+                      else {
+                        setIsOpen1(true)
+                        setHeaderMg('會員')
+                        setBodyMg('請先註冊/登入！')
+                      }
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -358,6 +382,12 @@ function CartList(props) {
         closeModalConfirm={closeModalConfirm}
         closeModalCancel={closeModalCancel}
         isOpen={isOpen2}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
+      <ModalNotification
+        closeModal={closeModal}
+        isOpen={isOpen1}
         NotificationHeader={headerMg}
         NotificationBody={bodyMg}
       />

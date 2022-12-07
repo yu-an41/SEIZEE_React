@@ -237,6 +237,7 @@ $border-radius-button: 8px;
                     .y-Cart-Pick-selected {
                         border: 2px solid rgba(114, 114, 114, 0.75);
                         box-shadow: 3px 3px 3px rgba(114, 114, 114, 0.75);
+                        // border-radius: $border-radius-button;
                     }
                     
                 }
@@ -246,19 +247,27 @@ $border-radius-button: 8px;
         .y-Cart-coupon {
 
             .y-Cart-coupon-main {
-                padding: 20px;
-                display: flex;
-                .y-coupon-input {
-                    border: $border-sm;
-                    border-radius: $border-radius-button;
-                    overflow: hidden;
-                    background-color: #fff;
-                    input {
-                        padding: 2px 13px;
-                        outline: none;
-                        border: none;
+                
+                .y-Cart-pickup-radio {
+                    li {
+                        .y-coupon-input {
+                            border: $border-lg;
+                            border-radius: $border-radius-button;
+                            overflow: hidden;
+                            background-color: #fff;
+                            input {
+                                padding: 4px 8px;
+                                outline: none;
+                                border: none;
+                                font-size: 18px;
+                                color: #999999;
+                                display: block;
+                                // text-align: center;
+                            }
+                        }
                     }
                 }
+                
             }
             
         }
@@ -268,14 +277,18 @@ $border-radius-button: 8px;
                 padding: 20px;
                 .y-Cart-member-info {
                     display: flex;
+                    flex-wrap: wrap;
                     .y-Cart-member-details {
-
+                        font-size: 20px;
+                        line-height: 50px;
+                        margin-bottom: 10px;
                     }
                     .y-Cart-member-left {
+                        width: 20%;
 
                     }
                     .y-Cart-member-right {
-
+                        width: 80%;
                     }
                 }
             }
