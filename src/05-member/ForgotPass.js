@@ -32,7 +32,7 @@ function ForgotPass() {
   // Loading
   const [isActive, setIsActive] = useState(false)
 
-  console.log(isActive)
+  // console.log(isActive)
 
   // ====================================
 
@@ -60,13 +60,13 @@ function ForgotPass() {
     // setIsActive(true)
 
     if (!errorMgF) {
-
       setIsActive(true)
+
       const { data } = await axios.post(SEND_FORGOT_PASS, forgotFD)
 
-      // console.log(data)
-
       setIsActive(false)
+
+      // console.log(data)
 
       if (data.success) {
         openModal()
@@ -113,6 +113,12 @@ function ForgotPass() {
     <>
       <LoadingOverlay
         active={isActive}
+        styles={{
+          overlay: (base) => ({
+            ...base,
+            background: 'rgba(83, 83, 83, 75%)',
+          }),
+        }}
         spinner={<ClockLoader color="#ED4743" />}
       >
         <div className="s-body-forgotpass">
