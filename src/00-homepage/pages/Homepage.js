@@ -70,12 +70,12 @@ function Homepage() {
             <div className="y-carousel-wrap">
               <TopCarousel />
             </div>
-            <div className="y-carousel-block-yellow">
-              {/* <p>成為戰士吧</p> */}
+            {/* <div className="y-carousel-block-yellow">
+              <p>成為戰士吧</p>
               <div className="y-carousel-block-gif">
                 <img src={`/05-member/hito.gif`} />
               </div>
-            </div>
+            </div> */}
             <div className="y-carousel-block-blue">
               <div className="y-block-bg">
                 <p>改變剩食，</p>

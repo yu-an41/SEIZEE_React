@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { Link } from 'react-router-dom'
 // scss
@@ -160,15 +161,9 @@ function Footer() {
                 <div className="y-footer-section-icon">
                   <img src={MemberIcon} alt="icon" />
                 </div>
-                {!localStorage.getItem('auth').mb_sid ? (
-                  <Link to={`/profile/`} alt="event_link">
-                    戰士專區
-                  </Link>
-                ) : (
-                  <Link to={`/login`} alt="event_link">
-                    戰士專區
-                  </Link>
-                )}
+                <Link to={`/profile/`} alt="event_link">
+                  戰士專區
+                </Link>
               </div>
               <ul className="y-footer-section-links y-event-links">
                 <li>

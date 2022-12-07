@@ -60,7 +60,8 @@ export const CartInfoContextProvider = function ({ children }) {
     setIsOpen1(false)
     // console.log(pathname)
     if (pathname === '/cart' && emptyCart) {
-      document.location.href = `http://localhost:3000/`
+      // document.location.href = `http://localhost:3000/`
+      navigate('/')
     } else {
       return
     }
@@ -70,6 +71,12 @@ export const CartInfoContextProvider = function ({ children }) {
   const closeModalConfirm = () => {
     setIsOpen2(false)
     handleEmptyCart()
+    if (pathname === '/cart' && checkCartEmpty) {
+      // document.location.href = `http://localhost:3000/`
+      navigate('/')
+    } else {
+      return
+    }
   }
   const openModalConfirm = () => {
     setIsOpen2(true)
@@ -220,6 +227,14 @@ export const CartInfoContextProvider = function ({ children }) {
 
     // 找到的話直接改數量金額
     else {
+      const item = cartItem.userCart[index]
+      if (item.amount + prodQty > item.inventory) {
+        openModalNotification()
+        setHeaderMg('購物車')
+        setBodyMg(`已達本產品購買上限：${item.inventory}，請重新修改數量！`)
+        return
+      }
+
       cartItem.userCart[index] = {
         ...cartItem.userCart[index],
         amount: cartItem.userCart[index].amount + prodQty,
@@ -379,8 +394,8 @@ export const CartInfoContextProvider = function ({ children }) {
       totalAmount: 0,
     }
     // console.log({ emptyCart })
-    // localStorage.setItem('cartItem', JSON.stringify(emptyCart))
-    localStorage.removeItem('cartItem')
+    localStorage.setItem('cartItem', JSON.stringify(emptyCart))
+    // localStorage.removeItem('cartItem')
     setEmptyCart(true)
     // setCartItem(emptyCart)
 
@@ -390,7 +405,9 @@ export const CartInfoContextProvider = function ({ children }) {
   }
 
   // 點icon時確認購物車不為空才跳轉
-  const checkCartEmpty = (e) => {
+  const checkCartEmpty = () => {
+    return !cartItem.userCart.length
+    /*
     console.log(localStorage.getItem('cartItem'))
     if (
       !localStorage.getItem('cartItem') ||
@@ -404,6 +421,7 @@ export const CartInfoContextProvider = function ({ children }) {
       navigate('/cart')
     }
     return emptyCart
+    */
   }
 
   // 購物車收藏商品

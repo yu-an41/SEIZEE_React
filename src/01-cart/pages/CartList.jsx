@@ -254,6 +254,9 @@ function CartList(props) {
             <div className="y-empty-cart-wrap">
               <EmptyCartBtn
                 onClick={() => {
+                  console.log('EmptyCartBtn')
+                  // handleEmptyCart()
+
                   openModalConfirm()
                   setHeaderMg('購物車')
                   setBodyMg('確定要清空購物車嗎？')
@@ -351,6 +354,13 @@ function CartList(props) {
           </div>
         </div>
       </div>
+      <ModalConfirm
+        closeModalConfirm={closeModalConfirm}
+        closeModalCancel={closeModalCancel}
+        isOpen={isOpen2}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
     </>
   )
 }

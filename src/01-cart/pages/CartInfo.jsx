@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import CartInfoContext from '../contexts/CartInfoContext'
@@ -115,7 +116,10 @@ function CartInfo() {
                   className={pickup === 2 ? 'y-Cart-Pick-selected' : ''}
                 >
                   <div className="y-pickup-radio-icons">
-                    <img src={pickup === 2 ? arrowClicked : arrowUnclicked} />
+                    <img
+                      src={pickup === 2 ? arrowClicked : arrowUnclicked}
+                      style={{ display: 'none' }}
+                    />
                   </div>
                   <label
                     htmlFor="y-pickup-way-shop"
@@ -233,7 +237,7 @@ function CartInfo() {
                   id="y-pay-line"
                   type="text"
                   name="coupon"
-                  value={couponCode}
+                  defaultValue={couponCode}
                   placeholder={`請輸入折扣碼`}
                   onChange={(e) => {
                     setCouponCode(e.target.value)

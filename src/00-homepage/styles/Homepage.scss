@@ -80,9 +80,10 @@ $main-border-radius: 8px;
     // background-color: $main-yellow;
     position: absolute;
     top: 50px;
+    z-index: 2;
 
     .y-section-news-first {
-      display: none;
+      display: block;
       overflow: hidden;
       width: 100%;
       background-color: $bgc-yellow;
@@ -609,7 +610,7 @@ $main-border-radius: 8px;
         position: absolute;
         width: 480px;
         height:200px;
-        right: 300px;
+        right: 200px;
         bottom: 70px;
         background-color: $main-blue;
         // display: flex;

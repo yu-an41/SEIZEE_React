@@ -181,25 +181,15 @@ $border-radius-button: 8px;
             width: 100%;
 
             .y-Cart-tab {
-                        
+                     background-color: $main-yellow;
+                     color: $main-blue;   
             }
     
             .y-Cart-main {
                 border: $border-sm;
                 // background-color: $main-yellow;
                 background-color: #fff;
-                .y-Cart-member-info {
-                    display: flex;
-                    .y-Cart-member-details {
-
-                    }
-                    .y-Cart-member-left {
-
-                    }
-                    .y-Cart-member-right {
-
-                    }
-                }
+                
                 .y-Cart-pickup-radio {
                     padding: 20px;
                     li {
@@ -208,40 +198,42 @@ $border-radius-button: 8px;
                         margin-bottom: 10px;
                         height: 60px;
                         padding: 10px 20px;
-                        .y-pickup-radio-icons {
-                            width: 20px;
-                            height: 20px;
-                            margin-right: 20px;
-                            .fa-triangle {
-                                // font-size: 24px;
-                                // color: $main-text;
-                            }
-                            img {
-                                width: 100%;
-                                object-fit: cover;
-                            }
-                        }
-                        
-                        .y-pickup-way-options {
-                            margin-right: 20px;
-                            font-size: 20px;
-                            line-height: 100%;
-                        
-                        }
-                        input {
-                            display: none;
-                        }
-                    
-                        .y-pickup-notice {
-                            background-color: $btn-pink;
-                            color: #fff;
-                            font-weight: bold;
-                            letter-spacing: 2px;
-                            // line-height: 30px;
-                            padding: 3px 10px;
-                        }
                         
                     }
+
+                    .y-pickup-radio-icons {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 20px;
+                        .fa-triangle {
+                            // font-size: 24px;
+                            // color: $main-text;
+                        }
+                        img {
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    
+                    .y-pickup-way-options {
+                        margin-right: 20px;
+                        font-size: 20px;
+                        line-height: 100%;
+                    
+                    }
+                    input {
+                        display: none;
+                    }
+                
+                    .y-pickup-notice {
+                        background-color: $btn-pink;
+                        color: #fff;
+                        font-weight: bold;
+                        letter-spacing: 2px;
+                        // line-height: 30px;
+                        padding: 3px 10px;
+                    }
+
                     .y-Cart-Pick-selected {
                         border: 2px solid rgba(114, 114, 114, 0.75);
                         box-shadow: 3px 3px 3px rgba(114, 114, 114, 0.75);
@@ -252,7 +244,9 @@ $border-radius-button: 8px;
         }
 
         .y-Cart-coupon {
+
             .y-Cart-coupon-main {
+                padding: 20px;
                 display: flex;
                 .y-coupon-input {
                     border: $border-sm;
@@ -268,8 +262,24 @@ $border-radius-button: 8px;
             }
             
         }
+        
+        .y-Cart-member {
+            .y-Cart-member-main {
+                padding: 20px;
+                .y-Cart-member-info {
+                    display: flex;
+                    .y-Cart-member-details {
 
+                    }
+                    .y-Cart-member-left {
 
+                    }
+                    .y-Cart-member-right {
+
+                    }
+                }
+            }
+        }
 
         .y-Cart-details {
 
@@ -499,9 +509,9 @@ $border-radius-button: 8px;
                     border: $border-lg;
                     border-bottom: none;
                     border-radius: 8px 8px 0 0;
-                    background-color: #fff;
+                    // background-color: #fff;
                     text-align: center;
-                    color: $main-blue;
+                    // color: $main-blue;
                     font-weight: bold;
                     letter-spacing: 2px;
                 }
