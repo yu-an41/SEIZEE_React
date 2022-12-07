@@ -46,8 +46,9 @@ export function Card_cook({ postData, heart }) {
     4: '/forum/cook/inner/',
   }
   const changeLike = async () => {
+    const mbSid = JSON.parse(localStorage.getItem('auth')).mb_sid
     const res2 = await axios.get(
-      `http://localhost:3004/forum/forum_toggle?mid=29&cid=${categories_sid}&pid=${sid}`
+      `http://localhost:3004/forum/forum_toggle?mid=${mbSid}&cid=${categories_sid}&pid=${sid}`
     )
     if (res2.data.success) {
       if (res2.data.msg === 'insert') {

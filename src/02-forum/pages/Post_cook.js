@@ -16,6 +16,7 @@ import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
 
 function PostCook() {
+  
   const [postNums, setPostNums] = useState(10)
   const [likeInstructions, setLikeInstructions] = useState([''])
   const [spendServing, setSpendServing] = useState([''])
@@ -59,9 +60,9 @@ function PostCook() {
     } catch (error) {
       console.log(error.message)
     }
-
+    const mbSid = JSON.parse(localStorage.getItem('auth')).mb_sid
     const res2 = await axios.get(
-      `http://localhost:3004/forum/forum_likes?mid=29`
+      `http://localhost:3004/forum/forum_likes?mid=${mbSid}`
     )
     if (res2.data.success) {
       let likeObj = {}

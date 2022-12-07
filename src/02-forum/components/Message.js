@@ -13,7 +13,7 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
   // console.log(params)
   const [messContent, setMessContent] = useState({
     sid: 1,
-    member_sid: 1,
+    member_sid: '1',
     categories_sid: categories_sid,
     post_sid: params.sid,
     content: '',
@@ -22,31 +22,32 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
   })
   //console.log(messContent.categories_sid)
   //console.log(messContent.post_sid)
-  const aaa = JSON.parse(localStorage.getItem('auth')).mb_sid
+  const mbSid = JSON.parse(localStorage.getItem('auth')).mb_sid
 
   const addMesage = async () => {
     const fd = new FormData()
+    fd.append('member_sid', mbSid)
     fd.append('content', messContent.content)
     fd.append('post_sid', messContent.post_sid)
     fd.append('categories_sid', messContent.categories_sid)
     //fd.append('member_sid', forumMember)
-    fd.append('member_sid', aaa)
+
     console.log(
+      mbSid,
       messContent.content,
       messContent.post_sid,
-      messContent.categories_sid,
-      aaa
+      messContent.categories_sid
       // forumMember
     )
-    // console.log(fd)
-    // const { data } = await axios.post('http://localhost:3004/forum/message', fd)
+    console.log(fd)
+    const { data } = await axios.post('http://localhost:3004/forum/message', fd)
 
     // console.log(data)
-    //if (data.success) {
-    // alert('留言成功')
-    //直接顯示留言無用重刷頁面
-    //setDoRerender(!doRerender)
-    //}
+    if (data.success) {
+      alert('留言成功')
+      //直接顯示留言無用重刷頁面
+      setDoRerender(!doRerender)
+    }
   }
   // const [forumMember, setForumMember] = useState(0)
 
@@ -58,8 +59,6 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
   //     alert('請先註冊/登入')
   //   }
   // }
-
-
 
   return (
     <div className="p-comment">
