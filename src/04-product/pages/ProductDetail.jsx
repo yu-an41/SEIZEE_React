@@ -10,6 +10,8 @@ import NavBar from '../../components/NavBar'
 import YellowWave from '../../00-homepage/components/YellowWave'
 import YellowWave2 from '../components/YellowWave2'
 import Carousel1 from '../components/Carousel1'
+import Footer from '../../components/Footer'
+
 
 // cart
 import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
@@ -238,16 +240,15 @@ function ProductDetail() {
           })}
         </div>
         <div className="a-userCommentWrapper">
-        <ProductComment sid={sid} setDoRerender={setDoRerender} doRerender={doRerender} />
+        <ProductComment sid={sid} />
         <div className="a-commentArea">
-          
         </div>
         </div>
         <YellowWave2 />
         <RecommendCard sid={sid} />
-
       </div>
       </div>
+      <Footer />
     </>
   )
 }

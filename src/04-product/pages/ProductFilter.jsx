@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import NavBar from "../../components/NavBar";
-import "../components/style/ProductFilter.scss";
-import YellowWave from "../../00-homepage/components/YellowWave.js";
 import { useNavigate } from "react-router-dom";
-
-
+import "../components/style/ProductFilter.scss";
+import NavBar from "../../components/NavBar";
+import YellowWave from "../../00-homepage/components/YellowWave.js";
+import Footer from "../../components/Footer";
 
 function ProductFilter() {
   //種類data
@@ -14,7 +13,7 @@ function ProductFilter() {
   const [choice, setchoice] = useState([]);
   // //使用者勾選sideBar
   // const [productFilter, setProductFilter] = useState([""]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function getFilter(categoriesString) {
     try {
@@ -54,9 +53,9 @@ function ProductFilter() {
     // const sids = categoryString.substring(0,categoryString.length-1)
     searchParam.append("category_sid", choice);
     //getFilter(searchParam.toString());
-    navigate('/products?'+searchParam.toString())
+    navigate("/products?" + searchParam.toString());
   };
-  
+
   return (
     <>
       <div className="y-index-container">
@@ -75,7 +74,16 @@ function ProductFilter() {
         <div className="y-wave-wrap">
           <YellowWave />
         </div>
+
         {/* CategoryFilter */}
+        <div className="a-iconsWrapper">
+          <div className="a-iconAladdinWrapper">
+            <img src="/04-product/svg/aladdin.png" alt="" />
+          </div>
+          <div className="a-iconAvengersWrapper">
+            <img src="/04-product/svg/avengers.png" alt="" />
+          </div>
+        </div>
         <div className="a-productFilterWrapper">
           <div className="a-category">
             <div className="a-categoryWrapper">
@@ -114,10 +122,13 @@ function ProductFilter() {
                 );
               })}
             </div>
-            <button className="a-filterButton" onClick={handleSendFilter}>送出</button>
+            <button className="a-filterButton" onClick={handleSendFilter}>
+              送出
+            </button>
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

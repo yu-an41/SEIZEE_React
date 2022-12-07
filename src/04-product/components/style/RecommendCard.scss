@@ -24,6 +24,11 @@ $main-border-radius: 8px;
   justify-content: center;
   align-items: center;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 @function line($count: 1) {
   @return $base-line-eight * $count;
 }
@@ -31,7 +36,7 @@ $main-border-radius: 8px;
 .a-recommendTextWrapper {
   @extend %a-flex;
   background-color: $main-yellow;
-  height: 100px;
+  height: 110px;
   padding-bottom: 25px;
   .a-iconWrapperNut {
     width: 35px;
@@ -62,15 +67,14 @@ $main-border-radius: 8px;
 .a-productRecommend {
   @extend %a-flex;
   background-color: $main-yellow;
-  padding-bottom: 55px;
-  overflow-x: scroll;
+  padding-bottom: 90px;
+  // overflow-x: scroll;
   .a-recommendContent {
     position: relative;
     width: 180px;
     height: 180px;
     overflow: hidden;
     margin: 0 10px;
-   
     .a-recommendImgWrapper {
       border: 4px solid $secondary-blue;
       border-radius: 8px;
@@ -84,51 +88,42 @@ $main-border-radius: 8px;
         object-position: center center;
       }
     }
-        .a-shop-slider-content {
-          position: absolute;
-          text-align: center;
-          letter-spacing: 0.1rem;
-          width: 100%;
-          height: 180px;
-          // top: 0;
-          // left: 0;
-          bottom: -190px;
-          // display: flex;
-          // flex-direction: column;
-          // justify-content: flex-start;
-          align-items: center;
-          z-index: 100;
-          backdrop-filter: blur(15px);
-          box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          transition: 0.5s;
-          .a-shop-slider-content-p {
-            font-size: 30px;
-            font-weight: 700;
-            color: #fff;
-            line-height: 4rem;
-          }
-   
+    .a-shop-slider-content {
+      position: absolute;
+      text-align: center;
+      letter-spacing: 0.1rem;
+      width: 100%;
+      height: 180px;
+      bottom: -190px;
+      align-items: center;
+      z-index: 100;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: 0.8s;
+      border-radius: 2px;
+      .a-shop-slider-content-p {
+        font-size: 30px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 4rem;
+      }
     }
-  
   }
   .a-recommendContent:hover {
     .a-shop-slider-content {
       bottom: -120px;
     }
-    
     .productRecommend::-webkit-scrollbar-track {
       // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
       // border-radius: 10px;
       background-color: $main-orange;
     }
-
     .productRecommend::-webkit-scrollbar {
       width: 15px;
       height: 12px;
       // background-color: #f5f5f5;
     }
-
     .productRecommend::-webkit-scrollbar-thumb {
       border-radius: 10px;
       // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);

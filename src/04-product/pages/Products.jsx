@@ -2,9 +2,10 @@ import { useEffect, useState, useParams } from "react";
 import axios from "axios";
 import { filter, product } from "ramda";
 import { object } from "prop-types";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import NavBar from "../../components/NavBar";
 import YellowWave from "../../00-homepage/components/YellowWave";
+import Footer from "../../components/Footer";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -190,7 +191,7 @@ const Products = () => {
           {/* SideBar */}
           <div className="a-sideBarWrapper">
             {/* <div className="a-aladdinWrapper">
-        <img src="/04-product/svg/aladin.png" alt="" />
+        <img src="/04-product/svg/aladdin.png" alt="" />
       </div> */}
             <div className="a-searchBarWrapper">
               <div className="a-sideBarOptionsWrapper">
@@ -264,17 +265,15 @@ const Products = () => {
             if (filterCheck.includes("評分5顆星")) {
               flag = v.rating === 5;
             }
-
             if (filterCheck.length === 0) flag = true;
-
             return flag;
           })
           }
       </div> */}
               {curFilter.map((p, i) => {
                 return (
-                  <div className="a-filterProudctWrapper">
-                    {p.name}
+                  <div className="a-filterProudctWrapper"
+                  key={p.name}>
                     <div className="a-filterImgWrapper">
                       <img src={`/04-product/img/${p.picture_url}`} alt="" />
                     </div>
@@ -287,12 +286,13 @@ const Products = () => {
                 );
               })}
             </div>
-            <button className="a-filterCardButton" onClick={handleSend}>
+            {/* <button className="a-filterCardButton" onClick={handleSend}>
               送出
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

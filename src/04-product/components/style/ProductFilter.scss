@@ -23,6 +23,41 @@ $main-border-radius: 8px;
   align-items: center;
 }
 
+//iconChoice
+.a-iconsWrapper {
+  display: flex;
+  justify-content: center;
+.a-iconAladdinWrapper {
+  width: 250px;
+  height: 250px;
+  border: 8px solid #87efbd;
+  overflow: hidden;
+  background-color: $secondary-blue;
+  border-radius: 50%;
+  padding: 10px 0 0 15px;
+  img {
+    width: 90%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+}
+.a-iconAvengersWrapper {
+  width: 250px;
+  height: 250px;
+  border: 8px solid $secondary-blue;
+  overflow: hidden;
+  background-color: $main-yellow;
+  border-radius: 50%;
+  margin: 0 50px;
+  img {
+    width: 85%;
+    object-fit: cover;
+    object-position: center center;
+    padding-top: 25px;
+  }
+}
+
 //CategoryFilter
 .a-productFilterWrapper {
   display: flex;
@@ -53,6 +88,10 @@ $main-border-radius: 8px;
             background-color: $secondary-blue;
             margin: 20px 10px 5px 10px;
             @extend %a-flex;
+            .a-iconWrapper:hover {
+              border: 8px solid $main-yellow;
+              background-color: $secondary-blue;
+            }
             .a-icon {
               width: 100px;
               object-fit: cover;
@@ -88,112 +127,114 @@ $main-border-radius: 8px;
   padding: 5px 20px;
   margin-top: 60px;
   font-weight: 500;
+  margin-bottom: 100px;
 }
 
 .a-productCardsWrapper {
   display: flex;
   justify-content: center;
 
-// searchBar
-.a-sideBarWrapper {
-  .a-searchBarWrapper {
-    margin: 50px 50px 0 30px;
-    width: 160px;
-    height: 400px;
-    background-color: $main-yellow;
-    border-radius: 8px;
-    // position: relative;
-  }
-  .a-aladdinWrapper {
-    width: 100px;
-    overflow: hidden;
-    // position: absolute;
-    // top: -30px;
-    // left: 10px;
-    .a-aladdinWrapper img {
-      width: 100%;
-      object-fit: cover;
+  // searchBar
+  .a-sideBarWrapper {
+    .a-searchBarWrapper {
+      margin: 50px 50px 0 30px;
+      width: 160px;
+      height: 400px;
+      background-color: $main-yellow;
+      border-radius: 8px;
+      // position: relative;
+    }
+    .a-aladdinWrapper {
+      width: 100px;
+      overflow: hidden;
+      // position: absolute;
+      // top: -30px;
+      // left: 10px;
+      .a-aladdinWrapper img {
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
-}
-// seachBar
-// .a-sideBarWrapper {
-//   display: flex;
-//   .a-aladdinWrapper {
-//     width: 200px;
-//     // overflow: hidden;
-//     // position: absolute;
-//     // top: -30px;
-//     // left: 10px;
-//     .a-aladdinWrapper img {
-//       width: 100%;
-//       // object-fit: cover;
-//     }
-//     .a-searchBarWrapper {
-//       margin: 50px 50px 0 30px;
-//       width: 200px;
-//       height: 800px;
-//       background-color: $main-yellow;
-//       border-radius: 8px;
-//       // position: relative;
-//     }
-//   }
-// }
+  // seachBar
+  // .a-sideBarWrapper {
+  //   display: flex;
+  //   .a-aladdinWrapper {
+  //     width: 200px;
+  //     // overflow: hidden;
+  //     // position: absolute;
+  //     // top: -30px;
+  //     // left: 10px;
+  //     .a-aladdinWrapper img {
+  //       width: 100%;
+  //       // object-fit: cover;
+  //     }
+  //     .a-searchBarWrapper {
+  //       margin: 50px 50px 0 30px;
+  //       width: 200px;
+  //       height: 800px;
+  //       background-color: $main-yellow;
+  //       border-radius: 8px;
+  //       // position: relative;
+  //     }
+  //   }
+  // }
 
-// ProductCard
-.a-porductCards {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 800px;
-  margin-top: 30px;
-.a-filterProductCard {
-  display: flex;
-  flex-wrap: wrap;
-  .a-filterProudctWrapper {
-    width: 150px;
+  // ProductCard
+  .a-porductCards {
     display: flex;
     flex-direction: column;
-    margin: 10px;
-    .a-filterImgWrapper {
-      width: 150px;
-      height: 150px;
-      overflow: hidden;
-      border-radius: 8px;
-      border: 3px solid $secondary-blue;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
-      }
-    }
-    .a-filterProudctName {
-      color: $main-blue;
-      font-size: 18px;
-      font-weight: 500;
-      text-align: center;
-    }
-    .a-filterTextWrapper {
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    margin-top: 30px;
+    .a-filterProductCard {
       display: flex;
-      justify-content: center;
-    }
-      .a-filterText {
-        color: $main-blue;
-        font-size: 16px;
+      flex-wrap: wrap;
+      .a-filterProudctWrapper {
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        .a-filterImgWrapper {
+          width: 150px;
+          height: 150px;
+          overflow: hidden;
+          border-radius: 8px;
+          border: 3px solid $secondary-blue;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+          }
+        }
+        .a-filterProudctName {
+          color: $main-blue;
+          font-size: 18px;
+          font-weight: 500;
+          text-align: center;
+        }
+        .a-filterTextWrapper {
+          display: flex;
+          justify-content: center;
+        }
+        .a-filterText {
+          color: $main-blue;
+          font-size: 16px;
+        }
       }
+    }
+    // .a-filterCardButton {
+    //   width: 200px;
+    //   text-align: center;
+    //   background-color: $main-yellow;
+    //   color: $main-blue;
+    //   border: $main-border;
+    //   border-radius: $main-border-radius;
+    //   padding: 5px 20px;
+    //   font-weight: 500;
+    //   margin: 20px 0 70px 0;
+    // }
   }
-}
-.a-filterCardButton {
-  width: 200px;
-  text-align: center;
-  background-color: $main-yellow;
-  color: $main-blue;
-  border: $main-border;
-  border-radius: $main-border-radius;
-  padding: 5px 20px;
-  font-weight: 500;
-}
-}
 }

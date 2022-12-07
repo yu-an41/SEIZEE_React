@@ -1,151 +1,181 @@
 main {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    letter-spacing: 2px
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  letter-spacing: 2px;
 }
-$main-blue: #2B325C;
-$main-yellow: #FAD249;
-$main-text: #5E5E5E;
-$secondary-blue: #113F75;
-$secondary-yellow: #FEF3DA;
-$green: #53B2A8;
-$red: #ED4743;
-$text-shadow: #E4E4E4;
+$main-blue: #2b325c;
+$main-yellow: #fad249;
+$main-text: #5e5e5e;
+$secondary-blue: #113f75;
+$secondary-yellow: #fef3da;
+$green: #53b2a8;
+$red: #ed4743;
+$text-shadow: #e4e4e4;
 $base-line-eight: 10px;
-$main-border: 3px solid #113F75;
+$main-border: 3px solid #113f75;
 $main-border-radius: 8px;
-@function line($count:1) {
-    @return $base-line-eight * $count;
+@function line($count: 1) {
+  @return $base-line-eight * $count;
 }
 %a-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 //navBar
-  .a-navBarWrapper {
-    height: 70px;
-    background-color: $main-yellow;
+.a-navBarWrapper {
+  height: 70px;
+  background-color: $main-yellow;
+}
+.a-carouselBigWrapper {
+  margin: 50px 0 0 0;
+}
+.a-seizeeIconWrapper {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  left: 80px;
+  top: 520px;
+  @media (max-width: 390px) {
+    display: none;
   }
-  .a-carouselBigWrapper {
-    margin: 50px 0 0 0;
+.a-avengersWrapper {
+  width: 190px;
+  // margin-left: 150px;
+  transform: rotate(-30deg);
+  img {
+    width: 100%;
   }
+}
+}
 
-//productList
-.a-productCardList {
+//productCards+List
+.a-productCardTable {
+  background: $main-yellow;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  .a-productCardList {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    // justify-content: center;
     align-items: flex-start;
     background: $main-yellow;
-    padding-top: 30px;
-    width: 1800px;
-
-.a-produtCardWrapper {
-    width: 25%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 10px 20px;
-    .a-productCardContent {
+    width: 1400px;
+    margin-bottom: 120px;
+    .a-produtCardWrapper {
+      //   width: 390px;
+      width: 28%;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 10px 30px;
+      padding-top: 30px;
+      @media (max-width: 390px) {
+        width: 340px;
+      }
+      .a-productCardContent {
         background-color: $secondary-yellow;
         width: 100%;
         @extend %a-flex;
         flex-direction: column;
         border: $main-border;
         position: relative;
-    .a-productImgWrapper{
-        width: 100%;
-        overflow: hidden;
-    }
-    .a-productImgWrapper img {
-        width: 100%;
-        object-fit: cover;
-        object-position: center center;
-        padding: 0;
-        aspect-ratio: 4/3;
+        .a-productImgWrapper {
+          width: 100%;
+          overflow: hidden;
         }
-    }
-    .a-productCardTitle {
+        .a-productImgWrapper img {
+          width: 100%;
+          object-fit: cover;
+          object-position: center center;
+          padding: 0;
+          aspect-ratio: 4/3;
+        }
+      }
+      .a-productCardTitle {
         @extend %a-flex;
         color: $main-blue;
         font-size: 18px;
-    }
-    .a-discountIconWrapper {
+      }
+      .a-discountIconWrapper {
         position: absolute;
-        top: 55%;
+        top: 52%;
         right: -10%;
-    }
-    .a-saleWrapper {
+        @media (max-width: 390px) {
+          top: 45%;
+          right: -10%;
+        }
+      }
+      .a-saleWrapper {
         width: 100px;
-    }
-    .a-discountIconWrapper img {
+      }
+      .a-discountIconWrapper img {
         width: 100%;
         object-fit: cover;
-        
-    }
-    .a-discountIconWrapper p {
+      }
+      .a-discountIconWrapper p {
         font-size: 23px;
         color: #fff;
         position: absolute;
-        top:35%;
-        left:30%;
+        top: 35%;
+        left: 30%;
         z-index: 1;
-    }
-    .a-productCardTitle img {
+      }
+      .a-productCardTitle img {
         width: 30px;
         padding-left: 3px;
-    }
-    .a-priceWrapper {
+      }
+      .a-priceWrapper {
         display: flex;
-        justify-content:space-around;
+        justify-content: space-around;
         text-align: center;
-        padding:0 0 8px 0;
-    }
-    .a-productPrice {
+        padding: 0 0 8px 0;
+      }
+      .a-productPrice {
         @extend %a-flex;
-        color: #5E5E5E;
+        color: #5e5e5e;
         line-height: line(2);
         padding-right: 12px;
-        text-decoration:line-through;
-    }
-    .a-productDiscount {
+        text-decoration: line-through;
+      }
+      .a-productDiscount {
         @extend %a-flex;
         color: $secondary-blue;
         line-height: line(2);
         font-weight: 500;
-    }
-    .a-productDiscount img {
+      }
+      .a-productDiscount img {
         width: 32px;
-    }
-    .a-productQuantity {
+      }
+      .a-productQuantity {
         @extend %a-flex;
         color: $main-text;
-    }
-    .a-quantity{
+      }
+      .a-quantity {
         padding: 3px 8px;
         margin: 0px 20px 0 5px;
         background-color: #fff;
         border: $main-border;
         color: $secondary-blue;
         font-weight: 400;
-        border-radius: $main-border-radius; 
-    }
-    .a-quantity2 {
+        border-radius: $main-border-radius;
+      }
+      .a-quantity2 {
         padding: 3px 10px;
         margin: 0px 6px;
         background-color: #fff;
         border: $main-border;
         color: $secondary-blue;
-        border-radius: $main-border-radius; 
-    }
-    .a-productQuantity2 img {
+        border-radius: $main-border-radius;
+      }
+      .a-productQuantity2 img {
         margin-left: 6px;
-    }
-    .a-addButton {
+      }
+      .a-addButton {
         width: 200px;
         text-align: center;
         @extend %a-flex;
@@ -156,9 +186,10 @@ $main-border-radius: 8px;
         padding: 5px 20px;
         margin: 15px 0 40px 0;
         font-weight: 500;
-    }
-    .a-addButton img {
+      }
+      .a-addButton img {
         width: 35px;
+      }
     }
-}
+  }
 }
