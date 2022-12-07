@@ -80,11 +80,11 @@ li {
         .y-footer-section {
             width: 20%;
             .y-footer-section-title {
-                font-size: 40px;
+                font-size: 16px;
                 font-weight: bold;
                 color: $main-blue;
                 margin-bottom: 30px;
-                display: flex;
+                // display: flex;
                 align-items: center;
                 .y-footer-section-icon {
                         width: 36px;
@@ -101,18 +101,19 @@ li {
             }
 
             .y-footer-section-links {
-                margin-left: 60px;
-
+                // margin-left: 60px;
+                // display: flex;
                 li {
-                    font-size: 24px;
+                    font-size: 10px;
                     font-weight: bold;
                     letter-spacing: 2px;
                     line-height: 1.2;
                     margin-bottom: 10px;
-
+                    margin-right: 20px;
+                    text-align: center;
                     a:hover {
                         cursor: pointer;
-                        color: $main-blue;
+                        color: #fff;
                         text-decoration: underline;
                     }
                 }
@@ -219,7 +220,7 @@ li {
                         line-height: 1.2;
                         a:hover {
                             cursor: pointer;
-                            color: $main-blue;
+                            color: #fff;
                             text-decoration: underline;
                         }
                     }
