@@ -58,10 +58,6 @@ const Products = () => {
       value:'fiftyPercentOff',
     },
     { 
-      label:'庫存低於5個',
-      value:'invUnder5',
-    },
-    { 
       label:'價格50元以下',
       value:'priceUnder50',
     },
@@ -112,19 +108,22 @@ const Products = () => {
       curFilter[filterName] = 1 
     })
     curFilter['categories'] = categories
-    // console.log('filter', curFilter);
+    console.log('filter', curFilter);
     const { data } = await axios.post(
       `http://localhost:3004/product/productFilter`,
       curFilter
     )
-    // console.log(data);
-    if (data.curFilter.success) {
-      setCurFilteres(data);
-    }
+    console.log(curFilter);
+    console.log(data.filter_rows);
+
+      setCurFilteres(data.filter_rows);
+    
     // const filterData = data.filter_rows;
     // console.log("filter", filterData);
-    
   };
+  useEffect(() => {
+    handleSend();
+  }, [filterCheck]);
   
 
   // const showProducts = products.filter((p) => {
@@ -222,8 +221,8 @@ const Products = () => {
           }
       </div> */}
           {/* {curFilter.map((p, i) => {
-            return ( */}
-              <div className="a-filterProudctWrapper" {p.product_name}>
+            return (
+              <div className="a-filterProudctWrapper">{p.product_name}
                 <div className="a-filterImgWrapper">
                   <img src={`/04-product/img/${p.picture_url}`} alt="" />
                 </div>
@@ -232,10 +231,9 @@ const Products = () => {
                   <p className="a-filterText">{p.product_price}元</p>
                   <p className="a-filterText">{p.sale_price}折</p>
                 </div>
-                {/* <p className="a-filterText">剩餘數量{p.qty}</p> */}
               </div>
-            {/* );
-          })} */}
+            );
+          })}  */}
       </div>
       <button className="a-filterBtn" onClick={handleSend}>送出</button>
       </div>

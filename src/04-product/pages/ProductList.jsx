@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import ProductCard from "../components/ProductCard.jsx";
-import "../components/style/ProductDetail.scss";
+import "../components/style/ProductCard.scss";
 import ProductVideo from "../components/ProductVideo";
 import NavBar from "../../components/NavBar.js";
 import YellowWave from "../../00-homepage/components/YellowWave.js";
