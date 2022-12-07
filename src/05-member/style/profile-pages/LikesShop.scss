@@ -174,11 +174,16 @@
           }
         }
       }
+      @media (max-width: 390px) {
+        .r-love-card-container{
+          width: 45%;
+        }
+      }
     }
     @media (max-width: 991px) {
       .s-l-s-card {
         height: 700px;
-  
+
         .s-l-s-card-inside {
           .s-l-s-data {
             width: 500px;
@@ -186,12 +191,12 @@
         }
       }
     }
-    
+
     .s-l-s-card-inside::-webkit-scrollbar {
       width: 10px;
       height: 10px;
     }
-    
+
     .s-l-s-card-inside::-webkit-scrollbar-thumb {
       border-radius: 10px;
       background-color: #b1b1b1;

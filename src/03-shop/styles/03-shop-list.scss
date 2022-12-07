@@ -156,10 +156,13 @@ $card-btn: #80b938;
             .r-shop-title {
               .r-shop-title-span {
                 font-size: 12px;
+                line-height: 12px;
                 font-weight: 400;
+                padding-bottom: 5px;
               }
               .r-shop-title-p {
                 font-size: 16px;
+                line-height: 16px;
                 font-weight: 400;
               }
             }
@@ -294,7 +297,7 @@ $card-btn: #80b938;
         .r-banner-wrap {
           margin-top: 0;
           .r-banner-article {
-            // display: none;
+            justify-content: center;
             .r-banner-icon {
               height: 30px;
               img {
@@ -309,6 +312,9 @@ $card-btn: #80b938;
                 font-size: 14px;
                 font-weight: 400;
                 margin: 0 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
               }
               .r-banner-inner-p {
                 font-size: 16px;
