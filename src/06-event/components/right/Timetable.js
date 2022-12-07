@@ -49,7 +49,10 @@ function Timetable() {
           </div>
           <div className="j-table-right">
             <div className="j-dialogue">
-              <div className="j-sayhi">
+              <div className="j-sayhi1">
+                歡迎光臨～現在就來製作專屬時間表！試試最新的路痴友善地圖吧！
+              </div>
+              <div className="j-sayhi2">
                 歡迎光臨～現在就來製作專屬時間表！試試最新的路痴友善地圖吧！
               </div>
               <img src={dialogue} alt="" />

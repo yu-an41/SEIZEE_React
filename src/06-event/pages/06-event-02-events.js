@@ -108,6 +108,15 @@ function Events({ origins }) {
 
         <div className="j-mountains">
           <div className={`j-blue-mountain ${jmactive === 1 ? 'mactive' : ''}`}>
+            <div
+              className="j-mWord1"
+              onClick={() => {
+                setEpage(1)
+                setJmactive(1)
+              }}
+            >
+              壹
+            </div>
             <img
               src={jblueM}
               alt=""
@@ -118,6 +127,15 @@ function Events({ origins }) {
             />
           </div>
           <div className={`j-rice-mountain ${jmactive === 2 ? 'mactive' : ''}`}>
+            <div
+              className="j-mWord2"
+              onClick={() => {
+                setEpage(2)
+                setJmactive(2)
+              }}
+            >
+              貳
+            </div>
             <img
               src={jriceM}
               alt=""
@@ -130,6 +148,15 @@ function Events({ origins }) {
           <div
             className={`j-green-mountain ${jmactive === 3 ? 'mactive' : ''}`}
           >
+            <div
+              className="j-mWord3"
+              onClick={() => {
+                setEpage(3)
+                setJmactive(3)
+              }}
+            >
+              參
+            </div>
             <img
               src={jgreenM}
               alt=""
@@ -142,6 +169,15 @@ function Events({ origins }) {
           <div
             className={`j-orange-mountain ${jmactive === 4 ? 'mactive' : ''}`}
           >
+            <div
+              className="j-mWord4"
+              onClick={() => {
+                setEpage(4)
+                setJmactive(4)
+              }}
+            >
+              肆
+            </div>
             <img
               src={jorangeM}
               alt=""

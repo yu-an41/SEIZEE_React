@@ -121,19 +121,19 @@ body {
     .j-box-top {
       z-index: 866;
       width: 2100px;
-      height: 1050px;
+      height: 1350px;
       position: absolute;
       left: -500px;
-      top: -500px;
+      top: -750px;
       background-color: $colorYellow;
       // outline: 1px black solid;
-      animation: boxtop 1.5s;
+      animation: boxtop 1s;
       animation-delay: 1s;
       animation-fill-mode: forwards;
       @keyframes boxtop {
         0% {
           left: -500px;
-          top: -500px;
+          top: -750px;
           opacity: 1;
         }
         70% {
@@ -141,7 +141,7 @@ body {
         }
         100% {
           left: -500px;
-          top: -1000px;
+          top: -1300px;
           opacity: 0;
         }
       }
@@ -154,7 +154,7 @@ body {
       left: -500px;
       top: 550px;
       background-color: $colorYellow;
-      animation: boxbottom 1.5s;
+      animation: boxbottom 1s;
       animation-delay: 1s;
       animation-fill-mode: forwards;
       @keyframes boxbottom {
@@ -181,7 +181,7 @@ body {
       left: 700px;
       top: -150px;
       background-color: $colorYellow;
-      animation: boxright 1.5s;
+      animation: boxright 1s;
       animation-delay: 1s;
       animation-fill-mode: forwards;
       @keyframes boxright {
@@ -208,7 +208,7 @@ body {
       left: -550px;
       top: -150px;
       background-color: $colorYellow;
-      animation: boxleft 1.5s;
+      animation: boxleft 1s;
       animation-delay: 1s;
       animation-fill-mode: forwards;
       @keyframes boxleft {
@@ -230,14 +230,15 @@ body {
 
     .j-bang {
       position: absolute;
-      top: -480px;
+      top: -520px;
       left: -1550px;
       // outline: 2px solid red;
       width: 1920px;
       height: 2180px;
       transform-origin: 2180px 1000px;
-      animation: bang 5s linear;
-      animation-delay: 2.5s;
+      animation: bang 1.8s linear;
+      animation-delay: 2s;
+      animation-fill-mode: forwards;
       img {
         height: 100%;
       }
@@ -245,13 +246,16 @@ body {
         0% {
           transform: rotate(0deg);
           opacity: 1;
+          top: -520px;
         }
-        80%{
+        80% {
           opacity: 1;
+          top: -520px;
         }
         100% {
-          transform: rotate(100deg);
+          transform: rotate(90deg);
           opacity: 0;
+          top: -520px;
         }
       }
 
@@ -292,27 +296,39 @@ body {
   .j-tickets-wrap {
     // outline: black solid 2px;
     object-fit: cover;
-    width: 350px;
-    height: 200px;
+    transform: scale(0.5);
+    transform-origin: 50% 50%;
+    width: 850px;
+    height: 130px;
     position: absolute;
-    top: 430px;
-    left: 430px;
-    transform: rotateY(45deg);
-    animation: rotateAnimation 1s linear;
-    animation-delay: 1s;
+    top: 490px;
+    left: 130px;
+    animation: rotateAnimation 1.4s linear;
+    animation-delay: 2s;
+
+    // background-image: url(./../img/ticket.png);
+    // background-repeat: no-repeat;
+    // background-size: contain;
+    background-position: center center;
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.5s;
+    will-change: transform;
 
     animation-fill-mode: forwards;
     @keyframes rotateAnimation {
       0% {
-        transform: scale(1);
-        top: 430px;
-        left: 430px;
+        transform: scale(0.5);
+        top: 490px;
+        left: 130px;
       }
       100% {
-        transform: scale(3);
-        top: 550px;
-        left: 370px;
+        transform: scale(1);
+        top: 360px;
+        left: 130px;
       }
+    }
+    &:hover {
+      box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
     }
     .j-ticket {
       width: 100%;

@@ -135,8 +135,27 @@ $colorLine: #cecece;
         align-items: center;
         // outline: 1px solid black;
         overflow: hidden;
-        .j-sayhi {
-          // outline: 1px solid black;
+        .j-sayhi1 {
+          outline: 1px solid black;
+          font-weight: 700;
+          width: 1000px;
+          font-size: 3rem;
+          position: absolute;
+          top: 38px;
+          color: $colorWhite;
+          animation: 35s taskede infinite;
+          right: -900px;
+          @keyframes taskede {
+            0% {
+              right: -1000px;
+            }
+            100% {
+              right: 200px;
+            }
+          }
+        }
+        .j-sayhi2 {
+          outline: 1px solid black;
           font-weight: 700;
           width: 1000px;
           font-size: 3rem;
