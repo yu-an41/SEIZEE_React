@@ -16,6 +16,8 @@ export const imgNodeUrl = 'http://localhost:3004'
 export const PRODUCT = `{MY_HOST}/product`
 
 // 05-member
+export const GOOGLE_LINK = `${MY_HOST}/google/`
+
 export const REGISTER = `${MY_HOST}/user/register`
 export const CHECK_USER = `${MY_HOST}/user/checkUser`
 export const LOGIN = `${MY_HOST}/user/login`

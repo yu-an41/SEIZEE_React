@@ -1,8 +1,8 @@
 import './style/UserSign.scss'
 import { Link, useNavigate } from 'react-router-dom'
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios'
-import { LOGIN, REGISTER, CHECK_USER } from '../my-config'
+import { LOGIN, REGISTER, CHECK_USER, GOOGLE_LINK } from '../my-config'
 import {
   checkEmpty,
   checkAccount,
@@ -50,6 +50,25 @@ function UserSign() {
   const [isOpen, setIsOpen] = useState(false)
   const [headerMg, setHeaderMg] = useState('')
   const [bodyMg, setBodyMg] = useState('')
+
+  // Google Link
+  const [GoogleState, setGoogleState] = useState('')
+
+  // ====================================
+  // 拿到Google登入連結
+  async function getGoogle() {
+    const { data } = await axios.get(GOOGLE_LINK)
+    console.log('data', data)
+    console.log('data.title', data.title)
+
+    setGoogleState(data.title)
+  }
+
+  console.log('GoogleState', GoogleState)
+
+  useEffect(() => {
+    getGoogle()
+  }, [])
 
   // ====================================
   // 註冊登入畫面切換
@@ -298,19 +317,19 @@ function UserSign() {
                   value="登入"
                   className="s-login-input-btn s-login-submit s-signinSubmit"
                 />
-                <div className="s-login-gmailBtn">
-                  <img
-                    className="s-login-gmail"
-                    src="/05-member/mail.png"
-                    alt=""
-                  />
-                  <input
-                    type="submit"
-                    value="以Google帳號登入"
-                    className="s-login-input-general s-login-submit s-login-googleSubmit"
-                  />
-                </div>
               </form>
+              <a className="s-login-gmailBtn" href={GoogleState}>
+                <img
+                  className="s-login-gmail"
+                  src="/05-member/mail.png"
+                  alt=""
+                />
+                <input
+                  type="submit"
+                  value="以Google帳號登入"
+                  className="s-login-input-general s-login-submit s-login-googleSubmit"
+                />
+              </a>
             </div>
             <div className="s-login-form s-login-signupForm">
               <form
