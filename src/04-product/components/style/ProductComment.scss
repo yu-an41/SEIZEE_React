@@ -18,13 +18,11 @@ $base-line-eight: 10px;
 $main-border: 3px solid #113F75;
 $main-border-radius: 8px;
 
-.a-ratingWrapper {
-    width: 420px;
+.a-productCommentWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    margin-left: 20px;
-}
+    width: 420px;
+    // height: 500px;
 .a-commentWrapper {
     display: flex;
     flex-direction: column;
@@ -48,5 +46,6 @@ $main-border-radius: 8px;
     border: 3px solid $secondary-blue;
     border-radius: $main-border-radius;
     margin-top: 10px;
+}
 }
 }
