@@ -7,9 +7,9 @@ import '../styles/WriteForm.scss'
 
 import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
-// import ImageItemPreview from './ImageItemPreview'
+import ImageItemPreview from './ImageItemPreview'
 
-function WriteForm() {
+function WriteForm({ mbsid }) {
   // const [doRerender, setDoRerender] = useState(false)
   const [image, setImage] = useState()
   const [stepImages, setStepImages] = useState([])
@@ -27,9 +27,14 @@ function WriteForm() {
     ],
     img: '',
     induction: '',
-    time: '',
+    times: '',
     serving: '',
     instructions: [
+      {
+        sid: '',
+        instrucContent: '',
+        portion: '',
+      },
       {
         sid: '',
         instrucContent: '',
@@ -43,11 +48,19 @@ function WriteForm() {
         stepImg: '',
         stepContent: '',
       },
+      {
+        cooking_post_sid: '',
+        step: '',
+        stepImg: '',
+        stepContent: '',
+      },
     ],
     ps: '',
   })
 
   const addFormData = async () => {
+    console.log('stepImages')
+    console.log(stepImages)
     const fileFormData = new FormData()
     fileFormData.append('file', image)
     const resp = await axios.post(
@@ -58,22 +71,28 @@ function WriteForm() {
     const stepFileNames = await Promise.all(
       stepImages.map(async (i) => {
         const stepFilefd = new FormData()
-        stepFilefd.append('file', image)
-        const { newFileName } = await axios.post(
+        stepFilefd.append('file', i)
+        const stepResp = await axios.post(
           'http://localhost:3004/forum/upload',
           stepFilefd
         )
-        return newFileName
+        console.log(`stepResp.data.newFileName`)
+        console.log(stepResp.data.newFileName)
+        return stepResp.data.newFileName
       })
     )
-    writData.image = imageNewFileName
+    writData.img = imageNewFileName
+    for (let i = 0; i < stepFileNames.length; i++) {
+      writData.steps[i].stepImg = stepFileNames[i]
+    }
     console.log('writDate')
     console.log(writData)
-    console.log(writData)
+
     const { wfData } = await axios.post(
       'http://localhost:3004/forum/writeForm',
       writData
     )
+
     if (false) {
       // if (wfData.success) {
       //alert('發文成功')
@@ -81,29 +100,17 @@ function WriteForm() {
       //setDoRerender(!doRerender)
     }
   }
-
-  // const {fmData}= await axios.post('',fd)
-  const [addInstruLab, setAddInstruLab] = useState()
-  const [addStepLab, setAddStepLab] = useState()
-  // 選擇的檔案
-  const [selectedFile, setSelectedFile] = useState(null)
-  // 是否有檔案被挑選
-  const [isFilePicked, setIsFilePicked] = useState(false)
-  // 預覽圖片
-  const [preview, setPreview] = useState('')
-  // server上的圖片網址
-  const [imgServerUrl, setImgServerUrl] = useState('')
-
+  //圖片預覽
+  const [previewConImg, setPreviewConImg] = useState('')
+  // 當選擇檔案更動時建立預覽圖
   useEffect(() => {
     if (!image) {
-      setPreview('')
+      setPreviewConImg('')
       return
     }
 
     const objectUrl = URL.createObjectURL(image)
-    console.log(objectUrl)
-    setPreview(objectUrl)
-
+    setPreviewConImg(objectUrl)
     // 當元件unmounted時清除記憶體
     return () => URL.revokeObjectURL(objectUrl)
   }, [image])
@@ -131,7 +138,7 @@ function WriteForm() {
               required
             />
           </label>
-          <label className="p-WriteTagWrap">
+          {/* <label className="p-WriteTagWrap">
             <input
               className="p-wTag p-wTag-1"
               placeholder="輸入標籤"
@@ -148,14 +155,14 @@ function WriteForm() {
               placeholder="輸入標籤"
               name="hashtag3"
             ></input>
-          </label>
+          </label> */}
           <label className="p-writeImageLab">
             <h3>圖片</h3>
 
             <div className="p-writImgBtn">
-              {selectedFile && (
+              {image && (
                 <div className="p-imgPreview">
-                  <img src={preview} alt="" />
+                  <img src={previewConImg} alt="" />
                 </div>
               )}
               <input
@@ -180,7 +187,9 @@ function WriteForm() {
               name="induction"
               placeholder="輸入食譜描述（最多150字）"
               value={writData.induction}
-              onChange={(e) => setWritData({ induction: e.target.value })}
+              onChange={(e) =>
+                setWritData({ ...writData, induction: e.target.value })
+              }
               required
             />
           </label>
@@ -190,10 +199,12 @@ function WriteForm() {
               <input
                 // className="p-writeTime"
                 type="text"
-                name="time"
+                name="times"
                 placeholder="例:90分鐘"
-                value={writData.time}
-                onChange={(e) => setWritData({ time: e.target.value })}
+                value={writData.times}
+                onChange={(e) =>
+                  setWritData({ ...writData, times: e.target.value })
+                }
                 required
               />
             </label>
@@ -205,7 +216,9 @@ function WriteForm() {
                 name="serving"
                 placeholder="例:2 人份"
                 value={writData.serving}
-                onChange={(e) => setWritData({ serving: e.target.value })}
+                onChange={(e) =>
+                  setWritData({ ...writData, serving: e.target.value })
+                }
                 required
               />
             </label>
@@ -218,27 +231,42 @@ function WriteForm() {
               .map((v, i) => {
                 return (
                   <div className="p-instruLabWrap" key={i}>
-                    <label className="p-instrucContent">
-                      <input
-                        type="text"
-                        name="instrucContent"
-                        value={writData.instructions[0].instrucContent}
-                        onChange={(e) =>
-                          setWritData({ instrucContent: e.target.value })
-                        }
-                        required
-                        placeholder="食材（最多１5字）"
-                      />
-                    </label>
+                    {writData && (
+                      <label className="p-instrucContent">
+                        <input
+                          type="text"
+                          name="instrucContent"
+                          value={writData.instructions[i].instrucContent}
+                          onChange={(e) => {
+                            const inst = writData.instructions
+                            inst[i] = {
+                              ...inst[i],
+                              instrucContent: e.target.value,
+                            }
+                            setWritData({
+                              ...writData,
+                              instructions: inst,
+                            })
+                          }}
+                          required
+                          placeholder="食材（最多１5字）"
+                        />
+                      </label>
+                    )}
                     <label className="p-portion">
                       <input
                         type="text"
                         name="portion"
                         placeholder="食材份量"
-                        value={writData.portion}
-                        onChange={(e) =>
-                          setWritData({ serving: e.target.value })
-                        }
+                        value={writData.instructions[i].portion}
+                        onChange={(e) => {
+                          const portion = writData.instructions
+                          portion[i] = {
+                            ...portion[i],
+                            portion: e.target.value,
+                          }
+                          setWritData({ ...writData, instructions: portion })
+                        }}
                         required
                       />
                     </label>
@@ -250,6 +278,11 @@ function WriteForm() {
                 className="p-addInstru"
                 type="button"
                 onClick={() => {
+                  writData.instructions.push({
+                    sid: '',
+                    instrucContent: '',
+                    portion: '',
+                  })
                   setInstrucNums(instrucNums + 1)
                 }}
               >
@@ -278,39 +311,46 @@ function WriteForm() {
                       className="p-stepImg"
                       placeholder="點擊上傳圖片大小480x260px"
                     >
-                      {selectedFile && (
+                      {stepImages && (
                         <div className="p-stepimgPreview">
-                          <img src={preview} alt="" />
+                          <ImageItemPreview
+                            index={i}
+                            setStepImages={setStepImages}
+                            stepImages={stepImages}
+                          />
                         </div>
                       )}
-                      <input
+                      {/* <input
                         type="file"
                         name="stepImg"
                         value={writData.steps.stepImg}
                         onChange={(e) => {
+                          console.log('p-stepimgPreview')
                           const tempStepImages = stepImages
+                          console.log('tempStepImages')
+                          console.log(tempStepImages)
                           tempStepImages[i] = e.target.files[0]
                           setStepImages(tempStepImages)
                         }}
-                      />
+                      /> */}
                       <p>點擊上傳圖片大小480x260px</p>
                     </label>
                     <label className="p-stepNum">
                       <h3>STEP{i + 1}</h3>
-
                       <input
                         className="p-stepContent"
                         placeholder="步驟說明（最多150字）"
                         name="steps.stepContent"
-                        value={writData.steps[0].stepContent}
+                        value={writData.steps[i].stepContent}
                         onChange={(e) => {
                           const steps = writData.steps
                           steps[i] = {
                             ...steps[i],
                             stepContent: e.target.value,
                           }
-                          setWritData({ steps: steps })
+                          setWritData({ ...writData, steps: steps })
                         }}
+                        required
                       ></input>
                     </label>
                   </div>
@@ -321,6 +361,12 @@ function WriteForm() {
                 className="p-addStep"
                 type="button"
                 onClick={() => {
+                  writData.steps.push({
+                    cooking_post_sid: '',
+                    step: '',
+                    stepImg: '',
+                    stepContent: '',
+                  })
                   if (stepNums > 1) setStepNums(stepNums + 1)
                 }}
               >
@@ -330,11 +376,7 @@ function WriteForm() {
                 className="p-delStep"
                 type="button"
                 onClick={() => {
-                  if (stepNums === 1) {
-                    setStepNums(1)
-                  } else {
-                    setStepNums(-1)
-                  }
+                  if (stepNums > 1) setStepNums(stepNums - 1)
                 }}
               >
                 <p>減步驟</p>
@@ -348,7 +390,7 @@ function WriteForm() {
               placeholder="其他補充說明（最多200字）"
               name="ps"
               value={writData.ps}
-              onChange={(e) => setWritData({ ps: e.target.value })}
+              onChange={(e) => setWritData({ ...writData, ps: e.target.value })}
             ></input>
           </label>
           <button
@@ -367,25 +409,18 @@ function WriteForm() {
             console.log('帶入123')
             setWritData({
               title: '蕃茄菇菇雞肉飯',
-              hashtag: [
-                {
-                  categories_sid: 4,
-                  post_sid: 1,
-                  tagContent: '電鍋',
-                },
-              ],
               induction:
                 '菇菇控最愛的香菇、杏鮑菇、蘑菇，三菇一體加上雞腿肉的多汁鮮甜蕃茄入菜帶出酸甜感，最後撒上烹大師鰹魚風味，獨到的煙燻香氣讓料理美味無可挑剔!',
-              time: '20分鐘',
+              times: '20分鐘',
               serving: '2人份',
               instructions: [
                 {
-                  sid: '',
+                  sid: '1',
                   instrucContent: '番茄',
                   portion: '2顆',
                 },
                 {
-                  sid: '',
+                  sid: '2',
                   instrucContent: '雞肉',
                   portion: '500g',
                 },
@@ -393,14 +428,14 @@ function WriteForm() {
               steps: [
                 {
                   cooking_post_sid: '',
-                  step: '',
+                  step: '1',
                   stepImg: '',
                   stepContent:
                     '雞腿肉先用醬油、胡椒粉、糖抓醃。白米洗乾淨瀝乾。',
                 },
                 {
                   cooking_post_sid: '',
-                  step: '',
+                  step: '2',
                   stepImg: '',
                   stepContent:
                     '將洗好的白米放入內鍋，加入水、米酒、菇類、洋蔥、雞肉、小番茄、花椰菜，拌均勻，開始煮飯。',

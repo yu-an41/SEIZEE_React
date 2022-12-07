@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import './../styles/CartItemsList.scss'
 import CartInfoContext from '../contexts/CartInfoContext'
 import AuthContext from '../../contexts/AuthContext'
@@ -40,7 +41,9 @@ function CartItemsList({ cartItemData }) {
               <img src={`/04-product/img/${picture}`} alt="picture of merch" />
             </div>
           </div>
-          <p className="y-Cart-items-info-name">{name}</p>
+          <Link to={`/product/${prod_sid}`}>
+            <p className="y-Cart-items-info-name">{name}</p>
+          </Link>
         </div>
         <div className="y-Cart-items-price">
           <p>{sale_price}</p>
