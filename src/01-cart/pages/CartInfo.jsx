@@ -26,6 +26,8 @@ import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
+import arrowClicked from './../../logo-and-fonts/pixel-arrowB.svg'
+import arrowUnclicked from './../../logo-and-fonts/pixel-arrowB-border-M.svg'
 
 function CartInfo() {
   const { cartItem, setCartItem } = useContext(CartInfoContext)
@@ -41,6 +43,11 @@ function CartInfo() {
   // }
 
   const [couponCode, setCouponCode] = useState('welcome80')
+
+  // 選單狀態樣式
+  const [pickup, setPickup] = useState(1)
+  const [pay, setPay] = useState(1)
+
   return (
     <>
       <div className="y-CartInfo-container">
@@ -79,8 +86,15 @@ function CartInfo() {
             <p className="y-Cart-tab y-Cart-pickup-tab">取餐方式</p>
             <div className="y-Cart-main y-Cart-pickup-main">
               <ul className="y-Cart-pickup-radio">
-                <li>
-                  <i className="fa-solid fa-triangle"></i>
+                <li
+                  onClick={() => {
+                    setPickup(1)
+                  }}
+                  className={pickup === 1 ? 'y-Cart-Pick-selected' : ''}
+                >
+                  <div className="y-pickup-radio-icons">
+                    <img src={pickup === 1 ? arrowClicked : arrowUnclicked} />
+                  </div>
                   <label
                     htmlFor="y-pickup-way-self"
                     className="y-pickup-way-options y-pickup-radio-labels"
@@ -94,7 +108,15 @@ function CartInfo() {
                     value={1}
                   />
                 </li>
-                <li>
+                <li
+                  onClick={() => {
+                    setPickup(2)
+                  }}
+                  className={pickup === 2 ? 'y-Cart-Pick-selected' : ''}
+                >
+                  <div className="y-pickup-radio-icons">
+                    <img src={pickup === 2 ? arrowClicked : arrowUnclicked} />
+                  </div>
                   <label
                     htmlFor="y-pickup-way-shop"
                     className="y-pickup-way-options y-pickup-radio-labels"
@@ -117,7 +139,15 @@ function CartInfo() {
             <p className="y-Cart-tab y-Cart-pay-tab">付款方式</p>
             <div className="y-Cart-main y-Cart-pay-main">
               <ul className="y-Cart-pickup-radio">
-                <li>
+                <li
+                  onClick={() => {
+                    setPay(1)
+                  }}
+                  className={pay === 1 ? 'y-Cart-Pick-selected' : ''}
+                >
+                  <div className="y-pickup-radio-icons">
+                    <img src={pay === 1 ? arrowClicked : arrowUnclicked} />
+                  </div>
                   <label
                     htmlFor="y-pay-line"
                     className="y-pickup-way-options y-pay-radio-labels"
@@ -134,7 +164,15 @@ function CartInfo() {
                     （可用LINE POINTS折抵）
                   </span>
                 </li>
-                <li>
+                <li
+                  onClick={() => {
+                    setPay(2)
+                  }}
+                  className={pay === 2 ? 'y-Cart-Pick-selected' : ''}
+                >
+                  <div className="y-pickup-radio-icons">
+                    <img src={pay === 2 ? arrowClicked : arrowUnclicked} />
+                  </div>
                   <label
                     htmlFor="y-pay-credit"
                     className="y-pickup-way-options y-pay-radio-labels"
@@ -151,7 +189,18 @@ function CartInfo() {
                     （可接受VISA, Master, JCB, 聯合信用卡）
                   </span>
                 </li>
-                <li>
+                <li
+                  onClick={() => {
+                    setPay(3)
+                  }}
+                  className={pay === 3 ? 'y-Cart-Pick-selected' : ''}
+                >
+                  <div className="y-pickup-radio-icons">
+                    <img
+                      src={pay === 3 ? arrowClicked : arrowUnclicked}
+                      style={{ display: 'none' }}
+                    />
+                  </div>
                   <label
                     htmlFor="y-pay-credit"
                     className="y-pickup-way-options y-pay-radio-labels"

@@ -8,7 +8,7 @@ import ModalConfirm from '../../components/ModalConfirm'
 import ModalNotification from '../../components/ModalNotification'
 
 import './../styles/WishListBtn.scss'
-import WishListIcon from './../../dotown/pizza.png'
+import WishListIcon from './../../logo-and-fonts/pixel-heartClick.svg'
 
 function WishListBtn({ onClick }) {
   return (

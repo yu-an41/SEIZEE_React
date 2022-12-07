@@ -69,14 +69,17 @@ function Homepage() {
           <section className="y-section y-section-carousel">
             <div className="y-carousel-wrap">
               <TopCarousel />
-              <div className="y-carousel-block-yellow">
-                <p></p>
+            </div>
+            <div className="y-carousel-block-yellow">
+              {/* <p>成為戰士吧</p> */}
+              <div className="y-carousel-block-gif">
+                <img src={`/05-member/hito.gif`} />
               </div>
-              <div className="y-carousel-block-blue">
-                <div className="y-block-bg">
-                  {/* <p>剩食革命</p>
-                  <p>由我做起</p> */}
-                </div>
+            </div>
+            <div className="y-carousel-block-blue">
+              <div className="y-block-bg">
+                <p>改變剩食，</p>
+                <p className="y-block-text2">由我開始。</p>
               </div>
             </div>
           </section>

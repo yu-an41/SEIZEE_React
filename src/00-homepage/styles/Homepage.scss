@@ -96,20 +96,19 @@ $main-border-radius: 8px;
 
     .y-carousel-wrap {
     
-        .y-carousel-block-yellow {
-          p {
-
-          }
-        }
-        .y-carousel-block-blue {
-          .y-block-bg {
-            p {
-
-            }
-          }
-        }
     }
+    .y-carousel-block-yellow {
+      p {
 
+      }
+    }
+    .y-carousel-block-blue {
+      .y-block-bg {
+        p {
+
+        }
+      }
+    }
   }
 
   .y-section-search {
@@ -565,21 +564,74 @@ $main-border-radius: 8px;
     .y-section-carousel {
       height: 960px;
       overflow: hidden;
+      position: relative;
       .y-carousel-wrap {
         padding-top: 90px;
         margin: 0 auto;
         max-width: 1040px;
         // border: $border-lg;
-        .y-carousel-block-yellow {
-          p {
+        // box-shadow: 5px 5px white;
+      }
+      .y-carousel-block-yellow {
+        position: absolute;
+        top: 200px;
+        left: 230px;
+        background-color: #FFEBBD;
+        width: 300px;
+        height: 160px;
+        border-radius: 0 15px 0 15px;
+        .y-carousel-block-gif {
+          position: absolute;
+          bottom: 0;
+          background-color: #FFEBBD;
+          width: 150px;
+          animation: y-hito-run 3s linear-gradient 0.5s infinite;
+
+          img {
+            width: 100%;
+            object-fit: cover;
 
           }
         }
-        .y-carousel-block-blue {
-          .y-block-bg {
-            p {
-              
-            }
+        p {
+          color: $main-blue;
+          font-weight: bold;
+          letter-spacing: 2px;
+          font-size: 32px;
+          width: 100%;
+
+        }
+        .y-block-text2 {
+
+        }
+      }
+      .y-carousel-block-blue {
+        position: absolute;
+        width: 480px;
+        height:200px;
+        right: 300px;
+        bottom: 70px;
+        background-color: $main-blue;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+
+        .y-block-bg {  
+          width: 100%;
+          height: 100%; 
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          p {
+            color: white;
+            font-weight: bold;
+            font-size: 48px;
+            letter-spacing: 2px;
+          }
+          .y-block-text2 {
+            margin-top: 60px;
+            padding-left: 100px;
           }
         }
       }

@@ -15,6 +15,10 @@ import RemoveItemBtn from './RemoveItemBtn'
 // import log from 'eslint-plugin-react/lib/util/log'
 
 function CartItemsList({ cartItemData }) {
+  // member
+  const auth = JSON.parse(localStorage.getItem('auth'))
+  console.log(auth)
+
   // modal
   const navigate = useNavigate()
 
@@ -28,14 +32,13 @@ function CartItemsList({ cartItemData }) {
   }
   const closeModalNotification = () => {
     setIsOpen1(false)
-    navigate('/login')
+    if (!auth) navigate('/login')
+    else return
   }
 
   const WishList = () => {
-    const auth = localStorage.getItem('auth')
-    // console.log(auth.mb_sid)
     // 為什麼拿到的值是undefined
-    if (!!auth[0].mb_sid) {
+    if (auth?.mb_sid) {
       handleCartSave(auth.mb_sid, prod_sid)
     } else {
       openModalNotification()
@@ -47,11 +50,15 @@ function CartItemsList({ cartItemData }) {
   const {
     cartItem,
     setCartItem,
+    emptyCart,
+    setEmptyCart,
     updateItemQty,
     handleRemoveItem,
     handleEmptyCart,
     handleCartSave,
   } = useContext(CartInfoContext)
+
+  console.log('emptyCart:', emptyCart)
 
   const { userCart, totalItem, totalUnitPrice, totalSalePrice, totalAmount } =
     cartItem

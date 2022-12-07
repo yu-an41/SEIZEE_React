@@ -60,11 +60,7 @@ export const CartInfoContextProvider = function ({ children }) {
     setIsOpen1(false)
     // console.log(pathname)
     if (pathname === '/cart' && emptyCart) {
-      // useEffect = () => {
-      // setTimeout(
       document.location.href = `http://localhost:3000/`
-      // , 2000)
-      // }
     } else {
       return
     }
@@ -140,7 +136,7 @@ export const CartInfoContextProvider = function ({ children }) {
               console.log(products.totalSalePrice)
               localStorage.setItem('cartItem', JSON.stringify({ ...products }))
               setCartItem(products)
-              if (emptyCart) setEmptyCart(false)
+              setEmptyCart(false)
 
               openModalNotification()
               setHeaderMg('購物車')
@@ -204,7 +200,7 @@ export const CartInfoContextProvider = function ({ children }) {
             console.log(products.totalSalePrice)
             localStorage.setItem('cartItem', JSON.stringify({ ...products }))
             setCartItem(products)
-            if (emptyCart) setEmptyCart(false)
+            setEmptyCart(false)
 
             openModalNotification()
             setHeaderMg('購物車')
@@ -244,7 +240,7 @@ export const CartInfoContextProvider = function ({ children }) {
       localStorage.setItem('cartItem', JSON.stringify(newProducts))
       console.log({ newProducts })
       setCartItem(newProducts)
-      if (emptyCart) setEmptyCart(false)
+      setEmptyCart(false)
 
       openModalNotification()
       setHeaderMg('購物車')
@@ -299,7 +295,7 @@ export const CartInfoContextProvider = function ({ children }) {
         totalAmount,
       })
     )
-    if (emptyCart) setEmptyCart(false)
+    setEmptyCart(false)
 
     openModalNotification()
     setHeaderMg('購物車')
@@ -353,7 +349,7 @@ export const CartInfoContextProvider = function ({ children }) {
         totalSalePrice,
         totalAmount,
       })
-      if (emptyCart) setEmptyCart(false)
+      setEmptyCart(false)
 
       openModalNotification()
       setHeaderMg('購物車')
@@ -411,22 +407,22 @@ export const CartInfoContextProvider = function ({ children }) {
   }
 
   // 購物車收藏商品
-  const handleCartSave = (mbSid, prodSid) => {
+  const handleCartSave = async (mbSid, prodSid) => {
     prodSid = +prodSid
     mbSid = +mbSid
     console.log('商品加入收藏清單')
-    // try {
-    //   const { mbSid, prodSid } = await axios.post(
-    //     `http://localhost:3004/cart/add-save`
-    //   )
+    try {
+      const { res } = await axios.get(
+        `http://localhost:3004/cart/add-save/?mbsid=${mbSid}&prodsid=${prodSid}`
+      )
 
-    //   // console.log(res.data)
-    //   // const prodInfo = res.data.prod_info_rows[0]
-    //   // console.log(prodInfo)
-    // } catch (error) {
-    //   console.log(error.message)
-    // }
-
+      console.log(res.data)
+      // const prodInfo = res.data.prod_info_rows[0]
+      // console.log(mbSid, prodSid)
+    } catch (error) {
+      console.log(error.message)
+    }
+    setEmptyCart(false)
     openModalNotification()
     setHeaderMg('購物車')
     setBodyMg(`商品加入收藏清單！`)
