@@ -1,0 +1,44 @@
+$main-yellow: #FAD249;
+$main-blue: #2B325C;
+$main-text: #5E5E5E;
+$text-shadow: #E4E4E4;
+$min-width: 390px;
+$wave-height: 40px;
+
+.y-wave-light-section {
+    // position: relative;
+    width: 100%;
+    height: 140px;
+    background-color: #fdefc2; 
+    overflow: hidden;
+    .y-wave-light-base {
+        width: 100%;
+        height: $wave-height;
+        background-color: $main-yellow;
+    }
+    .y-wave-light-wrap {
+        // position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        background: {
+            image: url(./../../../public/04-product/img/wave-1920.png);
+            position: 0 0;
+            size: 1920px 100px;
+        }
+        animation:
+        y-yellow-wave-light 5s linear infinite;
+        z-index: 100;
+        animation-delay: 0.3s;
+        
+        @keyframes y-yellow-wave-light {
+            0% {
+                background-position-x: 0px;
+            }
+
+            100% {
+                background-position-x: 1920px;
+            }
+        }
+    }
+}

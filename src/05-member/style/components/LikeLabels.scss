@@ -1,0 +1,25 @@
+.s-l-labels {
+  display: flex;
+  position: absolute;
+  top: -30px;
+//   margin-left: 4px ;
+
+//   border: 1px solid red;
+
+  .s-l-label {
+    font-size: 18px;
+    background-color: #ffebbd;
+    padding: 7px 25px;
+    margin-left: 4px;
+
+    // border: 1px solid blue;
+  }
+
+  @media (max-width: 991px) {
+    .s-l-label {
+      font-size: 14px;
+      padding: 7px 15px;
+      margin-left: 5px;
+    }
+  }
+}

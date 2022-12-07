@@ -4,8 +4,9 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { checkEmpty } from './data/UserSign_valid'
 import { useNavigate } from 'react-router-dom'
-// import ModalConfirm from '../components/ModalConfirm'
 import ModalNotification from '../components/ModalNotification'
+import LoadingOverlay from 'react-loading-overlay'
+import ClockLoader from 'react-spinners/ClockLoader'
 
 function ForgotPass() {
   const [forgotFD, setForgotFD] = useState({
@@ -63,6 +64,10 @@ function ForgotPass() {
         setHeaderMg('修改密碼')
         setBodyMg('請確認電子郵件是否正確')
       }
+    } else {
+      openModal()
+      setHeaderMg('修改密碼')
+      setBodyMg('請確認電子郵件是否正確')
     }
   }
 
@@ -72,12 +77,53 @@ function ForgotPass() {
 
   function closeModal() {
     setIsOpen(false)
-    navigate('/')
+
+    if (bodyMg === '修改密碼信件已發送') {
+      navigate('/')
+    }
   }
 
   return (
     <>
-      <div className="s-body-forgotpass">
+      <LoadingOverlay active={true} spinner={<ClockLoader color="red" />}>
+        <div className="s-body-forgotpass">
+          <div className="s-fp-container">
+            <div className="s-fp-forgotBx">
+              <form action="" onSubmit={forgotSubmit} className="s-fp-form">
+                <h2 className="s-fp-h2">忘記密碼?</h2>
+                <h3 className="s-fp-h3">
+                  請在下面輸入您的電子郵件地址，我們將重設密碼的連結寄給您。
+                </h3>
+                <label htmlFor="mbfEmail" className="s-fp-label">
+                  電子郵件<span style={{ color: 'red' }}> *</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="請輸入電子郵件"
+                  id="mbfEmail"
+                  onChange={forgotHandler}
+                  onBlur={checkForgotEmail}
+                  className="s-fp-input"
+                />
+                <div
+                  className="s-fp-errorMg"
+                  style={{ color: 'red' }}
+                  id="mblEmail_error"
+                >
+                  {errorMgF}
+                </div>
+                <input
+                  type="submit"
+                  value="發送重送連結"
+                  className="s-fp-input s-fp-forgotSubmit"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </LoadingOverlay>
+
+      {/* <div className="s-body-forgotpass">
         <div className="s-fp-container">
           <div className="s-fp-forgotBx">
             <form action="" onSubmit={forgotSubmit} className="s-fp-form">
@@ -111,7 +157,7 @@ function ForgotPass() {
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <ModalNotification
         closeModal={closeModal}
@@ -120,10 +166,6 @@ function ForgotPass() {
         NotificationBody={bodyMg}
       />
     </>
-
-    // reference:
-    // 1. react-modal: https://www.npmjs.com/package/react-modal
-    // 2. other modal ref: https://dev.to/franciscomendes10866/how-to-create-a-modal-in-react-3coc#:~:text=jsx%20import%20React%2C%20%7B%20useState%20%7D,%2Fbutton%3E%20%2F%2F%20
   )
 }
 export default ForgotPass

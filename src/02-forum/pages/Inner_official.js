@@ -14,7 +14,9 @@ import SideBar from '../components/Side_bar'
 import WriteBtn from '../components/WriteBtn'
 import Comment from '../components/Comment'
 import Recommendation from '../components/Recommendation'
-import Message from '../components/Ｍessage'
+import Message from '../components/Message'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function InnerOfficial() {
   const { sid } = useParams()
@@ -44,7 +46,7 @@ function InnerOfficial() {
   const getOfficialInnerData = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:3002/forum/official/inner/${sid}`
+        `http://localhost:3004/forum/official/inner/${sid}`
       )
       console.log(res.data)
       setOfficialInnerData(res.data)
@@ -58,6 +60,9 @@ function InnerOfficial() {
 
   return (
     <>
+      <div className="p-navBar">
+        <NavBar />
+      </div>
       <div className="innerOfficial">
         <div className="sidBar">
           <SideBar />
@@ -72,7 +77,7 @@ function InnerOfficial() {
             </div>
 
             <div className="p-officialTagWrap">
-              <Tag />
+              {/* <Tag /> */}
             </div>
             <div className="p-officialMemberWrap">
               <Member />
@@ -99,7 +104,11 @@ function InnerOfficial() {
               <h3>留言</h3>
             </div>
             <div className="p-commentForm">
-              <Message setDoRerender={setDoRerender} doRerender={doRerender} />
+              <Message
+                setDoRerender={setDoRerender}
+                doRerender={doRerender}
+                InnerCategoriesSid={offficialInnerData}
+              />
             </div>
             <div className="p-commMessage">
               {offficialInnerData.comment &&
@@ -121,6 +130,9 @@ function InnerOfficial() {
             <WriteBtn />
           </div>
         </div>
+      </div>
+      <div className="p-footer">
+        <Footer />
       </div>
     </>
   )

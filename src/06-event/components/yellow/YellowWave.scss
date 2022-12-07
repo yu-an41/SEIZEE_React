@@ -12,7 +12,8 @@ $wave-height: 40px;
     // background-color: transparent; 
     overflow: hidden;
     @media (max-width: 390px){
-        
+        width: 60%;
+        margin-top: -128.77px;
     }
 
     .j-wave-wrap {
@@ -30,8 +31,7 @@ $wave-height: 40px;
         z-index: 100;
         animation-delay: 0.3s;
         @media (max-width: 390px){
-            width: 100vw;
-            height: 20%;
+            // height: 390px;
         }
         
         @keyframes jwave {

@@ -14,7 +14,8 @@ import PickupHoursBtn from '../components/PickupHoursBtn'
 import EmptyCartBtn from '../components/EmptyCartBtn'
 import CartItemsList from '../components/CartItemsList'
 import ContinueShoppingBtn from '../components/ContinueShoppingBtn'
-import GoPayBtn from '../components/GoPayBtn'
+import CheckCartInfo from '../components/CheckCartInfo'
+// import GoPayBtn from '../components/GoPayBtn'
 import RecMerch from '../components/RecMerch'
 import Footer from '../../components/Footer'
 
@@ -25,6 +26,8 @@ import Footer from '../../components/Footer'
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
 import YellowWaveReverse from '../../00-homepage/components/YellowWaveReverse'
+import YellowWave2 from '../../04-product/components/YellowWave2'
+import YellowWaveLight from '../../00-homepage/components/YellowWaveLight'
 import YellowLineWave from './../images/line-wave.svg'
 import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
@@ -35,20 +38,22 @@ import axios from 'axios'
 import { set } from 'ramda'
 
 function CartList(props) {
+  const [cartPrevText, setCartPrevText] = useState()
   const {
     cartItem,
     setCartItem,
     handleAddCart,
     handleReduce,
     handleEmptyCart,
+    emptyCart,
+    setEmptyCart,
+    checkCartempty,
   } = useContext(CartInfoContext)
 
-  // 數量
-  const [prodQty, setProdQty] = useState(1)
-
-  // 取得假商品資訊
-  const data = products[0]
-  const data2 = products[4]
+  // 取得假商品資訊，數量1
+  // const data = products[0]
+  // const data2 = products[4]
+  // const [prodQty, setProdQty] = useState(1)
 
   // 推薦商品資訊
 
@@ -76,17 +81,18 @@ function CartList(props) {
   ])
 
   // 店家編號
-  // const shopsid = cartItem.userCart[0].shop_sid
-  //   ? cartItem.userCart[0].shop_sid
-  //   : 1
+  const shopsid = cartItem.userCart[0].shop_sid
+    ? +cartItem.userCart[0].shop_sid
+    : 1
 
-  let shopsid = 1
   const getShopInfo = async () => {
     try {
       const res = await axios.get(`http://localhost:3004/cart/shop/${shopsid}`)
 
       setCartShopInfo(res.data.shop_info_rows[0])
       console.log(res.data.shop_info_rows)
+
+      // 這邊放營業取餐判斷
     } catch (err) {
       console.log(err.message)
     }
@@ -113,7 +119,7 @@ function CartList(props) {
     shop_sat,
   } = cartShopInfo
 
-  const getCartData = () => {}
+  // const getCartData = () => {}
 
   // 取得推薦商品
   const [recMerchData, setRecMerchData] = useState([
@@ -143,10 +149,10 @@ function CartList(props) {
 
   const min = Math.min(recMerchData.length, 4)
   useEffect(() => {
-    console.log(cartItem)
+    // console.log(cartItem)
     getShopInfo()
     getRecMerchData()
-  }, [])
+  }, [cartItem])
 
   // useEffect(() => {
   //   getCartData()
@@ -154,28 +160,6 @@ function CartList(props) {
 
   return (
     <>
-      {/* <div className="y-test-btns">
-        <div
-          className="y-Cart-test-btn"
-          onClick={() => {
-            // setProdQty(prodQty)
-            handleAddCart(data, prodQty)
-            // console.log(data, prodQty)
-          }}
-        >
-          add item to cart
-        </div>
-        <div
-          className="y-Cart-test-btn"
-          onClick={() => {
-            // setProdQty(prodQty)
-            handleAddCart(data2, prodQty)
-            // console.log(data, prodQty)
-          }}
-        >
-          add item2 to cart
-        </div>
-      </div> */}
       <div className="y-CartList-container">
         <div className="y-Cart-nav">
           <NavBar />
@@ -284,6 +268,17 @@ function CartList(props) {
               </p>
             </div>
             <div className="y-Cart-details-area">
+              {/* {!emptyCart
+                ? cartItem.userCart.map((v, i) => {
+                    setEmptyCart(false)
+                    console.log(emptyCart)
+                    return (
+                      <div className="y-Cart-details-row">
+                        <CartItemsList cartItemData={v} key={i} />
+                      </div>
+                    )
+                  })
+                : ''} */}
               {cartItem.userCart.map((v, i) => {
                 return (
                   <div className="y-Cart-details-row">
@@ -299,10 +294,10 @@ function CartList(props) {
               </p>
               <div className="y-Cart-details-btns">
                 <div className="y-continue-shopping-wrap">
-                  <ContinueShoppingBtn />
+                  <ContinueShoppingBtn linkTo={`http://localhost:3000/shop`} />
                 </div>
-                <div className="y-cart-pay-wrap">
-                  <GoPayBtn cartItem={cartItem} />
+                <div className="y-check-info-wrap">
+                  <CheckCartInfo cartItem={cartItem} />
                 </div>
               </div>
             </div>
@@ -311,7 +306,9 @@ function CartList(props) {
             <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
             <div className="y-Cart-rec-top">
               <p className="y-Cart-rec-header">
-                以下是來自「好ㄘ早午餐」的更多寶物，錯過會很可惜的...
+                以下是來自「
+                <span>{cartShopInfo.shop_name}</span>
+                」的更多寶物，錯過會很可惜的...
               </p>
             </div>
             <div className="y-Cart-rec-bottom">
@@ -334,9 +331,9 @@ function CartList(props) {
           </div>
         </div>
         <div className="y-Cart-bottom">
-          <YellowWaveReverse />
-          <div className="y-Cart-rec">rec</div>
-          <div className="y-Cart-news">news</div>
+          <div className="y-Cart-bottom-wave">
+            <YellowWaveLight />
+          </div>
           <div className="y-cart-footer">
             <Footer />
           </div>

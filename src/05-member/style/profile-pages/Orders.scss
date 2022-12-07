@@ -20,7 +20,7 @@
   .s-o-card {
     position: relative;
     width: 100%;
-    height: 420px;
+    height: 550px;
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
@@ -84,6 +84,7 @@
         .s-mboNote2 {
           display: none;
         }
+
         .s-mboNote2.s-o-active {
           display: block;
           cursor: pointer;
@@ -94,6 +95,13 @@
 
     .s-o-data-error {
       font-size: 24px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+      padding: 20px 0;
+      // box-shadow: (0 6px 4px #ffebbd76);
+      background-color: #ffffff;
     }
 
     .s-o-data-details-out {
@@ -110,7 +118,7 @@
         // overflow: auto;
         // background-color: bisque;
 
-        /* border: 1px solid green; */
+        // border: 1px solid green;
 
         .s-o-data-detail {
           display: flex;
@@ -119,7 +127,7 @@
           position: relative;
           padding: 15px 0;
 
-          /* border: 1px solid green; */
+          // border: 1px solid green;
 
           .s-o-line-d {
             width: 100%;
@@ -134,8 +142,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            width: 170px;
 
-            /* border: 1px solid pink; */
+            // border: 1px solid pink;
 
             .s-o-question-d {
               margin-bottom: 15px;
@@ -162,20 +171,51 @@
         visibility: 1;
       }
     }
+    .s-o-data-details-out::-webkit-scrollbar-track {
+    }
+    .s-o-data-details-out::-webkit-scrollbar {
+      width: 6px;
+      // height: 30px;
+    }
+
+    .s-o-data-details-out::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #797878;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .s-o-card {
+      height: 700px;
+
+      .s-o-data {
+        width: 500px;
+
+        // border: 1px solid green;
+      }
+
+      .s-o-data-error {
+        font-size: 20px;
+
+        // border: 1px solid red;
+      }
+
+      .s-o-data-details-out {
+        width: 500px;
+      }
+    }
   }
 
   .s-o-card::-webkit-scrollbar-track {
-
   }
+
   .s-o-card::-webkit-scrollbar {
     width: 10px;
-    height: 8px;
-    
+    height: 10px;
   }
 
   .s-o-card::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: red;
-    
+    background-color: #b1b1b1;
   }
 }

@@ -229,6 +229,8 @@ $border-radius-button: 8px;
                     }
                     
                     .y-Cart-shop-bottom {
+                        display: flex;
+                        flex-direction: column;
                         
                         
                         .y-Cart-shop-tel {
@@ -272,7 +274,7 @@ $border-radius-button: 8px;
                     }
                     
                     .y-Cart-pickup-bottom {
-
+                        
                         .y-Cart-pickup-time {
                         }
                     }
@@ -418,11 +420,7 @@ $border-radius-button: 8px;
         // bottom: 0;
         width: 100%;
 
-        .y-Cart-rec{
-
-        }
-
-        .y-Cart-news {
+        .y-Cart-bottom-wave {
 
         }
 
@@ -614,7 +612,7 @@ $border-radius-button: 8px;
                         overflow: hidden;
                         display: flex;
                         flex-direction: column;
-                        justify-content: space-between;
+                        // justify-content: space-between;
     
                         .y-Cart-pickup-top {
 
@@ -855,6 +853,22 @@ $border-radius-button: 8px;
                 
                 height: 60px;
             }
+        }
+    }
+
+    .y-Cart-bottom{
+
+        // position: fixed;
+        // bottom: 0;
+        width: 100%;
+
+        .y-Cart-bottom-wave {
+            
+        }
+
+        .y-cart-footer {
+            
+            // height: 60px;
         }
     }
 }

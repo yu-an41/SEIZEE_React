@@ -8,7 +8,7 @@
 .s-wave-section {
   //position: relative;
   width: 20%;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 50px);
   // background-color: transparent;
   overflow: hidden;
 
@@ -18,7 +18,7 @@
     width: 20%;
     min-height: 100vh;
     background: {
-      image: url(../../../public/05-member/wave-1920px.png);
+      image: url(../../../../public/05-member/wave-1920px.png);
       // repeat: no-repeat;
       position: 50% 0;
       size: 100px 1920px;

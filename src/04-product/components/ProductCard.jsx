@@ -1,9 +1,13 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
-import { Link } from "react-router-dom";
-import Collection from "../../contexts/CollectContext";
-import "../components/style/ProductCard.scss";
-import Select from "../components/Select";
-import CollectContext from "../../contexts/CollectContext";
+import React, { useState, useEffect, useRef, useContext } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import Collection from '../../contexts/CollectContext'
+import '../components/style/ProductCard.scss'
+import Select from '../components/Select'
+import CollectContext from '../../contexts/CollectContext'
+
+// cart
+import CartInfoContext from './../../01-cart/contexts/CartInfoContext'
+import log from 'eslint-plugin-react/lib/util/log'
 
 function ProductCard({ product }) {
   const {
@@ -17,17 +21,26 @@ function ProductCard({ product }) {
     delCollect,
     checkList,
     handleClick,
-  } = useContext(CollectContext);
-// console.log(collectionNum);
-  
-const tempRef = useRef();
-  const countOptions =product ? new Array(product.inventory_qty).fill(0).map((_, i) => ({
-    text: i + 1,
-    value: i + 1,
-  })) : new Array(1).fill(0).map((_, i) => ({
-    text: i + 1,
-    value: i + 1,
-  }));
+  } = useContext(CollectContext)
+  // console.log(collectionNum);
+
+  const tempRef = useRef()
+  const countOptions = product
+    ? new Array(product.inventory_qty).fill(0).map((_, i) => ({
+        text: i + 1,
+        value: i + 1,
+      }))
+    : new Array(1).fill(0).map((_, i) => ({
+        text: i + 1,
+        value: i + 1,
+      }))
+
+  // cart
+  const { cartItem, setCartItem, handleAddCart, updateItemQty } =
+    useContext(CartInfoContext)
+  // const [productDataFromCard, setProductDataFromCard] = useState([{}])
+  const { shop_list_sid } = useParams()
+  console.log(shop_list_sid)
 
   return (
     <div className="a-produtCardWrapper">
@@ -51,15 +64,34 @@ const tempRef = useRef();
           {/* 判斷收藏愛心圖示 */}
           {collectionNum.length > 0 ? (
             collectionNum.includes(product.sid) ? (
-              <img src="/04-product/svg/heart.svg" alt="" onClick={() => {delCollect(product.sid)
-              handleClick(false)}}/>) 
-              : (
-              <img src="/04-product/svg/collection.svg"
-                alt="" onClick={() => {addCollect(+product.sid)
-                handleClick(true)}} /> )) 
-              : (<img src="/04-product/svg/collection.svg"
-                alt="" onClick={() => {addCollect(+product.sid)
-                handleClick(true)}}/>)}
+              <img
+                src="/04-product/svg/heart.svg"
+                alt=""
+                onClick={() => {
+                  delCollect(product.sid)
+                  handleClick(false)
+                }}
+              />
+            ) : (
+              <img
+                src="/04-product/svg/collection.svg"
+                alt=""
+                onClick={() => {
+                  addCollect(+product.sid)
+                  handleClick(true)
+                }}
+              />
+            )
+          ) : (
+            <img
+              src="/04-product/svg/collection.svg"
+              alt=""
+              onClick={() => {
+                addCollect(+product.sid)
+                handleClick(true)
+              }}
+            />
+          )}
         </div>
         <div className="a-priceWrapper">
           <div className="a-productPrice">
@@ -74,7 +106,7 @@ const tempRef = useRef();
           </div>
         </div>
         <div className="a-productQuantity">
-          <p >惜食剩餘數量</p>
+          <p>惜食剩餘數量</p>
           <p className="a-quantity">{product.inventory_qty}</p>
           <p>數量</p>
 
@@ -87,7 +119,30 @@ const tempRef = useRef();
             ))}
           </select> */}
         </div>
-        <div className="a-addButton">
+        <div
+          className="a-addButton"
+          onClick={() => {
+            // const prodData = {
+            //   sid: +product.sid,
+            //   picture: `/04-product/img/${product.picture_url}`,
+            //   name: product.product_name,
+            //   price: product.unit_price,
+            //   sale_price: Math.round(
+            //     (product.unit_price * product.sale_price) / 10
+            //   ),
+            //   inventory: product.inventory_qty,
+            // }
+
+            // console.log(tempRef.current.value)
+            // shop_list_sid = +shop_list_sid
+            console.log(product.shop_list_sid)
+            handleAddCart(
+              product.shop_list_sid,
+              product.sid,
+              tempRef.current.value
+            )
+          }}
+        >
           <p>加入購物車</p>
           <img src="/04-product/svg/cart.svg" alt="" />
         </div>
@@ -96,7 +151,7 @@ const tempRef = useRef();
       }}>get Value</button> */}
       </div>
     </div>
-  );
+  )
 }
 
-export default ProductCard;
+export default ProductCard

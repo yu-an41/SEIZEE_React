@@ -6,6 +6,7 @@ import dayjs from 'dayjs'
 //import useWindowDimensions from '../components/useWindowDimensions'
 
 import CardHome from '../components/Card_home'
+import NavBar from '../../components/NavBar'
 import '../styles/ForumHome.scss'
 
 function ForumHome() {
@@ -37,20 +38,21 @@ function ForumHome() {
   //   right: Math.round((contentWidth - width) / 2),
   // }
 
- 
   const [homeCadrd, setHomeCard] = useState([
     {
       sid: '',
       member_sid: '',
       categories_sid: '',
       title: '',
+      icon: '',
       img: '',
+      mb_name: '惜食料理王',
       creat_at: '',
     },
   ])
   const getHomePostData = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/forum/all_post`)
+      const res = await axios.get(`http://localhost:3004/forum/all_post`)
       res.data.sort(() => {
         //隨機產生資料
         return Math.random() - 0.5
@@ -66,6 +68,9 @@ function ForumHome() {
   }, [])
   return (
     <>
+      <div className="p-navBar">
+        <NavBar />
+      </div>
       <div className="p-home">
         <Draggable
           axis="both"

@@ -128,10 +128,10 @@
             background: #2b325c;
             color: #fff;
             font-weight: 900;
+            text-align: center;
             text-decoration: none;
-            // text-align: center;
-            cursor: pointer;
-            padding-top: 10px;
+
+            padding-top: 12px;
 
             // border: 1px solid red;
           }
@@ -170,8 +170,10 @@
 
 @media (max-width: 991px) {
   .s-up {
-    overflow: scroll;
+    // overflow-x: fixed;
     height: 100%;
+
+    // border: 1px solid red;
 
     .s-up-card {
       height: 600px;

@@ -1,0 +1,130 @@
+.s-l-e {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  // border: 1px solid red;
+
+  .s-l-e-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 70px;
+    position: relative;
+    left: 0;
+
+    // border: 1px solid red;
+  }
+
+  .s-l-e-card {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: 0.5s;
+    padding: 15px;
+    // background: linear-gradient(45deg, #ffebbd, #ffd374f4, #faa7ec);
+
+    // border: 1px solid green;
+
+    .s-l-e-card-inside {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+
+      .s-l-e-data {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        padding: 20px 0;
+        // box-shadow: (0 6px 4px #ffebbd76);
+        background-color: #ffffff;
+
+        // border: 1px solid green;
+
+        .s-l-e-line {
+          width: 100%;
+          position: absolute;
+          /* top: 60; */
+
+          border-bottom: 1px solid black;
+        }
+
+        .s-l-e-items {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          /* border: 1px solid pink; */
+
+          .s-l-e-question {
+            margin-bottom: 20px;
+            font-size: 15px;
+            font-weight: 700;
+
+            /* border: 1px solid black; */
+          }
+
+          .s-l-e-answer {
+            font-size: 13px;
+            /* border: 1px solid blue; */
+          }
+
+          .s-mboNote1 {
+            display: block;
+            cursor: pointer;
+            text-decoration: underline;
+          }
+
+          .s-mboNote1.s-l-e-active {
+            display: none;
+          }
+
+          .s-mboNote2 {
+            display: none;
+          }
+
+          .s-mboNote2.s-l-e-active {
+            display: block;
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .s-l-e-data-error {
+        font-size: 24px;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .s-l-e-card {
+      height: 700px;
+
+      .s-l-e-card-inside {
+        .s-l-e-data {
+          width: 500px;
+        }
+      }
+    }
+  }
+
+  .s-l-e-card::-webkit-scrollbar-track {
+  }
+
+  .s-l-e-card::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .s-l-e-card::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #b1b1b1;
+  }
+}

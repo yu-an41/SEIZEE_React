@@ -7,6 +7,8 @@ import AuthContext from '../../contexts/AuthContext'
 import axios from 'axios'
 import { PROFILE_ORDERS, PROFILE_ORDERS_DETAILS } from '../../my-config'
 import dayjs from 'dayjs'
+import Navbar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function Orders() {
   // 訂單數
@@ -77,8 +79,8 @@ function Orders() {
       setMbOrderDisplayDetails(mbOrderDetals.row)
       setMbTotalOrderDetails(mbOrderDetals.row.length)
 
-      console.log(mbOrderDetals)
-      console.log(mbOrderDetals.row)
+      // console.log(mbOrderDetals)
+      // console.log(mbOrderDetals.row)
     }
   }
 
@@ -88,6 +90,7 @@ function Orders() {
     <>
       <div className="s-body-profile">
         <div className="s-container">
+          <Navbar />
           <UserProfileTmp />
           <div className="s-main-content">
             <div className="s-o">
@@ -95,9 +98,7 @@ function Orders() {
               <div className="s-o-card">
                 {/* orders */}
                 {mbTotalOrder === 0 ? (
-                  <div className="s-o-data s-o-data-error">
-                    {errorMbOrederMg}
-                  </div>
+                  <div className=" s-o-data-error">{errorMbOrederMg}</div>
                 ) : (
                   Array(mbTotalOrder)
                     .fill(mbOrderDisplay)
@@ -119,26 +120,24 @@ function Orders() {
                             <div className="s-o-line"></div>
                             <div className="s-o-items">
                               <h3 className="s-o-question">訂單日期</h3>
-                              <span className="s-o-answer" id="mboDate">
+                              <span className="s-o-answer">
                                 {day.isValid() &&
                                   day.format('YYYY-MM-DD HH:mm:ss')}
                               </span>
                             </div>
                             <div className="s-o-items">
                               <h3 className="s-o-question">訂單編號</h3>
-                              <span className="s-o-answer" id="mboNum">
+                              <span className="s-o-answer">
                                 {v[i].order_num}
                               </span>
                             </div>
                             <div className="s-o-items">
                               <h3 className="s-o-question">訂單金額</h3>
-                              <span className="s-o-answer" id="mboTotalPrice">
-                                $ {v[i].total}
-                              </span>
+                              <span className="s-o-answer">$ {v[i].total}</span>
                             </div>
                             <div className="s-o-items">
                               <h3 className="s-o-question">訂單狀態</h3>
-                              <span className="s-o-answer" id="mboStatus">
+                              <span className="s-o-answer">
                                 {v[i].order_status_name}
                               </span>
                             </div>
@@ -225,10 +224,7 @@ function Orders() {
                                           <h3 className="s-o-question-d">
                                             數量
                                           </h3>
-                                          <span
-                                            className="s-o-answer-d"
-                                            id="mbpDate"
-                                          >
+                                          <span className="s-o-answer-d">
                                             {v[i].quantity}
                                           </span>
                                         </div>
@@ -254,7 +250,9 @@ function Orders() {
             </div>
           </div>
         </div>
-        <div className="s-footer"></div>
+        <div className="s-footer">
+          <Footer />
+        </div>
       </div>
     </>
   )
