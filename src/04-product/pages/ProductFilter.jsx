@@ -3,8 +3,9 @@ import axios from "axios";
 import NavBar from "../../components/NavBar";
 import "../components/style/ProductFilter.scss";
 import YellowWave from "../../00-homepage/components/YellowWave.js";
-import ReactStars from "react-rating-stars-component";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+
+
 
 function ProductFilter() {
   //種類data

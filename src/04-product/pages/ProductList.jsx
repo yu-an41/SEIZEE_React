@@ -7,6 +7,7 @@ import ProductVideo from "../components/ProductVideo";
 import NavBar from "../../components/NavBar.js";
 import YellowWave from "../../00-homepage/components/YellowWave.js";
 import YellowWave2 from "../components/YellowWave2";
+import Footer from '../../components/Footer'
 
 // 01-cart
 import CartInfoContext from './../../01-cart/contexts/CartInfoContext'
@@ -71,6 +72,7 @@ function ProductList() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }
