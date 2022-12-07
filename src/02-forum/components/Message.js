@@ -1,13 +1,15 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../styles/Comment.scss'
 import dayjs from 'dayjs'
 import log from 'eslint-plugin-react/lib/util/log'
 import { useLocation, useParams } from 'react-router-dom'
+import AuthContext from './../../contexts/AuthContext'
 
 function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
   const params = useParams()
-  //console.log(cookInnerData)
+  const { myAuth } = useContext(AuthContext)
+  console.log(myAuth)
   const { categories_sid } = InnerCategoriesSid
   // console.log(cookInnerCategories)
   // console.log(params)
@@ -22,18 +24,25 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
   })
   //console.log(messContent.categories_sid)
   //console.log(messContent.post_sid)
-  const mbSid = JSON.parse(localStorage.getItem('auth')).mb_sid
+
+  // const mbSid = JSON.parse(localStorage.getItem('auth')).mb_sid
+
 
   const addMesage = async () => {
+    if(!myAuth.authorised){
+
+      return;
+
+    }
     const fd = new FormData()
-    fd.append('member_sid', mbSid)
+    fd.append('member_sid', myAuth.mb_sid)
     fd.append('content', messContent.content)
     fd.append('post_sid', messContent.post_sid)
     fd.append('categories_sid', messContent.categories_sid)
     //fd.append('member_sid', forumMember)
 
     console.log(
-      mbSid,
+      myAuth.mb_sid,
       messContent.content,
       messContent.post_sid,
       messContent.categories_sid
@@ -44,7 +53,7 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
 
     // console.log(data)
     if (data.success) {
-      alert('留言成功')
+      // alert('留言成功')
       //直接顯示留言無用重刷頁面
       setDoRerender(!doRerender)
     }

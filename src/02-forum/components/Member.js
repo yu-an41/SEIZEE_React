@@ -7,7 +7,10 @@ function Member({ cookMb }) {
     <>
       <div className="p-card-member">
         <div className="p-member-photo">
-          <img src={cake} alt="" />
+          <img
+            src={`http://localhost:3004/uploads/05-member/${cookMb?.mb_photo}`}
+            alt=""
+          />
         </div>
         <div className="p-memberId">
           <p>{cookMb?.mb_name}</p>

@@ -1,7 +1,8 @@
 import axios from 'axios'
 import log from 'eslint-plugin-react/lib/util/log'
 import React, { useState, useEffect, useRef, ChangeEvent } from 'react'
-import { Form } from 'react-router-dom'
+import { Form, useNavigate } from 'react-router-dom'
+import ModalNotification from '../../components/ModalNotification'
 
 import '../styles/WriteForm.scss'
 
@@ -117,6 +118,15 @@ function WriteForm({ mbsid }) {
 
   const [instrucNums, setInstrucNums] = useState(2)
   const [stepNums, setStepNums] = useState(2)
+
+  const [isOpen, setIsOpen] = useState(false)
+  //const [NotificationHeader, ]= useState('')
+
+  const navigate = useNavigate()
+  const closeModal = () => {
+    setIsOpen(false)
+    navigate('/')
+  }
   return (
     <>
       <div className="p-navBar">
@@ -452,6 +462,12 @@ function WriteForm({ mbsid }) {
       <div className="p-footer">
         <Footer />
       </div>
+      <ModalNotification
+        isOpen={isOpen}
+        //NotificationHeader={}
+       // NotificationBody={}
+        closeModal={closeModal}
+      />
     </>
   )
 }
