@@ -14,11 +14,14 @@ function Recommendation() {
       categories_sid: '',
       title: '',
       creat_at: '',
+      mb_photo: '',
+      mb_name: '惜食料理王',
+      mb_email: '',
     },
   ])
   const getRecomPostData = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/forum/all_post`)
+      const res = await axios.get(`http://localhost:3004/forum/all_post`)
       res.data.sort(() => {
         return Math.random() - 0.5
       })
@@ -61,7 +64,7 @@ function Recommendation() {
                   <h3>{v.title}</h3>
                 </Link>
                 <div className="p-recomMember">
-                  <p className="p-memberName">惜食料理王</p>
+                  <p className="p-memberName">{v.mb_name}</p>
                   <p>{dayjs(v.creat_at).format('YYYY-MM-DD')}</p>
                 </div>
               </div>

@@ -4,6 +4,8 @@ import LikeLabels from '../components/LikeLabels'
 // import img from '../../00-homepage/images/01cover.jpg'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import Navbar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function LikesShop() {
   const [likeShops, setLikeShops] = useState([])
@@ -40,6 +42,7 @@ function LikesShop() {
     <>
       <div className="s-body-profile">
         <div className="s-container">
+          <Navbar />
           <UserProfileTmp />
           <div className="s-main-content">
             <div className="s-l-s">
@@ -98,7 +101,9 @@ function LikesShop() {
             </div>
           </div>
         </div>
-        <div className="s-footer"></div>
+        <div className="s-footer">
+          <Footer />
+        </div>
       </div>
     </>
   )

@@ -183,6 +183,7 @@ function UserSign() {
       // console.log(data);
       console.log(errorMgE)
       console.log(!errorMgE)
+
       if (data.success) {
         openModal()
         setHeaderMg('註冊')
@@ -209,7 +210,7 @@ function UserSign() {
   function closeModal() {
     setIsOpen(false)
 
-    if (bodyMg === '登入成功' || '註冊成功') {
+    if (bodyMg === '登入成功' || bodyMg === '註冊成功') {
       navigate('/')
     }
   }

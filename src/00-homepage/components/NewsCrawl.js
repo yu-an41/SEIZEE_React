@@ -102,12 +102,12 @@ function NewsCrawl() {
           <p>「友善商家推薦」：</p>
         </div>
         <div className="y-news-content">
-          {/* <a
+          <a
             href={`/forum/store/inner/${newsCrawlData.shopNewsRow.sid}`}
             alt="news"
           >
             {newsCrawlData.shopNewsRow.title}
-          </a> */}
+          </a>
         </div>
       </div>
     </div>

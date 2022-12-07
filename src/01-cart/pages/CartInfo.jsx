@@ -29,6 +29,14 @@ import ShopCover from './../images/01cover.jpg'
 
 function CartInfo() {
   const { cartItem, setCartItem } = useContext(CartInfoContext)
+
+  const page = document.location.href
+
+  // const [cartMbSid, setCartMbSid] = useState(0)
+  // 結帳按鈕驗證
+  // if (localStorage.getItem('auth')) {
+  //   setCartMbSid(+localStorage.getItem('auth').mb_sid)
+  // }
   return (
     <>
       <div className="y-CartInfo-container">
@@ -67,27 +75,71 @@ function CartInfo() {
             <p className="y-Cart-tab y-Cart-pickup-tab">取餐方式</p>
             <div className="y-Cart-main y-Cart-pickup-main">
               <div className="y-Cart-pickup-radio">
-                
+                <label
+                  htmlFor="y-pickup-way-self"
+                  className="y-pickup-way-options y-pickup-radio-labels"
+                >
+                  店內自取
+                </label>
+                <input
+                  id="y-pickup-way-self"
+                  type="radio"
+                  name="pickup_way"
+                  value={1}
+                />
+                <label
+                  htmlFor="y-pickup-way-shop"
+                  className="y-pickup-way-options y-pickup-radio-labels"
+                >
+                  店家配送
+                </label>
+                <input
+                  id="y-pickup-way-shop"
+                  type="radio"
+                  name="pickup_way"
+                  value={2}
+                  disabled
+                />
+                <span className="y-pickup-notice">暫不提供此選項</span>
               </div>
-              
             </div>
           </div>
-          <div className="y-Cart-rec  y-Cart-sections">
-            <p className="y-Cart-tab y-Cart-rec-tab">付款方式</p>
-            <div className="y-Cart-main y-Cart-pickup-main">
-              <div className="y-Cart-rec-top"></div>
-              <div className="y-Cart-rec-bottom">
-                <div className="y-Cart-rec-row"></div>
-              </div>
+          <div className="y-Cart-pay  y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-pay-tab">付款方式</p>
+            <div className="y-Cart-main y-Cart-pay-main">
+              <div className="y-Cart-pay-top"></div>
+              <div className="y-Cart-pay-bottom"></div>
             </div>
           </div>
-          <div className="y-Cart-rec  y-Cart-sections">
-            <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
-            <div className="y-Cart-rec-top">
-              <div className="y-Cart-rec-top"></div>
-              <div className="y-Cart-rec-bottom">
-                <div className="y-Cart-rec-row"></div>
-              </div>
+          <div className="y-Cart-member  y-Cart-sections">
+            <p className="y-Cart-tab y-Cart-member-tab">取餐資訊</p>
+            <div className="y-Cart-main y-Cart-member-main">
+              <ul className="y-Cart-member-info">
+                <li className="y-Cart-member-details y-Cart-member-left">
+                  訂購人：
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-right">
+                  member name
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-left">
+                  取餐店家：
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-right">
+                  shop name
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-left">
+                  取餐時間：
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-right">
+                  shop pickup
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-left">
+                  取餐位址：
+                </li>
+                <li className="y-Cart-member-details y-Cart-member-right">
+                  shop address
+                </li>
+              </ul>
             </div>
           </div>
           <div className="y-Cart-details y-Cart-sections">
@@ -114,10 +166,17 @@ function CartInfo() {
               </p>
               <div className="y-Cart-details-btns">
                 <div className="y-continue-shopping-wrap">
-                  <ContinueShoppingBtn />
+                  <ContinueShoppingBtn linkTo={`http://localhost:3000/cart`} />
                 </div>
                 <div className="y-cart-pay-wrap">
-                  <GoPayBtn />
+                  <GoPayBtn
+                    mbsid={
+                      localStorage.getItem('auth')
+                        ? localStorage.getItem('auth').mb_sid
+                        : 0
+                    }
+                    cartItem={cartItem}
+                  />
                 </div>
               </div>
             </div>
@@ -125,9 +184,7 @@ function CartInfo() {
         </div>
         <div className="y-Cart-bottom">
           <YellowWaveReverse />
-          <div className="y-Cart-news">
-            {/* <NewsCrawl /> */}
-          </div>
+          <div className="y-Cart-news">{/* <NewsCrawl /> */}</div>
           <div className="y-cart-footer">
             <Footer />
           </div>

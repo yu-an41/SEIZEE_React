@@ -5,6 +5,8 @@ import axios from 'axios'
 import { checkEmpty } from './data/UserSign_valid'
 import { useNavigate } from 'react-router-dom'
 import ModalNotification from '../components/ModalNotification'
+import LoadingOverlay from 'react-loading-overlay'
+import ClockLoader from 'react-spinners/ClockLoader'
 
 function ForgotPass() {
   const [forgotFD, setForgotFD] = useState({
@@ -83,7 +85,45 @@ function ForgotPass() {
 
   return (
     <>
-      <div className="s-body-forgotpass">
+      <LoadingOverlay active={true} spinner={<ClockLoader color="red" />}>
+        <div className="s-body-forgotpass">
+          <div className="s-fp-container">
+            <div className="s-fp-forgotBx">
+              <form action="" onSubmit={forgotSubmit} className="s-fp-form">
+                <h2 className="s-fp-h2">忘記密碼?</h2>
+                <h3 className="s-fp-h3">
+                  請在下面輸入您的電子郵件地址，我們將重設密碼的連結寄給您。
+                </h3>
+                <label htmlFor="mbfEmail" className="s-fp-label">
+                  電子郵件<span style={{ color: 'red' }}> *</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="請輸入電子郵件"
+                  id="mbfEmail"
+                  onChange={forgotHandler}
+                  onBlur={checkForgotEmail}
+                  className="s-fp-input"
+                />
+                <div
+                  className="s-fp-errorMg"
+                  style={{ color: 'red' }}
+                  id="mblEmail_error"
+                >
+                  {errorMgF}
+                </div>
+                <input
+                  type="submit"
+                  value="發送重送連結"
+                  className="s-fp-input s-fp-forgotSubmit"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </LoadingOverlay>
+
+      {/* <div className="s-body-forgotpass">
         <div className="s-fp-container">
           <div className="s-fp-forgotBx">
             <form action="" onSubmit={forgotSubmit} className="s-fp-form">
@@ -117,7 +157,7 @@ function ForgotPass() {
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <ModalNotification
         closeModal={closeModal}

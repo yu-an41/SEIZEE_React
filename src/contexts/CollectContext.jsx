@@ -49,7 +49,7 @@ export const CollectContextProvider = ({ children }) => {
      for (let i = 0; i < collect.length; i++) {
        collectNum.push(collect[i].p_sid);
      }
-     console.log({collectNum});
+    //  console.log({collectNum});
      setCollectionNum(collectNum);
      // console.log(collectNum)
    };
@@ -80,6 +80,7 @@ export const CollectContextProvider = ({ children }) => {
       `http://localhost:3004/product/delete?sid=${food_product_sid}&mb_sid=${mb_sid}`
     );
     const a = collectionNum.filter((e)=> e !== food_product_sid)
+
     // console.log(a)
     setCollectionNum(a)
     // setCollectList(newcollection);
@@ -103,6 +104,10 @@ export const CollectContextProvider = ({ children }) => {
 
   //把狀態無限傳給小孩（商品細節頁需要）
   const handleClick = isHeart => { setCollection(isHeart) }
+
+  useEffect(() => {
+    getCollectList();
+  }, []);
 
   useEffect(() => {
     getCollectList();

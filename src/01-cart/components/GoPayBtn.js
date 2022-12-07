@@ -4,13 +4,12 @@ import dayjs from 'dayjs'
 import CartInfoContext from '../contexts/CartInfoContext'
 import './../styles/GoPayBtn.scss'
 
-function GoPayBtn({ cartItem }) {
+function GoPayBtn({ cartItem, mbsid }) {
   const { handleEmptyCart, checkCartEmpty, emptyCart, setEmptyCart } =
     useContext(CartInfoContext)
 
   const GoPay = async () => {
-    const mb_sid = localStorage.getItem('auth').mb_sid
-    if (!!mb_sid) {
+    if (!!mbsid) {
       if (!emptyCart) {
         const order_num = dayjs(new Date()).format('YYYYMMDDHHmmss')
         console.log(order_num)
