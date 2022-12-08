@@ -63,6 +63,7 @@ function PostCook() {
     const res2 = await axios.get(
       `http://localhost:3004/forum/forum_likes?mid=${mbSid}`
     )
+    //挑選食材選項
     if (res2.data.success) {
       let likeObj = {}
       if (res2.data.rows && res2.data.rows.length) {
@@ -81,16 +82,16 @@ function PostCook() {
   const min = Math.min(postNums, cookPostData.length)
 
   // member sid
-  const [forumMember, setForumMember] = useState(0)
-  const checkMemeber = (e) => {
-    e.preventDefault()
-    if (localStorage.getItem('auth')) {
-      setForumMember(+localStorage.getItem('auth').mb_sid)
-    } else {
-      alert('請先註冊/登入')
-      return null
-    }
-  }
+  // const [forumMember, setForumMember] = useState(0)
+  // const checkMemeber = (e) => {
+  //   e.preventDefault()
+  //   if (localStorage.getItem('auth')) {
+  //     setForumMember(+localStorage.getItem('auth').mb_sid)
+  //   } else {
+  //     alert('請先註冊/登入')
+  //     return null
+  //   }
+  // }
   return (
     <>
       <div className="p-navBar">
@@ -144,9 +145,9 @@ function PostCook() {
           </div>
           <div
             className="p-writWrap"
-            onClick={(e) => {
-              checkMemeber(e)
-            }}
+            // onClick={(e) => {
+            //   checkMemeber(e)
+            // }}
           >
             <WriteBtn />
           </div>

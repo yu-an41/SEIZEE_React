@@ -30,6 +30,7 @@ import InnerShare from './02-forum/pages/Inner_share'
 import InnerStore from './02-forum/pages/Inner_store'
 import InnerOfficial from './02-forum/pages/Inner_official'
 import WriteForm from './02-forum/pages/WriteForm'
+import MyPost from './02-forum/pages/MyPost'
 
 // 03-shop
 import ShopList from './03-shop/pages/03-shop-list'
@@ -95,6 +96,7 @@ function App() {
                     element={<InnerOfficial />}
                   />
                   <Route path="writeForm" element={<WriteForm />} />
+                  <Route path="myPost" element={<MyPost />} />
                 </Route>
 
                 {/* 03-shop */}
