@@ -39,7 +39,7 @@ function GoPayBtn({ pickup, pay }) {
 
   const GoPay = async () => {
     if (myAuth.authorised) {
-      // const order_num = dayjs(new Date()).format('YYYYMMDDHHmmss')
+      const ordernum = dayjs(new Date()).format('YYYYMMDDHHmmss')
       // console.log(order_num)
       const mid = myAuth.mb_sid
 
@@ -62,21 +62,23 @@ function GoPayBtn({ pickup, pay }) {
       if (pay === 1) {
         const res = await axios.post(
           // `http://localhost:3004/cart/add-order/${mid}`,
-          `http://localhost:3004/cart/linepay/${mid}`,
+          `http://localhost:3004/cart/linepay/${ordernum}?mid=${mid}`,
           cartItem
         )
-        console.log('GoPay', res.data)
+        console.log(`Pay coded: ${pay}`, res.data)
 
-        localStorage.setItem('cartItem', JSON.stringify(emptyCart))
-        setEmptyCart(true)
-        console.log('LINE Pay付款，購物車已清空')
+        // const confirm = await axios.get(`${res.data.url}`)
+        if (res.data.success) {
+          navigate('/cart/done')
+          console.log('LINE Pay付款成功，導向訂單完成頁')
+        }
       } else if (pay === 2) {
         const res = await axios.post(
           // `http://localhost:3004/cart/add-order/${mid}`,
           `http://localhost:3004/cart/linepay/${mid}`,
           cartItem
         )
-        console.log('GoPay', res.data)
+        // console.log('GoPay', res.data)
         localStorage.setItem('cartItem', JSON.stringify(emptyCart))
         setEmptyCart(true)
         console.log('TapPay付款，購物車已清空')
