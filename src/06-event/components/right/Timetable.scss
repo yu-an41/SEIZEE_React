@@ -34,7 +34,7 @@ $colorLine: #cecece;
     width: 100%;
     top: 900px;
     height: 1vh;
-    outline: 2px solid red;
+    // outline: 2px solid red;
   }
   .j-Rwave {
     position: fixed;
@@ -46,7 +46,7 @@ $colorLine: #cecece;
     @media (max-width: 390px) {
       width: 100%;
       transform: rotate(90deg);
-      outline: 2px teal solid;
+      // outline: 2px teal solid;
       transform: rotate(-90deg);
     }
   }
@@ -136,40 +136,42 @@ $colorLine: #cecece;
         // outline: 1px solid black;
         overflow: hidden;
         .j-sayhi1 {
-          outline: 1px solid black;
+          // outline: 1px solid black;
           font-weight: 700;
           width: 1000px;
           font-size: 3rem;
           position: absolute;
           top: 38px;
+          right: -1000px;
           color: $colorWhite;
-          animation: 35s taskede infinite;
-          right: -900px;
+          animation: 20s taskede infinite linear;
+          
           @keyframes taskede {
             0% {
               right: -1000px;
             }
             100% {
-              right: 200px;
+              right: 750px;
             }
           }
         }
         .j-sayhi2 {
-          outline: 1px solid black;
+          // outline: 1px solid black;
           font-weight: 700;
           width: 1000px;
           font-size: 3rem;
           position: absolute;
           top: 38px;
+          right: -1000px;
           color: $colorWhite;
-          animation: 35s taskede infinite;
-          right: -900px;
+          animation: 20s taskede infinite linear;
+          animation-delay: 9.8s;
           @keyframes taskede {
             0% {
               right: -1000px;
             }
             100% {
-              right: 200px;
+              right: 900px;
             }
           }
         }
@@ -335,7 +337,7 @@ $colorLine: #cecece;
           transform: translateY(5px);
           color: $colorWhite;
           box-shadow: 0 5px #666;
-          background-color: #e24f4f;
+          background-color: #976969;
         }
       }
     }

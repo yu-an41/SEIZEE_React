@@ -29,7 +29,7 @@ import InnerCook from './02-forum/pages/Inner_cook'
 import InnerShare from './02-forum/pages/Inner_share'
 import InnerStore from './02-forum/pages/Inner_store'
 import InnerOfficial from './02-forum/pages/Inner_official'
-import WriteForm from './02-forum/pages/WriteForm'
+// import WriteForm from './02-forum/pages/WriteForm'
 
 // 03-shop
 import ShopList from './03-shop/pages/03-shop-list'
@@ -94,7 +94,7 @@ function App() {
                     path="official/inner/:sid"
                     element={<InnerOfficial />}
                   />
-                  <Route path="writeForm" element={<WriteForm />} />
+                  {/* <Route path="writeForm" element={<WriteForm />} /> */}
                 </Route>
 
                 {/* 03-shop */}
@@ -127,14 +127,11 @@ function App() {
                 </Route>
 
                 {/* 06-event */}
-<<<<<<< HEAD
-=======
                 {/* <Route path="/top" element={<Top />} />
                 <Route path="/events" element={<Events />} />
                 <Route path="/schedule" element={<Schedule />} />
                 <Route path="/map" element={<Map />} />
                 <Route path="/ticket" element={<Ticket />} /> */}
->>>>>>> 202a4272e1f2dd2cadb711580b15407144401c77
                 <Route path="/event" element={<Eventrender />} />
               </Routes>
             </TimeTableProvider>

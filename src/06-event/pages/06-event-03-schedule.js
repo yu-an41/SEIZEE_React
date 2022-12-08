@@ -3,11 +3,12 @@ import React, { Fragment, useEffect, useState } from 'react'
 
 import jStar from '../svg/star.svg'
 import jHeart from '../svg/heart-none.svg'
+import jEmptyHeart from '../svg/heart-none.svg'
 import Eventcard from '../components/Eventcard/Eventcard'
 import Emptycard from '../components/Emptycard/Emptycard'
 
-function Schedule({ origins }) {
-  
+function Schedule({ origins, likes, setLikes }) {
+  console.log({ likes })
   return (
     <>
       <div className="j-event-middle-schedule">
@@ -112,12 +113,12 @@ function Schedule({ origins }) {
                   .map((cat, i) => (
                     <Fragment key={cat.sid}>
                       <Eventcard
+                        likes={likes}
                         cat={cat}
                         time={cat.time}
                         name={cat.name}
                         nick={cat.nick}
                         color={cat.color}
-                        like={cat.like}
                       />
                       <Emptycard />
                     </Fragment>
@@ -128,16 +129,17 @@ function Schedule({ origins }) {
                 {origins
                   .filter((e) => e.cate === 2)
                   .map((cat, i) => (
-                    <>
+                    <Fragment key={cat.sid}>
                       <Emptycard />
                       <Eventcard
+                        likes={likes}
                         cat={cat}
                         time={cat.time}
                         name={cat.name}
                         nick={cat.nick}
                         color={cat.color}
                       />
-                    </>
+                    </Fragment>
                   ))}
                 <div className="j-big-bottom"></div>
               </div>
@@ -145,8 +147,9 @@ function Schedule({ origins }) {
                 {origins
                   .filter((e) => e.cate === 3)
                   .map((cat, i) => (
-                    <>
+                    <Fragment key={cat.sid}>
                       <Eventcard
+                        likes={likes}
                         cat={cat}
                         time={cat.time}
                         name={cat.name}
@@ -154,7 +157,7 @@ function Schedule({ origins }) {
                         color={cat.color}
                       />
                       <Emptycard />
-                    </>
+                    </Fragment>
                   ))}
                 <div className="j-big-bottom"></div>
               </div>
@@ -162,16 +165,17 @@ function Schedule({ origins }) {
                 {origins
                   .filter((e) => e.cate === 4)
                   .map((cat, i) => (
-                    <>
+                    <Fragment key={cat.sid}>
                       <Emptycard />
                       <Eventcard
+                        likes={likes}
                         cat={cat}
                         time={cat.time}
                         name={cat.name}
                         nick={cat.nick}
                         color={cat.color}
                       />
-                    </>
+                    </Fragment>
                   ))}
                 <div className="j-big-bottom"></div>
               </div>
@@ -179,8 +183,9 @@ function Schedule({ origins }) {
                 {origins
                   .filter((e) => e.cate === 5)
                   .map((cat, i) => (
-                    <>
+                    <Fragment key={cat.sid}>
                       <Eventcard
+                        likes={likes}
                         cat={cat}
                         time={cat.time}
                         name={cat.name}
@@ -188,7 +193,7 @@ function Schedule({ origins }) {
                         color={cat.color}
                       />
                       <Emptycard />
-                    </>
+                    </Fragment>
                   ))}
                 <div className="j-big-bottom"></div>
               </div>

@@ -187,6 +187,9 @@ body {
         // outline: 1px solid black;
         color: $colorWhite;
         font-size: 5rem;
+        @media (max-width: 390px){
+          display: none;
+        }
       }
       @media (max-width: 390px) {
         transform: scale(0.3);
@@ -212,6 +215,9 @@ body {
         // outline: 1px solid black;
         color: $colorWhite;
         font-size: 5rem;
+        @media (max-width: 390px){
+          display: none;
+        }
       }
       @media (max-width: 390px) {
         transform: scale(0.3);
@@ -237,6 +243,9 @@ body {
         // outline: 1px solid black;
         color: $colorWhite;
         font-size: 5rem;
+        @media (max-width: 390px){
+          display: none;
+        }
       }
       @media (max-width: 390px) {
         transform: scale(0.3);
@@ -262,6 +271,9 @@ body {
         // outline: 1px solid black;
         color: $colorWhite;
         font-size: 5rem;
+        @media (max-width: 390px){
+          display: none;
+        }
       }
       @media (max-width: 390px) {
         transform: scale(0.3);
@@ -293,7 +305,7 @@ body {
     @media (max-width: 390px) {
       padding: 15px 15px;
       position: absolute;
-      top: 220px;
+      top: 210px;
     }
     .j-lego {
       display: grid;
@@ -377,7 +389,7 @@ body {
       .j-card-sold {
         grid-area: sold;
         border-radius: 15px;
-        padding: 13px 20%;
+        padding: 13px 10%;
         font-size: 4rem;
         font-weight: 900;
         text-align: center;

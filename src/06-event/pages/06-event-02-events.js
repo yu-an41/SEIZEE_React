@@ -12,13 +12,16 @@ import { useTimeTable } from './../context/useTimeTable'
 import axios from 'axios'
 
 function CategoryTab(props) {
-  const { text, activeCat, catIndex, handleSwitchCat } = props
+  const { text, activeCat, catIndex, handleSwitchCat, setEpage, setJmactive } =
+    props
 
   return (
     <li>
       <div
         onClick={() => {
           handleSwitchCat(catIndex)
+          // setEpage(1)
+          setJmactive(1)
         }}
         className={activeCat === catIndex ? 'cactive' : ''}
       >
@@ -28,7 +31,7 @@ function CategoryTab(props) {
   )
 }
 
-function Events({ origins }) {
+function Events({ origins, likes, setLikes }) {
   const [cate, setCate] = useState(1)
   const [epage, setEpage] = useState(1)
   const [cateRow, setCateRow] = useState([])
@@ -38,15 +41,26 @@ function Events({ origins }) {
   const [registeredNum, setRegisteredNum] = useState(0)
   const { timeTable, removeTimeTable, setWhichHover } = useTimeTable()
   const [likeImg, setLikeImg] = useState(jEmptyHeart)
+  const [eventSid, setEventSid] = useState(0)
 
   const onAddLike = async (cateRow) => {
     console.log('cateRow', cateRow)
     try {
-      const res = await axios.post(`http://localhost:3004/event/event-add`, {
+      const res = await axios.post(`http://localhost:3004/event/event_toggle`, {
         memberSid: 1,
         eventSid: cateRow.sid,
       })
-      setLikeImg(jHeart)
+      if (res.data.msg === 'insert') {
+        // console.log('likes!!!!', likes)
+        const ori = { ...likes, [eventSid]: 1 }
+        setLikes(ori)
+        setLikeImg(jHeart)
+      } else {
+        const ori = { ...likes }
+        delete ori[eventSid]
+        setLikes(ori)
+        setLikeImg(jEmptyHeart)
+      }
     } catch (err) {
       console.log(err.message)
     }
@@ -69,6 +83,21 @@ function Events({ origins }) {
     })
     setCateRow(new_row)
   }, [cate, origins, timeTable])
+
+  useEffect(() => {
+    let event_sid = 0
+    if (cateRow && cateRow[epage - 1] && cateRow[epage - 1].sid)
+      event_sid = cateRow[epage - 1].sid
+    setEventSid(event_sid)
+
+    if (likes[event_sid]) {
+      setLikeImg(jHeart)
+    } else {
+      setLikeImg(jEmptyHeart)
+    }
+    // setLikeImg
+    console.log({ event_sid })
+  }, [likes, cateRow, epage])
 
   useEffect(() => {
     // getRegeistered()
@@ -219,7 +248,7 @@ function Events({ origins }) {
                     {/* {registeredNum} */}
                     {/* {cateRow[epage - 1].maximum} */}
                     {/* <img src={jHeart} alt="" /> */}
-                    報名額滿
+                    熱烈報名中
                   </div>
                 </span>
               </div>

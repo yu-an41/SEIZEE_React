@@ -47,6 +47,13 @@ html {
   z-index: -10;
   animation: moveUp 1s ease-out;
   animation-delay: 1s;
+  @media (max-width: 390px) {
+    width: 100vw;
+    right:0;
+    top:-10%;
+    height: 130vh;
+
+  }
 }
 @keyframes moveUp {
   0% {
@@ -79,6 +86,11 @@ html {
     @include size(100px, 200px);
     transform-origin: 50% 50%;
     animation: jump 0.3s linear alternate infinite;
+    @media (max-width: 390px){
+      @include size(60px, 120px);
+      position: absolute;
+      left: 90%;
+    }
     @keyframes jump {
       0% {
         transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
@@ -91,14 +103,10 @@ html {
       }
     }
     // outline: white 1px solid;
-    @media (max-width: 390px) {
-      @include position(-20%, 100%);
-      @include size(40px, 80px);
-    }
     img {
       width: 100%;
       @media (max-width: 390px) {
-        width: 100%;
+        width: 90%;
       }
     }
   }

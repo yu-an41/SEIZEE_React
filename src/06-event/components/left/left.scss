@@ -58,7 +58,7 @@ body {
     @include size(280px, 100vh);
     background-color: $colorYellow;
     padding-left: 20px;
-    outline: 2px black solid;
+    // outline: 2px black solid;
     @media (max-width: 390px) {
       @include size(100vw, 100px);
       // outline: 2px black solid;
@@ -125,7 +125,7 @@ body {
               }
               50% {
                 // transform: rotate(0deg);
-                transform: scale(1);
+                transform: scale(1.1);
               }
               75% {
                 // transform: rotate(-10deg);

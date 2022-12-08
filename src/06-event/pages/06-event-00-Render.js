@@ -20,6 +20,7 @@ function Eventrender() {
   const { timeTable, removeTimeTable, setTimeTable } = useTimeTable()
 
   const [origins, setOrigins] = useState([])
+  const [likes, setLikes] = useState({})
   useEffect(() => {
     const getEventData = async () => {
       try {
@@ -35,8 +36,28 @@ function Eventrender() {
         console.log(error.message)
       }
     }
+    const getEventLikes = async () => {
+      try {
+        const res = await axios.post(
+          'http://localhost:3004/event/all_event_likes',
+          {
+            memberSid: 1,
+          }
+        )
+        const likesData = res.data
+        const prevLikes = {}
+        for (let i of likesData) {
+          prevLikes[i.event_sid] = 1
+        }
+        setLikes(prevLikes)
+        console.log('preeeevliikes', { prevLikes })
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
 
     getEventData()
+    getEventLikes()
   }, [])
 
   useEffect(() => {
@@ -50,7 +71,7 @@ function Eventrender() {
       {/* <div className="j-sides"> */}
       <NavBar />
       <Left setNowPage={setNowPage} />
-      <NowComponents origins={origins} />
+      <NowComponents origins={origins} likes={likes} setLikes={setLikes} />
       <Timetable />
       {/* </div> */}
     </>

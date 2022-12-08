@@ -1,13 +1,30 @@
 import React from 'react'
 import './Eventcard.scss'
-import jHeart from './../../svg/heart-none.svg'
+import jEmptyHeart from './../../svg/heart-none.svg'
+import jHeart from './../../svg/full-heart.svg'
 import { useTimeTable } from '../../context/useTimeTable'
+import { useState, useEffect } from 'react'
 
-function Eventcard({ time, name, nick, color, cat, like }) {
+function Eventcard({ time, name, nick, color, cat, likes }) {
   const { handleAddTimeTable, timeTable } = useTimeTable()
-
   const names = timeTable.map((v) => v.name)
 
+  // const [likeImg, setLikeImg] = useState(jEmptyHeart)
+  // console.log('likes!!!!', likes)
+  // console.log('origins!!!!', origins)
+  // useEffect(() => {
+  //   let event_sid = 0
+  //   // if (cateRow && cateRow[epage - 1] && cateRow[epage - 1].sid)
+  //   //   event_sid = cateRow[epage - 1].sid
+  //   // setEventSid(event_sid)
+  //   if (likes[event_sid]) {
+  //     setLikeImg(jHeart)
+  //   } else {
+  //     setLikeImg(jEmptyHeart)
+  //   }
+  //   // setLikeImg
+  //   console.log({ event_sid })
+  // }, [likes])
   return (
     <div
       className="j-card-lines"
@@ -23,7 +40,7 @@ function Eventcard({ time, name, nick, color, cat, like }) {
             {time}
           </div>
           <div class="j-schedule-card-heart" style={{ background: `${color}` }}>
-            <img src={jHeart} alt="" />
+            <img src={likes && likes[cat.sid] ? jHeart : jEmptyHeart} alt="" />
           </div>
         </div>
         <div class="j-schedule-card-name">
