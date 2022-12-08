@@ -6,7 +6,7 @@ $text-shadow: #e4e4e4;
 $cate-btn: #fce38c;
 $main-orange: #ff8200;
 $card-btn: #80b938;
-// $isLoading: #ffeeb2;
+
 
 .r-card-wrap {
   padding-top: 60px;
@@ -43,7 +43,7 @@ $card-btn: #80b938;
           writing-mode: vertical-lr;
           letter-spacing: 0.8rem;
         }
-        i{
+        i {
           position: absolute;
           top: 10px;
           right: 10px;
@@ -175,23 +175,11 @@ $card-btn: #80b938;
         }
       }
     }
-    // .r-card-container:hover {
-    //   background-color: $main-Blue;
-    //   box-shadow: 10px 10px 5px gray;
 
-    //   h2 {
-    //     color: #fff;
-    //     text-shadow: none;
-    //   }
-    //   p {
-    //     color: #fff;
-    //   }
-    //   span {
-    //     color: #fff;
-    //   }
-    //   i {
-    //     color: #fff;
-    //   }
-    // }
+  }
+  .r-pageno-found {
+    font-size: 24px;
+    letter-spacing: 0.3rem;
+    color: #333;
   }
 }

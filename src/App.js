@@ -11,6 +11,7 @@ import ModalNotification from './components/ModalNotification'
 
 // 00-homepage
 import Homepage from './00-homepage/pages/Homepage'
+import Gachapon from './00-homepage/components/Gachapon'
 
 // 01-cart
 import CartList from './01-cart/pages/CartList'
@@ -74,6 +75,7 @@ function App() {
               <Routes>
                 {/* 00-homepage */}
                 <Route path="/" element={<Homepage />} />
+                <Route path="/gachapon" element={<Gachapon />} />
 
                 {/* 01-cart */}
                 <Route path="/cart/">
