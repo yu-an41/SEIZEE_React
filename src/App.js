@@ -38,8 +38,8 @@ import ShopList from './03-shop/pages/03-shop-list'
 // 04-product
 import ProductList from './04-product/pages/ProductList'
 import ProductDetail from './04-product/pages/ProductDetail'
-// import ProductFilter from './04-product/pages/ProductFilter'
-// import Products from './04-product/pages/Products'
+import ProductFilter from './04-product/pages/ProductFilter'
+import Products from './04-product/pages/Products'
 
 // 05-member
 import UserSign from './05-member/UserSign'
@@ -58,8 +58,8 @@ import Orders from './05-member/profile-pages/Orders'
 
 // 06-event
 //event要用的context
-import { TimeTableProvider } from './06-event/context/useTimeTable'
-import Top from './06-event/pages/06-event-01-top'
+// import { TimeTableProvider } from './06-event/context/useTimeTable'
+// import Top from './06-event/pages/06-event-01-top'
 import Eventrender from './06-event/pages/06-event-00-Render'
 
 function App() {
@@ -68,7 +68,7 @@ function App() {
       <BrowserRouter>
         <MyContextProviders>
           <CollectContextProvider>
-            <TimeTableProvider>
+            {/* <TimeTableProvider> */}
               {/* <ModalConfirm /> */}
               <Routes>
                 {/* 00-homepage */}
@@ -108,8 +108,8 @@ function App() {
                   element={<ProductList />}
                 />
                 <Route path="/product/:sid" element={<ProductDetail />} />
-                {/* <Route path="/productFilter/" element={<ProductFilter />} /> */}
-                {/* <Route path="/products/" element={<Products />} /> */}
+                <Route path="/productFilter/" element={<ProductFilter />} />
+                <Route path="/products/" element={<Products />} />
 
                 {/* 05-member */}
                 <Route path="/login" element={<UserSign />} />
@@ -136,7 +136,7 @@ function App() {
                 <Route path="/ticket" element={<Ticket />} /> */}
                 <Route path="/event" element={<Eventrender />} />
               </Routes>
-            </TimeTableProvider>
+            {/* </TimeTableProvider> */}
           </CollectContextProvider>
         </MyContextProviders>
       </BrowserRouter>

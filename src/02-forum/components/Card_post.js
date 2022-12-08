@@ -8,7 +8,10 @@ import Tag from './Tag'
 import post from './../p-imgs/post.jpeg'
 import cake from './../../dotown/cake.png'
 import heartNormal from './../p-imgs/pixel-heartNormal.svg'
+import heartClick from './../p-imgs/pixel-heartClick.svg'
+
 import ForumCollectContext from '../../contexts/02-forum-lovePost'
+import Member from './Member'
 
 export function Card_cook({ postData, heart }) {
   const [solid, setSolid] = useState(false)
@@ -37,7 +40,7 @@ export function Card_cook({ postData, heart }) {
   //   handleClick,
   // } = useContext(ForumCollectContext)
   const t = categories_sid + '_' + sid
-  console.log({ solid, t, heart })
+ // console.log({ solid, t, heart })
 
   const cateMap = {
     1: '/forum/official/inner/',
@@ -84,66 +87,37 @@ export function Card_cook({ postData, heart }) {
 
           <div className="p-infor-wrap">
             <div className="p-card-member">
-              <div className="p-member-photo">
+              {/* <div className="p-member-photo">
                 <img src={cake} alt="" />
               </div>
               <div className="p-memberId">
                 <p>{mb_name}</p>
                 <p>{mb_email}</p>
-              </div>
+              </div> */}
+              <Member cookMb={postData}/>
             </div>
             <div className="p-day-wrap">
               <p className="p-day">{dayjs(creat_at).format('YYYY.MM.DD')}</p>
 
-              {solid ? (
-                <img
-                  src="/04-product/svg/heart.svg"
-                  alt=""
-                  onClick={() => {
-                    changeLike()
-                  }}
-                />
-              ) : (
-                <img
-                  src="/04-product/svg/collection.svg"
-                  alt=""
-                  onClick={() => {
-                    changeLike()
-                  }}
-                />
-              )}
-              {/* <div className="p-like-wrap">
-                {collectionNum.length > 0 ? (
-                  collectionNum.includes(sid) ? (
-                    <img
-                      src="/04-product/svg/heart.svg"
-                      alt=""
-                      onClick={() => {
-                        delCollect(sid)
-                        handleClick(false)
-                      }}
-                    />
-                  ) : (
-                    <img
-                      src="/04-product/svg/collection.svg"
-                      alt=""
-                      onClick={() => {
-                        addCollect(+sid)
-                        handleClick(true)
-                      }}
-                    />
-                  )
-                ) : (
+              <div className="p-like-wrap">
+                {solid ? (
                   <img
-                    src="/04-product/svg/collection.svg"
+                    src={heartClick}
                     alt=""
                     onClick={() => {
-                      addCollect(+sid)
-                      handleClick(true)
+                      changeLike()
+                    }}
+                  />
+                ) : (
+                  <img
+                    src={heartNormal}
+                    alt=""
+                    onClick={() => {
+                      changeLike()
                     }}
                   />
                 )}
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
@@ -261,6 +235,7 @@ export function Card_store({ postData }) {
                   <p>{mb_name}</p>
                   <p>{shop_phone}</p>
                 </div>
+              
               </div>
               <div className="p-day-wrap">
                 <p className="p-day">{dayjs(creat_at).format('YYYY.MM.DD')}</p>
@@ -315,13 +290,14 @@ export function Card_share({ postData }) {
 
             <div className="p-infor-wrap">
               <div className="p-card-member">
-                <div className="p-member-photo">
+                {/* <div className="p-member-photo">
                   <img src={cake} alt="" />
                 </div>
                 <div className="p-memberId">
                   <p>{mb_name}</p>
                   <p>{mb_email}</p>
-                </div>
+                </div> */}
+                <Member cookMb={postData}/>
               </div>
               <div className="p-day-wrap">
                 <p className="p-day">{dayjs(creat_at).format('YYYY.MM.DD')}</p>

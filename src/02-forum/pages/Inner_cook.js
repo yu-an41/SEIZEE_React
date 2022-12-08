@@ -158,11 +158,15 @@ function InnerCook() {
               </ul>
             </div>
           </div>
-          <div className="p-stepWrap" id="p-stepWrap">
+          <div className="p-stepWrap">
             {cookInnerData.steps.map((v, i) => {
               console.log(v.step)
               return (
-                <div className="p-step" key={i}>
+                <div
+                  id={`p-stepWrap${v.cooking_post_sid}_${i}`}
+                  className="p-step"
+                  key={i}
+                >
                   <div className="p-stepImg">
                     <img
                       src={`http://localhost:3004/images/02-forum/cook/${v.stepImg}`}
@@ -211,7 +215,9 @@ function InnerCook() {
                   <span>
                     <input type="checkbox"></input>
                     <h3>
-                      <a href="#p-stepWrap">STEP {v.step}</a>
+                      <a href={`#p-stepWrap${v.cooking_post_sid}_${i}`}>
+                        STEP {v.step}
+                      </a>
                     </h3>
                   </span>
                 </>

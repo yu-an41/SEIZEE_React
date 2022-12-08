@@ -10,6 +10,8 @@ import NavBar from '../../components/NavBar'
 import YellowWave from '../../00-homepage/components/YellowWave'
 import YellowWave2 from '../components/YellowWave2'
 import Carousel1 from '../components/Carousel1'
+import Footer from '../../components/Footer'
+
 
 // cart
 import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
@@ -88,6 +90,7 @@ function ProductDetail() {
         <div className="a-carouselBigWrapper">
           <Carousel1 sid={sid} />
         </div>
+        <div className="a-productDatilsBigWrapper">
         <div className="a-deatil">
           {detail.map((details, i) => {
             return (
@@ -148,6 +151,7 @@ function ProductDetail() {
                       {details.product_description}
                     </p>
                   </div>
+                  <div className="a-productRating">{details.rating}</div>
                 </div>
                 <div className="a-priceContent">
                   <div className="a-priceWrapper">
@@ -235,10 +239,16 @@ function ProductDetail() {
             )
           })}
         </div>
+        <div className="a-userCommentWrapper">
         <ProductComment sid={sid} />
+        <div className="a-commentArea">
+        </div>
+        </div>
         <YellowWave2 />
         <RecommendCard sid={sid} />
       </div>
+      </div>
+      <Footer />
     </>
   )
 }
