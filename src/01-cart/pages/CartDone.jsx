@@ -1,5 +1,4 @@
 import { useContext, useState, useEffect } from 'react'
-import { useCart } from '../../contexts/useCart'
 import { Link } from 'react-router-dom'
 
 // scss

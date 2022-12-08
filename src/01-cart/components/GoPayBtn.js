@@ -11,10 +11,11 @@ import ModalNotification from '../../components/ModalNotification'
 
 import './../styles/GoPayBtn.scss'
 
-function GoPayBtn({ cartItem, mbsid }) {
+function GoPayBtn({ pickup, pay }) {
   const navigate = useNavigate()
 
   const {
+    cartItem,
     handleEmptyCart,
     checkCartEmpty,
     emptyCart,
@@ -25,33 +26,67 @@ function GoPayBtn({ cartItem, mbsid }) {
 
   const { myAuth, setMyAuth, logout, deleteAccountD } = useContext(AuthContext)
 
-  const [isOpen1, setIsOpen1] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const [headerMg, setHeaderMg] = useState('')
   const [bodyMg, setBodyMg] = useState('')
 
   const closeModal = () => {
-    setIsOpen1(false)
+    setIsOpen(false)
     navigate('/login')
   }
+  const { totalAmount, totalItem, totalSalePrice, totalUnitPrice, userCart } =
+    cartItem
+
   const GoPay = async () => {
     if (myAuth.authorised) {
-      if (!checkCartEmpty) {
-        const order_num = dayjs(new Date()).format('YYYYMMDDHHmmss')
-        console.log(order_num)
-        // const { data, mb_sid } = await axios.post(
-        //   `http://localhost:3004/cart/add-order/${order_num}`,
-        //   cartItem
-        // )
-        await localStorage.removeItem('cartItem')
-        // setEmptyCart(true)
-        // const empty = await handleEmptyCart()
+      // const order_num = dayjs(new Date()).format('YYYYMMDDHHmmss')
+      // console.log(order_num)
+      const mid = myAuth.mb_sid
+
+      const {
+        totalAmount,
+        totalItem,
+        totalSalePrice,
+        totalUnitPrice,
+        userCart,
+      } = cartItem
+
+      const emptyCart = {
+        userCart: [],
+        totalItem: 0,
+        totalUnitPrice: 0,
+        totalSalePrice: 0,
+        totalAmount: 0,
+      }
+
+      if (pay === 1) {
+        const res = await axios.post(
+          // `http://localhost:3004/cart/add-order/${mid}`,
+          `http://localhost:3004/cart/linepay/${mid}`,
+          cartItem
+        )
+        console.log('GoPay', res.data)
+
+        localStorage.setItem('cartItem', JSON.stringify(emptyCart))
+        setEmptyCart(true)
+        console.log('LINE Pay付款，購物車已清空')
+      } else if (pay === 2) {
+        const res = await axios.post(
+          // `http://localhost:3004/cart/add-order/${mid}`,
+          `http://localhost:3004/cart/linepay/${mid}`,
+          cartItem
+        )
+        console.log('GoPay', res.data)
+        localStorage.setItem('cartItem', JSON.stringify(emptyCart))
+        setEmptyCart(true)
+        console.log('TapPay付款，購物車已清空')
       } else {
-        console.log('no items to be paid')
+        alert('請選擇付款方式！')
       }
     } else {
-      setIsOpen1(true)
-      setHeaderMg('會員')
-      setBodyMg('請先註冊/登入！')
+      // setIsOpen(true)
+      // setHeaderMg('會員')
+      // setBodyMg('請先註冊/登入！')
     }
   }
 
@@ -62,12 +97,12 @@ function GoPayBtn({ cartItem, mbsid }) {
           前往結賬
         </p>
       </div>
-      <ModalNotification
+      {/* <ModalNotification
         closeModal={closeModal}
-        isOpen={isOpen1}
+        isOpen={isOpen}
         NotificationHeader={headerMg}
         NotificationBody={bodyMg}
-      />
+      /> */}
     </>
   )
 }

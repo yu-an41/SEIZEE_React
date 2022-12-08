@@ -14,6 +14,7 @@ import OpenHoursBtn from '../components/OpenHoursBtn'
 import PickupHoursBtn from '../components/PickupHoursBtn'
 import EmptyCartBtn from '../components/EmptyCartBtn'
 import CartItemsList from '../components/CartItemsList'
+import CartItemsInfo from '../components/CartItemsInfo'
 import ContinueShoppingBtn from '../components/ContinueShoppingBtn'
 import GoPayBtn from '../components/GoPayBtn'
 import RecMerch from '../components/RecMerch'
@@ -290,7 +291,7 @@ function CartInfo() {
                   訂購人：
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-right">
-                  {memberInfo.mb_name}
+                  member name
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-left">
                   取餐店家：
@@ -319,6 +320,9 @@ function CartInfo() {
               <p className="y-Cart-details-name y-Cart-details-header">
                 商品名稱
               </p>
+              <p className="y-Cart-details-origin-price y-Cart-details-header">
+                原價
+              </p>
               <p className="y-Cart-details-price y-Cart-details-header">
                 優惠價
               </p>
@@ -326,15 +330,23 @@ function CartInfo() {
                 數量
               </p>
               <p className="y-Cart-details-unit y-Cart-details-header">小計</p>
-              <p className="y-Cart-details-actions y-Cart-details-header">
-                更多動作
-              </p>
             </div>
-            <div className="y-Cart-details-area"></div>
+            <div className="y-Cart-details-area">
+              {cartItem.userCart.map((v, i) => {
+                return (
+                  <div className="y-Cart-details-row">
+                    <CartItemsInfo cartItemData={v} key={i} />
+                  </div>
+                )
+              })}
+            </div>
             <div className="y-Cart-details-bottom">
               <p className="y-Cart-details-total">
-                共 {cartItem.totalItem} 項商品，數量 {cartItem.totalAmount}{' '}
-                個，總金額NT$ {cartItem.totalSalePrice} 元
+                共 {cartItem.totalItem} 項商品，總數量 {cartItem.totalAmount} 個
+              </p>
+              <p className="y-Cart-details-total">
+                原價 NT$ {cartItem.totalUnitPrice} 元，總金額 NT$
+                {cartItem.totalSalePrice} 元
               </p>
               <div className="y-Cart-details-btns">
                 <div className="y-continue-shopping-wrap">
@@ -344,7 +356,7 @@ function CartInfo() {
                   />
                 </div>
                 <div className="y-cart-pay-wrap">
-                  <GoPayBtn mbsid={mid} cartItem={cartItem} />
+                  <GoPayBtn pickup={pickup} pay={pay} />
                 </div>
               </div>
             </div>

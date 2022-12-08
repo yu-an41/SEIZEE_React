@@ -282,6 +282,7 @@ function CartList(props) {
               <p className="y-Cart-details-name y-Cart-details-header">
                 商品名稱
               </p>
+              <p className="y-Cart-details- y-Cart-details-header">原價</p>
               <p className="y-Cart-details-price y-Cart-details-header">
                 優惠價
               </p>
@@ -294,17 +295,6 @@ function CartList(props) {
               </p>
             </div>
             <div className="y-Cart-details-area">
-              {/* {!emptyCart
-                ? cartItem.userCart.map((v, i) => {
-                    setEmptyCart(false)
-                    console.log(emptyCart)
-                    return (
-                      <div className="y-Cart-details-row">
-                        <CartItemsList cartItemData={v} key={i} />
-                      </div>
-                    )
-                  })
-                : ''} */}
               {cartItem.userCart.map((v, i) => {
                 return (
                   <div className="y-Cart-details-row">
@@ -326,17 +316,7 @@ function CartList(props) {
                   />
                 </div>
                 <div className="y-check-info-wrap">
-                  <CheckCartInfo
-                    cartItem={cartItem}
-                    onClick={() => {
-                      if (myAuth.authorised) navigate('/cart/info')
-                      else {
-                        setIsOpen1(true)
-                        setHeaderMg('會員')
-                        setBodyMg('請先註冊/登入！')
-                      }
-                    }}
-                  />
+                  <CheckCartInfo />
                 </div>
               </div>
             </div>

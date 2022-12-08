@@ -41,47 +41,16 @@ function CartItemsInfo({ cartItemData }) {
               <img src={`/04-product/img/${picture}`} alt="picture of merch" />
             </div>
           </div>
-          <Link to={`/product/${prod_sid}`}>
-            <p className="y-Cart-items-info-name">{name}</p>
-          </Link>
+          <p className="y-Cart-items-info-name">{name}</p>
         </div>
         <div className="y-Cart-items-price">
           <p>{sale_price}</p>
         </div>
         <div className="y-Cart-items-quantity">
-          <select
-            id={prod_sid}
-            defaultValue={amount}
-            onChange={(e) => {
-              updateItemQty(e.target.id, e.target.value)
-            }}
-          >
-            {Array(inventory)
-              .fill(1)
-              .map((v, i) => {
-                return (
-                  <option value={i + 1} key={i}>
-                    {i + 1}
-                  </option>
-                )
-              })}
-          </select>
+          <p>{amount}</p>
         </div>
         <div className="y-Cart-items-unit">
           <p>{sale_price * amount}</p>
-        </div>
-        <div className="y-Cart-items-actions">
-          <div className="y-Cart-WishListBtn-wrap">
-            <WishListBtn />
-          </div>
-          <div className="y-Cart-RemoveItemBtn-wrap">
-            <RemoveItemBtn
-              onClick={() => {
-                handleRemoveItem(prod_sid)
-                console.log(prod_sid, 'item removed!!!!')
-              }}
-            />
-          </div>
         </div>
       </div>
       <div className="y-Cart-YellowLineWave-wrap">
