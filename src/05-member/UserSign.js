@@ -1,6 +1,6 @@
 import './style/UserSign.scss'
 import { Link, useNavigate } from 'react-router-dom'
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { LOGIN, REGISTER, CHECK_USER, GOOGLE_LINK } from '../my-config'
 import {
@@ -24,15 +24,15 @@ function UserSign() {
     mblPass: '',
   })
   const [signUpFD, setSignUpFD] = useState({
-    mbuName: '',
-    mbuEmail: '',
+    mbrName: '',
+    mbrEmail: '',
     mbrPass: '',
     mbrPassConfirm: '',
-    mbuGender: '',
-    mbuAddressCity: '',
-    mbuAddressArea: '',
-    mbuAddressDetail: '',
-    mbuPhone: '',
+    mbrGender: '',
+    mbrAddressCity: '',
+    mbrAddressArea: '',
+    mbrAddressDetail: '',
+    mbrPhone: '',
   })
 
   // 註冊errorMg
@@ -290,10 +290,45 @@ function UserSign() {
                 action=""
                 onSubmit={signInSubmit}
               >
-                <div className="s-login-h2" onClick={oldMb}>
+                <div
+                  className="s-login-h2"
+                  onClick={() => {
+                    document.getElementById('mblEmail').value =
+                      'seizee1214000@gmail.com'
+                    document.getElementById('mblPass').value = 'De123456'
+
+                    // const id = e.currentTarget.id
+                    // const val = e.currentTarget.value
+                    // console.log({ id, val })
+
+                    setSignInFD({
+                      ...signInFD,
+                      mblEmail: 'seizee1214000@gmail.com',
+                      mblPass: 'De123456',
+                    })
+                  }}
+                >
                   歡迎回來
                 </div>
-                <h3 className="s-login-main-h3">我們很高興又見到您了!</h3>
+                <h3
+                  className="s-login-main-h3"
+                  onClick={() => {
+                    document.getElementById('mblEmail').value = 'demo1@demo.com'
+                    document.getElementById('mblPass').value = 'De123456'
+
+                    // const id = e.currentTarget.id
+                    // const val = e.currentTarget.value
+                    // console.log({ id, val })
+
+                    setSignInFD({
+                      ...signInFD,
+                      mblEmail: 'demo1@gmail.com',
+                      mblPass: 'De123456',
+                    })
+                  }}
+                >
+                  我們很高興又見到您了!
+                </h3>
                 <label className="s-login-label" htmlFor="mblEmail">
                   電子郵件<span style={{ color: 'red' }}> *</span>
                 </label>
@@ -301,7 +336,6 @@ function UserSign() {
                   type="text"
                   placeholder="請輸入電子郵件"
                   id="mblEmail"
-                  value={autoMb.autoMbEmail}
                   onChange={signInHandler}
                   className="s-login-input-general"
                 />
@@ -315,7 +349,6 @@ function UserSign() {
                 </label>
                 <div className="s-login-input-eye">
                   <input
-                    value={autoMb.autoMbPass}
                     type={showSignInP ? 'text' : 'password'}
                     placeholder="請輸入密碼"
                     id="mblPass"
@@ -366,7 +399,28 @@ function UserSign() {
                 className="s-login-formDetails"
                 onSubmit={signUpSubmit}
               >
-                <h2 className="s-login-h2">建立新帳號</h2>
+                <h2
+                  className="s-login-h2"
+                  onClick={() => {
+                    document.getElementById('mbrEmail').value = 'demo1@demo.com'
+                    document.getElementById('mbrName').value = '飛天小女警'
+                    document.getElementById('mbrPass').value = 'De123456'
+                    document.getElementById('mbrPassConfirm').value = 'De123456'
+
+                    // const id = e.currentTarget.id
+                    // const val = e.currentTarget.value
+                    // console.log({ id, val })
+
+                    setSignUpFD({
+                      ...signUpFD,
+                      mbrEmail: 'demo1@gmail.com',
+                      mbrName: '飛天小女警',
+                      mbrPass: 'De123456',
+                    })
+                  }}
+                >
+                  建立新帳號
+                </h2>
                 <label htmlFor="mbrEmail" className="s-login-label">
                   電子郵件<span style={{ color: 'red' }}> *</span>
                 </label>
