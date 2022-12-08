@@ -29,7 +29,7 @@ import InnerCook from './02-forum/pages/Inner_cook'
 import InnerShare from './02-forum/pages/Inner_share'
 import InnerStore from './02-forum/pages/Inner_store'
 import InnerOfficial from './02-forum/pages/Inner_official'
-import WriteForm from './02-forum/pages/WriteForm'
+// import WriteForm from './02-forum/pages/WriteForm'
 
 // 03-shop
 import ShopList from './03-shop/pages/03-shop-list'
@@ -96,7 +96,7 @@ function App() {
                     path="official/inner/:sid"
                     element={<InnerOfficial />}
                   />
-                  <Route path="writeForm" element={<WriteForm />} />
+                  {/* <Route path="writeForm" element={<WriteForm />} /> */}
                 </Route>
 
                 {/* 03-shop */}
