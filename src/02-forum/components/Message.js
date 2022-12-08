@@ -3,16 +3,25 @@ import React, { useContext, useEffect, useState } from 'react'
 import '../styles/Comment.scss'
 import dayjs from 'dayjs'
 import log from 'eslint-plugin-react/lib/util/log'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useParams, useNavigate } from 'react-router-dom'
 import AuthContext from './../../contexts/AuthContext'
+import ModalNotification from '../../components/ModalNotification'
 
 function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
   const params = useParams()
+  const navigate = useNavigate()
   const { myAuth } = useContext(AuthContext)
   console.log(myAuth)
   const { categories_sid } = InnerCategoriesSid
   // console.log(cookInnerCategories)
   // console.log(params)
+  const [isOpen, setIsOpen] = useState(false)
+  const [headerMs, setHeaderMs] = useState('')
+  const [bodyMs, setBodyMs] = useState('')
+  const closeModal = () => {
+    setIsOpen(false)
+    navigate('/forum/cook')
+  }
   const [messContent, setMessContent] = useState({
     sid: 1,
     member_sid: '1',
@@ -25,14 +34,12 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
   //console.log(messContent.categories_sid)
   //console.log(messContent.post_sid)
 
-  // const mbSid = JSON.parse(localStorage.getItem('auth')).mb_sid
-
+  //const mbSid = JSON.parse(localStorage.getItem('auth')).mb_sid
 
   const addMesage = async () => {
-    if(!myAuth.authorised){
-
-      return;
-
+    if (!myAuth.authorised) {
+      alert('請先登入')
+      return
     }
     const fd = new FormData()
     fd.append('member_sid', myAuth.mb_sid)
@@ -41,13 +48,13 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
     fd.append('categories_sid', messContent.categories_sid)
     //fd.append('member_sid', forumMember)
 
-    console.log(
-      myAuth.mb_sid,
-      messContent.content,
-      messContent.post_sid,
-      messContent.categories_sid
-      // forumMember
-    )
+    // console.log(
+    //   myAuth.mb_sid,
+    //   messContent.content,
+    //   messContent.post_sid,
+    //   messContent.categories_sid
+    //   // forumMember
+    // )
     console.log(fd)
     const { data } = await axios.post('http://localhost:3004/forum/message', fd)
 
@@ -70,35 +77,43 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
   // }
 
   return (
-    <div className="p-comment">
-      <div className="p-commMemberAdInput">
-        <div className="p-commMember">
-          <img
-            src="https://dotown.maeda-design-room.net/wp-content/uploads/2022/01/thing_crab_01.png"
-            alt=""
-          />
-        </div>
-        <div className="p-commInput">
-          <input
-            type="text"
-            name="sendMessage"
-            placeholder="輸入留言"
-            value={messContent.content}
-            onChange={(e) =>
-              setMessContent({ ...messContent, content: e.target.value })
-            }
-          />
-        </div>
-        {/* <input
+    <>
+      <div className="p-comment">
+        <div className="p-commMemberAdInput">
+          <div className="p-commMember">
+            <img
+              src="https://dotown.maeda-design-room.net/wp-content/uploads/2022/01/thing_crab_01.png"
+              alt=""
+            />
+          </div>
+          <div className="p-commInput">
+            <input
+              type="text"
+              name="sendMessage"
+              placeholder="輸入留言"
+              value={messContent.content}
+              onChange={(e) =>
+                setMessContent({ ...messContent, content: e.target.value })
+              }
+            />
+          </div>
+          {/* <input
           className="forumMember"
           name="member_sid"
           value={forumMember}
         ></input> */}
+        </div>
+        <div className="p-commBtn">
+          <button onClick={addMesage}>送出</button>
+        </div>
       </div>
-      <div className="p-commBtn">
-        <button onClick={addMesage}>送出</button>
-      </div>
-    </div>
+      <ModalNotification
+        isOpen={isOpen}
+        NotificationHeader={headerMs}
+        NotificationBody={bodyMs}
+        closeModal={closeModal}
+      />
+    </>
   )
 }
 

@@ -1,9 +1,15 @@
 import axios from 'axios'
 import log from 'eslint-plugin-react/lib/util/log'
-import React, { useState, useEffect, useRef, ChangeEvent } from 'react'
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  ChangeEvent,
+  useContext,
+} from 'react'
 import { Form, useNavigate } from 'react-router-dom'
 import ModalNotification from '../../components/ModalNotification'
-
+import AuthContext from './../../contexts/AuthContext'
 import '../styles/WriteForm.scss'
 
 import NavBar from '../../components/NavBar'
@@ -12,11 +18,16 @@ import ImageItemPreview from './ImageItemPreview'
 
 function WriteForm({ mbsid }) {
   // const [doRerender, setDoRerender] = useState(false)
+  const { myAuth } = useContext(AuthContext)
   const [image, setImage] = useState()
+  const [isOpen, setIsOpen] = useState(false)
+  const [headerMs, setHeaderMs] = useState('')
+  const [bodyMs, setBodyMs] = useState('')
   const [stepImages, setStepImages] = useState([])
+  console.log({ myAuth, mbsid })
   const [writData, setWritData] = useState({
     sid: 1,
-    member_sid: 1,
+    member_sid: myAuth.mb_sid,
     categories_sid: 4,
     title: '',
     hashtag: [
@@ -58,7 +69,7 @@ function WriteForm({ mbsid }) {
     ],
     ps: '',
   })
-
+  console.log({ writData })
   const addFormData = async () => {
     console.log('stepImages')
     console.log(stepImages)
@@ -89,16 +100,18 @@ function WriteForm({ mbsid }) {
     console.log('writDate')
     console.log(writData)
 
-    const { wfData } = await axios.post(
+    const wfData = await axios.post(
       'http://localhost:3004/forum/writeForm',
       writData
     )
-
-    if (false) {
-      // if (wfData.success) {
-      //alert('發文成功')
+    if (wfData.data.success) {
+      // alert('發文成功')
+      console.log('success')
+      setIsOpen(true)
+      setHeaderMs('食譜發文狀態')
+      setBodyMs('成功發文')
       //直接顯示留言無用重刷頁面
-      //setDoRerender(!doRerender)
+      // setDoRerender(!doRerender)
     }
   }
   //圖片預覽
@@ -119,13 +132,10 @@ function WriteForm({ mbsid }) {
   const [instrucNums, setInstrucNums] = useState(2)
   const [stepNums, setStepNums] = useState(2)
 
-  const [isOpen, setIsOpen] = useState(false)
-  //const [NotificationHeader, ]= useState('')
-
   const navigate = useNavigate()
   const closeModal = () => {
     setIsOpen(false)
-    navigate('/')
+    navigate('/forum/cook')
   }
   return (
     <>
@@ -418,6 +428,7 @@ function WriteForm({ mbsid }) {
           onClick={() => {
             console.log('帶入123')
             setWritData({
+              ...writData,
               title: '蕃茄菇菇雞肉飯',
               induction:
                 '菇菇控最愛的香菇、杏鮑菇、蘑菇，三菇一體加上雞腿肉的多汁鮮甜蕃茄入菜帶出酸甜感，最後撒上烹大師鰹魚風味，獨到的煙燻香氣讓料理美味無可挑剔!',
@@ -425,12 +436,12 @@ function WriteForm({ mbsid }) {
               serving: '2人份',
               instructions: [
                 {
-                  sid: '1',
+                  sid: '',
                   instrucContent: '番茄',
                   portion: '2顆',
                 },
                 {
-                  sid: '2',
+                  sid: '',
                   instrucContent: '雞肉',
                   portion: '500g',
                 },
@@ -464,12 +475,11 @@ function WriteForm({ mbsid }) {
       </div>
       <ModalNotification
         isOpen={isOpen}
-        //NotificationHeader={}
-       // NotificationBody={}
+        NotificationHeader={headerMs}
+        NotificationBody={bodyMs}
         closeModal={closeModal}
       />
     </>
   )
 }
-
 export default WriteForm
