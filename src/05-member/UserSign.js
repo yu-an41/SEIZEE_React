@@ -54,6 +54,31 @@ function UserSign() {
   // Google Link
   const [GoogleState, setGoogleState] = useState('')
 
+  // 自動代入資料
+  const [autoMb, setAutoMb] = useState({
+    autoMbEmail: '',
+    autoMbPass: '',
+  })
+
+  // ====================================
+  // 自動代入舊會員資料
+  function oldMb() {
+    setAutoMb({
+      ...signInFD,
+      autoMbEmail: 'seizee1214000@gmail.com',
+      autoMbPass: 'De123456',
+    })
+  }
+  // 自動代入新會員資料
+
+  function newMb() {
+    setAutoMb({
+      ...autoMb,
+      autoMbEmail: 'demo1@gmail.com',
+      autoMbPass: 'De123456',
+    })
+  }
+
   // ====================================
   // 拿到Google登入連結
   async function getGoogle() {
@@ -265,7 +290,9 @@ function UserSign() {
                 action=""
                 onSubmit={signInSubmit}
               >
-                <div className="s-login-h2">歡迎回來</div>
+                <div className="s-login-h2" onClick={oldMb}>
+                  歡迎回來
+                </div>
                 <h3 className="s-login-main-h3">我們很高興又見到您了!</h3>
                 <label className="s-login-label" htmlFor="mblEmail">
                   電子郵件<span style={{ color: 'red' }}> *</span>
@@ -274,6 +301,7 @@ function UserSign() {
                   type="text"
                   placeholder="請輸入電子郵件"
                   id="mblEmail"
+                  value={autoMb.autoMbEmail}
                   onChange={signInHandler}
                   className="s-login-input-general"
                 />
@@ -287,6 +315,7 @@ function UserSign() {
                 </label>
                 <div className="s-login-input-eye">
                   <input
+                    value={autoMb.autoMbPass}
                     type={showSignInP ? 'text' : 'password'}
                     placeholder="請輸入密碼"
                     id="mblPass"

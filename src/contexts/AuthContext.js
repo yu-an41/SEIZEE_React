@@ -34,7 +34,11 @@ export const AuthContextProvider = function ({ children }) {
   // 取得目前狀態
   const str = localStorage.getItem('auth')
   if (str) {
-    const localAuth = JSON.parse(str)
+    let localAuth = null
+    try {
+      localAuth = JSON.parse(str)
+    } catch (ex) {}
+
     if (localAuth && localAuth.token) {
       initAuth = { ...localAuth, authorised: true }
     }
