@@ -34,7 +34,11 @@ export const AuthContextProvider = function ({ children }) {
   // 取得目前狀態
   const str = localStorage.getItem('auth')
   if (str) {
-    const localAuth = JSON.parse(str)
+    let localAuth = null
+    try {
+      localAuth = JSON.parse(str)
+    } catch (ex) {}
+
     if (localAuth && localAuth.token) {
       initAuth = { ...localAuth, authorised: true }
     }
@@ -154,6 +158,8 @@ export const AuthContextProvider = function ({ children }) {
     <AuthContext.Provider value={{ myAuth, setMyAuth, logout, deleteAccountD }}>
       {/* ex { myAuth, setMyAuth } 這裡傳出去 然後navbar接收 */}
       {children}
+
+      {/* ============登出帳號============ */}
       <ModalConfirm
         closeModalConfirm={closeModalConfirm}
         closeModalCancel={closeModalCancel}
@@ -169,7 +175,6 @@ export const AuthContextProvider = function ({ children }) {
       />
 
       {/* ============刪除帳號============ */}
-
       <ModalConfirm
         closeModalConfirm={closeModalConfirmD}
         closeModalCancel={closeModalCancelD}

@@ -44,6 +44,8 @@ import Products from './04-product/pages/Products'
 import UserSign from './05-member/UserSign'
 import ResetPass from './05-member/ResetPass'
 import ForgotPass from './05-member/ForgotPass'
+import GoogleSign from './05-member/GoogleSign'
+
 import UserProfile from './05-member/profile-pages/UserProfile'
 import UpdateInfo from './05-member/profile-pages/UpdateInfo'
 
@@ -113,6 +115,7 @@ function App() {
                 <Route path="/login" element={<UserSign />} />
                 <Route path="/forgot-pass" element={<ForgotPass />} />
                 <Route path="/reset-pass" element={<ResetPass />} />
+                <Route path="/google" element={<GoogleSign />} />
 
                 {/* member-profile */}
                 <Route path="/profile/">
