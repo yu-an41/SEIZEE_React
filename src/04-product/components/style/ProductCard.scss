@@ -11,6 +11,7 @@ $main-yellow: #fad249;
 $main-text: #5e5e5e;
 $secondary-blue: #113f75;
 $secondary-yellow: #fef3da;
+$main-orange: #f57d00;
 $green: #53b2a8;
 $red: #ed4743;
 $text-shadow: #e4e4e4;
@@ -19,6 +20,23 @@ $main-border: 3px solid #113f75;
 $main-border-radius: 8px;
 @function line($count: 1) {
   @return $base-line-eight * $count;
+}
+%a-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #5e5e5e;
+  letter-spacing: 1.5px;
+}
+%a-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2b325c;
+  letter-spacing: 1.5px;
+}
+%a-secondary-color-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #113f75;
 }
 %a-flex {
   display: flex;
@@ -31,8 +49,38 @@ $main-border-radius: 8px;
   height: 70px;
   background-color: $main-yellow;
 }
-.a-carouselBigWrapper {
-  margin: 50px 0 0 0;
+
+//shopInformation
+.a-shopInformation {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  .a-shopInformationWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    border: 5px solid $main-orange;
+    width: 350px;
+    height: 300px;
+    padding: 10px 25px;
+    background-color: $secondary-yellow;
+    .a-shopInf {
+      @extend %a-flex;
+      .a-detailsTitle {
+         @extend %a-text
+      }
+      .a-detailsText {
+        @extend %a-text;
+      }
+    }
+    .a-shopInf img {
+      width: 50px;
+    }
+  }
+  .a-videoWrapper {
+    width: 400px;
+  }
 }
 .a-seizeeIconWrapper {
   display: flex;
@@ -43,14 +91,22 @@ $main-border-radius: 8px;
   @media (max-width: 390px) {
     display: none;
   }
-.a-avengersWrapper {
-  width: 190px;
-  // margin-left: 150px;
-  transform: rotate(-30deg);
-  img {
-    width: 100%;
+  .a-avengersWrapper {
+    width: 190px;
+    margin-left: 1000px;
+    transform: rotate(-25deg);
+    img {
+      width: 100%;
+    }
   }
-}
+  .a-aladdinWrapper {
+    width: 190px;
+    // margin-left: 150px;
+    transform: rotate(-30deg);
+    img {
+      width: 100%;
+    }
+  }
 }
 
 //productCards+List

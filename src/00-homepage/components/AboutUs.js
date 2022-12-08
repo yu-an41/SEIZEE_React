@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import './style/AboutUs.scss'
+import '../styles/AboutUs.scss'
 
 export default function AboutUs() {
   const videoEl = useRef(null)

@@ -151,7 +151,7 @@ function ProductDetail() {
                       {details.product_description}
                     </p>
                   </div>
-                  <div className="a-productRating">{details.rating}</div>
+                  {/* <div className="a-productRating">{details.rating}</div> */}
                 </div>
                 <div className="a-priceContent">
                   <div className="a-priceWrapper">
@@ -162,8 +162,8 @@ function ProductDetail() {
                     </div>
                     <div className="a-productDiscount">
                       <img src="/04-product/svg/like.svg" alt="" />
-                      <p className="a-detailsText">
-                        $特價
+                      <p className="a-detailsDiscount">
+                        惜食價
                         {details.product_price}元
                       </p>
                     </div>
@@ -180,7 +180,7 @@ function ProductDetail() {
                         setQty(1)
                       }}
                     >
-                      min
+                       <p className="a-detailsText">min</p> 
                     </button>
                     <button
                       className="a-minus"
@@ -221,7 +221,7 @@ function ProductDetail() {
                         setQty(details.inventory_qty)
                       }}
                     >
-                      max
+                       <p className="a-detailsText">max</p> 
                     </button>
                   </div>
                   <div

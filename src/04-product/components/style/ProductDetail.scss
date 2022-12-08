@@ -22,20 +22,20 @@ $main-border-radius: 8px;
   @return $base-line-eight * $count;
 }
 %a-text {
-  font-size: 25px;
-  font-weight: 800; 
+  font-size: 22px;
+  font-weight: 600;
   color: #5e5e5e;
   letter-spacing: 1.5px;
-}  
+}
 %a-title {
   font-size: 22px;
-  font-weight: 900; 
+  font-weight: 600;
   color: #2b325c;
   letter-spacing: 1.5px;
 }
 %a-secondary-color-text {
-  font-size: 18px;
-  font-weight: 500; 
+  font-size: 22px;
+  font-weight: 600;
   color: #113f75;
 }
 %a-flex {
@@ -52,21 +52,23 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-//navBar
+//navBar+carousel
 .a-navBarWrapper {
   height: 70px;
   background-color: $main-yellow;
 }
 .a-carouselBigWrapper {
-  margin: 50px 0 0 0;
+  margin: 50px 0 30px 0;
+  display: flex;
+  justify-content: center;
 }
 
 //productDatils
 .a-productDatilsBigWrapper {
 display: flex;
 flex-direction: column;
-.a-userCommentWrapper{
-  padding-left: 8%;
+.a-userCommentWrapper {
+  padding-left: 13%;
   margin-top: 20px;
 }
 .a-productDetailWrapper {
@@ -83,7 +85,7 @@ flex-direction: column;
     .a-shopNameWrapper {
       @extend %a-flex;
       .a-detailsTitle {
-        @extend %a-title;
+        @extend %a-text;
       }
     }
     .a-shopNameWrapper img {
@@ -113,6 +115,9 @@ flex-direction: column;
       border-radius: $main-border-radius;
       width: 120px;
       height: 50px;
+      .a-detailsText {
+        @extend %a-title;
+      }
     }
     .a-productCategory img {
       width: 30px;
@@ -207,9 +212,11 @@ flex-direction: column;
     }
     .a-productDiscount {
       @extend %a-flex;
-      color: $secondary-blue;
       line-height: line(2);
       font-weight: 500;
+      .a-detailsDiscount {
+        @extend %a-secondary-color-text;
+      }
     }
     .a-productDiscount img {
       width: 35px;

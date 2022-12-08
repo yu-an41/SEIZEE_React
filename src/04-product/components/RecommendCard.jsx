@@ -32,18 +32,22 @@ function RecommendCard({ sid }) {
         </div>
         <h3 className="a-recommendText">惜食商品推薦</h3>
       </div>
-
       <div className="a-productRecommend">
         {recommend.map((recommend, i) => {
           return (
-            <div className="a-recommendContent" key={i}>
-              <div className="a-recommendImgWrapper">
-                <img src={`/04-product/img/${recommend.picture_url}`} alt="" />
+            <a href={`${recommend.sid}`}>
+              <div className="a-recommendContent" key={recommend.name}>
+                <div className="a-recommendImgWrapper">
+                  <img
+                    src={`/04-product/img/${recommend.picture_url}`}
+                    alt=""
+                  />
+                </div>
+                <div className="a-shop-slider-content">
+                  {/* <p className="a-shop-slider-content-p">麵包</p> */}
+                </div>
               </div>
-              <div className="a-shop-slider-content">
-                {/* <p className="a-shop-slider-content-p">麵包</p> */}
-              </div>
-            </div>
+            </a>
           );
         })}
       </div>

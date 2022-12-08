@@ -189,38 +189,39 @@ const Products = () => {
 
         <div className="a-productCardsWrapper">
           {/* SideBar */}
-          <div className="a-sideBarWrapper">
-            {/* <div className="a-aladdinWrapper">
-        <img src="/04-product/svg/aladdin.png" alt="" />
-      </div> */}
-            <div className="a-searchBarWrapper">
-              <div className="a-sideBarOptionsWrapper">
-                {productFilter.map((v, i) => {
-                  return (
-                    <div key={v.value}>
-                      <input
-                        type="checkbox"
-                        checked={filterCheck[v.value]}
-                        value={v.value}
-                        onChange={(e) => {
-                          console.log(e.currentTarget);
-                          console.log(e.currentTarget.checked);
-                          console.log(e.currentTarget.value);
-                          console.log({
-                            ...filterCheck,
-                            [e.currentTarget.value]: e.currentTarget.checked,
-                          });
-                          setFilterCheck({
-                            ...filterCheck,
-                            [e.currentTarget.value]: e.currentTarget.checked,
-                          });
+          <div className="a-sideBar">
+            <div className="a-sideBarWrapper">
+              <div className="a-aladdinWrapper">
+                <img src="/04-product/svg/aladdin.png" alt="" />
+              </div>
+              <div className="a-searchBarWrapper">
+                <div className="a-sideBarOptionsWrapper">
+                  {productFilter.map((v, i) => {
+                    return (
+                      <div className="a-optionWrapper" key={v.i}>
+                        <input
+                          type="checkbox"
+                          checked={filterCheck[v.value]}
+                          value={v.value}
+                          onChange={(e) => {
+                            // console.log(e.currentTarget);
+                            // console.log(e.currentTarget.checked);
+                            // console.log(e.currentTarget.value);
+                            // console.log({
+                            //   ...filterCheck,
+                            //   [e.currentTarget.value]: e.currentTarget.checked,
+                            // });
+                            setFilterCheck({
+                              ...filterCheck,
+                              [e.currentTarget.value]: e.currentTarget.checked,
+                            });
 
-                          /*
+                            /*
                       setFilterCheck(old=>{
                         return {...old, [v.value]: e.currentTarget.checked}
                       })        
 */
-                          /*
+                            /*
                       const value = e.target.value;
                       if (filterCheck.includes(value)) {
                         // 如果此項目值在state陣列中 -> 移出state陣列
@@ -234,12 +235,13 @@ const Products = () => {
                         setFilterCheck(newLikeList);
                       }
                       */
-                        }}
-                      />
-                      <label>{v.label}</label>
-                    </div>
-                  );
-                })}
+                          }}
+                        />
+                        <label>{v.label}</label>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
@@ -272,15 +274,14 @@ const Products = () => {
       </div> */}
               {curFilter.map((p, i) => {
                 return (
-                  <div className="a-filterProudctWrapper"
-                  key={p.name}>
+                  <div className="a-filterProudctWrapper" key={p.name}>
                     <div className="a-filterImgWrapper">
                       <img src={`/04-product/img/${p.picture_url}`} alt="" />
                     </div>
                     <h2 className="a-filterProudctName">{p.product_name}</h2>
                     <div className="a-filterTextWrapper">
-                      <p className="a-filterText">{p.product_price}元</p>
-                      <p className="a-filterText">{p.sale_price}折</p>
+                    <p className="a-filterText">{p.sale_price}折</p>
+                      <p className="a-filterText">惜食價{p.product_price}元</p>
                     </div>
                   </div>
                 );

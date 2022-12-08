@@ -5,15 +5,23 @@ import "../components/style/ProductFilter.scss";
 import NavBar from "../../components/NavBar";
 import YellowWave from "../../00-homepage/components/YellowWave.js";
 import Footer from "../../components/Footer";
+import Theme from "../components/Theme";
 
 function ProductFilter() {
   //種類data
   const [filterList, setFilterList] = useState([]);
   //使用者勾選種類checkbox
-  const [choice, setchoice] = useState([]);
+  const [choice, setChoice] = useState([]);
   // //使用者勾選sideBar
   // const [productFilter, setProductFilter] = useState([""]);
   const navigate = useNavigate();
+
+  // const [mode, setMode] = useState([]);
+  // const [theme, setTheme] = () => {
+  //   setTheme(mode === "aladdin" ? "seizee" : "aladdin");
+  // };
+  // const [themeState, setThemeState] = useState(1);
+  // setThemeState(themeState === 1 ? 0 : 1);
 
   async function getFilter(categoriesString) {
     try {
@@ -33,11 +41,11 @@ function ProductFilter() {
     const c = e.target.checked;
     if (c) {
       if (!choice.includes(val)) {
-        setchoice([...choice, val]);
+        setChoice([...choice, val]);
       }
     } else {
       const newChoice = choice.filter((v) => v !== val);
-      setchoice(newChoice);
+      setChoice(newChoice);
     }
   };
 
@@ -74,8 +82,21 @@ function ProductFilter() {
         <div className="y-wave-wrap">
           <YellowWave />
         </div>
-
         {/* CategoryFilter */}
+        {/* <Theme /> */}
+        {/* <div>
+          <button onClick={mode}>
+            {themeState === 1 ? (
+              <div className="a-iconAladdinWrapper">
+                <img src="/04-product/svg/aladdin.png" alt="" />
+              </div>
+            ) : (
+              <div className="a-iconAvengersWrapper">
+                <img src="/04-product/svg/avengers.png" alt="" />
+              </div>
+            )}
+          </button>
+        </div> */}
         <div className="a-iconsWrapper">
           <div className="a-iconAladdinWrapper">
             <img src="/04-product/svg/aladdin.png" alt="" />
@@ -95,7 +116,7 @@ function ProductFilter() {
                       htmlFor={`a-categoryCheckBox${filter.sid}`}
                       key={filter.sid}
                     >
-                      <span className="a-iconSpan">
+                      <div className="a-iconSpan">
                         <div className="a-iconWrapper">
                           <img
                             className="a-icon"
@@ -116,7 +137,7 @@ function ProductFilter() {
                             {filter.category_name}
                           </h2>
                         </div>
-                      </span>
+                      </div>
                     </label>
                   </div>
                 );
