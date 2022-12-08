@@ -380,7 +380,7 @@ function UserSign() {
                   className="s-login-input-btn s-login-submit s-signinSubmit"
                 />
               </form>
-              <a className="s-login-gmailBtn" href={GoogleState}>
+              {/* <a className="s-login-gmailBtn" href={GoogleState}>
                 <img
                   className="s-login-gmail"
                   src="/05-member/mail.png"
@@ -391,7 +391,7 @@ function UserSign() {
                   value="以Google帳號登入"
                   className="s-login-input-general s-login-submit s-login-googleSubmit"
                 />
-              </a>
+              </a> */}
             </div>
             <div className="s-login-form s-login-signupForm">
               <form
