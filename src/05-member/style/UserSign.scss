@@ -17,6 +17,25 @@ $s-main-b: #113f75;
   min-height: 100vh;
   background: $s-bgcYellow center center no-repeat;
   background-size: cover;
+  position: relative;
+
+  // border: 1px solid red;
+
+  .s-svg-wrap {
+    width: 220px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    // display: block;
+  }
+
+  @media (max-width: 991px) {
+    .s-svg-wrap {
+      width: 110px;
+      top: 10px;
+    }
+  }
 
   .s-login-container {
     position: relative;
@@ -25,7 +44,7 @@ $s-main-b: #113f75;
     margin: 20px;
     /* background: #ff0; */
 
-    /* border: 1px solid orange; */
+    // border: 1px solid orange;
 
     .s-login-blueBg {
       position: absolute;

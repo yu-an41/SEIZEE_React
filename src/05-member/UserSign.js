@@ -11,6 +11,8 @@ import {
 } from './data/UserSign_valid'
 import AuthContext from '../contexts/AuthContext'
 import ModalNotification from '../components/ModalNotification'
+import LogoBluePink from './../logo-and-fonts/LOGO-blue-pink.svg'
+import LogoWhite from './../logo-and-fonts/LOGO-white.svg'
 
 function UserSign() {
   const { setMyAuth } = useContext(AuthContext)
@@ -52,48 +54,23 @@ function UserSign() {
   const [bodyMg, setBodyMg] = useState('')
 
   // Google Link
-  const [GoogleState, setGoogleState] = useState('')
-
-  // 自動代入資料
-  const [autoMb, setAutoMb] = useState({
-    autoMbEmail: '',
-    autoMbPass: '',
-  })
-
-  // ====================================
-  // 自動代入舊會員資料
-  function oldMb() {
-    setAutoMb({
-      ...signInFD,
-      autoMbEmail: 'seizee1214000@gmail.com',
-      autoMbPass: 'De123456',
-    })
-  }
-  // 自動代入新會員資料
-
-  function newMb() {
-    setAutoMb({
-      ...autoMb,
-      autoMbEmail: 'demo1@gmail.com',
-      autoMbPass: 'De123456',
-    })
-  }
+  // const [GoogleState, setGoogleState] = useState('')
 
   // ====================================
   // 拿到Google登入連結
-  async function getGoogle() {
-    const { data } = await axios.get(GOOGLE_LINK)
-    console.log('data', data)
-    console.log('data.title', data.title)
+  // async function getGoogle() {
+  //   const { data } = await axios.get(GOOGLE_LINK)
+  //   console.log('data', data)
+  //   console.log('data.title', data.title)
 
-    setGoogleState(data.title)
-  }
+  //   setGoogleState(data.title)
+  // }
 
-  console.log('GoogleState', GoogleState)
+  // console.log('GoogleState', GoogleState)
 
-  useEffect(() => {
-    getGoogle()
-  }, [])
+  // useEffect(() => {
+  //   getGoogle()
+  // }, [])
 
   // ====================================
   // 註冊登入畫面切換
@@ -264,6 +241,19 @@ function UserSign() {
       <div
         className={signInIndex === 1 ? 's-body-signup' : 's-body-signup s-move'}
       >
+        {signInIndex === 1 ? (
+          <div className="s-svg-wrap">
+            <a href="/" alt="homepage of SEIZEE">
+              <img src={LogoBluePink} alt="SEIZEE_logo" />
+            </a>
+          </div>
+        ) : (
+          <div className="s-svg-wrap">
+            <a href="/" alt="homepage of SEIZEE">
+              <img src={LogoWhite} alt="SEIZEE_logo" />
+            </a>
+          </div>
+        )}
         <div className="s-login-container">
           <div className="s-login-blueBg">
             <div className="s-login-box s-login-signin">
