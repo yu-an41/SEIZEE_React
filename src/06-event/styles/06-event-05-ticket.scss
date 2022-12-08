@@ -271,57 +271,29 @@ body {
         display: none;
       }
     }
-
-    // .j-ticket {
-    //   position: absolute;
-    //   transform: scale(0.3) rotate(0);
-    //   transition: 0.8s;
-    //   animation: tickets 0.8s;
-    // @keyframes bang {
-    //   0% {
-    //     transform: scale(0.3) rotate(0);
-    //   }
-    //   100% {
-    //     transform: scale(0.3) rotate(720deg);
-    //   }
-    // }
-    //   transform-origin: center center;
-    // }
-
-    // &:hover {
-    //   transform: scale(1);
-
-    // .j-bang {
-    //   transform: scale(0.33);
-    // }
-
-    // .j-ticket {
-    //   transform: scale(0.3) rotate(720deg);
-    // }
-    // }
   }
   .j-tickets-wrap {
     // outline: black solid 2px;
     object-fit: cover;
-    transform: scale(0.5);
     transform-origin: 50% 50%;
-    width: 850px;
-    height: 130px;
+    width: 900px;
+    height: 338px;
+    transform: scale(0.5);
     position: absolute;
-    top: 490px;
-    left: 130px;
-    animation: rotateAnimation 1.4s linear;
+    top: 360px;
+    left: 107px;
+    // animation: rotateAnimation 1.4s linear;
     animation-delay: 2s;
 
-    // background-image: url(./../img/ticket.png);
-    // background-repeat: no-repeat;
-    // background-size: contain;
+    background-image: url(./../img/ticket.png);
+    background-repeat: no-repeat;
+    background-size: contain;
     background-position: center center;
     box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.5s;
     will-change: transform;
 
-    animation-fill-mode: forwards;
+    // animation-fill-mode: forwards;
     @keyframes rotateAnimation {
       0% {
         transform: scale(0.5);
@@ -339,13 +311,14 @@ body {
     }
     @media (max-width: 390px) {
       width: 340px;
+      height: 140px;
       top: 150px;
       left: 10px;
       animation: none;
       transform: scale(1);
     }
-    .j-ticket {
-      width: 100%;
-    }
+    // .j-ticket {
+    //   width: 100%;
+    // }
   }
 }

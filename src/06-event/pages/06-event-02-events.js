@@ -223,7 +223,10 @@ function Events({ origins, likes, setLikes }) {
             {cateRow.length > 0 && (
               <div
                 className="j-event-card"
-                style={{ background: `${cateRow[epage - 1].styles}` }}
+                style={{
+                  background: `${cateRow[epage - 1].styles}`,
+                  transition: '5s',
+                }}
                 key={cateRow[epage - 1].name}
               >
                 <span className="j-lego">

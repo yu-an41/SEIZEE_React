@@ -7,10 +7,13 @@ import YellowWave from '../yellow/YellowWave'
 import { useTimeTable } from '../../context/useTimeTable'
 import jDelete from './../../svg/delete.svg'
 import axios from 'axios'
+import ModalNotification from '../../../components/ModalNotification'
+import { useNavigate } from 'react-router-dom'
+
 function Timetable() {
   const { timeTable, removeTimeTable, setWhichHover, setTimeTable } =
     useTimeTable()
-
+  const navigator = useNavigate()
   const getTicketData = async () => {
     const postData = {
       memberSid: 2,
@@ -34,6 +37,13 @@ function Timetable() {
   //   console.log('timeTable', timeTable)
   //   // setTimeTable(timeTable)
   // }, [])
+  const [isOpen, setIsOpen] = useState(false)
+  const [jHeader, setJHeader] = useState('')
+  const [jBody, setJBody] = useState('')
+  const closeModal = () => {
+    setIsOpen(false)
+    //  navigator('/event')
+  }
   return (
     <>
       <div className="j-right-wrap">
@@ -110,6 +120,9 @@ function Timetable() {
                 onClick={() => {
                   handleClickSend()
                   getTicketData()
+                  setIsOpen(true)
+                  setJHeader('！兌換成功！')
+                  setJBody('現在就去看看你的專屬票卷吧～')
                 }}
               >
                 {`${isClicked === true ? '兌換完成' : '兌換票卷'}`}
@@ -118,6 +131,12 @@ function Timetable() {
           </div>
         </div>
       </div>
+      <ModalNotification
+        isOpen={isOpen}
+        NotificationHeader={jHeader}
+        NotificationBody={jBody}
+        closeModal={closeModal}
+      />
     </>
   )
 }

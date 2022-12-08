@@ -26,6 +26,7 @@ export const TimeTableProvider = ({ children }) => {
     })
 
     setTimeTable(newTimeTable)
+    localStorage.setItem('timetable', JSON.stringify(newTimeTable))
   }
 
   const handleAddTimeTable = (item) => {

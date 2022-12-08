@@ -48,28 +48,12 @@ function Ticket() {
         ) : (
           <></>
         )}
-        <div className="j-tickets-wrap">
-          <animated.div
-            className="j-ticket"
-            src={jTicket}
-            alt=""
-            onMouseMove={({ clientX: x, clientY: y }) =>
-              set({ xys: calc(x, y) })
-            }
-            onMouseLeave={() => set({ xys: [0, 0, 1] })}
-            style={{ transform: props.xys.interpolate(trans) }}
-          />
-          {/* <img
-            className="j-ticket"
-            src={jTicket}
-            alt=""
-            // onMouseMove={({ clientX: x, clientY: y }) =>
-            //   set({ xys: calc(x, y) })
-            // }
-            // onMouseLeave={() => set({ xys: [0, 0, 1] })}
-            // style={{ transform: props.xys.interpolate(trans) }}
-          /> */}
-        </div>
+        <animated.div
+          className="j-tickets-wrap"
+          onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+          onMouseLeave={() => set({ xys: [0, 0, 1] })}
+          style={{ transform: props.xys.interpolate(trans) }}
+        />
       </div>
     </>
   )
