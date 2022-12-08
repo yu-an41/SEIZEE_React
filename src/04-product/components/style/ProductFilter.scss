@@ -4,8 +4,8 @@ main {
   margin: 0;
   padding: 0;
   list-style: none;
-  letter-spacing: 2px;
 }
+
 $main-blue: #2b325c;
 $main-yellow: #fad249;
 $main-text: #5e5e5e;
@@ -18,6 +18,26 @@ $text-shadow: #e4e4e4;
 $base-line-eight: 10px;
 $main-border: 3px solid #113f75;
 $main-border-radius: 8px;
+@function line($count: 1) {
+  @return $base-line-eight * $count;
+}
+%a-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #5e5e5e;
+  letter-spacing: 1.5px;
+}
+%a-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2b325c;
+  letter-spacing: 1.5px;
+}
+%a-secondary-color-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #113f75;
+}
 %a-flex {
   display: flex;
   justify-content: center;
@@ -98,24 +118,24 @@ $main-border-radius: 8px;
             border: 8px solid $secondary-blue;
             background-color: $main-yellow;
           }
-          .a-iconWrapper {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 8px solid $secondary-blue;
-            overflow: hidden;
-            background-color: $main-yellow;
-            margin: 20px 10px 5px 10px;
-            @extend %a-flex;
-            .a-icon {
-              width: 100px;
-              object-fit: cover;
-            }
-          }
-          .a-iconWrapper:hover {
-            border: 8px solid #87efbd;
-            background-color: $secondary-blue;
-          }
+          // .a-iconWrapper {
+          //   width: 140px;
+          //   height: 140px;
+          //   border-radius: 50%;
+          //   border: 8px solid $secondary-blue;
+          //   overflow: hidden;
+          //   background-color: $main-yellow;
+          //   margin: 20px 10px 5px 10px;
+          //   @extend %a-flex;
+          //   .a-icon {
+          //     width: 100px;
+          //     object-fit: cover;
+          //   }
+          // }
+          // .a-iconWrapper:hover {
+          //   border: 8px solid #87efbd;
+          //   background-color: $secondary-blue;
+          // }
           .a-categoryIconWrapper {
             display: flex;
             justify-content: center;
@@ -151,63 +171,63 @@ $main-border-radius: 8px;
 .a-productCardsWrapper {
   display: flex;
   justify-content: center;
-
+  margin-bottom: 100px;
   // searchBar
   .a-productCardsWrapper {
     display: flex;
   }
   .a-sideBar {
     width: 350px;
-  .a-sideBarWrapper {
-    position: relative;
-    position: fixed;
-    .a-aladdinWrapper {
-      width: 200px;
-      height: 200px;
-      overflow: hidden;
-      padding: 10px 0 0 15px;
-      position: absolute;
-      top: -3px;
-      left: 20px;
-      rotate: -20deg;
-      img {
-        width: 100%;
-        object-fit: cover;
-        object-position: center center;
+    .a-sideBarWrapper {
+      position: relative;
+      position: fixed;
+      .a-aladdinWrapper {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        padding: 10px 0 0 15px;
+        position: absolute;
+        top: -3px;
+        left: 20px;
+        rotate: -20deg;
+        img {
+          width: 100%;
+          object-fit: cover;
+          object-position: center center;
+        }
       }
-    }
-    .a-searchBarWrapper {
-      margin: 100px 50px 0 30px;
-      width: 200px;
-      height: 500px;
-      background-color: $main-yellow;
-      border-radius: 8px;
-      // position: relative;
-    }
-    .a-sideBarOptionsWrapper {
-      @extend %a-flex;
-      flex-direction: column;
-      padding-top: 80px;
-      .a-optionWrapper {
-        width: 150px;
-        height: 50px;
-        justify-content: center;
-        align-items: center;
-        font-size: 18px;
-        font-weight: 700;
-        color: $main-text;
-        background-color: $secondary-yellow;
-        border-radius: 30px;
-        display: inline-flex;
-        margin: 10px 0;
+      .a-searchBarWrapper {
+        margin: 100px 50px 0 30px;
+        width: 200px;
+        height: 500px;
+        background-color: $main-yellow;
+        border-radius: 8px;
+        // position: relative;
       }
-      .a-optionWrapper:hover {
-        background-color: $green;
-        color: #fff;
+      .a-sideBarOptionsWrapper {
+        @extend %a-flex;
+        flex-direction: column;
+        padding-top: 80px;
+        .a-optionWrapper {
+          width: 150px;
+          height: 50px;
+          justify-content: center;
+          align-items: center;
+          font-size: 18px;
+          font-weight: 700;
+          color: $main-text;
+          background-color: $secondary-yellow;
+          border-radius: 30px;
+          display: inline-flex;
+          margin: 10px 0;
+        }
+        .a-optionWrapper:hover {
+          background-color: $green;
+          color: #fff;
+        }
       }
     }
   }
-}
   // ProductCard
   .a-porductCards {
     .a-filterProductCard {
@@ -220,42 +240,45 @@ $main-border-radius: 8px;
       .a-filterProudctWrapper {
         display: flex;
         flex-direction: column;
-        margin: 10px;
-      }
-      .a-filterImgWrapper {
-        width: 300px;
-        height: 350px;
-        overflow: hidden;
-        border-radius: 8px;
-        border: 5px solid $secondary-blue;
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center center;
+        margin: 15px;
+        .a-filterImgWrapper {
+          width: 300px;
+          height: 350px;
+          overflow: hidden;
+          border-radius: 8px;
+          border: 5px solid $secondary-blue;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+          }
+        }
+        .a-filterTextWrapper {
+          @extend %a-flex;
+          padding-top: 10px;
+          .a-filterProudctName {
+            @extend %a-secondary-color-text;
+          }
+          .a-filterProudctDiscount {
+            @extend %a-secondary-color-text;
+            background-color: $main-yellow;
+            padding: 2px 9px;
+            margin-left: 8px;
+          }
+        }
+        .a-filterPriceWrapper {
+          @extend %a-flex;
+          .a-filterPrice {
+            text-decoration: line-through;
+            @extend %a-secondary-color-text;
+          }
+          .a-filterText {
+            @extend %a-secondary-color-text;
+            padding: 10px;
+          }
         }
       }
-      .a-filterProudctName {
-        color: $main-blue;
-        font-size: 18px;
-        font-weight: 500;
-        text-align: center;
-        padding: 10px;
-      }
-      .a-filterTextWrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        font-size: 20px;
-      }
-      .a-filterText {
-        color: $main-blue;
-        padding: 10px;
-        font-size: 20px;
-
-      }
+    }
   }
-}
 }

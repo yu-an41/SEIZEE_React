@@ -278,9 +278,12 @@ const Products = () => {
                     <div className="a-filterImgWrapper">
                       <img src={`/04-product/img/${p.picture_url}`} alt="" />
                     </div>
-                    <h2 className="a-filterProudctName">{p.product_name}</h2>
                     <div className="a-filterTextWrapper">
-                    <p className="a-filterText">{p.sale_price}折</p>
+                      <h2 className="a-filterProudctName">{p.product_name}</h2>
+                      <p className="a-filterProudctDiscount">{p.sale_price}折</p>
+                    </div>
+                    <div className="a-filterPriceWrapper">
+                      <p className="a-filterPrice">原價{p.unit_price}元</p>
                       <p className="a-filterText">惜食價{p.product_price}元</p>
                     </div>
                   </div>
