@@ -11,6 +11,7 @@ import ModalNotification from './components/ModalNotification'
 
 // 00-homepage
 import Homepage from './00-homepage/pages/Homepage'
+import Gachapon from './00-homepage/components/Gachapon'
 
 // 01-cart
 import CartList from './01-cart/pages/CartList'
@@ -29,7 +30,7 @@ import InnerCook from './02-forum/pages/Inner_cook'
 import InnerShare from './02-forum/pages/Inner_share'
 import InnerStore from './02-forum/pages/Inner_store'
 import InnerOfficial from './02-forum/pages/Inner_official'
-import WriteForm from './02-forum/pages/WriteForm'
+// import WriteForm from './02-forum/pages/WriteForm'
 
 // 03-shop
 import ShopList from './03-shop/pages/03-shop-list'
@@ -72,6 +73,7 @@ function App() {
               <Routes>
                 {/* 00-homepage */}
                 <Route path="/" element={<Homepage />} />
+                <Route path="/gachapon" element={<Gachapon />} />
 
                 {/* 01-cart */}
                 <Route path="/cart/">
@@ -94,7 +96,7 @@ function App() {
                     path="official/inner/:sid"
                     element={<InnerOfficial />}
                   />
-                  <Route path="writeForm" element={<WriteForm />} />
+                  {/* <Route path="writeForm" element={<WriteForm />} /> */}
                 </Route>
 
                 {/* 03-shop */}

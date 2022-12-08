@@ -9,7 +9,7 @@ function NewEvent() {
       const response = await axios.get(
         'http://localhost:3004/home/event-banner'
       )
-      // console.log(response.data.shop_c_rows)
+
       const eventData = response.data.eventRows
       //設定到state裡
       setEvents(eventData)
@@ -25,7 +25,6 @@ function NewEvent() {
     getEvents()
   }, [])
 
-  // console.log(events)
   return (
     <>
       {events.map((v, i) => {
@@ -42,11 +41,11 @@ function NewEvent() {
               <p className="r-home-event-eventlist-info-time">{v.time}</p>
               <p className="r-home-event-eventlist-info-name">{v.name}</p>
             </div>
-            <div className="r-home-event-event-list-link-wrap">
+            {/* <div className="r-home-event-event-list-link-wrap">
               <a href="#/" className="r-home-event-eventlist-li-link">
                 詳細
               </a>
-            </div>
+            </div> */}
           </li>
         )
       })}
