@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './../styles/NavBar.scss'
 import Menu from './Menu'
 
@@ -13,7 +13,29 @@ import LogoBluePink from './../logo-and-fonts/LOGO-blue-pink.svg'
 import CartIcon from './../dotown/cart.png'
 import MemberIcon from './../logo-and-fonts/default.png'
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
 function NavBar() {
+  // ScrollPosition
+  const [scrollPosition, setScrollPosition] = useState(0)
+
+  useEffect(() => {
+    const updatePosition = () => {
+      setScrollPosition(window.pageYOffset)
+    }
+
+    window.addEventListener('scroll', updatePosition)
+
+    updatePosition()
+
+    return () => window.removeEventListener('scroll', updatePosition)
+  }, [])
+
+  // console.log('scrollPosition', scrollPosition)
+  // reference: https://www.youtube.com/watch?v=UvWMlNZuQTc
+
   // modal
   const [isOpen1, setIsOpen1] = useState(false)
 
@@ -52,10 +74,12 @@ function NavBar() {
   //   items = +items
   // }
   items = items > 99 ? '99+' : items
-
+  // className="y-section-nav"
   return (
     <>
-      <div className="y-section-nav">
+      <div
+        className={classNames(scrollPosition > 0 ? 'bgc' : '', 'y-section-nav')}
+      >
         <div className="y-logo-wrap">
           <div className="y-svg-wrap">
             <Link to={`/`} alt="homepage of SEIZEE">
