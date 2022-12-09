@@ -64,7 +64,7 @@ function CartDone() {
     }
   }
 
-  const [cartCountDown, setCartCountDown] = useState(15)
+  const [cartCountDown, setCartCountDown] = useState(10)
 
   useEffect(() => {
     getMemberOrder()
@@ -81,7 +81,7 @@ function CartDone() {
     } else {
       setCartCountDown(0)
     }
-  }, [])
+  }, [cartCountDown])
 
   return (
     <>
