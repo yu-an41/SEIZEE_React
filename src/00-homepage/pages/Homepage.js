@@ -35,7 +35,6 @@ function Homepage() {
   // miee's search and shop ------------------------------------
 
   // ariel's about and events ---------------------------------
- 
 
   // forum post's -----------------------------
   const [postNums, setPostNums] = useState(3)
@@ -61,9 +60,6 @@ function Homepage() {
             </div>
             {/* <div className="y-carousel-block-yellow">
               <p>成為戰士吧</p>
-              <div className="y-carousel-block-gif">
-                <img src={`/05-member/hito.gif`} />
-              </div>
             </div> */}
             <div className="y-carousel-block-blue">
               <div className="y-block-bg">
@@ -82,21 +78,7 @@ function Homepage() {
           <ShopHome />
         </section>
         <section className="y-section y-section-about">
-        <AboutUs />
-          {/* <div className="a-video">
-            <div className="a-videoWrapper">
-              <h3 className="a-aboutUs">關於我們</h3>
-              <video
-                playsInline
-                loop
-                muted
-                alt="All the devices"
-                src="../../video/test.mp4"
-                type="video/mp4"
-                ref={videoEl}
-              />
-            </div>
-          </div> */}
+          <AboutUs />
         </section>
 
         <div className="y-wave-wrap-white">
@@ -135,8 +117,7 @@ function Homepage() {
           <div
             className="y-go-to-top"
             onClick={() => {
-              window.scrollTo(0, 0)
-              console.log('go to top')
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
             }}
           ></div>
           <div className="y-section-forum-title">

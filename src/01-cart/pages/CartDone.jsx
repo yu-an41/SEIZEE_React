@@ -64,23 +64,24 @@ function CartDone() {
     }
   }
 
-  const [cartCountDown, setCartCountDown] = useState(10)
+  const [cartCountDown, setCartCountDown] = useState(15)
 
   useEffect(() => {
     getMemberOrder()
     setTimeout(() => {
       navigate('/')
-    }, 10000)
+    }, 15000)
   }, [])
 
   useEffect(() => {
     if (cartCountDown > 1) {
-      setInterval(() => {
+      const myInterval = setInterval(() => {
         setCartCountDown(cartCountDown - 1)
       }, 1000)
     } else {
       setCartCountDown(0)
     }
+    return 
   }, [cartCountDown])
 
   return (

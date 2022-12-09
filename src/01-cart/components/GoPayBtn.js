@@ -65,12 +65,11 @@ function GoPayBtn({ pickup, pay }) {
           `http://localhost:3004/cart/linepay/${ordernum}?mid=${mid}`,
           cartItem
         )
-        console.log(`Pay coded: ${pay}`, res.data)
+        // console.log(`Pay coded: ${pay}`, res.data)
 
-        // const confirm = await axios.get(`${res.data.url}`)
         if (res.data.success) {
-          navigate('/cart/done')
-          console.log('LINE Pay付款成功，導向訂單完成頁')
+          console.log(res.data.url)
+          window.open(res.data.url, '_self')
         }
       } else if (pay === 2) {
         const res = await axios.post(

@@ -17,6 +17,7 @@ import Gachapon from './00-homepage/components/Gachapon'
 import CartList from './01-cart/pages/CartList'
 import CartInfo from './01-cart/pages/CartInfo'
 import CartDone from './01-cart/pages/CartDone'
+import LineConfirm from './01-cart/pages/LineConfirm'
 
 // Cart 要用的 ContextProvider
 
@@ -76,6 +77,7 @@ function App() {
                 {/* 00-homepage */}
                 <Route path="/" element={<Homepage />} />
                 <Route path="/gachapon" element={<Gachapon />} />
+                <Route path="/linePay/confirm" element={<LineConfirm />} />
 
                 {/* 01-cart */}
                 <Route path="/cart/">

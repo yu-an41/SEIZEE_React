@@ -427,22 +427,19 @@ export const CartInfoContextProvider = function ({ children }) {
   const handleCartSave = async (mbSid, prodSid) => {
     prodSid = +prodSid
     mbSid = +mbSid
-    console.log('商品加入收藏清單')
-    try {
-      const { res } = await axios.get(
-        `http://localhost:3004/cart/add-save/?mbsid=${mbSid}&prodsid=${prodSid}`
-      )
-
-      console.log(res.data)
-      // const prodInfo = res.data.prod_info_rows[0]
-      // console.log(mbSid, prodSid)
-    } catch (error) {
-      console.log(error.message)
-    }
-    setEmptyCart(false)
-    openModalNotification()
-    setHeaderMg('購物車')
-    setBodyMg(`商品加入收藏清單！`)
+    console.log(`商品編號 ${prodSid} 加入會員 ${mbSid} 收藏清單！`)
+    // try {
+    //   const { res } = await axios.get(
+    //     `http://localhost:3004/cart/add-save/?mbsid=${mbSid}&prodsid=${prodSid}`
+    //   )
+    //   console.log(res.data)
+    // } catch (error) {
+    //   console.log(error.message)
+    // }
+    // setEmptyCart(false)
+    // openModalNotification()
+    // setHeaderMg('購物車')
+    // setBodyMg(`商品加入收藏清單！`)
   }
 
   return (
