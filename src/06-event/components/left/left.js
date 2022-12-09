@@ -14,7 +14,7 @@ function Left({ setNowPage }) {
         <div class="j-left">
           <ul>
             <li>
-              <img src={jLogo} alt="" />
+              <img className="j-hidehide" src={jLogo} alt="" />
             </li>
             <li>
               <img src={jWorm} alt="" />

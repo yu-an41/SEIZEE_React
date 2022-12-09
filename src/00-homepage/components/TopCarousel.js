@@ -11,7 +11,7 @@ export default class TopCarousel extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      // autoplaySpeed: 3500,
+      autoplaySpeed: 3500,
       speed: 800,
       pauseOnHover: true,
     }
@@ -25,27 +25,12 @@ export default class TopCarousel extends Component {
               alt="banner carousel"
             />
           </div>
-          <div className="y-top-carousel-banner">
-            <img
-              src={`/00-homepage/banner1-ice-cream.png`}
-              alt="banner carousel"
-            />
+          <div className="y-top-carousel-banner y-carousel-cover">
+            <img src={`/00-homepage/food1.jpg`} alt="banner carousel" />
           </div>
-          <div className="y-top-carousel-banner">
-            <img
-              src={`/00-homepage/banner1-ice-cream.png`}
-              alt="banner carousel"
-            />
+          <div className="y-top-carousel-banner y-carousel-cover">
+            <img src={`/00-homepage/food2.jpg`} alt="banner carousel" />
           </div>
-          {/* <div className="y-top-carousel-banner">
-            <img
-              src={`/00-homepage/banner1-ice-cream.png`}
-              alt="banner carousel"
-            />
-          </div> */}
-          {/* <div className="y-top-carousel-banner">
-            <h1>Hello Carousel</h1>
-          </div> */}
         </Slider>
       </div>
     )

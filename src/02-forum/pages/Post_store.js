@@ -8,7 +8,6 @@ import { Card_store } from '../components/Card_post'
 import SearchBar from '../components/Search_bar'
 import Recommendation from '../components/Recommendation'
 import WriteBtn from '../components/WriteBtn'
-import TabCook from '../components/TabCook'
 import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
 

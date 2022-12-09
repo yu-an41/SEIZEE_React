@@ -189,18 +189,9 @@ function Menu() {
                 <div className="y-menu-section-icon">
                   <img src={MemberIcon} alt="icon" />
                 </div>
-                {localStorage.getItem('auth')?.mb_sid ? (
-                  <Link to={`/profile`} alt="event_link">
-                    戰士專區
-                  </Link>
-                ) : (
-                  <Link to={`/login`} alt="event_link">
-                    戰士專區
-                  </Link>
-                )}
-                {/* <Link to={`/profile`} alt="event_link">
+                <Link to={`/profile/`} alt="event_link">
                   戰士專區
-                </Link> */}
+                </Link>
               </div>
               <ul className="y-menu-section-links y-event-links">
                 <li>

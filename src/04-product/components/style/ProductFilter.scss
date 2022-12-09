@@ -4,19 +4,40 @@ main {
   margin: 0;
   padding: 0;
   list-style: none;
-  letter-spacing: 2px;
 }
+
 $main-blue: #2b325c;
 $main-yellow: #fad249;
 $main-text: #5e5e5e;
 $secondary-blue: #113f75;
 $secondary-yellow: #fef3da;
+$main-orange: #f57d00;
 $green: #53b2a8;
 $red: #ed4743;
 $text-shadow: #e4e4e4;
 $base-line-eight: 10px;
 $main-border: 3px solid #113f75;
 $main-border-radius: 8px;
+@function line($count: 1) {
+  @return $base-line-eight * $count;
+}
+%a-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #5e5e5e;
+  letter-spacing: 1.5px;
+}
+%a-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2b325c;
+  letter-spacing: 1.5px;
+}
+%a-secondary-color-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #113f75;
+}
 %a-flex {
   display: flex;
   justify-content: center;
@@ -27,20 +48,20 @@ $main-border-radius: 8px;
 .a-iconsWrapper {
   display: flex;
   justify-content: center;
-.a-iconAladdinWrapper {
-  width: 250px;
-  height: 250px;
-  border: 8px solid #87efbd;
-  overflow: hidden;
-  background-color: $secondary-blue;
-  border-radius: 50%;
-  padding: 10px 0 0 15px;
-  img {
-    width: 90%;
-    object-fit: cover;
-    object-position: center center;
+  .a-iconAladdinWrapper {
+    width: 250px;
+    height: 250px;
+    border: 8px solid #87efbd;
+    overflow: hidden;
+    background-color: $secondary-blue;
+    border-radius: 50%;
+    padding: 10px 0 0 15px;
+    img {
+      width: 90%;
+      object-fit: cover;
+      object-position: center center;
+    }
   }
-}
 }
 .a-iconAvengersWrapper {
   width: 250px;
@@ -86,17 +107,35 @@ $main-border-radius: 8px;
             border: 8px solid #87efbd;
             overflow: hidden;
             background-color: $secondary-blue;
-            margin: 20px 10px 5px 10px;
+            margin: 10px 10px 5px 10px;
             @extend %a-flex;
-            .a-iconWrapper:hover {
-              border: 8px solid $main-yellow;
-              background-color: $secondary-blue;
-            }
             .a-icon {
               width: 100px;
               object-fit: cover;
             }
           }
+          .a-iconWrapper:hover {
+            border: 8px solid $secondary-blue;
+            background-color: $main-yellow;
+          }
+          // .a-iconWrapper {
+          //   width: 140px;
+          //   height: 140px;
+          //   border-radius: 50%;
+          //   border: 8px solid $secondary-blue;
+          //   overflow: hidden;
+          //   background-color: $main-yellow;
+          //   margin: 20px 10px 5px 10px;
+          //   @extend %a-flex;
+          //   .a-icon {
+          //     width: 100px;
+          //     object-fit: cover;
+          //   }
+          // }
+          // .a-iconWrapper:hover {
+          //   border: 8px solid #87efbd;
+          //   background-color: $secondary-blue;
+          // }
           .a-categoryIconWrapper {
             display: flex;
             justify-content: center;
@@ -129,79 +168,85 @@ $main-border-radius: 8px;
   font-weight: 500;
   margin-bottom: 100px;
 }
-
 .a-productCardsWrapper {
   display: flex;
   justify-content: center;
-
+  margin-bottom: 100px;
   // searchBar
-  .a-sideBarWrapper {
-    .a-searchBarWrapper {
-      margin: 50px 50px 0 30px;
-      width: 160px;
-      height: 400px;
-      background-color: $main-yellow;
-      border-radius: 8px;
-      // position: relative;
-    }
-    .a-aladdinWrapper {
-      width: 100px;
-      overflow: hidden;
-      // position: absolute;
-      // top: -30px;
-      // left: 10px;
-      .a-aladdinWrapper img {
-        width: 100%;
-        object-fit: cover;
+  .a-productCardsWrapper {
+    display: flex;
+  }
+  .a-sideBar {
+    width: 350px;
+    .a-sideBarWrapper {
+      position: relative;
+      position: fixed;
+      .a-aladdinWrapper {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        padding: 10px 0 0 15px;
+        position: absolute;
+        top: -3px;
+        left: 20px;
+        rotate: -20deg;
+        img {
+          width: 100%;
+          object-fit: cover;
+          object-position: center center;
+        }
+      }
+      .a-searchBarWrapper {
+        margin: 100px 50px 0 30px;
+        width: 200px;
+        height: 500px;
+        background-color: $main-yellow;
+        border-radius: 8px;
+        // position: relative;
+      }
+      .a-sideBarOptionsWrapper {
+        @extend %a-flex;
+        flex-direction: column;
+        padding-top: 80px;
+        .a-optionWrapper {
+          width: 150px;
+          height: 50px;
+          justify-content: center;
+          align-items: center;
+          font-size: 18px;
+          font-weight: 700;
+          color: $main-text;
+          background-color: $secondary-yellow;
+          border-radius: 30px;
+          display: inline-flex;
+          margin: 10px 0;
+        }
+        .a-optionWrapper:hover {
+          background-color: $green;
+          color: #fff;
+        }
       }
     }
   }
-  // seachBar
-  // .a-sideBarWrapper {
-  //   display: flex;
-  //   .a-aladdinWrapper {
-  //     width: 200px;
-  //     // overflow: hidden;
-  //     // position: absolute;
-  //     // top: -30px;
-  //     // left: 10px;
-  //     .a-aladdinWrapper img {
-  //       width: 100%;
-  //       // object-fit: cover;
-  //     }
-  //     .a-searchBarWrapper {
-  //       margin: 50px 50px 0 30px;
-  //       width: 200px;
-  //       height: 800px;
-  //       background-color: $main-yellow;
-  //       border-radius: 8px;
-  //       // position: relative;
-  //     }
-  //   }
-  // }
-
   // ProductCard
   .a-porductCards {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 800px;
-    margin-top: 30px;
     .a-filterProductCard {
       display: flex;
+      justify-content: center;
+      align-items: flex-start;
       flex-wrap: wrap;
+      width: 1200px;
+      margin: 30px 5px 5px 50px;
       .a-filterProudctWrapper {
-        width: 150px;
         display: flex;
         flex-direction: column;
-        margin: 10px;
+        margin: 15px;
         .a-filterImgWrapper {
-          width: 150px;
-          height: 150px;
+          width: 300px;
+          height: 350px;
           overflow: hidden;
           border-radius: 8px;
-          border: 3px solid $secondary-blue;
+          border: 5px solid $secondary-blue;
           img {
             width: 100%;
             height: 100%;
@@ -209,32 +254,31 @@ $main-border-radius: 8px;
             object-position: center center;
           }
         }
-        .a-filterProudctName {
-          color: $main-blue;
-          font-size: 18px;
-          font-weight: 500;
-          text-align: center;
-        }
         .a-filterTextWrapper {
-          display: flex;
-          justify-content: center;
+          @extend %a-flex;
+          padding-top: 10px;
+          .a-filterProudctName {
+            @extend %a-secondary-color-text;
+          }
+          .a-filterProudctDiscount {
+            @extend %a-secondary-color-text;
+            background-color: $main-yellow;
+            padding: 2px 9px;
+            margin-left: 8px;
+          }
         }
-        .a-filterText {
-          color: $main-blue;
-          font-size: 16px;
+        .a-filterPriceWrapper {
+          @extend %a-flex;
+          .a-filterPrice {
+            text-decoration: line-through;
+            @extend %a-secondary-color-text;
+          }
+          .a-filterText {
+            @extend %a-secondary-color-text;
+            padding: 10px;
+          }
         }
       }
     }
-    // .a-filterCardButton {
-    //   width: 200px;
-    //   text-align: center;
-    //   background-color: $main-yellow;
-    //   color: $main-blue;
-    //   border: $main-border;
-    //   border-radius: $main-border-radius;
-    //   padding: 5px 20px;
-    //   font-weight: 500;
-    //   margin: 20px 0 70px 0;
-    // }
   }
 }

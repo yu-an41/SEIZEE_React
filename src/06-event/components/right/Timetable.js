@@ -1,5 +1,5 @@
 import './Timetable.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import carrot from './../../svg/carrot.svg'
 import dialogue from './../../svg/dialogue-box.svg'
 import menu from './../../svg/menu.svg'
@@ -7,9 +7,13 @@ import YellowWave from '../yellow/YellowWave'
 import { useTimeTable } from '../../context/useTimeTable'
 import jDelete from './../../svg/delete.svg'
 import axios from 'axios'
-function Timetable() {
-  const { timeTable, removeTimeTable, setWhichHover } = useTimeTable()
+import ModalNotification from '../../../components/ModalNotification'
+import { useNavigate } from 'react-router-dom'
 
+function Timetable() {
+  const { timeTable, removeTimeTable, setWhichHover, setTimeTable } =
+    useTimeTable()
+  const navigator = useNavigate()
   const getTicketData = async () => {
     const postData = {
       memberSid: 2,
@@ -27,6 +31,19 @@ function Timetable() {
     //toggle
     setIsClicked((current) => !current)
   }
+
+  // useEffect(() => {
+  //   const timeTable = localStorage.getItem('timetable') || []
+  //   console.log('timeTable', timeTable)
+  //   // setTimeTable(timeTable)
+  // }, [])
+  const [isOpen, setIsOpen] = useState(false)
+  const [jHeader, setJHeader] = useState('')
+  const [jBody, setJBody] = useState('')
+  const closeModal = () => {
+    setIsOpen(false)
+    //  navigator('/event')
+  }
   return (
     <>
       <div className="j-right-wrap">
@@ -36,13 +53,16 @@ function Timetable() {
         <div class="j-right">
           <div className="j-hidebox">
             <div className="j-menu">
-              <img src={menu} alt="" />
+              <img className="j-hidehide" src={menu} alt="" />
             </div>
             <div className="j-banner">我的時間表</div>
           </div>
           <div className="j-table-right">
             <div className="j-dialogue">
-              <div className="j-sayhi">
+              <div className="j-sayhi1">
+                歡迎光臨～現在就來製作專屬時間表！試試最新的路痴友善地圖吧！
+              </div>
+              <div className="j-sayhi2">
                 歡迎光臨～現在就來製作專屬時間表！試試最新的路痴友善地圖吧！
               </div>
               <img src={dialogue} alt="" />
@@ -100,6 +120,9 @@ function Timetable() {
                 onClick={() => {
                   handleClickSend()
                   getTicketData()
+                  setIsOpen(true)
+                  setJHeader('！兌換成功！')
+                  setJBody('現在就去看看你的專屬票卷吧～')
                 }}
               >
                 {`${isClicked === true ? '兌換完成' : '兌換票卷'}`}
@@ -108,6 +131,12 @@ function Timetable() {
           </div>
         </div>
       </div>
+      <ModalNotification
+        isOpen={isOpen}
+        NotificationHeader={jHeader}
+        NotificationBody={jBody}
+        closeModal={closeModal}
+      />
     </>
   )
 }

@@ -482,6 +482,15 @@ function UpdateInfo(props) {
                   />
                 </div>
               </form>
+              <div className="s-svg-arrow">
+                <a href="/profile" alt="">
+                  <img
+                    className="s-svg-arrow-img"
+                    src="/05-member/pixel-TOP-havor%202.png"
+                    alt=""
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>
