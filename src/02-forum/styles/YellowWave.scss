@@ -22,11 +22,11 @@ $wave-height: 40px;
             // repeat: no-repeat;
             size: 100px 1920px;
         }
-        animation: animate 3.5s linear infinite;
+        animation: p-yellow-wave 3.5s linear infinite;
         z-index: 100;
         animation-delay: 0.3s;
         
-        @keyframes animate {
+        @keyframes p-yellow-wave {
             0% {
                 background-position-y: 0px;
             }

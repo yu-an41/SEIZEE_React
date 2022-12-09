@@ -48,7 +48,15 @@ function CartDone() {
         )
         console.log(res.data)
 
-        localStorage.setItem('cartItem', JSON.stringify(emptyCart))
+        const initCart = {
+          userCart: [],
+          totalItem: 0,
+          totalUnitPrice: 0,
+          totalSalePrice: 0,
+          totalAmount: 0,
+        }
+
+        localStorage.setItem('cartItem', JSON.stringify(initCart))
         setEmptyCart(true)
       } catch (error) {
         console.log(error.message)
