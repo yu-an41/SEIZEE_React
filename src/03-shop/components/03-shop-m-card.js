@@ -6,7 +6,7 @@ import { Box, Skeleton } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 function ShopMcard({ filterShop, startShop, demoShop, setFindPos, isLoading }) {
-  // console.log(startShop)
+
   return (
     <>
       {startShop ? (

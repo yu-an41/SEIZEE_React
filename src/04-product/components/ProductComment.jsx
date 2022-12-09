@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import "./style/ProductComment.scss";
 
-function ProductComment({ setDoRender, doRender, sid }) {
+function ProductComment({ sid }) {
   //localStorage得到member_sid
   const mb_sid = localStorage.getItem("auth")
     ? JSON.parse(localStorage.getItem("auth")).mb_sid
@@ -16,6 +16,7 @@ function ProductComment({ setDoRender, doRender, sid }) {
     comment: "",
     rating: 0,
   });
+  const [showBox, setShowBox] = useState(true)
 
   //   const [rating, setRating] = useState({
   //     food_product_sid: sid,
@@ -26,7 +27,7 @@ function ProductComment({ setDoRender, doRender, sid }) {
   //星星評分數
   const ratingChanged = (newRating) => {
     if (mb_sid === "尚未登入") {
-      console.log("未登入！無法留言");
+      // console.log("未登入！無法留言");
       return;
     }
     setComment({
@@ -34,35 +35,43 @@ function ProductComment({ setDoRender, doRender, sid }) {
       rating: newRating,
     });
     console.log(newRating);
+    
   };
 
   const addComment = async () => {
     if (mb_sid === "尚未登入") {
-      console.log("未登入！無法留言");
+      // console.log("未登入！無法留言");
       return;
     }
-    console.log("會員編號：", mb_sid);
+    // console.log("會員編號：", mb_sid);
+    setShowBox(false)
     // const fd = new FormData();
     // fd.append("mb_sid", comment.mb_sid);
     // fd.append("food_product_sid", comment.food_product_sid);
     // fd.append("user_comment", comment.user_comment);
 
     const { data } = await axios.post(
-      "http://localhost:3004/product/comment?sid=" + sid,
+      "http://localhost:3004/product/comment",
       { ...comment }
     );
-    console.log(data);
-
-    if (data.user_comment.comment.success) {
-      alert("留言成功");
-      setDoRender(!doRender);
+    // console.log(data);
+    if (data.success) {
+      // alert("留言成功");
+      setComment({
+        food_product_sid: +sid,
+        mb_sid: mb_sid,
+        comment: "",
+        rating: 0,
+      });
+      // setShowBox(true)
     }
   };
 
   return (
     <>
-    <div className="a-productCommentWrapper">
-      <div className="a-ratingWrapper">
+    {
+      showBox ?
+      <div className="a-productCommentWrapper">
         <ReactStars
           count={5}
           value={comment.rating}
@@ -74,6 +83,7 @@ function ProductComment({ setDoRender, doRender, sid }) {
           fullIcon={<i className="fa fa-star"></i>}
           activeColor="#ffd700"
         />
+
         <div className="a-commentWrapper">
           <input
             className="a-commentInput"
@@ -90,7 +100,8 @@ function ProductComment({ setDoRender, doRender, sid }) {
           </button>
         </div>
       </div>
-      </div>
+      : null
+    }
     </>
   );
 }

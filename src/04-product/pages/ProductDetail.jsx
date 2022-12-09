@@ -6,10 +6,12 @@ import { useParams, useLocation } from 'react-router-dom'
 import Carousel2 from '../components/Carousel2'
 import CollectContext from '../../contexts/CollectContext'
 import ProductComment from '../components/ProductComment'
+import ProductCommentBoard from '../components/ProductCommentBoard'
 import NavBar from '../../components/NavBar'
 import YellowWave from '../../00-homepage/components/YellowWave'
 import YellowWave2 from '../components/YellowWave2'
 import Carousel1 from '../components/Carousel1'
+import Footer from '../../components/Footer'
 
 // cart
 import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
@@ -28,14 +30,14 @@ function ProductDetail() {
   const { sid } = useParams()
   //detailData
   const [detail, setDetail] = useState([])
-  console.log({ collection })
+  // console.log({ collection })
   //數量
   const [qty, setQty] = useState(1)
   //留言
   const [doRerender, setDoRerender] = useState(false)
   const [errorMessage, setErrorMessage] = useState([])
   const [heart, setHeart] = useState(false)
-  console.log(heart)
+  // console.log(heart)
 
   // cart
   const { cartItem, setCartItem, handleAddCart, updateItemQty } =
@@ -88,6 +90,7 @@ function ProductDetail() {
         <div className="a-carouselBigWrapper">
           <Carousel1 sid={sid} />
         </div>
+        <div className="a-productDatilsBigWrapper">
         <div className="a-deatil">
           {detail.map((details, i) => {
             return (
@@ -148,6 +151,7 @@ function ProductDetail() {
                       {details.product_description}
                     </p>
                   </div>
+                  {/* <div className="a-productRating">{details.rating}</div> */}
                 </div>
                 <div className="a-priceContent">
                   <div className="a-priceWrapper">
@@ -158,8 +162,8 @@ function ProductDetail() {
                     </div>
                     <div className="a-productDiscount">
                       <img src="/04-product/svg/like.svg" alt="" />
-                      <p className="a-detailsText">
-                        $特價
+                      <p className="a-detailsDiscount">
+                        惜食價
                         {details.product_price}元
                       </p>
                     </div>
@@ -176,7 +180,7 @@ function ProductDetail() {
                         setQty(1)
                       }}
                     >
-                      min
+                       <p className="a-detailsText">min</p> 
                     </button>
                     <button
                       className="a-minus"
@@ -217,7 +221,7 @@ function ProductDetail() {
                         setQty(details.inventory_qty)
                       }}
                     >
-                      max
+                       <p className="a-detailsText">max</p> 
                     </button>
                   </div>
                   <div
@@ -235,10 +239,17 @@ function ProductDetail() {
             )
           })}
         </div>
+        <div className="a-userCommentWrapper">
         <ProductComment sid={sid} />
+        <div className="a-commentArea">
+        {/* <ProductCommentBoard /> */}
+        </div>
+        </div>
         <YellowWave2 />
         <RecommendCard sid={sid} />
       </div>
+      </div>
+      <Footer />
     </>
   )
 }

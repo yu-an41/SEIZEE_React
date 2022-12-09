@@ -1,13 +1,20 @@
+import React, { useState, useContext, createContext, useEffect } from 'react'
+import { Link, useParams, useNavigate, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import { set } from 'ramda'
-import React, { useState, useContext, createContext } from 'react'
-import { Link, useParams } from 'react-router-dom'
+
+import ModalConfirm from '../../components/ModalConfirm'
+import ModalNotification from '../../components/ModalNotification'
 
 const CartInfoContext = createContext([])
 
 export default CartInfoContext
 
 export const CartInfoContextProvider = function ({ children }) {
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+
+  // 購物車結構
   let initCart = {
     userCart: [
       // {
@@ -36,10 +43,52 @@ export const CartInfoContextProvider = function ({ children }) {
 
   const [emptyCart, setEmptyCart] = useState(true)
 
+  // Modal
+
+  const [isOpen1, setIsOpen1] = useState(false)
+  const [isOpen2, setIsOpen2] = useState(false)
+
+  const [headerMg, setHeaderMg] = useState('')
+  const [bodyMg, setBodyMg] = useState('')
+
+  // 通知
+  const openModalNotification = () => {
+    setIsOpen1(true)
+    setIsOpen2(false)
+  }
+  const closeModalNotification = () => {
+    setIsOpen1(false)
+    // console.log(pathname)
+    if (pathname === '/cart' && emptyCart) {
+      // document.location.href = `http://localhost:3000/`
+      navigate('/')
+    } else {
+      return
+    }
+  }
+
+  // 確認選項
+  const closeModalConfirm = () => {
+    setIsOpen2(false)
+    handleEmptyCart()
+    if (pathname === '/cart' && checkCartEmpty) {
+      // document.location.href = `http://localhost:3000/`
+      navigate('/')
+    } else {
+      return
+    }
+  }
+  const openModalConfirm = () => {
+    setIsOpen2(true)
+  }
+  const closeModalCancel = () => {
+    setIsOpen2(false)
+    // navigate('/')
+  }
+
   // 加入購物車（只拿product.sid跟數量，其他去後台找資料）
-  // 待加入店家資料做判斷
+  // 需要加入庫存判斷！！！
   const handleAddCart = async (shopSid, prodSid, prodQty) => {
-    console.log('eddie', shopSid)
     prodSid = +prodSid
     prodQty = +prodQty
     shopSid = +shopSid
@@ -95,8 +144,17 @@ export const CartInfoContextProvider = function ({ children }) {
               localStorage.setItem('cartItem', JSON.stringify({ ...products }))
               setCartItem(products)
               setEmptyCart(false)
+
+              openModalNotification()
+              setHeaderMg('購物車')
+              setBodyMg('商品成功加入購物車！')
             } else {
-              alert(
+              // alert(
+              //   `已達本產品購買上限：${prodInfo.inventory}，請重新修改數量！`
+              // )
+              openModalNotification()
+              setHeaderMg('購物車')
+              setBodyMg(
                 `已達本產品購買上限：${prodInfo.inventory}，請重新修改數量！`
               )
             }
@@ -106,7 +164,9 @@ export const CartInfoContextProvider = function ({ children }) {
         }
         // 不同家->發出撞車警告
         else {
-          alert(`撞車了，購物已有其他店家商品！要去瞧瞧嗎？`)
+          openModalConfirm()
+          setHeaderMg('購物車')
+          setBodyMg(`購物已有其他店家商品！要清空現有購物車嗎？`)
         }
       }
       // 購物車是空的話直接加入購物車
@@ -147,8 +207,16 @@ export const CartInfoContextProvider = function ({ children }) {
             localStorage.setItem('cartItem', JSON.stringify({ ...products }))
             setCartItem(products)
             setEmptyCart(false)
+
+            openModalNotification()
+            setHeaderMg('購物車')
+            setBodyMg('商品成功加入購物車！')
           } else {
-            alert(`已達本產品購買上限：${prodInfo.inventory}，請重新修改數量！`)
+            openModalNotification()
+            setHeaderMg('購物車')
+            setBodyMg(
+              `已達本產品購買上限：${prodInfo.inventory}，請重新修改數量！`
+            )
           }
         } catch (err) {
           console.log(err.message)
@@ -158,6 +226,14 @@ export const CartInfoContextProvider = function ({ children }) {
 
     // 找到的話直接改數量金額
     else {
+      const item = cartItem.userCart[index]
+      if (item.amount + prodQty > item.inventory) {
+        openModalNotification()
+        setHeaderMg('購物車')
+        setBodyMg(`已達本產品購買上限：${item.inventory}，請重新修改數量！`)
+        return
+      }
+
       cartItem.userCart[index] = {
         ...cartItem.userCart[index],
         amount: cartItem.userCart[index].amount + prodQty,
@@ -179,9 +255,11 @@ export const CartInfoContextProvider = function ({ children }) {
       console.log({ newProducts })
       setCartItem(newProducts)
       setEmptyCart(false)
-      console.log('qty updated')
+
+      openModalNotification()
+      setHeaderMg('購物車')
+      setBodyMg(`已更新本商品數量！`)
     }
-    // if (emptyCart) setEmptyCart(false)
   }
 
   // 改變數量時重新計算小計總計
@@ -231,7 +309,11 @@ export const CartInfoContextProvider = function ({ children }) {
         totalAmount,
       })
     )
-    if (emptyCart) setEmptyCart(false)
+    setEmptyCart(false)
+
+    openModalNotification()
+    setHeaderMg('購物車')
+    setBodyMg(`已更新本商品數量！`)
   }
 
   // 刪除單項商品
@@ -281,6 +363,11 @@ export const CartInfoContextProvider = function ({ children }) {
         totalSalePrice,
         totalAmount,
       })
+      setEmptyCart(false)
+
+      openModalNotification()
+      setHeaderMg('購物車')
+      setBodyMg(`已刪除商品！`)
     }
   }
 
@@ -306,16 +393,20 @@ export const CartInfoContextProvider = function ({ children }) {
       totalAmount: 0,
     }
     // console.log({ emptyCart })
-    // localStorage.setItem('cartItem', JSON.stringify(emptyCart))
-    localStorage.removeItem('cartItem')
+    localStorage.setItem('cartItem', JSON.stringify(emptyCart))
+    // localStorage.removeItem('cartItem')
     setEmptyCart(true)
     // setCartItem(emptyCart)
-    alert('Your cart is empty!')
-    document.location.href = 'http://localhost:3000/'
+
+    openModalNotification()
+    setHeaderMg('購物車')
+    setBodyMg('戰士，您的購物車是空的！')
   }
 
   // 點icon時確認購物車不為空才跳轉
-  const checkCartEmpty = (e) => {
+  const checkCartEmpty = () => {
+    return !cartItem.userCart.length
+    /*
     console.log(localStorage.getItem('cartItem'))
     if (
       !localStorage.getItem('cartItem') ||
@@ -323,27 +414,37 @@ export const CartInfoContextProvider = function ({ children }) {
         '{"userCart":[],"totalItem":0,"totalUnitPrice":0,"totalSalePrice":0,"totalAmount":0}'
     ) {
       e.preventDefault()
-      // alert('Your cart is empty!')
       handleEmptyCart()
     } else {
       setEmptyCart(false)
-      document.location.href = 'http://localhost:3000/cart'
+      navigate('/cart')
     }
     return emptyCart
+    */
   }
 
-  //回上一步連結跳轉(cartList->home CartInfo->CartList)
-  // const [cartPrevLink, setCartPrevLink] = useState('')
-  // const [cartPrevText, setCartPrevText] = useState('')
-  // const page = document.location.href
+  // 購物車收藏商品
+  const handleCartSave = async (mbSid, prodSid) => {
+    prodSid = +prodSid
+    mbSid = +mbSid
+    console.log('商品加入收藏清單')
+    try {
+      const { res } = await axios.get(
+        `http://localhost:3004/cart/add-save/?mbsid=${mbSid}&prodsid=${prodSid}`
+      )
 
-  // if (page == 'http://localhost:3000/cart/') {
-  //   setCartPrevLink('http://localhost:3000/shop')
-  //   setCartPrecText('繼續逛逛')
-  // } else {
-  //   setCartPrevLink('http://localhost:3000/cart')
-  //   setCartPrevText('回購物車')
-  // }
+      console.log(res.data)
+      // const prodInfo = res.data.prod_info_rows[0]
+      // console.log(mbSid, prodSid)
+    } catch (error) {
+      console.log(error.message)
+    }
+    setEmptyCart(false)
+    openModalNotification()
+    setHeaderMg('購物車')
+    setBodyMg(`商品加入收藏清單！`)
+  }
+
   return (
     <CartInfoContext.Provider
       value={{
@@ -356,115 +457,24 @@ export const CartInfoContextProvider = function ({ children }) {
         handleRemoveItem,
         handleEmptyCart,
         checkCartEmpty,
+        handleCartSave,
       }}
     >
       {children}
+      {/* Modal */}
+      <ModalNotification
+        closeModal={closeModalNotification}
+        isOpen={isOpen1}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
+      <ModalConfirm
+        closeModalConfirm={closeModalConfirm}
+        closeModalCancel={closeModalCancel}
+        isOpen={isOpen2}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
     </CartInfoContext.Provider>
   )
 }
-
-// 參考用/暫時用不到的hooks
-// 加入購物車
-// const handleAddCart = async (prodInfo, prodQty) => {
-//   // console.log(prodInfo)
-//   prodInfo = +prodInfo
-//   prodQty = +prodQty
-//   // 確認商品是否已在購物車中
-//   let index = cartItem.userCart.findIndex((e) => e.sid === prodInfo.id)
-
-//   console.log(index)
-
-//   if (index === -1) {
-//     const products = await {
-// ...cartItem,
-//           userCart: [
-//             ...cartItem.userCart,
-//             {
-//               shop_sid: shopSid,
-//               prod_sid: prodSid,
-//               unit_price: prodInfo.unit_price, // 原價
-//               sale_price: prodInfo.product_price, // 優惠價
-//               sale: prodInfo.sale_price, // 折數
-//               name: prodInfo.product_name,
-//               picture: prodInfo.picture_url,ƒ
-//               amount: prodQty,
-//               inventory: prodInfo.inventory_qty,
-//             },
-// ],
-// totalUnitPrice:
-//   cartItem.totalUnitPrice + prodInfo.unit_price * prodQty,
-// totalSalePrice:
-//   cartItem.totalSalePrice + prodInfo.sale_price * prodQty,
-// totalAmount: cartItem.totalAmount + prodQty,
-// }
-//     localStorage.setItem('cartItem', JSON.stringify({ ...products }))
-//     console.log({ products })
-//     setCartItem(products)
-//   } else {
-//     cartItem.userCart[index] = {
-//       ...cartItem.userCart[index],
-//       amount: cartItem.userCart[index].amount + prodQty,
-//     }
-
-//     const newProductState = {
-//       ...cartItem,
-//       userCart: cartItem.userCart,
-//       totalPrice: cartItem.totalPrice + prodInfo.price * prodQty,
-//       totalAmount: cartItem.totalAmount + prodQty,
-//     }
-
-//     localStorage.setItem('cartItem', JSON.stringify(newProductState))
-//     console.log({ newProductState })
-//     setCartItem(newProductState)
-//   }
-// }
-
-// 購物車數量-1
-// const handleReduce = (prodInfo) => {
-//   // console.log(prodInfo)
-
-//   let index = cartItem.userCart.findIndex((e) => e.sid === prodInfo.id)
-
-//   if (index === -1) {
-//     alert('錯誤，無此商品')
-//     return
-//   }
-//   if (cartItem.userCart[index].amount > 1) {
-//     cartItem.userCart[index] = {
-//       ...cartItem.userCart[index],
-//       amount:
-//         cartItem.userCart[index].amount > 0
-//           ? cartItem.userCart[index].amount - 1
-//           : cartItem.userCart[index].amount,
-//     }
-//     const newProductState = {
-//       ...cartItem,
-//       userCart: cartItem.userCart,
-//       totalPrice: cartItem.totalPrice - prodInfo.price,
-//       totalAmount:
-//         cartItem.totalAmount > 0
-//           ? cartItem.totalAmount - 1
-//           : cartItem.totalAmount,
-//     }
-//     localStorage.setItem('cartItem', JSON.stringify(newProductState))
-//     console.log({ newProductState })
-//     setCartItem(newProductState)
-//   } else if (cartItem.userCart[index].amount === 1) {
-//     const userCartItems1 = cartItem.userCart.slice(0, index)
-//     // console.log(userCartItems1);
-//     const userCartItems2 = cartItem.userCart.slice(index + 1)
-//     // console.log(userCartItems2);
-//     const productItems = userCartItems1.concat(userCartItems2)
-//     // console.log(productItems);
-
-//     const newProductItems = {
-//       ...cartItem,
-//       userCart: [...productItems],
-//       totalPrice: cartItem.totalPrice - prodInfo.price,
-//       totalAmount: cartItem.totalAmount - 1,
-//     }
-//     localStorage.setItem('cartItem', JSON.stringify(newProductItems))
-//     // console.log({ newProductItems });
-//     setCartItem(newProductItems)
-//   }
-// }

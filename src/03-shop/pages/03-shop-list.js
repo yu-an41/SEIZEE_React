@@ -6,8 +6,9 @@ import ShopSideBar from '../components/03-shop-side-bar'
 import ShopBanner from '../components/03-shop-banner'
 import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
+
 
 function ShopList() {
   // 記錄原始資料用
@@ -31,7 +32,7 @@ function ShopList() {
   const getAllShops = async () => {
     try {
       const response = await axios.get('http://localhost:3004/api/shop')
-      // console.log(response.data)
+
       const shopData = response.data
 
       const theHour = new Date().getHours()
@@ -47,7 +48,7 @@ function ShopList() {
       ]
 
       const newShop = shopData.map((item, i) => {
-        // console.log(item)
+
         if (item.rows[shopDay[theDay]]) {
           if (
             item.rows.shop_opentime.substring(0, 2) <= theHour &&
@@ -64,7 +65,7 @@ function ShopList() {
           return { ...item, rows: c }
         }
       })
-      // console.log(newShop)
+
       return newShop
     } catch (e) {
       // 錯誤處理
@@ -77,7 +78,7 @@ function ShopList() {
       const response = await axios.get(
         'http://localhost:3004/api/shop/shop_demo'
       )
-      // console.log(response.data)
+
       const demoData = response.data
 
       const theHour = new Date().getHours()
@@ -93,7 +94,7 @@ function ShopList() {
       ]
 
       const newDemoData = demoData.map((item, i) => {
-        // console.log(item)
+
         if (item.rows[shopDay[theDay]]) {
           if (
             item.rows.shop_opentime.substring(0, 2) <= theHour &&
@@ -110,7 +111,7 @@ function ShopList() {
           return { ...item, rows: c }
         }
       })
-      // console.log(newDemoData)
+
       return newDemoData
     } catch (e) {
       // 錯誤處理
@@ -119,7 +120,8 @@ function ShopList() {
     }
   }
   const goFilter = function () {
-    // console.log(shops)
+    setIsLoading(true)
+
     const newData = shops
       .map((v, i) => {
         const c = [...[v.cates]]
@@ -144,20 +146,19 @@ function ShopList() {
         }
       })
 
-    // console.log(newData)
+
     setFilterShop(newData)
     setStartShop(0)
-    setIsLoading(true)
     // setFindPos({
     //   lat: filterShop[0][0].shop_lat,
     //   lng: filterShop[0][0].shop_lng,
     // })
   }
-  // console.log(filterShop)
 
   // function ChangePos() {
   //   setFindPos({ lat: 25.043589, lng: 121.5607293 })
   // }
+
   // 延後1.5秒才關掉指示器
   useEffect(() => {
     if (isLoading) {
@@ -177,10 +178,10 @@ function ShopList() {
       setDemoShop(newDemoData)
     })()
   }, [])
-  // console.log('list')
+
   return (
     <>
-      <div className="r-container">
+      <div className="r-shop-container">
         <div className="r-main-visual">
           <NavBar />
           <div className="r-side-bar">
@@ -193,6 +194,10 @@ function ShopList() {
               setSelectedCate={setSelectedCate}
               selectedOpen={selectedOpen}
               setSelectedOpen={setSelectedOpen}
+              setFilterShop={setFilterShop}
+              setStartShop={setStartShop}
+              shops={shops}
+              setIsLoading={setIsLoading}
             />
             <div className="r-btn-wrap">
               <div className="r-search-btn">

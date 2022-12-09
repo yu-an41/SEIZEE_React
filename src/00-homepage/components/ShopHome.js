@@ -97,7 +97,7 @@ function ShopHome() {
         }
       }
     }
-    // console.log(resultShop)
+
     setSelResultShop(resultShop)
   }
 
@@ -109,8 +109,6 @@ function ShopHome() {
   useEffect(() => {
     goFilterShop()
   }, [cateFilters])
-  // console.log(selResultShop)
-  // console.log(shops);
 
   return (
     <>
@@ -122,9 +120,10 @@ function ShopHome() {
                 Creating a better future through food.
               </p>
               <span className="r-shop-home-main-text-span">
-                開啟屬於你的惜食地圖
+                找不到靈感 ? <br />
+                看看我們為您準備的特別推薦
               </span>
-              <Link to={'/shop'}>
+              <Link to={'/gachapon'}>
                 <span className="r-shop-home-main-text-button">Go</span>
               </Link>
             </div>

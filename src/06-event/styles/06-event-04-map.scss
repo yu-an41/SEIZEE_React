@@ -54,7 +54,7 @@ body {
 .j-event-middle-map {
   z-index: 99;
   // outline: 1px black solid;
-  @include position(47%, 49%);
+  @include position(46%, 50%);
   position: fixed;
   @include size(1100px, 900px);
   transform: translate(-50%, -50%);
@@ -144,11 +144,12 @@ body {
         z-index: 2;
         position: absolute;
         @include position(8%, 24.5%);
-        animation: cloudA 70s linear;
+        animation: cloudA 90s linear;
         animation-iteration-count: infinite;
         animation-direction: normal;
         animation-fill-mode: both;
         animation-play-state: running;
+        animation-delay: 10s;
         @media (max-width: 390px) {
           display: none;
         }
@@ -172,7 +173,7 @@ body {
         z-index: 3;
         position: absolute;
         @include position(3%, 15%);
-        animation: cloudC 55s linear;
+        animation: cloudC 45s linear;
         animation-iteration-count: infinite;
         animation-direction: normal;
         animation-fill-mode: both;
@@ -187,7 +188,7 @@ body {
         position: absolute;
         @include position(7%, 9%);
         animation: cloudD 35s linear;
-        animation-iteration-count: infinite;
+        // animation-iteration-count: infinite;
         animation-direction: normal;
         animation-fill-mode: both;
         animation-play-state: running;
@@ -224,10 +225,10 @@ body {
 
       @keyframes cloudA {
         0% {
-          transform: translate(-1000px, 5%);
+          transform: translate(-1000px, 3%);
         }
         100% {
-          transform: translate(1000px, 5%);
+          transform: translate(1000px, 3%);
         }
       }
 
@@ -253,7 +254,7 @@ body {
 
       @keyframes cloudD {
         0% {
-          transform: translate(-600px, 6%);
+          transform: translate(-100px, 6%);
         }
 
         100% {

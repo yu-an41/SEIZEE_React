@@ -1,27 +1,38 @@
-// main {
-//   -webkit-box-sizing: border-box;
-//   box-sizing: border-box;
-//   margin: 0;
-//   padding: 0;
-//   list-style: none;
-//   letter-spacing: 2px;
-// }
-// $main-blue: #2b325c;
-// $main-yellow: #fad249;
-// $main-text: #5e5e5e;
-// $secondary-blue: #113f75;
-// $secondary-yellow: #fef3da;
-// $green: #53b2a8;
-// $red: #ed4743;
-// $text-shadow: #e4e4e4;
-// $base-line-eight: 10px;
-// $main-border: 3px solid #113f75;
-// $main-border-radius: 8px;
+main {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  letter-spacing: 2px;
+}
+$main-blue: #2b325c;
+$main-yellow: #fad249;
+$main-text: #5e5e5e;
+$secondary-blue: #113f75;
+$secondary-yellow: #fef3da;
+$green: #53b2a8;
+$red: #ed4743;
+$text-shadow: #e4e4e4;
+$base-line-eight: 10px;
+$main-border: 3px solid #113f75;
+$main-border-radius: 8px;
 
-// .a-caroudelWrapper {
-//   display: flex;
-//   justify-content: center;
-
+.a-caroudelWrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  
+}
+.a-carouselBorder {
+    width: 410px;
+    height: 410px;
+    border: 5px solid $main-yellow;
+    position: absolute;
+    top:20;
+    left: 1000;
+    z-index: 30;
+}
 // //   div {
 // //     // width: 330px;
 // //     // height: 330px;

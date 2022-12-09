@@ -26,23 +26,28 @@ function RecommendCard({ sid }) {
 
   return (
     <>
-      <div className="a-recommendText">
-        <img src="/04-product/svg/nut.svg" alt="" />
-        <h3>惜食商品推薦</h3>
+      <div className="a-recommendTextWrapper">
+        <div className="a-iconWrapperNut">
+          <img src="/04-product/svg/nut.svg" alt="" />
+        </div>
+        <h3 className="a-recommendText">惜食商品推薦</h3>
       </div>
       <div className="a-productRecommend">
         {recommend.map((recommend, i) => {
           return (
-            <div className="a-recommendImgWrapper" key={recommend.sid}>
-              <div className="a-recommendWrapper">
-                <a href={`${recommend.sid}`}>
+            <a href={`${recommend.sid}`}>
+              <div className="a-recommendContent" key={recommend.name}>
+                <div className="a-recommendImgWrapper">
                   <img
                     src={`/04-product/img/${recommend.picture_url}`}
                     alt=""
                   />
-                </a>
+                </div>
+                <div className="a-shop-slider-content">
+                  {/* <p className="a-shop-slider-content-p">麵包</p> */}
+                </div>
               </div>
-            </div>
+            </a>
           );
         })}
       </div>
