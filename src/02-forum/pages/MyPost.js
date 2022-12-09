@@ -23,8 +23,8 @@ function MyPost() {
   const [isOpen, setIsOpen] = useState(false)
   const [headerMs, setHeaderMs] = useState('')
   const [bodyMs, setBodyMs] = useState('')
-  // const mbSid = JSON.parse(localStorage.getItem('auth')).mb_sid
 
+  //console.log(mbSid)
   const [myPostData, setMyPostData] = useState([
     {
       sid: 1,
@@ -42,15 +42,17 @@ function MyPost() {
       mb_email: 'test1@abc.com',
     },
   ])
+  console.log('myPostData', myPostData)
   const getMyPostData = async () => {
     try {
+      const mbSid = JSON.parse(localStorage.getItem('auth')).mb_sid
       const res = await axios.get(
-        `http://localhost:3004/forum/myPost?mid=${myAuth.mb_sid}`
+        `http://localhost:3004/forum/myPost?mid=${mbSid}`
       )
-      console.log('res', res)
+      //console.log(res)
       //   {myAuth.mb_sid}
       setMyPostData(res.data.myCookPostRows)
-      console.log(res.data.myCookPostRows)
+      //console.log(res.data.myCookPostRows)
     } catch (error) {
       console.log(error.message)
     }
