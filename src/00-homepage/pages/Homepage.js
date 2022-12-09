@@ -22,6 +22,7 @@ import OfficialCardRow from '../components/OfficialCardRow'
 import Runman from '../../components/Runman'
 import ShopHome from '../components/ShopHome'
 import NewEvent from '../components/NewEvent'
+import AboutUs from '../components/AboutUs'
 
 //img srcs
 // import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
@@ -34,19 +35,7 @@ function Homepage() {
   // miee's search and shop ------------------------------------
 
   // ariel's about and events ---------------------------------
-  const videoEl = useRef(null)
-
-  const attemptPlay = () => {
-    videoEl &&
-      videoEl.current &&
-      videoEl.current.play().catch((error) => {
-        console.error('Error attempting to play', error)
-      })
-  }
-
-  useEffect(() => {
-    attemptPlay()
-  }, [])
+ 
 
   // forum post's -----------------------------
   const [postNums, setPostNums] = useState(3)
@@ -96,6 +85,7 @@ function Homepage() {
           <ShopHome />
         </section>
         <section className="y-section y-section-about">
+        <AboutUs />
           {/* <div className="a-video">
             <div className="a-videoWrapper">
               <h3 className="a-aboutUs">關於我們</h3>
@@ -111,6 +101,7 @@ function Homepage() {
             </div>
           </div> */}
         </section>
+
         <div className="y-wave-wrap-white">
           <WhiteWave />
         </div>
