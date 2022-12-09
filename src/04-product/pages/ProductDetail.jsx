@@ -242,7 +242,7 @@ function ProductDetail() {
         <div className="a-userCommentWrapper">
         <ProductComment sid={sid} />
         <div className="a-commentArea">
-        {/* <ProductCommentBoard /> */}
+        <ProductCommentBoard sid={sid} />
         </div>
         </div>
         <YellowWave2 />

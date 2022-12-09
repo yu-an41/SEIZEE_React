@@ -63,7 +63,7 @@ function ProductComment({ sid }) {
         comment: "",
         rating: 0,
       });
-      // setShowBox(true)
+      setShowBox(true)
     }
   };
 
