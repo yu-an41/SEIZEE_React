@@ -25,8 +25,8 @@ import NewEvent from '../components/NewEvent'
 import AboutUs from '../components/AboutUs'
 
 //img srcs
-// import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
-// import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
+import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
+import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
 // import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
 import img from '../images/01cover.jpg'
 // import calendar from '../../../public/04-product/svg/calendar.svg'
@@ -46,12 +46,6 @@ function Homepage() {
   return (
     <>
       <div className="y-index-container">
-        <div
-          className="y-go-to-top"
-          onClick={() => {
-            console.log('go to top')
-          }}
-        ></div>
         <div className="y-index-top">
           <section className="y-section y-section-nav-bg">
             <NavBar />
@@ -64,14 +58,17 @@ function Homepage() {
           <section className="y-section y-section-carousel">
             <div className="y-carousel-wrap">
               <TopCarousel />
-              <div className="y-carousel-block-yellow">
-                <p></p>
+            </div>
+            {/* <div className="y-carousel-block-yellow">
+              <p>成為戰士吧</p>
+              <div className="y-carousel-block-gif">
+                <img src={`/05-member/hito.gif`} />
               </div>
-              <div className="y-carousel-block-blue">
-                <div className="y-block-bg">
-                  {/* <p>剩食革命</p>
-                  <p>由我做起</p> */}
-                </div>
+            </div> */}
+            <div className="y-carousel-block-blue">
+              <div className="y-block-bg">
+                <p>改變剩食，</p>
+                <p className="y-block-text2">由我開始。</p>
               </div>
             </div>
           </section>
@@ -135,6 +132,13 @@ function Homepage() {
           <YellowWave />
         </div>
         <section className="y-section y-section-forum">
+          <div
+            className="y-go-to-top"
+            onClick={() => {
+              window.scrollTo(0, 0)
+              console.log('go to top')
+            }}
+          ></div>
           <div className="y-section-forum-title">
             <p>最新論壇消息</p>
           </div>

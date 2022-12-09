@@ -78,12 +78,12 @@ function App() {
               <Route path="/" element={<Homepage />} />
               <Route path="/gachapon" element={<Gachapon />} />
 
-              {/* 01-cart */}
-              <Route path="/cart/">
-                <Route index path="" element={<CartList />} />
-                <Route path="info" element={<CartInfo />} />
-                <Route path="done" element={<CartDone />} />
-              </Route>
+                {/* 01-cart */}
+                <Route path="/cart/">
+                  <Route index path="" element={<CartList />} />
+                  <Route path="info" element={<CartInfo />} />
+                  <Route path="done" element={<CartDone />} />
+                </Route>
 
               {/* 02-forum */}
               <Route path="/forum/">
