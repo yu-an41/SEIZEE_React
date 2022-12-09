@@ -73,7 +73,7 @@ function CartDone() {
     } else {
       setCartCountDown(0)
     }
-  }, [cartCountDown])
+  }, [])
 
   return (
     <>
