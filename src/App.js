@@ -61,9 +61,10 @@ import Orders from './05-member/profile-pages/Orders'
 
 // 06-event
 //event要用的context
-// import { TimeTableProvider } from './06-event/context/useTimeTable'
-// import Top from './06-event/pages/06-event-01-top'
+import { TimeTableProvider } from './06-event/context/useTimeTable'
 import Eventrender from './06-event/pages/06-event-00-Render'
+import Ticket from './06-event/pages/06-event-05-ticket'
+// import Ticket from './06-event/pages/06-event-05-ticket'
 
 function App() {
   return (
@@ -71,74 +72,78 @@ function App() {
       <BrowserRouter>
         <MyContextProviders>
           <CollectContextProvider>
-            {/* <TimeTableProvider> */}
-            {/* <ModalConfirm /> */}
-            <Routes>
-              {/* 00-homepage */}
-              <Route path="/" element={<Homepage />} />
-              <Route path="/gachapon" element={<Gachapon />} />
+            <TimeTableProvider>
+              {/* <ModalConfirm /> */}
+              <Routes>
+                {/* 00-homepage */}
+                <Route path="/" element={<Homepage />} />
+                <Route path="/gachapon" element={<Gachapon />} />
 
-              {/* 01-cart */}
-              <Route path="/cart/">
-                <Route index path="" element={<CartList />} />
-                <Route path="info" element={<CartInfo />} />
-                {/* <Route path="done" element={<CartDone />} /> */}
-              </Route>
+                {/* 01-cart */}
+                <Route path="/cart/">
+                  <Route index path="" element={<CartList />} />
+                  <Route path="info" element={<CartInfo />} />
+                  {/* <Route path="done" element={<CartDone />} /> */}
+                </Route>
 
-              {/* 02-forum */}
-              <Route path="/forum/">
-                <Route index path="" element={<ForumHome />} />
-                <Route path="cook" element={<PostCook />} />
-                <Route path="share" element={<PostShare />} />
-                <Route path="store" element={<PostStore />} />
-                <Route path="official" element={<PostOfficial />} />
-                <Route path="cook/inner/:sid" element={<InnerCook />} />
-                <Route path="share/inner/:sid" element={<InnerShare />} />
-                <Route path="store/inner/:sid" element={<InnerStore />} />
-                <Route path="official/inner/:sid" element={<InnerOfficial />} />
-                <Route path="writeForm" element={<WriteForm />} />
-                <Route path="myPost" element={<MyPost />} />
-              </Route>
+                {/* 02-forum */}
+                <Route path="/forum/">
+                  <Route index path="" element={<ForumHome />} />
+                  <Route path="cook" element={<PostCook />} />
+                  <Route path="share" element={<PostShare />} />
+                  <Route path="store" element={<PostStore />} />
+                  <Route path="official" element={<PostOfficial />} />
+                  <Route path="cook/inner/:sid" element={<InnerCook />} />
+                  <Route path="share/inner/:sid" element={<InnerShare />} />
+                  <Route path="store/inner/:sid" element={<InnerStore />} />
+                  <Route
+                    path="official/inner/:sid"
+                    element={<InnerOfficial />}
+                  />
+                  <Route path="writeForm" element={<WriteForm />} />
+                  <Route path="myPost" element={<MyPost />} />
+                </Route>
 
-              {/* 03-shop */}
-              <Route path="/shop" element={<ShopList />} />
+                {/* 03-shop */}
+                <Route path="/shop" element={<ShopList />} />
 
-              {/* 04-product  */}
-              <Route
-                path="/productList/:shop_list_sid"
-                element={<ProductList />}
-              />
-              <Route path="/product/:sid" element={<ProductDetail />} />
-              <Route path="/productFilter/" element={<ProductFilter />} />
-              <Route path="/products/" element={<Products />} />
+                {/* 04-product  */}
+                <Route
+                  path="/productList/:shop_list_sid"
+                  element={<ProductList />}
+                />
+                <Route path="/product/:sid" element={<ProductDetail />} />
+                <Route path="/productFilter/" element={<ProductFilter />} />
+                <Route path="/products/" element={<Products />} />
 
-              {/* 05-member */}
-              <Route path="/login" element={<UserSign />} />
-              <Route path="/forgot-pass" element={<ForgotPass />} />
-              <Route path="/reset-pass" element={<ResetPass />} />
-              <Route path="/google" element={<GoogleSign />} />
+                {/* 05-member */}
+                <Route path="/login" element={<UserSign />} />
+                <Route path="/forgot-pass" element={<ForgotPass />} />
+                <Route path="/reset-pass" element={<ResetPass />} />
+                <Route path="/google" element={<GoogleSign />} />
 
-              {/* member-profile */}
-              <Route path="/profile/">
-                <Route index path="" element={<UserProfile />} />
-                <Route path="update-info" element={<UpdateInfo />} />
-                <Route path="orders" element={<Orders />} />
-                <Route path="likes/product" element={<LikesProduct />} />
-                <Route path="likes/shop" element={<LikesShop />} />
-                <Route path="likes/forum" element={<LikesForum />} />
-                <Route path="likes/event" element={<LikesEvent />} />
-                <Route path="activities" element={<Activities />} />
-              </Route>
+                {/* member-profile */}
+                <Route path="/profile/">
+                  <Route index path="" element={<UserProfile />} />
+                  <Route path="update-info" element={<UpdateInfo />} />
+                  <Route path="orders" element={<Orders />} />
+                  <Route path="likes/product" element={<LikesProduct />} />
+                  <Route path="likes/shop" element={<LikesShop />} />
+                  <Route path="likes/forum" element={<LikesForum />} />
+                  <Route path="likes/event" element={<LikesEvent />} />
+                  <Route path="activities" element={<Activities />} />
+                </Route>
 
-              {/* 06-event */}
-              {/* <Route path="/top" element={<Top />} />
+                {/* 06-event */}
+                {/* <Route path="/top" element={<Top />} />
                 <Route path="/events" element={<Events />} />
                 <Route path="/schedule" element={<Schedule />} />
                 <Route path="/map" element={<Map />} />
                 <Route path="/ticket" element={<Ticket />} /> */}
-              <Route path="/event" element={<Eventrender />} />
-            </Routes>
-            {/* </TimeTableProvider> */}
+                {/* <Route path="/event/ticket" element={<Ticket />} /> */}
+                <Route path="/event" element={<Eventrender />} />
+              </Routes>
+            </TimeTableProvider>
           </CollectContextProvider>
         </MyContextProviders>
       </BrowserRouter>
