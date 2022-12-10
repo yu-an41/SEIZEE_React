@@ -255,6 +255,7 @@ function CartList(props) {
                   openModalConfirm()
                   setHeaderMg('購物車')
                   setBodyMg('確定要清空購物車嗎？')
+                  navigate('/')
                 }}
               />
             </div>

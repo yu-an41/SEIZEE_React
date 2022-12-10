@@ -43,7 +43,7 @@ function NavBar() {
 
   const [profileImg, setProfileImg] = useState('')
 
-  let items = +cartItem.totalAmount || 0
+  // let items = +cartItem.totalAmount || 0
   // if (checkCartEmpty || !localStorage.getItem('cartItem')) {
   //   items = 0
   // } else if (+items > 99) {
@@ -51,7 +51,7 @@ function NavBar() {
   // } else {
   //   items = +items
   // }
-  items = items > 99 ? '99+' : items
+  // items = items > 99 ? '99+' : items
 
   return (
     <>
@@ -65,7 +65,11 @@ function NavBar() {
         </div>
         <div className="y-nav-right">
           <div className="y-icon-round y-cart-icon">
-            {items > 0 ? <p className="y-cart-amount">{items}</p> : <></>}
+            {cartItem.totalAmount > 0 ? (
+              <p className="y-cart-amount">{cartItem.totalAmount}</p>
+            ) : (
+              <></>
+            )}
             <a
               href="/cart"
               alt="my cart"
