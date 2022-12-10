@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { useParams, useLocation, useFetcher } from "react-router-dom";
+import { useParams, useLocation, useFetcher, Link} from "react-router-dom";
 import axios from "axios";
+import { Skeleton } from "@mui/material";
 import ProductCard from "../components/ProductCard.jsx";
 import "../components/style/ProductCard.scss";
 import ProductVideo from "../components/ProductVideo";
@@ -9,7 +10,7 @@ import YellowWave from "../../00-homepage/components/YellowWave.js";
 import YellowWave2 from "../components/YellowWave2";
 import Footer from "../../components/Footer.js";
 import Runman from "../../components/Runman.js";
-import '../components/style/ProductVideo.scss'
+import "../components/style/ProductVideo.scss";
 
 // 01-cart
 import CartInfoContext from "./../../01-cart/contexts/CartInfoContext";
@@ -28,7 +29,7 @@ function ProductList() {
   ]);
   const [errorMessage, setErrorMessage] = useState([]);
   const { shop_list_sid } = useParams();
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   async function getProductCard() {
     // 01-cart
@@ -54,6 +55,24 @@ function ProductList() {
   useEffect(() => {
     getProductCard();
   }, []);
+  // setIsLoading(true)
+
+  // useEffect(() => {
+  //   if (isLoading) {
+  //     setTimeout(() => {
+  //       setIsLoading(false);
+  //     }, 1500);
+  //   }
+  // }, [isLoading]);
+
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   (async () => {
+  //     const newProduct = await getProductCard()
+  //     setAllProduct(newProduct)
+  //     setIsLoading(true)
+  //   })()
+  // }, [])
 
   return (
     <>
@@ -78,40 +97,38 @@ function ProductList() {
           <div className="a-shopInformationWrapper">
             <div className="a-shopInf">
               <img src="/04-product/svg/bling.svg" alt="" />
+              <Link to={`/shop/${shopData.sid}`}>
               <p className="a-detailsTitle">{shopData.shop_name}</p>
+              </Link>
             </div>
             <div className="a-shopInf">
-              <img src="/04-product/svg/rocket.png" alt="" style={{width:'38px'}} />
-              <p className="a-detailsText">營業時間{shopData.shop_opentime}-</p>
+              <img
+                src="/04-product/svg/rocket.png"
+                alt=""
+                style={{ width: "38px" }}
+              />
+              <p className="a-detailsText">
+                營業時間：{shopData.shop_opentime}-
+              </p>
               <p className="a-detailsText"> {shopData.shop_closetime}</p>
             </div>
             <div className="a-shopInf">
               <img src="/04-product/svg/tel.png" alt="" />
-              <p className="a-detailsText">電話{shopData.shop_phone}</p>
+              <p className="a-detailsText">電話：{shopData.shop_phone}</p>
             </div>
             <div className="a-shopInf">
               <img src="/04-product/svg/map.svg" alt="" />
-              <p className="a-detailsText">地址{shopData.shop_address_detail}</p>
+              <p className="a-detailsText">
+                地址：{shopData.shop_city}
+                {shopData.shop_area}
+                {shopData.shop_address_detail}
+              </p>
             </div>
-          </div>
+            </div>
           <div className="a-videoWrapper">
             <ProductVideo shopData={shopData} />
           </div>
-
-          {/* <div className="a-video">
-      <div className="a-productVideoWrapper">
-        <video
-          playsInline
-          loop
-          muted
-          alt="All the devices"
-          src={`{/04-product/video/${shopData.shop_video}}`}
-          type="video/mp4"
-          ref={videoEl}
-        />
-      </div>
-    </div> */}
-
+          
         </div>
       </div>
       <div className="a-seizeeIconWrapper">
@@ -126,9 +143,15 @@ function ProductList() {
       <div className="race-by">
         <div className="a-productCardTable">
           <div className="a-productCardList">
+            {/* {isLoading ? (
+              <Skeleton variant="rectangular" style={{ background: "#ccc" }}> */}
             {allProduct.map((product, i) => (
-              <ProductCard key={i} product={product} />
+              <ProductCard key={i} product={product} isLoading={isLoading} />
             ))}
+            {/* </Skeleton>
+            ) : (
+              <ProductCard />
+            )} */}
           </div>
         </div>
       </div>

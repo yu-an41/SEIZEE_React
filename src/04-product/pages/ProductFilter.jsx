@@ -5,7 +5,7 @@ import "../components/style/ProductFilter.scss";
 import NavBar from "../../components/NavBar";
 import YellowWave from "../../00-homepage/components/YellowWave.js";
 import Footer from "../../components/Footer";
-import Theme from "../components/Theme";
+// import Theme from "../components/Theme";
 
 function ProductFilter() {
   //種類data
@@ -16,10 +16,11 @@ function ProductFilter() {
   // const [productFilter, setProductFilter] = useState([""]);
   const navigate = useNavigate();
 
-  // const [theme, setTheme] = (false);
-  // const handleClick = () => {
-  //   setTheme(!theme)
-  // }
+  const [theme, setTheme] = useState(0);
+  const handleClick = () => {
+    setTheme(theme === 0 ? 1 : 0)
+  }
+  // console.log(theme);
   // const [mode, setMode] = useState([]);
   // const [theme, setTheme] = () => {
   //   setTheme(mode === "aladdin" ? "seizee" : "aladdin");
@@ -102,16 +103,20 @@ function ProductFilter() {
           </button>
         </div> */}
         <div className="a-iconsWrapper">
-          <div className="a-iconAladdinWrapper">
+          <div className={`a-iconAladdinWrapper ${theme === 1 ? "blueTheme" : "" }`}
+          onClick={() => handleClick()}>
+
             <img src="/04-product/svg/aladdin.png" alt="" />
           </div>
-          <div className="a-iconAvengersWrapper">
+          <div className= {`a-iconAvengersWrapper ${theme === 0 ? "yellowTheme" : "" }`}>
             <img src="/04-product/svg/avengers.png" alt="" />
           </div>
         </div>
         <div className="a-productFilterWrapper">
           <div className="a-category">
-            <div className="a-categoryWrapper">
+            <div className={`a-categoryWrapper ${theme === 1 ? "blueTheme" : "yellowTheme" }`}
+          onClick={() => handleClick()}>
+
               {filterList.map((filter, i) => {
                 return (
                   <div className="a-productFilterContent" key={i}>

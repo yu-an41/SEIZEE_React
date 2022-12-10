@@ -311,6 +311,18 @@ input[type="number"] {
       .a-addButton img {
         width: 35px;
       }
+      .a-goBackButton {
+        width: 220px;
+        text-align: center;
+        @extend %a-flex;
+        background-color: $main-yellow;
+        border: $main-border;
+        border-radius: $main-border-radius;
+        position: absolute;
+        padding: 5px 20px;
+        margin: 25px 0 40px 0;
+        font-weight: 500;
+      }
     }
   }
 }

@@ -53,22 +53,22 @@ $main-border-radius: 8px;
 //shopInformation
 .a-shopInformation {
   display: flex;
-  justify-content: center;
-  padding-top: 50px;
+  justify-content: space-around;
+  margin: 60px 0;
   .a-shopInformationWrapper {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
     border: 5px solid $main-orange;
-    width: 350px;
+    width: 550px;
     height: 300px;
     padding: 10px 25px;
     background-color: $secondary-yellow;
     .a-shopInf {
       @extend %a-flex;
       .a-detailsTitle {
-        @extend %a-text;
+        @extend %a-title;
       }
       .a-detailsText {
         @extend %a-text;
@@ -82,18 +82,19 @@ $main-border-radius: 8px;
     width: 400px;
   }
 }
+
 .a-seizeeIconWrapper {
   display: flex;
   justify-content: space-around;
   position: absolute;
   left: 80px;
-  top: 520px;
+  top: 570px;
   @media (max-width: 390px) {
     display: none;
   }
   .a-avengersWrapper {
     width: 190px;
-    margin-left: 1000px;
+    margin-left: 1200px;
     transform: rotate(-25deg);
     img {
       width: 100%;
@@ -172,7 +173,6 @@ $main-border-radius: 8px;
         }
       }
     }
-
     .a-heart {
       cursor: pointer;
     }
@@ -200,26 +200,36 @@ $main-border-radius: 8px;
       justify-content: space-around;
       text-align: center;
       padding: 0 0 8px 0;
-    }
-    .a-productPrice {
-      @extend %a-flex;
-      color: $secondary-blue;
-      line-height: 10px;
-      padding-right: 12px;
-      text-decoration: line-through;
-    }
-    .a-productDiscount {
-      @extend %a-flex;
-      color: $secondary-blue;
-      line-height: line(2);
-      font-weight: 500;
-    }
-    .a-productDiscount img {
-      width: 32px;
+      .a-productPrice {
+        @extend %a-flex;
+        color: $secondary-blue;
+        line-height: 10px;
+        padding-right: 12px;
+        text-decoration: line-through;
+      }
+      .a-productText {
+        @extend %a-text;
+      }
+
+      .a-productDiscount {
+        @extend %a-flex;
+        color: $secondary-blue;
+        line-height: line(2);
+        font-weight: 500;
+        img {
+          width: 32px;
+        }
+        .a-productPriceText {
+          @extend %a-text;
+        }
+      }
     }
     .a-productQuantity {
       @extend %a-flex;
       color: $main-text;
+      .a-productText {
+        @extend %a-text;
+      }
     }
     .a-quantity {
       padding: 3px 8px;
@@ -252,6 +262,11 @@ $main-border-radius: 8px;
       padding: 5px 20px;
       margin: 15px 0 40px 0;
       font-weight: 500;
+      .a-productText {
+        @extend %a-text;
+        font-size: 22px;
+        font-weight: 700;
+      }
     }
     .a-addButton:hover {
       background-color: #66cfc5;

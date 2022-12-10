@@ -21,8 +21,6 @@ export default function ProductVideo(props) {
 // console.log(props.shopData.shop_video)
   return (
     <>
-      {/* {shopData.map((v, i) => { */}
-        {/* return ( */}
           <div className="a-video">
             <div className="a-productVideoWrapper">
               <video
@@ -30,15 +28,13 @@ export default function ProductVideo(props) {
                 loop
                 muted
                 alt="All the devices"
-                // src={`/04-product/video/${props.shopData.shop_video}`}
-                src="/04-product/video/001.mp4"
+                src={`/04-product/video/${props.shopData.shop_video}`}
+                // src="/04-product/video/001.mp4"
                 type="video/mp4"
                 ref={videoEl}
               />
             </div>
           </div>
-        {/* ); */}
-      {/* })} */}
     </>
   );
 }

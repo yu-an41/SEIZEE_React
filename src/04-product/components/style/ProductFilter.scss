@@ -49,7 +49,7 @@ $main-border-radius: 8px;
   margin-top: 30px;
   display: flex;
   justify-content: center;
-  .a-iconAladdinWrapper {
+  .a-iconAladdinWrapper .blueTheme {
     width: 200px;
     height: 200px;
     border: 8px solid #87efbd;
@@ -64,7 +64,7 @@ $main-border-radius: 8px;
     }
   }
 }
-.a-iconAvengersWrapper {
+#yellowTheme .a-iconAvengersWrapper  {
   width: 200px;
   height: 200px;
   border: 8px solid $secondary-blue;
@@ -81,7 +81,7 @@ $main-border-radius: 8px;
 }
 
 //CategoryFilter
-.a-productFilterWrapper {
+#blueTheme .a-productFilterWrapper  {
   display: flex;
   justify-content: center;
   .a-category {
@@ -139,6 +139,63 @@ $main-border-radius: 8px;
   }
 }
 
+#yellowTheme .a-productFilterWrapper {
+  display: flex;
+  justify-content: center;
+  .a-category {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .a-categoryWrapper {
+      width: 840px;
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      .a-categoryContentWapper {
+        cursor: pointer;
+        .a-categoryFIlter {
+          @extend %a-flex;
+          flex-direction: column;
+          margin-top: 30px;
+          .a-iconWrapper {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 8px solid $secondary-blue;
+            overflow: hidden;
+            background-color: $main-yellow;
+            margin: 10px 10px 5px 10px;
+            @extend %a-flex;
+            .a-icon {
+              width: 100px;
+              object-fit: cover;
+            }
+          }
+
+          .a-categoryIconWrapper {
+            display: flex;
+            justify-content: center;
+            .a-categoryInput {
+              display: none;
+              background-color: transparent;
+            }
+            input:checked + a-iconsWrapper {
+              border: 8px solid $secondary-blue;
+              background-color: $main-yellow;
+            }
+            .a-categoryName {
+              text-align: center;
+              font-size: 20px;
+              color: $secondary-blue;
+              padding-left: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 // .a-iconWrapper:hover {
 //   border: 8px solid $secondary-blue;
 //   background-color: $main-yellow;

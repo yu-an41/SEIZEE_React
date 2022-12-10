@@ -238,6 +238,13 @@ function ProductDetail() {
                       <img src="/04-product/svg/cart.svg" alt="" />
                     </div>
                   </div>
+                  <div className="a-goBack">
+                    <Link to={`/productList/${v.shop_list_sid}`}>
+                    <button className="a-goBackButton">
+                      返回店商品列表頁
+                    </button>
+                    </Link>
+                    </div>
                 </div>
               );
             })}
