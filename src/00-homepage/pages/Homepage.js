@@ -100,18 +100,16 @@ function Homepage() {
         </section>
 
         <section className="y-section y-section-event">
-        <WhiteWave />
+          <WhiteWave />
           <div className="r-home-event-container">
             <div className="r-home-event-main-visual">
               <div className="r-home-event-article-wrap">
-                <p className="r-home-event-article">SEIZEE Event Festival</p>
+                <p className="r-home-event-article">2022 SEIZEE Festival</p>
               </div>
               <div className="r-home-event-gobtn-wrap">
-                <p className="r-home-event-gobtn">
                 <Link to="/event">
-                  <span className="r-home-event-gobtn-span">Go</span>
-                  </Link>
-                </p>
+                  <p className="r-home-event-gobtn">Go</p>
+                </Link>
               </div>
               <div className="r-home-event-eventlist">
                 <div className="r-home-event-calendar">
@@ -166,10 +164,10 @@ function Homepage() {
                 setOffPostNums(offPostNums + 3)
               }}
             >
-              <div className="y-forum-more-icon">
-                {/* <img src={MoreBtnIcon} alt="load more posts" /> */}
-              </div>
-              <p>更多好文</p>
+              {/* <div className="y-forum-more-icon"> */}
+              {/* <img src={MoreBtnIcon} alt="load more posts" /> */}
+              {/* </div> */}
+              <p className="y-forum-more-btn-pp">更多好文</p>
             </div>
           </div>
         </section>

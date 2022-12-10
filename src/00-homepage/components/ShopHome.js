@@ -126,13 +126,11 @@ function ShopHome() {
               </p>
               <Link to={'/gachapon'}>
                 <span className="r-shop-home-main-text-btn-gachspon">
-                  <i>試手氣</i>
+                  試手氣
                 </span>
               </Link>
               <Link to={'/productFilter/'}>
-                <span className="r-shop-home-main-text-btn-cate">
-                  <i>看種類</i>
-                </span>
+                <span className="r-shop-home-main-text-btn-cate">看種類</span>
               </Link>
             </div>
           </div>
@@ -141,7 +139,7 @@ function ShopHome() {
       </div>
       <div className="r-shop-home-carousel">
         <div className="r-wave-section">
-          <WhiteWave/>
+          <WhiteWave />
         </div>
         <div className="r-shop-home-carousel-title">
           <h2 className="r-shop-home-carousel-h2">

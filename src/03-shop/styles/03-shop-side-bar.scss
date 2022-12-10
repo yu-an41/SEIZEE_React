@@ -8,12 +8,12 @@ $main-orange: #ff8200;
 $card-btn: #80b938;
 
 .r-side-bar {
-  width: 25%;
+  width: 20%;
   background: $main-yellow;
   padding-top: 80px;
 
   .r-search-wrap {
-    padding: 50px 30px 30px 60px;
+    padding: 75px 0px 30px 90px;
 
     .r-search-article {
       display: flex;
@@ -23,7 +23,7 @@ $card-btn: #80b938;
       padding-bottom: 25px;
 
       .r-shop-icon {
-        width: 80px;
+        width: 70px;
         img {
           width: 100%;
         }
@@ -36,14 +36,14 @@ $card-btn: #80b938;
         letter-spacing: 0.2rem;
         .r-shop-title-span {
           color: #fff;
-          font-size: 24px;
+          font-size: 22px;
           line-height: 24px;
           font-weight: 700;
           padding-bottom: 10px;
         }
         .r-shop-title-p {
           color: #fff;
-          font-size: 36px;
+          font-size: 32px;
           line-height: 36px;
           font-weight: 700;
         }
@@ -52,37 +52,37 @@ $card-btn: #80b938;
 
     .r-search-keyword-wrap{
       text-align: center;
-      padding-top: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding-top: 20px;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
       .r-search-keyword-wrap-p{
         font-size: 20px;
         line-height: 20px;
         font-weight: 700;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
+        padding-bottom: 10px;
+        // text-align: center;
+        // display: flex;
+        // justify-content: center;
       }
       .r-search-keyword-wrap-input{
         font-size: 18px;
         outline-style: none;
         border: none;
+        width: 180px;
         height: 30px;
-        margin: 0 5px;
+        // margin: 0 5px;
       }
 
     }
     .r-place-wrap {
       text-align: center;
-      padding-top: 30px;
+      padding-top: 20px;
 
       .r-place-article {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-bottom: 20px;
         .r-shop-icon-p {
           width: 60px;
           img {
@@ -124,7 +124,7 @@ $card-btn: #80b938;
           border: none;
           border-radius: 8px;
           margin: 0;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
           outline-style: none;
         }
       }
@@ -132,12 +132,11 @@ $card-btn: #80b938;
 
     .r-cate-wrap {
       text-align: center;
-      padding-top: 20px;
+      padding-top: 10px;
       .r-cate-article {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-bottom: 20px;
         .r-shop-icon-c {
           width: 60px;
           img {
@@ -175,7 +174,7 @@ $card-btn: #80b938;
           border: none;
           border-radius: 8px;
           margin: 0;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
           outline-style: none;
         }
       }
@@ -183,12 +182,10 @@ $card-btn: #80b938;
 
     .r-filter-wrap {
       text-align: center;
-      padding-top: 20px;
       .r-filter-article {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-bottom: 20px;
         .r-shop-icon-f {
           width: 55px;
           img {
@@ -227,7 +224,6 @@ $card-btn: #80b938;
           border: none;
           border-radius: 8px;
           margin: 0;
-          margin-bottom: 20px;
           outline-style: none;
         }
       }

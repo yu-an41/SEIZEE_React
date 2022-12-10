@@ -39,35 +39,29 @@ $title-text: rgb(190, 174, 146);
           margin-bottom: 40px;
         }
         .r-shop-home-main-text-btn-gachspon {
-          border: 2px solid $main-orange;
-          padding: 15px 5px;
           margin-right: 30px;
+          color: #fff;
+          font-size: 24px;
+          line-height: 28px;
+          font-weight: 700;
+          background: $main-orange;
           border-radius: 30px;
-          i {
-            color: #fff;
-            font-size: 24px;
-            line-height: 28px;
-            font-weight: 700;
-            background: $main-orange;
-            border-radius: 30px;
-            padding:10px 40px;
-            letter-spacing: 0.3rem;
-          }
+          padding: 10px 40px;
+          letter-spacing: 0.3rem;
+          outline: 2px solid $main-orange;
+          outline-offset: 3px;
         }
         .r-shop-home-main-text-btn-cate {
-          border: 2px solid $main-orange;
-          padding: 15px 5px;
+          color: #fff;
+          font-size: 24px;
+          line-height: 28px;
+          font-weight: 700;
+          background: $main-orange;
           border-radius: 30px;
-          i {
-            color: #fff;
-            font-size: 24px;
-            line-height: 28px;
-            font-weight: 700;
-            background: $main-orange;
-            border-radius: 30px;
-            padding: 10px 40px;
-            letter-spacing: 0.3rem;
-          }
+          padding: 10px 40px;
+          letter-spacing: 0.3rem;
+          outline: 2px solid $main-orange;
+          outline-offset: 3px;
         }
       }
     }
@@ -272,10 +266,15 @@ $title-text: rgb(190, 174, 146);
           .r-shop-home-main-text-span {
             font-size: 12px;
           }
-          .r-shop-home-main-text-button {
-            font-size: 15px;
-            line-height: 30px;
-            width: 30px;
+          .r-shop-home-main-text-btn-gachspon {
+            font-size: 14px;
+            line-height: 18px;
+            padding: 5px 20px;
+          }
+          .r-shop-home-main-text-btn-cate {
+            font-size: 14px;
+            line-height: 18px;
+            padding: 5px 20px;
           }
         }
       }
