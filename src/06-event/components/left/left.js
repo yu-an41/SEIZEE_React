@@ -4,13 +4,14 @@ import './left.scss'
 import jLogo from './../../svg/LOGO.svg'
 import jWorm from './../../svg/worm.svg'
 import YellowWave from './../yellow/YellowWave'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useTimeTable } from '../../context/useTimeTable'
 
 function Left() {
   // const [jlactive, setJlactive] = useState(1)
   const navigator = useNavigate()
   const { jlactive, setJlactive } = useTimeTable()
+  const { pathname } = useLocation()
 
   return (
     <>
@@ -31,7 +32,9 @@ function Left() {
                 setJlactive(1)
               }}
             >
-              <div className={jlactive === 1 ? 'jactive' : ''}>所有活動</div>
+              <div className={pathname === '/event' ? 'jactive' : ''}>
+                所有活動
+              </div>
             </li>
             <li>
               <img src={jWorm} alt="" />
@@ -44,7 +47,9 @@ function Left() {
                 setJlactive(2)
               }}
             >
-              <div className={jlactive === 2 ? 'jactive' : ''}>時間表</div>
+              <div className={pathname === '/event/schedule' ? 'jactive' : ''}>
+                時間表
+              </div>
             </li>
             <li>
               <img src={jWorm} alt="" />
@@ -57,7 +62,9 @@ function Left() {
                 setJlactive(3)
               }}
             >
-              <div className={jlactive === 3 ? 'jactive' : ''}>場域地圖</div>
+              <div className={pathname === '/event/map' ? 'jactive' : ''}>
+                場域地圖
+              </div>
             </li>
             <li>
               <img src={jWorm} alt="" />
@@ -70,7 +77,9 @@ function Left() {
                 setJlactive(4)
               }}
             >
-              <div className={jlactive === 4 ? 'jactive' : ''}>我的票卷</div>
+              <div className={pathname === '/event/ticket' ? 'jactive' : ''}>
+                我的票卷
+              </div>
             </li>
             <li>
               <img src={jWorm} alt="" />

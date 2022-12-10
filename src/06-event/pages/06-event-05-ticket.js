@@ -6,8 +6,8 @@ import { useSpring, animated } from 'react-spring'
 import jBang from '../img/bang.png'
 
 const calc = (x, y) => [
-  -(y - window.innerHeight / 2) / 20,
-  (x - window.innerWidth / 2) / 20,
+  -(y - window.innerHeight / 2) / 15,
+  (x - window.innerWidth / 2) / 15,
   1.1,
 ]
 const trans = (x, y, s) =>

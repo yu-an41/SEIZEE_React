@@ -78,11 +78,11 @@ body {
       }
 
       li {
+        cursor: pointer;
         .j-hidehide {
           opacity: 0;
         }
         img {
-         
           @media (max-width: 390px) {
             display: none;
           }

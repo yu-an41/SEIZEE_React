@@ -172,6 +172,7 @@ body {
       position: relative;
     }
     .j-blue-mountain {
+      cursor: pointer;
       transition: 0.5s;
       transform: scale(0.8);
       @include position(16%, -6%);
@@ -200,6 +201,7 @@ body {
       }
     }
     .j-rice-mountain {
+      cursor: pointer;
       transition: 0.5s;
       transform: scale(0.8);
       @include position(16%, 18%);
@@ -228,6 +230,7 @@ body {
       }
     }
     .j-green-mountain {
+      cursor: pointer;
       transition: 0.5s;
       transform: scale(0.8);
       @include position(16%, 41%);
@@ -256,6 +259,7 @@ body {
       }
     }
     .j-orange-mountain {
+      cursor: pointer;
       transition: 0.5s;
       transform: scale(0.8);
       @include position(16%, 65%);
@@ -344,6 +348,7 @@ body {
         display: flex;
         justify-content: space-between;
         img {
+          cursor: pointer;
           width: 5%;
           @media (max-width: 390px) {
             display: none;
