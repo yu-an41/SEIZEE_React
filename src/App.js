@@ -18,6 +18,7 @@ import CartList from './01-cart/pages/CartList'
 import CartInfo from './01-cart/pages/CartInfo'
 import CartDone from './01-cart/pages/CartDone'
 import LineConfirm from './01-cart/pages/LineConfirm'
+import TapPay from './01-cart/pages/TapPay'
 
 // Cart 要用的 ContextProvider
 
@@ -84,6 +85,7 @@ function App() {
                   <Route index path="" element={<CartList />} />
                   <Route path="info" element={<CartInfo />} />
                   <Route path="done" element={<CartDone />} />
+                  <Route path="tappay" element={<TapPay />} />
                 </Route>
 
                 {/* 02-forum */}

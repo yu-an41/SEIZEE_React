@@ -40,8 +40,30 @@ export const CartInfoContextProvider = function ({ children }) {
   }
 
   const [cartItem, setCartItem] = useState(initCart)
-
   const [emptyCart, setEmptyCart] = useState(true)
+
+  // shop
+  const [cartShopInfo, setCartShopInfo] = useState([
+    {
+      shop_sid: 1,
+      shop_cover: '',
+      shop_name: '',
+      shop_phone: '',
+      shop_address_city: '',
+      shop_address_area: '',
+      shop_address_detail: '',
+      shop_opentime: '',
+      shop_closetime: '',
+      shop_deadline: '',
+      shop_sun: 0,
+      shop_mon: 0,
+      shop_tues: 0,
+      shop_wed: 0,
+      shop_thu: 0,
+      shop_fri: 0,
+      shop_sat: 0,
+    },
+  ])
 
   // Modal
 
@@ -374,19 +396,7 @@ export const CartInfoContextProvider = function ({ children }) {
   // 清空購物車
   const handleEmptyCart = () => {
     const emptyCart = {
-      userCart: [
-        // {
-        // shop_sid: '0',
-        // prod_sid: 0,
-        // unit_price: 0,
-        // sale_price: 0,
-        // sale: 0,
-        // name: '',
-        // amount: 0,
-        // inventory: 0,
-        // picture: '',
-        // },
-      ],
+      userCart: [],
       totalItem: 0,
       totalUnitPrice: 0,
       totalSalePrice: 0,
@@ -394,33 +404,19 @@ export const CartInfoContextProvider = function ({ children }) {
     }
     // console.log({ emptyCart })
     localStorage.setItem('cartItem', JSON.stringify(emptyCart))
-    // localStorage.removeItem('cartItem')
-    setEmptyCart(true)
-    // setCartItem(emptyCart)
+    setCartItem(emptyCart)
 
     openModalNotification()
     setHeaderMg('購物車')
     setBodyMg('戰士，您的購物車是空的！')
+    if (pathname === '/cart') {
+      navigate('/')
+    }
   }
 
   // 點icon時確認購物車不為空才跳轉
   const checkCartEmpty = () => {
     return !cartItem.userCart.length
-    /*
-    console.log(localStorage.getItem('cartItem'))
-    if (
-      !localStorage.getItem('cartItem') ||
-      localStorage.getItem('cartItem') ==
-        '{"userCart":[],"totalItem":0,"totalUnitPrice":0,"totalSalePrice":0,"totalAmount":0}'
-    ) {
-      e.preventDefault()
-      handleEmptyCart()
-    } else {
-      setEmptyCart(false)
-      navigate('/cart')
-    }
-    return emptyCart
-    */
   }
 
   // 購物車收藏商品
@@ -455,6 +451,8 @@ export const CartInfoContextProvider = function ({ children }) {
         handleEmptyCart,
         checkCartEmpty,
         handleCartSave,
+        cartShopInfo,
+        setCartShopInfo,
       }}
     >
       {children}

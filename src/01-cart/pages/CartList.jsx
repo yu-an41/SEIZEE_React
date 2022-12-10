@@ -79,31 +79,11 @@ function CartList(props) {
     emptyCart,
     setEmptyCart,
     checkCartempty,
+    cartShopInfo,
+    setCartShopInfo,
   } = useContext(CartInfoContext)
 
   // 設定店家資料格式
-  const [cartShopInfo, setCartShopInfo] = useState([
-    {
-      shop_sid: 1,
-      shop_cover: '',
-      shop_name: '',
-      shop_phone: '',
-      shop_address_city: '',
-      shop_address_area: '',
-      shop_address_detail: '',
-      shop_opentime: '',
-      shop_closetime: '',
-      shop_deadline: '',
-      shop_sun: 0,
-      shop_mon: 0,
-      shop_tues: 0,
-      shop_wed: 0,
-      shop_thu: 0,
-      shop_fri: 0,
-      shop_sat: 0,
-    },
-  ])
-
   // 店家編號
   const shopsid = cartItem.userCart[0].shop_sid
     ? +cartItem.userCart[0].shop_sid
@@ -172,6 +152,7 @@ function CartList(props) {
   }
 
   const min = Math.min(recMerchData.length, 4)
+
   useEffect(() => {
     // console.log(cartItem)
     getShopInfo()
@@ -274,6 +255,7 @@ function CartList(props) {
                   openModalConfirm()
                   setHeaderMg('購物車')
                   setBodyMg('確定要清空購物車嗎？')
+                  navigate('/')
                 }}
               />
             </div>
