@@ -1,0 +1,324 @@
+$colorBlue: #113f75;
+$colorYellow: #fad249;
+$colorOrange: #eb8e4c;
+$colorWhite: #ffffff;
+$colorLightGrey: #eeeeee;
+$colorDarkGrey: #4b646a;
+$colorMiddleGrey: #747474;
+$colorBrown: #986868;
+$colorList: #fdfcee;
+$colorLightBlue: #91d3f5;
+$colorGreen: #21a07d;
+$colorPurple: #9786df;
+$colorPink: #efc2d9;
+$colorLine: #cecece;
+$colorBlack: #000000;
+
+@mixin position($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// ----------------!!start!!------------------
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+html {
+  // filter: invert(1);
+
+  //change 1rem into 10px
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $colorWhite;
+}
+
+.j-sides {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.j-event-middle-ticket {
+  z-index: 99;
+  // outline: 1px black solid;
+  @include position(46%, 50%);
+  position: fixed;
+  @include size(1100px, 900px);
+  transform: translate(-50%, -50%);
+  animation: moveIn 1s ease-out;
+  @keyframes moveIn {
+    0% {
+      transform: translate(-50%, 130%);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translate(-50%, -70%);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
+  @media (max-width: 390px) {
+    // outline: 1px black solid;
+    @include position(67%, 51%);
+    @include size(360px, 844px);
+  }
+
+  .j-cate-banner {
+    @include size(100%, 170px);
+    background-color: $colorLightGrey;
+    padding: 15px 20px;
+    @media (max-width: 390px) {
+      @include size(100%, 100px);
+      padding: 6px 10px;
+    }
+
+    .j-cate-banner-deco {
+      @include size(100%, 100%);
+      border: solid 4px #ffffff;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 50px;
+      @media (max-width: 390px) {
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+      }
+
+      div {
+        font-size: 7rem;
+        font-weight: 900;
+        color: $colorDarkGrey;
+        letter-spacing: 0.8rem;
+        @media (max-width: 390px) {
+          font-size: 4rem;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .j-bang-hide {
+    @media (max-width: 390px) {
+      display: none;
+    }
+    .j-box-top {
+      z-index: 866;
+      width: 2100px;
+      height: 1350px;
+      position: absolute;
+      left: -500px;
+      top: -750px;
+      background-color: $colorYellow;
+      // outline: 1px black solid;
+      animation: boxtop 1s;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+      @keyframes boxtop {
+        0% {
+          left: -500px;
+          top: -750px;
+          opacity: 1;
+        }
+        70% {
+          opacity: 1;
+        }
+        100% {
+          left: -500px;
+          top: -1300px;
+          opacity: 0;
+        }
+      }
+      @media (max-width: 390px) {
+        display: none;
+      }
+    }
+    .j-box-bottom {
+      z-index: 866;
+      width: 2100px;
+      height: 800px;
+      position: absolute;
+      left: -500px;
+      top: 550px;
+      background-color: $colorYellow;
+      animation: boxbottom 1s;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+      @keyframes boxbottom {
+        0% {
+          left: -500px;
+          top: 550px;
+          opacity: 1;
+        }
+        70% {
+          opacity: 1;
+        }
+        100% {
+          left: -500px;
+          top: 950px;
+          opacity: 0;
+        }
+      }
+    }
+    .j-box-right {
+      z-index: 867;
+      width: 900px;
+      height: 1200px;
+      position: absolute;
+      left: 700px;
+      top: -150px;
+      background-color: $colorYellow;
+      animation: boxright 1s;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+      @keyframes boxright {
+        0% {
+          left: 700px;
+          top: -150px;
+          opacity: 1;
+        }
+        70% {
+          opacity: 1;
+        }
+        100% {
+          left: 1300px;
+          top: -150px;
+          opacity: 0;
+        }
+      }
+      @media (max-width: 390px) {
+        display: none;
+      }
+    }
+    .j-box-left {
+      z-index: 867;
+      width: 1100px;
+      height: 1200px;
+      position: absolute;
+      left: -550px;
+      top: -150px;
+      background-color: $colorYellow;
+      animation: boxleft 1s;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+      @keyframes boxleft {
+        0% {
+          left: -550px;
+          top: -150px;
+          opacity: 1;
+        }
+        70% {
+          opacity: 1;
+        }
+        100% {
+          left: -1250px;
+          top: -150px;
+          opacity: 0;
+        }
+      }
+      @media (max-width: 390px) {
+        display: none;
+      }
+    }
+
+    .j-bang {
+      position: absolute;
+      top: -520px;
+      left: -1550px;
+      // outline: 2px solid red;
+      width: 1920px;
+      height: 2180px;
+      transform-origin: 2180px 1000px;
+      animation: bang 1.8s linear;
+      animation-delay: 2s;
+      animation-fill-mode: forwards;
+      img {
+        height: 100%;
+      }
+      @keyframes bang {
+        0% {
+          transform: rotate(0deg);
+          opacity: 1;
+          top: -520px;
+        }
+        80% {
+          opacity: 1;
+          top: -520px;
+        }
+        100% {
+          transform: rotate(90deg);
+          opacity: 0;
+          top: -520px;
+        }
+      }
+
+      @media (max-width: 390px) {
+        display: none;
+      }
+    }
+  }
+  .j-tickets-wrap {
+    // outline: black solid 2px;
+    object-fit: cover;
+    transform-origin: 50% 50%;
+    width: 900px;
+    height: 338px;
+    transform: scale(0.5);
+    position: absolute;
+    top: 360px;
+    left: 107px;
+    // animation: rotateAnimation 1.4s linear;
+    animation-delay: 2s;
+
+    background-image: url(./../img/ticket.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.5s;
+    will-change: transform;
+
+    // animation-fill-mode: forwards;
+    @keyframes rotateAnimation {
+      0% {
+        transform: scale(0.5);
+        top: 490px;
+        left: 130px;
+      }
+      100% {
+        transform: scale(1);
+        top: 360px;
+        left: 130px;
+      }
+    }
+    &:hover {
+      box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
+    }
+    @media (max-width: 390px) {
+      width: 340px;
+      height: 140px;
+      top: 150px;
+      left: 10px;
+      animation: none;
+      transform: scale(1);
+    }
+    // .j-ticket {
+    //   width: 100%;
+    // }
+  }
+}

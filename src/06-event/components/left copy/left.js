@@ -4,13 +4,9 @@ import './left.scss'
 import jLogo from './../../svg/LOGO.svg'
 import jWorm from './../../svg/worm.svg'
 import YellowWave from './../yellow/YellowWave'
-import { useNavigate } from 'react-router-dom'
-import { useTimeTable } from '../../context/useTimeTable'
 
-function Left() {
-  // const [jlactive, setJlactive] = useState(1)
-  const navigator = useNavigate()
-  const { jlactive, setJlactive } = useTimeTable()
+function Left({ setNowPage }) {
+  const [jlactive, setJlactive] = useState(1)
 
   return (
     <>
@@ -26,8 +22,7 @@ function Left() {
             <li
               onClick={(e) => {
                 e.preventDefault()
-                // setNowPage(2)
-                navigator('/event')
+                setNowPage(2)
                 setJlactive(1)
               }}
             >
@@ -39,8 +34,7 @@ function Left() {
             <li
               onClick={(e) => {
                 e.preventDefault()
-                // setNowPage(3)
-                navigator('/event/schedule')
+                setNowPage(3)
                 setJlactive(2)
               }}
             >
@@ -52,8 +46,7 @@ function Left() {
             <li
               onClick={(e) => {
                 e.preventDefault()
-                // setNowPage(4)
-                navigator('/event/map')
+                setNowPage(4)
                 setJlactive(3)
               }}
             >
@@ -65,8 +58,7 @@ function Left() {
             <li
               onClick={(e) => {
                 e.preventDefault()
-                // setNowPage(5)
-                navigator('/event/ticket')
+                setNowPage(5)
                 setJlactive(4)
               }}
             >

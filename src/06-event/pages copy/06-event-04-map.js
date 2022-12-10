@@ -1,4 +1,5 @@
 import '../styles/06-event-04-map.scss'
+
 import jCloud1 from '../svg/cloud1.svg'
 import jCloud2 from '../svg/cloud2.svg'
 import jCloud3 from '../svg/cloud3.svg'
@@ -10,17 +11,28 @@ import jJuice from '../img/juice.png'
 import jStage from '../img/stage.png'
 import jCyber from '../img/augmented-reality.png'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useTimeTable } from '../context/useTimeTable'
 
 function Maps() {
-  const { whichHover, getEventData, getEventLikes } = useTimeTable()
+  // const [hover, setHover] = useState(false)
+  const { whichHover } = useTimeTable()
 
-  useEffect(() => {
-    getEventData()
-    getEventLikes()
-  }, [])
+  // useEffect(() => {
+  //   var element = document.getElementById('j-cook-green-id')
+  //   console.log(element)
+  //   element.addEventListener('mouseover', function () {
+  //     console.log('Event triggered')
+  //   })
 
+  //   var event = new MouseEvent('mouseover', {
+  //     view: window,
+  //     bubbles: true,
+  //     cancelable: true,
+  //   })
+
+  //   element.dispatchEvent(event)
+  // }, [])
   return (
     <>
       <div className="j-event-middle-map">

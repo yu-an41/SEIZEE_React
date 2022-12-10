@@ -1,0 +1,166 @@
+$colorBlue: #113f75;
+$colorYellow: #fad249;
+$colorOrange: #eb8e4c;
+$colorWhite: #ffffff;
+$colorLightGrey: #eeeeee;
+$colorDarkGrey: #4b646a;
+$colorMiddleGrey: #747474;
+$colorBrown: #986868;
+$colorList: #fdfcee;
+$colorLightBlue: #91d3f5;
+$colorGreen: #21a07d;
+$colorPurple: #9786df;
+$colorPink: #efc2d9;
+$colorLine: #cecece;
+$colorBlack: #000000;
+
+@mixin position($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// ----------------!!start!!------------------
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+html {
+  // filter: invert(1);
+
+  //change 1rem into 10px
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $colorWhite;
+}
+.j-left-wrap {
+  position: fixed;
+  width: 70%;
+  display: flex;
+  @media (max-width: 390px) {
+    z-index: 300;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .j-left {
+    @include size(280px, 100vh);
+    background-color: $colorYellow;
+    padding-left: 20px;
+    // outline: 2px black solid;
+    @media (max-width: 390px) {
+      @include size(100vw, 100px);
+      // outline: 2px black solid;
+    }
+    ul {
+      @include size(100%, 100%);
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      @media (max-width: 390px) {
+        display: flex;
+        flex-direction: row;
+        margin-top: 30px;
+      }
+
+      li {
+        .j-hidehide {
+          opacity: 0;
+        }
+        img {
+         
+          @media (max-width: 390px) {
+            display: none;
+          }
+        }
+        div {
+          width: 240px;
+          font-size: 2.3rem;
+          color: $colorWhite;
+          position: relative;
+          text-align: center;
+          @media (max-width: 390px) {
+            width: 50px;
+            font-size: 1rem;
+            // outline: 1px solid black;
+          }
+        }
+        .jactive {
+          color: $colorBlue;
+          // outline: black solid 1px;
+
+          &::after {
+            content: '';
+            background-image: url(./../../svg/tada.svg);
+            position: absolute;
+            background-repeat: no-repeat;
+            top: -25px;
+            left: 9px;
+            width: 250px;
+            height: 100px;
+            padding: 0;
+            animation: DUDULU 0.6s linear infinite;
+            transform-origin: 50% 50%;
+            @keyframes DUDULU {
+              0% {
+                // transform: rotate(0deg);
+                transform: scale(0.8);
+              }
+              25% {
+                // transform: rotate(10deg);
+              }
+              50% {
+                // transform: rotate(0deg);
+                transform: scale(1.1);
+              }
+              75% {
+                // transform: rotate(-10deg);
+              }
+              100% {
+                // transform: rotate(0deg);
+                transform: scale(0.8);
+              }
+            }
+
+            @media (max-width: 390px) {
+              // outline: 2px solid black;
+              background-image: url(./../../svg/tada.svg);
+              background-size: 100px 50px;
+              position: absolute;
+              top: -18px;
+              left: -25px;
+              width: 100px;
+              height: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .j-wave {
+    margin-left: -2px;
+    width: 50%;
+    // outline: 1px solid black;
+    @media (max-width: 390px) {
+      height: 390px;
+      transform: rotate(90deg);
+      transform-origin: 50% 50%;
+      margin-top: -130px;
+    }
+  }
+}

@@ -11,7 +11,8 @@ import ModalNotification from '../../../components/ModalNotification'
 import { useNavigate } from 'react-router-dom'
 
 function Timetable() {
-  const { timeTable, removeTimeTable, setWhichHover } = useTimeTable()
+  const { timeTable, removeTimeTable, setWhichHover, setTimeTable } =
+    useTimeTable()
   const navigator = useNavigate()
   const getTicketData = async () => {
     const postData = {
@@ -41,9 +42,8 @@ function Timetable() {
   const [jBody, setJBody] = useState('')
   const closeModal = () => {
     setIsOpen(false)
-    navigator('/event/ticket')
+    //  navigator('/event')
   }
-  
   return (
     <>
       <div className="j-right-wrap">
