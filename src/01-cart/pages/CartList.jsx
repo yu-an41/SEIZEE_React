@@ -13,8 +13,8 @@ import AuthContext from '../../contexts/AuthContext'
 import './../styles/CartList.scss'
 
 // components
-// import NavBar from '../../00-homepage/components/NavBar'
-import NavBar from './../../components/NavBar'
+// import NavBar from './../../components/NavBar'
+import CartNavBar from '../components/CartNavBar'
 import OpenHoursBtn from '../components/OpenHoursBtn'
 import PickupHoursBtn from '../components/PickupHoursBtn'
 import EmptyCartBtn from '../components/EmptyCartBtn'
@@ -165,7 +165,7 @@ function CartList(props) {
     <>
       <div className="y-CartList-container">
         <div className="y-Cart-nav">
-          <NavBar />
+          <CartNavBar />
           <div className="y-Cart-wave-base"></div>
           <YellowWave />
         </div>

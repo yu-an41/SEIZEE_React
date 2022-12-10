@@ -30,7 +30,7 @@ $border-radius-button: 8px;
 
 .y-top-carousel-container{
     border: $border-lg;
-    overflow: hidden;
+    // overflow: hidden;
     .slick-prev,
     .slick-next
     {
@@ -59,21 +59,25 @@ $border-radius-button: 8px;
 
     .y-top-carousel-banner {
         overflow: hidden;
-        
+        width: 1024px;
+        height: 680px;
         font-size: 0;
         img {
             width: 100%;
             object-fit: cover;
+            // display: block;
             // object-position: 50% 50%;
         }
     }
     .y-carousel-cover {
-        overflow: hidden;
+        // overflow: hidden;
+        width: 100%;
+        // vertical-align: top;
         img {
-            height: 120%;
             object-fit: cover;
             width: auto;
             object-position: 50% 50%;
+            // display: block;
         }
     }
 }
