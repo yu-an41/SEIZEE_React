@@ -3,6 +3,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import log from 'eslint-plugin-react/lib/util/log'
 import axios from 'axios'
 import { set } from 'ramda'
+import { imgReactUrl, imgNodeUrl } from './../../my-config'
 
 // context
 import CartInfoContext from '../contexts/CartInfoContext'
@@ -21,7 +22,6 @@ import EmptyCartBtn from '../components/EmptyCartBtn'
 import CartItemsList from '../components/CartItemsList'
 import ContinueShoppingBtn from '../components/ContinueShoppingBtn'
 import CheckCartInfo from '../components/CheckCartInfo'
-// import GoPayBtn from '../components/GoPayBtn'
 import RecMerch from '../components/RecMerch'
 import Footer from '../../components/Footer'
 
@@ -198,7 +198,10 @@ function CartList(props) {
           <div className="y-Cart-shop">
             <div className="y-Cart-shop-border">
               <div className="y-Cart-shop-cover">
-                <img src={ShopCover} alt="shop cover" />
+                <img
+                  src={`${imgNodeUrl}/images/03-shop/${shop_cover}`}
+                  alt="shop cover"
+                />
               </div>
               <div className="y-Cart-shop-info">
                 <div className="y-Cart-shop-top">
@@ -264,7 +267,6 @@ function CartList(props) {
               <p className="y-Cart-details-name y-Cart-details-header">
                 商品名稱
               </p>
-              <p className="y-Cart-details- y-Cart-details-header">原價</p>
               <p className="y-Cart-details-price y-Cart-details-header">
                 優惠價
               </p>
@@ -307,9 +309,9 @@ function CartList(props) {
             <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
             <div className="y-Cart-rec-top">
               <p className="y-Cart-rec-header">
-                以下是來自「
+                瞧瞧「
                 <span>{cartShopInfo.shop_name}</span>
-                」的更多寶物，錯過會很可惜的...
+                」的更多美味餐點，錯過會很可惜的...
               </p>
             </div>
             <div className="y-Cart-rec-bottom">

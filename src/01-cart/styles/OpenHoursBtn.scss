@@ -29,9 +29,13 @@ $border-radius-button: 8px;
 }
 .y-store-status-border {
     border-radius: $border-radius-button;
-    border: $border-sm;
-    background-color: $btn-red;
-    padding: 2px 20px;
+    // border: $border-sm;
+    background-color: $btn-green;
+    width: 100px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .y-store-status {
         color: #fff;
@@ -45,8 +49,8 @@ $border-radius-button: 8px;
     .y-store-status-border {
         border-radius: $border-radius-card;
         border: $border-lg;
-        background-color: $btn-red;
-        padding: 5px 35px;
+        width: 135px;
+        height: 40px;
     
         .y-store-status {
             font-size: 20px;

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useContext, useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 
@@ -5,6 +6,7 @@ import './../styles/CartItemsList.scss'
 import CartInfoContext from '../contexts/CartInfoContext'
 import AuthContext from '../../contexts/AuthContext'
 import ModalNotification from '../../components/ModalNotification'
+import { imgReactUrl, imgNodeUrl } from './../../my-config'
 
 import CartMerchPic from './../../dotown/strawberry.png'
 // import YellowLineWave from './../images/line-wave.svg'
@@ -12,13 +14,12 @@ import WhiteLineWave from './../images/white-line-wave.svg'
 
 import WishListBtn from './WishListBtn'
 import RemoveItemBtn from './RemoveItemBtn'
+import log from 'eslint-plugin-react/lib/util/log'
 // import log from 'eslint-plugin-react/lib/util/log'
 
 function CartItemsList({ cartItemData }) {
   // member
-  const auth = JSON.parse(localStorage.getItem('auth'))
-  console.log(auth)
-
+  const { myAuth } = useContext(AuthContext)
   // modal
   const navigate = useNavigate()
 
@@ -32,14 +33,15 @@ function CartItemsList({ cartItemData }) {
   }
   const closeModalNotification = () => {
     setIsOpen1(false)
-    if (!auth) navigate('/login')
+    if (!myAuth.authorise) navigate('/login')
     else return
   }
 
+  const [wishList, setWishList] = useState(false)
+
   const WishList = () => {
-    // 為什麼拿到的值是undefined
-    if (auth?.mb_sid) {
-      handleCartSave(auth.mb_sid, prod_sid)
+    if (myAuth?.mb_sid) {
+      handleCartSave(myAuth.mb_sid, prod_sid)
     } else {
       openModalNotification()
       setHeaderMg('購物車')
@@ -75,9 +77,20 @@ function CartItemsList({ cartItemData }) {
       <div className="y-Cart-items-top">
         <div className="y-Cart-items-info">
           <div className="y-Cart-items-info-left">
-            <div className="y-Cart-items-sale">{sale} 折</div>
+            <p
+              className={
+                window.innerWidth > 391
+                  ? 'y-Cart-items-sale active'
+                  : 'y-Cart-items-sale'
+              }
+            >
+              {sale} 折
+            </p>
             <div className="y-Cart-items-info-pic">
-              <img src={`/04-product/img/${picture}`} alt="picture of merch" />
+              <img
+                src={`${imgReactUrl}/04-product/img/${picture}`}
+                alt="picture of merch"
+              />
             </div>
           </div>
           <Link to={`/product/${prod_sid}`}>
@@ -112,17 +125,26 @@ function CartItemsList({ cartItemData }) {
         <div className="y-Cart-items-actions">
           <div className="y-Cart-WishListBtn-wrap">
             <WishListBtn
-              prodSid={prod_sid}
+              mid={myAuth.mb_sid || 0}
+              pid={prod_sid}
               onClick={() => {
-                WishList()
-                // console.log('save test')
+                if (myAuth?.mb_sid) {
+                  handleCartSave(myAuth.mb_sid, prod_sid)
+                } else {
+                  openModalNotification()
+                  setHeaderMg('購物車')
+                  setBodyMg(`請先註冊/登入！`)
+                }
               }}
             />
           </div>
+          <p>氣死！！！為啥推不開</p>
           <div className="y-Cart-RemoveItemBtn-wrap">
             <RemoveItemBtn
+              wishList={wishList}
               onClick={() => {
                 handleRemoveItem(prod_sid)
+                setWishList(!wishList)
                 console.log(prod_sid, 'item removed!!!!')
               }}
             />

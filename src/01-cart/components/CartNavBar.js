@@ -4,7 +4,7 @@ import Menu from '../../components/Menu'
 
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import AuthContext from '../../contexts/AuthContext'
-import { PROFILE, imgUrl, imgServerUrl } from '../my-config'
+import { PROFILE, imgUrl, imgServerUrl } from './../../my-config'
 
 import ModalNotification from '../../components/ModalNotification'
 import CartInfoContext from '../contexts/CartInfoContext'
