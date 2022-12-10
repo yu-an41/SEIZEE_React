@@ -1,5 +1,5 @@
 import './style/UserSign.scss'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import React, { useState, useContext, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { LOGIN, REGISTER, CHECK_USER, GOOGLE_LINK } from '../my-config'
@@ -17,6 +17,7 @@ import LogoWhite from './../logo-and-fonts/LOGO-white.svg'
 function UserSign() {
   const { setMyAuth } = useContext(AuthContext)
   const navigate = useNavigate()
+  const location = useLocation()
 
   const [signInIndex, setSignInIndex] = useState(1)
 
@@ -283,9 +284,9 @@ function UserSign() {
                 <div
                   className="s-login-h2"
                   onClick={() => {
-                    document.getElementById('mblEmail').value =
-                      'seizee1214000@gmail.com'
-                    document.getElementById('mblPass').value = 'De123456'
+                    // document.getElementById('mblEmail').value =
+                    //   'seizee1214000@gmail.com'
+                    // document.getElementById('mblPass').value = 'De123456'
 
                     // const id = e.currentTarget.id
                     // const val = e.currentTarget.value
@@ -303,8 +304,8 @@ function UserSign() {
                 <h3
                   className="s-login-main-h3"
                   onClick={() => {
-                    document.getElementById('mblEmail').value = 'demo1@demo.com'
-                    document.getElementById('mblPass').value = 'De123456'
+                    // document.getElementById('mblEmail').value = 'demo1@demo.com'
+                    // document.getElementById('mblPass').value = 'De123456'
 
                     // const id = e.currentTarget.id
                     // const val = e.currentTarget.value
@@ -312,7 +313,7 @@ function UserSign() {
 
                     setSignInFD({
                       ...signInFD,
-                      mblEmail: 'demo1@gmail.com',
+                      mblEmail: 'demo1@demo.com',
                       mblPass: 'De123456',
                     })
                   }}
@@ -325,6 +326,7 @@ function UserSign() {
                 <input
                   type="text"
                   placeholder="請輸入電子郵件"
+                  value={signInFD.mblEmail}
                   id="mblEmail"
                   onChange={signInHandler}
                   className="s-login-input-general"
@@ -341,6 +343,7 @@ function UserSign() {
                   <input
                     type={showSignInP ? 'text' : 'password'}
                     placeholder="請輸入密碼"
+                    value={signInFD.mblPass}
                     id="mblPass"
                     onChange={signInHandler}
                     className="s-login-input"
@@ -392,10 +395,10 @@ function UserSign() {
                 <h2
                   className="s-login-h2"
                   onClick={() => {
-                    document.getElementById('mbrEmail').value = 'demo1@demo.com'
-                    document.getElementById('mbrName').value = '飛天小女警'
-                    document.getElementById('mbrPass').value = 'De123456'
-                    document.getElementById('mbrPassConfirm').value = 'De123456'
+                    // document.getElementById('mbrEmail').value = 'demo1@demo.com'
+                    // document.getElementById('mbrName').value = '飛天小女警'
+                    // document.getElementById('mbrPass').value = 'De123456'
+                    // document.getElementById('mbrPassConfirm').value = 'De123456'
 
                     // const id = e.currentTarget.id
                     // const val = e.currentTarget.value
@@ -403,10 +406,16 @@ function UserSign() {
 
                     setSignUpFD({
                       ...signUpFD,
-                      mbrEmail: 'demo1@gmail.com',
+                      mbrEmail: 'demo1@demo.com',
                       mbrName: '飛天小女警',
                       mbrPass: 'De123456',
+                      mbrPassConfirm: 'De123456',
                     })
+
+                    setErrorMgE('')
+                    setErrorMgN('')
+                    setErrorMgP1('')
+                    setErrorMgP2('')
                   }}
                 >
                   建立新帳號
@@ -418,6 +427,7 @@ function UserSign() {
                   type="text"
                   placeholder="請輸入電子郵件"
                   id="mbrEmail"
+                  value={signUpFD.mbrEmail}
                   onChange={signUpHandler}
                   onBlur={checkEmail}
                   className="s-login-input-general"
@@ -436,6 +446,7 @@ function UserSign() {
                   type="text"
                   placeholder="請輸入使用者名稱"
                   id="mbrName"
+                  value={signUpFD.mbrName}
                   onChange={signUpHandler}
                   onBlur={checkName}
                   className="s-login-input-general"
@@ -455,6 +466,7 @@ function UserSign() {
                     type={showSignInP1 ? 'text' : 'password'}
                     placeholder="請設定8位英(大小寫)數混合密碼"
                     id="mbrPass"
+                    value={signUpFD.mbrPass}
                     onChange={signUpHandler}
                     onBlur={checkPass1}
                     className="s-login-input"
@@ -485,6 +497,7 @@ function UserSign() {
                     type={showSignInP2 ? 'text' : 'password'}
                     placeholder="請再輸入一次密碼"
                     id="mbrPassConfirm"
+                    value={signUpFD.mbrPassConfirm}
                     onChange={signUpHandler}
                     onBlur={checkPass2}
                     className="s-login-input"

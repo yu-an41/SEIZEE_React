@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import ModalNotification from '../components/ModalNotification'
 import LoadingOverlay from 'react-loading-overlay'
 import ClockLoader from 'react-spinners/ClockLoader'
+import LogoBluePink from './../logo-and-fonts/LOGO-blue-pink.svg'
 
 function ForgotPass() {
   const [forgotFD, setForgotFD] = useState({
@@ -122,6 +123,11 @@ function ForgotPass() {
         spinner={<ClockLoader color="#ED4743" />}
       >
         <div className="s-body-forgotpass">
+          <div className="s-forgot-svg-wrap">
+            <a href="/" alt="homepage of SEIZEE">
+              <img src={LogoBluePink} alt="SEIZEE_logo" />
+            </a>
+          </div>
           <div className="s-fp-container">
             <div className="s-fp-forgotBx">
               <form action="" onSubmit={forgotSubmit} className="s-fp-form">
