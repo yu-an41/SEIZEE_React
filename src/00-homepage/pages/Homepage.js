@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { toppings } from './../../03-shop/toppings'
 import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
@@ -35,7 +36,6 @@ function Homepage() {
   // miee's search and shop ------------------------------------
 
   // ariel's about and events ---------------------------------
- 
 
   // forum post's -----------------------------
   const [postNums, setPostNums] = useState(3)
@@ -82,7 +82,7 @@ function Homepage() {
           <ShopHome />
         </section>
         <section className="y-section y-section-about">
-        <AboutUs />
+          <AboutUs />
           {/* <div className="a-video">
             <div className="a-videoWrapper">
               <h3 className="a-aboutUs">關於我們</h3>
@@ -99,14 +99,19 @@ function Homepage() {
           </div> */}
         </section>
 
-        <div className="y-wave-wrap-white">
-          <WhiteWave />
-        </div>
         <section className="y-section y-section-event">
+        <WhiteWave />
           <div className="r-home-event-container">
             <div className="r-home-event-main-visual">
               <div className="r-home-event-article-wrap">
-                <h2 className="r-home-event-article">What's New FUN?</h2>
+                <p className="r-home-event-article">SEIZEE Event Festival</p>
+              </div>
+              <div className="r-home-event-gobtn-wrap">
+                <p className="r-home-event-gobtn">
+                <Link to="/event">
+                  <span className="r-home-event-gobtn-span">Go</span>
+                  </Link>
+                </p>
               </div>
               <div className="r-home-event-eventlist">
                 <div className="r-home-event-calendar">
@@ -124,7 +129,7 @@ function Homepage() {
               </div>
             </div>
             <div className="r-home-event-titlebox">
-              <p className="r-home-event-titlebox-p">最新活動 Event</p>
+              <p className="r-home-event-titlebox-p">最新活動 New</p>
             </div>
           </div>
         </section>

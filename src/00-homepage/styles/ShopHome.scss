@@ -8,10 +8,10 @@ $title-text: rgb(190, 174, 146);
 .r-shop-home-container {
   background: url(./../../../public/03-shop-img/food_cola_s_01.png) 300px 50px/8%
       no-repeat,
-    url(./../../../public/03-shop-img/food_ramen_01.png) 1550px 150px/8%
+    url(./../../../public/03-shop-img/food_ramen_01.png) 1450px 280px/10%
       no-repeat,
-    url(./../../../public/03-shop-img/food_pizza_01.png) 900px 30px/7% no-repeat,
-    url(./../../../public/03-shop-img/food_french_fries_01.png) 150px 180px/7%
+    url(./../../../public/03-shop-img/food_pizza_01.png) 920px 30px/7% no-repeat,
+    url(./../../../public/03-shop-img/food_french_fries_01.png) 150px 250px/7%
       no-repeat;
 
   .r-shop-home-main {
@@ -33,35 +33,40 @@ $title-text: rgb(190, 174, 146);
         .r-shop-home-main-text-span {
           font-size: 24px;
           font-weight: 700;
-          letter-spacing: 0.2rem;
+          letter-spacing: 0.3rem;
           color: $main-text;
+          line-height: 36px;
+          margin-bottom: 40px;
         }
-        .r-shop-home-main-text-button {
-          display: inline-block;
-          text-align: center;
-          font-size: 30px;
-          font-weight: 700;
-          line-height: 60px;
-          letter-spacing: .2rem;
-          width: 60px;
-          color: #fff;
-          background-color: $main-orange;
-          border-radius: 50%;
-          margin-left: 30px;
-          outline: 1px solid $main-orange;
-          outline-offset: 3px;
-          transition: .5s;
-          animation: 3s go-btn-shop infinite;
+        .r-shop-home-main-text-btn-gachspon {
+          border: 2px solid $main-orange;
+          padding: 15px 5px;
+          margin-right: 30px;
+          border-radius: 30px;
+          i {
+            color: #fff;
+            font-size: 24px;
+            line-height: 28px;
+            font-weight: 700;
+            background: $main-orange;
+            border-radius: 30px;
+            padding:10px 40px;
+            letter-spacing: 0.3rem;
+          }
         }
-        @keyframes go-btn-shop {
-          0%{
-            transform: scale(1);
-          }
-          50%{
-            transform: scale(1.5);
-          }
-          100%{
-            transform: scale(1);
+        .r-shop-home-main-text-btn-cate {
+          border: 2px solid $main-orange;
+          padding: 15px 5px;
+          border-radius: 30px;
+          i {
+            color: #fff;
+            font-size: 24px;
+            line-height: 28px;
+            font-weight: 700;
+            background: $main-orange;
+            border-radius: 30px;
+            padding: 10px 40px;
+            letter-spacing: 0.3rem;
           }
         }
       }
@@ -69,7 +74,7 @@ $title-text: rgb(190, 174, 146);
     .r-shop-home-main-visual {
       width: 50%;
       height: 50vh;
-      background: url('./../../../public/03-shop-img/potato.png') 20% center/50%
+      background: url('./../../../public/03-shop-img/potato.png') 10% center/50%
         no-repeat;
       margin-top: 50px;
     }
@@ -248,52 +253,52 @@ $title-text: rgb(190, 174, 146);
     }
   }
 }
-@media (max-width: 390px){
-  .r-shop-home-container{
-    background:none;
-    .r-shop-home-main{
+@media (max-width: 390px) {
+  .r-shop-home-container {
+    background: none;
+    .r-shop-home-main {
       flex-direction: column-reverse;
-      .r-shop-home-main-inner{
+      .r-shop-home-main-inner {
         display: block;
-        .r-shop-home-main-text{
+        .r-shop-home-main-text {
           width: 100%;
           margin-left: 0;
           text-align: center;
-          .r-shop-home-main-text-p{
+          .r-shop-home-main-text-p {
             font-size: 24px;
             line-height: 36px;
             padding-top: 20px;
           }
-          .r-shop-home-main-text-span{
+          .r-shop-home-main-text-span {
             font-size: 12px;
           }
-          .r-shop-home-main-text-button{
+          .r-shop-home-main-text-button {
             font-size: 15px;
             line-height: 30px;
             width: 30px;
           }
         }
       }
-      .r-shop-home-main-visual{
+      .r-shop-home-main-visual {
         width: 100%;
-        background: url('./../../../public/03-shop-img/potato.png') 100% /cover
-        no-repeat;
+        background: url('./../../../public/03-shop-img/potato.png') 100% / cover
+          no-repeat;
         margin-top: 0;
       }
     }
   }
-  .r-shop-home-carousel{
-    .r-shop-home-carousel-title{
+  .r-shop-home-carousel {
+    .r-shop-home-carousel-title {
       padding: 40px;
-      .r-shop-home-carousel-h2{
+      .r-shop-home-carousel-h2 {
         font-size: 25px;
-      line-height: 25px;
+        line-height: 25px;
       }
     }
-    .r-shop-home-carousel-check{
+    .r-shop-home-carousel-check {
       display: block;
       text-align: center;
-      .r-shop-home-carousel-check-span{
+      .r-shop-home-carousel-check-span {
         margin-right: 0;
         margin-bottom: 10px;
       }

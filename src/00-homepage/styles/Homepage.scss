@@ -207,6 +207,7 @@ $main-border-radius: 8px;
     overflow: hidden;
     .a-video {
       text-align: center;
+      padding: 20px 0;
     }
     .a-videoWrapper {
       position: relative;
@@ -232,13 +233,8 @@ $main-border-radius: 8px;
     }
   }
 
-  .y-wave-wrap-white {
-    margin-bottom: 20px;
-  }
-
   .y-section-event {
     background-color: $main-yellow;
-    padding: 20px 0;
 
     .r-home-event-container {
       width: 50%;
@@ -253,7 +249,6 @@ $main-border-radius: 8px;
         width: 30%;
         height: 80px;
         padding-top: 35px;
-        // text-align: center;
         .r-home-event-titlebox-p {
           font-size: 30px;
           font-weight: 700;
@@ -273,17 +268,35 @@ $main-border-radius: 8px;
           .r-home-event-article {
             color: #fff;
             font-size: 36px;
+            line-height: 50px;
             font-weight: 700;
             margin: 0;
-            padding: 20px 0;
-            line-height: 6rem;
-            letter-spacing: 0.1rem;
+            letter-spacing: 0.4rem;
           }
         }
-
+        .r-home-event-gobtn-wrap{
+          width: 20%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: center;
+          .r-home-event-gobtn{
+            border:1px solid #fff;
+            padding: 22px 5px;
+            .r-home-event-gobtn-span{
+              color: #fff;
+              font-size: 32px;
+              line-height: 32px;
+              font-weight: 700;
+              background-color:#f57d00;
+              padding: 15px 30px;
+              letter-spacing: .3rem;
+            }
+          }
+        }
         .r-home-event-eventlist {
           background-color: #fff;
-          width: 70%;
+          width: 60%;
           padding: 10px;
           display: flex;
           .r-home-event-calendar {
@@ -322,7 +335,6 @@ $main-border-radius: 8px;
             height: 250px;
             list-style: none;
             padding: 10px;
-            // margin-left: auto;
             overflow-y: scroll;
             .r-home-event-eventlist-li {
               display: flex;
@@ -335,8 +347,6 @@ $main-border-radius: 8px;
                 overflow: hidden;
                 border-radius: 8px;
                 display: flex;
-                // flex-direction: column;
-                // justify-content: center;
                 align-items: center;
                 .r-home-event-eventlist-img {
                   width: 100%;
