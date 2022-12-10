@@ -114,11 +114,11 @@ body {
       padding-left: 0;
     }
     li {
+      cursor:url(./../svg/green-pointer.svg) ,pointer;
       position: relative;
       div {
         // outline: 3px solid $colorDarkGrey;
         display: block;
-        cursor: pointer;
         text-align: center;
         font-size: 2.7rem;
         font-weight: 900;
@@ -166,13 +166,15 @@ body {
     position: relative;
     z-index: -1;
     overflow: hidden;
+    div{
+      cursor:url(./../svg/green-pointer.svg) ,pointer;
+    }
     @media (max-width: 390px) {
       margin-top: 15px;
       // outline: 2px solid red;
       position: relative;
     }
     .j-blue-mountain {
-      cursor: pointer;
       transition: 0.5s;
       transform: scale(0.8);
       @include position(16%, -6%);
@@ -201,7 +203,6 @@ body {
       }
     }
     .j-rice-mountain {
-      cursor: pointer;
       transition: 0.5s;
       transform: scale(0.8);
       @include position(16%, 18%);
@@ -230,7 +231,6 @@ body {
       }
     }
     .j-green-mountain {
-      cursor: pointer;
       transition: 0.5s;
       transform: scale(0.8);
       @include position(16%, 41%);
@@ -259,7 +259,6 @@ body {
       }
     }
     .j-orange-mountain {
-      cursor: pointer;
       transition: 0.5s;
       transform: scale(0.8);
       @include position(16%, 65%);
@@ -297,6 +296,8 @@ body {
       }
     }
     img {
+
+      cursor:url(./../svg/green-pointer.svg) ,pointer;
       overflow: hidden;
       @media (max-width: 390px) {
         transform: scale(1);
@@ -348,7 +349,7 @@ body {
         display: flex;
         justify-content: space-between;
         img {
-          cursor: pointer;
+      cursor:url(./../svg/green-pointer.svg) ,pointer;
           width: 5%;
           @media (max-width: 390px) {
             display: none;

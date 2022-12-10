@@ -25,6 +25,7 @@ function Left() {
               <img src={jWorm} alt="" />
             </li>
             <li
+              // style={{cursor:"url(./../../svg/silly-pointer-cursor.svg),auto"}}
               onClick={(e) => {
                 e.preventDefault()
                 // setNowPage(2)

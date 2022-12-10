@@ -42,6 +42,8 @@ html {
 
 body {
   background-color: $colorWhite;
+
+  cursor: url(./../../svg/green-auto.svg),auto;
 }
 .j-left-wrap {
   position: fixed;
@@ -78,7 +80,6 @@ body {
       }
 
       li {
-        cursor: pointer;
         .j-hidehide {
           opacity: 0;
         }
@@ -88,6 +89,7 @@ body {
           }
         }
         div {
+          cursor:url(./../../svg/green-pointer.svg), pointer;
           width: 240px;
           font-size: 2.3rem;
           color: $colorWhite;
