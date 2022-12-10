@@ -72,15 +72,8 @@ function GoPayBtn({ pickup, pay }) {
           window.open(res.data.url, '_self')
         }
       } else if (pay === 2) {
-        const res = await axios.post(
-          // `http://localhost:3004/cart/add-order/${mid}`,
-          `http://localhost:3004/cart/linepay/${mid}`,
-          cartItem
-        )
-        // console.log('GoPay', res.data)
-        localStorage.setItem('cartItem', JSON.stringify(emptyCart))
-        setEmptyCart(true)
-        console.log('TapPay付款，購物車已清空')
+        console.log('使用TapPay付款')
+        navigate('/cart/tappay')
       } else {
         alert('請選擇付款方式！')
       }

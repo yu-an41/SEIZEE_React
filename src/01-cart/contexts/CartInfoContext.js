@@ -40,8 +40,30 @@ export const CartInfoContextProvider = function ({ children }) {
   }
 
   const [cartItem, setCartItem] = useState(initCart)
-
   const [emptyCart, setEmptyCart] = useState(true)
+
+  // shop
+  const [cartShopInfo, setCartShopInfo] = useState([
+    {
+      shop_sid: 1,
+      shop_cover: '',
+      shop_name: '',
+      shop_phone: '',
+      shop_address_city: '',
+      shop_address_area: '',
+      shop_address_detail: '',
+      shop_opentime: '',
+      shop_closetime: '',
+      shop_deadline: '',
+      shop_sun: 0,
+      shop_mon: 0,
+      shop_tues: 0,
+      shop_wed: 0,
+      shop_thu: 0,
+      shop_fri: 0,
+      shop_sat: 0,
+    },
+  ])
 
   // Modal
 
@@ -455,6 +477,8 @@ export const CartInfoContextProvider = function ({ children }) {
         handleEmptyCart,
         checkCartEmpty,
         handleCartSave,
+        cartShopInfo,
+        setCartShopInfo,
       }}
     >
       {children}
