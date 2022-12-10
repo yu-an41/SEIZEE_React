@@ -30,22 +30,23 @@ $main-border-radius: 8px;
   }
   .a-videoWrapper {
     position: relative;
-    width: 800px;
+    width: 150px;
+    height: 350px;
     margin: auto;
+    // overflow: hidden;
   }
   video {
-    max-width: 100%;
+    width: 70%;
     // display: block;
   }
   .a-aboutUs {
     position: absolute;
-    left: -20px;
-    top: 0px;
+    left: -30px;
+    top: -20px;
     z-index: 1;
     background-color: $secondary-yellow;
     border-radius: $main-border-radius;
-    width: 170px;
-    height: 50px;
+    // object-fit: cover;
     @extend %a-flex
   }
 

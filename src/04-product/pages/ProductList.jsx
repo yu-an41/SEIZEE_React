@@ -9,6 +9,7 @@ import YellowWave from "../../00-homepage/components/YellowWave.js";
 import YellowWave2 from "../components/YellowWave2";
 import Footer from "../../components/Footer.js";
 import Runman from "../../components/Runman.js";
+import '../components/style/ProductVideo.scss'
 
 // 01-cart
 import CartInfoContext from "./../../01-cart/contexts/CartInfoContext";
@@ -16,16 +17,18 @@ import CartInfoContext from "./../../01-cart/contexts/CartInfoContext";
 function ProductList() {
   const [allProduct, setAllProduct] = useState([]);
   const [shopData, setShopData] = useState([
-    {
-      shop_name: "",
-      shop_address_detail: "",
-      shop_opentime: "",
-      shop_closetime: "",
-      shop_phone: "",
-    },
+    // {
+    //   shop_name: "",
+    //   shop_address_detail: "",
+    //   shop_opentime: "",
+    //   shop_closetime: "",
+    //   shop_phone: "",
+    //   shop_video: "",
+    // },
   ]);
   const [errorMessage, setErrorMessage] = useState([]);
   const { shop_list_sid } = useParams();
+  const [isLoading, setIsLoading] = useState(false)
 
   async function getProductCard() {
     // 01-cart
@@ -41,7 +44,7 @@ function ProductList() {
       const Sdata = response.data.shop;
       setAllProduct(Pdata);
       setShopData(Sdata);
-      // console.log(Pdata);
+      console.log(Sdata);
     } catch (e) {
       console.error("this is e-message:", e.message);
       setErrorMessage(e.message);
@@ -51,14 +54,7 @@ function ProductList() {
   useEffect(() => {
     getProductCard();
   }, []);
-  /*
-  useEffect = (() => {
-    setShopData([{
-      shop_name:allProduct[0].shop_name,
-      shop_address_detail:allProduct[0].shop_address_detail,
-    }])
-  })
-*/
+
   return (
     <>
       <div className="y-index-container">
@@ -99,8 +95,23 @@ function ProductList() {
             </div>
           </div>
           <div className="a-videoWrapper">
-            <ProductVideo />
+            <ProductVideo shopData={shopData} />
           </div>
+
+          {/* <div className="a-video">
+      <div className="a-productVideoWrapper">
+        <video
+          playsInline
+          loop
+          muted
+          alt="All the devices"
+          src={`{/04-product/video/${shopData.shop_video}}`}
+          type="video/mp4"
+          ref={videoEl}
+        />
+      </div>
+    </div> */}
+
         </div>
       </div>
       <div className="a-seizeeIconWrapper">

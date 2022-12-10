@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 
 function Theme() {
-    const [theme, setTheme] = () => {
-        setTheme(theme === 'aladdin' ? 'seizee' : 'aladdin')
-    }
+    const [theme, setTheme] = useState(1)
     const [themeState, setThemeState] = useState(1)
     setThemeState = (themeState === 1 ? 0 : 1)
 

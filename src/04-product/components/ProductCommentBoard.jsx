@@ -14,7 +14,7 @@ function ProductCommentBoard() {
       );
       const commentData = response.data;
       setUserComment(commentData);
-      //   console.log(commentData);
+        console.log(commentData);
     } catch (e) {
       console.error(e.message);
       setErrorMessage(e.message);
@@ -28,8 +28,9 @@ function ProductCommentBoard() {
     <>
       {userComment.map((v, i) => {
         return (
-          <div className="a-productUserComment">
+          <div className="a-productUserComment" key={i.name}>
             <div className="a-productUserContent">
+            <div className="a-productRating">{v.rating}</div>
               <div className="a-memberPhoto">
                 <img
                   src={`http://localhost:3004/uploads/05-member/${v.mb_photo}`}

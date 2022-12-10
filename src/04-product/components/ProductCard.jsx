@@ -4,6 +4,7 @@ import Collection from '../../contexts/CollectContext'
 import '../components/style/ProductCard.scss'
 import Select from '../components/Select'
 import CollectContext from '../../contexts/CollectContext'
+import { Skeleton } from '@mui/material'
 
 // cart
 import CartInfoContext from './../../01-cart/contexts/CartInfoContext'
@@ -44,13 +45,12 @@ function ProductCard({ product }) {
 
   return (
     <div className="a-produtCardWrapper">
-      {/* <Collection /> */}
       <div className="a-productCardContent" key={product.sid}>
         <div className="a-discountIconWrapper">
           <div className="a-saleWrapper">
             <img src="/04-product/img/sale.png" alt="" />
           </div>
-          <p>{product.sale_price}折</p>
+          <p className="a-productText">{product.sale_price}折</p>
         </div>
         <Link to={`/product/${product.sid}`}>
           <div className="a-productImgWrapper">
@@ -59,12 +59,16 @@ function ProductCard({ product }) {
         </Link>
         <div className="a-productCardTitle">
           <Link to={`/product/${product.sid}`}>
-            <h3>{product.product_name}</h3>
+          <div className="a-prodcutIconWrapper">
+            <img src="/04-product/svg/bling.svg"
+                alt="" />
+                 <p className="a-productText">{product.product_name}</p>
+          </div>
           </Link>
           {/* 判斷收藏愛心圖示 */}
           {collectionNum.length > 0 ? (
             collectionNum.includes(product.sid) ? (
-              <img
+              <img className="a-heart"
                 src="/04-product/svg/heart.svg"
                 alt=""
                 onClick={() => {
@@ -74,6 +78,7 @@ function ProductCard({ product }) {
               />
             ) : (
               <img
+              className="a-heart"
                 src="/04-product/svg/collection.svg"
                 alt=""
                 onClick={() => {
@@ -95,7 +100,7 @@ function ProductCard({ product }) {
         </div>
         <div className="a-priceWrapper">
           <div className="a-productPrice">
-            <p className="a-unitPriceText">$原價{product.unit_price}元</p>
+            <p className="a-productText">$原價{product.unit_price}元</p>
           </div>
           <div className="a-productDiscount">
             <img src="./04-product/svg/like.svg" alt="" />
