@@ -83,6 +83,11 @@ function MyPost() {
                 )
               })}
           </div>
+          {/* <div className='p-deltBtn' onClick={()=>{
+            const delBtn = myPostData.filter((v,i)=>{
+                
+            })
+          }}>刪除</div> */}
         </div>
 
         <div className="p-recomAdWrit">

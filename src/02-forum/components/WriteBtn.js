@@ -15,7 +15,7 @@ function WriteBtn() {
   const [bodyMs, setBodyMs] = useState('')
   const closeModal = () => {
     setIsOpen(false)
-    navigate('/forum/cook')
+    // navigate('/forum/cook')
   }
   return (
     <>
