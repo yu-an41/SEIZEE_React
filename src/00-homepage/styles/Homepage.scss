@@ -59,7 +59,7 @@ $main-border-radius: 8px;
   position: relative;
 
   .y-go-to-top {
-    display: none;
+    display: block;
     position: fixed;
     z-index: 300;
     right: 8%;
@@ -496,7 +496,7 @@ $main-border-radius: 8px;
         border: $border-sm;
         padding: 4px 8px;
         width: 90px;
-
+        cursor: pointer;
         .y-forum-more-icon {
           width: 10px;
           height: 10px;

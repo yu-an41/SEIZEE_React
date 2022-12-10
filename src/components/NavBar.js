@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './../styles/NavBar.scss'
 import Menu from './Menu'
 
@@ -13,7 +13,29 @@ import LogoBluePink from './../logo-and-fonts/LOGO-blue-pink.svg'
 import CartIcon from './../dotown/cart.png'
 import MemberIcon from './../logo-and-fonts/default.png'
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
 function NavBar() {
+  // ScrollPosition
+  const [scrollPosition, setScrollPosition] = useState(0)
+
+  useEffect(() => {
+    const updatePosition = () => {
+      setScrollPosition(window.pageYOffset)
+    }
+
+    window.addEventListener('scroll', updatePosition)
+
+    updatePosition()
+
+    return () => window.removeEventListener('scroll', updatePosition)
+  }, [])
+
+  // console.log('scrollPosition', scrollPosition)
+  // reference: https://www.youtube.com/watch?v=UvWMlNZuQTc
+
   // modal
   const [isOpen1, setIsOpen1] = useState(false)
 
@@ -43,7 +65,7 @@ function NavBar() {
 
   const [profileImg, setProfileImg] = useState('')
 
-  let items = +cartItem.totalAmount || 0
+  // let items = +cartItem.totalAmount || 0
   // if (checkCartEmpty || !localStorage.getItem('cartItem')) {
   //   items = 0
   // } else if (+items > 99) {
@@ -51,11 +73,13 @@ function NavBar() {
   // } else {
   //   items = +items
   // }
-  items = items > 99 ? '99+' : items
+  // items = items > 99 ? '99+' : items
 
   return (
     <>
-      <div className="y-section-nav">
+      <div
+        className={classNames(scrollPosition > 0 ? 'bgc' : '', 'y-section-nav')}
+      >
         <div className="y-logo-wrap">
           <div className="y-svg-wrap">
             <Link to={`/`} alt="homepage of SEIZEE">
@@ -65,7 +89,11 @@ function NavBar() {
         </div>
         <div className="y-nav-right">
           <div className="y-icon-round y-cart-icon">
-            {items > 0 ? <p className="y-cart-amount">{items}</p> : <></>}
+            {cartItem.totalAmount > 0 ? (
+              <p className="y-cart-amount">{cartItem.totalAmount}</p>
+            ) : (
+              <></>
+            )}
             <a
               href="/cart"
               alt="my cart"

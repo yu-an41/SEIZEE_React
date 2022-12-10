@@ -25,14 +25,14 @@ function CheckCartInfo() {
     navigate('/login')
   }
   const CheckInfo = () => {
-    if (!!myAuth.authorised) {
+    if (myAuth.authorised) {
       console.log('authorised member')
       navigate('/cart/info')
     } else {
       console.log('unauthorised member')
-      // setIsOpen(true)
-      // setHeaderMg('會員')
-      // setBodyMg('請先註冊/登入！')
+      setIsOpen(true)
+      setHeaderMg('會員')
+      setBodyMg('請先註冊/登入！')
     }
   }
 

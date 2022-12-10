@@ -48,7 +48,15 @@ function CartDone() {
         )
         console.log(res.data)
 
-        localStorage.setItem('cartItem', JSON.stringify(emptyCart))
+        const initCart = {
+          userCart: [],
+          totalItem: 0,
+          totalUnitPrice: 0,
+          totalSalePrice: 0,
+          totalAmount: 0,
+        }
+
+        localStorage.setItem('cartItem', JSON.stringify(initCart))
         setEmptyCart(true)
       } catch (error) {
         console.log(error.message)
@@ -62,18 +70,19 @@ function CartDone() {
     getMemberOrder()
     setTimeout(() => {
       navigate('/')
-    }, 10000)
+    }, 15000)
   }, [])
 
   useEffect(() => {
     if (cartCountDown > 1) {
-      setInterval(() => {
+      const myInterval = setInterval(() => {
         setCartCountDown(cartCountDown - 1)
       }, 1000)
     } else {
       setCartCountDown(0)
     }
-  }, [])
+    return 
+  }, [cartCountDown])
 
   return (
     <>

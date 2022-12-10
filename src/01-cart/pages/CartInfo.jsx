@@ -33,7 +33,8 @@ import arrowClicked from './../../logo-and-fonts/pixel-arrowB.svg'
 import arrowUnclicked from './../../logo-and-fonts/pixel-arrowB-border-M.svg'
 
 function CartInfo() {
-  const { cartItem, setCartItem } = useContext(CartInfoContext)
+  const { cartItem, setCartItem, cartShopInfo, setCartShopInfo } =
+    useContext(CartInfoContext)
 
   // 設定回上頁按鈕內文
   const [btnText, setBtnText] = useState('回購物車')
@@ -45,6 +46,10 @@ function CartInfo() {
   // 選單狀態樣式
   const [pickup, setPickup] = useState(1)
   const [pay, setPay] = useState(1)
+
+  useEffect(() => {
+    console.log('payment code: ', pay)
+  }, [pay])
 
   //member details
   const { myAuth, setMyAuth, logout, deleteAccountD } = useContext(AuthContext)
@@ -64,12 +69,35 @@ function CartInfo() {
   const getMemberInfo = async () => {
     try {
       const res = await axios.get(`http://localhost:3004/cart/info/${mid}`)
-      setMemberInfo(res.data.member_info_rows)
-      // console.log(res.data.member_info_rows)
+      // setMemberInfo(res.data.member_info_rows)
+      console.log(res.data.member_info_rows)
     } catch (error) {
       console.log(error.message)
     }
   }
+
+  console.log(cartShopInfo)
+
+  const {
+    shop_sid,
+    shop_list_sid,
+    shop_cover,
+    shop_name,
+    shop_phone,
+    shop_city,
+    shop_area,
+    shop_address_detail,
+    shop_opentime,
+    shop_closetime,
+    shop_deadline,
+    shop_sun,
+    shop_mon,
+    shop_tues,
+    shop_wed,
+    shop_thu,
+    shop_fri,
+    shop_sat,
+  } = cartShopInfo
 
   useEffect(() => {
     getMemberInfo()
@@ -291,25 +319,27 @@ function CartInfo() {
                   訂購人：
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-right">
-                  member name
+                  {myAuth?.mb_name}
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-left">
                   取餐店家：
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-right">
-                  shop name
+                  {shop_name}
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-left">
                   取餐時間：
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-right">
-                  shop pickup
+                  {shop_opentime} - {shop_deadline}
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-left">
                   取餐位址：
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-right">
-                  shop address
+                  {shop_city}
+                  {shop_area}
+                  {shop_address_detail}
                 </li>
               </ul>
             </div>
