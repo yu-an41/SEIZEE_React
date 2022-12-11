@@ -16,7 +16,7 @@ function ShopSideBar(props) {
       const response = await axios.get(
         'http://localhost:3004/api/shop/shop_city'
       )
-      // console.log(response.data.city_rows)
+
       const cityData = response.data.city_rows
       return cityData
     } catch (e) {
@@ -31,7 +31,7 @@ function ShopSideBar(props) {
       const response = await axios.get(
         'http://localhost:3004/api/shop/shop_area'
       )
-      // console.log(response.data.area_rows)
+
       const areaData = response.data.area_rows
       return areaData
     } catch (e) {
@@ -45,7 +45,7 @@ function ShopSideBar(props) {
       const response = await axios.get(
         'http://localhost:3004/api/shop/shop_cate'
       )
-      // console.log(response.data.cate_rows)
+
       const cateData = response.data.cate_rows
       return cateData
     } catch (e) {
@@ -64,6 +64,38 @@ function ShopSideBar(props) {
     props.setSelectedArea(selectedAreaSid)
   }
 
+  const handleChange = (e) => {
+    props.setIsLoading(true)
+    const keyword = e.target.value.trim()
+    if (keyword === '') {
+      props.setStartShop(1)
+      return
+    } else {
+      const newData = props.shops
+        .map((v, i) => {
+          const c = [...[v.cates]]
+          const dataRows = [...[v.rows], c]
+          return dataRows
+        })
+        .filter((v, i) => {
+          return v[0].shop_name.includes(keyword) || v[1][0].includes(keyword)
+        })
+
+      props.setFilterShop(newData)
+      props.setStartShop(0)
+    }
+  }
+
+  // const handleSearch = (e) => {
+  //   // 搜尋用 - trim去除空白
+  //   const newSearchWord = e.target.value.trim()
+  //   // console.log(newSearchWord)
+  //   // 傳至debounceFn中
+  //   debounceHandleSearch(newSearchWord)
+  // }
+
+  // const debounceHandleSearch = useCallback(_.debounce(handleChange, 400), [])
+
   // didMount時載入資料
   useEffect(() => {
     ;(async () => {
@@ -79,7 +111,7 @@ function ShopSideBar(props) {
       const selectedAreaSid = areaData.find(
         (a) => a.shop_city_sid === selectedCitySid
       ).sid
-      // console.log({ selectedCitySid, selectedAreaSid })
+
       props.setSelectedCity(selectedCitySid)
       props.setSelectedArea(selectedAreaSid)
 
@@ -98,6 +130,17 @@ function ShopSideBar(props) {
             <span className="r-shop-title-span">ALL SHOP</span>
             <p className="r-shop-title-p">店鋪搜尋</p>
           </div>
+        </div>
+
+        <div className="r-search-keyword-wrap">
+          <p className="r-search-keyword-wrap-p">搜尋關鍵字</p>
+          <input
+            className="r-search-keyword-wrap-input"
+            type="search"
+            name="search"
+            id="search"
+            onChange={handleChange}
+          />
         </div>
 
         <div className="r-place-wrap">
@@ -119,7 +162,6 @@ function ShopSideBar(props) {
                 onChange={whenCityChanged}
                 value={props.selectedCity}
               >
-                {/* <option value="">請選擇</option> */}
                 {citys.map((v, i) => {
                   return (
                     <option value={v.sid} key={v.sid}>
@@ -137,7 +179,6 @@ function ShopSideBar(props) {
                 onChange={(e) => props.setSelectedArea(+e.currentTarget.value)}
                 value={props.selectedArea}
               >
-                {/* <option value="">請選擇</option> */}
                 {areas
                   .filter((a) => a.shop_city_sid === props.selectedCity)
                   .map((v) => {
@@ -169,7 +210,6 @@ function ShopSideBar(props) {
               onChange={(e) => props.setSelectedCate(e.currentTarget.value)}
               value={props.selectedCate}
             >
-              {/* <option value="">請選擇</option> */}
               {cates.map((v) => {
                 return (
                   <option value={v.category_name} key={v.sid}>
@@ -198,7 +238,6 @@ function ShopSideBar(props) {
               onChange={(e) => props.setSelectedOpen(+e.currentTarget.value)}
               value={props.selectedOpen}
             >
-              {/* <option value="">請選擇</option> */}
               <option value="0">全部店家</option>
               <option value="1">營業中</option>
             </select>

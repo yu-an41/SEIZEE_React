@@ -34,14 +34,14 @@ $border-radius-button: 8px;
 .y-wish-list-border {
     border-radius: $border-radius-button;
     border: none;
-    background-color: $main-yellow;
+    // background-color: $main-yellow;
     padding: 2px 20px;
-    display: none;
+    // display: none;
 
     .y-wish-list-icon {
         width: 20px;
-        aspect-ratio: 1/1;
-
+        height: 20px;
+        margin: 0 auto; 
         img {
             width: 100%;
             height: 100%;
@@ -50,23 +50,30 @@ $border-radius-button: 8px;
     }
     
     .y-wish-list {
+        display: none;
         color: $main-blue;
         font-size: 14px;
         font-weight: bold;
         letter-spacing: 2px;
     }
 }
-
+.y-wish-list-border:hover {
+    cursor: pointer;
+}
 @media (min-width: 391px) {
     .y-wish-list-border {
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: $border-radius-card;
+        background-color: $main-yellow;
         // border: $border-yellow-lg;
-        padding: 8px 35px;
+        padding: 8px 20px;
     
         .y-wish-list-icon {
+            width: 22px;
+            height: 22px;
+            margin-right: 8px;
             img {
                 
             }
@@ -74,6 +81,7 @@ $border-radius-button: 8px;
 
         .y-wish-list {
             font-size: 20px;
+            display: block;
         }
     }
 }

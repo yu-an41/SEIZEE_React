@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { toppings } from '../toppings'
 import { Link } from 'react-router-dom'
+import WhiteWave from './WhiteWave'
 
 function ShopHome() {
   // 記錄原始資料用
@@ -97,7 +98,7 @@ function ShopHome() {
         }
       }
     }
-    // console.log(resultShop)
+
     setSelResultShop(resultShop)
   }
 
@@ -109,8 +110,6 @@ function ShopHome() {
   useEffect(() => {
     goFilterShop()
   }, [cateFilters])
-  // console.log(selResultShop)
-  // console.log(shops);
 
   return (
     <>
@@ -121,11 +120,17 @@ function ShopHome() {
               <p className="r-shop-home-main-text-p">
                 Creating a better future through food.
               </p>
-              <span className="r-shop-home-main-text-span">
-                開啟屬於你的惜食地圖
-              </span>
-              <Link to={'/shop'}>
-                <span className="r-shop-home-main-text-button">Go</span>
+              <p className="r-shop-home-main-text-span">
+                找不到靈感 ? <br />
+                看看我們為您準備的特別推薦 !!
+              </p>
+              <Link to={'/gachapon'}>
+                <span className="r-shop-home-main-text-btn-gachspon">
+                  試手氣
+                </span>
+              </Link>
+              <Link to={'/productFilter/'}>
+                <span className="r-shop-home-main-text-btn-cate">看種類</span>
               </Link>
             </div>
           </div>
@@ -134,7 +139,7 @@ function ShopHome() {
       </div>
       <div className="r-shop-home-carousel">
         <div className="r-wave-section">
-          <div className="r-wave-wrap"></div>
+          <WhiteWave />
         </div>
         <div className="r-shop-home-carousel-title">
           <h2 className="r-shop-home-carousel-h2">

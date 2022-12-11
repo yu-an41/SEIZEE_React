@@ -8,7 +8,7 @@ function RemoveItemBtn({ onClick }) {
         <i className="fa-sharp fa-solid fa-xmark"></i>
       </div>
       <p className="y-remove-item" onClick={onClick}>
-        移除此項餐點
+        移除商品
       </p>
     </div>
   )

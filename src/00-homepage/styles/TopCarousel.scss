@@ -30,7 +30,7 @@ $border-radius-button: 8px;
 
 .y-top-carousel-container{
     border: $border-lg;
-    overflow: hidden;
+    // overflow: hidden;
     .slick-prev,
     .slick-next
     {
@@ -59,12 +59,25 @@ $border-radius-button: 8px;
 
     .y-top-carousel-banner {
         overflow: hidden;
-        
+        width: 1024px;
+        height: 680px;
         font-size: 0;
         img {
             width: 100%;
             object-fit: cover;
+            // display: block;
             // object-position: 50% 50%;
+        }
+    }
+    .y-carousel-cover {
+        // overflow: hidden;
+        width: 100%;
+        // vertical-align: top;
+        img {
+            object-fit: cover;
+            width: auto;
+            object-position: 50% 50%;
+            // display: block;
         }
     }
 }
@@ -102,6 +115,11 @@ $border-radius-button: 8px;
         }
         
         .y-top-carousel-banner {
+            img {
+
+            }
+        }
+        .y-carousel-cover {
             img {
 
             }

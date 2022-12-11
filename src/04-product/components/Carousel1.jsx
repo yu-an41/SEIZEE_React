@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import './Carouse.css';
+import './style/Carousel.scss';
 import axios from "axios";
 
 export default function Carousel({sid=1}) {
@@ -17,7 +17,7 @@ export default function Carousel({sid=1}) {
       const Pdata = response.data.product_rows[0];
       setImgArray(Pdata.picture.split(","));
       setCarousel(Pdata);
-      console.log(Pdata);
+    //   console.log(Pdata);
     } catch (e) {
       console.error(e.message);
     }
@@ -25,11 +25,8 @@ export default function Carousel({sid=1}) {
 
     function handleClick(i, img) {
         // console.log('e', e.target.innerText);
-
         setCenterImg(img)
-        
-
-        console.log(i, img);
+        // console.log(i, img);
 
         if (i === 0) {
             setMyArray([1, 1, -2]);
@@ -54,7 +51,8 @@ export default function Carousel({sid=1}) {
   }
 
     return (
-        <div style={{ display: 'flex' }}>
+        <div className='a-carouselWrapper' style={{ display: 'flex' }}>
+            {/* <div className="a-carouselBorder"></div> */}
             <div
                 className="bg-1"
                 style={{
@@ -63,7 +61,7 @@ export default function Carousel({sid=1}) {
                     fontSize: '1.5rem',
                     //background: 'red',
                     // border: centerImg===imgArray[0] ? '3px solid red':'',
-                    transform: `translateX(${myArray[0] * 500}px)`,
+                    transform: `translateX(${myArray[0] * 400}px)`,
                     transition: 'transform 1s',
                     zIndex: `${myZindexArr[0]}`,
                 }}
@@ -71,7 +69,7 @@ export default function Carousel({sid=1}) {
                     handleClick(0, imgArray[0])
                 }}
             >
-                <img src={`/04-product/img/${imgArray[0]}`} width={400} height={400}/>
+                <img src={`/04-product/img/${imgArray[0]}`} />
             </div>
             <div
                 className="bg-2"
@@ -79,29 +77,29 @@ export default function Carousel({sid=1}) {
                     width: '400px',
                     height: '400px',
                     fontSize: '1.5rem',
-                    //background: 'blue',
-                    transform: `translateX(${myArray[1] * 300}px)`,
+                    // background: 'blue',
+                    transform: `translateX(${myArray[1] * 400}px)`,
                     transition: 'transform 1s .1s',
                     zIndex: `${myZindexArr[1]}`,
                 }}
                 onClick={() => handleClick(1, imgArray[1])}
             >
-                <img src={`/04-product/img/${imgArray[1]}`} width={400} height={400}/>
+                <img src={`/04-product/img/${imgArray[1]}`}/>
             </div>
             <div
                 className="bg-3"
                 style={{
-                    width: '500px',
-                    height: '500px',
+                    width: '400px',
+                    height: '400px',
                     fontSize: '1.5rem',
-                   //s background: 'green',
-                    transform: `translateX(${myArray[2] * 300}px)`,
+                    // background: 'green',
+                    transform: `translateX(${myArray[2] * 400}px)`,
                     transition: 'transform 1s .2s',
                     zIndex: `${myZindexArr[2]}`,
                 }}
                 onClick={() => handleClick(2, imgArray[2])}
             >
-                <img src={`/04-product/img/${imgArray[2]}`} width={400} height={400}/>
+                <img src={`/04-product/img/${imgArray[2]}`} />
             </div>
         </div>
     );

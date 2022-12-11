@@ -1,12 +1,9 @@
 import { useEffect, useState, useContext } from 'react'
 import { imgUrl, imgServerUrl } from '../shop-config'
-// import axios from 'axios'
 import './../styles/03-shop-card.scss'
 import { Skeleton } from '@mui/material'
 import IsLovedContext from '../../contexts/03-shop-loveContext.js'
 import { Link } from 'react-router-dom'
-
-// states
 
 function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
   //收藏項目
@@ -256,14 +253,124 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
         </div>
       ) : (
         <div className="r-card-wrap">
-          {filterShop.map((v, i) => {
-            return (
-              <div className="r-col" key={v[0].sid}>
-                {isLoading ? (
-                  <Skeleton
-                    variant="rectangular"
-                    style={{ background: '#ccc' }}
-                  >
+          {filterShop.length ? (
+            filterShop.map((v, i) => {
+              return (
+                <div className="r-col" key={v[0].sid}>
+                  {isLoading ? (
+                    <Skeleton
+                      variant="rectangular"
+                      style={{ background: '#ccc' }}
+                    >
+                      <div className="r-card-container">
+                        <div className="r-card-img-wrap">
+                          <span
+                            className="r-card-img-wrap-span"
+                            style={v[0].open ? {} : { background: '#ccc' }}
+                          >
+                            {v[0].open ? '營業中' : '休息中'}
+                          </span>
+                          <img
+                            src={`${imgServerUrl}/images/03-shop/${v[0].shop_cover}`}
+                            alt=""
+                          />
+                          <i className="fa-solid fa-heart"></i>
+                        </div>
+                        <div className="r-card-body">
+                          <h2 className="r-card-body-h2">{v[0].shop_name}</h2>
+                          <div className="r-card-body-cates">
+                            {v[1].map((v, i) => {
+                              return (
+                                <span
+                                  className="r-card-body-cates-span"
+                                  key={i}
+                                >
+                                  {v}/
+                                </span>
+                              )
+                            })}
+                          </div>
+                          <div className="r-card-week-btn">
+                            <small
+                              className="r-card-week-btn-small"
+                              style={
+                                v[0].shop_mon ? {} : { background: '#ccc' }
+                              }
+                            >
+                              一
+                            </small>
+                            <small
+                              className="r-card-week-btn-small"
+                              style={
+                                v[0].shop_tue ? {} : { background: '#ccc' }
+                              }
+                            >
+                              二
+                            </small>
+                            <small
+                              className="r-card-week-btn-small"
+                              style={
+                                v[0].shop_wed ? {} : { background: '#ccc' }
+                              }
+                            >
+                              三
+                            </small>
+                            <small
+                              className="r-card-week-btn-small"
+                              style={
+                                v[0].shop_thu ? {} : { background: '#ccc' }
+                              }
+                            >
+                              四
+                            </small>
+                            <small
+                              className="r-card-week-btn-small"
+                              style={
+                                v[0].shop_fri ? {} : { background: '#ccc' }
+                              }
+                            >
+                              五
+                            </small>
+                            <small
+                              className="r-card-week-btn-small"
+                              style={
+                                v[0].shop_sat ? {} : { background: '#ccc' }
+                              }
+                            >
+                              六
+                            </small>
+                            <small
+                              className="r-card-week-btn-small"
+                              style={
+                                v[0].shop_sun ? {} : { background: '#ccc' }
+                              }
+                            >
+                              日
+                            </small>
+                          </div>
+                          <p className="r-card-body-p">{v[0].shop_phone}</p>
+                          <p className="r-card-body-p">
+                            營業時間:
+                            <span>
+                              {v[0].shop_opentime}-{v[0].shop_closetime}
+                            </span>
+                          </p>
+                          <p className="r-card-body-p">
+                            {v[0].shop_city}
+                            {v[0].shop_area}
+                            {v[0].shop_address_detail}
+                          </p>
+
+                          <div className="r-card-button">
+                            <a className="r-card-button-a" href="/#">
+                              <i className="fa-solid fa-caret-right"></i>
+                              <span className="r-card-button-span">去逛逛</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </Skeleton>
+                  ) : (
                     <div className="r-card-container">
                       <div className="r-card-img-wrap">
                         <span
@@ -276,7 +383,31 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                           src={`${imgServerUrl}/images/03-shop/${v[0].shop_cover}`}
                           alt=""
                         />
-                        <i className="fa-solid fa-heart"></i>
+                        {isLovedNum.length > 0 ? (
+                          isLovedNum.includes(v[0].sid) ? (
+                            <i
+                              className="fa-solid fa-heart"
+                              style={{ color: '#f00' }}
+                              onClick={() => {
+                                handleClickLove(v[0].sid)
+                              }}
+                            ></i>
+                          ) : (
+                            <i
+                              className="fa-solid fa-heart"
+                              onClick={() => {
+                                handleClickLove(v[0].sid)
+                              }}
+                            ></i>
+                          )
+                        ) : (
+                          <i
+                            className="fa-solid fa-heart"
+                            onClick={() => {
+                              handleClickLove(v[0].sid)
+                            }}
+                          ></i>
+                        )}
                       </div>
                       <div className="r-card-body">
                         <h2 className="r-card-body-h2">{v[0].shop_name}</h2>
@@ -345,136 +476,23 @@ function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
                           {v[0].shop_area}
                           {v[0].shop_address_detail}
                         </p>
-
                         <div className="r-card-button">
-                          <a className="r-card-button-a" href="/#">
-                            <i className="fa-solid fa-caret-right"></i>
-                            <span className="r-card-button-span">去逛逛</span>
-                          </a>
+                          <Link to={`/productList/${v[0].sid}`}>
+                            <p className="r-card-button-a">
+                              <i className="fa-solid fa-caret-right"></i>
+                              <span className="r-card-button-span">去逛逛</span>
+                            </p>
+                          </Link>
                         </div>
                       </div>
                     </div>
-                  </Skeleton>
-                ) : (
-                  <div className="r-card-container">
-                    <div className="r-card-img-wrap">
-                      <span
-                        className="r-card-img-wrap-span"
-                        style={v[0].open ? {} : { background: '#ccc' }}
-                      >
-                        {v[0].open ? '營業中' : '休息中'}
-                      </span>
-                      <img
-                        src={`${imgServerUrl}/images/03-shop/${v[0].shop_cover}`}
-                        alt=""
-                      />
-                      {isLovedNum.length > 0 ? (
-                        isLovedNum.includes(v[0].sid) ? (
-                          <i
-                            className="fa-solid fa-heart"
-                            style={{ color: '#f00' }}
-                            onClick={() => {
-                              handleClickLove(v[0].sid)
-                            }}
-                          ></i>
-                        ) : (
-                          <i
-                            className="fa-solid fa-heart"
-                            onClick={() => {
-                              handleClickLove(v[0].sid)
-                            }}
-                          ></i>
-                        )
-                      ) : (
-                        <i
-                          className="fa-solid fa-heart"
-                          onClick={() => {
-                            handleClickLove(v[0].sid)
-                          }}
-                        ></i>
-                      )}
-                    </div>
-                    <div className="r-card-body">
-                      <h2 className="r-card-body-h2">{v[0].shop_name}</h2>
-                      <div className="r-card-body-cates">
-                        {v[1].map((v, i) => {
-                          return (
-                            <span className="r-card-body-cates-span" key={i}>
-                              {v}/
-                            </span>
-                          )
-                        })}
-                      </div>
-                      <div className="r-card-week-btn">
-                        <small
-                          className="r-card-week-btn-small"
-                          style={v[0].shop_mon ? {} : { background: '#ccc' }}
-                        >
-                          一
-                        </small>
-                        <small
-                          className="r-card-week-btn-small"
-                          style={v[0].shop_tue ? {} : { background: '#ccc' }}
-                        >
-                          二
-                        </small>
-                        <small
-                          className="r-card-week-btn-small"
-                          style={v[0].shop_wed ? {} : { background: '#ccc' }}
-                        >
-                          三
-                        </small>
-                        <small
-                          className="r-card-week-btn-small"
-                          style={v[0].shop_thu ? {} : { background: '#ccc' }}
-                        >
-                          四
-                        </small>
-                        <small
-                          className="r-card-week-btn-small"
-                          style={v[0].shop_fri ? {} : { background: '#ccc' }}
-                        >
-                          五
-                        </small>
-                        <small
-                          className="r-card-week-btn-small"
-                          style={v[0].shop_sat ? {} : { background: '#ccc' }}
-                        >
-                          六
-                        </small>
-                        <small
-                          className="r-card-week-btn-small"
-                          style={v[0].shop_sun ? {} : { background: '#ccc' }}
-                        >
-                          日
-                        </small>
-                      </div>
-                      <p className="r-card-body-p">{v[0].shop_phone}</p>
-                      <p className="r-card-body-p">
-                        營業時間:
-                        <span>
-                          {v[0].shop_opentime}-{v[0].shop_closetime}
-                        </span>
-                      </p>
-                      <p className="r-card-body-p">
-                        {v[0].shop_city}
-                        {v[0].shop_area}
-                        {v[0].shop_address_detail}
-                      </p>
-                      <div className="r-card-button">
-                        <Link to={`/productList/${v[0].sid}`}>
-                          <p className="r-card-button-a">
-                            <i className="fa-solid fa-caret-right"></i>
-                            <span className="r-card-button-span">去逛逛</span>
-                          </p>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            )
-          })}
+                  )}
+                </div>
+              )
+            })
+          ) : (
+            <div className="r-pageno-found">抱歉!!未有符合條件的店舖</div>
+          )}
         </div>
       )}
     </>

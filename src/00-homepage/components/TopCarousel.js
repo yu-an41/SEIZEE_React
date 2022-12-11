@@ -1,7 +1,34 @@
 import React, { Component } from 'react'
+import { imgReactUrl, imgNodeUrl } from './../../my-config'
 import Slider from 'react-slick'
 
 import './../styles/TopCarousel.scss'
+
+function PrevArrow(props) {
+  const { className, style, onClick } = props
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'transparent' }}
+      onClick={onClick}
+    />
+  )
+}
+
+function NextArrow(props) {
+  const { className, style, onClick } = props
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: 'block',
+        background: 'transparent',
+      }}
+      onClick={onClick}
+    />
+  )
+}
 
 export default class TopCarousel extends Component {
   render() {
@@ -11,9 +38,11 @@ export default class TopCarousel extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      // autoplaySpeed: 3500,
+      autoplaySpeed: 3500,
       speed: 800,
       pauseOnHover: true,
+      nextArrow: <PrevArrow />,
+      prevArrow: <NextArrow />,
     }
 
     return (
@@ -25,27 +54,18 @@ export default class TopCarousel extends Component {
               alt="banner carousel"
             />
           </div>
-          <div className="y-top-carousel-banner">
+          <div className="y-top-carousel-banner y-carousel-cover">
             <img
-              src={`/00-homepage/banner1-ice-cream.png`}
+              src={`${imgNodeUrl}/images/03-shop/33cover.jpg`}
               alt="banner carousel"
             />
           </div>
-          <div className="y-top-carousel-banner">
+          <div className="y-top-carousel-banner y-carousel-cover">
             <img
-              src={`/00-homepage/banner1-ice-cream.png`}
+              src={`${imgNodeUrl}/images/03-shop/05cover.jpg`}
               alt="banner carousel"
             />
           </div>
-          {/* <div className="y-top-carousel-banner">
-            <img
-              src={`/00-homepage/banner1-ice-cream.png`}
-              alt="banner carousel"
-            />
-          </div> */}
-          {/* <div className="y-top-carousel-banner">
-            <h1>Hello Carousel</h1>
-          </div> */}
         </Slider>
       </div>
     )

@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { toppings } from './../../03-shop/toppings'
 import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
@@ -22,47 +23,23 @@ import OfficialCardRow from '../components/OfficialCardRow'
 import Runman from '../../components/Runman'
 import ShopHome from '../components/ShopHome'
 import NewEvent from '../components/NewEvent'
+import AboutUs from '../components/AboutUs'
 
 //img srcs
-// import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
-// import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
+import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
+import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
 // import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
 import img from '../images/01cover.jpg'
 // import calendar from '../../../public/04-product/svg/calendar.svg'
 
 function Homepage() {
-  // miee's search and shop ------------------------------------
-
-  // ariel's about and events ---------------------------------
-  const videoEl = useRef(null)
-
-  const attemptPlay = () => {
-    videoEl &&
-      videoEl.current &&
-      videoEl.current.play().catch((error) => {
-        console.error('Error attempting to play', error)
-      })
-  }
-
-  useEffect(() => {
-    attemptPlay()
-  }, [])
-
-  // forum post's -----------------------------
+  // forum post
   const [postNums, setPostNums] = useState(3)
   const [offPostNums, setOffPostNums] = useState(3)
-
-  // NavBar cart's ----------------------------
 
   return (
     <>
       <div className="y-index-container">
-        <div
-          className="y-go-to-top"
-          onClick={() => {
-            console.log('go to top')
-          }}
-        ></div>
         <div className="y-index-top">
           <section className="y-section y-section-nav-bg">
             <NavBar />
@@ -75,14 +52,11 @@ function Homepage() {
           <section className="y-section y-section-carousel">
             <div className="y-carousel-wrap">
               <TopCarousel />
-              <div className="y-carousel-block-yellow">
-                <p></p>
-              </div>
-              <div className="y-carousel-block-blue">
-                <div className="y-block-bg">
-                  {/* <p>剩食革命</p>
-                  <p>由我做起</p> */}
-                </div>
+            </div>
+            <div className="y-carousel-block-blue">
+              <div className="y-block-bg">
+                <p>改變剩食，</p>
+                <p className="y-block-text2">由我開始。</p>
               </div>
             </div>
           </section>
@@ -96,29 +70,20 @@ function Homepage() {
           <ShopHome />
         </section>
         <section className="y-section y-section-about">
-          {/* <div className="a-video">
-            <div className="a-videoWrapper">
-              <h3 className="a-aboutUs">關於我們</h3>
-              <video
-                playsInline
-                loop
-                muted
-                alt="All the devices"
-                src="../../video/test.mp4"
-                type="video/mp4"
-                ref={videoEl}
-              />
-            </div>
-          </div> */}
+          <AboutUs />
         </section>
-        <div className="y-wave-wrap-white">
-          <WhiteWave />
-        </div>
+
         <section className="y-section y-section-event">
+          <WhiteWave />
           <div className="r-home-event-container">
             <div className="r-home-event-main-visual">
               <div className="r-home-event-article-wrap">
-                <h2 className="r-home-event-article">What's New FUN?</h2>
+                <p className="r-home-event-article">2022 SEIZEE Festival</p>
+              </div>
+              <div className="r-home-event-gobtn-wrap">
+                <Link to="/event">
+                  <p className="r-home-event-gobtn">Go</p>
+                </Link>
               </div>
               <div className="r-home-event-eventlist">
                 <div className="r-home-event-calendar">
@@ -136,7 +101,7 @@ function Homepage() {
               </div>
             </div>
             <div className="r-home-event-titlebox">
-              <p className="r-home-event-titlebox-p">最新活動 Event</p>
+              <p className="r-home-event-titlebox-p">最新活動 New</p>
             </div>
           </div>
         </section>
@@ -144,6 +109,12 @@ function Homepage() {
           <YellowWave />
         </div>
         <section className="y-section y-section-forum">
+          <div
+            className="y-go-to-top"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+            }}
+          ></div>
           <div className="y-section-forum-title">
             <p>最新論壇消息</p>
           </div>
@@ -166,10 +137,10 @@ function Homepage() {
                 setOffPostNums(offPostNums + 3)
               }}
             >
-              <div className="y-forum-more-icon">
-                {/* <img src={MoreBtnIcon} alt="load more posts" /> */}
-              </div>
-              <p>更多好文</p>
+              {/* <div className="y-forum-more-icon"> */}
+              {/* <img src={MoreBtnIcon} alt="load more posts" /> */}
+              {/* </div> */}
+              <p className="y-forum-more-btn-pp">更多好文</p>
             </div>
           </div>
         </section>

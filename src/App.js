@@ -73,7 +73,6 @@ function App() {
               <Routes>
                 {/* 00-homepage */}
                 <Route path="/" element={<Homepage />} />
-                
 
                 {/* 01-cart */}
                 <Route path="/cart/">
@@ -98,7 +97,7 @@ function App() {
                   />
                   <Route path="writeForm" element={<WriteForm />} />
                   <Route path="myPost" element={<MyPost />} />
-                  <Route path="searchPost" element={<Search_post />} />
+                  <Route path='searchPost' element={<Search_post/>} />
                 </Route>
 
                 {/* 03-shop */}
