@@ -61,7 +61,7 @@ $main-border-radius: 8px;
     align-items: flex-start;
     flex-direction: column;
     border: 5px solid $main-orange;
-    width: 550px;
+    width: 600px;
     height: 300px;
     padding: 10px 25px;
     background-color: $secondary-yellow;
@@ -75,11 +75,17 @@ $main-border-radius: 8px;
       }
     }
     .a-shopInf img {
-      width: 50px;
+      width: 40px;
     }
   }
   .a-videoWrapper {
     width: 400px;
+  }
+  @media (max-width: 390px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
   }
 }
 
@@ -134,7 +140,7 @@ $main-border-radius: 8px;
   margin: 10px 30px;
   padding-top: 30px;
   @media (max-width: 390px) {
-    width: 340px;
+    width: 80%;
   }
   .a-productCardContent {
     background-color: $secondary-yellow;
@@ -165,8 +171,12 @@ $main-border-radius: 8px;
     }
     .a-productCardTitle {
       @extend %a-flex;
+      padding-top: 8px;
       .a-prodcutIconWrapper {
         display: flex;
+        img {
+          rotate: -10deg;
+        }
         .a-productText {
           @extend %a-flex;
           @extend %a-title;
@@ -199,28 +209,22 @@ $main-border-radius: 8px;
       display: flex;
       justify-content: space-around;
       text-align: center;
-      padding: 0 0 8px 0;
-      .a-productPrice {
-        @extend %a-flex;
-        color: $secondary-blue;
-        line-height: 10px;
-        padding-right: 12px;
+      padding: 10px 5px;
+      .a-productUnitPriceText {
+        @extend %a-text;
+        padding: 5px;
+        font-size: 18px;
         text-decoration: line-through;
       }
-      .a-productText {
-        @extend %a-text;
-      }
-
       .a-productDiscount {
         @extend %a-flex;
         color: $secondary-blue;
-        line-height: line(2);
-        font-weight: 500;
         img {
           width: 32px;
         }
         .a-productPriceText {
           @extend %a-text;
+          color: $red;
         }
       }
     }
@@ -229,6 +233,14 @@ $main-border-radius: 8px;
       color: $main-text;
       .a-productText {
         @extend %a-text;
+      }
+      .a-productInventory {
+        padding: 3px 10px;
+        margin: 0px 6px;
+        background-color: #fff;
+        border: $main-border;
+        color: $secondary-blue;
+        border-radius: $main-border-radius;
       }
     }
     .a-quantity {
@@ -260,7 +272,7 @@ $main-border-radius: 8px;
       border: $main-border;
       border-radius: $main-border-radius;
       padding: 5px 20px;
-      margin: 15px 0 40px 0;
+      margin: 20px 0 40px 0;
       font-weight: 500;
       .a-productText {
         @extend %a-text;

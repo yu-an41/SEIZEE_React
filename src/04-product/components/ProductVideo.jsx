@@ -2,10 +2,11 @@ import React, { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "./style/ProductVideo.scss";
 
-export default function ProductVideo(props) {
+export default function ProductVideo(shopData
+) {
   const videoEl = useRef(null);
   // const { shop_list_sid } = useParams;
-  // console.log(shopData);
+  console.log(shopData);
 
   const attemptPlay = () => {
     videoEl &&
@@ -21,6 +22,8 @@ export default function ProductVideo(props) {
 // console.log(props.shopData.shop_video)
   return (
     <>
+      {/* {shopData.map((v, i) => { */}
+        {/* return ( */}
           <div className="a-video">
             <div className="a-productVideoWrapper">
               <video
@@ -28,13 +31,15 @@ export default function ProductVideo(props) {
                 loop
                 muted
                 alt="All the devices"
-                src={`/04-product/video/${props.shopData.shop_video}`}
+                src={`/04-product/video/${shopData.shopData.shop_video}`}
                 // src="/04-product/video/001.mp4"
-                type="video/mp4"
+                // type="video/mp4"
                 ref={videoEl}
               />
             </div>
           </div>
+        {/* ); */}
+      {/* })} */}
     </>
   );
 }

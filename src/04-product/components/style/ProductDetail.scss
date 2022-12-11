@@ -192,6 +192,7 @@ input[type="number"] {
       }
       .a-detailsText {
         @extend %a-text;
+        padding: 2px;
       }
       .a-priceWrapper {
         display: flex;
@@ -311,18 +312,28 @@ input[type="number"] {
       .a-addButton img {
         width: 35px;
       }
-      .a-goBackButton {
-        width: 220px;
-        text-align: center;
-        @extend %a-flex;
-        background-color: $main-yellow;
-        border: $main-border;
-        border-radius: $main-border-radius;
-        position: absolute;
-        padding: 5px 20px;
-        margin: 25px 0 40px 0;
-        font-weight: 500;
-      }
+      
+    }
+    .a-goBackButton {
+      width: 300px;
+      text-align: center;
+      @extend %a-flex;
+      background-color: #66cfc5;
+      color: #fff;
+      border: $main-border;
+      border-radius: $main-border-radius;
+      position: absolute;
+      top: 1000px;
+      right: 100px;
+      padding: 15px 50px;
+      margin: 25px 0 40px 0;
+      font-weight: 500;
+      @extend %a-title;
+    }
+    .a-goBackButton:hover{
+      background-color: $main-yellow;
+      color: $secondary-blue;
+      cursor: pointer;
     }
   }
 }

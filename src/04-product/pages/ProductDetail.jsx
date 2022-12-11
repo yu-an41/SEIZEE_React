@@ -124,7 +124,7 @@ function ProductDetail() {
                       <div className="a-productCollection">
                         {collection ? (
                           <img
-                            src="../../logo-and-fonts/pixel-heartClick.svg"
+                            src="/04-product/svg/heart.svg"
                             alt=""
                             onClick={() => {
                               delCollect(sid);
@@ -133,7 +133,7 @@ function ProductDetail() {
                           />
                         ) : (
                           <img
-                            src="../../logo-and-fonts/pixel-heartNormal.svg"
+                            src="/04-product/svg/collection.svg"
                             alt=""
                             onClick={() => {
                               addCollect(sid);
@@ -146,10 +146,20 @@ function ProductDetail() {
                     </div>
                     {/* <div className="a-productRating">{details.rating}</div> */}
                     <div className="a-shopNameWrapper">
-                      <img src="/04-product/svg/map.svg" alt="" />
+                      <img src="/04-product/svg/bells.png" alt="" />
                       <Link to={`/shop/${v.shop_list_sid}`}>
-                      <h3 className="a-detailsTitle">{v.shop_name}</h3>
+                        <h3 className="a-detailsTitle">{v.shop_name}</h3>
                       </Link>
+                    </div>
+                    <div className="a-shopNameWrapper">
+                      <img src="/04-product/svg/map.svg" alt="" />
+                      {/* <Link to={`/shop/${v.shop_list_sid}`}> */}
+                      <h3 className="a-detailsTitle">
+                        {v.shop_city}
+                        {v.shop_area}
+                        {v.shop_address_detail}
+                      </h3>
+                      {/* </Link> */}
                     </div>
                   </div>
                   <div className="a-priceContent">
@@ -240,11 +250,11 @@ function ProductDetail() {
                   </div>
                   <div className="a-goBack">
                     <Link to={`/productList/${v.shop_list_sid}`}>
-                    <button className="a-goBackButton">
-                      返回店商品列表頁
-                    </button>
+                      <button className="a-goBackButton">
+                        返回店商品列表頁
+                      </button>
                     </Link>
-                    </div>
+                  </div>
                 </div>
               );
             })}

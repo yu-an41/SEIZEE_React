@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useParams, useLocation, useFetcher, Link} from "react-router-dom";
+import { useParams, useLocation, useFetcher, Link } from "react-router-dom";
 import axios from "axios";
 import { Skeleton } from "@mui/material";
 import ProductCard from "../components/ProductCard.jsx";
@@ -45,7 +45,7 @@ function ProductList() {
       const Sdata = response.data.shop;
       setAllProduct(Pdata);
       setShopData(Sdata);
-      console.log(Sdata);
+      // console.log(Sdata);
     } catch (e) {
       console.error("this is e-message:", e.message);
       setErrorMessage(e.message);
@@ -96,14 +96,14 @@ function ProductList() {
         <div className="a-shopInformation">
           <div className="a-shopInformationWrapper">
             <div className="a-shopInf">
-              <img src="/04-product/svg/bling.svg" alt="" />
-              <Link to={`/shop/${shopData.sid}`}>
-              <p className="a-detailsTitle">{shopData.shop_name}</p>
-              </Link>
+              <img src="/04-product/svg/bells.png" alt="" />
+              {/* <Link to={`/shop/${shopData.sid}`}> */}
+                <p className="a-detailsTitle">{shopData.shop_name}</p>
+              {/* </Link> */}
             </div>
             <div className="a-shopInf">
               <img
-                src="/04-product/svg/rocket.png"
+                src="/04-product/svg/christmasTree.png"
                 alt=""
                 style={{ width: "38px" }}
               />
@@ -113,7 +113,7 @@ function ProductList() {
               <p className="a-detailsText"> {shopData.shop_closetime}</p>
             </div>
             <div className="a-shopInf">
-              <img src="/04-product/svg/tel.png" alt="" />
+              <img src="/04-product/svg/telephone.png" alt="" />
               <p className="a-detailsText">電話：{shopData.shop_phone}</p>
             </div>
             <div className="a-shopInf">
@@ -124,11 +124,10 @@ function ProductList() {
                 {shopData.shop_address_detail}
               </p>
             </div>
-            </div>
-          <div className="a-videoWrapper">
-            <ProductVideo shopData={shopData} />
           </div>
-          
+          {/* <div className="a-productVideoWrapper"> */}
+            <ProductVideo shopData={shopData} />
+          {/* </div> */}
         </div>
       </div>
       <div className="a-seizeeIconWrapper">

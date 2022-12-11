@@ -17,12 +17,8 @@ function ProductComment({ sid }) {
     rating: 0,
   });
   const [showBox, setShowBox] = useState(true)
-
-  //   const [rating, setRating] = useState({
-  //     food_product_sid: sid,
-  //     mb_sid: mb_sid,
-  //     rating :"",
-  //   })
+  const [openBox, setOpenBox] = useState(true)
+  // const [closeBox, setCloseBox] = useState(false)
 
   //星星評分數
   const ratingChanged = (newRating) => {

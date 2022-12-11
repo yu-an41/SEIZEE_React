@@ -60,7 +60,7 @@ function ProductCard({ product, isLoading }) {
         <div className="a-productCardTitle">
           <Link to={`/product/${product.sid}`}>
             <div className="a-prodcutIconWrapper">
-              <img src="/04-product/svg/bling.svg" alt="" />
+              <img src="/04-product/svg/strawberry.svg" alt="" />
               <p className="a-productText">{product.product_name}</p>
             </div>
           </Link>
@@ -100,20 +100,20 @@ function ProductCard({ product, isLoading }) {
         </div>
         <div className="a-priceWrapper">
           {/* <div className="a-productPrice"> */}
-            <p className="a-productText">$原價{product.unit_price}元</p>
+          <p className="a-productUnitPriceText">$原價{product.unit_price}元</p>
           {/* </div> */}
-          {/* <div className="a-productDiscount"> */}
+          <div className="a-productDiscount">
             <img src="/04-product/svg/like.svg" alt="" />
             <p className="a-productPriceText">
               $惜食價
               {product.product_price}元
             </p>
-          {/* </div> */}
+          </div>
         </div>
         <div className="a-productQuantity">
           <p className="a-productText">惜食剩餘數量</p>
-          <p className="a-productText">{product.inventory_qty}</p>
-          <p>數量</p>
+          <p className="a-productInventory">{product.inventory_qty}</p>
+          <p className="a-productText">數量</p>
 
           <Select options={countOptions} ref={tempRef} />
           {/* <select>

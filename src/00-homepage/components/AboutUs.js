@@ -18,8 +18,8 @@ export default function AboutUs() {
 
   return (
     <div className="a-video">
+    <p className="a-aboutUs">關於我們</p>
       <div className="a-videoWrapper">
-        <h3 className="a-aboutUs">關於我們</h3>
         <video
           playsInline
           loop
