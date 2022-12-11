@@ -102,6 +102,7 @@ function ProductFilter() {
             )}
           </button>
         </div> */}
+        <p className="a-iconsText">要當小精靈還是惜食戰士</p>
         <div className="a-iconsWrapper">
           <div className={`a-iconAladdinWrapper ${theme === 1 ? "blueTheme" : "" }`}
           onClick={() => handleClick()}>
@@ -115,6 +116,7 @@ function ProductFilter() {
 
         <div className="a-productFilterWrapper">
           <div className="a-category">
+          <p className="a-selectType">選擇想吃的種類</p>
             <div className="a-categoryWrapper">
               {filterList.map((filter, i) => {
                 return (
