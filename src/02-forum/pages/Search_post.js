@@ -55,9 +55,7 @@ function Search_post() {
           <SideBar />
         </div>
         <div className="p-containerWrap">
-          <div className="p-searchBarWrap">
-            <SearchBar />
-          </div>
+          <div className="p-searchBarWrap">{/* <SearchBar /> */}</div>
           <div className="p-cardTabeCook">
             <div className="p-CardWrap">
               {srhFormPost &&

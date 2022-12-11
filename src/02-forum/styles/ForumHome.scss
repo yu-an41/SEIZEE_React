@@ -9,6 +9,9 @@ $p:16px;
 *{
     box-sizing: border-box;
 }
+body::-webkit-scrollbar {
+    display: none;
+}
 .p-home{
     position: relative;
     .p-homeCardWrap{
