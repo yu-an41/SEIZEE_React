@@ -19,7 +19,6 @@ $card-btn: #80b938;
       display: flex;
       justify-content: center;
       align-items: center;
-      // text-align: center;
       border-bottom: 8px dashed #fff;
       padding-bottom: 25px;
 
@@ -51,6 +50,30 @@ $card-btn: #80b938;
       }
     }
 
+    .r-search-keyword-wrap{
+      text-align: center;
+      padding-top: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .r-search-keyword-wrap-p{
+        font-size: 20px;
+        line-height: 20px;
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+      }
+      .r-search-keyword-wrap-input{
+        font-size: 18px;
+        outline-style: none;
+        border: none;
+        height: 30px;
+        margin: 0 5px;
+      }
+
+    }
     .r-place-wrap {
       text-align: center;
       padding-top: 30px;
@@ -190,7 +213,6 @@ $card-btn: #80b938;
             font-size: 24px;
             line-height: 24px;
             font-weight: 700;
-            // padding-bottom: 10px;
           }
         }
       }

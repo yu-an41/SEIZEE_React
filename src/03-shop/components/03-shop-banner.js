@@ -9,7 +9,6 @@ function ShopBanner({ toggleStatus, setToggleStatus }) {
     }
   }
 
-  // console.log(toggleStatus)
   return (
     <>
       <div className="r-banner-wrap">

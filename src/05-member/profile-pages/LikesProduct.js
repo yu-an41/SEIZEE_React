@@ -48,7 +48,7 @@ function LikesProduct() {
       setLikePDetails(data.row.length)
       setLikePDisplayDetails(data.row)
     } else {
-      setLikePMg('目前沒有訂單')
+      setLikePMg('目前沒有收藏')
     }
   }
 
