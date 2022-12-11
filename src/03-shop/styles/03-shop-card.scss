@@ -7,13 +7,12 @@ $cate-btn: #fce38c;
 $main-orange: #ff8200;
 $card-btn: #80b938;
 
-
 .r-card-wrap {
-  padding-top: 60px;
+  padding: 60px 30px 60px 30px;
   display: flex;
   flex-wrap: wrap;
   .r-col {
-    width: 33.333333%;
+    width: 33%;
     padding: 20px;
     .r-card-container {
       border: 3px solid #333;
@@ -48,7 +47,7 @@ $card-btn: #80b938;
           top: 10px;
           right: 10px;
           color: #fff;
-          font-size: 50px;
+          font-size: 40px;
         }
       }
       .r-card-body {
@@ -59,7 +58,7 @@ $card-btn: #80b938;
         justify-content: space-around;
 
         .r-card-body-h2 {
-          font-size: 24px;
+          font-size: 22px;
           font-weight: 700;
           color: $main-title;
           padding-bottom: 5px;

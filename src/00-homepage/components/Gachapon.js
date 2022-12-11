@@ -42,6 +42,8 @@ function Gachapon() {
     <>
       <div className="r-gachapon-container">
         <NavBar />
+        <p className="r-gachapon-ariticle-left">SEIZEE</p>
+        <p className="r-gachapon-ariticle-right">SPECIAL</p>
         <div
           className={getwinner ? 'r-mask active' : 'r-mask'}
           onClick={() => {

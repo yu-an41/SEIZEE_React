@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { toppings } from './../../03-shop/toppings'
 import CartInfoContext from '../../01-cart/contexts/CartInfoContext'
@@ -81,14 +82,17 @@ function Homepage() {
           <AboutUs />
         </section>
 
-        <div className="y-wave-wrap-white">
-          <WhiteWave />
-        </div>
         <section className="y-section y-section-event">
+          <WhiteWave />
           <div className="r-home-event-container">
             <div className="r-home-event-main-visual">
               <div className="r-home-event-article-wrap">
-                <h2 className="r-home-event-article">What's New FUN?</h2>
+                <p className="r-home-event-article">2022 SEIZEE Festival</p>
+              </div>
+              <div className="r-home-event-gobtn-wrap">
+                <Link to="/event">
+                  <p className="r-home-event-gobtn">Go</p>
+                </Link>
               </div>
               <div className="r-home-event-eventlist">
                 <div className="r-home-event-calendar">
@@ -106,7 +110,7 @@ function Homepage() {
               </div>
             </div>
             <div className="r-home-event-titlebox">
-              <p className="r-home-event-titlebox-p">最新活動 Event</p>
+              <p className="r-home-event-titlebox-p">最新活動 New</p>
             </div>
           </div>
         </section>
@@ -142,10 +146,10 @@ function Homepage() {
                 setOffPostNums(offPostNums + 3)
               }}
             >
-              <div className="y-forum-more-icon">
-                {/* <img src={MoreBtnIcon} alt="load more posts" /> */}
-              </div>
-              <p>更多好文</p>
+              {/* <div className="y-forum-more-icon"> */}
+              {/* <img src={MoreBtnIcon} alt="load more posts" /> */}
+              {/* </div> */}
+              <p className="y-forum-more-btn-pp">更多好文</p>
             </div>
           </div>
         </section>
