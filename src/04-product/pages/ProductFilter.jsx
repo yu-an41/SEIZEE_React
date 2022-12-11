@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../components/style/ProductFilter.scss";
 import NavBar from "../../components/NavBar";
 import YellowWave from "../../00-homepage/components/YellowWave.js";
 import Footer from "../../components/Footer";
-import Theme from "../components/Theme";
+// import Theme from "../components/Theme";
 
 function ProductFilter() {
   //種類data
@@ -16,6 +16,11 @@ function ProductFilter() {
   // const [productFilter, setProductFilter] = useState([""]);
   const navigate = useNavigate();
 
+  const [theme, setTheme] = useState(1);
+  const handleClick = () => {
+    setTheme(theme === 1 ? 1 : 0)
+  }
+  // console.log(theme);
   // const [mode, setMode] = useState([]);
   // const [theme, setTheme] = () => {
   //   setTheme(mode === "aladdin" ? "seizee" : "aladdin");
@@ -98,13 +103,16 @@ function ProductFilter() {
           </button>
         </div> */}
         <div className="a-iconsWrapper">
-          <div className="a-iconAladdinWrapper">
+          <div className={`a-iconAladdinWrapper ${theme === 1 ? "blueTheme" : "" }`}
+          onClick={() => handleClick()}>
             <img src="/04-product/svg/aladdin.png" alt="" />
           </div>
-          <div className="a-iconAvengersWrapper">
+
+          <div className= {`a-iconAvengersWrapper ${theme === 1 ? "yellowTheme" : "" }`}>
             <img src="/04-product/svg/avengers.png" alt="" />
           </div>
         </div>
+
         <div className="a-productFilterWrapper">
           <div className="a-category">
             <div className="a-categoryWrapper">
@@ -112,32 +120,32 @@ function ProductFilter() {
                 return (
                   <div className="a-productFilterContent" key={i}>
                     <label
-                      className="a-categoryContentWapper"
+                      className="a-categoryContentWapper" 
                       htmlFor={`a-categoryCheckBox${filter.sid}`}
                       key={filter.sid}
                     >
-                      <div className="a-iconSpan">
-                        <div className="a-iconWrapper">
-                          <img
-                            className="a-icon"
-                            src={`/04-product/svg/${filter.category_icon}`}
-                            alt=""
-                          />
+                      <div className="a-categoryFIlter">
+                          <div className= {`a-iconWrapper ${theme === 1 ? "blueTheme" : "yellowTheme" }`}>
+                            <img
+                              className="a-icon"
+                              src={`/04-product/svg/${filter.category_icon}`}
+                              alt=""
+                            />
+                          </div>
+                          <div className="a-categoryIconWrapper">
+                            <input
+                              className="a-categoryInput"
+                              type="checkbox"
+                              id={`a-categoryCheckBox${filter.sid}`}
+                              name="cate"
+                              value={filter.sid}
+                              onChange={checkboxClick}
+                            />
+                            <h2 className="a-categoryName">
+                              {filter.category_name}
+                            </h2>
+                          </div>
                         </div>
-                        <div className="a-categoryIconWrapper">
-                          <input
-                            className="a-categoryInput"
-                            type="checkbox"
-                            id={`a-categoryCheckBox${filter.sid}`}
-                            name="cate"
-                            value={filter.sid}
-                            onChange={checkboxClick}
-                          />
-                          <h2 className="a-categoryName">
-                            {filter.category_name}
-                          </h2>
-                        </div>
-                      </div>
                     </label>
                   </div>
                 );

@@ -13,7 +13,7 @@ export const imgReactUrl = 'http://localhost:3000'
 export const imgNodeUrl = 'http://localhost:3004'
 
 // 04-product
-export const PRODUCT = `{MY_HOST}/product`
+export const PRODUCT = `${MY_HOST}/product`
 
 // 05-member
 export const GOOGLE_LINK = `${MY_HOST}/google/`

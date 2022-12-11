@@ -200,6 +200,7 @@ const Products = () => {
                     return (
                       <div className="a-optionWrapper" key={v.i}>
                         <input
+                        className="a-checkboxWrapper"
                           type="checkbox"
                           checked={filterCheck[v.value]}
                           value={v.value}
@@ -275,6 +276,7 @@ const Products = () => {
               {curFilter.map((p, i) => {
                 return (
                   <div className="a-filterProudctWrapper" key={p.name}>
+                 <a href={`/product/${p.sid}`}>
                     <div className="a-filterImgWrapper">
                       <img src={`/04-product/img/${p.picture_url}`} alt="" />
                     </div>
@@ -286,6 +288,7 @@ const Products = () => {
                       <p className="a-filterPrice">原價{p.unit_price}元</p>
                       <p className="a-filterText">惜食價{p.product_price}元</p>
                     </div>
+                    </a>
                   </div>
                 );
               })}

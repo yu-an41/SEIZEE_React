@@ -4,9 +4,14 @@ import './left.scss'
 import jLogo from './../../svg/LOGO.svg'
 import jWorm from './../../svg/worm.svg'
 import YellowWave from './../yellow/YellowWave'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { useTimeTable } from '../../context/useTimeTable'
 
-function Left({ setNowPage }) {
-  const [jlactive, setJlactive] = useState(1)
+function Left() {
+  // const [jlactive, setJlactive] = useState(1)
+  const navigator = useNavigate()
+  const { jlactive, setJlactive } = useTimeTable()
+  const { pathname } = useLocation()
 
   return (
     <>
@@ -20,13 +25,17 @@ function Left({ setNowPage }) {
               <img src={jWorm} alt="" />
             </li>
             <li
+              // style={{cursor:"url(./../../svg/silly-pointer-cursor.svg),auto"}}
               onClick={(e) => {
                 e.preventDefault()
-                setNowPage(2)
+                // setNowPage(2)
+                navigator('/event')
                 setJlactive(1)
               }}
             >
-              <div className={jlactive === 1 ? 'jactive' : ''}>所有活動</div>
+              <div className={pathname === '/event' ? 'jactive' : ''}>
+                所有活動
+              </div>
             </li>
             <li>
               <img src={jWorm} alt="" />
@@ -34,11 +43,14 @@ function Left({ setNowPage }) {
             <li
               onClick={(e) => {
                 e.preventDefault()
-                setNowPage(3)
+                // setNowPage(3)
+                navigator('/event/schedule')
                 setJlactive(2)
               }}
             >
-              <div className={jlactive === 2 ? 'jactive' : ''}>時間表</div>
+              <div className={pathname === '/event/schedule' ? 'jactive' : ''}>
+                時間表
+              </div>
             </li>
             <li>
               <img src={jWorm} alt="" />
@@ -46,11 +58,14 @@ function Left({ setNowPage }) {
             <li
               onClick={(e) => {
                 e.preventDefault()
-                setNowPage(4)
+                // setNowPage(4)
+                navigator('/event/map')
                 setJlactive(3)
               }}
             >
-              <div className={jlactive === 3 ? 'jactive' : ''}>場域地圖</div>
+              <div className={pathname === '/event/map' ? 'jactive' : ''}>
+                場域地圖
+              </div>
             </li>
             <li>
               <img src={jWorm} alt="" />
@@ -58,11 +73,14 @@ function Left({ setNowPage }) {
             <li
               onClick={(e) => {
                 e.preventDefault()
-                setNowPage(5)
+                // setNowPage(5)
+                navigator('/event/ticket')
                 setJlactive(4)
               }}
             >
-              <div className={jlactive === 4 ? 'jactive' : ''}>我的票卷</div>
+              <div className={pathname === '/event/ticket' ? 'jactive' : ''}>
+                我的票卷
+              </div>
             </li>
             <li>
               <img src={jWorm} alt="" />

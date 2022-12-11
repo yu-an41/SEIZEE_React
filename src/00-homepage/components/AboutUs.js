@@ -18,14 +18,14 @@ export default function AboutUs() {
 
   return (
     <div className="a-video">
+    <p className="a-aboutUs">關於我們</p>
       <div className="a-videoWrapper">
-        <h3 className="a-aboutUs">關於我們</h3>
         <video
           playsInline
           loop
           muted
           alt="All the devices"
-          src="/04-product/video/test.mp4"
+          src="/04-product/video/AboutUs.mp4"
           type="video/mp4"
           ref={videoEl}
         />
