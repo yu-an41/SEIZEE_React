@@ -1,20 +1,21 @@
 import '../styles/06-event-05-ticket.scss'
 import { useState, useEffect } from 'react'
+import { useTimeTable } from '../context/useTimeTable'
 
-import ReactDOM from 'react-dom'
 import { useSpring, animated } from 'react-spring'
 import jBang from '../img/bang.png'
-import jTicket from '../img/ticket.png'
 
 const calc = (x, y) => [
-  -(y - window.innerHeight / 2) / 20,
-  (x - window.innerWidth / 2) / 20,
+  -(y - window.innerHeight / 2) / 15,
+  (x - window.innerWidth / 2) / 15,
   1.1,
 ]
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
 function Ticket() {
+  const { getEventData, getEventLikes } = useTimeTable()
+
   const [props, set] = useSpring({
     xys: [0, 0, 1],
     config: { mass: 5, tension: 350, friction: 40 },
@@ -25,6 +26,11 @@ function Ticket() {
     setTimeout(function () {
       setShowElement(false)
     }, 4500)
+  }, [])
+
+  useEffect(() => {
+    getEventData()
+    getEventLikes()
   }, [])
 
   return (

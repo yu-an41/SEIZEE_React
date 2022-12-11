@@ -10,6 +10,8 @@ import jEmptyHeart from '../svg/heart-none.svg'
 import jHeart from '../svg/full-heart.svg'
 import { useTimeTable } from './../context/useTimeTable'
 import axios from 'axios'
+import Left from '../components/left/left'
+import Timetable from '../components/right/Timetable'
 
 function CategoryTab(props) {
   const { text, activeCat, catIndex, handleSwitchCat, setEpage, setJmactive } =
@@ -31,7 +33,7 @@ function CategoryTab(props) {
   )
 }
 
-function Events({ origins, likes, setLikes }) {
+function Events() {
   const [cate, setCate] = useState(1)
   const [epage, setEpage] = useState(1)
   const [cateRow, setCateRow] = useState([])
@@ -39,7 +41,8 @@ function Events({ origins, likes, setLikes }) {
   const [jmactive, setJmactive] = useState(1)
 
   const [registeredNum, setRegisteredNum] = useState(0)
-  const { timeTable, removeTimeTable, setWhichHover } = useTimeTable()
+  const { timeTable, origins, likes, setLikes } =
+    useTimeTable()
   const [likeImg, setLikeImg] = useState(jEmptyHeart)
   const [eventSid, setEventSid] = useState(0)
 
@@ -116,6 +119,7 @@ function Events({ origins, likes, setLikes }) {
 
   return (
     <>
+      {/* <Left /> */}
       <div className="j-event-middle-events">
         <div className="j-cate-banner">
           <div className="j-cate-banner-deco">
@@ -259,6 +263,7 @@ function Events({ origins, likes, setLikes }) {
           </div>
         )}
       </div>
+      {/* <Timetable /> */}
     </>
   )
 }

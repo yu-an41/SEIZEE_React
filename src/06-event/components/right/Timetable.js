@@ -1,5 +1,5 @@
 import './Timetable.scss'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import carrot from './../../svg/carrot.svg'
 import dialogue from './../../svg/dialogue-box.svg'
 import menu from './../../svg/menu.svg'
@@ -9,14 +9,24 @@ import jDelete from './../../svg/delete.svg'
 import axios from 'axios'
 import ModalNotification from '../../../components/ModalNotification'
 import { useNavigate } from 'react-router-dom'
+import AuthContext from '../../../contexts/AuthContext'
 
 function Timetable() {
-  const { timeTable, removeTimeTable, setWhichHover, setTimeTable } =
-    useTimeTable()
+  const { timeTable, removeTimeTable, setWhichHover } = useTimeTable()
+  const {myAuth} = useContext(AuthContext)
+  let mid
+  if(myAuth.authorised) {
+    mid = myAuth.mb_sid
+    console.log(mid);
+  }
+  else{
+    mid = 1
+    console.log('未登入');
+  }
   const navigator = useNavigate()
   const getTicketData = async () => {
     const postData = {
-      memberSid: 2,
+      memberSid: mid,
       timeTable,
     }
 
@@ -42,8 +52,9 @@ function Timetable() {
   const [jBody, setJBody] = useState('')
   const closeModal = () => {
     setIsOpen(false)
-    //  navigator('/event')
+    navigator('/event/ticket')
   }
+  
   return (
     <>
       <div className="j-right-wrap">

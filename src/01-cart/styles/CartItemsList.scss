@@ -56,7 +56,7 @@ $border-radius-button: 8px;
                     position: absolute;
                     width: 52px;
                     padding: 4px 0;
-                    letter-spacing: 2px;
+                    letter-spacing: 1px;
                     top: 8px;
                     left: 48px;
                     font-size: 12px;
@@ -96,7 +96,7 @@ $border-radius-button: 8px;
                 text-align: center;
                 font-size: 18px;
                 font-weight: bold;
-                color: $main-blue;
+                // color: $main-blue;
             }
         }
     
@@ -109,6 +109,7 @@ $border-radius-button: 8px;
             select {
                 background-color: $main-yellow;
                 color: $main-blue;
+                font-weight: bold;
                 width: 60px;
                 padding: 6px 8px;
                 padding-right: 30px;
@@ -149,17 +150,18 @@ $border-radius-button: 8px;
         .y-Cart-items-actions {
             width: 21%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: space-between;
+            // align-items: center;
             
             .y-Cart-WishListBtn-wrap {
-    
+                height: 50%;
             }
     
             .y-Cart-RemoveItemBtn-wrap {
-    
+                height: 50%;
+
             }
         }
     
@@ -191,10 +193,23 @@ $border-radius-button: 8px;
                 .y-Cart-items-info-left {
     
                     .y-Cart-items-sale {
-                        padding: 8px 12px;
+                        // width: 150px;
+                        // padding: 8px 12px;
+                        // letter-spacing: 2px;
+                        // top: 12px;
+                        // left: 48px;
+                        // font-size: 14px;
+                        // 壓不過去QQ 加綁inline-style
+                        
+                    }
+                    .y-Cart-items-sale.active {
+                        width: 80px;
+                        padding: 8px 10px;
                         letter-spacing: 2px;
-    
-                    
+                        top: 12px;
+                        left: -10px;
+                        font-size: 14px;
+                        
                     }
         
                     .y-Cart-items-info-pic {
@@ -221,28 +236,21 @@ $border-radius-button: 8px;
                 width: 13%;
     
                 p {
-                    font-size: 16px;
+                    font-size: 24px;
+
                 }
             }
         
             .y-Cart-items-quantity {
                 width: 13%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
     
                 select {
+                    font-weight: bold;
                     margin: 0 auto;
                     width: 80px;
                     padding: 8px 16px;
                     padding-right: 36px;
-                    position: relative;
                     border: $border-white-lg;
-                    // box-shadow: $btn-shadow-lg;
-                    border-radius: $border-radius-button;
-                    appearance:none;
-                    -moz-appearance:none;
-                    -webkit-appearance:none;
                     background: {
                         image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient($main-yellow, $main-yellow);
                         image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E"), -webkit-linear-gradient($main-yellow, $main-yellow);
@@ -254,9 +262,10 @@ $border-radius-button: 8px;
                     }
                     
                     option {
-                        appearance: none;
-                        // font-weight: bold;
                     }
+                }
+                select:hover {
+                    cursor: pointer;
                 }
             }
         
@@ -264,21 +273,21 @@ $border-radius-button: 8px;
                     width: 13%;
     
                 p {
-                    text-align: center;
-                    font-weight: bold;
+                    
                 }
             }
         
             .y-Cart-items-actions {
                 width: 21%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
+                height: 160px;
+                // height: 100%;
+                // display: flex;
+                // flex-direction: column;
                 // justify-content: space-between;
-                align-items: center;
+                // align-items: center;
                 
                 .y-Cart-WishListBtn-wrap {
-
+                    // margin-bottom: auto;
                 }
         
                 .y-Cart-RemoveItemBtn-wrap {

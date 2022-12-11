@@ -23,19 +23,19 @@ $main-border-radius: 8px;
 }
 %a-text {
   font-size: 22px;
-  font-weight: 600;
+  // font-weight: 600;
   color: #5e5e5e;
   letter-spacing: 1.5px;
 }
 %a-title {
   font-size: 22px;
-  font-weight: 600;
+  // font-weight: 600;
   color: #2b325c;
   letter-spacing: 1.5px;
 }
 %a-secondary-color-text {
   font-size: 22px;
-  font-weight: 600;
+  // font-weight: 600;
   color: #113f75;
 }
 %a-flex {
@@ -65,248 +65,302 @@ input[type="number"] {
 
 //productDatils
 .a-productDatilsBigWrapper {
-display: flex;
-flex-direction: column;
-.a-userCommentWrapper {
-  padding-left: 13%;
-  margin-top: 20px;
-}
-.a-productDetailWrapper {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  background-color: #fff;
-  margin: 0;
-  .a-detailWrapper {
+  outline: black solid 1px;
+  width: 80%;
+  height: 100px;
+  margin: auto;
+position: relative;
+  // display: flex;
+  // flex-direction: column;
+  .a-userCommentWrapper {
+    padding-left: 13%;
+    margin-top: 20px;
+  }
+  .a-productDetailWrapper {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    // margin-bottom: 10px;
-    .a-shopNameWrapper {
-      @extend %a-flex;
-      .a-detailsTitle {
-        @extend %a-text;
+    justify-content: space-evenly;
+    flex-direction: row;
+    background-color: #fff;
+    margin: 0;
+    .a-detailWrapper {
+      position: absolute;
+      top:0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      // margin-bottom: 10px;
+      .a-shopNameWrapper {
+        @extend %a-flex;
+        .a-detailsTitle {
+          @extend %a-text;
+        }
       }
-    }
-    .a-shopNameWrapper img {
-      width: 50px;
-    }
-    .a-detailsTitle {
-    @extend %a-secondary-color-text;
-    } 
-    .a-productName {
-      @extend %a-flex;
+      .a-shopNameWrapper img {
+        width: 50px;
+      }
+      .a-detailsTitle {
+        @extend %a-secondary-color-text;
+      }
+      .a-productName {
+        @extend %a-flex;
         .a-detailsTitle {
           @extend %a-title;
         }
-    }
-    .a-productName img {
-      width: 50px;
-    }
-    .a-informationWrapper {
-      display: flex;
-      align-items: center;
-      margin: 15px 0;
-    }
-    .a-productCategory {
-      @extend %a-flex;
-      background-color: $secondary-yellow;
-      width: 115px;
-      border-radius: $main-border-radius;
-      width: 120px;
-      height: 50px;
-      .a-detailsText {
-        @extend %a-title;
       }
-    }
-    .a-productCategory img {
-      width: 30px;
-      padding-right: 3px;
-    }
-    .a-shopDeadline {
-      @extend %a-flex;
-      background-color: $secondary-yellow;
-      width: 280px;
-      height: 50px;
-      margin: 0 15px ;
-      border-radius: $main-border-radius;
-      img {
+      .a-productName img {
+        width: 50px;
+      }
+      .a-informationWrapper {
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+      }
+      .a-productCategory {
+        @extend %a-flex;
+        background-color: $secondary-yellow;
+        width: 115px;
+        border-radius: $main-border-radius;
+        width: 120px;
+        height: 50px;
+        .a-detailsText {
+          @extend %a-title;
+        }
+      }
+      .a-productCategory img {
         width: 30px;
         padding-right: 3px;
-    }
-    }
-    .a-productCollection {
-      @extend %a-flex;
-      color: $main-blue;
-      background-color: $secondary-yellow;
-      width: 200px;
-      height: 50px;
-      border-radius: $main-border-radius;
-    }
-    .a-detailText {
-      @extend %a-title;
-    }
-    .a-productCollection img {
-      width: 30px;
-      padding-right: 5px;
-    }
-    .a-productDescription {
-      width: 600px;
-      .a-detailsText {
-        @extend %a-text;
       }
-    }
-    .a-productRating {
-      font-size: 30px;
-      font-weight: 600;
-    }
-  }
-  .a-priceContent {
-    @extend %a-flex;
-    flex-direction: column;
-    background-color: $secondary-yellow;
-    width: 390px;
-    border-radius: $main-border-radius;
-    padding: 30px 0 10px 0;
-    position: relative;
-    .a-detailsText {
-     color: $main-text;
-     font-size: 20px;
-     font-weight: 600;
-    }
-    .a-discountIconBigWrapper {
-      position: absolute;
-      top: 52%;
-      right: -10%;
-    }
-    .a-saleWrapper {
-      width: 100px;
-      .a-detailsDiscount {
-        @extend %a-text;
+      .a-shopDeadline {
+        @extend %a-flex;
+        background-color: $secondary-yellow;
+        width: 280px;
+        height: 50px;
+        margin: 0 15px;
+        border-radius: $main-border-radius;
+        img {
+          width: 30px;
+          padding-right: 3px;
+        }
       }
-    }
-    .a-discountIconWrapper img {
-      width: 100%;
-      object-fit: cover;
-    }
-    .a-discountIconWrapper p {
-      font-size: 23px;
-      color: #fff;
-      position: absolute;
-      top: 35%;
-      left: 30%;
-      z-index: 1;
-    }
-    .a-priceWrapper {
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-      padding: 0 0 8px 0;
-    }
-    .a-productPrice {
-      @extend %a-flex;
-      color: #5e5e5e;
-      line-height: line(2);
-      padding-right: 12px;
-      text-decoration: line-through;
-    }
-    .a-productDiscount {
-      @extend %a-flex;
-      line-height: line(2);
-      font-weight: 500;
-      .a-detailsDiscount {
-        @extend %a-secondary-color-text;
+      .a-productCollection {
+        @extend %a-flex;
+        color: $main-blue;
+        background-color: $secondary-yellow;
+        width: 200px;
+        height: 50px;
+        border-radius: $main-border-radius;
       }
-    }
-    .a-productDiscount img {
-      width: 35px;
-    }
-    .a-productQty {
-      @extend %a-flex;
-      margin: 5px; 
-      .a-qtyTex {
-        @extend %a-secondary-color-text
-      }
-    }
-    .a-productQuantity {
-      @extend %a-flex;
-      margin: 5px; 
-    }
-    .a-minusButton {
-      border: none;
-      background: transparent;
-      margin-right: 6px;
-    }
-    .a-minus {
-      border: none;
-      background: #fff;
-      color: $main-text;
-      height: 35px;
-      border-radius: 8px 0 0 8px;
-      font-size: 25px;
-    }
-    .a-minusButton {
-      border: none;
-      background: transparent;
-      margin-left: 6px;
-    }
-    .a-plus {
-      border: none;
-      background: #fff;
-      color: $main-text;
-      height: 35px;
-      border-radius: 0 8px 8px 0;
-      font-size: 25px;
-    }
-    .a-qtyInput {
-      border-radius: 0%;
-      border: none;
-      outline: none;
-      height: 35px;
-      text-align: center;
-    }
-    .a-qty {
-      border: $main-border;
-      color: $secondary-blue;
-      border-radius: $main-border-radius;
-      padding: 3px 10px;
-      margin: 0 10px;
-      background-color: #fff;
-    }
-    .a-quantity {
-      @extend %a-flex;
-    }
-    .a-quantity p {
-      padding-right: 10px;
-      margin-top: 10px;
-    }
-    .a-quantityButton {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 180px;
-      height: 30px;
-      margin-top: 10px;
-      border-radius: 8px;
-      background-color: #fff;
-    }
-    .a-addButton {
-      width: 220px;
-      text-align: center;
-      @extend %a-flex;
-      background-color: $main-yellow;
-      border: $main-border;
-      border-radius: $main-border-radius;
-      padding: 5px 20px;
-      margin: 25px 0 40px 0;
-      font-weight: 500;
-      .a-detailsText {
+      .a-detailText {
         @extend %a-title;
       }
+      .a-productCollection img {
+        width: 30px;
+        padding-right: 5px;
+      }
+      .a-productDescription {
+        width: 600px;
+        .a-detailsText {
+          @extend %a-text;
+        }
+      }
+      .a-productRating {
+        font-size: 30px;
+        font-weight: 600;
+      }
     }
-    .a-addButton img {
-      width: 35px;
+    .a-priceContent {
+      position: absolute;
+      top:0;
+      right:0;
+      @extend %a-flex;
+      display:flex;
+      flex-direction: column;
+      background-color: $secondary-yellow;
+      width: 390px;
+      border-radius: $main-border-radius;
+      padding: 30px 0 10px 0;
+      // position: relative;
+      .a-discountIconWrapper {
+        position: absolute;
+        top: 10%;
+        right: -12%;
+        rotate: 20deg;
+        .a-dicountWrapper {
+          width: 100px;
+        }
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+        p {
+          font-size: 23px;
+          color: #fff;
+          position: absolute;
+          top: 35%;
+          left: 30%;
+          z-index: 1;
+        }
+      }
+      .a-detailsText {
+        @extend %a-text;
+        padding: 2px;
+      }
+      .a-priceWrapper {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        padding: 0 0 8px 0;
+      }
+      .a-productPrice {
+        @extend %a-flex;
+        color: #5e5e5e;
+        line-height: line(2);
+        padding-right: 12px;
+        text-decoration: line-through;
+      }
+      .a-productDiscount {
+        @extend %a-flex;
+        line-height: line(2);
+        font-weight: 500;
+        .a-detailsDiscount {
+          @extend %a-secondary-color-text;
+        }
+      }
+      .a-productDiscount img {
+        width: 35px;
+      }
+      .a-productQty {
+        @extend %a-flex;
+        margin: 5px;
+        .a-qtyTex {
+          @extend %a-secondary-color-text;
+        }
+      }
+      .a-productQuantity {
+        @extend %a-flex;
+        margin: 5px;
+      }
+      .a-minusButton {
+        border: none;
+        background: transparent;
+        margin-right: 6px;
+      }
+      .a-minus {
+        border: none;
+        background: #fff;
+        color: $main-text;
+        height: 35px;
+        border-radius: 8px 0 0 8px;
+        font-size: 25px;
+      }
+      .a-minusButton {
+        border: none;
+        background: transparent;
+        margin-left: 6px;
+      }
+      .a-plus {
+        border: none;
+        background: #fff;
+        color: $main-text;
+        height: 35px;
+        border-radius: 0 8px 8px 0;
+        font-size: 25px;
+      }
+      .a-qtyInput {
+        border-radius: 0%;
+        border: none;
+        outline: none;
+        height: 35px;
+        text-align: center;
+      }
+      .a-qty {
+        border: $main-border;
+        color: $secondary-blue;
+        border-radius: $main-border-radius;
+        padding: 3px 10px;
+        margin: 0 10px;
+        background-color: #fff;
+      }
+      .a-quantity {
+        @extend %a-flex;
+      }
+      .a-quantity p {
+        padding-right: 10px;
+        margin-top: 10px;
+      }
+      .a-quantityButton {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 180px;
+        height: 30px;
+        margin-top: 10px;
+        border-radius: 8px;
+        background-color: #fff;
+      }
+      .a-addButton {
+        width: 220px;
+        text-align: center;
+        @extend %a-flex;
+        background-color: $main-yellow;
+        border: $main-border;
+        border-radius: $main-border-radius;
+        padding: 5px 20px;
+        margin: 25px 0 40px 0;
+        font-weight: 500;
+        .a-detailsText {
+          @extend %a-title;
+        }
+      }
+      .a-addButton:hover {
+        background-color: #66cfc5;
+        border: $main-border;
+        cursor: pointer;
+      }
+      .a-addButton:hover .a-detailsText {
+        color: #fff;
+      }
+      .a-addButton img {
+        width: 35px;
+      }
+    }
+    .a-goBackButton {
+      width: 300px;
+      text-align: center;
+      @extend %a-flex;
+      background-color: #66cfc5;
+      color: #fff;
+      border: $main-border;
+      border-radius: $main-border-radius;
+      position: absolute;
+      top: 1000px;
+      right: 100px;
+      padding: 15px 50px;
+      margin: 25px 0 40px 0;
+      font-weight: 500;
+      @extend %a-title;
+    }
+    .a-goBackButton:hover {
+      background-color: $main-yellow;
+      color: $secondary-blue;
+      cursor: pointer;
     }
   }
-}
+  .a-userCommentWrapper {
+    width: 300px;
+    text-align: center;
+    @extend %a-flex;
+    background-color: #66cfc5;
+    color: #fff;
+    border: $main-border;
+    border-radius: $main-border-radius;
+    // position: absolute;
+    // top: 1000px;
+    // right: 100px;
+    padding: 15px 50px;
+    margin: 25px 0 40px 0;
+    font-weight: 500;
+    @extend %a-title;
+  }
 }

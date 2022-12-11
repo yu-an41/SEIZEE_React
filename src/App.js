@@ -66,6 +66,11 @@ import Orders from './05-member/profile-pages/Orders'
 import { TimeTableProvider } from './06-event/context/useTimeTable'
 // import Top from './06-event/pages/06-event-01-top'
 import Eventrender from './06-event/pages/06-event-00-Render'
+import Schedule from './06-event/pages/06-event-03-schedule'
+import Maps from './06-event/pages/06-event-04-map'
+import Ticket from './06-event/pages/06-event-05-ticket'
+import Left from './06-event/components/left/left'
+import Layout from './06-event/components/Layout/Layout'
 
 function App() {
   return (
@@ -106,8 +111,8 @@ function App() {
                   <Route path="myPost" element={<MyPost />} />
                 </Route>
 
-                {/* 03-shop */}
-                <Route path="/shop" element={<ShopList />} />
+              {/* 03-shop */}
+              <Route path="/shop" element={<ShopList />} />
 
                 {/* 04-product  */}
                 <Route
@@ -137,13 +142,23 @@ function App() {
                 </Route>
 
                 {/* 06-event */}
-                {/* <Route path="/top" element={<Top />} />
-                <Route path="/events" element={<Events />} />
-                <Route path="/schedule" element={<Schedule />} />
-                <Route path="/map" element={<Map />} />
-                <Route path="/ticket" element={<Ticket />} /> */}
-                <Route path="/event" element={<Eventrender />} />
+                {/* <Route path="/event/">
+                  <Route index path="" element={<Eventrender />} />
+                  <Route path="schedule" element={<Schedule />} />
+                  <Route path="map" element={<Maps />} />
+                  <Route path="ticket" element={<Ticket />} />
+                </Route> */}
               </Routes>
+              <Layout>
+                <Routes>
+                  <Route path="/event/">
+                    <Route index path="" element={<Eventrender />} />
+                    <Route path="schedule" element={<Schedule />} />
+                    <Route path="map" element={<Maps />} />
+                    <Route path="ticket" element={<Ticket />} />
+                  </Route>
+                </Routes>
+              </Layout>
             </TimeTableProvider>
           </CollectContextProvider>
         </MyContextProviders>

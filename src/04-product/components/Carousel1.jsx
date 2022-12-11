@@ -69,7 +69,7 @@ export default function Carousel({sid=1}) {
                     handleClick(0, imgArray[0])
                 }}
             >
-                <img src={`/04-product/img/${imgArray[0]}`} width={400} height={400}/>
+                <img src={`/04-product/img/${imgArray[0]}`} />
             </div>
             <div
                 className="bg-2"
@@ -77,14 +77,14 @@ export default function Carousel({sid=1}) {
                     width: '400px',
                     height: '400px',
                     fontSize: '1.5rem',
-                    background: 'blue',
+                    // background: 'blue',
                     transform: `translateX(${myArray[1] * 400}px)`,
                     transition: 'transform 1s .1s',
                     zIndex: `${myZindexArr[1]}`,
                 }}
                 onClick={() => handleClick(1, imgArray[1])}
             >
-                {/* <img src={`/04-product/img/${imgArray[1]}`} width={400} height={400}/> */}
+                <img src={`/04-product/img/${imgArray[1]}`}/>
             </div>
             <div
                 className="bg-3"
@@ -92,14 +92,14 @@ export default function Carousel({sid=1}) {
                     width: '400px',
                     height: '400px',
                     fontSize: '1.5rem',
-                    background: 'green',
+                    // background: 'green',
                     transform: `translateX(${myArray[2] * 400}px)`,
                     transition: 'transform 1s .2s',
                     zIndex: `${myZindexArr[2]}`,
                 }}
                 onClick={() => handleClick(2, imgArray[2])}
             >
-                {/* <img src={`/04-product/img/${imgArray[2]}`} width={400} height={400}/> */}
+                <img src={`/04-product/img/${imgArray[2]}`} />
             </div>
         </div>
     );

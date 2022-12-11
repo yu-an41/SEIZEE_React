@@ -42,6 +42,7 @@ html {
 
 body {
   background-color: $colorWhite;
+
 }
 .j-left-wrap {
   position: fixed;
@@ -82,12 +83,12 @@ body {
           opacity: 0;
         }
         img {
-         
           @media (max-width: 390px) {
             display: none;
           }
         }
         div {
+          cursor: pointer;
           width: 240px;
           font-size: 2.3rem;
           color: $colorWhite;

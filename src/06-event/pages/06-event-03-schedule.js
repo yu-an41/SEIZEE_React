@@ -1,14 +1,19 @@
 import '../styles/06-event-03-schedule.scss'
-import React, { Fragment, useEffect, useState } from 'react'
+import { React, Fragment, useEffect } from 'react'
 
 import jStar from '../svg/star.svg'
-import jHeart from '../svg/heart-none.svg'
-import jEmptyHeart from '../svg/heart-none.svg'
 import Eventcard from '../components/Eventcard/Eventcard'
 import Emptycard from '../components/Emptycard/Emptycard'
+import { useTimeTable } from './../context/useTimeTable'
 
-function Schedule({ origins, likes, setLikes }) {
-  console.log({ likes })
+function Schedule() {
+  const { origins, likes, getEventData, getEventLikes } = useTimeTable()
+
+  useEffect(() => {
+    getEventData()
+    getEventLikes()
+  }, [])
+
   return (
     <>
       <div className="j-event-middle-schedule">

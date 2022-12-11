@@ -33,15 +33,9 @@ import img from '../images/01cover.jpg'
 // import calendar from '../../../public/04-product/svg/calendar.svg'
 
 function Homepage() {
-  // miee's search and shop ------------------------------------
-
-  // ariel's about and events ---------------------------------
-
-  // forum post's -----------------------------
+  // forum post
   const [postNums, setPostNums] = useState(3)
   const [offPostNums, setOffPostNums] = useState(3)
-
-  // NavBar cart's ----------------------------
 
   return (
     <>
@@ -59,9 +53,6 @@ function Homepage() {
             <div className="y-carousel-wrap">
               <TopCarousel />
             </div>
-            {/* <div className="y-carousel-block-yellow">
-              <p>成為戰士吧</p>
-            </div> */}
             <div className="y-carousel-block-blue">
               <div className="y-block-bg">
                 <p>改變剩食，</p>
