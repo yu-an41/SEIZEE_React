@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
-
+import axios from 'axios'
 import CartInfoContext from '../contexts/CartInfoContext'
 import AuthContext from '../../contexts/AuthContext'
 
@@ -132,27 +132,27 @@ function TapPay() {
         order: {
           shipping: 'delivery',
           payment: 'credit_card',
-          subtotal: product.price * counter,
+          // subtotal: product.price * counter,
           freight: 20,
-          total: product.price * counter + 20,
+          // total: product.price * counter + 20,
           recipient: {
-            name: name,
-            phone: phone,
-            email: email,
-            address: address,
-            time: time,
+            // name: name,
+            // phone: phone,
+            // email: email,
+            // address: address,
+            // time: time,
           },
           list: [
             {
-              id: product.id,
-              name: product.title,
-              price: product.price,
-              color: {
-                code: selectedColor.code,
-                name: selectedColor.name,
-              },
-              size: selectedSize,
-              qty: counter,
+              // id: product.id,
+              // name: product.title,
+              // price: product.price,
+              // color: {
+              //   code: selectedColor.code,
+              //   name: selectedColor.name,
+              // },
+              // size: selectedSize,
+              // qty: counter,
             },
           ],
         },
@@ -178,10 +178,9 @@ function TapPay() {
     })
   }
 
-  useEffect(() => {})
-  const getCardView = () => {
-    console.log('get card info')
-  }
+  useEffect(() => {
+    paymentSetUp()
+  }, [])
 
   return (
     <>
