@@ -29,6 +29,7 @@ function TapPay() {
 
   const paymentSetUp = () => {
     getTPDirect().then((TPDirect) => {
+      console.log(TPDirect)
       TPDirect.setupSDK(
         126731,
         'app_hAm9bvjoYZIeXqoD930BQ9pZ2MNdHeDG5TCJvoVG74yHfDvzulVX1TGae3Qj',
@@ -100,148 +101,149 @@ function TapPay() {
   }
 
   const onSubmit = () => {
-    console.log('onSubmit')
-    setError('')
+    getTPDirect().then((TPDirect) => {
+      console.log('onSubmit')
+      setError('')
 
-    if (!myAuth.mb_sid) {
-      return setError('請登入')
-    }
-
-    const tappayStatus = TPDirect.card.getTappayFieldsStatus()
-
-    if (tappayStatus.canGetPrime === false) {
-      return setError('信用卡資料有誤')
-    }
-
-    if (myAuth.authorise) {
-      setError('請先登入，畫面即將跳轉至登入頁')
-      setTimeout(() => {
-        navigate('/login')
-      }, 3000)
-      return
-    }
-
-    TPDirect.card.getPrime(async (result) => {
-      if (result?.status !== 0) {
-        return setError('交易失敗')
+      if (!myAuth.mb_sid) {
+        return setError('請登入')
       }
-      // console.log(result.card.prime);
 
-      const data = {
-        prime: result.card.prime,
-        order: {
-          shipping: 'delivery',
-          payment: 'credit_card',
-          // subtotal: product.price * counter,
-          freight: 20,
-          // total: product.price * counter + 20,
-          recipient: {
-            // name: name,
-            // phone: phone,
-            // email: email,
-            // address: address,
-            // time: time,
-          },
-          list: [
-            {
-              // id: product.id,
-              // name: product.title,
-              // price: product.price,
-              // color: {
-              //   code: selectedColor.code,
-              //   name: selectedColor.name,
-              // },
-              // size: selectedSize,
-              // qty: counter,
+      const tappayStatus = TPDirect.card.getTappayFieldsStatus()
+
+      if (tappayStatus.canGetPrime === false) {
+        return setError('信用卡資料有誤')
+      }
+
+      if (myAuth.authorise) {
+        setError('請先登入，畫面即將跳轉至登入頁')
+        setTimeout(() => {
+          navigate('/login')
+        }, 3000)
+        return
+      }
+
+      TPDirect.card.getPrime(async (result) => {
+        if (result?.status !== 0) {
+          return setError('交易失敗')
+        }
+        // console.log(result.card.prime);
+
+        const data = {
+          prime: result.card.prime,
+          order: {
+            shipping: 'delivery',
+            payment: 'credit_card',
+            // subtotal: product.price * counter,
+            freight: 20,
+            // total: product.price * counter + 20,
+            recipient: {
+              // name: name,
+              // phone: phone,
+              // email: email,
+              // address: address,
+              // time: time,
             },
-          ],
-        },
-      }
-      // console.log("data", data);
+            list: [
+              {
+                // id: product.id,
+                // name: product.title,
+                // price: product.price,
+                // color: {
+                //   code: selectedColor.code,
+                //   name: selectedColor.name,
+                // },
+                // size: selectedSize,
+                // qty: counter,
+              },
+            ],
+          },
+        }
+        // console.log("data", data);
 
-      const headers = {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-      }
+        const headers = {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        }
 
-      axios
-        .post('https://claudia-teng.com/api/1.0/order/checkout', data, {
-          headers: headers,
-        })
-        .then((response) => {
-          setSuccess('購買成功！')
-          navigate('/thankyou', { replace: true })
-        })
-        .catch((error) => {
-          setError('購買失敗！')
-        })
+        axios
+          .post('https://claudia-teng.com/api/1.0/order/checkout', data, {
+            headers: headers,
+          })
+          .then((response) => {
+            setSuccess('購買成功！')
+            navigate('/thankyou', { replace: true })
+          })
+          .catch((error) => {
+            setError('購買失敗！')
+          })
+      })
     })
+
+    return (
+      <>
+        <div className="y-tappay-container">
+          <div className="y-tappay-nav-bg">
+            <CartNavBar />
+            <div className="y-Cart-wave-base"></div>
+            <YellowWave />
+          </div>
+          <div className="y-tappay-form-wrap">
+            <form className="y-tappay-form">
+              <div id="cardview-container"></div>
+              <label
+                htmlFor="cardNumber"
+                onClick={() => {
+                  document.querySelector('#cardNumber').innerText =
+                    '4242 4242 4242 4242'
+                }}
+              >
+                卡號
+              </label>
+              <div id="cardNumber" className="tpfield" ref={cardNumber}></div>
+              {/* <small>(可填入： 4242 4242 4242 4242)</small> */}
+
+              <label htmlFor="cardExpirationDate">卡片到期日</label>
+              <div
+                id="cardExpirationDate"
+                className="tpfield"
+                ref={cardExpirationDate}
+              ></div>
+              {/* <small>(可填入： 01/23)</small> */}
+
+              <label htmlFor="cardCcv">後三碼</label>
+              <div id="cardCcv" className="tpfield" ref={ccv}></div>
+              {/* <small>(可填入： 123)</small> */}
+
+              <button type="button" id="submit" onClick={onSubmit}>
+                送出
+              </button>
+            </form>
+          </div>
+          <div className="y-tappay-bottom">
+            <div className="y-tappay-bottom-wave">
+              {/* <YellowWaveLight /> */}
+              {/* <NewsCrawl /> */}
+            </div>
+            <div className="y-tappay-footer">
+              <Footer />
+            </div>
+          </div>
+        </div>
+      </>
+    )
   }
 
   useEffect(() => {
     paymentSetUp()
   }, [])
-
-  return (
-    <>
-      <div className="y-tappay-container">
-        <div className="y-tappay-nav-bg">
-          <CartNavBar />
-          <div className="y-Cart-wave-base"></div>
-          <YellowWave />
-        </div>
-        <div className="y-tappay-form-wrap">
-          <form className="y-tappay-form">
-            <div id="cardview-container"></div>
-            <label
-              htmlFor="cardNumber"
-              onClick={() => {
-                document.querySelector('#cardNumber').innerText =
-                  '4242 4242 4242 4242'
-              }}
-            >
-              卡號
-            </label>
-            <input id="cardNumber" className="tpfield" ref={cardNumber}></input>
-            {/* <small>(可填入： 4242 4242 4242 4242)</small> */}
-
-            <label htmlFor="cardExpirationDate">卡片到期日</label>
-            <input
-              id="cardExpirationDate"
-              className="tpfield"
-              ref={cardExpirationDate}
-            ></input>
-            {/* <small>(可填入： 01/23)</small> */}
-
-            <label htmlFor="cardCcv">後三碼</label>
-            <input id="cardCcv" className="tpfield" ref={ccv}></input>
-            {/* <small>(可填入： 123)</small> */}
-
-            <button type="button" id="submit" onClick={onSubmit}>
-              送出
-            </button>
-          </form>
-        </div>
-        <div className="y-tappay-bottom">
-          <div className="y-tappay-bottom-wave">
-            {/* <YellowWaveLight /> */}
-            {/* <NewsCrawl /> */}
-          </div>
-          <div className="y-tappay-footer">
-            <Footer />
-          </div>
-        </div>
-      </div>
-    </>
-  )
 }
 
 export default TapPay
 
-export const getTPDirect = () => {
+export function getTPDirect() {
   return new Promise((resolve, reject) => {
     if (typeof window.TPDirect !== 'undefined') {
-      console.log('TPDirect is undefined')
       return resolve(window.TPDirect)
     } else {
       const script = window.document.createElement('script')
@@ -249,7 +251,7 @@ export const getTPDirect = () => {
       script.async = true
       script.onload = () => {
         if (typeof window.TPDirect !== 'undefined') {
-          return resolve(window.TPDirect)
+          resolve(window.TPDirect)
         } else {
           reject(new Error('failed to load TapPay sdk'))
         }
