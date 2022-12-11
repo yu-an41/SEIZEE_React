@@ -7,7 +7,7 @@ import CartInfoContext from '../contexts/CartInfoContext'
 import './../styles/CartDone.scss'
 
 // components
-import NavBar from './../../components/NavBar'
+import CartNavBar from '../components/CartNavBar'
 import NewsCrawl from '../../00-homepage/components/NewsCrawl'
 import Footer from '../../components/Footer'
 
@@ -81,14 +81,14 @@ function CartDone() {
     } else {
       setCartCountDown(0)
     }
-    return 
+    return
   }, [cartCountDown])
 
   return (
     <>
       <div className="y-CartDone-container">
         <div className="y-Cart-nav">
-          <NavBar />
+          <CartNavBar />
           <div className="y-Cart-wave-base"></div>
           <YellowWave />
         </div>

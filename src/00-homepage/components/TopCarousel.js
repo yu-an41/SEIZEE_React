@@ -1,7 +1,34 @@
 import React, { Component } from 'react'
+import { imgReactUrl, imgNodeUrl } from './../../my-config'
 import Slider from 'react-slick'
 
 import './../styles/TopCarousel.scss'
+
+function PrevArrow(props) {
+  const { className, style, onClick } = props
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'transparent' }}
+      onClick={onClick}
+    />
+  )
+}
+
+function NextArrow(props) {
+  const { className, style, onClick } = props
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: 'block',
+        background: 'transparent',
+      }}
+      onClick={onClick}
+    />
+  )
+}
 
 export default class TopCarousel extends Component {
   render() {
@@ -14,6 +41,8 @@ export default class TopCarousel extends Component {
       autoplaySpeed: 3500,
       speed: 800,
       pauseOnHover: true,
+      nextArrow: <PrevArrow />,
+      prevArrow: <NextArrow />,
     }
 
     return (
@@ -26,10 +55,16 @@ export default class TopCarousel extends Component {
             />
           </div>
           <div className="y-top-carousel-banner y-carousel-cover">
-            <img src={`/00-homepage/food1.jpg`} alt="banner carousel" />
+            <img
+              src={`${imgNodeUrl}/images/03-shop/33cover.jpg`}
+              alt="banner carousel"
+            />
           </div>
           <div className="y-top-carousel-banner y-carousel-cover">
-            <img src={`/00-homepage/food2.jpg`} alt="banner carousel" />
+            <img
+              src={`${imgNodeUrl}/images/03-shop/05cover.jpg`}
+              alt="banner carousel"
+            />
           </div>
         </Slider>
       </div>

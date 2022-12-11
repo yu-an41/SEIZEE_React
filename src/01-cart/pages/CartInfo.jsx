@@ -8,8 +8,7 @@ import AuthContext from '../../contexts/AuthContext'
 import './../styles/CartInfo.scss'
 
 // components
-// import NavBar from '../../00-homepage/components/NavBar'
-import NavBar from './../../components/NavBar'
+import CartNavBar from '../components/CartNavBar'
 import OpenHoursBtn from '../components/OpenHoursBtn'
 import PickupHoursBtn from '../components/PickupHoursBtn'
 import EmptyCartBtn from '../components/EmptyCartBtn'
@@ -107,7 +106,7 @@ function CartInfo() {
     <>
       <div className="y-CartInfo-container">
         <div className="y-Cart-nav">
-          <NavBar />
+          <CartNavBar />
           <div className="y-Cart-wave-base"></div>
           <YellowWave />
         </div>
