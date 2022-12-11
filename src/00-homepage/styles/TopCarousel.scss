@@ -82,46 +82,21 @@ $border-radius-button: 8px;
     }
 }
 
-@media (min-width: 391px) {
+@media (max-width: 390px) {
     .y-top-carousel-container {
-        border: 5px solid $main-blue;
-        border-radius: $border-radius-card;
-        // overflow: hidden;
-
-        .slick-prev,
-        .slick-next
-        {
-            // font-size: 0;
-            // line-height: 0;
-
-            // position: absolute;
-            // top: 50%;
-
-            // display: block;
-
-            // width: 20px;
-            // height: 20px;
-            // padding: 0;
-            // -webkit-transform: translate(0, -50%);
-            // -ms-transform: translate(0, -50%);
-            // transform: translate(0, -50%);
-
-            // cursor: pointer;
-
-            // color: transparent;
-            // border: none;
-            // outline: none;
-            // background: transparent;
-        }
         
         .y-top-carousel-banner {
+            // width: 100%;
+            height: 500px;
             img {
-
+                width: 100%;
+                height: 100%;
             }
         }
         .y-carousel-cover {
             img {
-
+                width: 100%;
+                height: 100%;
             }
         }
     }

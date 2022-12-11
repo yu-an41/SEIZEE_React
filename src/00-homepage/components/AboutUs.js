@@ -18,7 +18,7 @@ export default function AboutUs() {
 
   return (
     <div className="a-video">
-    <p className="a-aboutUs">關於我們</p>
+      <p className="a-aboutUs">關於我們</p>
       <div className="a-videoWrapper">
         <video
           playsInline
