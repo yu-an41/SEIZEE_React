@@ -40,7 +40,7 @@ export function Card_cook({ postData, heart }) {
   //   handleClick,
   // } = useContext(ForumCollectContext)
   const t = categories_sid + '_' + sid
- // console.log({ solid, t, heart })
+  // console.log({ solid, t, heart })
 
   const cateMap = {
     1: '/forum/official/inner/',
@@ -94,7 +94,7 @@ export function Card_cook({ postData, heart }) {
                 <p>{mb_name}</p>
                 <p>{mb_email}</p>
               </div> */}
-              <Member cookMb={postData}/>
+              <Member cookMb={postData} />
             </div>
             <div className="p-day-wrap">
               <p className="p-day">{dayjs(creat_at).format('YYYY.MM.DD')}</p>
@@ -156,7 +156,7 @@ export function Card_official({ postData }) {
           style={{ textDecoration: 'none' }}
         >
           <div className="p-img-wrap">
-            <img src={img} alt="" />
+            <img src={`http://localhost:3004/images/07-all/${img}`} alt="" />
           </div>
           <div className="p-card-contenter-wrap">
             <div className="p-card-contenter">
@@ -235,7 +235,6 @@ export function Card_store({ postData }) {
                   <p>{mb_name}</p>
                   <p>{shop_phone}</p>
                 </div>
-              
               </div>
               <div className="p-day-wrap">
                 <p className="p-day">{dayjs(creat_at).format('YYYY.MM.DD')}</p>
@@ -279,7 +278,7 @@ export function Card_share({ postData }) {
           style={{ textDecoration: 'none' }}
         >
           <div className="p-img-wrap">
-            <img src={img} alt="" />
+            <img src={`http://localhost:3004/images/07-all/${img}`} alt="" />
           </div>
           <div className="p-card-contenter-wrap">
             <div className="p-card-contenter">
@@ -297,7 +296,7 @@ export function Card_share({ postData }) {
                   <p>{mb_name}</p>
                   <p>{mb_email}</p>
                 </div> */}
-                <Member cookMb={postData}/>
+                <Member cookMb={postData} />
               </div>
               <div className="p-day-wrap">
                 <p className="p-day">{dayjs(creat_at).format('YYYY.MM.DD')}</p>
