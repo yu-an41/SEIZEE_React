@@ -32,34 +32,37 @@ $border-radius-button: 8px;
 
 .y-rec-merch-border {
     border: $border-lg;
-    max-width: 295px;
     margin: 0 auto;
 
     .y-rec-merch-pic { 
         border-bottom:  $border-lg;
         width: 100%;
-        aspect-ratio: 1/1;
+        max-height: 120px;
+        // aspect-ratio: 1/1;
         background-color: #ccc;
+        overflow: hidden;
         img {
             width: 100%;
+            // height: 100%;
+            vertical-align: top;
+            object-fit: cover;
 
         }
     }
 
     .y-rec-merch-info {
         width: 100%;
-        padding: 24px 20px;
+        padding: 15px 10px;
         background-color: #fff;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
         .y-rec-merch-name {
-            font-size: 24px;
-            letter-spacing: 2px;
+            font-size: 14px;
+            letter-spacing: 1px;
             font-weight: bold;
-            margin-bottom: 20px;
-            flex-grow: 1;
+            margin-bottom: 10px;
         }
     
         .y-rec-merch-bottom {
@@ -67,18 +70,20 @@ $border-radius-button: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px;
+            padding: 0px;
 
             .y-rec-merch-price {
                 text-decoration: line-through;
-                font-size: 20px;
+                font-size: 14px;
                 font-weight: bold;
+                margin-right: 5px;
             }
     
             .y-rec-merch-sale {
                 font-weight: bold;
-                font-size: 22px;
+                font-size: 14px;
                 color: $btn-red;
+                margin-right: 5px;
             }
     
             .y-rec-merch-quantity {
@@ -86,11 +91,11 @@ $border-radius-button: 8px;
                 select {
                     background-color: $main-yellow;
                     color: $main-blue;
-                    width: 75px;
-                    padding: 8px 16px;
+                    width: 30px;
+                    padding: 2px 4px;
                     // padding-right: 8px;
                     position: relative;
-                    border: $border-lg;
+                    border: $border-sm;
                     // box-shadow: $btn-shadow-lg;
                     border-radius: $border-radius-button;
                     appearance:none;
@@ -100,7 +105,7 @@ $border-radius-button: 8px;
                         image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient($main-yellow, $main-yellow);
                         image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E"), -webkit-linear-gradient($main-yellow, $main-yellow);
                         image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E"), -moz-linear-gradient($main-yellow, $main-yellow);
-                        position: right 12px top 50%, 0 0;
+                        position: right 0px top 50%, 0 0;
                         size: contain, cover;
                         repeat: no-repeat, repeat;
     
@@ -114,15 +119,15 @@ $border-radius-button: 8px;
             }
     
             .y-rec-merch-cart {
-                width: 40px;
-                height: 40px;
+                width: 26px;
+                height: 26px;
                 background-color: $main-yellow;
                 border-radius: $border-radius-button;
-                border: $border-lg;
+                border: $border-sm;
 
                 img {
                     width: 100%;
-                    // height: 100%;
+                    height: 100%;
                     object-fit: cover;
                 }
             }
@@ -163,7 +168,10 @@ $border-radius-button: 8px;
                 letter-spacing: 2px;
                 font-weight: bold;
                 margin-bottom: 16px;
-                flex-grow: 1;
+                overflow:hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                line-height: 24px;
             }
             .y-rec-merch-name:hover {
                 cursor: pointer;

@@ -40,8 +40,8 @@ function GoPayBtn({ pickup, pay }) {
   const GoPay = async () => {
     if (myAuth.authorised) {
       const ordernum = dayjs(new Date()).format('YYYYMMDDHHmmss')
-      // console.log(order_num)
       const mid = myAuth.mb_sid
+      // console.log(ordernum, mid)
 
       const {
         totalAmount,

@@ -24,24 +24,6 @@ $border-radius-button: 8px;
     box-sizing: border-box;
 }
 
-p, a {
-    text-decoration: none;
-    font-family:Arial, Helvetica, sans-serif;
-    line-height: 1.4rem;
-
-}
-
-@media (min-width: 391px) {
-    p, a {
-        font-size: 24px;
-        line-height: 1.5rem;
-    }
-}
-
-li {
-    list-style: none;
-}
-
 .y-footer-bg {
     background-color: $main-blue;
     // height: 40px;
@@ -49,7 +31,14 @@ li {
 
     p, a {
         color: #fff;
-    }
+        // line-height: 1.5rem;
+        text-decoration: none;
+        font-family:Arial, Helvetica, sans-serif;
+        line-height: 1.4rem;
+        }
+        li {
+            list-style: none;
+        }
 
     .y-footer-body {
         width: 100%;
@@ -110,7 +99,7 @@ li {
                     line-height: 1.2;
                     margin-bottom: 10px;
                     margin-right: 20px;
-                    text-align: center;
+                    // text-align: center;
                     a:hover {
                         cursor: pointer;
                         color: #fff;
@@ -157,9 +146,17 @@ li {
 @media (min-width: 391px) {
     .y-footer-bg {
         padding: 30px 300px;
-    
+
         p, a {
-            color: #fff;
+        color: #fff;
+        font-size: 24px;
+        line-height: 1.5rem;
+        text-decoration: none;
+        font-family:Arial, Helvetica, sans-serif;
+        line-height: 1.4rem;
+        }
+        li {
+            list-style: none;
         }
     
         .y-footer-body {

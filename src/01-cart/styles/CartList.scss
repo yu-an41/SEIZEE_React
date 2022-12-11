@@ -231,7 +231,7 @@ $border-radius-button: 8px;
                         display: flex;
                         justify-content: space-between;
                         .y-Cart-shop-name {
-                            // font-size: 18px;
+                            font-size: 16px;
                             color: $main-blue;
                             font-weight: bold;
                             margin-bottom: 16px;
@@ -246,14 +246,14 @@ $border-radius-button: 8px;
                         display: flex;
                         flex-direction: column;
                         
-                        
                         .y-Cart-shop-tel {
-
+                            font-size: 14px;
                         }
                         .y-Cart-shop-address {
-    
+                            font-size: 14px;
                         }
                         .y-Cart-shop-time {
+                            font-size: 14px;
                         margin-bottom: 0;
                         }
 
@@ -266,7 +266,7 @@ $border-radius-button: 8px;
                     padding: 25px 20px;
                     // border-radius: $border-radius-button;
                     position: relative;
-                    margin-bottom: 0;
+                    margin-bottom: 5px;
                     
                     .y-Cart-pickup-top {
                         width: 100%;
@@ -274,7 +274,7 @@ $border-radius-button: 8px;
                         justify-content: space-between;
                         padding-bottom: 40px;
                         .y-Cart-pickup-title {
-                            // font-size: 18px;
+                            font-size: 16px;
                             color: $main-blue;
                             margin-bottom: 16px;
                             font-weight: bold;
@@ -294,7 +294,7 @@ $border-radius-button: 8px;
                     }
 
                     .y-Cart-pickup-border {
-                            width: 100%;
+                            width: 90px;
                             height: 80px;
                             // aspect-ratio: 1/1;
                             position: absolute;
@@ -328,6 +328,9 @@ $border-radius-button: 8px;
                             }
                         }
                     }
+                    .y-Cart-pickup-border:hover {
+                        cursor: pointer;
+                    }
                 }
             }
             
@@ -338,7 +341,8 @@ $border-radius-button: 8px;
         }
 
         .y-Cart-details {
-
+            padding: 10px;
+            padding-top: 0;
             .y-empty-cart-wrap {
                 display: none;
             }
@@ -389,11 +393,19 @@ $border-radius-button: 8px;
                 width: 100%;
                 background-color: $main-blue;
                 .y-Cart-details-total {
-
+                    color: #fff;
+                    padding: 10px 15px;
+                    font-size: 12px;
+                    text-align: right;
                 }
 
                 .y-Cart-details-btns {
-
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-left: 100px;
+                    padding-right: 15px;
+                    padding-bottom: 15px;
                     .y-continue-shopping-wrap {
 
                     }
@@ -406,22 +418,34 @@ $border-radius-button: 8px;
         }
 
         .y-Cart-rec {
+            padding: 10px;
+            background-color: #fff;
+            max-width: 310px;
+
             .y-Cart-rec-tab {
-                
+                margin: 15px 0 15px 15px;
+                color: $main-blue;
+                font-size: 14px;
+                font-weight: bold;
+                letter-spacing: 1px;
             }
 
             .y-Cart-rec-top {
                 .y-Cart-rec-header {
-                    
+                    margin-left: 15px;
+                    margin-bottom: 20px;
                 }
             }
 
             .y-Cart-rec-bottom {
 
                 .y-Cart-rec-row {
-
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
                     .y-Cart-rec-wrap {
-
+                        width: 50%;
+                        padding: 10px;
                     }
                 }
             }
@@ -435,7 +459,7 @@ $border-radius-button: 8px;
         width: 100%;
 
         .y-Cart-bottom-wave {
-
+            
         }
 
         .y-cart-footer {
@@ -632,7 +656,8 @@ $border-radius-button: 8px;
                         display: flex;
                         flex-direction: column;
                         // justify-content: space-between;
-    
+                        margin-bottom: 15px;
+
                         .y-Cart-pickup-top {
                             height: 72px;
                             .y-Cart-pickup-title {
@@ -707,7 +732,6 @@ $border-radius-button: 8px;
                 position: relative;
                 margin-bottom: 80px;
                 padding-top: 40px;
-
                 .y-empty-cart-wrap {
                     display: block;
                     position: absolute;

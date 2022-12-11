@@ -55,8 +55,12 @@ $border-radius-button: 8px;
             display: none;
 
             .y-Cart-icon {
-                width: 30px;
+                width: 36px;
+                height: 36px;
+                padding: 1px;
                 margin-right: 10px;
+                border-radius: 50%;
+                border: $border-sm;
                 img {
                     width: 100%;
                 }
@@ -270,8 +274,12 @@ $border-radius-button: 8px;
                 align-items: center;
     
                 .y-Cart-icon {
-                    // display: none;
-                    width: 48px;
+                    width: 45px;
+                    height: 45px;
+                    border: $border-lg;
+                    padding: 2px;
+                    margin-right: 12px;
+                    background-color: #fdefc2;
                     img {
                         width: 100%;
                     }

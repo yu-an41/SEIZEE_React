@@ -23,7 +23,7 @@ function CartItemsInfo({ cartItemData }) {
 
   const { userCart, totalItem, totalUnitPrice, totalSalePrice, totalAmount } =
     cartItem
-  const { prod_sid, name, sale_price, sale, picture, amount, inventory } =
+  const { prod_sid, name, sale_price, sale, unit_price, picture, amount, inventory } =
     cartItemData
 
   // 假圖片路徑
@@ -43,13 +43,16 @@ function CartItemsInfo({ cartItemData }) {
           </div>
           <p className="y-Cart-items-info-name">{name}</p>
         </div>
-        <div className="y-Cart-items-price">
+        <div className="y-Cart-items-origin y-Cart-items-text">
+          <p>{unit_price}</p>
+        </div>
+        <div className="y-Cart-items-price y-Cart-items-text">
           <p>{sale_price}</p>
         </div>
-        <div className="y-Cart-items-quantity">
+        <div className="y-Cart-items-quantity y-Cart-items-text">
           <p>{amount}</p>
         </div>
-        <div className="y-Cart-items-unit">
+        <div className="y-Cart-items-unit y-Cart-items-text">
           <p>{sale_price * amount}</p>
         </div>
       </div>

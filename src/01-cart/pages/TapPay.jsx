@@ -15,6 +15,8 @@ import './../styles/TapPay.scss'
 function TapPay() {
   const navigate = useNavigate()
   const { cartItem, setCartItem } = useContext(CartInfoContext)
+  const { userCart, totalItem, totalUnitPrice, totalSalePrice, totalAmount } =
+    cartItem
   const { myAuth } = useContext(AuthContext)
 
   const [loading, setLoading] = useState(false)
@@ -103,7 +105,7 @@ function TapPay() {
   const onSubmit = () => {
     getTPDirect().then((TPDirect) => {
       console.log('onSubmit')
-      setError('')
+      // setError('')
 
       if (!myAuth.mb_sid) {
         return setError('請登入')
@@ -116,10 +118,10 @@ function TapPay() {
       }
 
       if (myAuth.authorise) {
-        setError('請先登入，畫面即將跳轉至登入頁')
-        setTimeout(() => {
-          navigate('/login')
-        }, 3000)
+        // setError('請先登入，畫面即將跳轉至登入頁')
+        // setTimeout(() => {
+        //   navigate('/login')
+        // }, 3000)
         return
       }
 
@@ -179,60 +181,61 @@ function TapPay() {
           })
       })
     })
+  }
+  return (
+    <>
+      <div className="y-tappay-container">
+        <div className="y-tappay-nav-bg">
+          <CartNavBar />
+          <div className="y-Cart-wave-base"></div>
+          <YellowWave />
+        </div>
+        <div className="y-tappay-form-wrap">
+          <form className="y-tappay-form">
+            <div id="cardview-container"></div>
+            <label>CardView</label>
+            <div id="tappay-iframe"></div>
+            <label
+              htmlFor="cardNumber"
+              onClick={() => {
+                document.querySelector('#cardNumber').innerText =
+                  '4242 4242 4242 4242'
+              }}
+            >
+              卡號
+            </label>
+            <div id="cardNumber" className="tpfield" ref={cardNumber}></div>
+            {/* <small>(可填入： 4242 4242 4242 4242)</small> */}
 
-    return (
-      <>
-        <div className="y-tappay-container">
-          <div className="y-tappay-nav-bg">
-            <CartNavBar />
-            <div className="y-Cart-wave-base"></div>
-            <YellowWave />
+            <label htmlFor="cardExpirationDate">卡片到期日</label>
+            <div
+              id="cardExpirationDate"
+              className="tpfield"
+              ref={cardExpirationDate}
+            ></div>
+            {/* <small>(可填入： 01/23)</small> */}
+
+            <label htmlFor="cardCcv">後三碼</label>
+            <div id="cardCcv" className="tpfield" ref={ccv}></div>
+            {/* <small>(可填入： 123)</small> */}
+
+            <button type="button" id="submit" onClick={onSubmit}>
+              送出
+            </button>
+          </form>
+        </div>
+        <div className="y-tappay-bottom">
+          <div className="y-tappay-bottom-wave">
+            {/* <YellowWaveLight /> */}
+            {/* <NewsCrawl /> */}
           </div>
-          <div className="y-tappay-form-wrap">
-            <form className="y-tappay-form">
-              <div id="cardview-container"></div>
-              <label
-                htmlFor="cardNumber"
-                onClick={() => {
-                  document.querySelector('#cardNumber').innerText =
-                    '4242 4242 4242 4242'
-                }}
-              >
-                卡號
-              </label>
-              <div id="cardNumber" className="tpfield" ref={cardNumber}></div>
-              {/* <small>(可填入： 4242 4242 4242 4242)</small> */}
-
-              <label htmlFor="cardExpirationDate">卡片到期日</label>
-              <div
-                id="cardExpirationDate"
-                className="tpfield"
-                ref={cardExpirationDate}
-              ></div>
-              {/* <small>(可填入： 01/23)</small> */}
-
-              <label htmlFor="cardCcv">後三碼</label>
-              <div id="cardCcv" className="tpfield" ref={ccv}></div>
-              {/* <small>(可填入： 123)</small> */}
-
-              <button type="button" id="submit" onClick={onSubmit}>
-                送出
-              </button>
-            </form>
-          </div>
-          <div className="y-tappay-bottom">
-            <div className="y-tappay-bottom-wave">
-              {/* <YellowWaveLight /> */}
-              {/* <NewsCrawl /> */}
-            </div>
-            <div className="y-tappay-footer">
-              <Footer />
-            </div>
+          <div className="y-tappay-footer">
+            <Footer />
           </div>
         </div>
-      </>
-    )
-  }
+      </div>
+    </>
+  )
 
   useEffect(() => {
     paymentSetUp()
