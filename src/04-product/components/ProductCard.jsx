@@ -40,7 +40,7 @@ function ProductCard({ product }) {
     useContext(CartInfoContext)
   // const [productDataFromCard, setProductDataFromCard] = useState([{}])
   const { shop_list_sid } = useParams()
-  console.log(shop_list_sid)
+  // console.log(shop_list_sid)
 
   return (
     <div className="a-produtCardWrapper">

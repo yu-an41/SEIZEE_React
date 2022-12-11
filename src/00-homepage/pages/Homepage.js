@@ -22,10 +22,11 @@ import OfficialCardRow from '../components/OfficialCardRow'
 import Runman from '../../components/Runman'
 import ShopHome from '../components/ShopHome'
 import NewEvent from '../components/NewEvent'
+import AboutUs from '../components/AboutUs'
 
 //img srcs
-// import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
-// import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
+import TopIcon from './../../logo-and-fonts/pixel-topNormal.svg'
+import TopIconHover from './../../logo-and-fonts/pixel-topClick.svg'
 // import MoreBtnIcon from './../../logo-and-fonts/pixel-arrowB.svg'
 import img from '../images/01cover.jpg'
 // import calendar from '../../../public/04-product/svg/calendar.svg'
@@ -34,19 +35,6 @@ function Homepage() {
   // miee's search and shop ------------------------------------
 
   // ariel's about and events ---------------------------------
-  const videoEl = useRef(null)
-
-  const attemptPlay = () => {
-    videoEl &&
-      videoEl.current &&
-      videoEl.current.play().catch((error) => {
-        console.error('Error attempting to play', error)
-      })
-  }
-
-  useEffect(() => {
-    attemptPlay()
-  }, [])
 
   // forum post's -----------------------------
   const [postNums, setPostNums] = useState(3)
@@ -57,12 +45,6 @@ function Homepage() {
   return (
     <>
       <div className="y-index-container">
-        <div
-          className="y-go-to-top"
-          onClick={() => {
-            console.log('go to top')
-          }}
-        ></div>
         <div className="y-index-top">
           <section className="y-section y-section-nav-bg">
             <NavBar />
@@ -75,14 +57,14 @@ function Homepage() {
           <section className="y-section y-section-carousel">
             <div className="y-carousel-wrap">
               <TopCarousel />
-              <div className="y-carousel-block-yellow">
-                <p></p>
-              </div>
-              <div className="y-carousel-block-blue">
-                <div className="y-block-bg">
-                  {/* <p>剩食革命</p>
-                  <p>由我做起</p> */}
-                </div>
+            </div>
+            {/* <div className="y-carousel-block-yellow">
+              <p>成為戰士吧</p>
+            </div> */}
+            <div className="y-carousel-block-blue">
+              <div className="y-block-bg">
+                <p>改變剩食，</p>
+                <p className="y-block-text2">由我開始。</p>
               </div>
             </div>
           </section>
@@ -96,21 +78,9 @@ function Homepage() {
           <ShopHome />
         </section>
         <section className="y-section y-section-about">
-          {/* <div className="a-video">
-            <div className="a-videoWrapper">
-              <h3 className="a-aboutUs">關於我們</h3>
-              <video
-                playsInline
-                loop
-                muted
-                alt="All the devices"
-                src="../../video/test.mp4"
-                type="video/mp4"
-                ref={videoEl}
-              />
-            </div>
-          </div> */}
+          <AboutUs />
         </section>
+
         <div className="y-wave-wrap-white">
           <WhiteWave />
         </div>
@@ -144,6 +114,12 @@ function Homepage() {
           <YellowWave />
         </div>
         <section className="y-section y-section-forum">
+          <div
+            className="y-go-to-top"
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+            }}
+          ></div>
           <div className="y-section-forum-title">
             <p>最新論壇消息</p>
           </div>

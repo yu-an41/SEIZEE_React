@@ -67,6 +67,15 @@ $border-radius-button: 8px;
             // object-position: 50% 50%;
         }
     }
+    .y-carousel-cover {
+        overflow: hidden;
+        img {
+            height: 120%;
+            object-fit: cover;
+            width: auto;
+            object-position: 50% 50%;
+        }
+    }
 }
 
 @media (min-width: 391px) {
@@ -102,6 +111,11 @@ $border-radius-button: 8px;
         }
         
         .y-top-carousel-banner {
+            img {
+
+            }
+        }
+        .y-carousel-cover {
             img {
 
             }

@@ -11,11 +11,14 @@ import ModalNotification from './components/ModalNotification'
 
 // 00-homepage
 import Homepage from './00-homepage/pages/Homepage'
+import Gachapon from './00-homepage/components/Gachapon'
 
 // 01-cart
 import CartList from './01-cart/pages/CartList'
 import CartInfo from './01-cart/pages/CartInfo'
-// import CartDone from './01-cart/pages/CartDone'
+import CartDone from './01-cart/pages/CartDone'
+import LineConfirm from './01-cart/pages/LineConfirm'
+import TapPay from './01-cart/pages/TapPay'
 
 // Cart 要用的 ContextProvider
 
@@ -38,13 +41,15 @@ import ShopList from './03-shop/pages/03-shop-list'
 // 04-product
 import ProductList from './04-product/pages/ProductList'
 import ProductDetail from './04-product/pages/ProductDetail'
-// import ProductFilter from './04-product/pages/ProductFilter'
-// import Products from './04-product/pages/Products'
+import ProductFilter from './04-product/pages/ProductFilter'
+import Products from './04-product/pages/Products'
 
 // 05-member
 import UserSign from './05-member/UserSign'
 import ResetPass from './05-member/ResetPass'
 import ForgotPass from './05-member/ForgotPass'
+import GoogleSign from './05-member/GoogleSign'
+
 import UserProfile from './05-member/profile-pages/UserProfile'
 import UpdateInfo from './05-member/profile-pages/UpdateInfo'
 
@@ -59,7 +64,7 @@ import Orders from './05-member/profile-pages/Orders'
 // 06-event
 //event要用的context
 import { TimeTableProvider } from './06-event/context/useTimeTable'
-import Top from './06-event/pages/06-event-01-top'
+// import Top from './06-event/pages/06-event-01-top'
 import Eventrender from './06-event/pages/06-event-00-Render'
 
 function App() {
@@ -69,16 +74,18 @@ function App() {
         <MyContextProviders>
           <CollectContextProvider>
             <TimeTableProvider>
-              {/* <ModalConfirm /> */}
               <Routes>
                 {/* 00-homepage */}
                 <Route path="/" element={<Homepage />} />
+                <Route path="/gachapon" element={<Gachapon />} />
+                <Route path="/linePay/confirm" element={<LineConfirm />} />
 
                 {/* 01-cart */}
                 <Route path="/cart/">
                   <Route index path="" element={<CartList />} />
                   <Route path="info" element={<CartInfo />} />
-                  {/* <Route path="done" element={<CartDone />} /> */}
+                  <Route path="done" element={<CartDone />} />
+                  <Route path="tappay" element={<TapPay />} />
                 </Route>
 
                 {/* 02-forum */}
@@ -108,13 +115,14 @@ function App() {
                   element={<ProductList />}
                 />
                 <Route path="/product/:sid" element={<ProductDetail />} />
-                {/* <Route path="/productFilter/" element={<ProductFilter />} /> */}
-                {/* <Route path="/products/" element={<Products />} /> */}
+                <Route path="/productFilter/" element={<ProductFilter />} />
+                <Route path="/products/" element={<Products />} />
 
                 {/* 05-member */}
                 <Route path="/login" element={<UserSign />} />
                 <Route path="/forgot-pass" element={<ForgotPass />} />
                 <Route path="/reset-pass" element={<ResetPass />} />
+                <Route path="/google" element={<GoogleSign />} />
 
                 {/* member-profile */}
                 <Route path="/profile/">

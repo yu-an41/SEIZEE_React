@@ -1,23 +1,29 @@
-import { useState, useEffect, Link } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import NavBar from "../../components/NavBar";
-import "../components/style/ProductFilter.scss";
-import YellowWave from "../../00-homepage/components/YellowWave.js";
 import { useNavigate } from "react-router-dom";
+import "../components/style/ProductFilter.scss";
+import NavBar from "../../components/NavBar";
+import YellowWave from "../../00-homepage/components/YellowWave.js";
+import Footer from "../../components/Footer";
+import Theme from "../components/Theme";
 
 function ProductFilter() {
   //種類data
   const [filterList, setFilterList] = useState([]);
   //使用者勾選種類checkbox
-  const [choice, setchoice] = useState([]);
-  const navigate = useNavigate();
-  //使用者勾選sideBar
+  const [choice, setChoice] = useState([]);
+  // //使用者勾選sideBar
   // const [productFilter, setProductFilter] = useState([""]);
+  const navigate = useNavigate();
+
+  // const [mode, setMode] = useState([]);
+  // const [theme, setTheme] = () => {
+  //   setTheme(mode === "aladdin" ? "seizee" : "aladdin");
+  // };
+  // const [themeState, setThemeState] = useState(1);
+  // setThemeState(themeState === 1 ? 0 : 1);
 
   async function getFilter(categoriesString) {
-
-    // http://localhost:3000/producst/category?category_sid=5,6
-
     try {
       const response = await axios.get(
         ` http://localhost:3004/product/category?${categoriesString}`
@@ -35,11 +41,11 @@ function ProductFilter() {
     const c = e.target.checked;
     if (c) {
       if (!choice.includes(val)) {
-        setchoice([...choice, val]);
+        setChoice([...choice, val]);
       }
     } else {
       const newChoice = choice.filter((v) => v !== val);
-      setchoice(newChoice);
+      setChoice(newChoice);
     }
   };
 
@@ -49,50 +55,14 @@ function ProductFilter() {
 
   const handleSendFilter = () => {
     const searchParam = new URLSearchParams();
-
     const categoryString = choice.reduce((acc, cur) => {
       return acc + `${cur},`;
     }, "");
-    // console.log( 'cate ' + categoryString);
-    if (categoryString == "")
-    {
-      navigate(`/products`)
-    } else {
-      const sids = categoryString.substring(0,categoryString.length-1)
-      searchParam.append("category_sid", sids);
-      console.log(sids);
-    navigate(`/products?${searchParam.toString()}
-    `)
-    }
     // const sids = categoryString.substring(0,categoryString.length-1)
-    // searchParam.append("category_sid", categoryString);
-    // navigate(`/products?${searchParam.toString()}`)
-    // getFilter(searchParam.toString());
+    searchParam.append("category_sid", choice);
+    //getFilter(searchParam.toString());
+    navigate("/products?" + searchParam.toString());
   };
-
-  // const handleSendFilter = () => {
-  //   const searchParam = new URLSearchParams();
-
-  //   const categoryString = choice.reduce((acc, cur) => {
-  //     return acc + `${cur},`;
-  //   }, "");
-  //   // console.log( 'cate ' + categoryString);
-  //   if (categoryString == "")
-  //   {
-  //     navigate(`/products`)
-  //   } else {
-  //     const sids = categoryString.substring(0,categoryString.length-1)
-  //     searchParam.append("category_sid", sids);
-  //     console.log(sids);
-  //   navigate(`/products?${searchParam.toString()}
-  //   `)
-  //   }
-  //   // const sids = categoryString.substring(0,categoryString.length-1)
-  //   // searchParam.append("category_sid", categoryString);
-  //   // navigate(`/products?${searchParam.toString()}`)
-  //   // getFilter(searchParam.toString());
-  // };
-  
 
   return (
     <>
@@ -113,6 +83,28 @@ function ProductFilter() {
           <YellowWave />
         </div>
         {/* CategoryFilter */}
+        {/* <Theme /> */}
+        {/* <div>
+          <button onClick={mode}>
+            {themeState === 1 ? (
+              <div className="a-iconAladdinWrapper">
+                <img src="/04-product/svg/aladdin.png" alt="" />
+              </div>
+            ) : (
+              <div className="a-iconAvengersWrapper">
+                <img src="/04-product/svg/avengers.png" alt="" />
+              </div>
+            )}
+          </button>
+        </div> */}
+        <div className="a-iconsWrapper">
+          <div className="a-iconAladdinWrapper">
+            <img src="/04-product/svg/aladdin.png" alt="" />
+          </div>
+          <div className="a-iconAvengersWrapper">
+            <img src="/04-product/svg/avengers.png" alt="" />
+          </div>
+        </div>
         <div className="a-productFilterWrapper">
           <div className="a-category">
             <div className="a-categoryWrapper">
@@ -124,7 +116,7 @@ function ProductFilter() {
                       htmlFor={`a-categoryCheckBox${filter.sid}`}
                       key={filter.sid}
                     >
-                      <span className="a-iconSpan">
+                      <div className="a-iconSpan">
                         <div className="a-iconWrapper">
                           <img
                             className="a-icon"
@@ -145,16 +137,19 @@ function ProductFilter() {
                             {filter.category_name}
                           </h2>
                         </div>
-                      </span>
+                      </div>
                     </label>
                   </div>
                 );
               })}
             </div>
-            <button className="a-filterButton" onClick={handleSendFilter}>送出</button>
+            <button className="a-filterButton" onClick={handleSendFilter}>
+              送出
+            </button>
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

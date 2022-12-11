@@ -1,12 +1,13 @@
 import './style/ForgotPass.scss'
 import { CHECK_FORGOT_PASS, SEND_FORGOT_PASS } from '../my-config'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { checkEmpty } from './data/UserSign_valid'
 import { useNavigate } from 'react-router-dom'
 import ModalNotification from '../components/ModalNotification'
 import LoadingOverlay from 'react-loading-overlay'
 import ClockLoader from 'react-spinners/ClockLoader'
+import LogoBluePink from './../logo-and-fonts/LOGO-blue-pink.svg'
 
 function ForgotPass() {
   const [forgotFD, setForgotFD] = useState({
@@ -29,6 +30,11 @@ function ForgotPass() {
   const [headerMg, setHeaderMg] = useState('')
   const [bodyMg, setBodyMg] = useState('')
 
+  // Loading
+  const [isActive, setIsActive] = useState(false)
+
+  // console.log(isActive)
+
   // ====================================
 
   const checkForgotEmail = async (e) => {
@@ -47,11 +53,19 @@ function ForgotPass() {
     }
   }
 
+  // setIsActive(true)
+
   async function forgotSubmit(e) {
     e.preventDefault()
 
+    // setIsActive(true)
+
     if (!errorMgF) {
+      setIsActive(true)
+
       const { data } = await axios.post(SEND_FORGOT_PASS, forgotFD)
+
+      setIsActive(false)
 
       // console.log(data)
 
@@ -83,10 +97,37 @@ function ForgotPass() {
     }
   }
 
+  // ====================================
+  // Loading
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsActive(false)
+  //   }, 2000)
+  // }, [])
+
+  // reference:
+  // react-loading-overlay: https://www.npmjs.com/package/react-loading-overlay#quick-start-running_woman
+  // react-spinners: https://www.npmjs.com/package/react-spinners
+
   return (
     <>
-      <LoadingOverlay active={true} spinner={<ClockLoader color="red" />}>
+      <LoadingOverlay
+        active={isActive}
+        styles={{
+          overlay: (base) => ({
+            ...base,
+            background: 'rgba(83, 83, 83, 75%)',
+          }),
+        }}
+        spinner={<ClockLoader color="#ED4743" />}
+      >
         <div className="s-body-forgotpass">
+          <div className="s-forgot-svg-wrap">
+            <a href="/" alt="homepage of SEIZEE">
+              <img src={LogoBluePink} alt="SEIZEE_logo" />
+            </a>
+          </div>
           <div className="s-fp-container">
             <div className="s-fp-forgotBx">
               <form action="" onSubmit={forgotSubmit} className="s-fp-form">

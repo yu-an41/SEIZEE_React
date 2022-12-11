@@ -44,7 +44,7 @@ function Maps() {
         <div className="j-map-wrap">
           <div className="j-map-background">
             <div className="j-cloudA">
-              {/* <img src={jCloud3} alt="" /> */}
+              <img src={jCloud3} alt="" />
               {/* <img src={jCloud4} alt="" /> */}
             </div>
             <div className="j-cloudB">

@@ -1,7 +1,13 @@
 import { useContext, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import log from 'eslint-plugin-react/lib/util/log'
+import axios from 'axios'
+import { set } from 'ramda'
+
+// context
 import CartInfoContext from '../contexts/CartInfoContext'
 import products from './../data/products.json' // 假資料
+import AuthContext from '../../contexts/AuthContext'
 
 // scss
 import './../styles/CartList.scss'
@@ -19,9 +25,9 @@ import CheckCartInfo from '../components/CheckCartInfo'
 import RecMerch from '../components/RecMerch'
 import Footer from '../../components/Footer'
 
-// modal測試用
-// import ModalConfirm from '../../components/ModalConfirm'
-// import ModalNotification from '../../components/ModalNotification'
+// modal
+import ModalConfirm from '../../components/ModalConfirm'
+import ModalNotification from '../../components/ModalNotification'
 
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
@@ -33,12 +39,37 @@ import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
 import ShopCover from './../images/01cover.jpg'
-import log from 'eslint-plugin-react/lib/util/log'
-import axios from 'axios'
-import { set } from 'ramda'
+import { dblClick } from '@testing-library/user-event/dist/click'
 
 function CartList(props) {
-  const [cartPrevText, setCartPrevText] = useState()
+  const { myAuth, setMyAuth, logout, deleteAccountD } = useContext(AuthContext)
+  const navigate = useNavigate()
+
+  // modal
+  const [isOpen1, setIsOpen1] = useState(false)
+  const [isOpen2, setIsOpen2] = useState(false)
+  const [headerMg, setHeaderMg] = useState('')
+  const [bodyMg, setBodyMg] = useState('')
+
+  const closeModalConfirm = () => {
+    setIsOpen2(false)
+    handleEmptyCart()
+  }
+
+  const openModalConfirm = () => {
+    setIsOpen2(true)
+  }
+  const closeModalCancel = () => {
+    setIsOpen2(false)
+    // navigate('/')
+  }
+
+  const closeModal = () => {
+    setIsOpen1(false)
+    navigate('/login')
+  }
+
+  // 購物車
   const {
     cartItem,
     setCartItem,
@@ -48,38 +79,11 @@ function CartList(props) {
     emptyCart,
     setEmptyCart,
     checkCartempty,
+    cartShopInfo,
+    setCartShopInfo,
   } = useContext(CartInfoContext)
 
-  // 取得假商品資訊，數量1
-  // const data = products[0]
-  // const data2 = products[4]
-  // const [prodQty, setProdQty] = useState(1)
-
-  // 推薦商品資訊
-
   // 設定店家資料格式
-  const [cartShopInfo, setCartShopInfo] = useState([
-    {
-      shop_sid: 1,
-      shop_cover: '',
-      shop_name: '',
-      shop_phone: '',
-      shop_address_city: '',
-      shop_address_area: '',
-      shop_address_detail: '',
-      shop_opentime: '',
-      shop_closetime: '',
-      shop_deadline: '',
-      shop_sun: 0,
-      shop_mon: 0,
-      shop_tues: 0,
-      shop_wed: 0,
-      shop_thu: 0,
-      shop_fri: 0,
-      shop_sat: 0,
-    },
-  ])
-
   // 店家編號
   const shopsid = cartItem.userCart[0].shop_sid
     ? +cartItem.userCart[0].shop_sid
@@ -148,16 +152,15 @@ function CartList(props) {
   }
 
   const min = Math.min(recMerchData.length, 4)
+
   useEffect(() => {
     // console.log(cartItem)
     getShopInfo()
     getRecMerchData()
   }, [cartItem])
 
-  // useEffect(() => {
-  //   getCartData()
-  // }, [cartItem])
-
+  // 設定回上頁按鈕內文
+  const [btnText, setBtnText] = useState('繼續逛逛')
   return (
     <>
       <div className="y-CartList-container">
@@ -246,8 +249,13 @@ function CartList(props) {
             <div className="y-empty-cart-wrap">
               <EmptyCartBtn
                 onClick={() => {
-                  handleEmptyCart()
-                  console.log('cart emptied!!!!')
+                  console.log('EmptyCartBtn')
+                  // handleEmptyCart()
+
+                  openModalConfirm()
+                  setHeaderMg('購物車')
+                  setBodyMg('確定要清空購物車嗎？')
+                  navigate('/')
                 }}
               />
             </div>
@@ -256,6 +264,7 @@ function CartList(props) {
               <p className="y-Cart-details-name y-Cart-details-header">
                 商品名稱
               </p>
+              <p className="y-Cart-details- y-Cart-details-header">原價</p>
               <p className="y-Cart-details-price y-Cart-details-header">
                 優惠價
               </p>
@@ -268,17 +277,6 @@ function CartList(props) {
               </p>
             </div>
             <div className="y-Cart-details-area">
-              {/* {!emptyCart
-                ? cartItem.userCart.map((v, i) => {
-                    setEmptyCart(false)
-                    console.log(emptyCart)
-                    return (
-                      <div className="y-Cart-details-row">
-                        <CartItemsList cartItemData={v} key={i} />
-                      </div>
-                    )
-                  })
-                : ''} */}
               {cartItem.userCart.map((v, i) => {
                 return (
                   <div className="y-Cart-details-row">
@@ -294,10 +292,13 @@ function CartList(props) {
               </p>
               <div className="y-Cart-details-btns">
                 <div className="y-continue-shopping-wrap">
-                  <ContinueShoppingBtn linkTo={`http://localhost:3000/shop`} />
+                  <ContinueShoppingBtn
+                    linkTo={`http://localhost:3000/shop`}
+                    btnText={btnText}
+                  />
                 </div>
                 <div className="y-check-info-wrap">
-                  <CheckCartInfo cartItem={cartItem} />
+                  <CheckCartInfo />
                 </div>
               </div>
             </div>
@@ -339,6 +340,19 @@ function CartList(props) {
           </div>
         </div>
       </div>
+      <ModalConfirm
+        closeModalConfirm={closeModalConfirm}
+        closeModalCancel={closeModalCancel}
+        isOpen={isOpen2}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
+      <ModalNotification
+        closeModal={closeModal}
+        isOpen={isOpen1}
+        NotificationHeader={headerMg}
+        NotificationBody={bodyMg}
+      />
     </>
   )
 }
