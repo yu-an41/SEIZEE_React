@@ -10,7 +10,7 @@ $p-size:16px;
    display: flex;
    width: 100%;
    position:relative;
-   
+   margin-top: 20px;
    .p-sideBarWrap{
      position:fixed;
    }
@@ -23,10 +23,10 @@ $p-size:16px;
     position: relative;
     left: 18%;
     .p-searchBarWrap{
-      width: 100%;
+      // width: 100%;
     }
     .p-tabCookWrap{
-      width: 100%;
+      // width: 100%;
     }
     .p-CardWrap{
       width: 100%;
