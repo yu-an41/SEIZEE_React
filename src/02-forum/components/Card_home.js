@@ -48,7 +48,7 @@ function Card_home({ homeData }) {
 
         <div className="p-card-play">
           <div className="p-card-member">
-            <p>{mb_name}</p>
+            <p className='p-card-mb'>{mb_name}</p>
             <p>{dayjs(creat_at).format('YYYY.MM.DD')}</p>
           </div>
           <div className="p-icon-arrow">

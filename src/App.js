@@ -34,6 +34,7 @@ import InnerStore from './02-forum/pages/Inner_store'
 import InnerOfficial from './02-forum/pages/Inner_official'
 import WriteForm from './02-forum/pages/WriteForm'
 import MyPost from './02-forum/pages/MyPost'
+import Search_post from './02-forum/pages/Search_post'
 
 // 03-shop
 import ShopList from './03-shop/pages/03-shop-list'
@@ -109,10 +110,11 @@ function App() {
                   />
                   <Route path="writeForm" element={<WriteForm />} />
                   <Route path="myPost" element={<MyPost />} />
+                  <Route path="searchPost" element={<Search_post />} />
                 </Route>
 
-              {/* 03-shop */}
-              <Route path="/shop" element={<ShopList />} />
+                {/* 03-shop */}
+                <Route path="/shop" element={<ShopList />} />
 
                 {/* 04-product  */}
                 <Route
@@ -149,7 +151,7 @@ function App() {
                   <Route path="ticket" element={<Ticket />} />
                 </Route> */}
               </Routes>
-              <Layout>
+              {/* <Layout> */}
                 <Routes>
                   <Route path="/event/">
                     <Route index path="" element={<Eventrender />} />
@@ -158,7 +160,7 @@ function App() {
                     <Route path="ticket" element={<Ticket />} />
                   </Route>
                 </Routes>
-              </Layout>
+              {/* </Layout> */}
             </TimeTableProvider>
           </CollectContextProvider>
         </MyContextProviders>

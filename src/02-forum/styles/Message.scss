@@ -58,3 +58,54 @@ $p-m:10px;
         margin-top: 10px;
     }
 }
+
+@media (max-width:391px){
+    .p-comment{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 90%;
+        .p-commMemberAdInput{
+            width: 100%;
+            display: flex;
+        .p-commMember{
+            margin-right: 20px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            img{
+                width: 100%;
+                object-fit: contain;
+                overflow: hidden;
+            }
+        }
+        .p-commInput{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            input{
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            appearance:none;
+            -moz-appearance:none;
+            background-color:$main-yellow;
+            }
+            input:focus{
+                outline:none;
+                }
+        }
+        .forumMember{
+            display: none;
+        }
+    }
+        button{
+            background-color: $main-blue;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    }
+}
