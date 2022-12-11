@@ -1,5 +1,6 @@
 import axios from 'axios'
 import log from 'eslint-plugin-react/lib/util/log'
+import strb from '../p-imgs/food/strawberry.png'
 import React, {
   useState,
   useEffect,
@@ -466,7 +467,7 @@ function WriteForm({ mbsid }) {
             })
           }}
         >
-          填入範例資料
+          <img src={strb} />
         </button>
       </div>
 
