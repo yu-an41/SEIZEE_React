@@ -54,7 +54,7 @@ function CartNavBar() {
 
   return (
     <>
-      <div className="y-section-nav">
+      <div className="y-section-cart-nav">
         <div className="y-logo-wrap">
           <div className="y-svg-wrap">
             <Link to={`/`} alt="homepage of SEIZEE">

@@ -39,7 +39,12 @@ function CheckCartInfo() {
   return (
     <>
       <div className="y-check-info-border" onClick={CheckInfo}>
-        <p className="y-check-info">我要結帳</p>
+        <p
+          className="y-check-info"
+          // style={{ fontWeight: 'bold' }}
+        >
+          我要結帳
+        </p>
       </div>
       <ModalNotification
         closeModal={closeModal}

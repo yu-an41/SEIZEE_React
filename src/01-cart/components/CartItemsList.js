@@ -129,7 +129,7 @@ function CartItemsList({ cartItemData }) {
               pid={prod_sid}
               onClick={() => {
                 if (myAuth?.mb_sid) {
-                  handleCartSave(myAuth.mb_sid, prod_sid)
+                  // handleCartSave(myAuth.mb_sid, prod_sid)
                 } else {
                   openModalNotification()
                   setHeaderMg('購物車')
@@ -138,13 +138,11 @@ function CartItemsList({ cartItemData }) {
               }}
             />
           </div>
-          <p>氣死！！！為啥推不開</p>
+          {/* <p>氣死！！！為啥推不開</p> */}
           <div className="y-Cart-RemoveItemBtn-wrap">
             <RemoveItemBtn
-              wishList={wishList}
               onClick={() => {
                 handleRemoveItem(prod_sid)
-                setWishList(!wishList)
                 console.log(prod_sid, 'item removed!!!!')
               }}
             />
