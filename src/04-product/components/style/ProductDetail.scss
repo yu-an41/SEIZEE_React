@@ -65,8 +65,13 @@ input[type="number"] {
 
 //productDatils
 .a-productDatilsBigWrapper {
-  display: flex;
-  flex-direction: column;
+  outline: black solid 1px;
+  width: 80%;
+  height: 100px;
+  margin: auto;
+position: relative;
+  // display: flex;
+  // flex-direction: column;
   .a-userCommentWrapper {
     padding-left: 13%;
     margin-top: 20px;
@@ -78,6 +83,9 @@ input[type="number"] {
     background-color: #fff;
     margin: 0;
     .a-detailWrapper {
+      position: absolute;
+      top:0;
+      left: 0;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -162,15 +170,19 @@ input[type="number"] {
       }
     }
     .a-priceContent {
+      position: absolute;
+      top:0;
+      right:0;
       @extend %a-flex;
+      display:flex;
       flex-direction: column;
       background-color: $secondary-yellow;
       width: 390px;
       border-radius: $main-border-radius;
       padding: 30px 0 10px 0;
-      position: relative;
+      // position: relative;
       .a-discountIconWrapper {
-        position: absolute;   
+        position: absolute;
         top: 10%;
         right: -12%;
         rotate: 20deg;
@@ -312,7 +324,6 @@ input[type="number"] {
       .a-addButton img {
         width: 35px;
       }
-      
     }
     .a-goBackButton {
       width: 300px;
@@ -330,10 +341,26 @@ input[type="number"] {
       font-weight: 500;
       @extend %a-title;
     }
-    .a-goBackButton:hover{
+    .a-goBackButton:hover {
       background-color: $main-yellow;
       color: $secondary-blue;
       cursor: pointer;
     }
+  }
+  .a-userCommentWrapper {
+    width: 300px;
+    text-align: center;
+    @extend %a-flex;
+    background-color: #66cfc5;
+    color: #fff;
+    border: $main-border;
+    border-radius: $main-border-radius;
+    // position: absolute;
+    // top: 1000px;
+    // right: 100px;
+    padding: 15px 50px;
+    margin: 25px 0 40px 0;
+    font-weight: 500;
+    @extend %a-title;
   }
 }

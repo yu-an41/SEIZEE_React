@@ -37,6 +37,7 @@ function ProductDetail() {
   const [errorMessage, setErrorMessage] = useState([]);
   const [heart, setHeart] = useState(false);
   // console.log(heart)
+  const [openBox, setOpenBox] = useState(false);
 
   // cart
   const { cartItem, setCartItem, handleAddCart, updateItemQty } =
@@ -251,7 +252,7 @@ function ProductDetail() {
                   <div className="a-goBack">
                     <Link to={`/productList/${v.shop_list_sid}`}>
                       <button className="a-goBackButton">
-                        返回店商品列表頁
+                        返回惜食列表頁
                       </button>
                     </Link>
                   </div>
@@ -259,11 +260,20 @@ function ProductDetail() {
               );
             })}
           </div>
-          <div className="a-userCommentWrapper">
-            <ProductComment sid={sid} />
-            <div className="a-commentArea">
-              <ProductCommentBoard sid={sid} />
+          {/* <button className="a-userCommentButton"
+            onClick={() => {
+              setOpenBox(true);
+            }}
+          >
+            我要留言
+          </button>
+          {setOpenBox && 
+            <div className="a-userCommentWrapper">
+              <ProductComment sid={sid} />
             </div>
+          } */}
+          <div className="a-commentArea">
+            <ProductCommentBoard sid={sid} />
           </div>
           <YellowWave2 />
           <RecommendCard sid={sid} />

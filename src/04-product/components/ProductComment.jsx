@@ -17,7 +17,7 @@ function ProductComment({ sid }) {
     rating: 0,
   });
   const [showBox, setShowBox] = useState(true)
-  const [openBox, setOpenBox] = useState(true)
+  // const [openBox, setOpenBox] = useState(true)
   // const [closeBox, setCloseBox] = useState(false)
 
   //星星評分數
@@ -41,10 +41,6 @@ function ProductComment({ sid }) {
     }
     // console.log("會員編號：", mb_sid);
     setShowBox(false)
-    // const fd = new FormData();
-    // fd.append("mb_sid", comment.mb_sid);
-    // fd.append("food_product_sid", comment.food_product_sid);
-    // fd.append("user_comment", comment.user_comment);
 
     const { data } = await axios.post(
       "http://localhost:3004/product/comment",
@@ -59,7 +55,7 @@ function ProductComment({ sid }) {
         comment: "",
         rating: 0,
       });
-      setShowBox(true)
+      setShowBox(false)
     }
   };
 
