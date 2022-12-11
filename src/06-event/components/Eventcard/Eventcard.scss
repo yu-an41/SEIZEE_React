@@ -40,7 +40,7 @@ html {
   font-size: 62.5%;
 }
 .j-card-lines {
-  cursor:url(./../../svg/green-pointer.svg),pointer;
+  cursor:pointer;
   height: 11%;
   background-color: $colorList;
   border-top: 2px $colorLine solid;
