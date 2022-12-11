@@ -52,6 +52,38 @@
       line-height: 100px;
       box-shadow: 1px 4px 5px rgba(76, 87, 96, 0.3);
       border: #5a1730 2px solid;
+      .r-product-prize{
+        padding-top: 30px;
+        font-size: 32px;
+        line-height: 50px;
+        display: flex;
+        flex-direction: column;
+      }
+      .r-winner-btn-wrap{
+        .r-winner-btn-again{
+          margin-right: 30px;
+          color: #fff;
+          font-weight: 700;
+          font-size: 20px;
+          padding: 5px 20px;
+          border-radius: 30px;
+          background-color: #f57d00;
+          outline: 2px solid #f57d00;
+          outline-offset: 3px;
+          cursor: pointer;
+        }
+        .r-winner-btn-gocheck{
+          color: #fff;
+          font-weight: 700;
+          font-size: 20px;
+          padding: 5px 20px;
+          border-radius: 30px;
+          background-color: #f57d00;
+          outline: 2px solid #f57d00;
+          outline-offset: 3px;
+          cursor: pointer;
+        }
+      }
     }
     svg {
       width: 200px;

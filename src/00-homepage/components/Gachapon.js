@@ -3,6 +3,7 @@ import '../styles/Gachapon.scss'
 import axios from 'axios'
 import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
+import { Link } from 'react-router-dom'
 
 function Gachapon() {
   const switchSvg = useRef(null)
@@ -44,12 +45,7 @@ function Gachapon() {
         <NavBar />
         <p className="r-gachapon-ariticle-left">SEIZEE</p>
         <p className="r-gachapon-ariticle-right">SPECIAL</p>
-        <div
-          className={getwinner ? 'r-mask active' : 'r-mask'}
-          onClick={() => {
-            setGetWinner(false)
-          }}
-        >
+        <div className={getwinner ? 'r-mask active' : 'r-mask'}>
           {prize.map((v, i) => {
             return (
               <div className="r-winner" key={i}>
@@ -58,6 +54,19 @@ function Gachapon() {
                   <br />
                   {v.product_name}
                 </span>
+                <div className="r-winner-btn-wrap">
+                  <span
+                    className="r-winner-btn-again"
+                    onClick={() => {
+                      setGetWinner(false)
+                    }}
+                  >
+                    再抽一次
+                  </span>
+                  <Link to={`/product/${v.sid}`}>
+                    <span className="r-winner-btn-gocheck">來去瞧瞧</span>
+                  </Link>
+                </div>
               </div>
             )
           })}
