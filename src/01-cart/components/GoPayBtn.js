@@ -41,7 +41,6 @@ function GoPayBtn({ pickup, pay }) {
     if (myAuth.authorised) {
       const ordernum = dayjs(new Date()).format('YYYYMMDDHHmmss')
       const mid = myAuth.mb_sid
-      // console.log(ordernum, mid)
 
       const {
         totalAmount,
