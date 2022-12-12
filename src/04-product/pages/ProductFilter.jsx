@@ -17,9 +17,9 @@ function ProductFilter() {
   const navigate = useNavigate();
 
   const [theme, setTheme] = useState(1);
-  const handleChangeTheme = () => {
-    setTheme(theme === 1 ? 1 : 0)
-  }
+  // const handleChangeTheme = () => {
+  //   setTheme(theme === 1)
+  // }
 
   async function getFilter(categoriesString) {
     try {
@@ -83,13 +83,18 @@ function ProductFilter() {
         {/* CategoryFilter */}
         <p className="a-iconsText">要當小精靈還是惜食戰士</p>
         <div className="a-iconsWrapper">
-          <div className={`a-iconAladdinWrapper ${theme === 1 ? "blueTheme" : "yellowTheme" }`}
-          onClick={() => handleChangeTheme(theme)}>
+          <div className={`a-iconAladdinWrapper ${theme === 1 ? "blueTheme" : "" }`}
+          onClick={() => {
+            setTheme(1)
+          }}>
             <img src="/04-product/svg/aladdin.png" alt="" />
           </div>
 
-          <div className= {`a-iconAvengersWrapper ${theme === 1 ? "yellowTheme" : "blueTheme" }`}
-          onClick={() => handleChangeTheme(theme)}>
+          <div className= {`a-iconAvengersWrapper ${theme === 0 ? "yellowTheme" : "" }`}
+          onClick={() => {
+            setTheme(0)
+
+          }}>
             <img src="/04-product/svg/avengers.png" alt="" />
           </div>
         </div>
