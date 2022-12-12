@@ -6,6 +6,10 @@ import Eventcard from '../components/Eventcard/Eventcard'
 import Emptycard from '../components/Emptycard/Emptycard'
 import { useTimeTable } from './../context/useTimeTable'
 
+import NavBar from '../../components/NavBar'
+import Left from '../components/left/left'
+import Timetable from '../components/right/Timetable'
+
 function Schedule() {
   const { origins, likes, getEventData, getEventLikes } = useTimeTable()
 
@@ -16,6 +20,9 @@ function Schedule() {
 
   return (
     <>
+    <NavBar/>
+    <Left/>
+    <Timetable/>
       <div className="j-event-middle-schedule">
         <div className="j-cate-banner">
           <div className="j-cate-banner-deco">

@@ -42,19 +42,9 @@ function CartNavBar() {
 
   const [profileImg, setProfileImg] = useState('')
 
-  // let items = +cartItem.totalAmount || 0
-  // if (checkCartEmpty || !localStorage.getItem('cartItem')) {
-  //   items = 0
-  // } else if (+items > 99) {
-  //   items = '99+'
-  // } else {
-  //   items = +items
-  // }
-  // items = items > 99 ? '99+' : items
-
   return (
     <>
-      <div className="y-section-nav">
+      <div className="y-section-cart-nav">
         <div className="y-logo-wrap">
           <div className="y-svg-wrap">
             <Link to={`/`} alt="homepage of SEIZEE">

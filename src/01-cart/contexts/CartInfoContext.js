@@ -406,9 +406,9 @@ export const CartInfoContextProvider = function ({ children }) {
     localStorage.setItem('cartItem', JSON.stringify(emptyCart))
     setCartItem(emptyCart)
 
-    openModalNotification()
-    setHeaderMg('購物車')
-    setBodyMg('戰士，您的購物車是空的！')
+    // openModalNotification()
+    // setHeaderMg('購物車')
+    // setBodyMg('戰士，您的購物車是空的！')
     if (pathname === '/cart') {
       navigate('/')
     }

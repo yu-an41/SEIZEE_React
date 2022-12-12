@@ -58,7 +58,7 @@ $border-radius-button: 8px;
 
     .y-icon-round {
       width: 30px;
-      aspect-ratio: 1/1;
+      height: 30px;
       border-radius: 50%;
       // overflow: hidden;
       border: $border-sm;
@@ -78,14 +78,14 @@ $border-radius-button: 8px;
 
       .y-cart-amount {
         position: absolute;
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         top: -18%;
         left: 55%;
         border-radius: 50%;
         background-color: $btn-red;
-        font-size: 12px;
-        line-height: 30px;
+        font-size: 10px;
+        line-height: 20px;
         text-align: center;
         color: white;
         font-weight: bold;
@@ -128,6 +128,7 @@ $border-radius-button: 8px;
       width: 300px;
       .y-icon-round {
         width: 55px;
+        height: 55px;
         border: $border-lg;
         margin-right: 12px;
 

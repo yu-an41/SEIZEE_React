@@ -27,11 +27,19 @@ $main-border-radius: 8px;
 
 .a-productVideoWrapper {
   // position: relative;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   margin: auto;
   overflow: hidden;
   border: 6px solid $main-yellow;
+  @media (max-width: 390px) {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 0 70px;
+  }
   // padding: 5px;
 }
 video {

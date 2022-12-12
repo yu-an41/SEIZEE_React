@@ -152,14 +152,14 @@ function App() {
                 </Route> */}
               </Routes>
               {/* <Layout> */}
-                <Routes>
-                  <Route path="/event/">
-                    <Route index path="" element={<Eventrender />} />
-                    <Route path="schedule" element={<Schedule />} />
-                    <Route path="map" element={<Maps />} />
-                    <Route path="ticket" element={<Ticket />} />
-                  </Route>
-                </Routes>
+              <Routes>
+                <Route path="/event/">
+                  <Route index path="" element={<Eventrender />} />
+                  <Route path="schedule" element={<Schedule />} />
+                  <Route path="map" element={<Maps />} />
+                  <Route path="ticket" element={<Ticket />} />
+                </Route>
+              </Routes>
               {/* </Layout> */}
             </TimeTableProvider>
           </CollectContextProvider>

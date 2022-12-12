@@ -30,7 +30,7 @@ function ProductComment({ sid }) {
       ...comment,
       rating: newRating,
     });
-    console.log(newRating);
+    // console.log(newRating);
     
   };
 
@@ -40,7 +40,7 @@ function ProductComment({ sid }) {
       return;
     }
     // console.log("會員編號：", mb_sid);
-    setShowBox(false)
+    // setShowBox(false)
 
     const { data } = await axios.post(
       "http://localhost:3004/product/comment",
@@ -61,8 +61,7 @@ function ProductComment({ sid }) {
 
   return (
     <>
-    {
-      showBox ?
+    {showBox ?
       <div className="a-productCommentWrapper">
         <ReactStars
           count={5}
@@ -92,7 +91,8 @@ function ProductComment({ sid }) {
           </button>
         </div>
       </div>
-      : null
+      :
+      null
     }
     </>
   );

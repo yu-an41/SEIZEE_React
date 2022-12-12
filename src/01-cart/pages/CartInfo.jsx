@@ -315,24 +315,36 @@ function CartInfo() {
             <div className="y-Cart-main y-Cart-member-main">
               <ul className="y-Cart-member-info">
                 <li className="y-Cart-member-details y-Cart-member-left">
+                  <div className="y-pickup-radio-icons">
+                    <img src={arrowClicked} />
+                  </div>
                   訂購人：
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-right">
                   {myAuth?.mb_name}
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-left">
+                  <div className="y-pickup-radio-icons">
+                    <img src={arrowUnclicked} />
+                  </div>
                   取餐店家：
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-right">
                   {shop_name}
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-left">
+                  <div className="y-pickup-radio-icons">
+                    <img src={arrowClicked} />
+                  </div>
                   取餐時間：
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-right">
                   {shop_opentime} - {shop_deadline}
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-left">
+                  <div className="y-pickup-radio-icons">
+                    <img src={arrowUnclicked} />
+                  </div>
                   取餐位址：
                 </li>
                 <li className="y-Cart-member-details y-Cart-member-right">
@@ -349,7 +361,7 @@ function CartInfo() {
               <p className="y-Cart-details-name y-Cart-details-header">
                 商品名稱
               </p>
-              <p className="y-Cart-details-origin-price y-Cart-details-header">
+              <p className="y-Cart-details-origin y-Cart-details-header">
                 原價
               </p>
               <p className="y-Cart-details-price y-Cart-details-header">

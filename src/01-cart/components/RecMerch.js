@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CartInfoContext from '../contexts/CartInfoContext'
 import { imgReactUrl, imgNodeUrl } from './../../my-config'
@@ -10,7 +10,7 @@ import RecMerchPic from './../../dotown/pizza.png'
 
 function RecMerch({ recMerchInfo }) {
   const navigate = useNavigate()
-
+  const qty = useRef()
   const {
     cartItem,
     setCartItem,
@@ -56,6 +56,7 @@ function RecMerch({ recMerchInfo }) {
           <div className="y-rec-merch-quantity">
             <select
               id={sid}
+              ref={qty}
               defaultValue={amount}
               onChange={(e) => {
                 updateItemQty(e.target.id, e.target.value)
@@ -75,7 +76,7 @@ function RecMerch({ recMerchInfo }) {
           <div
             className="y-rec-merch-cart"
             onClick={() => {
-              handleAddCart(shop_list_sid, sid)
+              handleAddCart(shop_list_sid, sid, qty.current.value)
             }}
           >
             <img src={CartIcon} />

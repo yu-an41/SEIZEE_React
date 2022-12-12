@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 import carrot from './../../svg/carrot.svg'
 import dialogue from './../../svg/dialogue-box.svg'
 import menu from './../../svg/menu.svg'
-import YellowWave from '../yellow/YellowWave'
+import YeallowWave from '../yellow/YeallowWave'
 import { useTimeTable } from '../../context/useTimeTable'
 import jDelete from './../../svg/delete.svg'
 import axios from 'axios'
@@ -59,7 +59,7 @@ function Timetable() {
     <>
       <div className="j-right-wrap">
         <div className="j-Rwave">
-          <YellowWave />
+          <YeallowWave />
         </div>
         <div class="j-right">
           <div className="j-hidebox">
