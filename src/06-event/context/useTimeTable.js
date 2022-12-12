@@ -19,7 +19,7 @@ export const TimeTableProvider = ({ children }) => {
       })
       const origin_rows = res.data
       setOrigins(origin_rows)
-      const timeTable = JSON.parse(localStorage.getItem('timetable'))
+      const timeTable = JSON.parse(localStorage.getItem('timeTable'))
       setTimeTable(timeTable)
       // console.log('timetable', )
     } catch (error) {

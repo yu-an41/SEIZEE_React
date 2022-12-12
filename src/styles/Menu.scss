@@ -25,20 +25,13 @@ $border-radius-button: 8px;
     // vertical-align: middle;
 }
 
-p, a {
-    color: $main-text;
-    text-decoration: none;
-    font-family:Arial, Helvetica, sans-serif;
-    line-height: 1.4rem;
-}
-@media (min-width: 391px) {
-    p, a {
-        font-size: 22px;
-        line-height: 1.5rem;
-    }
-}
-
 .y-menu-border {
+    p, a {
+        color: $main-text;
+        text-decoration: none;
+        font-family:Arial, Helvetica, sans-serif;
+        line-height: 1.4rem;
+    }
     height: 36px;
     padding: 8px;
     border: $main-blue 2px solid;
@@ -73,6 +66,10 @@ p, a {
 
 @media (min-width: 391px ) {
         .y-menu-border {
+            p, a {
+                font-size: 22px;
+                line-height: 1.5rem;
+            }
             height: 60px;
             padding: 15px;            
             border: $border-lg;
