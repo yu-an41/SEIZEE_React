@@ -13,7 +13,7 @@ $card-btn: #80b938;
   box-sizing: border-box;
 }
 
-.r-container {
+.r-shop-container {
   .r-main-visual {
     display: flex;
     justify-content: space-between;
@@ -24,7 +24,7 @@ $card-btn: #80b938;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 30px 20px 60px;
+        padding: 0 0px 20px 90px;
         .r-search-btn-button {
           position: relative;
           width: 250px;
@@ -99,7 +99,7 @@ $card-btn: #80b938;
     }
 
     .r-wave {
-      width: 15%;
+      width: 10%;
       background: url('./../../../public/03-shop-img/shop-wave-1920px.png') 0 0;
       left: 0;
       top: 0;
@@ -120,8 +120,8 @@ $card-btn: #80b938;
     }
 
     .r-shop-list {
-      width: 60%;
-      padding: 80px 60px 0 0;
+      width: 70%;
+      padding: 80px 90px 0 30px;
 
       .r-shop-map {
         height: 500px;
@@ -134,7 +134,7 @@ $card-btn: #80b938;
 }
 
 @media (max-width: 390px) {
-  .r-container {
+  .r-shop-container {
     .r-main-visual {
       display: block;
       .r-side-bar {

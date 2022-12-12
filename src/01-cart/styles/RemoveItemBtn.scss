@@ -35,46 +35,55 @@ $border-radius-button: 8px;
 .y-remove-item-border {
     border-radius: $border-radius-button;
     border: none;
-    background-color: $btn-red;
-    padding: 2px 20px;
-    display: none;
+    // background-color: $btn-red;
+    padding: 4px 6px;
+    // display: none;
 
     .y-remove-item-icon {
         width: 20px;
         aspect-ratio: 1/1;
-
+        margin: 0 auto;
         i {
             font-size: 20px;
+            text-align: center;
         }  
     }
     
     .y-remove-item {
+        display: none;
         color: white;
         font-size: 14px;
         font-weight: bold;
         letter-spacing: 2px;
     }
 }
-
+.y-remove-item-border:hover {
+    cursor: pointer;
+}
 @media (min-width: 391px) {
     .y-remove-item-border {
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: $border-radius-card;
+        background-color: $btn-red;
         // border: $border-yellow-lg;
-        padding: 8px 35px;
+        padding: 8px 20px;
+        height: 38px;
     
         .y-remove-item-icon {
+            margin-right: 8px;
             i {
                 font-size: 22px;
+                text-align: center;
             }
         }
 
 
         .y-remove-item {
             font-size: 20px;
-
+            color: $main-blue;
+            display: block;
         }
         
     }

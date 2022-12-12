@@ -31,23 +31,23 @@ $border-radius-button: 8px;
     box-sizing: border-box;
 }
 .y-check-info-border {
-    border-radius: $border-radius-button;
-    border: $border-white-sm;
+    border-radius: 5px;
+    // border: $border-white-sm;
     background-color: $main-yellow;
-    padding: 2px 20px;
-    display: none;
-    width: 200px;
-    
+    padding: 5px 5px;
+    width: 90px;    
     .y-check-info-pay {
         color: $main-text;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: bold;
         letter-spacing: 2px;
+        text-align: center;
     }
 }
 
 @media (min-width: 391px) {
     .y-check-info-border {
+        width: 200px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -57,6 +57,8 @@ $border-radius-button: 8px;
 
         .y-check-info {
             font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
         }
     }
 }

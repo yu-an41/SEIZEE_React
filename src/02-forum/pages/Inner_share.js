@@ -79,12 +79,15 @@ function InnerShare() {
 
             <div className="p-officialTagWrap">{/* <Tag /> */}</div>
             <div className="p-officialMemberWrap">
-              <Member cookMb={shareInnerData}/>
+              <Member cookMb={shareInnerData} />
             </div>
           </div>
 
           <div className="p-officialImg">
-            <img src={shareInnerData.img} alt="" />
+            <img
+              src={`http://localhost:3004/images/07-all/${shareInnerData.img}`}
+              alt=""
+            />
           </div>
           <div className="p-officialContent">
             <p>{shareInnerData.induction}</p>

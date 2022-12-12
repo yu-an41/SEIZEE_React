@@ -76,16 +76,17 @@ function InnerOfficial() {
               </div>
             </div>
 
-            <div className="p-officialTagWrap">
-              {/* <Tag /> */}
-            </div>
+            <div className="p-officialTagWrap">{/* <Tag /> */}</div>
             <div className="p-officialMemberWrap">
               <Member />
             </div>
           </div>
 
           <div className="p-officialImg">
-            <img src={offficialInnerData.img} alt="" />
+            <img
+              src={`http://localhost:3004/images/07-all/${offficialInnerData.img}`}
+              alt=""
+            />
           </div>
           <div className="p-abstract">
             <div className="p-arrowAdH3">

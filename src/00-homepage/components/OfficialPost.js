@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
+import { imgReactUrl, imgNodeUrl } from './../../my-config'
 
 import './../styles/OfficialPost.scss'
 
 import OfficialPic from './../../dotown/toast.png'
 
 function OfficialPost({ officialInfo }) {
-  const { sid, categories_sid,title, img, content } = officialInfo
+  const { sid, categories_sid, title, img, content } = officialInfo
   const cateMap = {
     1: '/forum/official/inner/',
     2: '/forum/store/inner/',
@@ -32,7 +33,10 @@ function OfficialPost({ officialInfo }) {
           <p>{content}</p>
         </div>
         <div className="y-official-pic">
-          <img src={img} alt="official banner" />
+          <img
+            src={`${imgNodeUrl}/images/07-all/${img}`}
+            alt="official banner"
+          />
         </div>
       </Link>
     </div>

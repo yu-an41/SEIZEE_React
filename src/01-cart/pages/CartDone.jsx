@@ -1,45 +1,94 @@
 import { useContext, useState, useEffect } from 'react'
-import { useCart } from '../../contexts/useCart'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import AuthContext from '../../contexts/AuthContext'
+import CartInfoContext from '../contexts/CartInfoContext'
 
 // scss
 import './../styles/CartDone.scss'
 
 // components
-// import NavBar from '../../00-homepage/components/NavBar'
-import NavBar from './../../components/NavBar'
-import OpenHoursBtn from '../components/OpenHoursBtn'
-import PickupHoursBtn from '../components/PickupHoursBtn'
-import EmptyCartBtn from '../components/EmptyCartBtn'
-import CartItemsList from '../components/CartItemsList'
-import ContinueShoppingBtn from '../components/ContinueShoppingBtn'
-import GoPayBtn from '../components/GoPayBtn'
-import RecMerch from '../components/RecMerch'
+import CartNavBar from '../components/CartNavBar'
+import NewsCrawl from '../../00-homepage/components/NewsCrawl'
 import Footer from '../../components/Footer'
 
 //img srcs
 import YellowWave from '../../00-homepage/components/YellowWave'
 import YellowWaveReverse from '../../00-homepage/components/YellowWaveReverse'
 import YellowLineWave from './../images/line-wave.svg'
+import YellowWaveLight from '../../00-homepage/components/YellowWaveLight'
 import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
-import ShopCover from './../images/01cover.jpg'
-
-// cart init
-// initialState = {
-//   items: [],
-//   isEmpty: true,
-//   totalItems: 0,
-//   cartTotal: 0,
-// }
+import axios from 'axios'
 
 function CartDone() {
+  const navigate = useNavigate()
+  const { myAuth } = useContext(AuthContext)
+
+  const {
+    cartItem,
+    handleEmptyCart,
+    checkCartEmpty,
+    emptyCart,
+    setEmptyCart,
+    ModalNotification,
+    ModalConfirm,
+  } = useContext(CartInfoContext)
+
+  const { totalAmount, totalItem, totalSalePrice, totalUnitPrice, userCart } =
+    cartItem
+
+  const mid = myAuth.mb_sid || 0
+
+  const getMemberOrder = async () => {
+    if (!!mid) {
+      try {
+        const res = await axios.get(
+          `http://localhost:3004/cart/payment-done/${mid}`
+        )
+        console.log(res.data)
+
+        const initCart = {
+          userCart: [],
+          totalItem: 0,
+          totalUnitPrice: 0,
+          totalSalePrice: 0,
+          totalAmount: 0,
+        }
+
+        localStorage.setItem('cartItem', JSON.stringify(initCart))
+        setEmptyCart(true)
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+  }
+
+  const [cartCountDown, setCartCountDown] = useState(15)
+
+  useEffect(() => {
+    getMemberOrder()
+    setTimeout(() => {
+      navigate('/')
+    }, 15000)
+  }, [])
+
+  useEffect(() => {
+    if (cartCountDown > 1) {
+      const myInterval = setInterval(() => {
+        setCartCountDown(cartCountDown - 1)
+      }, 1000)
+    } else {
+      setCartCountDown(0)
+    }
+    return
+  }, [cartCountDown])
+
   return (
     <>
       <div className="y-CartDone-container">
         <div className="y-Cart-nav">
-          <NavBar />
+          <CartNavBar />
           <div className="y-Cart-wave-base"></div>
           <YellowWave />
         </div>
@@ -69,50 +118,53 @@ function CartDone() {
           </div>
         </div>
         <div className="y-Cart-middle">
-          <div className="y-Cart-pickup-way y-Cart-sections">
-            <p className="y-Cart-tab y-Cart-details-tab">取餐方式</p>
-            <div className="y-Cart-details-top">
-              <p className="y-Cart-details-name y-Cart-details-header">
-                商品名稱
-              </p>
-              <p className="y-Cart-details-price y-Cart-details-header">
-                優惠價
-              </p>
-              <p className="y-Cart-details-quantity y-Cart-details-header">
-                數量
-              </p>
-              <p className="y-Cart-details-unit y-Cart-details-header">小計</p>
-              <p className="y-Cart-details-actions y-Cart-details-header">
-                更多動作
+          <div className="y-Cart-done-body">
+            <div className="y-Cart-done-top">
+              <p className="y-Cart-done-header">
+                謝謝您的購買，以下是這次的訂購資訊
               </p>
             </div>
-            <div className="y-Cart-details-area"></div>
-            <div className="y-Cart-details-bottom">
-              <p className="y-Cart-details-total">
-                共 1 項商品，數量 1 個，總金額NT$ 537 元
-              </p>
-              <div className="y-Cart-details-btns">
-                <div className="y-continue-shopping-wrap">
-                  <ContinueShoppingBtn />
-                </div>
-                <div className="y-cart-pay-wrap">
-                  <GoPayBtn />
-                </div>
-              </div>
+            <div className="y-Cart-done-middle">
+              <ul className="y-Cart-done-order">
+                <li className="y-Cart-member-order y-Cart-member-left">
+                  訂購人：
+                </li>
+                <li className="y-Cart-member-order y-Cart-member-right">
+                  member name
+                </li>
+                <li className="y-Cart-member-order y-Cart-member-left">
+                  訂購店家：
+                </li>
+                <li className="y-Cart-member-order y-Cart-member-right">
+                  shop name
+                </li>
+                <li className="y-Cart-member-order y-Cart-member-left">
+                  訂單成立時間：
+                </li>
+                <li className="y-Cart-member-order y-Cart-member-right">
+                  shop pickup
+                </li>
+                <li className="y-Cart-member-order y-Cart-member-left">
+                  訂單總額
+                </li>
+                <li className="y-Cart-member-order y-Cart-member-right">
+                  shop address
+                </li>
+              </ul>
             </div>
-          </div>
-          <div className="y-Cart-rec  y-Cart-sections">
-            <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
-            <div className="y-Cart-rec-top"></div>
-            <div className="y-Cart-rec-bottom">
-              <div className="y-Cart-rec-row"></div>
+            <div className="y-Cart-done-bottom">
+              <p className="y-Cart-done-time">
+                將在<span>{cartCountDown}</span>秒後自動導回首頁...
+              </p>
             </div>
           </div>
         </div>
         <div className="y-Cart-bottom">
-          <YellowWaveReverse />
-          <div className="y-Cart-rec">rec</div>
-          <div className="y-Cart-news">news</div>
+          <div className="y-Cart-bottom-wave">
+            <YellowWaveLight />
+            <NewsCrawl />
+          </div>
+          <div className="y-Cart-news"></div>
           <div className="y-cart-footer">
             <Footer />
           </div>

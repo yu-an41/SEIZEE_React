@@ -30,7 +30,7 @@ $border-radius-button: 8px;
 
 .y-top-carousel-container{
     border: $border-lg;
-    overflow: hidden;
+    // overflow: hidden;
     .slick-prev,
     .slick-next
     {
@@ -59,51 +59,44 @@ $border-radius-button: 8px;
 
     .y-top-carousel-banner {
         overflow: hidden;
-        
+        width: 1024px;
+        height: 680px;
         font-size: 0;
         img {
             width: 100%;
             object-fit: cover;
+            // display: block;
             // object-position: 50% 50%;
+        }
+    }
+    .y-carousel-cover {
+        // overflow: hidden;
+        width: 100%;
+        // vertical-align: top;
+        img {
+            object-fit: cover;
+            width: auto;
+            object-position: 50% 50%;
+            // display: block;
         }
     }
 }
 
-@media (min-width: 391px) {
+@media (max-width: 390px) {
     .y-top-carousel-container {
-        border: 5px solid $main-blue;
-        border-radius: $border-radius-card;
-        // overflow: hidden;
-
-        .slick-prev,
-        .slick-next
-        {
-            // font-size: 0;
-            // line-height: 0;
-
-            // position: absolute;
-            // top: 50%;
-
-            // display: block;
-
-            // width: 20px;
-            // height: 20px;
-            // padding: 0;
-            // -webkit-transform: translate(0, -50%);
-            // -ms-transform: translate(0, -50%);
-            // transform: translate(0, -50%);
-
-            // cursor: pointer;
-
-            // color: transparent;
-            // border: none;
-            // outline: none;
-            // background: transparent;
-        }
         
         .y-top-carousel-banner {
+            // width: 100%;
+            height: 500px;
             img {
-
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .y-carousel-cover {
+            img {
+                width: 100%;
+                height: 100%;
             }
         }
     }

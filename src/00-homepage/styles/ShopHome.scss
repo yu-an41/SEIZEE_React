@@ -8,10 +8,10 @@ $title-text: rgb(190, 174, 146);
 .r-shop-home-container {
   background: url(./../../../public/03-shop-img/food_cola_s_01.png) 300px 50px/8%
       no-repeat,
-    url(./../../../public/03-shop-img/food_ramen_01.png) 1550px 150px/8%
+    url(./../../../public/03-shop-img/food_ramen_01.png) 1450px 280px/10%
       no-repeat,
-    url(./../../../public/03-shop-img/food_pizza_01.png) 800px 30px/7% no-repeat,
-    url(./../../../public/03-shop-img/food_french_fries_01.png) 150px 180px/7%
+    url(./../../../public/03-shop-img/food_pizza_01.png) 920px 30px/7% no-repeat,
+    url(./../../../public/03-shop-img/food_french_fries_01.png) 150px 250px/7%
       no-repeat;
 
   .r-shop-home-main {
@@ -20,7 +20,7 @@ $title-text: rgb(190, 174, 146);
       display: flex;
       align-items: center;
       .r-shop-home-main-text {
-        width: 45%;
+        width: 50%;
         margin-left: auto;
         .r-shop-home-main-text-p {
           font-size: 48px;
@@ -33,43 +33,42 @@ $title-text: rgb(190, 174, 146);
         .r-shop-home-main-text-span {
           font-size: 24px;
           font-weight: 700;
-          letter-spacing: 0.2rem;
+          letter-spacing: 0.3rem;
           color: $main-text;
+          line-height: 36px;
+          margin-bottom: 40px;
         }
-        .r-shop-home-main-text-button {
-          display: inline-block;
-          text-align: center;
-          font-size: 30px;
-          font-weight: 700;
-          line-height: 60px;
-          letter-spacing: .2rem;
-          width: 60px;
+        .r-shop-home-main-text-btn-gachspon {
+          margin-right: 30px;
           color: #fff;
-          background-color: $main-orange;
-          border-radius: 50%;
-          margin-left: 30px;
-          outline: 1px solid $main-orange;
+          font-size: 24px;
+          line-height: 28px;
+          font-weight: 700;
+          background: $main-orange;
+          border-radius: 30px;
+          padding: 10px 40px;
+          letter-spacing: 0.3rem;
+          outline: 2px solid $main-orange;
           outline-offset: 3px;
-          transition: .5s;
-          animation: 3s go-btn-shop infinite;
         }
-        @keyframes go-btn-shop {
-          0%{
-            transform: scale(1);
-          }
-          50%{
-            transform: scale(1.5);
-          }
-          100%{
-            transform: scale(1);
-          }
+        .r-shop-home-main-text-btn-cate {
+          color: #fff;
+          font-size: 24px;
+          line-height: 28px;
+          font-weight: 700;
+          background: $main-orange;
+          border-radius: 30px;
+          padding: 10px 40px;
+          letter-spacing: 0.3rem;
+          outline: 2px solid $main-orange;
+          outline-offset: 3px;
         }
       }
     }
     .r-shop-home-main-visual {
-      width: 60%;
-      height: 40vh;
-      background: url('./../../../public/03-shop-img/potato.png') 20% center/50%
+      width: 50%;
+      height: 50vh;
+      background: url('./../../../public/03-shop-img/potato.png') 10% center/50%
         no-repeat;
       margin-top: 50px;
     }
@@ -209,13 +208,11 @@ $title-text: rgb(190, 174, 146);
           bottom: -40px;
           display: flex;
           flex-direction: column;
-          // justify-content: flex-start;
           align-items: center;
           z-index: 10;
           backdrop-filter: blur(15px);
           box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.2);
-          // transition: 0.5s;
           .r-shop-slider-content-p {
             font-size: 30px;
             font-weight: 700;
@@ -223,7 +220,6 @@ $title-text: rgb(190, 174, 146);
             line-height: 4rem;
           }
           .r-shop-slider-content-cate {
-            // padding-top: 5px;
             .r-shop-slider-content-span {
               display: inline;
               font-size: 20px;
@@ -234,82 +230,83 @@ $title-text: rgb(190, 174, 146);
           }
         }
       }
-      // .r-shop-slider-img-wrap:hover {
-      //   .r-shop-slider-content {
-      //     bottom: -40px;
-      //   }
-      // }
     }
 
     .r-shop-slider-traintop::-webkit-scrollbar-track {
-      // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-      // border-radius: 10px;
       background-color: $main-yellow;
     }
 
     .r-shop-slider-traintop::-webkit-scrollbar {
       width: 12px;
       height: 20px;
-      
-      // background-color: #f5f5f5;
     }
 
     .r-shop-slider-traintop::-webkit-scrollbar-thumb {
       border-radius: 10px;
-      // cursor: pointer;
-      // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
       background-color: #fea920;
     }
   }
 }
-@media (max-width: 390px){
-  .r-shop-home-container{
-    background:none;
-    .r-shop-home-main{
+@media (max-width: 390px) {
+  .r-shop-home-container {
+    background: none;
+    .r-shop-home-main {
       flex-direction: column-reverse;
-      .r-shop-home-main-inner{
+      .r-shop-home-main-inner {
         display: block;
-        .r-shop-home-main-text{
+        .r-shop-home-main-text {
           width: 100%;
           margin-left: 0;
           text-align: center;
-          .r-shop-home-main-text-p{
+          .r-shop-home-main-text-p {
             font-size: 24px;
             line-height: 36px;
             padding-top: 20px;
           }
-          .r-shop-home-main-text-span{
+          .r-shop-home-main-text-span {
             font-size: 12px;
           }
-          .r-shop-home-main-text-button{
-            font-size: 15px;
-            line-height: 30px;
-            width: 30px;
+          .r-shop-home-main-text-btn-gachspon {
+            font-size: 14px;
+            line-height: 18px;
+            padding: 5px 20px;
+          }
+          .r-shop-home-main-text-btn-cate {
+            font-size: 14px;
+            line-height: 18px;
+            padding: 5px 20px;
           }
         }
       }
-      .r-shop-home-main-visual{
+      .r-shop-home-main-visual {
         width: 100%;
-        background: url('./../../../public/03-shop-img/potato.png') 100% /cover
-        no-repeat;
+        background: url('./../../../public/03-shop-img/potato.png') 100% / cover
+          no-repeat;
         margin-top: 0;
       }
     }
   }
-  .r-shop-home-carousel{
-    .r-shop-home-carousel-title{
+  .r-shop-home-carousel {
+    .r-shop-home-carousel-title {
       padding: 40px;
-      .r-shop-home-carousel-h2{
+      .r-shop-home-carousel-h2 {
         font-size: 25px;
-      line-height: 25px;
+        line-height: 25px;
       }
     }
-    .r-shop-home-carousel-check{
+    .r-shop-home-carousel-check {
       display: block;
       text-align: center;
-      .r-shop-home-carousel-check-span{
+      .r-shop-home-carousel-check-span {
         margin-right: 0;
         margin-bottom: 10px;
+      }
+    }
+    .r-shop-slider {
+      .r-shop-home-slider-inner1 {
+        .r-shop-home-slider-inner1-span {
+          font-size: 20px;
+        }
       }
     }
   }

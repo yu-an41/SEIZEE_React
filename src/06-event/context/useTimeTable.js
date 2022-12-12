@@ -1,10 +1,51 @@
 import React, { useState, useContext, createContext } from 'react'
 
+import axios from 'axios'
 const TimeTableContext = createContext(null)
 
 export const TimeTableProvider = ({ children }) => {
   // 1~5
   const [whichHover, setWhichHover] = useState(0)
+
+  const [jlactive, setJlactive] = useState(1)
+
+  const [origins, setOrigins] = useState([])
+  const [likes, setLikes] = useState({})
+
+  const getEventData = async () => {
+    try {
+      const res = await axios.post('http://localhost:3004/event/event-test', {
+        memberSid: 1,
+      })
+      const origin_rows = res.data
+      setOrigins(origin_rows)
+      const timeTable = JSON.parse(localStorage.getItem('timetable'))
+      setTimeTable(timeTable)
+      // console.log('timetable', )
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  const getEventLikes = async () => {
+    try {
+      const res = await axios.post(
+        'http://localhost:3004/event/all_event_likes',
+        {
+          memberSid: 1,
+        }
+      )
+      const likesData = res.data
+      const prevLikes = {}
+      for (let i of likesData) {
+        prevLikes[i.event_sid] = 1
+      }
+      setLikes(prevLikes)
+      console.log('preeeevliikes', { prevLikes })
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
   const [timeTable, setTimeTable] = useState([
     { time: '12:00-13:00', sid: 0, name: '', color: '', cate: 0 },
@@ -26,6 +67,7 @@ export const TimeTableProvider = ({ children }) => {
     })
 
     setTimeTable(newTimeTable)
+    localStorage.setItem('timetable', JSON.stringify(newTimeTable))
   }
 
   const handleAddTimeTable = (item) => {
@@ -54,6 +96,7 @@ export const TimeTableProvider = ({ children }) => {
     console.log(timeTable)
 
     setTimeTable(newTimeTable)
+    localStorage.setItem('timetable', JSON.stringify(newTimeTable))
   }
 
   return (
@@ -64,6 +107,15 @@ export const TimeTableProvider = ({ children }) => {
         removeTimeTable,
         setWhichHover,
         whichHover,
+        setTimeTable,
+        getEventData,
+        getEventLikes,
+        origins,
+        setOrigins,
+        likes,
+        setLikes,
+        jlactive,
+        setJlactive,
       }}
     >
       {children}

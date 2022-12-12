@@ -1,8 +1,8 @@
 import './style/UserSign.scss'
-import { Link, useNavigate } from 'react-router-dom'
-import React, { useState, useContext } from 'react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+import React, { useState, useContext, useEffect, useRef } from 'react'
 import axios from 'axios'
-import { LOGIN, REGISTER, CHECK_USER } from '../my-config'
+import { LOGIN, REGISTER, CHECK_USER, GOOGLE_LINK } from '../my-config'
 import {
   checkEmpty,
   checkAccount,
@@ -11,10 +11,13 @@ import {
 } from './data/UserSign_valid'
 import AuthContext from '../contexts/AuthContext'
 import ModalNotification from '../components/ModalNotification'
+import LogoBluePink from './../logo-and-fonts/LOGO-blue-pink.svg'
+import LogoWhite from './../logo-and-fonts/LOGO-white.svg'
 
 function UserSign() {
   const { setMyAuth } = useContext(AuthContext)
   const navigate = useNavigate()
+  const location = useLocation()
 
   const [signInIndex, setSignInIndex] = useState(1)
 
@@ -24,15 +27,15 @@ function UserSign() {
     mblPass: '',
   })
   const [signUpFD, setSignUpFD] = useState({
-    mbuName: '',
-    mbuEmail: '',
+    mbrName: '',
+    mbrEmail: '',
     mbrPass: '',
     mbrPassConfirm: '',
-    mbuGender: '',
-    mbuAddressCity: '',
-    mbuAddressArea: '',
-    mbuAddressDetail: '',
-    mbuPhone: '',
+    mbrGender: '',
+    mbrAddressCity: '',
+    mbrAddressArea: '',
+    mbrAddressDetail: '',
+    mbrPhone: '',
   })
 
   // 註冊errorMg
@@ -50,6 +53,25 @@ function UserSign() {
   const [isOpen, setIsOpen] = useState(false)
   const [headerMg, setHeaderMg] = useState('')
   const [bodyMg, setBodyMg] = useState('')
+
+  // Google Link
+  // const [GoogleState, setGoogleState] = useState('')
+
+  // ====================================
+  // 拿到Google登入連結
+  // async function getGoogle() {
+  //   const { data } = await axios.get(GOOGLE_LINK)
+  //   console.log('data', data)
+  //   console.log('data.title', data.title)
+
+  //   setGoogleState(data.title)
+  // }
+
+  // console.log('GoogleState', GoogleState)
+
+  // useEffect(() => {
+  //   getGoogle()
+  // }, [])
 
   // ====================================
   // 註冊登入畫面切換
@@ -220,6 +242,19 @@ function UserSign() {
       <div
         className={signInIndex === 1 ? 's-body-signup' : 's-body-signup s-move'}
       >
+        {signInIndex === 1 ? (
+          <div className="s-svg-wrap">
+            <a href="/" alt="homepage of SEIZEE">
+              <img src={LogoBluePink} alt="SEIZEE_logo" />
+            </a>
+          </div>
+        ) : (
+          <div className="s-svg-wrap">
+            <a href="/" alt="homepage of SEIZEE">
+              <img src={LogoWhite} alt="SEIZEE_logo" />
+            </a>
+          </div>
+        )}
         <div className="s-login-container">
           <div className="s-login-blueBg">
             <div className="s-login-box s-login-signin">
@@ -246,14 +281,52 @@ function UserSign() {
                 action=""
                 onSubmit={signInSubmit}
               >
-                <div className="s-login-h2">歡迎回來</div>
-                <h3 className="s-login-main-h3">我們很高興又見到您了!</h3>
+                <div
+                  className="s-login-h2"
+                  onClick={() => {
+                    // document.getElementById('mblEmail').value =
+                    //   'seizee1214000@gmail.com'
+                    // document.getElementById('mblPass').value = 'De123456'
+
+                    // const id = e.currentTarget.id
+                    // const val = e.currentTarget.value
+                    // console.log({ id, val })
+
+                    setSignInFD({
+                      ...signInFD,
+                      mblEmail: 'seizee1214000@gmail.com',
+                      mblPass: 'De123456',
+                    })
+                  }}
+                >
+                  歡迎回來
+                </div>
+                <h3
+                  className="s-login-main-h3"
+                  onClick={() => {
+                    // document.getElementById('mblEmail').value = 'demo1@demo.com'
+                    // document.getElementById('mblPass').value = 'De123456'
+
+                    // const id = e.currentTarget.id
+                    // const val = e.currentTarget.value
+                    // console.log({ id, val })
+
+                    setSignInFD({
+                      ...signInFD,
+                      mblEmail: 'demo1@demo.com',
+                      mblPass: 'De123456',
+                    })
+                  }}
+                >
+                  我們很高興又見到您了!
+                </h3>
                 <label className="s-login-label" htmlFor="mblEmail">
                   電子郵件<span style={{ color: 'red' }}> *</span>
                 </label>
                 <input
                   type="text"
                   placeholder="請輸入電子郵件"
+                  value={signInFD.mblEmail}
                   id="mblEmail"
                   onChange={signInHandler}
                   className="s-login-input-general"
@@ -270,6 +343,7 @@ function UserSign() {
                   <input
                     type={showSignInP ? 'text' : 'password'}
                     placeholder="請輸入密碼"
+                    value={signInFD.mblPass}
                     id="mblPass"
                     onChange={signInHandler}
                     className="s-login-input"
@@ -298,19 +372,19 @@ function UserSign() {
                   value="登入"
                   className="s-login-input-btn s-login-submit s-signinSubmit"
                 />
-                <div className="s-login-gmailBtn">
-                  <img
-                    className="s-login-gmail"
-                    src="/05-member/mail.png"
-                    alt=""
-                  />
-                  <input
-                    type="submit"
-                    value="以Google帳號登入"
-                    className="s-login-input-general s-login-submit s-login-googleSubmit"
-                  />
-                </div>
               </form>
+              {/* <a className="s-login-gmailBtn" href={GoogleState}>
+                <img
+                  className="s-login-gmail"
+                  src="/05-member/mail.png"
+                  alt=""
+                />
+                <input
+                  type="submit"
+                  value="以Google帳號登入"
+                  className="s-login-input-general s-login-submit s-login-googleSubmit"
+                />
+              </a> */}
             </div>
             <div className="s-login-form s-login-signupForm">
               <form
@@ -318,7 +392,34 @@ function UserSign() {
                 className="s-login-formDetails"
                 onSubmit={signUpSubmit}
               >
-                <h2 className="s-login-h2">建立新帳號</h2>
+                <h2
+                  className="s-login-h2"
+                  onClick={() => {
+                    // document.getElementById('mbrEmail').value = 'demo1@demo.com'
+                    // document.getElementById('mbrName').value = '飛天小女警'
+                    // document.getElementById('mbrPass').value = 'De123456'
+                    // document.getElementById('mbrPassConfirm').value = 'De123456'
+
+                    // const id = e.currentTarget.id
+                    // const val = e.currentTarget.value
+                    // console.log({ id, val })
+
+                    setSignUpFD({
+                      ...signUpFD,
+                      mbrEmail: 'demo1@demo.com',
+                      mbrName: '飛天小女警',
+                      mbrPass: 'De123456',
+                      mbrPassConfirm: 'De123456',
+                    })
+
+                    setErrorMgE('')
+                    setErrorMgN('')
+                    setErrorMgP1('')
+                    setErrorMgP2('')
+                  }}
+                >
+                  建立新帳號
+                </h2>
                 <label htmlFor="mbrEmail" className="s-login-label">
                   電子郵件<span style={{ color: 'red' }}> *</span>
                 </label>
@@ -326,6 +427,7 @@ function UserSign() {
                   type="text"
                   placeholder="請輸入電子郵件"
                   id="mbrEmail"
+                  value={signUpFD.mbrEmail}
                   onChange={signUpHandler}
                   onBlur={checkEmail}
                   className="s-login-input-general"
@@ -344,6 +446,7 @@ function UserSign() {
                   type="text"
                   placeholder="請輸入使用者名稱"
                   id="mbrName"
+                  value={signUpFD.mbrName}
                   onChange={signUpHandler}
                   onBlur={checkName}
                   className="s-login-input-general"
@@ -363,6 +466,7 @@ function UserSign() {
                     type={showSignInP1 ? 'text' : 'password'}
                     placeholder="請設定8位英(大小寫)數混合密碼"
                     id="mbrPass"
+                    value={signUpFD.mbrPass}
                     onChange={signUpHandler}
                     onBlur={checkPass1}
                     className="s-login-input"
@@ -393,6 +497,7 @@ function UserSign() {
                     type={showSignInP2 ? 'text' : 'password'}
                     placeholder="請再輸入一次密碼"
                     id="mbrPassConfirm"
+                    value={signUpFD.mbrPassConfirm}
                     onChange={signUpHandler}
                     onBlur={checkPass2}
                     className="s-login-input"

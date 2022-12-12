@@ -2,8 +2,7 @@ import { imgUrl, imgServerUrl } from '../../03-shop/shop-config'
 import { Link } from 'react-router-dom'
 
 function ShopHcard({ shops, selResultShop, statusShop }) {
-  // console.log(selResultShop)
-  // console.log(statusShop)
+
   return (
     <>
       {statusShop ? (

@@ -23,7 +23,6 @@ $card-btn: #80b938;
       transition: 1s;
       height: 230px;
       .r-m-card-img {
-        // width: 130px;
         padding: 10px;
         text-align: center;
         display: flex;
@@ -70,7 +69,7 @@ $card-btn: #80b938;
           letter-spacing: 0.2rem;
         }
         .r-m-card-body-p {
-          font-size: 14px;
+          font-size: 16px;
           padding-bottom: 5px;
           color: $main-text;
           letter-spacing: 0.2rem;
@@ -171,37 +170,16 @@ $card-btn: #80b938;
         }
       }
     }
-    // .r-m-card-container:hover {
-    //   background-color: $main-Blue;
-    //   box-shadow: 10px 10px 5px gray;
-
-    //   h2 {
-    //     color: #fff;
-    //     text-shadow: none;
-    //   }
-    //   p {
-    //     color: #fff;
-    //   }
-    //   span {
-    //     color: #fff;
-    //   }
-    // }
   }
-}
-.r-m-card-wrap::-webkit-scrollbar-track {
-  // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  // border-radius: 10px;
-  // background-color: #F5F5F5;
 }
 
 .r-m-card-wrap::-webkit-scrollbar {
   width: 12px;
   height: 8px;
-  // background-color: #F5F5F5;
+
 }
 
 .r-m-card-wrap::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: rgb(182, 182, 182);
 }

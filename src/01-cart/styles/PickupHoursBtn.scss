@@ -29,9 +29,13 @@ $border-radius-button: 8px;
 }
 .y-pickup-status-border {
     border-radius: $border-radius-button;
-    border: $border-sm;
+    // border: $border-sm;
     background-color: $btn-green;
-    padding: 2px 20px;
+    width: 100px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .y-pickup-status {
         color: #fff;
@@ -45,11 +49,11 @@ $border-radius-button: 8px;
     .y-pickup-status-border {
         border-radius: $border-radius-card;
         border: $border-lg;
-        background-color: $btn-green;
-        padding: 5px 35px;
+        width: 135px;
+        height: 40px;
+
     
         .y-pickup-status {
-            color: #fff;
             font-size: 20px;
         }
     }

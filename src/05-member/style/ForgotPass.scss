@@ -9,6 +9,24 @@ $s-main-b: #113f75;
   min-height: 100vh;
   background: $s-bgcYellow center center no-repeat;
   background-size: cover;
+  position: relative;
+
+  .s-forgot-svg-wrap {
+    width: 250px;
+    height: 60px;
+    position: absolute;
+    top: 15px;
+    left: 40px;
+
+    // display: block;
+  }
+
+  @media (max-width: 991px) {
+    .s-forgot-svg-wrap {
+      width: 110px;
+      top: 10px;
+    }
+  }
 
   .s-fp-container {
     position: relative;

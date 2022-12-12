@@ -29,6 +29,7 @@ $border-radius-button: 8px;
     width: 100%;
     max-width: 390px;
     display: flex;
+    align-items: center;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -36,7 +37,7 @@ $border-radius-button: 8px;
     animation: newscrawl 15s linear infinite;
 
     .y-news-list-wrap {
-        height: 24px;
+        height: 16px;
         display: flex;
         // border-top: $border-sm;
         // border-bottom: $border-sm;
