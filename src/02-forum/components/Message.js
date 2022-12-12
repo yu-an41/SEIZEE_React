@@ -64,6 +64,9 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
       // alert('留言成功')
       //直接顯示留言無用重刷頁面
       setDoRerender(!doRerender)
+      let eddie = document.getElementById('eddie')
+      console.log(eddie.value)
+      setMessContent({ ...messContent, content: '' })
     }
   }
   // const [forumMember, setForumMember] = useState(0)
@@ -92,6 +95,7 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
               type="text"
               name="sendMessage"
               placeholder="輸入留言"
+              id="eddie"
               value={messContent.content}
               onChange={(e) =>
                 setMessContent({ ...messContent, content: e.target.value })
