@@ -89,29 +89,32 @@ export const TimeTableProvider = ({ children }) => {
 
   const handleAddTimeTable = (item) => {
     console.log(item)
+    // const newTimeTable =
+    //   timeTable && timeTable.length
+    //     ? timeTable.map((v) => {
+    //         return { ...v }
+    //       })
+    //     : {}
+    // console.log(newTimeTable)
+    const foundIndex = timeTable.findIndex((v, i) => {
+      return v.time === item.time
+    })
+    // console.log('foundindexxxxx ' + foundIndex)
     const newTimeTable =
       timeTable && timeTable.length
-        ? timeTable.map((v) => {
+        ? timeTable.map((v, i) => {
+            if (i === foundIndex)
+              return {
+                ...v,
+                sid: item.sid,
+                name: item.name,
+                color: item.color,
+                cate: item.cate,
+              }
             return { ...v }
           })
-        : {}
-    // console.log(newTimeTable)
-    // const foundIndex = timeTable.findIndex((v, i) => {
-    //   return v.time === item.time
-    // })
-    // console.log('foundindexxxxx ' + foundIndex)
-    // const newTimeTable = timeTable.map((v, i) => {
-    //   if (i === foundIndex)
-    //     return {
-    //       ...v,
-    //       sid: item.sid,
-    //       name: item.name,
-    //       color: item.color,
-    //       cate: item.cate,
-    //     }
-    //   return { ...v }
-    // })
-    // console.log(timeTable)
+        : { ...timeTable }
+    console.log(newTimeTable)
     // setTimeTable(newTimeTable)
     // localStorage.setItem('timetable', JSON.stringify(newTimeTable))
   }
