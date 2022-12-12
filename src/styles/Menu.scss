@@ -228,7 +228,6 @@ p, a {
                     .y-menu-section-icon {
                             width: 36px;
                             height: 36px;
-
                             img {
                                 width: 100%;
                                 object-fit: cover;
@@ -240,6 +239,7 @@ p, a {
                 }
 
                 .y-menu-section-links {
+                    display: none;
                     li {
                         a:hover {
                             
@@ -366,7 +366,7 @@ p, a {
 
                     .y-menu-section-links {
                         margin-left: 60px;
-
+                        display: block;
                         li {
                             font-size: 24px;
                             font-weight: bold;

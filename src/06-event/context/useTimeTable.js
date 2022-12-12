@@ -79,7 +79,7 @@ export const TimeTableProvider = ({ children }) => {
       return v.time === item.time
     })
 
-    console.log('foundindexxxxx ' + foundIndex)
+    // console.log('foundindexxxxx ' + foundIndex)
 
     const newTimeTable = timeTable.map((v, i) => {
       if (i === foundIndex)
@@ -95,7 +95,7 @@ export const TimeTableProvider = ({ children }) => {
 
     console.log(timeTable)
 
-    setTimeTable(newTimeTable)
+    // setTimeTable(newTimeTable)
     localStorage.setItem('timetable', JSON.stringify(newTimeTable))
   }
 

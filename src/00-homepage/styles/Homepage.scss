@@ -107,6 +107,30 @@ $main-border-radius: 8px;
     background-color: $main-yellow;
     padding: 30px;
     padding-top: 70px;
+    
+    .r-section-carousel-article{
+      position: absolute;
+      z-index: 2;
+      background-color: #114075d3;
+      padding: 5px;
+      left: 10px;
+      top: 90px;
+      .r-section-carousel-article-p1{
+        color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: .2rem;
+      }
+      .r-section-carousel-article-p2{
+        color: #fbfbf2;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 22px;
+        padding-left: 30px;
+        letter-spacing: .2rem;
+      }
+    }
 
     .y-carousel-wrap {
       // .y-carousel-block-yellow {
@@ -575,6 +599,29 @@ $main-border-radius: 8px;
       height: 960px;
       overflow: hidden;
       position: relative;
+      .r-section-carousel-article{
+        position: absolute;
+        z-index: 2;
+        background-color:transparent;
+        padding: 0;
+        left: 100px;
+        top: 200px;
+        .r-section-carousel-article-p1{
+          color: #f57d00;
+          font-weight: 700;
+          font-size: 80px;
+          line-height: 100px;
+          letter-spacing: .1rem;
+        }
+        .r-section-carousel-article-p2{
+          color: #fff;
+          font-weight: 700;
+          font-size: 80px;
+          line-height: 100px;
+          padding-left: 100px;
+          letter-spacing: .1rem;
+        }
+      }
       .y-carousel-wrap {
         padding-top: 90px;
         margin: 0 auto;

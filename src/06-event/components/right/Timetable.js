@@ -13,6 +13,7 @@ import AuthContext from '../../../contexts/AuthContext'
 
 function Timetable() {
   const { timeTable, removeTimeTable, setWhichHover } = useTimeTable()
+  console.log(timeTable);
   const {myAuth} = useContext(AuthContext)
   let mid
   if(myAuth.authorised) {
