@@ -12,17 +12,14 @@ import { useNavigate } from 'react-router-dom'
 import AuthContext from '../../../contexts/AuthContext'
 
 function Timetable() {
-  const { removeTimeTable, setWhichHover, getEventData } = useTimeTable()
-  const [timeTable, setTimeTable] = useState([
-    { time: '12:00-13:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '13:00-14:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '14:00-15:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '15:00-16:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '16:00-17:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '17:00-18:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '18:00-19:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '19:00-20:00', sid: 0, name: '', color: '', cate: 0 },
-  ])
+  const {
+    timeTable,
+    setTimeTable,
+    removeTimeTable,
+    setWhichHover,
+    getEventData,
+  } = useTimeTable()
+  console.log(timeTable)
   const { myAuth } = useContext(AuthContext)
   let mid
   if (myAuth.authorised) {

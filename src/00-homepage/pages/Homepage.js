@@ -50,13 +50,17 @@ function Homepage() {
             </div>
           </section>
           <section className="y-section y-section-carousel">
+            <div className="r-section-carousel-article">
+              <p className="r-section-carousel-article-p1">WASTE LESS</p>
+              <p className="r-section-carousel-article-p2">SAVE MORE</p>
+            </div>
             <div className="y-carousel-wrap">
               <TopCarousel />
             </div>
             <div className="y-carousel-block-blue">
               <div className="y-block-bg">
-                <p className="y-block-text1">改變剩食，</p>
-                <p className="y-block-text2">由我開始。</p>
+                <p className="y-block-text1">開啟一段，</p>
+                <p className="y-block-text2">惜食的旅程。</p>
               </div>
             </div>
           </section>

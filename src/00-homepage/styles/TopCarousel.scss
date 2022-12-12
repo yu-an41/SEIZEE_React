@@ -66,16 +66,29 @@ $border-radius-button: 8px;
             width: 100%;
             object-fit: cover;
             // display: block;
-            // object-position: 50% 50%;
+            object-position: 50% 50%;
         }
     }
-    .y-carousel-cover {
+    .y-carousel-cover1 {
         // overflow: hidden;
-        width: 100%;
+       
         // vertical-align: top;
         img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            width: auto;
+            object-position: 50% 50%;
+            // display: block;
+        }
+    }
+    .y-carousel-cover2 {
+        // overflow: hidden;
+       
+        // vertical-align: top;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             object-position: 50% 50%;
             // display: block;
         }
