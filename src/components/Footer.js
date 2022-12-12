@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -124,34 +125,29 @@ function Footer() {
                 <div className="y-footer-section-icon">
                   <img src={EventIcon} alt="icon" />
                 </div>
-                <a to="/Eventrender" alt="event_link">
+                <a to="/event/" alt="event_link">
                   找點樂子
                 </a>
               </div>
               <ul className="y-footer-section-links y-event-links">
-                <li>
-                  <a to="/#" alt="event_link">
-                    工作坊
+              <li>
+                  <a href="/#" alt="event_link">
+                    活動一覽
                   </a>
                 </li>
                 <li>
-                  <a to="/#" alt="event_link">
+                  <a href="schedule" alt="event_link">
                     音樂
                   </a>
                 </li>
                 <li>
-                  <a to="/#" alt="event_link">
-                    講座
+                  <a href="map" alt="event_link">
+                    地圖
                   </a>
                 </li>
                 <li>
-                  <a to="/#" alt="event_link">
-                    VR體驗
-                  </a>
-                </li>
-                <li>
-                  <a to="/#" alt="event_link">
-                    劇場
+                  <a href="ticket" alt="event_link">
+                    我的票券
                   </a>
                 </li>
               </ul>

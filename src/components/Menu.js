@@ -152,34 +152,29 @@ function Menu() {
                 <div className="y-menu-section-icon">
                   <img src={EventIcon} alt="icon" />
                 </div>
-                <Link to={`/event`} alt="event_link">
+                <Link to={`/event/`} alt="event_link">
                   找點樂子
                 </Link>
               </div>
               <ul className="y-menu-section-links y-event-links">
                 <li>
-                  <a href="/#" alt="event_link">
-                    工作坊
+                  <a href="/event/" alt="event_link">
+                    活動一覽
                   </a>
                 </li>
                 <li>
-                  <a href="/#" alt="event_link">
+                  <a href="schedule" alt="event_link">
                     音樂
                   </a>
                 </li>
                 <li>
-                  <a href="/#" alt="event_link">
-                    講座
+                  <a href="map" alt="event_link">
+                    地圖
                   </a>
                 </li>
                 <li>
-                  <a href="/#" alt="event_link">
-                    VR體驗
-                  </a>
-                </li>
-                <li>
-                  <a href="/#" alt="event_link">
-                    劇場
+                  <a href="ticket" alt="event_link">
+                    我的票券
                   </a>
                 </li>
               </ul>
