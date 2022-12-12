@@ -111,16 +111,36 @@ $main-border-radius: 8px;
     .y-carousel-wrap {
       // .y-carousel-block-yellow {
       // }
-      .y-carousel-block-blue {
+    }
+    .y-carousel-block-blue {
+      // position: absolute;
+      // width: 200px;
+      // height: 100px;
+      // right: 0;
+      // bottom: 0;
+      // background-color: $main-blue;
 
-        .y-block-bg {
-
-          .y-block-text1 {
-            
-          }
-          .y-block-text2{
-
-          }
+      .y-block-bg {
+        padding-top: 10px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .y-block-text1 {
+          color: white;
+          font-weight: bold;
+          font-size: 16px;
+          letter-spacing: 2px;
+        }
+        .y-block-text2 {
+          color: white;
+          font-weight: bold;
+          font-size: 16px;
+          letter-spacing: 2px;
+          margin-top: 0;
+          padding-left: 100px;
         }
       }
     }
