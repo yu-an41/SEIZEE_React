@@ -163,17 +163,17 @@ function Menu() {
                   </a>
                 </li>
                 <li>
-                  <a href="schedule" alt="event_link">
+                  <a href="/event/schedule" alt="event_link">
                     音樂
                   </a>
                 </li>
                 <li>
-                  <a href="map" alt="event_link">
+                  <a href="/event/map" alt="event_link">
                     地圖
                   </a>
                 </li>
                 <li>
-                  <a href="ticket" alt="event_link">
+                  <a href="/event/ticket" alt="event_link">
                     我的票券
                   </a>
                 </li>

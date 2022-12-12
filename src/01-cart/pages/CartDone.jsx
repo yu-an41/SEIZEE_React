@@ -28,6 +28,7 @@ function CartDone() {
 
   const {
     cartItem,
+    setCartItem,
     handleEmptyCart,
     checkCartEmpty,
     emptyCart,
@@ -58,7 +59,7 @@ function CartDone() {
           totalSalePrice: 0,
           totalAmount: 0,
         }
-
+        setCartItem(initCart)
         localStorage.setItem('cartItem', JSON.stringify(initCart))
       } catch (error) {
         console.log(error.message)
@@ -70,9 +71,9 @@ function CartDone() {
 
   useEffect(() => {
     getMemberOrder()
-    // setTimeout(() => {
-    //   navigate('/')
-    // }, 15000)
+    setTimeout(() => {
+      navigate('/')
+    }, 15000)
   }, [])
 
   useEffect(() => {
