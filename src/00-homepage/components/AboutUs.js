@@ -25,7 +25,7 @@ export default function AboutUs() {
           loop
           muted
           alt="All the devices"
-          src="/04-product/video/AboutUs.mp4"
+          src="/04-product/video/home-about-us.mp4"
           type="video/mp4"
           ref={videoEl}
         />
