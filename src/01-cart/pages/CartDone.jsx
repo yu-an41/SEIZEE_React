@@ -38,6 +38,7 @@ function CartDone() {
   const { totalAmount, totalItem, totalSalePrice, totalUnitPrice, userCart } =
     cartItem
 
+  const [orderDetail, setOrderDetail] = useState()
   const mid = myAuth.mb_sid || 0
 
   const getMemberOrder = async () => {
@@ -46,7 +47,8 @@ function CartDone() {
         const res = await axios.get(
           `http://localhost:3004/cart/payment-done/${mid}`
         )
-        console.log(res.data)
+        // console.log(res.data.this_order_details_rows[0])
+        setOrderDetail(res.data.this_order_details_rows[0])
 
         const initCart = {
           userCart: [],
@@ -57,7 +59,6 @@ function CartDone() {
         }
 
         localStorage.setItem('cartItem', JSON.stringify(initCart))
-        setEmptyCart(true)
       } catch (error) {
         console.log(error.message)
       }
@@ -133,11 +134,9 @@ function CartDone() {
                   member name
                 </li>
                 <li className="y-Cart-member-order y-Cart-member-left">
-                  訂購店家：
+                  訂單編號：
                 </li>
-                <li className="y-Cart-member-order y-Cart-member-right">
-                  shop name
-                </li>
+                <li className="y-Cart-member-order y-Cart-member-right"></li>
                 <li className="y-Cart-member-order y-Cart-member-left">
                   訂單成立時間：
                 </li>
@@ -162,7 +161,7 @@ function CartDone() {
         <div className="y-Cart-bottom">
           <div className="y-Cart-bottom-wave">
             <YellowWaveLight />
-            <NewsCrawl />
+            {/* <NewsCrawl /> */}
           </div>
           <div className="y-Cart-news"></div>
           <div className="y-cart-footer">

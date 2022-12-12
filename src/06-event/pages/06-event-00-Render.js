@@ -3,6 +3,9 @@ import Top from './06-event-01-top'
 import Events from './06-event-02-events'
 import '../styles/06-event-00-Render.scss'
 import { useTimeTable } from './../context/useTimeTable'
+import NavBar from '../../components/NavBar'
+import Left from '../components/left/left'
+import Timetable from '../components/right/Timetable'
 
 function Eventrender() {
   const components = [Top, Events]
@@ -24,6 +27,9 @@ function Eventrender() {
 
   return (
     <>
+    <NavBar/>
+    <Left/>
+    <Timetable/>
       <NowComponents origins={origins} likes={likes} setLikes={setLikes} />
     </>
   )

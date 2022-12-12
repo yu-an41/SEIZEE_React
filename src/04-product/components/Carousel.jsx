@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style/Carousel.scss';
 import axios from "axios";
+import { color } from '@mui/system';
 
 export default function Carousel({sid=1}) {
     const [carousel, setCarousel] = useState([]);
@@ -56,8 +57,8 @@ export default function Carousel({sid=1}) {
             <div
                 className="bg-1"
                 style={{
-                    width: '400px',
-                    height: '400px',
+                    width: '450px',
+                    height: '450px',
                     fontSize: '1.5rem',
                     //background: 'red',
                     // border: centerImg===imgArray[0] ? '3px solid red':'',
@@ -74,8 +75,8 @@ export default function Carousel({sid=1}) {
             <div
                 className="bg-2"
                 style={{
-                    width: '400px',
-                    height: '400px',
+                    width: '450px',
+                    height: '450px',
                     fontSize: '1.5rem',
                     // background: 'blue',
                     transform: `translateX(${myArray[1] * 400}px)`,
@@ -89,8 +90,8 @@ export default function Carousel({sid=1}) {
             <div
                 className="bg-3"
                 style={{
-                    width: '400px',
-                    height: '400px',
+                    width: '450px',
+                    height: '450px',
                     fontSize: '1.5rem',
                     // background: 'green',
                     transform: `translateX(${myArray[2] * 400}px)`,
