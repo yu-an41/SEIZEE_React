@@ -11,12 +11,19 @@ import Left from '../components/left/left'
 import Timetable from '../components/right/Timetable'
 
 function Schedule() {
-  const { origins, likes, getEventData, getEventLikes } = useTimeTable()
+  const {
+    timeTable,
+    setTimeTable,
+    origins,
+    likes,
+    getEventData,
+    getEventLikes,
+  } = useTimeTable()
 
   useEffect(() => {
     getEventData()
     getEventLikes()
-  }, [])
+  }, [timeTable])
 
   return (
     <>
@@ -125,6 +132,7 @@ function Schedule() {
                   .map((cat, i) => (
                     <Fragment key={cat.sid}>
                       <Eventcard
+                        sid={cat.sid}
                         likes={likes}
                         cat={cat}
                         time={cat.time}
@@ -144,6 +152,7 @@ function Schedule() {
                     <Fragment key={cat.sid}>
                       <Emptycard />
                       <Eventcard
+                        sid={cat.sid}
                         likes={likes}
                         cat={cat}
                         time={cat.time}
@@ -161,6 +170,7 @@ function Schedule() {
                   .map((cat, i) => (
                     <Fragment key={cat.sid}>
                       <Eventcard
+                        sid={cat.sid}
                         likes={likes}
                         cat={cat}
                         time={cat.time}
@@ -180,6 +190,7 @@ function Schedule() {
                     <Fragment key={cat.sid}>
                       <Emptycard />
                       <Eventcard
+                        sid={cat.sid}
                         likes={likes}
                         cat={cat}
                         time={cat.time}
@@ -197,6 +208,7 @@ function Schedule() {
                   .map((cat, i) => (
                     <Fragment key={cat.sid}>
                       <Eventcard
+                        sid={cat.sid}
                         likes={likes}
                         cat={cat}
                         time={cat.time}

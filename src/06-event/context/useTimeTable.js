@@ -12,6 +12,23 @@ export const TimeTableProvider = ({ children }) => {
   const [origins, setOrigins] = useState([])
   const [likes, setLikes] = useState({})
 
+  let initTimeTable = [
+    { time: '12:00-13:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '13:00-14:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '14:00-15:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '15:00-16:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '16:00-17:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '17:00-18:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '18:00-19:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '19:00-20:00', sid: 0, name: '', color: '', cate: 0 },
+  ]
+
+  const [timeTable, setTimeTable] = useState(initTimeTable)
+
+  if (localStorage.getItem('timeTable')) {
+    initTimeTable = JSON.parse(localStorage.getItem('initTimeTable'))
+  }
+
   const getEventData = async () => {
     try {
       const res = await axios.post('http://localhost:3004/event/event-test', {
@@ -21,7 +38,7 @@ export const TimeTableProvider = ({ children }) => {
       setOrigins(origin_rows)
       const timeTable = JSON.parse(localStorage.getItem('timetable'))
       setTimeTable(timeTable)
-      // console.log('timetable', )
+      console.log('timetable', timeTable)
     } catch (error) {
       console.log(error.message)
     }
@@ -47,16 +64,16 @@ export const TimeTableProvider = ({ children }) => {
     }
   }
 
-  const [timeTable, setTimeTable] = useState([
-    { time: '12:00-13:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '13:00-14:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '14:00-15:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '15:00-16:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '16:00-17:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '17:00-18:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '18:00-19:00', sid: 0, name: '', color: '', cate: 0 },
-    { time: '19:00-20:00', sid: 0, name: '', color: '', cate: 0 },
-  ])
+  // const [timeTable, setTimeTable] = useState([
+  //   { time: '12:00-13:00', sid: 0, name: '', color: '', cate: 0 },
+  //   { time: '13:00-14:00', sid: 0, name: '', color: '', cate: 0 },
+  //   { time: '14:00-15:00', sid: 0, name: '', color: '', cate: 0 },
+  //   { time: '15:00-16:00', sid: 0, name: '', color: '', cate: 0 },
+  //   { time: '16:00-17:00', sid: 0, name: '', color: '', cate: 0 },
+  //   { time: '17:00-18:00', sid: 0, name: '', color: '', cate: 0 },
+  //   { time: '18:00-19:00', sid: 0, name: '', color: '', cate: 0 },
+  //   { time: '19:00-20:00', sid: 0, name: '', color: '', cate: 0 },
+  // ])
 
   const removeTimeTable = (index) => {
     const newTimeTable = timeTable.map((v, i) => {
@@ -71,32 +88,33 @@ export const TimeTableProvider = ({ children }) => {
   }
 
   const handleAddTimeTable = (item) => {
+    console.log(item)
     // const newTimeTable = timeTable.map((v) => {
     //   return { ...v }
     // })
 
-    const foundIndex = timeTable.findIndex((v, i) => {
-      return v.time === item.time
-    })
+    // const foundIndex = timeTable.findIndex((v, i) => {
+    //   return v.time === item.time
+    // })
 
-    console.log('foundindexxxxx ' + foundIndex)
+    // console.log('foundindexxxxx ' + foundIndex)
 
-    const newTimeTable = timeTable.map((v, i) => {
-      if (i === foundIndex)
-        return {
-          ...v,
-          sid: item.sid,
-          name: item.name,
-          color: item.color,
-          cate: item.cate,
-        }
-      return { ...v }
-    })
+    // const newTimeTable = timeTable.map((v, i) => {
+    //   if (i === foundIndex)
+    //     return {
+    //       ...v,
+    //       sid: item.sid,
+    //       name: item.name,
+    //       color: item.color,
+    //       cate: item.cate,
+    //     }
+    //   return { ...v }
+    // })
 
-    console.log(timeTable)
+    // console.log(timeTable)
 
-    setTimeTable(newTimeTable)
-    localStorage.setItem('timetable', JSON.stringify(newTimeTable))
+    // setTimeTable(newTimeTable)
+    // localStorage.setItem('timetable', JSON.stringify(newTimeTable))
   }
 
   return (
