@@ -6,7 +6,17 @@ import { useTimeTable } from '../../context/useTimeTable'
 import { useState, useEffect } from 'react'
 
 function Eventcard({ time, name, nick, color, cat, likes }) {
-  const { handleAddTimeTable, timeTable } = useTimeTable()
+  const { handleAddTimeTable } = useTimeTable()
+  const [timeTable, setTimeTable] = useState([
+    { time: '12:00-13:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '13:00-14:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '14:00-15:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '15:00-16:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '16:00-17:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '17:00-18:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '18:00-19:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '19:00-20:00', sid: 0, name: '', color: '', cate: 0 },
+  ])
   const names = timeTable.map((v) => v.name)
 
   // const [likeImg, setLikeImg] = useState(jEmptyHeart)
@@ -30,6 +40,7 @@ function Eventcard({ time, name, nick, color, cat, likes }) {
       className="j-card-lines"
       onClick={() => {
         handleAddTimeTable(cat)
+        // console.log(cat)
       }}
     >
       <div
