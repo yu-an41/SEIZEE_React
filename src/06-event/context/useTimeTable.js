@@ -89,16 +89,17 @@ export const TimeTableProvider = ({ children }) => {
 
   const handleAddTimeTable = (item) => {
     console.log(item)
-    // const newTimeTable = timeTable.map((v) => {
-    //   return { ...v }
-    // })
-
+    const newTimeTable =
+      timeTable && timeTable.length
+        ? timeTable.map((v) => {
+            return { ...v }
+          })
+        : {}
+    // console.log(newTimeTable)
     // const foundIndex = timeTable.findIndex((v, i) => {
     //   return v.time === item.time
     // })
-
     // console.log('foundindexxxxx ' + foundIndex)
-
     // const newTimeTable = timeTable.map((v, i) => {
     //   if (i === foundIndex)
     //     return {
@@ -110,9 +111,7 @@ export const TimeTableProvider = ({ children }) => {
     //     }
     //   return { ...v }
     // })
-
     // console.log(timeTable)
-
     // setTimeTable(newTimeTable)
     // localStorage.setItem('timetable', JSON.stringify(newTimeTable))
   }

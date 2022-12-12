@@ -11,7 +11,7 @@ function Eventcard({ sid, time, name, nick, color, cat, likes }) {
     timeTable && timeTable.length ? timeTable.map((v) => v.name) : []
 
   useEffect(() => {
-    console.log(timeTable)
+    // console.log(timeTable)
   }, [timeTable])
   // const [likeImg, setLikeImg] = useState(jEmptyHeart)
   // console.log('likes!!!!', likes)
