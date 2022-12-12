@@ -91,7 +91,7 @@ function GoPayBtn({ pickup, pay }) {
     <>
       <div className="y-go-pay-border">
         <a>
-          <p className="y-go-pay" onClick={GoPayDone}>
+          <p className="y-go-pay" onClick={GoPay}>
             前往結賬
           </p>
         </a>

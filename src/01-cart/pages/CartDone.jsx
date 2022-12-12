@@ -2,6 +2,8 @@ import { useContext, useState, useEffect } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import AuthContext from '../../contexts/AuthContext'
 import CartInfoContext from '../contexts/CartInfoContext'
+import dayjs from 'dayjs'
+import axios from 'axios'
 
 // scss
 import './../styles/CartDone.scss'
@@ -19,7 +21,6 @@ import YellowWaveLight from '../../00-homepage/components/YellowWaveLight'
 import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
-import axios from 'axios'
 
 function CartDone() {
   const navigate = useNavigate()
@@ -38,7 +39,7 @@ function CartDone() {
   const { totalAmount, totalItem, totalSalePrice, totalUnitPrice, userCart } =
     cartItem
 
-  const [orderDetail, setOrderDetail] = useState()
+  const [orderDetail, setOrderDetail] = useState([])
   const mid = myAuth.mb_sid || 0
 
   const getMemberOrder = async () => {
@@ -47,8 +48,8 @@ function CartDone() {
         const res = await axios.get(
           `http://localhost:3004/cart/payment-done/${mid}`
         )
-        // console.log(res.data.this_order_details_rows[0])
-        setOrderDetail(res.data.this_order_details_rows[0])
+        console.log(res.data.this_order_details_rows)
+        setOrderDetail(res.data.this_order_details_rows)
 
         const initCart = {
           userCart: [],
@@ -69,9 +70,9 @@ function CartDone() {
 
   useEffect(() => {
     getMemberOrder()
-    setTimeout(() => {
-      navigate('/')
-    }, 15000)
+    // setTimeout(() => {
+    //   navigate('/')
+    // }, 15000)
   }, [])
 
   useEffect(() => {
@@ -131,23 +132,26 @@ function CartDone() {
                   訂購人：
                 </li>
                 <li className="y-Cart-member-order y-Cart-member-right">
-                  member name
+                  {JSON.parse(localStorage.getItem('auth')).mb_name || '小小兵'}
                 </li>
                 <li className="y-Cart-member-order y-Cart-member-left">
                   訂單編號：
                 </li>
-                <li className="y-Cart-member-order y-Cart-member-right"></li>
+                <li className="y-Cart-member-order y-Cart-member-right">
+                  {orderDetail.length !== 0 && orderDetail[0].order_num}
+                </li>
                 <li className="y-Cart-member-order y-Cart-member-left">
                   訂單成立時間：
                 </li>
                 <li className="y-Cart-member-order y-Cart-member-right">
-                  shop pickup
+                  {orderDetail.length !== 0 &&
+                    dayjs(orderDetail[0].created_at).format('YYYY-MM-DD HH:mm')}
                 </li>
                 <li className="y-Cart-member-order y-Cart-member-left">
                   訂單總額
                 </li>
                 <li className="y-Cart-member-order y-Cart-member-right">
-                  shop address
+                  $ {orderDetail.length !== 0 && orderDetail[0].total}
                 </li>
               </ul>
             </div>
@@ -155,6 +159,9 @@ function CartDone() {
               <p className="y-Cart-done-time">
                 將在<span>{cartCountDown}</span>秒後自動導回首頁...
               </p>
+              <div className="y-Cart-done-icon">
+                <img src={PickupIcon} />
+              </div>
             </div>
           </div>
         </div>
