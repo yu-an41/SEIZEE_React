@@ -37,7 +37,6 @@ function ProductDetail() {
   const [heart, setHeart] = useState(false);
   // console.log(heart)
   const [openBox, setOpenBox] = useState(false);
-  console.log(setOpenBox);
 
   // cart
   const { cartItem, setCartItem, handleAddCart, updateItemQty } =
