@@ -95,7 +95,7 @@ function App() {
                 </Route>
 
                 {/* 02-forum */}
-                {/* <Route path="/forum/">
+                <Route path="/forum/">
                   <Route index path="" element={<ForumHome />} />
                   <Route path="cook" element={<PostCook />} />
                   <Route path="share" element={<PostShare />} />
@@ -111,7 +111,7 @@ function App() {
                   <Route path="writeForm" element={<WriteForm />} />
                   <Route path="myPost" element={<MyPost />} />
                   <Route path="searchPost" element={<Search_post />} />
-                </Route> */}
+                </Route>
 
                 {/* 03-shop */}
                 <Route path="/shop" element={<ShopList />} />
