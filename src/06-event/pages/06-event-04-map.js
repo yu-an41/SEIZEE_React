@@ -10,6 +10,10 @@ import jJuice from '../img/juice.png'
 import jStage from '../img/stage.png'
 import jCyber from '../img/augmented-reality.png'
 
+import NavBar from '../../components/NavBar'
+import Left from '../components/left/left'
+import Timetable from '../components/right/Timetable'
+
 import { useState, useEffect } from 'react'
 import { useTimeTable } from '../context/useTimeTable'
 
@@ -23,6 +27,9 @@ function Maps() {
 
   return (
     <>
+    <NavBar/>
+    <Left/>
+    <Timetable/>
       <div className="j-event-middle-map">
         <div className="j-cate-banner">
           <div className="j-cate-banner-deco">

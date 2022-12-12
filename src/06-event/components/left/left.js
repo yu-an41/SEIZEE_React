@@ -3,7 +3,7 @@ import './left.scss'
 
 import jLogo from './../../svg/LOGO.svg'
 import jWorm from './../../svg/worm.svg'
-import YellowWave from './../yellow/YellowWave'
+import YeallowWave from '../yellow/YeallowWave'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useTimeTable } from '../../context/useTimeTable'
 
@@ -88,7 +88,7 @@ function Left() {
           </ul>
         </div>
         <div className="j-wave">
-          <YellowWave />
+          <YeallowWave />
         </div>
       </div>
     </>

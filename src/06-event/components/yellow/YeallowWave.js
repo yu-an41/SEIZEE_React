@@ -1,7 +1,7 @@
 import React from 'react'
-import './YellowWave.scss'
+import './YeallowWave.scss'
 
-function YellowWave() {
+function YeallowWave() {
   return (
     <div className="j-wave-section">
       <div className="j-wave-wrap"></div>
@@ -9,4 +9,4 @@ function YellowWave() {
   )
 }
 
-export default YellowWave
+export default YeallowWave
