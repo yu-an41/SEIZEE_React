@@ -59,7 +59,6 @@ $border-radius-button: 8px;
     .y-icon-round {
       width: 30px;
       height: 30px;
-      aspect-ratio: 1/1;
       border-radius: 50%;
       // overflow: hidden;
       border: $border-sm;
@@ -129,6 +128,7 @@ $border-radius-button: 8px;
       width: 300px;
       .y-icon-round {
         width: 55px;
+        height: 55px;
         border: $border-lg;
         margin-right: 12px;
 

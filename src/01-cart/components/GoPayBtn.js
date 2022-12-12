@@ -41,7 +41,6 @@ function GoPayBtn({ pickup, pay }) {
     if (myAuth.authorised) {
       const ordernum = dayjs(new Date()).format('YYYYMMDDHHmmss')
       const mid = myAuth.mb_sid
-      // console.log(ordernum, mid)
 
       const {
         totalAmount,
@@ -60,9 +59,9 @@ function GoPayBtn({ pickup, pay }) {
       }
 
       if (pay === 1) {
+        const ordernum = dayjs(new Date()).format('YYYYMMDDHHmmss')
         const res = await axios.post(
-          // `http://localhost:3004/cart/add-order/${mid}`,
-          `http://localhost:3004/cart/linepay/${ordernum}?mid=${mid}`,
+          `http://localhost:3004/cart/linepay/?ordernum=${ordernum}&mid=${mid}`,
           cartItem
         )
         // console.log(`Pay coded: ${pay}`, res.data)
@@ -84,12 +83,17 @@ function GoPayBtn({ pickup, pay }) {
     }
   }
 
+  const GoPayDone = () => {
+    navigate('/cart/done')
+  }
   return (
     <>
       <div className="y-go-pay-border">
-        <p className="y-go-pay" onClick={GoPay}>
-          前往結賬
-        </p>
+        <a>
+          <p className="y-go-pay" onClick={GoPay}>
+            前往結賬
+          </p>
+        </a>
       </div>
       {/* <ModalNotification
         closeModal={closeModal}

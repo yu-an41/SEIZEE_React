@@ -5,10 +5,14 @@ import jHeart from './../../svg/full-heart.svg'
 import { useTimeTable } from '../../context/useTimeTable'
 import { useState, useEffect } from 'react'
 
-function Eventcard({ time, name, nick, color, cat, likes }) {
-  const { handleAddTimeTable, timeTable } = useTimeTable()
-  const names = timeTable.map((v) => v.name)
+function Eventcard({ sid, time, name, nick, color, cat, likes }) {
+  const { timeTable, setTimeTable, handleAddTimeTable } = useTimeTable()
+  const names =
+    timeTable && timeTable.length ? timeTable.map((v) => v.name) : []
 
+  useEffect(() => {
+    // console.log(timeTable)
+  }, [timeTable])
   // const [likeImg, setLikeImg] = useState(jEmptyHeart)
   // console.log('likes!!!!', likes)
   // console.log('origins!!!!', origins)
@@ -29,6 +33,7 @@ function Eventcard({ time, name, nick, color, cat, likes }) {
     <div
       className="j-card-lines"
       onClick={() => {
+        // console.log('event name: ', name, 'event sid: ', sid, 'cat: ', cat)
         handleAddTimeTable(cat)
       }}
     >

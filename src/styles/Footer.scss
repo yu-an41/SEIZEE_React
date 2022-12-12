@@ -90,6 +90,7 @@ $border-radius-button: 8px;
             }
 
             .y-footer-section-links {
+                display: none;
                 // margin-left: 60px;
                 // display: flex;
                 li {
@@ -106,6 +107,7 @@ $border-radius-button: 8px;
                         text-decoration: underline;
                     }
                 }
+                
             }
 
             .y-shops-links {
@@ -209,7 +211,7 @@ $border-radius-button: 8px;
 
                 .y-footer-section-links {
                     margin-left: 60px;
-
+                    display: block;
                     li {
                         font-size: 24px;
                         font-weight: bold;

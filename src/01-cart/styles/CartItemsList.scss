@@ -196,11 +196,12 @@ $border-radius-button: 8px;
 @media (min-width: 391px) {
     .y-Cart-items {
         background-color: none;
+        height: 220px;
 
         .y-Cart-items-top {
             width: 100%;
             margin-bottom: 15px;
-    
+            background-color: none;
             .y-Cart-items-info {
                 width: 40%;
                 align-items: center;
@@ -231,6 +232,7 @@ $border-radius-button: 8px;
                     .y-Cart-items-info-pic {
                         width: 180px;
                         height: 180px;
+                        overflow: hidden;
     
                         img {
                         
@@ -297,6 +299,7 @@ $border-radius-button: 8px;
                 width: 21%;
                 height: 160px;
                 // height: 100%;
+                position: static;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -305,10 +308,13 @@ $border-radius-button: 8px;
                 .y-Cart-WishListBtn-wrap {
                     // margin-bottom: auto;
                     margin-bottom: 24px;
+                    top: 50px;
+                    right: 20px;
                 }
         
                 .y-Cart-RemoveItemBtn-wrap {
-        
+                    top: 100px;
+                    right: 20px;
                 }
             }
         

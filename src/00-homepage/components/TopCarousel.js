@@ -49,22 +49,13 @@ export default class TopCarousel extends Component {
       <div className="y-top-carousel-container">
         <Slider {...settings}>
           <div className="y-top-carousel-banner">
-            <img
-              src={`/00-homepage/banner1-ice-cream.png`}
-              alt="banner carousel"
-            />
+            <img src={`/00-homepage/Zero_waste01.jpg`} alt="banner carousel" />
           </div>
-          <div className="y-top-carousel-banner y-carousel-cover">
-            <img
-              src={`${imgNodeUrl}/images/03-shop/33cover.jpg`}
-              alt="banner carousel"
-            />
+          <div className="y-top-carousel-banner y-carousel-cover1">
+            <img src={`/00-homepage/no_waste02.jpg`} alt="banner carousel" />
           </div>
-          <div className="y-top-carousel-banner y-carousel-cover">
-            <img
-              src={`${imgNodeUrl}/images/03-shop/05cover.jpg`}
-              alt="banner carousel"
-            />
+          <div className="y-top-carousel-banner y-carousel-cover2">
+            <img src={`/00-homepage/picnic.jpg`} alt="banner carousel" />
           </div>
         </Slider>
       </div>

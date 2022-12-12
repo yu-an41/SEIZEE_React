@@ -41,8 +41,7 @@ function Events() {
   const [jmactive, setJmactive] = useState(1)
 
   const [registeredNum, setRegisteredNum] = useState(0)
-  const { timeTable, origins, likes, setLikes } =
-    useTimeTable()
+  const { timeTable, setTimeTable, origins, likes, setLikes } = useTimeTable()
   const [likeImg, setLikeImg] = useState(jEmptyHeart)
   const [eventSid, setEventSid] = useState(0)
 

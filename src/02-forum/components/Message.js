@@ -6,6 +6,7 @@ import log from 'eslint-plugin-react/lib/util/log'
 import { useLocation, useParams, useNavigate } from 'react-router-dom'
 import AuthContext from './../../contexts/AuthContext'
 import ModalNotification from '../../components/ModalNotification'
+import { imgServerUrl } from '../../my-config'
 
 function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
   const params = useParams()
@@ -63,6 +64,9 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
       // alert('留言成功')
       //直接顯示留言無用重刷頁面
       setDoRerender(!doRerender)
+      let eddie = document.getElementById('eddie')
+      console.log(eddie.value)
+      setMessContent({ ...messContent, content: '' })
     }
   }
   // const [forumMember, setForumMember] = useState(0)
@@ -82,7 +86,7 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
         <div className="p-commMemberAdInput">
           <div className="p-commMember">
             <img
-              src="https://dotown.maeda-design-room.net/wp-content/uploads/2022/01/thing_crab_01.png"
+              src={`${imgServerUrl}/uploads/05-member/${myAuth.mb_photo}`}
               alt=""
             />
           </div>
@@ -91,6 +95,7 @@ function Message({ setDoRerender, doRerender, InnerCategoriesSid }) {
               type="text"
               name="sendMessage"
               placeholder="輸入留言"
+              id="eddie"
               value={messContent.content}
               onChange={(e) =>
                 setMessContent({ ...messContent, content: e.target.value })
