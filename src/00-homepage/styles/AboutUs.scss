@@ -8,50 +8,68 @@ main {
 }
 
 .a-video {
-  text-align: center;
+  margin: 40px 0;
   position: relative;
+  .a-aboutUs {
+    position: absolute;
+    left: 22%;
+    top: 10%;
+    // z-index: 100;
+    background-color: #ffe77a;
+    border-radius: 10px;
+    color: #5e5e5e;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 30px;
+    padding: 25px 40px;
+    // display: flex;
+    // justify-content: center;
+    // padding: 10px;
+    // @media (min-width: 391px) {
+    //   left: 100%;
+    //   background-color: #ffe77a;
+    //   border-radius: 8px;
+    //   color: #5e5e5e;
+    //   font-weight: 500;
+    //   font-size: 16px;
+    //   display: flex;
+    //   justify-content: center;
+    // }
+  }
   .a-videoWrapper {
-    width: 800px;
+    width: 50%;
     height: 380px;
     margin: auto;
     overflow: hidden;
-    @media (min-width: 391px) {
-      width: 380px;
-      width: 150px;
-      margin: auto;
-      overflow: hidden;
-    }
+    // @media (min-width: 391px) {
+    //   width: 380px;
+    //   width: 150px;
+    //   margin: auto;
+    //   overflow: hidden;
+    // }
 
     video {
       width: 100%;
       object-fit: cover;
-      @media (min-width: 391px) {
-        object-fit: cover;
-      }
+      // @media (min-width: 391px) {
+      //   object-fit: cover;
+      // }
       // display: block;
     }
   }
-  .a-aboutUs {
-    position: absolute;
-    left: -100px;
-    top: -15px;
-    z-index: 100;
-    background-color: #ffe77a;
-    border-radius: 8px;
-    color: #5e5e5e;
-    font-weight: 700;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    @media (min-width: 391px) {
-      background-color: #ffe77a;
-      border-radius: 8px;
-      color: #5e5e5e;
-      font-weight: 500;
-      font-size: 16px;
-      display: flex;
-      justify-content: center;
+}
+@media (max-width: 391px) {
+  .a-video {
+    .a-aboutUs {
+      left: 10px;
+      top: -20px;
+      font-size: 14px;
+      line-height: 14px;
+      padding: 10px 20px;
+    }
+    .a-videoWrapper{
+      width: 80%;
+      height: 100%;
     }
   }
 }

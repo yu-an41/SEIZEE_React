@@ -55,7 +55,7 @@ function Homepage() {
             </div>
             <div className="y-carousel-block-blue">
               <div className="y-block-bg">
-                <p>改變剩食，</p>
+                <p className="y-block-text1">改變剩食，</p>
                 <p className="y-block-text2">由我開始。</p>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
+import { imgReactUrl, imgNodeUrl } from './../../my-config'
 
 import './../styles/ShopPost.scss'
 // import ShopPic from './../../dotown/toast.png'
@@ -33,7 +34,7 @@ function shopPost({ shopInfo }) {
           <p>{induction}</p>
         </div>
         <div className="y-shop-pic">
-          <img src={img} alt="shop banner" />
+          <img src={`${imgNodeUrl}/images/07-all/${img}`} alt="shop banner" />
         </div>
       </Link>
     </div>
