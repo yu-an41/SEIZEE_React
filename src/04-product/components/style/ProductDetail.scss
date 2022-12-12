@@ -13,6 +13,7 @@ $secondary-blue: #113f75;
 $secondary-yellow: #fef3da;
 $green: #53b2a8;
 $red: #ed4743;
+$main-orange: #f57d00;
 $text-shadow: #e4e4e4;
 $base-line-eight: 10px;
 $main-border: 3px solid #113f75;
@@ -65,31 +66,69 @@ input[type="number"] {
 
 //productDatils
 .a-productDatilsBigWrapper {
-  outline: black solid 1px;
-  width: 80%;
-  height: 100px;
+  width: 100%;
+  height: 1000px;
   margin: auto;
-position: relative;
-  // display: flex;
-  // flex-direction: column;
+  .a-commentArea {
+    width: 100%;
+    position: relative;
+    margin-top: 30px;
+    .a-productUserComment {
+      position: absolute;
+      left: 300px;
+      display: flex;
+      align-items: center;
+      background-color: $secondary-yellow;
+      border-radius: $main-border-radius;
+    }
+  }
+ 
   .a-userCommentWrapper {
     padding-left: 13%;
     margin-top: 20px;
   }
+  .a-productRating {
+    color: $main-orange;
+    font-size: 30px;
+    position: absolute;
+    font-weight: 500;
+    width: 200px;
+    top: 30px;
+    left: 400px;
+  }
   .a-productDetailWrapper {
-    display: flex;
-    justify-content: space-evenly;
+    position: relative;
     flex-direction: row;
     background-color: #fff;
     margin: 0;
+    margin-top: 80px;
     .a-detailWrapper {
+      width: 70%;
       position: absolute;
-      top:0;
-      left: 0;
+      top: 0;
+      left: 300px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      position: relative;
       // margin-bottom: 10px;
+      .a-productName {
+        @extend %a-flex;
+        .a-detailsTitle {
+          color: $red;
+          font-weight: 600;
+          font-size: 28px;
+          padding-left: 10px;
+        }
+      }
+      .a-productDescription {
+        width: 650px;
+        .a-detailsText {
+          @extend %a-text;
+          line-height: 30px;
+          letter-spacing: 2px;
+        }
+      }
       .a-shopNameWrapper {
         @extend %a-flex;
         .a-detailsTitle {
@@ -101,12 +140,6 @@ position: relative;
       }
       .a-detailsTitle {
         @extend %a-secondary-color-text;
-      }
-      .a-productName {
-        @extend %a-flex;
-        .a-detailsTitle {
-          @extend %a-title;
-        }
       }
       .a-productName img {
         width: 50px;
@@ -158,12 +191,6 @@ position: relative;
         width: 30px;
         padding-right: 5px;
       }
-      .a-productDescription {
-        width: 600px;
-        .a-detailsText {
-          @extend %a-text;
-        }
-      }
       .a-productRating {
         font-size: 30px;
         font-weight: 600;
@@ -171,10 +198,10 @@ position: relative;
     }
     .a-priceContent {
       position: absolute;
-      top:0;
-      right:0;
+      top: 0;
+      right: 300px;
       @extend %a-flex;
-      display:flex;
+      display: flex;
       flex-direction: column;
       background-color: $secondary-yellow;
       width: 390px;
@@ -301,6 +328,7 @@ position: relative;
       }
       .a-addButton {
         width: 220px;
+        height: 60px;
         text-align: center;
         @extend %a-flex;
         background-color: $main-yellow;
@@ -325,42 +353,79 @@ position: relative;
         width: 35px;
       }
     }
-    .a-goBackButton {
-      width: 300px;
-      text-align: center;
-      @extend %a-flex;
-      background-color: #66cfc5;
-      color: #fff;
-      border: $main-border;
-      border-radius: $main-border-radius;
+    .a-goBack {
       position: absolute;
-      top: 1000px;
-      right: 100px;
-      padding: 15px 50px;
-      margin: 25px 0 40px 0;
-      font-weight: 500;
-      @extend %a-title;
-    }
-    .a-goBackButton:hover {
-      background-color: $main-yellow;
-      color: $secondary-blue;
-      cursor: pointer;
+      top: 285px;
+      right: 290px;
+      .a-goBackButton {
+        width: 400px;
+        height: 60px;
+        text-align: center;
+        @extend %a-flex;
+        background-color: #66cfc5;
+        color: #fff;
+        border: $main-border;
+        border-radius: $main-border-radius;
+        padding: 15px 50px;
+        margin: 25px 0 40px 0;
+        font-weight: 500;
+        @extend %a-title;
+      }
+      .a-goBackButton:hover {
+        background-color: $main-yellow;
+        color: $secondary-blue;
+        cursor: pointer;
+      }
     }
   }
-  .a-userCommentWrapper {
-    width: 300px;
+  .a-userCommentButton {
+    position: absolute;
+    left: 750px;
+    top: 1090px;
+    width: 200px;
+    height: 60px;
     text-align: center;
     @extend %a-flex;
-    background-color: #66cfc5;
-    color: #fff;
+    width: 220px;
+    text-align: center;
+    @extend %a-flex;
+    background-color: $main-yellow;
     border: $main-border;
     border-radius: $main-border-radius;
-    // position: absolute;
-    // top: 1000px;
-    // right: 100px;
-    padding: 15px 50px;
+    padding: 5px 20px;
     margin: 25px 0 40px 0;
     font-weight: 500;
     @extend %a-title;
   }
+  .a-userCommentButton:hover {
+    background-color: #66cfc5;
+    border: $main-border;
+    cursor: pointer;
+    color: #fff;
+  }
+  // .a-userCommentWrapper {
+  //   width: 300px;
+  //   text-align: center;
+  //   @extend %a-flex;
+  //   background-color: #66cfc5;
+  //   color: #fff;
+  //   border: $main-border;
+  //   border-radius: $main-border-radius;
+  //   // position: absolute;
+  //   // top: 1000px;
+  //   // right: 100px;
+  //   padding: 15px 50px;
+  //   margin: 25px 0 40px 0;
+  //   font-weight: 500;
+  //   @extend %a-title;
+  // }
 }
+.a-recommendCardWrapper {
+  margin: 100px 0;
+}
+// .a-product-footer {
+//   margin-top: 830px;
+//   width: 100%;
+//   position: absolute;
+//   top: 90%;
+// }

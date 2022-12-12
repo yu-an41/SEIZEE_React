@@ -3,14 +3,13 @@ import axios from "axios";
 import "../components/style/ProductDetail.scss";
 import RecommendCard from "../components/RecommendCard";
 import { useParams, useLocation, Link } from "react-router-dom";
-import Carousel2 from "../components/Carousel2";
+import Carousel from "../components/Carousel";
 import CollectContext from "../../contexts/CollectContext";
 import ProductComment from "../components/ProductComment";
 import ProductCommentBoard from "../components/ProductCommentBoard";
 import NavBar from "../../components/NavBar";
 import YellowWave from "../../00-homepage/components/YellowWave";
 import YellowWave2 from "../components/YellowWave2";
-import Carousel1 from "../components/Carousel1";
 import Footer from "../../components/Footer";
 // import dotown from '../../logo-and-fonts/'
 
@@ -38,6 +37,7 @@ function ProductDetail() {
   const [heart, setHeart] = useState(false);
   // console.log(heart)
   const [openBox, setOpenBox] = useState(false);
+  console.log(setOpenBox);
 
   // cart
   const { cartItem, setCartItem, handleAddCart, updateItemQty } =
@@ -88,7 +88,7 @@ function ProductDetail() {
           <YellowWave />
         </div>
         <div className="a-carouselBigWrapper">
-          <Carousel1 sid={sid} />
+          <Carousel sid={sid} />
         </div>
         <div className="a-productDatilsBigWrapper">
           <div className="a-deatil">
@@ -111,10 +111,6 @@ function ProductDetail() {
                         />
                         <p className="a-detailsText">{v.category_name}</p>
                       </div>
-                      {/* <div className="a-shopName">
-                    <img src="/04-product/svg/map.svg" alt="" />
-                    <h3 className="a-detailsTitle">{details.shop_}</h3>
-                    </div> */}
                       <div className="a-shopDeadline">
                         <img src="/04-product/svg/shop.svg" alt="" />
                         <p className="a-detailText">
@@ -148,9 +144,9 @@ function ProductDetail() {
                     {/* <div className="a-productRating">{details.rating}</div> */}
                     <div className="a-shopNameWrapper">
                       <img src="/04-product/svg/bells.png" alt="" />
-                      <Link to={`/shop/${v.shop_list_sid}`}>
+                      {/* <Link to={`/shop/${v.shop_list_sid}`}> */}
                         <h3 className="a-detailsTitle">{v.shop_name}</h3>
-                      </Link>
+                      {/* </Link> */}
                     </div>
                     <div className="a-shopNameWrapper">
                       <img src="/04-product/svg/map.svg" alt="" />
@@ -260,26 +256,30 @@ function ProductDetail() {
               );
             })}
           </div>
-          {/* <button className="a-userCommentButton"
+          <button className="a-userCommentButton"
             onClick={() => {
               setOpenBox(true);
             }}
           >
             我要留言
           </button>
-          {setOpenBox && 
+          {openBox && 
             <div className="a-userCommentWrapper">
               <ProductComment sid={sid} />
             </div>
-          } */}
+          }
           <div className="a-commentArea">
             <ProductCommentBoard sid={sid} />
           </div>
+          <div className="a-recommendCardWrapper">
           <YellowWave2 />
           <RecommendCard sid={sid} />
+          </div>
         </div>
       </div>
-      <Footer />
+      <div className="a-product-footer">
+        <Footer />
+      </div>
     </>
   );
 }

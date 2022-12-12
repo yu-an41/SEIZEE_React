@@ -17,16 +17,9 @@ function ProductFilter() {
   const navigate = useNavigate();
 
   const [theme, setTheme] = useState(1);
-  const handleClick = () => {
+  const handleChangeTheme = () => {
     setTheme(theme === 1 ? 1 : 0)
   }
-  // console.log(theme);
-  // const [mode, setMode] = useState([]);
-  // const [theme, setTheme] = () => {
-  //   setTheme(mode === "aladdin" ? "seizee" : "aladdin");
-  // };
-  // const [themeState, setThemeState] = useState(1);
-  // setThemeState(themeState === 1 ? 0 : 1);
 
   async function getFilter(categoriesString) {
     try {
@@ -88,28 +81,15 @@ function ProductFilter() {
           <YellowWave />
         </div>
         {/* CategoryFilter */}
-        {/* <Theme /> */}
-        {/* <div>
-          <button onClick={mode}>
-            {themeState === 1 ? (
-              <div className="a-iconAladdinWrapper">
-                <img src="/04-product/svg/aladdin.png" alt="" />
-              </div>
-            ) : (
-              <div className="a-iconAvengersWrapper">
-                <img src="/04-product/svg/avengers.png" alt="" />
-              </div>
-            )}
-          </button>
-        </div> */}
         <p className="a-iconsText">要當小精靈還是惜食戰士</p>
         <div className="a-iconsWrapper">
-          <div className={`a-iconAladdinWrapper ${theme === 1 ? "blueTheme" : "" }`}
-          onClick={() => handleClick()}>
+          <div className={`a-iconAladdinWrapper ${theme === 1 ? "blueTheme" : "yellowTheme" }`}
+          onClick={() => handleChangeTheme(theme)}>
             <img src="/04-product/svg/aladdin.png" alt="" />
           </div>
 
-          <div className= {`a-iconAvengersWrapper ${theme === 1 ? "yellowTheme" : "" }`}>
+          <div className= {`a-iconAvengersWrapper ${theme === 1 ? "yellowTheme" : "blueTheme" }`}
+          onClick={() => handleChangeTheme(theme)}>
             <img src="/04-product/svg/avengers.png" alt="" />
           </div>
         </div>

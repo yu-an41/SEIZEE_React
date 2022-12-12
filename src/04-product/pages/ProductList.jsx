@@ -94,7 +94,9 @@ function ProductList() {
           <YellowWave />
         </div>
         <div className="a-shopInformation">
+        <p className="a-shopInfTitle">店家基本資訊</p>
           <div className="a-shopInformationWrapper">
+          
             <div className="a-shopInf">
               <img src="/04-product/svg/bells.png" alt="" />
               {/* <Link to={`/shop/${shopData.sid}`}> */}
@@ -118,7 +120,7 @@ function ProductList() {
             </div>
             <div className="a-shopInf">
               <img src="/04-product/svg/map.svg" alt="" />
-              <p className="a-detailsText">
+              <p className="a-shopAddress">
                 地址：{shopData.shop_city}
                 {shopData.shop_area}
                 {shopData.shop_address_detail}
