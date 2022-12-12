@@ -5,6 +5,10 @@ import { useTimeTable } from '../context/useTimeTable'
 import { useSpring, animated } from 'react-spring'
 import jBang from '../img/bang.png'
 
+import NavBar from '../../components/NavBar'
+import Left from '../components/left/left'
+import Timetable from '../components/right/Timetable'
+
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 15,
   (x - window.innerWidth / 2) / 15,
@@ -35,6 +39,9 @@ function Ticket() {
 
   return (
     <>
+    <NavBar/>
+    <Left/>
+    <Timetable/>
       <div className="j-event-middle-ticket">
         <div className="j-cate-banner">
           <div className="j-cate-banner-deco">
