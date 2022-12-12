@@ -12,17 +12,31 @@ import { useNavigate } from 'react-router-dom'
 import AuthContext from '../../../contexts/AuthContext'
 
 function Timetable() {
+<<<<<<< HEAD
   const { timeTable, removeTimeTable, setWhichHover } = useTimeTable()
   console.log(timeTable);
   const {myAuth} = useContext(AuthContext)
+=======
+  const { removeTimeTable, setWhichHover, getEventData } = useTimeTable()
+  const [timeTable, setTimeTable] = useState([
+    { time: '12:00-13:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '13:00-14:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '14:00-15:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '15:00-16:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '16:00-17:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '17:00-18:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '18:00-19:00', sid: 0, name: '', color: '', cate: 0 },
+    { time: '19:00-20:00', sid: 0, name: '', color: '', cate: 0 },
+  ])
+  const { myAuth } = useContext(AuthContext)
+>>>>>>> af87f4ac2edff9208485492f7f424dc0bb0876dd
   let mid
-  if(myAuth.authorised) {
+  if (myAuth.authorised) {
     mid = myAuth.mb_sid
-    console.log(mid);
-  }
-  else{
+    console.log(mid)
+  } else {
     mid = 1
-    console.log('未登入');
+    console.log('未登入')
   }
   const navigator = useNavigate()
   const getTicketData = async () => {
@@ -43,6 +57,9 @@ function Timetable() {
     setIsClicked((current) => !current)
   }
 
+  useEffect(() => {
+    getEventData()
+  }, [timeTable])
   // useEffect(() => {
   //   const timeTable = localStorage.getItem('timetable') || []
   //   console.log('timeTable', timeTable)
@@ -55,7 +72,7 @@ function Timetable() {
     setIsOpen(false)
     navigator('/event/ticket')
   }
-  
+
   return (
     <>
       <div className="j-right-wrap">

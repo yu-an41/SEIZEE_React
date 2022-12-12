@@ -67,6 +67,7 @@ $border-radius-button: 8px;
 
       img {
         width: 100%;
+        height: 100%;
         object-fit: cover;
         border-radius: 50%;
       }
@@ -124,11 +125,12 @@ $border-radius-button: 8px;
       width: 300px;
       .y-icon-round {
         width: 55px;
-        width: 55px;
+        height: 55px;
         border: $border-lg;
         margin-right: 12px;
 
         img {
+          
         }
       }
 

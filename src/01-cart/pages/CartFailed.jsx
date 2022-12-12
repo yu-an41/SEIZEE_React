@@ -6,7 +6,7 @@ import dayjs from 'dayjs'
 import axios from 'axios'
 
 // scss
-import './../styles/CartDone.scss'
+import './../styles/CartFailed.scss'
 
 // components
 import CartNavBar from '../components/CartNavBar'
@@ -22,7 +22,7 @@ import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
 
-function CartDone() {
+function CartFailed() {
   const navigate = useNavigate()
   const { myAuth } = useContext(AuthContext)
 
@@ -43,34 +43,9 @@ function CartDone() {
   const [orderDetail, setOrderDetail] = useState([])
   const mid = myAuth.mb_sid || 0
 
-  const getMemberOrder = async () => {
-    if (!!mid) {
-      try {
-        const res = await axios.get(
-          `http://localhost:3004/cart/payment-done/${mid}`
-        )
-        console.log(res.data.this_order_details_rows)
-        setOrderDetail(res.data.this_order_details_rows)
-
-        const initCart = {
-          userCart: [],
-          totalItem: 0,
-          totalUnitPrice: 0,
-          totalSalePrice: 0,
-          totalAmount: 0,
-        }
-        setCartItem(initCart)
-        localStorage.setItem('cartItem', JSON.stringify(initCart))
-      } catch (error) {
-        console.log(error.message)
-      }
-    }
-  }
-
   const [cartCountDown, setCartCountDown] = useState(15)
 
   useEffect(() => {
-    getMemberOrder()
     setTimeout(() => {
       navigate('/')
     }, 15000)
@@ -89,7 +64,7 @@ function CartDone() {
 
   return (
     <>
-      <div className="y-CartDone-container">
+      <div className="y-CartFailed-container">
         <div className="y-Cart-nav">
           <CartNavBar />
           <div className="y-Cart-wave-base"></div>
@@ -181,4 +156,4 @@ function CartDone() {
   )
 }
 
-export default CartDone
+export default CartFailed

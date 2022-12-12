@@ -20,9 +20,9 @@ function Schedule() {
 
   return (
     <>
-    <NavBar/>
-    <Left/>
-    <Timetable/>
+      <NavBar />
+      <Left />
+      <Timetable />
       <div className="j-event-middle-schedule">
         <div className="j-cate-banner">
           <div className="j-cate-banner-deco">

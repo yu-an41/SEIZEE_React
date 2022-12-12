@@ -28,7 +28,7 @@ $border-radius-button: 8px;
     box-sizing: border-box;
 }
 
-.y-CartDone-container {
+.y-CartFailed-container {
     position: relative;
     .y-Cart-nav {
         width: 100%;
@@ -299,7 +299,7 @@ $border-radius-button: 8px;
     }
 }
 @media (min-width:391px) {
-    .y-CartDone-container {
+    .y-CartFailed-container {
         .y-Cart-nav {
     
             .y-Cart-wave-base {
