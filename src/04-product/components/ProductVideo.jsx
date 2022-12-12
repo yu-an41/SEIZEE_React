@@ -31,9 +31,9 @@ export default function ProductVideo(shopData
                 loop
                 muted
                 alt="All the devices"
-                src={`/04-product/video/${shopData.shopData.shop_video}`}
-                // src="/04-product/video/001.mp4"
-                // type="video/mp4"
+                // src={`/04-product/video/${shopData.shopData.shop_video}`}
+                src="/04-product/video/005.mp4"
+                type="video/mp4"
                 ref={videoEl}
               />
             </div>
