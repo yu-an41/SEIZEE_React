@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import './../styles/CartItemsInfo.scss'
@@ -23,8 +24,16 @@ function CartItemsInfo({ cartItemData }) {
 
   const { userCart, totalItem, totalUnitPrice, totalSalePrice, totalAmount } =
     cartItem
-  const { prod_sid, name, sale_price, sale, unit_price, picture, amount, inventory } =
-    cartItemData
+  const {
+    prod_sid,
+    name,
+    sale_price,
+    sale,
+    unit_price,
+    picture,
+    amount,
+    inventory,
+  } = cartItemData
 
   // 假圖片路徑
   const FakePic = 'https://via.placeholder.com/32'
@@ -47,13 +56,13 @@ function CartItemsInfo({ cartItemData }) {
           <p>{unit_price}</p>
         </div>
         <div className="y-Cart-items-price y-Cart-items-text">
-          <p>{sale_price}</p>
+          <p>{`${sale_price}`}</p>
         </div>
         <div className="y-Cart-items-quantity y-Cart-items-text">
-          <p>{amount}</p>
+          <p>{`${amount}`}</p>
         </div>
         <div className="y-Cart-items-unit y-Cart-items-text">
-          <p>{sale_price * amount}</p>
+          <p>{`${sale_price * amount}`}</p>
         </div>
       </div>
       <div className="y-Cart-YellowLineWave-wrap">

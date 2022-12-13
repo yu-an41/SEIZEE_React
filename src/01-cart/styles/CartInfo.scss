@@ -179,8 +179,8 @@ $border-radius-button: 8px;
     .y-Cart-middle {
         padding: 0 30px;
         padding-top: 75px;
-        background-color: #ECECEC; 
-        // background-color: #fdefc2;
+        // background-color: #ECECEC; 
+        background-color: #fdefc2;
 
         li {
             list-style: none;
@@ -199,15 +199,15 @@ $border-radius-button: 8px;
                 height: 30px;
                 line-height: 30px;
                 text-align: center;
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: bold;
                 letter-spacing: 1px;
                 border-left: 2px solid $main-blue;
                 border-right: 2px solid $main-blue;
                 border-top: 2px solid $main-blue;
-                     background-color: $main-yellow;
-                     color: $main-blue;
-                     border-radius: 5px 5px 0 0;   
+                background-color: $main-yellow;
+                color: $main-blue;
+                border-radius: 5px 5px 0 0;   
             }
     
             .y-Cart-main {
@@ -388,7 +388,7 @@ $border-radius-button: 8px;
                 width: 100%;
                 background-color: $main-blue;
                 padding: 20px;
-                margin-bottom: 20px;
+                margin-bottom: 0px;
                 
                 .y-Cart-details-total {
                     color: white;
@@ -555,8 +555,8 @@ $border-radius-button: 8px;
                     width: 100%;
                     max-width: 190px;
                     height: 45px;
-                    line-height: 45;
-                    padding: 12px 40px;
+                    line-height: 45px;
+                    // padding: 12px 40px;
                     border: $border-lg;
                     border-bottom: none;
                     border-radius: 8px 8px 0 0;
@@ -565,7 +565,11 @@ $border-radius-button: 8px;
                     color: $main-blue;
                     font-weight: bold;
                     letter-spacing: 2px;
-
+                    font-size: 24px;
+                    border-left: 3px solid $main-blue;
+                    border-right: 3px solid $main-blue;
+                    border-top: 3px solid $main-blue;
+                
                 }
 
                 .y-Cart-main {
@@ -688,50 +692,6 @@ $border-radius-button: 8px;
                 }
                 
             }
-            .y-Cart-rec {
-                .y-Cart-rec-tab {
-                    max-width: 190px;
-                    padding: 12px 40px;
-                    border: $border-lg;
-                    border-bottom: none;
-                    border-radius: 8px 8px 0 0;
-                    background-color: #fff;
-                    text-align: center;
-                    color: $main-blue;
-                    font-weight: bold;
-                    letter-spacing: 2px;
-                }
-
-                .y-Cart-rec-top {
-                    width: 100%;
-                    margin-bottom: 30px;
-                    
-                    .y-Cart-rec-header {
-                        background-color: $main-blue;
-                        color: #fff;
-                        font-weight: bold;
-                        font-size: 20px;
-                        letter-spacing: 2px;
-                        padding: 12px 0;
-                        padding-left: 45px;
-                        margin-bottom: 20px;
-                    }
-                }
-
-                .y-Cart-rec-bottom {
-                    width: 100%;
-
-                    .y-Cart-rec-row {
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
-                        .y-Cart-rec-wrap {
-                            width: 25%;
-                            padding: 10px 15px;
-                        }
-                    }
-                }
-            }
             
             .y-Cart-details {
                 position: relative;
@@ -741,7 +701,7 @@ $border-radius-button: 8px;
                 .y-Cart-tab {
                     display: block;
                     max-width: 190px;
-                    padding: 12px 40px;
+                    // padding: 12px 40px;
                     border: $border-lg;
                     border-bottom: none;
                     border-radius: 8px 8px 0 0;
@@ -750,6 +710,13 @@ $border-radius-button: 8px;
                     letter-spacing: 2px;
                     background-color: $main-yellow;
                     color: $main-blue;
+                    
+                    width: 100%;
+                    max-width: 190px;
+                    height: 45px;
+                    line-height: 45px;
+                    // padding: 12px 40px;                   
+                    font-size: 24px;
                 }
     
                 .y-Cart-details-tab {
@@ -798,6 +765,7 @@ $border-radius-button: 8px;
                 }
     
                 .y-Cart-details-area {
+                    border: none;
                     margin-bottom: 40px;
 
                     .y-Cart-details-row {
@@ -806,6 +774,7 @@ $border-radius-button: 8px;
                 }
 
                 .y-Cart-details-bottom {
+                    margin-top: 60px;
                     border-radius: 0 0 $border-radius-card $border-radius-card;
                     padding: 40px 45px;
                     display: flex;

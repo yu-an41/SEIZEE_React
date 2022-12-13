@@ -31,14 +31,14 @@ $border-radius-button: 8px;
 }
 
 .y-Cart-items {
-    
+    border-bottom: 1px dashed $main-blue;
     .y-Cart-items-top {
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-        margin-bottom: 15px;
+        margin-bottom: 0px;
 
         .y-Cart-items-info {
             width: 54%;
@@ -56,12 +56,12 @@ $border-radius-button: 8px;
                     position: absolute;
                     width: 52px;
                     padding: 4px 0;
-                    letter-spacing: 2px;
+                    letter-spacing: 1px;
                     top: 8px;
                     left: 48px;
                     font-size: 12px;
                     text-align: center;
-
+                    display: none;
                 
                 }
     
@@ -69,7 +69,7 @@ $border-radius-button: 8px;
                     width: 80px;
                     height: 80px;
                     overflow: hidden;
-                    background-color: #ddd;
+                    // background-color: #ddd;
 
                     img {
                         width: 100%;
@@ -87,20 +87,26 @@ $border-radius-button: 8px;
                 letter-spacing: 1px;
                 margin-left: 5px;
                 text-align: left;
+                line-height: 1.3;
             }
         }
     
         .y-Cart-items-origin {
             text-align: center;
+            p {
+                font-size: 12px;
+                vertical-align: middle;
+                text-decoration: line-through;
+            }
         }
         .y-Cart-items-price {
             width: 10%;
 
             p {
                 text-align: center;
-                font-size: 18px;
+                font-size: 14px ;
                 font-weight: bold;
-                color: $main-blue;
+                color: $btn-red;
             }
         }
     
@@ -109,34 +115,10 @@ $border-radius-button: 8px;
             display: flex;
             justify-content: center;
             align-items: center;
-
-            select {
-                background-color: $main-yellow;
-                color: $main-blue;
-                width: 60px;
-                padding: 6px 8px;
-                padding-right: 30px;
-                position: relative;
-                border: $border-sm;
-                // box-shadow: $btn-shadow-lg;
-                border-radius: $border-radius-button;
-                appearance:none;
-                -moz-appearance:none;
-                -webkit-appearance:none;
-                background: {
-                    image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient($main-yellow, $main-yellow);
-                    image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E"), -webkit-linear-gradient($main-yellow, $main-yellow);
-                    image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E"), -moz-linear-gradient($main-yellow, $main-yellow);
-                    position: right 4px top 50%, 0 0;
-                    size: contain, cover;
-                    repeat: no-repeat, repeat;
-
-                }
-                
-                option {
-                    appearance: none;
-                    // font-weight: bold;
-                }
+            p { 
+                font-size: 14px;
+                font-weight: bold;
+                letter-spacing: 1px;
             }
         }
     
@@ -144,7 +126,7 @@ $border-radius-button: 8px;
                 width: 13%;
 
             p {
-                font-size: 18px;
+                font-size: 14px;
                 text-align: center;
                 font-weight: bold;
             }
@@ -158,8 +140,9 @@ $border-radius-button: 8px;
     }
     
     .y-Cart-YellowLineWave-wrap {
-        margin-top: 10px;
+        margin-top: 0px;
         overflow: hidden;
+        display: none;
 
         img {
             width: 100%;
@@ -170,7 +153,8 @@ $border-radius-button: 8px;
 
 @media (min-width: 391px) {
     .y-Cart-items {
-    
+        border-bottom: none;
+        
         .y-Cart-items-top {
             width: 100%;
             margin-bottom: 15px;
@@ -179,6 +163,7 @@ $border-radius-button: 8px;
                 width:52%;
                 align-items: center;
                 padding: 20px 40px;
+                border: none;
     
                 .y-Cart-items-info-left {
     
@@ -255,7 +240,7 @@ $border-radius-button: 8px;
         .y-Cart-YellowLineWave-wrap {
             margin-top: 15px;
             overflow: hidden;
-        
+            display: flex;
             img {
         
             }

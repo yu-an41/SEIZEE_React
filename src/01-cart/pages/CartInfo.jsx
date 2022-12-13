@@ -405,7 +405,6 @@ function CartInfo() {
           <div className="y-Cart-bottom-wave">
             <YellowWaveLight />
           </div>
-          <div className="y-Cart-news">{/* <NewsCrawl /> */}</div>
           <div className="y-cart-footer">
             <Footer />
           </div>

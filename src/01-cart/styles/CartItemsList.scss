@@ -31,16 +31,16 @@ $border-radius-button: 8px;
 }
 
 .y-Cart-items {
-
-    background-color: #fff;
+    // background-color: #fff;
     .y-Cart-items-top {
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
         flex-wrap: wrap;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         position: relative;
+        background-color: #fff;
 
         .y-Cart-items-info {
             width: 100%;
@@ -93,6 +93,7 @@ $border-radius-button: 8px;
                 position: absolute;
                 top: 45px;
                 left: 95px;
+                line-height: 1.3;
             }
             .y-Cart-items-info-name:hover {
                 text-decoration: none;
@@ -104,7 +105,7 @@ $border-radius-button: 8px;
 
             p {
                 text-align: center;
-                font-size: 18px;
+                font-size: 14px;
                 font-weight: bold;
                 // color: $main-blue;
             }
@@ -174,8 +175,8 @@ $border-radius-button: 8px;
             .y-Cart-WishListBtn-wrap {
                 position: absolute;
                 height: 50%;
-                top: 0;
-                right: 15px;
+                top: 6px;
+                right: 35px;
             }
     
             .y-Cart-RemoveItemBtn-wrap {
@@ -190,7 +191,8 @@ $border-radius-button: 8px;
     }
     
     .y-Cart-YellowLineWave-wrap {
-        margin-top: 10px;
+        display: none;
+        margin-top: 0px;
         overflow: hidden;
 
         img {
@@ -204,16 +206,18 @@ $border-radius-button: 8px;
     .y-Cart-items {
         background-color: none;
         height: 220px;
+        margin-bottom: 35px;
 
         .y-Cart-items-top {
             width: 100%;
             margin-bottom: 15px;
             background-color: none;
+            background-color: transparent;
             .y-Cart-items-info {
-                width: 40%;
+                width: calc(40% - 3px) !important;
                 align-items: center;
                 padding: 20px 40px;
-    
+                justify-content: start;
                 .y-Cart-items-info-left {
     
                     .y-Cart-items-sale {
@@ -249,10 +253,12 @@ $border-radius-button: 8px;
                 }
         
                 .y-Cart-items-info-name {
+                    position: static;
                     width: 100%;
                     font-size: 24px;
-                    letter-spacing: 3px;
+                    letter-spacing: 2px;
                     margin-left: 0;
+                    
 
                 }
                 .y-Cart-items-info-name:hover {
@@ -318,12 +324,12 @@ $border-radius-button: 8px;
                 .y-Cart-WishListBtn-wrap {
                     // margin-bottom: auto;
                     margin-bottom: 24px;
-                    top: 50px;
+                    top: 60px;
                     right: 20px;
                 }
         
                 .y-Cart-RemoveItemBtn-wrap {
-                    top: 100px;
+                    top: 120px;
                     right: 20px;
                 }
             }
@@ -331,9 +337,9 @@ $border-radius-button: 8px;
         }
         
         .y-Cart-YellowLineWave-wrap {
+            display: block;
             margin-top: 15px;
             overflow: hidden;
-        
             img {
         
             }

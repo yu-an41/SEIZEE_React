@@ -31,11 +31,14 @@ $border-radius-button: 8px;
 }
 
 .y-rec-merch-border {
-    border: $border-lg;
+    border: $border-sm;
     margin: 0 auto;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 100%;
     .y-rec-merch-pic { 
-        border-bottom:  $border-lg;
+        border-bottom:  $border-sm;
         width: 100%;
         max-height: 120px;
         // aspect-ratio: 1/1;
@@ -51,6 +54,7 @@ $border-radius-button: 8px;
     }
 
     .y-rec-merch-info {
+        flex-grow: 1;
         width: 100%;
         padding: 15px 10px;
         background-color: #fff;
@@ -92,7 +96,7 @@ $border-radius-button: 8px;
                     background-color: $main-yellow;
                     color: $main-blue;
                     width: 24px;
-                    padding: 1px 2px;
+                    padding: 2px 2px;
                     // padding-right: 8px;
                     position: relative;
                     border: $border-sm;
@@ -140,6 +144,8 @@ $border-radius-button: 8px;
         border: $border-lg;
         max-width: 295px;
         margin: 0 auto;
+        border-radius: 0 0 10px 10px;
+        overflow: hidden;
     
         .y-rec-merch-pic { 
             border-bottom:  $border-lg;

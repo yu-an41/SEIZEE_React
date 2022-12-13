@@ -149,7 +149,7 @@ function CartDone() {
                     dayjs(orderDetail[0].created_at).format('YYYY-MM-DD HH:mm')}
                 </li>
                 <li className="y-Cart-member-order y-Cart-member-left">
-                  訂單總額
+                  訂單總額：
                 </li>
                 <li className="y-Cart-member-order y-Cart-member-right">
                   $ {orderDetail.length !== 0 && orderDetail[0].total}
@@ -158,7 +158,7 @@ function CartDone() {
             </div>
             <div className="y-Cart-done-bottom">
               <p className="y-Cart-done-time">
-                將在<span>{cartCountDown}</span>秒後自動導回首頁...
+                將在<span>{` ${cartCountDown} `}</span>秒後自動導回首頁...
               </p>
               <div className="y-Cart-done-icon">
                 <img src={PickupIcon} />

@@ -8,13 +8,20 @@ $wave-height: 40px;
 .y-wave-light-section {
     // position: relative;
     width: 100%;
-    height: 140px;
+    height: 100px;
     background-color: #fdefc2; 
     overflow: hidden;
     .y-wave-light-base {
         width: 100%;
-        height: $wave-height;
+        // height: $wave-height;
+        height: 0;
         background-color: $main-yellow;
+    }
+    @media (min-width: 391px) {
+        .y-wave-light-base {
+            height: $wave-height;
+            // background-color: $main-yellow;
+        }
     }
     .y-wave-light-wrap {
         // position: absolute;
@@ -40,5 +47,10 @@ $wave-height: 40px;
                 background-position-x: 1920px;
             }
         }
+    }
+}
+@media (min-width: 391px) {
+    .y-wave-light-section {
+        height: 140px;
     }
 }
