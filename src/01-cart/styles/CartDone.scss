@@ -184,19 +184,20 @@ $border-radius-button: 8px;
         // background-color: #fdefc2;
         
         .y-Cart-done-body {
-            max-width: 1320px;
+            width: 100%;
+            // max-width: 1320px;
             background-color: #fff;
             border-radius: $border-radius-card;
             border: $border-lg;
             margin: 0 auto;
-            padding: 40px 80px;
+            padding: 20px 30px;
             .y-Cart-done-top {
                 .y-Cart-done-header {
                     background-color: $main-blue;
                     color: #fff;
                     font-weight: bold;
-                    font-size: 20px;
-                    letter-spacing: 2px;
+                    font-size: 16px;
+                    letter-spacing: 1px;
                     text-align: center;
                     padding: 12px 0;
                     margin-bottom: 20px;
@@ -212,10 +213,10 @@ $border-radius-button: 8px;
                 }
                 li {
                     list-style: none;
-                    font-size: 14px;
+                    font-size: 12px;
                     color: $main-text;
                     font-family: Arial, Helvetica, sans-serif;
-                    line-height: 1.8;
+                    line-height: 1.5;
                 }
                 
                 .y-Cart-member-left {

@@ -73,6 +73,9 @@ function GoPayBtn({ pickup, pay }) {
       } else if (pay === 2) {
         console.log('使用TapPay付款')
         navigate('/cart/tappay')
+      } else if (pay === 3) {
+        console.log('使用現金付款')
+        navigate('/cart/done')
       } else {
         alert('請選擇付款方式！')
       }

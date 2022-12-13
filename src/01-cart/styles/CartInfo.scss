@@ -193,10 +193,21 @@ $border-radius-button: 8px;
 
         .y-Cart-sections {
             width: 100%;
-
+            margin-bottom: 20px;
             .y-Cart-tab {
+                width: 100px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                border-left: 2px solid $main-blue;
+                border-right: 2px solid $main-blue;
+                border-top: 2px solid $main-blue;
                      background-color: $main-yellow;
-                     color: $main-blue;   
+                     color: $main-blue;
+                     border-radius: 5px 5px 0 0;   
             }
     
             .y-Cart-main {
@@ -268,7 +279,7 @@ $border-radius-button: 8px;
                 .y-Cart-pickup-radio {
                     li {
                         .y-coupon-input {
-                            border: $border-lg;
+                            border: $border-sm;
                             border-radius: $border-radius-button;
                             overflow: hidden;
                             background-color: #fff;
@@ -296,8 +307,8 @@ $border-radius-button: 8px;
                     display: flex;
                     flex-wrap: wrap;
                     .y-Cart-member-details {
-                        font-size: 14px;
-                        line-height: 20px;
+                        font-size: 12px;
+                        line-height: 30px;
                         margin-bottom: 10px;
                         margin-left: 10px;
                         display: flex;
@@ -313,7 +324,7 @@ $border-radius-button: 8px;
                         }
                     }
                     .y-Cart-member-left {
-                        width: 34%;
+                        width: 35%;
 
                     }
                     .y-Cart-member-right {
@@ -330,7 +341,7 @@ $border-radius-button: 8px;
             }
             
             .y-Cart-tab {
-                display: none;
+                // display: none;
             }
 
             .y-Cart-details-tab {
@@ -366,6 +377,7 @@ $border-radius-button: 8px;
             }
 
             .y-Cart-details-area {
+                border: $border-sm;
                 
                 .y-Cart-details-row {
                         
@@ -375,14 +387,23 @@ $border-radius-button: 8px;
             .y-Cart-details-bottom {
                 width: 100%;
                 background-color: $main-blue;
+                padding: 20px;
+                margin-bottom: 20px;
+                
                 .y-Cart-details-total {
-
+                    color: white;
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                    text-align: right;
+                    letter-spacing: 1px;
                 }
 
                 .y-Cart-details-btns {
-
+                    display: flex;
+                    width: 100%;
+                    justify-content: end;
                     .y-continue-shopping-wrap {
-
+                        margin-right: 12px;
                     }
 
                     .y-cart-pay-wrap {
@@ -531,7 +552,10 @@ $border-radius-button: 8px;
                 margin: 0 auto 40px;
 
                 .y-Cart-tab {
+                    width: 100%;
                     max-width: 190px;
+                    height: 45px;
+                    line-height: 45;
                     padding: 12px 40px;
                     border: $border-lg;
                     border-bottom: none;
@@ -541,6 +565,7 @@ $border-radius-button: 8px;
                     color: $main-blue;
                     font-weight: bold;
                     letter-spacing: 2px;
+
                 }
 
                 .y-Cart-main {
