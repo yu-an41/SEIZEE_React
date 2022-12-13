@@ -11,6 +11,7 @@ export const TimeTableProvider = ({ children }) => {
 
   const [origins, setOrigins] = useState([])
   const [likes, setLikes] = useState({})
+  
 
   let initTimeTable = [
     { time: '12:00-13:00', sid: 0, name: '', color: '', cate: 0 },
@@ -22,13 +23,13 @@ export const TimeTableProvider = ({ children }) => {
     { time: '18:00-19:00', sid: 0, name: '', color: '', cate: 0 },
     { time: '19:00-20:00', sid: 0, name: '', color: '', cate: 0 },
   ]
-
   const [timeTable, setTimeTable] = useState(initTimeTable)
+console.log({timeTable});
 
-  if (localStorage.getItem('timetable')) {
-    initTimeTable = JSON.parse(localStorage.getItem('timetable'))
-  }
-
+ 
+  // if (localStorage.getItem('timetable')) {
+  //   initTimeTable = JSON.parse(localStorage.getItem('timetable'))
+  // }
   const getEventData = async () => {
     try {
       const res = await axios.post('http://localhost:3004/event/event-test', {
@@ -36,8 +37,10 @@ export const TimeTableProvider = ({ children }) => {
       })
       const origin_rows = res.data
       setOrigins(origin_rows)
-      const timeTable = JSON.parse(localStorage.getItem('timetable'))
-      setTimeTable(timeTable)
+      // if(JSON.parse(localStorage.getItem('timetable')).length > 0) {
+      //   const timeTable = JSON.parse(localStorage.getItem('timetable'))
+      //   setTimeTable(timeTable)
+      // }
       console.log('timetable', timeTable)
     } catch (error) {
       console.log(error.message)
@@ -89,34 +92,33 @@ export const TimeTableProvider = ({ children }) => {
 
   const handleAddTimeTable = (item) => {
     console.log(item)
-    const newTimeTable =
-      timeTable && timeTable.length
-        ? timeTable.map((v) => {
-            return { ...v }
-          })
-        : {}
-    // console.log(newTimeTable)
-    // const foundIndex = timeTable.findIndex((v, i) => {
-    //   return v.time === item.time
-    // })
-    // console.log('foundindexxxxx ' + foundIndex)
     // const newTimeTable =
     //   timeTable && timeTable.length
-    //     ? timeTable.map((v, i) => {
-    //         if (i === foundIndex)
-    //           return {
-    //             ...v,
-    //             sid: item.sid,
-    //             name: item.name,
-    //             color: item.color,
-    //             cate: item.cate,
-    //           }
+    //     ? timeTable.map((v) => {
     //         return { ...v }
     //       })
-    //     : { ...timeTable }
+    //     : {}
     // console.log(newTimeTable)
-    // setTimeTable(newTimeTable)
-    // localStorage.setItem('timetable', JSON.stringify(newTimeTable))
+    const foundIndex = timeTable.findIndex((v, i) => {
+      return v.time === item.time
+    })
+    console.log('foundindexxxxx ' + foundIndex)
+    const newTimeTable =
+      timeTable.length > 0 ?
+         timeTable.map((v, i) => {
+            if (i === foundIndex)
+              return {
+                ...v,
+                sid: item.sid,
+                name: item.name,
+                color: item.color,
+                cate: item.cate,
+              }
+            return { ...v }
+          }): []
+    console.log(newTimeTable)
+    setTimeTable(newTimeTable)
+    localStorage.setItem('timetable', JSON.stringify(newTimeTable))
   }
 
   return (

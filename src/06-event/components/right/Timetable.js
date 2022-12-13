@@ -91,7 +91,7 @@ function Timetable() {
               <img src={carrot} alt="" />
             </div>
             <div className="j-cardG">
-              {timeTable.map((v, i) => {
+              {timeTable && timeTable.map((v, i) => {
                 return (
                   <div
                     key={`${i + v.time}`}
