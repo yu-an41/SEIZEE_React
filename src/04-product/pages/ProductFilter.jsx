@@ -111,7 +111,7 @@ function ProductFilter() {
                       htmlFor={`a-categoryCheckBox${filter.sid}`}
                       key={filter.sid}
                     >
-                      <div className="a-categoryFIlter">
+                      {/* <div className="a-categoryFIlter"> */}
                           <div className= {`a-iconWrapper ${theme === 1 ? "blueTheme" : "yellowTheme" }`}>
                             <img
                               className="a-icon"
@@ -128,11 +128,11 @@ function ProductFilter() {
                               value={filter.sid}
                               onChange={checkboxClick}
                             />
-                            <h2 className="a-categoryName">
+                            <span className="a-categoryName">
                               {filter.category_name}
-                            </h2>
+                            </span>
                           </div>
-                        </div>
+                        {/* </div> */}
                     </label>
                   </div>
                 );
