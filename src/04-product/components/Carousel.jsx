@@ -62,7 +62,7 @@ export default function Carousel({sid=1}) {
                     fontSize: '1.5rem',
                     //background: 'red',
                     // border: centerImg===imgArray[0] ? '3px solid red':'',
-                    transform: `translateX(${myArray[0] * 400}px)`,
+                    transform: `translateX(${myArray[0] * 450}px)`,
                     transition: 'transform 1s',
                     zIndex: `${myZindexArr[0]}`,
                 }}
@@ -79,7 +79,7 @@ export default function Carousel({sid=1}) {
                     height: '450px',
                     fontSize: '1.5rem',
                     // background: 'blue',
-                    transform: `translateX(${myArray[1] * 400}px)`,
+                    transform: `translateX(${myArray[1] * 450}px)`,
                     transition: 'transform 1s .1s',
                     zIndex: `${myZindexArr[1]}`,
                 }}
@@ -94,7 +94,7 @@ export default function Carousel({sid=1}) {
                     height: '450px',
                     fontSize: '1.5rem',
                     // background: 'green',
-                    transform: `translateX(${myArray[2] * 400}px)`,
+                    transform: `translateX(${myArray[2] * 450}px)`,
                     transition: 'transform 1s .2s',
                     zIndex: `${myZindexArr[2]}`,
                 }}
