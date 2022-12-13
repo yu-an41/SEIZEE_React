@@ -391,7 +391,7 @@ input[type="number"] {
   .a-userCommentButton {
     position: absolute;
     left: 800px;
-    top: 1100px;
+    top: 1070px;
     width: 200px;
     height: 60px;
     text-align: center;
@@ -437,11 +437,11 @@ input[type="number"] {
   // }
 }
 .a-recommendCardWrapper {
-  margin: 100px 0;
+  margin-top: 160px;
 }
-.a-product-footer {
-  margin-top: 700px;
-  width: 100%;
-  position: absolute;
-  top: 90%;
-}
+// .a-product-footer {
+//   margin-top: 700px;
+//   width: 100%;
+//   position: absolute;
+//   top: 90%;
+// }
