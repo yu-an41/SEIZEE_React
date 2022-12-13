@@ -37,6 +37,9 @@ function ProductDetail() {
   const [heart, setHeart] = useState(false);
   // console.log(heart)
   const [openBox, setOpenBox] = useState(false);
+  const [msgs, setMsgs] = useState(0)
+  // const [userComment, setUserComment] = useState([]);
+  // const [userRating, setUserRating] = useState([]);
 
   // cart
   const { cartItem, setCartItem, handleAddCart, updateItemQty } =
@@ -67,6 +70,27 @@ function ProductDetail() {
   useEffect(() => {
     getDeatil();
   }, [collection]);
+
+
+  // async function getUserComment() {
+  //   try {
+  //     const response = await axios.get(
+  //       `http://localhost:3004/product/userComment/${sid}`
+  //     );
+  //     const ratingData = response.data.rows;
+  //     const commentData = response.data.rows2;
+  //     setUserRating(ratingData);
+  //     setUserComment(commentData);
+  //     console.log(commentData);
+  //     console.log(ratingData);
+  //   } catch (e) {
+  //     console.error(e.message);
+  //     setErrorMessage(e.message);
+  //   }
+  // }
+  // useEffect(() => {
+  //   getUserComment();
+  // }, []);
 
   return (
     <>
@@ -143,9 +167,13 @@ function ProductDetail() {
                     {/* <div className="a-productRating">{details.rating}</div> */}
                     <div className="a-shopNameWrapper">
                       <img src="/04-product/svg/bells.png" alt="" />
-                      {/* <Link to={`/shop/${v.shop_list_sid}`}> */}
                         <h3 className="a-detailsTitle">{v.shop_name}</h3>
-                      {/* </Link> */}
+                    </div>
+                    <div className="a-shopPhone">
+                    <img src="/04-product/svg/telephone.png" alt="" />
+                      <h3 className="a-detailsPhone">
+                      {v.shop_phone}
+                      </h3>
                     </div>
                     <div className="a-shopNameWrapper">
                       <img src="/04-product/svg/map.svg" alt="" />
@@ -264,11 +292,11 @@ function ProductDetail() {
           </button>
           {openBox && 
             <div className="a-userCommentWrapper">
-              <ProductComment sid={sid} />
+              <ProductComment sid={sid} openBox={openBox} setMsgs={setMsgs} setOpenBox={setOpenBox}/>
             </div>
           }
           <div className="a-commentArea">
-            <ProductCommentBoard sid={sid} />
+            <ProductCommentBoard sid={sid} msgs={msgs} />
           </div>
           <div className="a-recommendCardWrapper">
           <YellowWave2 />

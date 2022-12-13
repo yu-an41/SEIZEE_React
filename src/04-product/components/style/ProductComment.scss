@@ -43,11 +43,21 @@ $main-border-radius: 8px;
   justify-content: center;
   align-items: center;
 }
+.a-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #b9b2b2aa;
+    width: 100vw;
+    height: 100vh;
 
 .a-productCommentWrapper {
   display: flex;
   flex-direction: column;
-  width: 420px;
+  width: 500px;
+  position: relative;
+  top: 30%;
+  left: 40%;
   // height: 500px;
   .a-commentWrapper {
     display: flex;
@@ -55,8 +65,8 @@ $main-border-radius: 8px;
     align-items: center;
     margin-top: 10px;
     .a-commentInput {
-      width: 400px;
-      height: 150px;
+      width: 500px;
+      height: 200px;
       border-radius: $main-border-radius;
       appearance: none;
       -moz-appearance: none;
@@ -65,6 +75,7 @@ $main-border-radius: 8px;
       text-align: center;
       outline: none;
       z-index: 100;
+      margin-top: 10px;
     }
     .a-sumbitButton {
       width: 100px;
@@ -84,7 +95,7 @@ $main-border-radius: 8px;
     }
   }
 }
-
+}
 .a-productUserContent {
   font-size: 20px;
   width: 400px;

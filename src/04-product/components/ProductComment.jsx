@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import "./style/ProductComment.scss";
 
-function ProductComment({ sid }) {
+function ProductComment({ sid, openBox, setMsgs, setOpenBox }) {
+  const [userComment, setUserComment] = useState([]);
   //localStorage得到member_sid
   const mb_sid = localStorage.getItem("auth")
     ? JSON.parse(localStorage.getItem("auth")).mb_sid
@@ -16,9 +17,6 @@ function ProductComment({ sid }) {
     comment: "",
     rating: 0,
   });
-  const [showBox, setShowBox] = useState(true)
-  // const [openBox, setOpenBox] = useState(true)
-  // const [closeBox, setCloseBox] = useState(false)
 
   //星星評分數
   const ratingChanged = (newRating) => {
@@ -31,7 +29,6 @@ function ProductComment({ sid }) {
       rating: newRating,
     });
     // console.log(newRating);
-    
   };
 
   const addComment = async () => {
@@ -55,13 +52,36 @@ function ProductComment({ sid }) {
         comment: "",
         rating: 0,
       });
-      setShowBox(false)
+      // setShowBox(false)
+      setOpenBox(false)
+    
+      setTimeout(() => {
+        setMsgs(v => v+1)
+      }, 500);
     }
   };
 
+  // async function getUserComment() {
+  //   try {
+  //     const response = await axios.get(
+  //       `http://localhost:3004/product/userComment/${sid}`
+  //     );
+  //     const commentData = response.data;
+  //     setUserComment(commentData);
+  //       // console.log(commentData);
+  //   } catch (e) {
+  //     console.error(e.message);
+  //     // setErrorMessage(e.message);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   getUserComment()
+  // }, [openBox, setMsgs])
+ 
   return (
     <>
-    {showBox ?
+    <div className="a-box">
       <div className="a-productCommentWrapper">
         <ReactStars
           count={5}
@@ -74,6 +94,7 @@ function ProductComment({ sid }) {
           fullIcon={<i className="fa fa-star"></i>}
           activeColor="#ffd700"
         />
+        
 
         <div className="a-commentWrapper">
           <input
@@ -86,14 +107,12 @@ function ProductComment({ sid }) {
               setComment({ ...comment, comment: e.target.value })
             }
           />
-          <button className="a-sumbitButton" onClick={addComment}>
+          <button className="a-sumbitButton" onClick={addComment} >
             送出
           </button>
         </div>
+        </div>
       </div>
-      :
-      null
-    }
     </>
   );
 }
