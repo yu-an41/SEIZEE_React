@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 
-function ProductCommentBoard() {
+function ProductCommentBoard({ msgs }) {
   const [userComment, setUserComment] = useState([]);
   const [userRating, setUserRating] = useState([]);
   const [errorMessage, setErrorMessage] = useState([]);
@@ -31,7 +31,7 @@ function ProductCommentBoard() {
   }
   useEffect(() => {
     getUserComment();
-  }, []);
+  }, [msgs]);
   // useEffect(() => {
   //   getUserComment();
   // }, [userComment, userRating]);
@@ -43,17 +43,6 @@ function ProductCommentBoard() {
   // })
   return (
     <>
-      {/* <ReactStars
-          count={5}
-          value={userComment.rating}
-          // onChange={ratingChanged}
-          size={40}
-          isHalf={true}
-          emptyIcon={<i className="far fa-star"></i>}
-          halfIcon={<i className="fa fa-star-half-alt"></i>}
-          fullIcon={<i className="fa fa-star"></i>}
-          activeColor="#ffd700"
-        /> */}
       <div className="a-productUserComment">
         {userComment &&
           userComment.map((v, i) => {

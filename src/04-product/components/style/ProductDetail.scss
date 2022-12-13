@@ -83,10 +83,13 @@ input[type="number"] {
       border-radius: $main-border-radius;
     }
   }
+  
   .a-userCommentWrapper {
     padding-left: 50%;
     margin-top: 20px;
-  }
+    display: flex;
+    flex-direction: column;
+}
   .a-productRating {
     color: $main-orange;
     font-size: 30px;

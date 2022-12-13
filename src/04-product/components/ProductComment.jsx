@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import "./style/ProductComment.scss";
 
-function ProductComment({ sid, openBox }) {
+function ProductComment({ sid, openBox, setMsgs, setOpenBox }) {
   const [userComment, setUserComment] = useState([]);
   //localStorage得到member_sid
   const mb_sid = localStorage.getItem("auth")
@@ -53,29 +53,35 @@ function ProductComment({ sid, openBox }) {
         rating: 0,
       });
       // setShowBox(false)
+      setOpenBox(false)
+    
+      setTimeout(() => {
+        setMsgs(v => v+1)
+      }, 500);
     }
   };
 
-  async function getUserComment() {
-    try {
-      const response = await axios.get(
-        `http://localhost:3004/product/userComment/${sid}`
-      );
-      const commentData = response.data;
-      setUserComment(commentData);
-        // console.log(commentData);
-    } catch (e) {
-      console.error(e.message);
-      // setErrorMessage(e.message);
-    }
-  }
+  // async function getUserComment() {
+  //   try {
+  //     const response = await axios.get(
+  //       `http://localhost:3004/product/userComment/${sid}`
+  //     );
+  //     const commentData = response.data;
+  //     setUserComment(commentData);
+  //       // console.log(commentData);
+  //   } catch (e) {
+  //     console.error(e.message);
+  //     // setErrorMessage(e.message);
+  //   }
+  // }
 
-  useEffect(() => {
-    getUserComment()
-  }, [openBox])
+  // useEffect(() => {
+  //   getUserComment()
+  // }, [openBox, setMsgs])
  
   return (
     <>
+    <div className="a-box">
       <div className="a-productCommentWrapper">
         <ReactStars
           count={5}
@@ -88,6 +94,7 @@ function ProductComment({ sid, openBox }) {
           fullIcon={<i className="fa fa-star"></i>}
           activeColor="#ffd700"
         />
+        
 
         <div className="a-commentWrapper">
           <input
@@ -100,9 +107,10 @@ function ProductComment({ sid, openBox }) {
               setComment({ ...comment, comment: e.target.value })
             }
           />
-          <button className="a-sumbitButton" onClick={addComment}>
+          <button className="a-sumbitButton" onClick={addComment} >
             送出
           </button>
+        </div>
         </div>
       </div>
     </>
