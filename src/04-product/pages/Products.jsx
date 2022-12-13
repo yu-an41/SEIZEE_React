@@ -224,9 +224,7 @@ const Products = () => {
                             if(!filterCheck[e.currentTarget.value]){
                               targetElement.style.backgroundColor = '#113f75';
                             }else{
-                              console.log('eddiefalse')
-                              targetElement.style.backgroundColor = '#53b2a8';
-                              
+                              targetElement.style.backgroundColor = '#53b2a8';       
                             }
                             /*
                       setFilterCheck(old=>{
