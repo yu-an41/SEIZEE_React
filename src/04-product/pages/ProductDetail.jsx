@@ -304,9 +304,9 @@ function ProductDetail() {
           </div>
         </div>
       </div>
-      <div className="a-product-footer">
+      {/* <div className="a-product-footer">
         <Footer />
-      </div>
+      </div> */}
     </>
   );
 }

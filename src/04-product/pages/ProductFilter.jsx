@@ -40,10 +40,23 @@ function ProductFilter() {
     if (c) {
       if (!choice.includes(val)) {
         setChoice([...choice, val]);
+        console.log('eddie',e.currentTarget.parentElement.parentElement.firstChild)
+        let targetElement = e.currentTarget.parentElement.parentElement.firstChild;
+        // 判斷他到底是誰
+        // 判斷targetElement的classList裡面是哪一個
+        // if( bluetheme){
+          targetElement.classList.remove("blueTheme");
+          targetElement.classList.add('yellowTheme');
+        // }else{
+
+        // }
       }
     } else {
       const newChoice = choice.filter((v) => v !== val);
       setChoice(newChoice);
+      let targetElement = e.currentTarget.parentElement.parentElement.firstChild;
+      targetElement.classList.remove("yellowTheme");
+      targetElement.classList.add('blueTheme');
     }
   };
 
@@ -110,6 +123,7 @@ function ProductFilter() {
                       className="a-categoryContentWapper" 
                       htmlFor={`a-categoryCheckBox${filter.sid}`}
                       key={filter.sid}
+                      
                     >
                       {/* <div className="a-categoryFIlter"> */}
                           <div className= {`a-iconWrapper ${theme === 1 ? "blueTheme" : "yellowTheme" }`}>
