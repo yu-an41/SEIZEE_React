@@ -71,9 +71,9 @@ function CartDone() {
 
   useEffect(() => {
     getMemberOrder()
-    // setTimeout(() => {
-    //   navigate('/')
-    // }, 15000)
+    setTimeout(() => {
+      navigate('/')
+    }, 15000)
   }, [])
 
   useEffect(() => {
