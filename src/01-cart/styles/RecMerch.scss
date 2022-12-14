@@ -31,11 +31,14 @@ $border-radius-button: 8px;
 }
 
 .y-rec-merch-border {
-    border: $border-lg;
+    border: $border-sm;
     margin: 0 auto;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 100%;
     .y-rec-merch-pic { 
-        border-bottom:  $border-lg;
+        border-bottom:  $border-sm;
         width: 100%;
         max-height: 120px;
         // aspect-ratio: 1/1;
@@ -51,6 +54,7 @@ $border-radius-button: 8px;
     }
 
     .y-rec-merch-info {
+        flex-grow: 1;
         width: 100%;
         padding: 15px 10px;
         background-color: #fff;
@@ -74,16 +78,16 @@ $border-radius-button: 8px;
 
             .y-rec-merch-price {
                 text-decoration: line-through;
-                font-size: 14px;
+                font-size: 12px;
                 font-weight: bold;
-                margin-right: 5px;
+                margin-right: 4px;
             }
     
             .y-rec-merch-sale {
                 font-weight: bold;
-                font-size: 14px;
+                font-size: 12px;
                 color: $btn-red;
-                margin-right: 5px;
+                margin-right: 4px;
             }
     
             .y-rec-merch-quantity {
@@ -91,8 +95,8 @@ $border-radius-button: 8px;
                 select {
                     background-color: $main-yellow;
                     color: $main-blue;
-                    width: 30px;
-                    padding: 2px 4px;
+                    width: 24px;
+                    padding: 2px 2px;
                     // padding-right: 8px;
                     position: relative;
                     border: $border-sm;
@@ -119,8 +123,8 @@ $border-radius-button: 8px;
             }
     
             .y-rec-merch-cart {
-                width: 26px;
-                height: 26px;
+                width: 24px;
+                height: 24px;
                 background-color: $main-yellow;
                 border-radius: $border-radius-button;
                 border: $border-sm;
@@ -140,6 +144,8 @@ $border-radius-button: 8px;
         border: $border-lg;
         max-width: 295px;
         margin: 0 auto;
+        border-radius: 0 0 10px 10px;
+        overflow: hidden;
     
         .y-rec-merch-pic { 
             border-bottom:  $border-lg;

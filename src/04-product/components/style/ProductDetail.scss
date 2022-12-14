@@ -67,26 +67,45 @@ input[type="number"] {
 //productDatils
 .a-productDatilsBigWrapper {
   width: 100%;
-  height: 1000px;
+  // height: 1200px;
   margin: auto;
+  // background-color: $main-yellow;
   .a-commentArea {
     width: 100%;
     position: relative;
-    margin-top: 30px;
+    margin-top: 20px;
+    // .a-commentArea {
+    //   display: flex;
+    //   flex-direction: column;
+    //   position: absolute;
+    //   top:1230px;
+      .a-startWrapper {
+        width: 45px;
+        position: absolute;
+        top:-48px;
+        left:405px;
+        img {
+          width: 100%;
+        }
+      }
+    // }
     .a-productUserComment {
       position: absolute;
       left: 300px;
       display: flex;
       align-items: center;
+      margin-top: 10px;
       background-color: $secondary-yellow;
       border-radius: $main-border-radius;
     }
   }
- 
+  
   .a-userCommentWrapper {
-    padding-left: 13%;
+    padding-left: 50%;
     margin-top: 20px;
-  }
+    display: flex;
+    flex-direction: column;
+}
   .a-productRating {
     color: $main-orange;
     font-size: 30px;
@@ -94,7 +113,7 @@ input[type="number"] {
     font-weight: 500;
     width: 200px;
     top: -40px;
-    left: 820px;
+    left: 300px;
   }
   .a-productDetailWrapper {
     position: relative;
@@ -104,6 +123,7 @@ input[type="number"] {
     margin-top: 80px;
     .a-detailWrapper {
       width: 70%;
+      height: 500px;
       position: absolute;
       top: 0;
       left: 300px;
@@ -137,6 +157,15 @@ input[type="number"] {
       }
       .a-shopNameWrapper img {
         width: 50px;
+      }
+      .a-shopPhone {
+        @extend %a-flex;
+        .a-detailsPhone {
+          @extend %a-text;
+        }
+        img {
+          width: 48px;
+        }
       }
       .a-detailsTitle {
         @extend %a-secondary-color-text;
@@ -190,10 +219,6 @@ input[type="number"] {
       .a-productCollection img {
         width: 30px;
         padding-right: 5px;
-      }
-      .a-productRating {
-        font-size: 30px;
-        font-weight: 600;
       }
     }
     .a-priceContent {
@@ -357,6 +382,7 @@ input[type="number"] {
       position: absolute;
       top: 285px;
       right: 290px;
+      margin-top: 20px;
       .a-goBackButton {
         width: 400px;
         height: 60px;
@@ -380,8 +406,8 @@ input[type="number"] {
   }
   .a-userCommentButton {
     position: absolute;
-    left: 760px;
-    top: 1030px;
+    left: 800px;
+    top: 1070px;
     width: 200px;
     height: 60px;
     text-align: center;
@@ -403,6 +429,7 @@ input[type="number"] {
     cursor: pointer;
     color: #fff;
   }
+  
   // .a-userCommentWrapper {
   //   width: 300px;
   //   text-align: center;
@@ -421,10 +448,10 @@ input[type="number"] {
   // }
 }
 .a-recommendCardWrapper {
-  margin: 100px 0;
+  margin-top: 160px;
 }
 // .a-product-footer {
-//   margin-top: 830px;
+//   margin-top: 700px;
 //   width: 100%;
 //   position: absolute;
 //   top: 90%;

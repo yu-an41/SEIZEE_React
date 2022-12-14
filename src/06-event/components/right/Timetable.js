@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom'
 import AuthContext from '../../../contexts/AuthContext'
 
 function Timetable() {
+<<<<<<< HEAD
   const { removeTimeTable, setWhichHover, getEventData } = useTimeTable()
   const [timeTable, setTimeTable] = useState([
     { time: '12:00-13:00', sid: 0, name: '', color: '', cate: 0 },
@@ -23,6 +24,16 @@ function Timetable() {
     { time: '18:00-19:00', sid: 0, name: '', color: '', cate: 0 },
     { time: '19:00-20:00', sid: 0, name: '', color: '', cate: 0 },
   ])
+=======
+  const {
+    timeTable,
+    setTimeTable,
+    removeTimeTable,
+    setWhichHover,
+    getEventData,
+  } = useTimeTable()
+  console.log(timeTable)
+>>>>>>> b312da9a0ba5111935b2e8363e0b458262a09a02
   const { myAuth } = useContext(AuthContext)
   let mid
   if (myAuth.authorised) {
@@ -94,7 +105,7 @@ function Timetable() {
               <img src={carrot} alt="" />
             </div>
             <div className="j-cardG">
-              {timeTable.map((v, i) => {
+              {timeTable && timeTable.map((v, i) => {
                 return (
                   <div
                     key={`${i + v.time}`}

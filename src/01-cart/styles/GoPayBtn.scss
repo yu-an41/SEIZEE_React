@@ -39,9 +39,9 @@ $border-radius-button: 8px;
     
     .y-go-pay {
         color: $main-text;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: bold;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         text-align: center;
     }
 }
@@ -59,6 +59,7 @@ $border-radius-button: 8px;
         .y-go-pay {
             font-size: 20px;
             font-weight: bold;
+            letter-spacing: 2px;
         }
     }
 }

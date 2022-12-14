@@ -6,6 +6,7 @@ import { useLocation, Link } from "react-router-dom";
 import NavBar from "../../components/NavBar";
 import YellowWave from "../../00-homepage/components/YellowWave";
 import Footer from "../../components/Footer";
+import log from "eslint-plugin-react/lib/util/log";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -199,11 +200,13 @@ const Products = () => {
                   {productFilter.map((v, i) => {
                     return (
                       <div className="a-optionWrapper" key={v.i}>
+                      <label>
                         <input
                         className="a-checkboxWrapper"
                           type="checkbox"
                           checked={filterCheck[v.value]}
                           value={v.value}
+                          style={{display:'none'}}
                           onChange={(e) => {
                             // console.log(e.currentTarget);
                             // console.log(e.currentTarget.checked);
@@ -216,7 +219,13 @@ const Products = () => {
                               ...filterCheck,
                               [e.currentTarget.value]: e.currentTarget.checked,
                             });
-
+                            // 更改顏色的方式 JavaScript寫法
+                            let targetElement = e.currentTarget.parentElement.parentElement
+                            if(!filterCheck[e.currentTarget.value]){
+                              targetElement.style.backgroundColor = '#113f75';
+                            }else{
+                              targetElement.style.backgroundColor = '#53b2a8';       
+                            }
                             /*
                       setFilterCheck(old=>{
                         return {...old, [v.value]: e.currentTarget.checked}
@@ -238,7 +247,7 @@ const Products = () => {
                       */
                           }}
                         />
-                        <label>{v.label}</label>
+                        {v.label}</label>
                       </div>
                     );
                   })}

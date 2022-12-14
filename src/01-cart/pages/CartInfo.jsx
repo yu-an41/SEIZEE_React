@@ -24,6 +24,7 @@ import Footer from '../../components/Footer'
 import YellowWave from '../../00-homepage/components/YellowWave'
 import YellowWaveReverse from '../../00-homepage/components/YellowWaveReverse'
 import YellowLineWave from './../images/line-wave.svg'
+import YellowWaveLight from '../../00-homepage/components/YellowWaveLight'
 import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
@@ -254,13 +255,10 @@ function CartInfo() {
                   onClick={() => {
                     setPay(3)
                   }}
-                  // className={pay === 3 ? 'y-Cart-Pick-selected' : ''}
+                  className={pay === 3 ? 'y-Cart-Pick-selected' : ''}
                 >
                   <div className="y-pickup-radio-icons">
-                    <img
-                      src={pay === 3 ? arrowClicked : arrowUnclicked}
-                      style={{ display: 'none' }}
-                    />
+                    <img src={pay === 3 ? arrowClicked : arrowUnclicked} />
                   </div>
                   <label
                     htmlFor="y-pay-credit"
@@ -273,9 +271,9 @@ function CartInfo() {
                     type="radio"
                     name="pay_way"
                     value={3}
-                    disabled={true}
+                    disabled={false}
                   />
-                  <span className="y-pickup-notice">（暫不提供此選項）</span>
+                  {/* <span className="y-pickup-notice">（暫不提供此選項）</span> */}
                 </li>
               </ul>
             </div>
@@ -299,7 +297,7 @@ function CartInfo() {
                       id="y-coupon-text"
                       type="text"
                       name="coupon"
-                      defaultValue={couponCode}
+                      // defaultValue={couponCode}
                       placeholder={`請輸入折扣碼`}
                       onChange={(e) => {
                         setCouponCode(e.target.value)
@@ -404,8 +402,9 @@ function CartInfo() {
           </div>
         </div>
         <div className="y-Cart-bottom">
-          <YellowWaveReverse />
-          <div className="y-Cart-news">{/* <NewsCrawl /> */}</div>
+          <div className="y-Cart-bottom-wave">
+            <YellowWaveLight />
+          </div>
           <div className="y-cart-footer">
             <Footer />
           </div>

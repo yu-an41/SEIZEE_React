@@ -300,7 +300,14 @@ function CartList(props) {
               </div>
             </div>
           </div>
-          <div className="y-Cart-rec  y-Cart-sections">
+          <div
+            className="y-Cart-rec  y-Cart-sections"
+            // style={{
+            //   display: 'flex',
+            //   flexDirection: 'column',
+            //   alignItems: 'center',
+            // }}
+          >
             <p className="y-Cart-tab y-Cart-rec-tab">推薦加購</p>
             <div className="y-Cart-rec-top">
               <p className="y-Cart-rec-header">
