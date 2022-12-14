@@ -73,12 +73,28 @@ input[type="number"] {
   .a-commentArea {
     width: 100%;
     position: relative;
-    margin-top: 30px;
+    margin-top: 20px;
+    // .a-commentArea {
+    //   display: flex;
+    //   flex-direction: column;
+    //   position: absolute;
+    //   top:1230px;
+      .a-startWrapper {
+        width: 45px;
+        position: absolute;
+        top:-48px;
+        left:405px;
+        img {
+          width: 100%;
+        }
+      }
+    // }
     .a-productUserComment {
       position: absolute;
       left: 300px;
       display: flex;
       align-items: center;
+      margin-top: 10px;
       background-color: $secondary-yellow;
       border-radius: $main-border-radius;
     }
@@ -413,12 +429,7 @@ input[type="number"] {
     cursor: pointer;
     color: #fff;
   }
-  .a-commentArea {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top:1230px;
-  }
+  
   // .a-userCommentWrapper {
   //   width: 300px;
   //   text-align: center;

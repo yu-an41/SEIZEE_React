@@ -56,9 +56,6 @@ function ProductCommentBoard({ msgs }) {
                 </div>
                 <div className="a-memberName">{v.mb_name}</div>
                 <div className="a-userComment">{v.user_comment}</div>
-                {/* <div className="a-memberCommentWrapper">
-            </div> */}
-                {/* <div className="a-productRating">{v.newRating}顆星</div> */}
               </div>
             );
           })}
@@ -67,14 +64,15 @@ function ProductCommentBoard({ msgs }) {
       {/* {userComment.length} */}
 
       {userRating.map((v, i) => {
-        return <div className="a-productRating">{v.rating}顆星</div>;
+        return (
+          <>
+            <div className="a-startWrapper">
+              <img src="/04-product/svg/start.png" alt=""/>
+            </div>
+            <div className="a-productRating">{v.rating}顆星</div>
+          </>
+        );
       })}
-
-      {/* {userRating.map((r, i) => {
-        return(
-        <div className="a-productRating">{r.rating}顆星</div>
-        )
-      })} */}
     </>
   );
 }

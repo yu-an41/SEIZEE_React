@@ -40,13 +40,13 @@ function ProductFilter() {
     if (c) {
       if (!choice.includes(val)) {
         setChoice([...choice, val]);
-        console.log('eddie',e.currentTarget.parentElement.parentElement.firstChild)
-        let targetElement = e.currentTarget.parentElement.parentElement.firstChild;
-        // 判斷他到底是誰
+        let targetElement =
+          e.currentTarget.parentElement.parentElement.firstChild;
+        // 判斷theme是誰
         // 判斷targetElement的classList裡面是哪一個
         // if( bluetheme){
-          targetElement.classList.remove("blueTheme");
-          targetElement.classList.add('yellowTheme');
+        targetElement.classList.remove("blueTheme");
+        targetElement.classList.add("yellowTheme");
         // }else{
 
         // }
@@ -54,9 +54,10 @@ function ProductFilter() {
     } else {
       const newChoice = choice.filter((v) => v !== val);
       setChoice(newChoice);
-      let targetElement = e.currentTarget.parentElement.parentElement.firstChild;
+      let targetElement =
+        e.currentTarget.parentElement.parentElement.firstChild;
       targetElement.classList.remove("yellowTheme");
-      targetElement.classList.add('blueTheme');
+      targetElement.classList.add("blueTheme");
     }
   };
 
@@ -96,57 +97,71 @@ function ProductFilter() {
         {/* CategoryFilter */}
         <p className="a-iconsText">要當小精靈還是惜食戰士</p>
         <div className="a-iconsWrapper">
-          <div className={`a-iconAladdinWrapper ${theme === 1 ? "blueTheme" : "" }`}
-          onClick={() => {
-            setTheme(1)
-          }}>
+          <div
+            className={`a-iconAladdinWrapper ${theme === 1 ? "blueTheme" : ""}`}
+            onClick={() => {
+              setTheme(1);
+            }}
+          >
             <img src="/04-product/svg/aladdin.png" alt="" />
           </div>
-
-          <div className= {`a-iconAvengersWrapper ${theme === 0 ? "yellowTheme" : "" }`}
-          onClick={() => {
-            setTheme(0)
-
-          }}>
+          <div
+            className={`a-iconAvengersWrapper ${
+              theme === 0 ? "yellowTheme" : ""
+            }`}
+            onClick={() => {
+              setTheme(0);
+            }}
+          >
             <img src="/04-product/svg/avengers.png" alt="" />
           </div>
         </div>
 
         <div className="a-productFilterWrapper">
           <div className="a-category">
-          <p className="a-selectType">選擇想吃的種類</p>
+            <p className="a-selectType">選擇想吃的種類</p>
             <div className="a-categoryWrapper">
               {filterList.map((filter, i) => {
                 return (
                   <div className="a-productFilterContent" key={i}>
                     <label
-                      className="a-categoryContentWapper" 
+                      className="a-categoryContentWapper"
                       htmlFor={`a-categoryCheckBox${filter.sid}`}
                       key={filter.sid}
-                      
                     >
                       {/* <div className="a-categoryFIlter"> */}
-                          <div className= {`a-iconWrapper ${theme === 1 ? "blueTheme" : "yellowTheme" }`}>
-                            <img
-                              className="a-icon"
-                              src={`/04-product/svg/${filter.category_icon}`}
-                              alt=""
-                            />
-                          </div>
-                          <div className="a-categoryIconWrapper">
-                            <input
-                              className="a-categoryInput"
-                              type="checkbox"
-                              id={`a-categoryCheckBox${filter.sid}`}
-                              name="cate"
-                              value={filter.sid}
-                              onChange={checkboxClick}
-                            />
-                            <span className="a-categoryName">
-                              {filter.category_name}
-                            </span>
-                          </div>
-                        {/* </div> */}
+                      <div
+                        className={`a-iconWrapper ${
+                          theme === 1 ? "blueTheme" : "yellowTheme"
+                        }`}
+                      >
+                        <img
+                          className="a-icon"
+                          src={`/04-product/svg/${filter.category_icon}`}
+                          alt=""
+                        />
+                      </div>
+                      <div className="a-categoryIconWrapper">
+                        <input
+                          className="a-categoryInput"
+                          type="checkbox"
+                          id={`a-categoryCheckBox${filter.sid}`}
+                          name="cate"
+                          value={filter.sid}
+                          style={{ display: "none" }}
+                          onChange={checkboxClick}
+                        />
+                      </div>
+
+                      <h3
+                        class="a-categoryName"
+                        style={{ 
+                          color: "#113f75"
+                        }}
+                      >
+                        {filter.category_name}
+                      </h3>
+                      {/* </div> */}
                     </label>
                   </div>
                 );
