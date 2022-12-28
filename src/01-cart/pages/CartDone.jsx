@@ -21,6 +21,7 @@ import YellowWaveLight from '../../00-homepage/components/YellowWaveLight'
 import CartIcon from './../../dotown/cart.png'
 import ProgressIcon from './../../dotown/warrior.png'
 import PickupIcon from './../../dotown/hamburger.png'
+import hello from '@yu-an41/my_first_npm'
 
 function CartDone() {
   const navigate = useNavigate()
