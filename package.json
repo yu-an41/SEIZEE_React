@@ -12,6 +12,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/tpdirect": "^5.5.3",
+    "@yu-an41/my_first_npm": "^1.0.4",
     "autoprefixer": "10.4.5",
     "axios": "^1.2.0",
     "dayjs": "^1.11.6",
