@@ -95,8 +95,8 @@ function Homepage() {
                     <img src="/04-product/svg/calendar.svg" />
                   </div>
                   <div className="r-home-event-calendar-date">
-                    <p className="r-home-event-calendar-date-month">Dec</p>
-                    <p className="r-home-event-calendar-date-day">14</p>
+                    <p className="r-home-event-calendar-date-month">Have</p>
+                    <p className="r-home-event-calendar-date-day">Fun</p>
                   </div>
                 </div>
                 <ul className="r-home-event-eventlist-ul">

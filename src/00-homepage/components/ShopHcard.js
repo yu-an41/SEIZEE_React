@@ -1,4 +1,4 @@
-import { imgUrl, imgServerUrl } from '../../03-shop/shop-config'
+import { imgServerUrl } from '../../03-shop/shop-config'
 import { Link } from 'react-router-dom'
 
 function ShopHcard({ shops, selResultShop, statusShop }) {

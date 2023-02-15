@@ -184,17 +184,20 @@ $main-border-radius: 8px;
       position: relative;
       .r-home-event-titlebox {
         position: absolute;
-        top: 30px;
-        left: -30px;
+        top: 85px;
+        left: -60px;
         background-color: rgb(255, 231, 170);
         border-radius: 10px;
         width: 30%;
         height: 80px;
-        padding-top: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         .r-home-event-titlebox-p {
           font-size: 30px;
           font-weight: 700;
           text-align: center;
+          letter-spacing: .1rem;
         }
       }
       .r-home-event-main-visual {
@@ -249,7 +252,7 @@ $main-border-radius: 8px;
             align-items: center;
             .r-home-event-calendar-img-wrap {
               text-align: center;
-              padding-bottom: 20px;
+              padding: 20px 0;
             }
             .r-home-event-calendar-date {
               background-color: #fff;
@@ -262,12 +265,14 @@ $main-border-radius: 8px;
               .r-home-event-calendar-date-month {
                 text-align: center;
                 padding-bottom: 20px;
+                font-size: 25px;
+                font-weight: 700;
               }
               .r-home-event-calendar-date-day {
-                font-size: 60px;
-                line-height: 60px;
-                font-weight: 700;
+                font-size: 25px;
                 text-align: center;
+                letter-spacing: .3rem;
+                font-weight: 700;
               }
             }
           }
@@ -358,11 +363,11 @@ $main-border-radius: 8px;
         width: 80%;
         margin-bottom: 0;
         .r-home-event-titlebox {
-          top: -20px;
+          top: 30px;
           left: 10px;
-          width: 30%;
+          width: 40%;
           height: 40px;
-          padding-top: 0;
+          padding: 15px;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -404,14 +409,20 @@ $main-border-radius: 8px;
               height: 20%;
               padding: 10px;
               .r-home-event-calendar-img-wrap {
-                padding-bottom: 0;
+                padding: 0;
               }
               .r-home-event-calendar-date {
                 width: 50%;
                 height: 50px;
                 flex-direction: row;
+                align-items: center;
+                .r-home-event-calendar-date-month{
+                  font-size: 14px;
+                  padding-bottom: 0;
+                  padding-right: 10px;
+                }
                 .r-home-event-calendar-date-day {
-                  font-size: 40px;
+                  font-size: 14px;
                 }
               }
             }

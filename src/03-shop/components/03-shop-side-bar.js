@@ -7,10 +7,7 @@ function ShopSideBar(props) {
   const [citys, setCitys] = useState([])
   const [areas, setAreas] = useState([])
   const [cates, setCates] = useState([])
-
-  // 錯誤訊息用
-  // const [errorMessage, setErrorMessage] = useState('')
-
+  //取得城市
   const getCity = async () => {
     try {
       const response = await axios.get(
@@ -20,12 +17,10 @@ function ShopSideBar(props) {
       const cityData = response.data.city_rows
       return cityData
     } catch (e) {
-      // 錯誤處理
       console.error(e.message)
-      // setErrorMessage(e.message)
     }
   }
-
+  //取得區域
   const getArea = async () => {
     try {
       const response = await axios.get(
@@ -35,11 +30,10 @@ function ShopSideBar(props) {
       const areaData = response.data.area_rows
       return areaData
     } catch (e) {
-      // 錯誤處理
       console.error(e.message)
-      // setErrorMessage(e.message)
     }
   }
+  //取得種類
   const getCate = async () => {
     try {
       const response = await axios.get(
@@ -49,12 +43,10 @@ function ShopSideBar(props) {
       const cateData = response.data.cate_rows
       return cateData
     } catch (e) {
-      // 錯誤處理
       console.error(e.message)
-      // setErrorMessage(e.message)
     }
   }
-
+  //預先顯示所有篩選條件的第一個選項
   const whenCityChanged = function (e) {
     const selectedCitySid = +e.currentTarget.value
     props.setSelectedCity(selectedCitySid)
@@ -63,7 +55,7 @@ function ShopSideBar(props) {
     ).sid
     props.setSelectedArea(selectedAreaSid)
   }
-
+  //關鍵字篩選店名
   const handleChange = (e) => {
     props.setIsLoading(true)
     const keyword = e.target.value.trim()
@@ -78,7 +70,7 @@ function ShopSideBar(props) {
           return dataRows
         })
         .filter((v, i) => {
-          return v[0].shop_name.includes(keyword) || v[1][0].includes(keyword)
+          return v[0].shop_name.includes(keyword)
         })
 
       props.setFilterShop(newData)
@@ -86,17 +78,6 @@ function ShopSideBar(props) {
     }
   }
 
-  // const handleSearch = (e) => {
-  //   // 搜尋用 - trim去除空白
-  //   const newSearchWord = e.target.value.trim()
-  //   // console.log(newSearchWord)
-  //   // 傳至debounceFn中
-  //   debounceHandleSearch(newSearchWord)
-  // }
-
-  // const debounceHandleSearch = useCallback(_.debounce(handleChange, 400), [])
-
-  // didMount時載入資料
   useEffect(() => {
     ;(async () => {
       const cityData = await getCity()

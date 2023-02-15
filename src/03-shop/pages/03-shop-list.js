@@ -6,35 +6,38 @@ import ShopSideBar from '../components/03-shop-side-bar'
 import ShopBanner from '../components/03-shop-banner'
 import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
-
 
 function ShopList() {
   // 記錄原始資料用
   const [shops, setShops] = useState([])
   //紀錄demo資料用
   const [demoShop, setDemoShop] = useState([])
-  //記錄篩選資料用
+  //記錄4種篩選條件用
   const [selectedCity, setSelectedCity] = useState(0)
   const [selectedArea, setSelectedArea] = useState(0)
   const [selectedCate, setSelectedCate] = useState('')
   const [selectedOpen, setSelectedOpen] = useState(0)
+  //存放篩選過後的data
   const [filterShop, setFilterShop] = useState([])
+  //紀錄是否使用篩選條件
   const [startShop, setStartShop] = useState(1)
+  //切換列表和地圖檢視用
   const [toggleStatus, setToggleStatus] = useState(1)
+  //地圖尋找定位點
   const [findPos, setFindPos] = useState({
     lat: 25.0440612,
     lng: 121.5139518,
   })
+  //loading狀態
   const [isLoading, setIsLoading] = useState(false)
 
+  //取得所有店鋪 並用當下時間進行營業判斷
   const getAllShops = async () => {
     try {
       const response = await axios.get('http://localhost:3004/api/shop')
-
       const shopData = response.data
-
       const theHour = new Date().getHours()
       const theDay = new Date().getDay()
       const shopDay = [
@@ -47,8 +50,8 @@ function ShopList() {
         'shop_sat',
       ]
 
+      //先用星期幾判斷再來用時間判斷 最後加入open作為戳記決定底色(營業燈)
       const newShop = shopData.map((item, i) => {
-
         if (item.rows[shopDay[theDay]]) {
           if (
             item.rows.shop_opentime.substring(0, 2) <= theHour &&
@@ -68,11 +71,10 @@ function ShopList() {
 
       return newShop
     } catch (e) {
-      // 錯誤處理
       console.error(e.message)
-      // setErrorMessage(e.message)
     }
   }
+  //取得一開始的預設條件店鋪
   const getDemoShop = async () => {
     try {
       const response = await axios.get(
@@ -94,7 +96,6 @@ function ShopList() {
       ]
 
       const newDemoData = demoData.map((item, i) => {
-
         if (item.rows[shopDay[theDay]]) {
           if (
             item.rows.shop_opentime.substring(0, 2) <= theHour &&
@@ -114,14 +115,14 @@ function ShopList() {
 
       return newDemoData
     } catch (e) {
-      // 錯誤處理
       console.error(e.message)
-      // setErrorMessage(e.message)
     }
   }
-  const goFilter = function () {
-    setIsLoading(true)
 
+  const goFilter = function () {
+    //當有篩選條件開啟loading
+    setIsLoading(true)
+    //篩選店鋪
     const newData = shops
       .map((v, i) => {
         const c = [...[v.cates]]
@@ -146,18 +147,9 @@ function ShopList() {
         }
       })
 
-
     setFilterShop(newData)
     setStartShop(0)
-    // setFindPos({
-    //   lat: filterShop[0][0].shop_lat,
-    //   lng: filterShop[0][0].shop_lng,
-    // })
   }
-
-  // function ChangePos() {
-  //   setFindPos({ lat: 25.043589, lng: 121.5607293 })
-  // }
 
   // 延後1.5秒才關掉指示器
   useEffect(() => {

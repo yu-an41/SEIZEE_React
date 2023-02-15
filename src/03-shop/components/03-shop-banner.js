@@ -1,6 +1,7 @@
 import './../styles/03-shop-banner.scss'
 
 function ShopBanner({ toggleStatus, setToggleStatus }) {
+  //當前是否被選取的檢視狀態 用來轉換底色
   function shopToggle() {
     if (toggleStatus === 1) {
       setToggleStatus(0)

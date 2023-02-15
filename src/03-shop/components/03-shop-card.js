@@ -5,12 +5,11 @@ import { Skeleton } from '@mui/material'
 import IsLovedContext from '../../contexts/03-shop-loveContext.js'
 import { Link } from 'react-router-dom'
 
+//列表檢視用的卡片
 function ShopCard({ filterShop, startShop, demoShop, isLoading }) {
-  //收藏項目
   const { lovedList, delLoved, addLoved, loved, isLovedNum, handleClickLove } =
     useContext(IsLovedContext)
 
-  // 收藏連結 Hover
   const [lovedStatus, setLovedStatus] = useState(false)
 
   return (

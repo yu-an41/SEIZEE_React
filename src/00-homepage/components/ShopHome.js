@@ -11,8 +11,6 @@ import WhiteWave from './WhiteWave'
 function ShopHome() {
   // 記錄原始資料用
   const [shops, setShops] = useState([])
-  // 錯誤訊息用
-  // const [errorMessage, setErrorMessage] = useState('')
   //紀錄checkbox是否被勾選true/false
   const [checkedState, setCheckedState] = useState(Array(10).fill(false))
   //紀錄checkbox篩選條件
@@ -21,28 +19,24 @@ function ShopHome() {
   const [selResultShop, setSelResultShop] = useState([])
   //紀錄店鋪展示區的狀態 有勾選條件/原始全部顯示
   const [statusShop, setstatusShop] = useState(1)
-
+  //取得店家資料
   const getShops = async () => {
     try {
       const response = await axios.get('http://localhost:3004/api/shop')
-      // console.log(response.data.shop_c_rows)
       const shopData = response.data
-      //設定到state裡
       setShops(shopData)
     } catch (e) {
-      // 錯誤處理
       console.error(e.message)
-      // setErrorMessage(e.message)
     }
   }
-
+  //選取種類要變底色,利用位置index找出被選取的種類,把狀態toggle,沒選到的不改變
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) =>
       index === position ? !item : item
     )
+    //設定回去被勾選的種類底色判斷的陣列
     setCheckedState(updatedCheckedState)
-    // console.log(statusShop)
-    // cateFilters
+    //取出所有被選取的種類名稱
     let selectedFilters = updatedCheckedState.map((v, index) => {
       if (v) {
         return toppings[index].cate
@@ -50,42 +44,21 @@ function ShopHome() {
         return null
       }
     })
+    // !! "aa"  true
+    // !! null  false
+    //過濾null 回傳所有被選取的種類名稱
     selectedFilters = selectedFilters.filter((v) => !!v)
-    // console.log({ selectedFilters })
+
     setCateFilters(selectedFilters)
     if (selectedFilters.length !== 0) {
+      //狀態顯示篩選結果店鋪
       setstatusShop(0)
     } else {
+      //狀態顯示初始未篩選店鋪
       setstatusShop(1)
     }
   }
-
-  // !! "aa"  true
-  // !! null  false
-  // console.log(cateFilters)
-  //----------- 店鋪多重複選測試------------------------
-  // const total = []
-  // shops.forEach((value) => {
-  //   for (let i of value.cates) {
-  //     for (let c of cateFilters) {
-  //       if (c === i) {
-  //         total.push(value)
-  //         break
-  //       }
-  //     }
-  //   }
-  // })
-  // const total = []
-  // for (let value of shops) {
-  //   label1: for (let i of value.cates) {
-  //     for (let c of cateFilters) {
-  //       if (c === i) {
-  //         total.push(value)
-  //         break label1
-  //       }
-  //     }
-  //   }
-  // }
+  //拿篩選條件進行店鋪篩選
   const goFilterShop = function () {
     const resultShop = []
     for (let item of shops) {
@@ -98,11 +71,9 @@ function ShopHome() {
         }
       }
     }
-
     setSelResultShop(resultShop)
   }
 
-  // didMount時載入資料
   useEffect(() => {
     getShops()
   }, [])

@@ -5,8 +5,8 @@ import './../styles/03-shop-m-card.scss'
 import { Box, Skeleton } from '@mui/material'
 import { Link } from 'react-router-dom'
 
+// 地圖檢視用的卡片
 function ShopMcard({ filterShop, startShop, demoShop, setFindPos, isLoading }) {
-
   return (
     <>
       {startShop ? (
